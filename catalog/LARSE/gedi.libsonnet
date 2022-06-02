@@ -1,0 +1,333 @@
+local ee = import 'earthengine.libsonnet';
+local ee_const = import 'earthengine_const.libsonnet';
+local spdx = import 'spdx.libsonnet';
+
+{
+  description: |||
+    The Global Ecosystem Dynamics Investigation (GEDI) mission aims to
+    characterize ecosystem structure and dynamics to enable radically improved
+    quantification and understanding of the Earth's carbon cycle and
+    biodiversity. The GEDI instrument, attached to the International Space
+    Station (ISS), collects data globally between 51.6&deg; N and 51.6&deg; S
+    latitudes at the highest resolution and densest sampling of the
+    3-dimensional structure of the Earth.
+
+    GEDI's Level 2A Geolocated Elevation and Height Metrics Product (GEDI02_A)
+    is primarily composed of 100 Relative Height (RH) metrics, which
+    collectively describe the waveform collected by GEDI.
+
+    The original GEDI02_A product is a table of point with a spatial resolution
+    (average footprint) of 25 meters.
+  |||,
+  keywords: [
+    'elevation',
+    'gedi',
+    'larse',
+    'nasa',
+    'treecover',
+    'usgs',
+  ],
+  providers(name, catalog_url): [
+    ee.producer_provider(
+      name + 'USFS Laboratory for Applications of Remote Sensing in Ecology (LARSE)',
+      'https://www.fs.usda.gov/'
+    ),
+    // LP DAAC is more of a host
+    ee.processor_provider(
+      'NASA GEDI mission, accessed through the USGS LP DAAC',
+      'https://lpdaac.usgs.gov/products/gedi02_av002/'
+    ),
+    ee.host_provider(catalog_url),
+  ],
+  license: spdx.proprietary.id,
+  extent: ee.extent(-180,
+                    -51.6,
+                    180,
+                    51.6,
+                    '2019-03-25T00:00:00Z',
+                    null),
+  bands: [
+    {
+      name: 'beam',
+      description: 'Beam identifier',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'degrade_flag',
+      description: |||
+        Flag indicating degraded state of pointing and/or
+        positioning information.
+
+        * 3X - ADF CHU solution unavailable (ST-2)
+        * 4X - Platform attitude
+        * 5X - Poor solution (filter covariance large)
+        * 6X - Data outage (platform attitude gap also)
+        * 7X - ST 1+2 unavailable (similar boresight FOV)
+        * 8X - ST 1+2+3 unavailable
+        * 9X - ST 1+2+3 and ISS unavailable
+        * X1 - Maneuver
+        * X2 - GPS data gap
+        * X3 - ST blinding
+        * X4 - Other
+        * X5 - GPS receiver clock drift
+        * X6 - Maneuver & GPS receiver clock drift
+        * X7 - GPS data gap & GPS receiver clock drift
+        * X8 - ST blinding & GPS receiver clock drift
+        * X9 - Other & GPS receiver clock drift
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'delta_time',
+      description: 'Time delta since Jan 1 00:00 2018',
+      'gee:units': 'Seconds',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'digital_elevation_model',
+      description: 'TanDEM-X elevation at GEDI footprint location',
+      'gee:units': 'Meters',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'digital_elevation_model_srtm',
+      description: 'STRM elevation at GEDI footprint location',
+      'gee:units': 'Meters',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'elev_highestreturn',
+      description: |||
+        Elevation of highest detected return relative
+        to reference ellipsoid
+      |||,
+      'gee:units': 'Meters',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'elev_lowestmode',
+      description: |||
+        Elevation of center of lowest mode relative to reference ellipsoid
+      |||,
+      'gee:units': 'Meters',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'elevation_bias_flag',
+      description: |||
+        Elevations potentially affected by 4bin (~60 cm) ranging error
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'energy_total',
+      description: |||
+        Integrated counts in the return waveform relative to the
+        mean noise level
+      |||,
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'landsat_treecover',
+      description: |||
+        Tree cover in the year 2010, defined as canopy closure for all
+        vegetation taller than 5 m in height as a percentage per
+        output grid cell
+      |||,
+      'gee:units': 'Percent',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'landsat_water_persistence',
+      description: |||
+        Percent UMD GLAD Landsat observations with classified surface water
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'lat_highestreturn',
+      description: 'Latitude of highest detected return',
+      'gee:units': 'Degree',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'leaf_off_doy',
+      description: 'GEDI 1 km EASE 2.0 grid leaf-off start day-of-year',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'leaf_off_flag',
+      description: 'GEDI 1 km EASE 2.0 grid flag',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'leaf_on_cycle',
+      description: |||
+        Flag that indicates the vegetation growing cycle for leaf-on
+        observations
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'leaf_on_doy',
+      description: 'GEDI 1 km EASE 2.0 grid leaf-on start day-of-year',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'lon_highestreturn',
+      description: 'Longitude of highest detected return',
+      'gee:units': 'Degree',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'modis_nonvegetated',
+      description: 'Percent non-vegetated from MODIS MOD44B V6 data',
+      'gee:units': 'Percent',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'modis_nonvegetated_sd',
+      description: |||
+        Percent non-vegetated standard deviation from MODIS MOD44B V6 data
+      |||,
+      'gee:units': 'Percent',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'modis_treecover',
+      description: 'Percent tree cover from MODIS MOD44B V6 data',
+      'gee:units': 'Percent',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'modis_treecover_sd',
+      description: |||
+        Percent tree cover standard deviation from MODIS MOD44B V6 data
+      |||,
+      'gee:units': 'Percent',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'num_detectedmodes',
+      description: 'Number of detected modes in rxwaveform',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'pft_class',
+      description: 'GEDI 1 km EASE 2.0 grid Plant Functional Type (PFT)',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'quality_flag',
+      description: |||
+        Flag indicating likely invalid waveform (1=valid, 0=invalid)
+      |||,
+      minimum: 0,
+      maximum: 1,
+      'gee:estimated_range': false,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'region_class',
+      description: 'GEDI 1 km EASE 2.0 grid world continental regions',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'selected_algorithm',
+      description: |||
+        Identifier of algorithm selected as identifying the lowest
+        non-noise mode
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'selected_mode',
+      description: 'Identifier of mode selected as lowest non-noise mode',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'selected_mode_flag',
+      description: 'Flag indicating status of selected_mode',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'sensitivity',
+      description: 'Maxmimum canopy cover that can be penetrated',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'shot_number',
+      description: |||
+        Shot number, a unique identifier. This field is truncated on some images
+        that are being reprocessed to properly show it (as of March 2022).
+
+        This field has the format of OOOOOBBRRGNNNNNNNN, where:
+
+        * OOOOO: Orbit number
+        * BB: Beam number
+        * RR: Reserved for future use
+        * G: Sub-orbit granule number
+        * NNNNNNNN: Shot index
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'solar_azimuth',
+      description: |||
+        The azimuth of the sun position vector from the laser bounce point
+        position in the local ENU frame. The angle is measured from North and
+        is positive towards East.
+      |||,
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'solar_elevation',
+      description: |||
+        The elevation of the sun position vector from the laser bounce point
+        position in the local ENU frame. The angle is measured from the
+        East-North plane and is positive Up.
+      |||,
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'surface_flag',
+      description: |||
+        Indicates elev_lowestmode is within 300m of Digital Elevation Model (DEM)
+        or Mean Sea Surface (MSS) elevation
+      |||,
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'urban_focal_window_size',
+      description: |||
+        The focal window size used to calculate urban_proportion. Values are 3
+        (3x3 pixel window size) or 5 (5x5 pixel window size).
+      |||,
+      'gee:units': 'Pixels',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'urban_proportion',
+      description: |||
+        The percentage proportion of land area within a focal area
+        surrounding each shot that is urban land cover.
+      |||,
+      type:: ee_const.var_type.int,
+    },
+  ] + [
+    {
+      name: 'rh' + step,
+      description: 'Relative height metrics at ' + step + '%',
+      'gee:units': 'Meters',
+      type:: ee_const.var_type.double,
+    }
+    for step in std.range(0, 100)
+  ],
+  terms_of_use: |||
+    This dataset is in the public domain and is available
+    without restriction on use and distribution. See [NASA's
+    Earth Science Data & Information Policy]
+    (https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    for additional information.
+  |||,
+}
