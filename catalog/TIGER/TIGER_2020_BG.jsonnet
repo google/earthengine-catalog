@@ -130,11 +130,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0.0,
             ],
             max: [
-              19352.0,
+              1e7
             ],
-            gamma: [
-              7.0,
-            ],
+            palette: ['d8d9d9', 'aaaaaa', 'b6dfe9', '2ea3f2', '0c71c3'],
           },
         },
       },

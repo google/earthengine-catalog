@@ -101,22 +101,22 @@
       },
       {
         name: 'GAIN_BAND_4',
-        description: 'Gain state for Band 1. (L = Low gain, H = High)',
+        description: 'Gain state for Band 4. (L = Low gain, H = High)',
         type: 'STRING',
       },
       {
         name: 'GAIN_BAND_5',
-        description: 'Gain state for Band 2. (L = Low gain, H = High)',
+        description: 'Gain state for Band 5. (L = Low gain, H = High)',
         type: 'STRING',
       },
       {
         name: 'GAIN_BAND_6',
-        description: 'Gain state for Band 3. (L = Low gain, H = High)',
+        description: 'Gain state for Band 6. (L = Low gain, H = High)',
         type: 'STRING',
       },
       {
         name: 'GAIN_BAND_7',
-        description: 'Gain state for Band 4. (L = Low gain, H = High)',
+        description: 'Gain state for Band 7. (L = Low gain, H = High)',
         type: 'STRING',
       },
       {

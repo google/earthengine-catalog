@@ -49,6 +49,11 @@
     name: 'Creative Commons Zero v1.0 Universal',
     reference: 'https://spdx.org/licenses/CC0-1.0.html',
   },
+  odbl_1_0: {
+    id: 'ODbL-1.0',
+    name: 'Open Data Commons Open Database License v1.0',
+    reference: 'https://spdx.org/licenses/ODbL-1.0.html',
+  },
   ogl_canada_2_0: {
     id: 'OGL-Canada-2.0',
     name: 'Open Government Licence - Canada',

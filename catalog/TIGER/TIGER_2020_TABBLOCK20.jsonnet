@@ -139,9 +139,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'Water area 2020',
         lookat: {
-          lat: 40.74101,
-          lon: -73.99172,
-          zoom: 13,
+          lat: 40.9,
+          lon: -73.15,
+          zoom: 9,
         },
         polygon_visualization: {
           property_name: 'AWATER20',
@@ -150,11 +150,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0.0,
             ],
             max: [
-              19352.0,
+              1e7
             ],
-            gamma: [
-              7.0,
-            ],
+            palette: ['d8d9d9', 'aaaaaa', 'b6dfe9', '2ea3f2', '0c71c3'],
           },
         },
       },
@@ -162,9 +160,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         display_name: 'Water area 2020',
         visualize_as: 'FeatureView',
         lookat: {
-          lat: 40.74101,
-          lon: -73.99172,
-          zoom: 13,
+          lat: 40.9,
+          lon: -73.15,
+          zoom: 9,
         },
       },
     ],

@@ -20,8 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    // TODO: Uncomment right before release.
-    // ee.link.child_collection('GOOGLE_DYNAMICWORLD_V1', base_url),
+    ee.link.child_collection('GOOGLE_DYNAMICWORLD_V1', base_url),
     ee.link.child_collection('GOOGLE_Research_open-buildings_v1_polygons', base_url),
   ],
 }
