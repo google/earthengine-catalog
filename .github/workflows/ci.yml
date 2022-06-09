@@ -1,0 +1,25 @@
+# Continuous Integration (CI)
+
+name: CI
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache bazel
+        uses: actions/cache@v2
+        env:
+          cache-name: bazel-cache
+        with:
+          path: |
+            ~/.cache/bazelisk
+            ~/.cache/bazel
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.ref }}
+          restore-keys: ${{ runner.os }}-${{ env.cache-name }}-development
+      - uses: actions/checkout@v3
+      - name: Build
+        run: bazel build //...
+      # TODO: Add tests.
+      # - name: Test
+      #   run: bazel test //...
