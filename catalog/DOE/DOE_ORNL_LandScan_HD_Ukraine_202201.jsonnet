@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links:  ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://landscan.ornl.gov/sites/default/files/ukraine2022/LandScanHDUkraine.zip',
     },
     ee.link.license(license.reference),

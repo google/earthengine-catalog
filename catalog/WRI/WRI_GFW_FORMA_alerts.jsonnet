@@ -62,7 +62,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('World Resources Institute / Global Forest Watch', 'https://www.globalforestwatch.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-120.0, -50.0, 180.0, 40.0, '2012-01-01T00:00:00Z', null),
+  extent: ee.extent(-120.0, -50.0, 180.0, 40.0,
+                    '2012-01-01T00:00:00Z', '2019-05-18T00:00:00Z'),
   summaries: {
     'gee:properties': [
       {

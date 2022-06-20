@@ -50,19 +50,19 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.link.successor(
         successor_id, catalog_subdir_url + successor_basename + '.json'),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-1990?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-2000?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-2006?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-2012?tab=download',
     },
   ],

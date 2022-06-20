@@ -40,7 +40,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://open.canada.ca/en/open-government-licence-canada'),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://ftp.geogratis.gc.ca/pub/nrcan_rncan/elevation/cdem_mnec/',
     },
   ],

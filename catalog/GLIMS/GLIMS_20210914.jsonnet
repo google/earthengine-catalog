@@ -46,11 +46,11 @@ local config = configs[version];
     ee.link.latest(config.latest_id, config.latest_url),
     ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://www.glims.org/download/glims_db_20210914.zip',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7265/N5V98602',
     },
   ],

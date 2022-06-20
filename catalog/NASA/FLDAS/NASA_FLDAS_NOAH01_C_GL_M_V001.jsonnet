@@ -56,7 +56,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://hydro1.gesdisc.eosdis.nasa.gov/data/FLDAS/FLDAS_NOAH01_C_GL_M.001/',
     },
   ],

@@ -58,27 +58,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://lcviewer.vito.be/download',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3518026',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3518036',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3518038',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3939038',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3939050',
     },
   ],

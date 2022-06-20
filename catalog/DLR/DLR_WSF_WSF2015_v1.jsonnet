@@ -63,11 +63,11 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://springernature.figshare.com/articles/dataset/World_Settlement_Footprint_WSF_2015/10048412',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.1038/s41597-020-00580-5',
     },
   ],

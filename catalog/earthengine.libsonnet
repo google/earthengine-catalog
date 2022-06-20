@@ -46,6 +46,12 @@ local ee_const = import 'earthengine_const.libsonnet';
       href: url,
       type: ee_const.media_type.stac,
     },
+    child_catalog(id, base_url):: {
+      rel: ee_const.rel.child,
+      title: id,
+      href: base_url + id + '/catalog.json',
+      type: ee_const.media_type.stac
+    },
     child_collection(id, base_url):: {
       rel: ee_const.rel.child,
       title: id,

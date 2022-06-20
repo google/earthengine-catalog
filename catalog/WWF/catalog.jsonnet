@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('WWF_HydroATLAS_v1_Basins_level12', base_url),
     ee.link.child_collection('WWF_HydroSHEDS_03CONDEM', base_url),
     ee.link.child_collection('WWF_HydroSHEDS_03DIR', base_url),
     ee.link.child_collection('WWF_HydroSHEDS_03VFDEM', base_url),

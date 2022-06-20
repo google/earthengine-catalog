@@ -41,7 +41,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://console.cloud.google.com/storage/browser/gcp-public-data-goes-16/ABI-L2-MCMIPM/',
     },
   ],

@@ -64,51 +64,51 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.license('https://www.clw.csiro.au/aclep/soilandlandscapegrid/'),
     ee.link.license('https://www.clw.csiro.au/aclep/soilandlandscapegrid/About-Disclaimer.html'),
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546ED604ADD8A',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546EE212B0048',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546EEE35164BF',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F091C11777',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F17EC6AB6E',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F29646877E',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F48D6A6D48',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F540FE10AA',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F564AE11F9',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546F617719CAF',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/547523BB0801A',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/55C9472F05295',
     },
   ],

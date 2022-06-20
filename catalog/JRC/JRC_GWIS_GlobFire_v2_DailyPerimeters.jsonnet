@@ -36,11 +36,11 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://gwis-globfire.s3.amazonaws.com/',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.1038/s41597-019-0312-2',
     },
   ],

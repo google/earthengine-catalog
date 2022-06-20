@@ -52,7 +52,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'http://files.ntsg.umt.edu/data/MOD16_TP/',
     },
   ],

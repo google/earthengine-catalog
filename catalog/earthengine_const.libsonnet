@@ -63,8 +63,10 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
   },
 
   // URL Relations
+  // https://www.iana.org/assignments/link-relations/link-relations.xhtml
   rel: {
     child: 'child',
+    cite_as: 'cite-as',
     license: 'license',
     parent: 'parent',
     preview: 'preview',

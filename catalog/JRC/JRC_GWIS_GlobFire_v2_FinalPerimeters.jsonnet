@@ -45,11 +45,11 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.license(license.reference),
     ee.link.terms_of_use(self_ee_catalog_url),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://gwis-globfire.s3.amazonaws.com/',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.1038/s41597-019-0312-2',
     },
     // TODO: Add this when there is a new dataset version.

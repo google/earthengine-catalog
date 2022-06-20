@@ -40,7 +40,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://opendatacommons.org/licenses/odbl/1-0/'),
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7910/DVN/QQHCIK',
     },
   ],

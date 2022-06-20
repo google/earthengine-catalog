@@ -56,7 +56,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_L3/TRMM_3B43.7/',
     },
   ],

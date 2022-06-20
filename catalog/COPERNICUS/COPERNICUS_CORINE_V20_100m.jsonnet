@@ -53,23 +53,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-1990?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-2000?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-2006?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc-2012?tab=download',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download',
     },
   ],

@@ -58,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string_list,
       },
       {
-        name: 'source',
+        name: ee_const.rel.source,
         description: 'Product ID of the corresponding Sentinel-2 1C image',
         type: ee_const.var_type.string,
       },

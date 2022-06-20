@@ -38,7 +38,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'ftp://94.184.181.78:1399/Iran_LC/Iran_LC.rar',
     },
   ],

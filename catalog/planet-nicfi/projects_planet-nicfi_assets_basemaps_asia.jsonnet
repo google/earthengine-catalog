@@ -58,7 +58,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'license',
+      rel: ee_const.rel.license,
       href: 'https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf',
       type: ee_const.media_type.pdf,
     },

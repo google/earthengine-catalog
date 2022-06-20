@@ -28,7 +28,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2018-051019.txt',
     },
   ],

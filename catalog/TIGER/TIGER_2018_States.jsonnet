@@ -40,7 +40,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'ftp://ftp2.census.gov/geo/tiger/TIGER2018/STATE/tl_2018_us_state.zip',
     },
   ],

@@ -76,19 +76,19 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'ftp://198.118.195.100/gpmallversions/V06',
     },
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'ftp://198.118.195.61/data/imerg/late/',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/GPM/IMERG/3B-HH-L/06',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/GPM/IMERG/3B-HH/06',
     },
   ],

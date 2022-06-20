@@ -275,7 +275,7 @@ local qa_radsat_mss = {
         ],
       },
     ],
-    total_bit_count: 10,
+    total_bit_count: 9,
   },
 };
 
@@ -452,7 +452,7 @@ local angle_bands_list = [
 ];
 
 {
-  common_bands_mss: [qa_pixel, qa_radsat_mss] + angle_bands_list,
+  common_bands_mss: [qa_pixel, qa_radsat_mss],
   common_bands_tm_etm: [qa_pixel, qa_radsat_tm_etm] + angle_bands_list,
   common_bands_oli_tirs: [qa_pixel, qa_radsat_oli_tirs] + angle_bands_list,
 }

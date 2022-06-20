@@ -55,7 +55,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MYD13A2.061',
     },
     ee.link.predecessor(predecessor_id, predecessor_url)

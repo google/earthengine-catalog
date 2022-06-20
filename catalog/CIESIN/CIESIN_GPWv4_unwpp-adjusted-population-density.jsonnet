@@ -51,7 +51,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.link.successor(
         successor_id, catalog_subdir_url + successor_basename + '.json'),
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7927/H4HX19NJ',
     },
   ],

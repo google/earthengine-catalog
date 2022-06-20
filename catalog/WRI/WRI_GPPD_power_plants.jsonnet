@@ -128,7 +128,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'source',
+        name: ee_const.rel.source,
         description: 'Entity reporting the data; could be an organization, report, or document,\ngenerally in Romanized form',
         type: ee_const.var_type.string,
       },

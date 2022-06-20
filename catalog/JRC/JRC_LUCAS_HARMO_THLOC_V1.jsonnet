@@ -49,7 +49,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://www.dropbox.com/s/6fist8jby0uwwgo/lucas_harmo_pack_uf_final_th_gee_noNAs_noQuo.csv',
     },
   ],

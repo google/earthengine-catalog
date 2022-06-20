@@ -60,7 +60,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://console.cloud.google.com/storage/browser/gfd_v3',
     },
   ],

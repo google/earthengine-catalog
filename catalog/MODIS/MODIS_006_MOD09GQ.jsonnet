@@ -58,7 +58,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD09GQ.006',
     },
     ee.link.latest(latest_id, latest_url),

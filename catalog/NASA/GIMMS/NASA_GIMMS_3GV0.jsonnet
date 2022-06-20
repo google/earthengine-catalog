@@ -34,7 +34,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     // TODO: Source site is gone and the authors are not responding.
     // {
-    //   rel: 'source',
+    //   rel: ee_const.rel.source,
     //   href: 'https://ecocast.arc.nasa.gov/data/pub/gimms/3g.v0/',
     // },
   ],

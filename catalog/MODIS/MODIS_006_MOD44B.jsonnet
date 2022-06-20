@@ -82,7 +82,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'year',
     interval: 1,
   },
-  'gee:time_mapping_from_scenes': true,
   'gee:terms_of_use': |||
     MODIS data and products acquired through the LP DAAC
     have no restrictions on subsequent use, sale, or redistribution.

@@ -259,7 +259,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
         'gee:classes': [
           {
             value: 0,
-            color: '00000',
+            color: '000000',
             description: 'Unclassified.'
           },
           {

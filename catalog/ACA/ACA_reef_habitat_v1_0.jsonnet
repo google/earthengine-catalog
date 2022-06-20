@@ -62,11 +62,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://storage.googleapis.com/coral-atlas-user-downloads-prod/Global-Dataset-20211006223100.zip',
     },
     {
-      rel: 'cite-as',
+      rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3833242',
     },
   ],

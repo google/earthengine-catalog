@@ -37,7 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     {
-      rel: 'source',
+      rel: ee_const.rel.source,
       href: 'https://www.agr.gc.ca/atlas/data_donnees/agr/annualCropInventory/tif/',
     }],
 
