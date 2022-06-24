@@ -1,4 +1,6 @@
 local id = 'JAXA/ALOS/AW3D30/V2_2';
+local latest_id = 'JAXA/ALOS/AW3D30/V3_2';
+local predecessor_id = 'JAXA/ALOS/AW3D30/V2_1';
 local successor_id = 'JAXA/ALOS/AW3D30/V3_2';
 local subdir = 'JAXA';
 
@@ -9,12 +11,23 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local successor_basename = std.strReplace(successor_id, '/', '_');
+
+local base_filename = basename + '.json';
+local latest_filename = latest_basename + '.json';
+local predecessor_filename = predecessor_basename + '.json';
+local successor_filename = successor_basename + '.json';
+
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
+
+local latest_url = catalog_subdir_url + latest_filename;
+local predecessor_url = catalog_subdir_url + predecessor_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -60,8 +73,9 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
+    ee.link.latest(latest_id, latest_url),
+    ee.link.predecessor(predecessor_id, predecessor_url),
+    ee.link.successor(successor_id, successor_url),
     ee.link.license('https://earth.jaxa.jp/en/data/policy/'),
   ],
   keywords: [

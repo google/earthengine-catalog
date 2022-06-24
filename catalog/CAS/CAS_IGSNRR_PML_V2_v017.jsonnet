@@ -59,7 +59,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.latest(latest_id, latest_url),
     ee.link.predecessor(predecessor_id, predecessor_url)
-  ],  keywords: [
+  ],
+  keywords: [
     'cas',
     'evapotranspiration',
     // TODO: Redundant tags. Pick one of gpp or gross_primary_product
