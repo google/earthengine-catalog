@@ -30,6 +30,7 @@ local latest_url = catalog_subdir_url + latest_filename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
   title: 'NLCD 2016: USGS National Land Cover Database, 2016 release',

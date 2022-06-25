@@ -5,7 +5,7 @@ local ee = import 'earthengine.libsonnet';
 local basename = 'catalog';
 local base_filename = basename + '.json';
 local base_url = ee_const.catalog_base + '';
-local parent_url = ee_const.catalog_base + 'catalog.json';
+// No parent url as this is the root.
 local self_url = base_url + base_filename;
 
 {
@@ -16,7 +16,7 @@ local self_url = base_url + base_filename;
   description: importstr 'description.md',
   links: [
     ee.link.root(),
-    ee.link.parent(parent_url),
+    // No parent url as this is the root.
     ee.link.self_link(self_url),
 
     ee.link.child_catalog('AAFC', base_url),
