@@ -1,4 +1,4 @@
-local id = 'FIRMS';
+local id = 'FIRMS';  // Warning: FIRMS.jsonnet has the same id.
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 

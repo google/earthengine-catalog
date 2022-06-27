@@ -5,6 +5,8 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
+local license = spdx.proprietary;
+
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -35,7 +37,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     Dataset uploaded by [Farmers Business Network](https://fbn.com).
   |||,
-  license: 'CC-PDDC',
+  license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://www.usgs.gov/information-policies-and-instructions/crediting-usgs'),
   ],

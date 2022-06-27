@@ -92,7 +92,6 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     unit: 'day',
     interval: 8,
   },
-  'gee:extend_end': true,
   'gee:terms_of_use': |||
     MODIS data and products acquired through the LP DAAC
     have no restrictions on subsequent use, sale, or redistribution.
