@@ -8,6 +8,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.proprietary;
+local version = '3.2';
 
 local basename = std.strReplace(id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
@@ -34,8 +35,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ALOS DSM: Global 30m',
-  version: '3.2',
+  title: 'ALOS DSM: Global 30m  v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     ALOS World 3D - 30m (AW3D30) is a global digital surface

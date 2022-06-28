@@ -8,6 +8,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.proprietary;
+local version = '1.1';
 
 local basename = std.strReplace(id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
@@ -34,8 +35,8 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ALOS DSM: Global 30m [deprecated]',
-  version: '1.1',
+  title: 'ALOS DSM: Global 30m v' + version + ' [deprecated]',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||

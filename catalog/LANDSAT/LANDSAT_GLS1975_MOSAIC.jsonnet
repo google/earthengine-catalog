@@ -22,19 +22,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Global Land Survey (GLS) 1975 is a
-      global collection of imagery from the Landsat Multispectral Scanner
-      (MSS).  Most scenes were acquired by Landsat 1&ndash;3 during the
-      years from 1972&ndash;1983.  A few gaps in the Landsat 1&ndash;3 data
-      have been filled with scenes acquired by Landsat 4&ndash;5 during the
-      years 1982&ndash;1987.
+    global collection of imagery from the Landsat Multispectral Scanner
+    (MSS).  Most scenes were acquired by Landsat 1&ndash;3 during the
+    years from 1972&ndash;1983.  A few gaps in the Landsat 1&ndash;3 data
+    have been filled with scenes acquired by Landsat 4&ndash;5 during the
+    years 1982&ndash;1987.
 
-      These data contain 4 spectral bands:
-      Green, Red, an NIR band, and a SWIR band.  In the typical false-color
-      presentation the images appear red because the NIR band, displayed as
-      red, highlights vegetation.
+    These data contain 4 spectral bands:
+    Green, Red, an NIR band, and a SWIR band.  In the typical false-color
+    presentation the images appear red because the NIR band, displayed as
+    red, highlights vegetation.
 
-    All scenes
-      in the collection are included in this composite image.
+    All scenes in the collection are included in this composite image.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

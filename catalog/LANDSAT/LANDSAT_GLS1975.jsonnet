@@ -19,7 +19,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Landsat Global Land Survey 1975 Mosaic',
+  title: 'Landsat Global Land Survey 1975',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Global Land Survey (GLS) 1975 is a
