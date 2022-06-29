@@ -21,31 +21,80 @@ user community.
 
 https://github.com/google/earthengine-catalog
 
-
 # STAC
 
 [SpatioTemporal Asset Catalogs (STAC)](https://stacspec.org/) is a standard for
-describing spatial dataset in a catalog.
+describing spatial datasets in a catalog.
 
-Earth Engine uses STAC Jsonnet templates to generate the Earth Engine Public
-Datacatalog and a STAC json catalog.  Using [Jsonnet](https://jsonnet.org)
+Earth Engine uses STAC [Jsonnet](https://jsonnet.org) templates to generate the
+[Earth Engine Public Data Catalog](https://developers.google.com/earth-engine/datasets/catalog)
+and the
+[STAC JSON catalog](https://console.cloud.google.com/storage/browser/earthengine-stac).
+Using Jsonnet
 allows repetitive content to be written one time and used across multiple
 collections and items.
 
-- https://developers.google.com/earth-engine/datasets/catalog
-- https://console.cloud.google.com/storage/browser/earthengine-stac
+You can use externally hosted services to browse the STAC catalog:
 
-You can use [stac-browser](https://github.com/radiantearth/stac-browser) and
-point it at:
-
-    https://storage.googleapis.com/earthengine-stac/catalog/catalog.json
-
-Or you can use an externally hosted service:
-
-- [RadiantEarth](https://radiantearth.github.io/stac-browser/#/external/storage.googleapis.com/earthengine-stac/catalog/catalog.json)
-- [gee.stac.cloud](https://gee.stac.cloud/)
+- [RadiantEarth STAC Browser](https://radiantearth.github.io/stac-browser/#/external/storage.googleapis.com/earthengine-stac/catalog/catalog.json)
 - [STAC Index](https://stacindex.org/catalogs/google-earth-engine)
+- [gee.stac.cloud](https://gee.stac.cloud/)
+
+# Contributing
+
+We are not currently accepting unsolicited pull requests and the issue tracker
+is disabled. In the future, we plan to enable the issue tracker and start
+taking general pull requests.
+
+# Build
+
+## Requirements
+
+- [Bazel](https://bazel.build/)
+- [Jsonnet](https://jsonnet.org)
+
+We have instructions for Debian-based Linux distributions and recommend using
+[DebianTesting](https://wiki.debian.org/DebianTesting).
+
+It is possible to work on this repository using other operating systems such as
+Windows, MacOS X, or other Linux distributions. However, we do not currently
+have instructions.
+
+## Setup
+
+You will need to install Bazel and Jsonnet. On Debian-based Linux systems:
+
+```shell
+sudo apt-get install bazel jsonnet
+```
+
+## Building
+
+```shell
+bazel build //...
+```
+
+If that doesn't work, you might need to specify the Java JDK path. This example
+is using bash:
+
+```shell
+PATH=/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH bazel build //...
+```
+
+Finding the results:
+
+```shell
+ls bazel-bin/catalog/
+```
+
+# Non-commercial datasets
+
+[non_commercial_datasets.jsonnet](https://github.com/google/earthengine-catalog/blob/main/non_commercial_datasets.jsonnet)
+contains a list of datasets that have
+licenses known to exclude commercial use. If you are using Earth Engine
+in a commercial capacity, these datasets are not available.
 
 # See also
 
-https://github.com/google/earthengine-community
+- https://github.com/google/earthengine-community
+- https://github.com/google/earthengine-api
