@@ -402,9 +402,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar:center_frequency': [
       5.405,
     ],
-    'sar:type': [
-      'GRD',
-    ],
     'sar:resolution_range': [
       10,
     ],
