@@ -44,6 +44,11 @@ local self_url = catalog_subdir_url + base_filename;
       the grid cell, error is < 0.02 degrees
 
     See [technical note from the data provider](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR%20Surface%20Reflectance/TechNote.pdf).
+
+    Provider's note: the orbital drift of N-19 (the last NOAA satellite
+    carrying the AVHRR sensor) began to severely degrade the retrieved
+    product quality. Therefore, VIIRS is now the primary sensor being used for
+    these products from 2014-present.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -65,7 +70,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/terrestrial/avhrr-surface-reflectance'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1981-06-24T00:00:00Z', null),
+  extent: ee.extent_global('1981-06-24T00:00:00Z', '2013-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
