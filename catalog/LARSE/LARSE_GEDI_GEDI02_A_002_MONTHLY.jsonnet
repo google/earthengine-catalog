@@ -45,7 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [
       25.0,
     ],
-    'eo:bands': gedi.bands,
+    // Not including shot_number, as we ingest it as a string table property,
+    // which cannot be rasterized.
+    'eo:bands': gedi.regular_bands + gedi.rh_bands,
     'gee:visualizations': [
       {
         display_name: 'Relative height',

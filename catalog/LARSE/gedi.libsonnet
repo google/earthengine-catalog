@@ -46,7 +46,7 @@ local spdx = import 'spdx.libsonnet';
                     51.6,
                     '2019-03-25T00:00:00Z',
                     null),
-  bands: [
+  regular_bands: [
     {
       name: 'beam',
       description: 'Beam identifier',
@@ -256,22 +256,6 @@ local spdx = import 'spdx.libsonnet';
       type:: ee_const.var_type.double,
     },
     {
-      name: 'shot_number',
-      description: |||
-        Shot number, a unique identifier. This field is truncated on some images
-        that are being reprocessed to properly show it (as of March 2022).
-
-        This field has the format of OOOOOBBRRGNNNNNNNN, where:
-
-        * OOOOO: Orbit number
-        * BB: Beam number
-        * RR: Reserved for future use
-        * G: Sub-orbit granule number
-        * NNNNNNNN: Shot index
-      |||,
-      type:: ee_const.var_type.int,
-    },
-    {
       name: 'solar_azimuth',
       description: |||
         The azimuth of the sun position vector from the laser bounce point
@@ -314,7 +298,41 @@ local spdx = import 'spdx.libsonnet';
       |||,
       type:: ee_const.var_type.int,
     },
-  ] + [
+    {
+      name: 'orbit_number',
+      description: 'Orbit number',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'minor_frame_number',
+      description: 'Minor frame number 0-241()',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'shot_number_within_beam',
+      description: 'Shot number withing beam',
+      type:: ee_const.var_type.int,
+    },
+    {
+      name: 'local_beam_azimuth',
+      description: |||
+        Azimuth in radians of the unit pointing vector for the laser in the
+        local ENU frame. The angle is measured from North and positive towards East.
+      |||,
+      'gee:units': 'radians',
+      type:: ee_const.var_type.double,
+    },
+    {
+      name: 'local_beam_elevation',
+      description: |||
+        Elevation in radians of the unit pointing vector for the laser in the
+        local ENU frame. The angle is measured from North and positive towards East.
+      |||,
+      'gee:units': 'radians',
+      type:: ee_const.var_type.double,
+    },
+  ],
+  rh_bands: [
     {
       name: 'rh' + step,
       description: 'Relative height metrics at ' + step + '%',
@@ -323,6 +341,22 @@ local spdx = import 'spdx.libsonnet';
     }
     for step in std.range(0, 100)
   ],
+  // A separate string property for tables that should not be included
+  // into the bands list.
+  shot_number: {
+      name: 'shot_number',
+      description: |||
+        Shot number, a unique identifier.
+        This field has the format of OOOOOBBRRGNNNNNNNN, where:
+
+        * OOOOO: Orbit number
+        * BB: Beam number
+        * RR: Reserved for future use
+        * G: Sub-orbit granule number
+        * NNNNNNNN: Shot index
+      |||,
+      type:: ee_const.var_type.string,
+  },
   terms_of_use: |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's

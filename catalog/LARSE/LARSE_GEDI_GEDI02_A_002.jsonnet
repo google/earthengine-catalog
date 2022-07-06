@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       // TODO: Add gee:units field after adding support for units in table schema.
       { name: band.name, description: band.description, type: band.type }
-      for band in gedi.bands
+      for band in (gedi.regular_bands + [gedi.shot_number] + gedi.rh_bands)
     ],
     'gee:visualizations': [{
       display_name: 'preview',
