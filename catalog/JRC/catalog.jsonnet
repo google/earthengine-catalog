@@ -43,6 +43,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('JRC_GSW1_3_YearlyHistory', base_url),
     ee.link.child_collection('JRC_GWIS_GlobFire_v2_DailyPerimeters', base_url),
     ee.link.child_collection('JRC_GWIS_GlobFire_v2_FinalPerimeters', base_url),
+    ee.link.child_collection('JRC_LUCAS_2018_COPERNICUS_POLYGONS_V1', base_url),
     ee.link.child_collection('JRC_LUCAS_HARMO_THLOC_V1', base_url),
   ],
 }

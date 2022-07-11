@@ -22,18 +22,21 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'USGS 3DEP National Map Seamless 1/3 Arc-Second (10m)',
+  title: 'USGS 3DEP 10m National Map Seamless (1/3 Arc-Second)',
   'gee:type': ee_const.gee_type.image,
   description: |||
-    This is the highest-resolution seamless 3DEP DEM dataset for the U.S.
+    This is the seamless 3DEP DEM dataset for the U.S.
     with full coverage of the 48 conterminous states, Hawaii, and
     U.S. territories. Alaska coverage is partially available now and is being
     expanded to statewide coverage as part of the Alaska Mapping Initiative.
     Ground spacing is approximately 10 meters north/south, but variable
     east/west due to convergence of meridians with latitude.
 
-    Spatial metadata are ingested
-    [into a separate asset](USGS_3DEP_10m_metadata).
+    Spatial metadata dataset is ingested as a separate asset
+    [USGS_3DEP_10m_metadata](USGS_3DEP_10m_metadata).
+
+    The 1m dataset is ingested
+    as [USGS_3DEP_1m](USGS_3DEP_1m).
 
     Dataset uploaded by [Farmers Business Network](https://fbn.com).
   |||,

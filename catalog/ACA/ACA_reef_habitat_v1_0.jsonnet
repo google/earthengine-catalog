@@ -256,7 +256,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'reef_mask',
         description: |||
           Globally standardized reef mask using an amalgamation of a global reef
-          classification and bahtymetry products. Its intended use is as a mask, not a
+          classification and bathymetry products. Its intended use is as a mask, not a
           map, for standardizing global reporting on the global geomorphic/benthic maps.
         |||,
         'gee:classes': [

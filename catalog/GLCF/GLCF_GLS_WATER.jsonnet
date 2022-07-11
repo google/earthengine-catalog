@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [User's guide](https://lpdaac.usgs.gov/documents/145/GFCC_User_Guide_V1.pdf)
 
-    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/146/GFCC_ATBD.pdf)
+    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/1370/GFCC_ATBD.pdf)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

@@ -55,7 +55,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     * [User's guide](https://lpdaac.usgs.gov/documents/145/GFCC_User_Guide_V1.pdf)
 
-    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/146/GFCC_ATBD.pdf
+    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/1370/GFCC_ATBD.pdf)
 
     Provider's Note: Due to the end of NASA MEaSUREs funding, free versions of this dataset are no
     longer being produced. Interested parties can obtain updated and expanded versions at

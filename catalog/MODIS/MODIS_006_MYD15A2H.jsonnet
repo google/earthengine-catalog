@@ -31,7 +31,8 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MYD15A2H.006: Aqua Leaf Area Index/FPAR 8-Day Global 500m',
+  title: 'MYD15A2H.006: Aqua Leaf Area Index/FPAR 8-Day Global 500m [deprecated]',
+  deprecated: true,
   version: 'V006',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

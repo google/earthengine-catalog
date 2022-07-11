@@ -188,9 +188,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('LANDSAT_LM05_C01_T1', base_url),
     ee.link.child_collection('LANDSAT_LM05_C01_T2', base_url),
     ee.link.child_collection('LANDSAT_LM05_C02_T1', base_url),
-    // TODO: add LANDSAT_LM05_C02_T2 later when 
-    // the collection has data
-    // ee.link.child_collection('LANDSAT_LM05_C02_T2', base_url),
+    ee.link.child_collection('LANDSAT_LM05_C02_T2', base_url),
     ee.link.child_collection('LANDSAT_LM1', base_url),
     ee.link.child_collection('LANDSAT_LM1_L1T', base_url),
     ee.link.child_collection('LANDSAT_LM2', base_url),

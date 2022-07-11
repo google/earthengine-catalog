@@ -34,8 +34,9 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title:
     'PML_V2 ' + version +
-    ': Coupled Evapotranspiration and Gross Primary Product (GPP)',
+    ': Coupled Evapotranspiration and Gross Primary Product (GPP) [deprecated]',
   version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Penman-Monteith-Leuning Evapotranspiration V2 (PML_V2) products include

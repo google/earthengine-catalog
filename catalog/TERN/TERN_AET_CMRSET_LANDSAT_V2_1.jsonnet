@@ -27,7 +27,8 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Actual Evapotranspiration for Australia (CMRSET Landsat V2.1)',
+  title: 'Actual Evapotranspiration for Australia (CMRSET Landsat V2.1) [deprecated]',
+  deprecated: true,
   version: 'V2.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

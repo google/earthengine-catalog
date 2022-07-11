@@ -19,8 +19,6 @@ local successor_filename = successor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 local latest_url = catalog_subdir_url + latest_filename;
 local successor_url = catalog_subdir_url + successor_filename;
 
@@ -33,7 +31,8 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD11A2.006 Terra Land Surface Temperature and Emissivity 8-Day Global 1km',
+  title: 'MOD11A2.006 Terra Land Surface Temperature and Emissivity 8-Day Global 1km [deprecated]',
+  deprecated: true,
   version: 'V006',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

@@ -106,27 +106,27 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Categorical_Rain_surface',
         description: 'Categorical Rain at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Categorical_Rain_surface_3_Hour_Average',
         description: 'Categorical Rain 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Categorical_Freezing_Rain_surface_3_Hour_Average',
         description: 'Categorical freezing rain 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Categorical_Ice_Pellets_surface_3_Hour_Average',
         description: 'Categorical ice pellets 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Categorical_Snow_surface_3_Hour_Average',
         description: 'Categorical snow 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Clear_Sky_Downward_Long_Wave_Flux_surface_3_Hour_Average',
@@ -242,7 +242,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Ice_cover_surface',
         description: 'Ice cover at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Ice_thickness_surface',
@@ -252,7 +252,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Land_cover_0__sea_1__land_surface',
         description: 'Land cover (0 = sea, 1 = land) at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Latent_heat_net_flux_surface',
@@ -267,22 +267,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Liquid_Volumetric_Soil_Moisture_non_Frozen_depth_below_surface_layer_5_cm',
         description: 'Liquid Volumetric Soil Moisture (non Frozen) 5 cm depth below land surface layer',
-        'gee:units': 'DOUBLE',
+        // TODO: This is a type.  'gee:units': 'DOUBLE',
       },
       {
         name: 'Liquid_Volumetric_Soil_Moisture_non_Frozen_depth_below_surface_layer_25_cm',
         description: 'Liquid Volumetric Soil Moisture (non Frozen) 25 cm depth below land surface layer',
-        'gee:units': 'DOUBLE',
+        // TODO: This is a type.  'gee:units': 'DOUBLE',
       },
       {
         name: 'Liquid_Volumetric_Soil_Moisture_non_Frozen_depth_below_surface_layer_70_cm',
         description: 'Liquid Volumetric Soil Moisture (non Frozen) 50 cm depth below land surface layer',
-        'gee:units': 'DOUBLE',
+        // TODO: This is a type.  'gee:units': 'DOUBLE',
       },
       {
         name: 'Liquid_Volumetric_Soil_Moisture_non_Frozen_depth_below_surface_layer_150_cm',
         description: 'Liquid Volumetric Soil Moisture (non Frozen) 150 cm depth below land surface layer',
-        'gee:units': 'DOUBLE',
+        // TODO: This is a type.  'gee:units': 'DOUBLE',
       },
       {
         name: 'Maximum_temperature_height_above_ground_3_Hour_Interval',
@@ -402,7 +402,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Soil_type_surface',
         description: 'Soil type at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Storm_Surface_Runoff_surface_3_Hour_Accumulation',
@@ -527,7 +527,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Vegetation_Type_surface',
         description: 'Vegetation Type at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'INT',
+        // TODO: This is a type.  'gee:units': 'INT',
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_5_cm',

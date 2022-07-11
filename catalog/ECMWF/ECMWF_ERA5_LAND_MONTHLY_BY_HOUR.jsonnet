@@ -90,8 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           cooled for saturation to occur. It is a measure of the humidity of the air. Combined with
           temperature and pressure, it can be used to calculate the relative humidity. 2m dew point
           temperature is calculated by interpolating between the lowest model level and the Earth's
-          surface, taking account of the atmospheric conditions. Temperature measured in kelvin can be
-          converted to degrees Celsius (°C) by subtracting 273.15.
+          surface, taking account of the atmospheric conditions.
         |||,
         'gee:units': 'K',
       },
@@ -100,8 +99,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Temperature of air at 2m above the surface of land, sea or in-land waters. 2m temperature is
           calculated by interpolating between the lowest model level and the Earth's surface, taking
-          account of the atmospheric conditions. Temperature measured in kelvin can be converted to
-          degrees Celsius (°C) by subtracting 273.15.
+          account of the atmospheric conditions.
         |||,
         'gee:units': 'K',
       },
@@ -112,7 +110,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           that is required to satisfy the surface energy balance. It represents the temperature of the
           uppermost surface layer, which has no heat capacity and so can respond instantaneously to
           changes in surface fluxes. Skin temperature is calculated differently over land and sea.
-          Temperature measured in kelvin can be converted to degrees Celsius (°C) by subtracting 273.15.
         |||,
         'gee:units': 'K',
       },
@@ -122,8 +119,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Temperature of the soil in layer 1 (0 - 7 cm) of the ECMWF Integrated Forecasting System. The
           surface is at 0 cm. Soil temperature is set at the middle of each layer, and heat transfer is
           calculated at the interfaces between them. It is assumed that there is no heat transfer out of
-          the bottom of the lowest layer. Temperature measured in kelvin can be converted to degrees
-          Celsius (°C) by subtracting 273.15.
+          the bottom of the lowest layer.
         |||,
         'gee:units': 'K',
       },
@@ -167,8 +163,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           The temperature of the uppermost surface of ice on inland water bodies (lakes, reservoirs,
           rivers) and coastal waters. The ECMWF Integrated Forecasting System represents the formation
-          and melting of ice on lakes. A single ice layer is represented. The temperature measured in
-          kelvin can be converted to degrees Celsius (°C) by subtracting 273.15.
+          and melting of ice on lakes. A single ice layer is represented.
         |||,
         'gee:units': 'K',
       },
@@ -195,8 +190,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           below. Thermoclines upper boundary is located at the mixed layer bottom, and the lower boundary
           at the lake bottom. Mixing within the mixed layer can occur when the density of the surface
           (and near-surface) water is greater than that of the water below. Mixing can also occur through
-          the action of wind on the surface of the lake. Temperature measured in kelvin can be converted
-          to degrees Celsius (°C) by subtracting 273.15.
+          the action of wind on the surface of the lake.
         |||,
         'gee:units': 'K',
       },
@@ -216,8 +210,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           The mean temperature of total water column in inland water bodies (lakes, reservoirs and
           rivers) and coastal waters. The ECMWF Integrated Forecasting System represents inland water
           bodies with two layers in the vertical, the mixed layer above and the thermocline below where
-          temperature changes with depth. This parameter is the mean over the two layers. Temperature
-          measured in kelvin can be converted to degrees Celsius (°C) by subtracting 273.15.
+          temperature changes with depth. This parameter is the mean over the two layers.
         |||,
         'gee:units': 'K',
       },
@@ -293,7 +286,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           This variable gives the temperature of the snow layer from the ground to the snow-air
           interface. The ECMWF Integrated Forecast System (IFS) model represents snow as a single
           additional layer over the uppermost soil level. The snow may cover all or part of the grid box.
-          Temperature measured in kelvin can be converted to degrees Celsius (°C) by subtracting 273.15.
         |||,
         'gee:units': 'K',
       },
