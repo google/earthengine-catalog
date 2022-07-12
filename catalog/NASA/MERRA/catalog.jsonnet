@@ -19,8 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('NASA_GSFC_MERRA_aer_2', base_url),
-    ee.link.child_collection('NASA_GSFC_MERRA_slv_2', base_url),
+    // TODO: Uncomment when slv is ready.
+    // ee.link.child_collection('NASA_GSFC_MERRA_slv_2', base_url),
   ],
-  // TODO: Remove this when all assets are ingested
-  'gee:skip_indexing': true,
 }

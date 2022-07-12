@@ -63,6 +63,7 @@ local self_url = catalog_subdir_url + base_filename;
     'JRC',
     'landcover',
     'landuse',
+    'lucas'
   ],
   providers: [
     ee.producer_provider('Joint Research Center, Unit D5', 'https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/LUCAS/LUCAS_harmonised/'),

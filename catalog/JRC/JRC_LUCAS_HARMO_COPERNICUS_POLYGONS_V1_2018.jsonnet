@@ -66,6 +66,7 @@ local self_url = catalog_subdir_url + base_filename;
     'JRC',
     'landcover',
     'landuse',
+    'lucas'
   ],
   providers: [
     ee.producer_provider(

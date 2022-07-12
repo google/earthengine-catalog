@@ -27,8 +27,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('GRACE', base_url),
     ee.link.child_catalog('JPL', base_url),
     ee.link.child_catalog('MEASURES', base_url),
-    // TODO: Uncomment when all assets are ingested
-    // ee.link.child_catalog('MERRA', base_url),
+    ee.link.child_catalog('MERRA', base_url),
     ee.link.child_catalog('NASADEM_HGT', base_url),
     ee.link.child_catalog('NLDAS', base_url),
     ee.link.child_catalog('OCEANDATA', base_url),
