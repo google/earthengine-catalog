@@ -1065,7 +1065,7 @@ local self_url = catalog_subdir_url + base_filename;
   'sci:doi': '10.5065/D6513W89',
   'sci:citation': |||
     Saha, S., S. Moorthi, H. Pan, X. Wu, J. Wang, and Coauthors, 2010: The NCEP Climate
-    Forecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015–1057.
+    Forecast System Reanalysis. Bulletin of the American Meteorological Society, 91, 1015-1057.
     [doi:10.1175/2010BAMS3001.1](https://doi.org/10.1175/2010BAMS3001.1)
   |||,
   'gee:interval': {

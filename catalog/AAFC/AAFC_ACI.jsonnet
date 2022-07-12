@@ -547,7 +547,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': |||
-    Contains information licensed under the [Open Government Licence – Canada,
+    Contains information licensed under the [Open Government Licence - Canada,
     version 2.0](https://open.canada.ca/en/open-government-licence-canada)
   |||,
 }

@@ -40,9 +40,9 @@ local self_url = catalog_subdir_url + base_filename;
     * Bouvet, A. et al. 2018. An above-ground biomass map of African savannahs and woodlands at 25 m resolution derived from ALOS PALSAR. Remote Sensing of the Environment 206, 156-173.
     * ESA (2017) [Land Cover CCI Product User Guide Version 2. Tech. Rep.](https://maps.elie.ucl.ac.be/CCI/viewer/download/ESACCI-LC-Ph2-PUGv2_2.0.pdf).
     * IPCC (2006) 2006 IPCC guidelines for national greenhouse gas inventories (eds HS Eggleston, L Buendia, K Miwa, T Ngara, K Tanabe.) Kanagawa, Japan: IGES.
-    * Santoro, M. et al. (2018). A detailed portrait of the forest aboveground biomass pool for the year 2010 obtained from multiple remote sensing observations. Geophysical Research Abstracts 20, EGU2018–EG18932.
+    * Santoro, M. et al. (2018). A detailed portrait of the forest aboveground biomass pool for the year 2010 obtained from multiple remote sensing observations. Geophysical Research Abstracts 20, EGU2018-EG18932.
     * Spawn SA et al. (2017) New global biomass map for the year 2010. New Orleans, LA: American Geophysical Union.
-    * Xia, J. et al. (2014) Spatio-temporal patterns and climate variables controlling of biomass carbon stock of global grassland ecosystems from 1982 to 2006. Remote Sensing 6, 1783–1802.
+    * Xia, J. et al. (2014) Spatio-temporal patterns and climate variables controlling of biomass carbon stock of global grassland ecosystems from 1982 to 2006. Remote Sensing 6, 1783-1802.
 
     Provider's note: The [WCMC carbon biomass dataset](https://data-gis.unep-wcmc.org/portal/home/item.html?id=2444626e38a04573b3a52904f2a050d9)
     represents conditions between 1982 and 2010 depending on land cover type. The relative patterns

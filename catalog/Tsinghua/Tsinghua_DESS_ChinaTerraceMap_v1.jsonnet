@@ -111,7 +111,7 @@ local self_url = catalog_subdir_url + base_filename;
     Cao, B., Yu, L., Naipal, V., Ciais, P., Li, W., Zhao, Y., Wei, W.,
     Chen, D., Liu, Z., and Gong, P.: A 30 m terrace mapping in China using
     Landsat 8 imagery and digital elevation model based on the Google Earth
-    Engine, Earth Syst. Sci. Data, 13, 2437–2456,
+    Engine, Earth Syst. Sci. Data, 13, 2437-2456,
     [doi:10.5194/essd-13-2437-2021](https://doi.org/10.5194/essd-13-2437-2021), 2021.
   |||,
   'gee:terms_of_use': 'This work is licensed under a Creative Commons Attribution 4.0 International License.',

@@ -34,7 +34,7 @@ local self_url = catalog_subdir_url + base_filename;
     For more information see the [Product Specifications](https://ftp.geogratis.gc.ca/pub/nrcan_rncan/elevation/cdem_mnec/doc/CDEM_product_specs.pdf)
 
     Contains information licensed under the
-    [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada).
+    [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

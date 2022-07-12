@@ -204,19 +204,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'B1',
-        description: 'Blue (0.42 - 0.50 µm)',
+        description: 'Blue (0.42 - 0.50 &mu;m)',
       },
       {
         name: 'B2',
-        description: 'Green (0.52 - 0.60 µm)',
+        description: 'Green (0.52 - 0.60 &mu;m)',
       },
       {
         name: 'B3',
-        description: 'Red (0.61 - 0.69 µm)',
+        description: 'Red (0.61 - 0.69 &mu;m)',
       },
       {
         name: 'B4',
-        description: 'Near-Infrared (0.76 - 0.89 µm)',
+        description: 'Near-Infrared (0.76 - 0.89 &mu;m)',
       },
     ],
     'gee:visualizations': [

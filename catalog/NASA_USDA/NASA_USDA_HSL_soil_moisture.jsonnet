@@ -200,7 +200,7 @@ local self_url = catalog_subdir_url + base_filename;
       citation: |||
         **Kerr, Y. H., and D. Levine (2008).** Forward to the special issue on
         the Soil Moisture and Ocean Salinity (SMOS) mission, *IEEE Transactions
-        on Geoscience and Remote Sensing*, 46(3): 583–585.
+        on Geoscience and Remote Sensing*, 46(3): 583-585.
         [doi:10.1109/TGRS.2008.917807](https://doi.org/10.1109/TGRS.2008.917807)
         [Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Forward+to+the+special+issue+on+the+Soil+Moisture+and+Ocean+Salinity+%28SMOS%29+mission&btnG=)
       |||,

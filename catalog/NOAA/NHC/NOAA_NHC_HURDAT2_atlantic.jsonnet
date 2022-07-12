@@ -66,15 +66,15 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Single letter desinating a specific event in a hurricane track.  An empty string if no code.
 
-          - C – Closest approach to a coast not followed by a landfall
-          - G – Genesis
-          - I – An intensity peak in terms of both pressure and wind
-          - L – Landfall (center of system crossing a coastline)
-          - P – Minimum in central pressure
-          - R – Provides additional detail on the intensity of the cyclone when rapid changes are underway
-          - S – Change of status of the system
-          - T – Provides additional detail on the track (position) of the cyclone
-          - W – Maximum sustained wind speed
+          - C - Closest approach to a coast not followed by a landfall
+          - G - Genesis
+          - I - An intensity peak in terms of both pressure and wind
+          - L - Landfall (center of system crossing a coastline)
+          - P - Minimum in central pressure
+          - R - Provides additional detail on the intensity of the cyclone when rapid changes are underway
+          - S - Change of status of the system
+          - T - Provides additional detail on the track (position) of the cyclone
+          - W - Maximum sustained wind speed
         |||,
         type: ee_const.var_type.string,
       },
@@ -83,16 +83,16 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Status of system:
 
-          - DB – Disturbance (of any intensity)
+          - DB - Disturbance (of any intensity)
           - ET - Unknown.  The only occurrence is in HARVEY.
-          - EX – Extratropical cyclone (of any intensity)
-          - HU – Tropical cyclone of hurricane intensity (> 64 knots)
-          - LO – A low that is neither a tropical cyclone, a subtropical cyclone, nor an extratropical cyclone (of any intensity)
-          - SD – Subtropical cyclone of subtropical depression intensity (< 34 knots)
-          - SS – Subtropical cyclone of subtropical storm intensity (> 34 knots)
-          - TD – Tropical cyclone of tropical depression intensity (< 34 knots)
-          - TS – Tropical cyclone of tropical storm intensity (34-63 knots)
-          - WV – Tropical Wave (of any intensity)
+          - EX - Extratropical cyclone (of any intensity)
+          - HU - Tropical cyclone of hurricane intensity (> 64 knots)
+          - LO - A low that is neither a tropical cyclone, a subtropical cyclone, nor an extratropical cyclone (of any intensity)
+          - SD - Subtropical cyclone of subtropical depression intensity (< 34 knots)
+          - SS - Subtropical cyclone of subtropical storm intensity (> 34 knots)
+          - TD - Tropical cyclone of tropical depression intensity (< 34 knots)
+          - TS - Tropical cyclone of tropical storm intensity (34-63 knots)
+          - WV - Tropical Wave (of any intensity)
         |||,
         type: ee_const.var_type.string,
       },

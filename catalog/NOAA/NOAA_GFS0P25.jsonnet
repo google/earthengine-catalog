@@ -238,28 +238,28 @@ local self_url = catalog_subdir_url + base_filename;
       citation: |||
         Buehner, M., J. Morneau, and C. Charette, 2013: Four-dimensional
          ensemble-variational data assimilation for global deterministic weather
-         prediction. Nonlinear Processes Geophys., 20, 669–682.
+         prediction. Nonlinear Processes Geophys., 20, 669-682.
       |||,
     },
     {
       citation: |||
         Chun, H.-Y., and J.-J. Baik, 1998: Momentum Flux by Thermally Induced
         Internal Gravity Waves and Its Approximation for Large-Scale Models.
-        J. Atmos. Sci., 55, 3299–3310.
+        J. Atmos. Sci., 55, 3299-3310.
       |||,
     },
     {
       citation: |||
         Chun, H.-Y., Song, I.-S., Baik, J.-J. and Y.-J. Kim. 2004: Impact of a
         Convectively Forced Gravity Wave Drag Parameterization in NCAR CCM3.
-        J. Climate, 17, 3530–3547.
+        J. Climate, 17, 3530-3547.
       |||,
     },
     {
       citation: |||
         Chun, H.-Y., Song, M.-D., Kim, J.-W., and J.-J. Baik, 2001: Effects of
         Gravity Wave Drag Induced by Cumulus Convection on the Atmospheric General
-        Circulation. J. Atmos. Sci., 58, 302–319.
+        Circulation. J. Atmos. Sci., 58, 302-319.
       |||,
     },
     {
@@ -326,7 +326,7 @@ local self_url = catalog_subdir_url + base_filename;
         Iacono, M.J., E.J. Mlawer, S.A. Clough, and J.-J. Morcrette, 2000: Impact
         of an improved longwave radiation model, RRTM, on the energy budget and
         thermodynamic properties of the NCAR community climate model, CCM3,
-        J. Geophys. Res., 105(D11), 14,873–14,890.2.
+        J. Geophys. Res., 105(D11), 14,873-14,890.2.
       |||,
     },
     {
@@ -346,7 +346,7 @@ local self_url = catalog_subdir_url + base_filename;
       citation: |||
         Kim, Y.-J., and A. Arakawa (1995), Improvement of orographic gravity wave
         parameterization using a mesoscale gravity-wave model, J. Atmos. Sci.,52,
-        875–1902.
+        875-1902.
       |||,
     },
     {

@@ -309,7 +309,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         * > 75 %
         * empty if not relevant
 
-        This coding applies only for the years 2009–2015 . For 2018 the number represents the percentage of land-cover (0-100). The variable does not exist for 2006
+        This coding applies only for the years 2009-2015 . For 2018 the number represents the percentage of land-cover (0-100). The variable does not exist for 2006
 
         Years: 2009, 2012, 2015, 2018
       |||,
@@ -369,7 +369,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         * > 75 %
         * empty if not relevant
 
-        This coding applies only for the years 2009–2015 . For 2018 the number represents the percentage of land-cover (0-100). The variable does not exist for 2006
+        This coding applies only for the years 2009-2015 . For 2018 the number represents the percentage of land-cover (0-100). The variable does not exist for 2006
 
         Years: 2009, 2012, 2015, 2018
       |||,
@@ -1135,7 +1135,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         * > 50 %
         * empty if not relevant
 
-        This coding applies only for the years 2009–2015 . For 2018 the number
+        This coding applies only for the years 2009-2015 . For 2018 the number
         represents the percentage of stones on the surface (0-100). The variable
         does not exist for 2006.
 

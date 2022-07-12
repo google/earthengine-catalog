@@ -79,31 +79,31 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'B1',
         description: 'Landsat 7 ETM+ blue',
         gsd: 15.0,
-        'gee:wavelength': '0.45 - 0.52 µm',
+        'gee:wavelength': '0.45 - 0.52 &mu;m',
       },
       {
         name: 'B2',
         description: 'Landsat 7 ETM+ green',
         gsd: 15.0,
-        'gee:wavelength': '0.52 - 0.60 µm',
+        'gee:wavelength': '0.52 - 0.60 &mu;m',
       },
       {
         name: 'B3',
         description: 'Landsat 7 ETM+ red',
         gsd: 15.0,
-        'gee:wavelength': '0.63 - 0.69 µm',
+        'gee:wavelength': '0.63 - 0.69 &mu;m',
       },
       {
         name: 'B4',
         description: 'Landsat 7 ETM+ near infrared',
         gsd: 15.0,
-        'gee:wavelength': '0.77 - 0.90 µm',
+        'gee:wavelength': '0.77 - 0.90 &mu;m',
       },
       {
         name: 'B5',
         description: 'Landsat 7 ETM+ shortwave infrared 1',
         gsd: 30.0,
-        'gee:wavelength': '1.55 - 1.75 µm',
+        'gee:wavelength': '1.55 - 1.75 &mu;m',
       },
       {
         name: 'B6_low_gain',
@@ -115,7 +115,7 @@ local self_url = catalog_subdir_url + base_filename;
           60m to 30m.
         |||,
         gsd: 30.0,
-        'gee:wavelength': '10.40 - 12.50 µm',
+        'gee:wavelength': '10.40 - 12.50 &mu;m',
       },
       {
         name: 'B6_high_gain',
@@ -126,19 +126,19 @@ local self_url = catalog_subdir_url + base_filename;
           Resampled from 60m to 30m.
         |||,
         gsd: 30.0,
-        'gee:wavelength': '10.40 - 12.50 µm',
+        'gee:wavelength': '10.40 - 12.50 &mu;m',
       },
       {
         name: 'B7',
         description: 'Landsat 7 ETM+ shortwave infrared 2',
         gsd: 30.0,
-        'gee:wavelength': '2.08 - 2.35 µm',
+        'gee:wavelength': '2.08 - 2.35 &mu;m',
       },
       {
         name: 'B8',
         description: 'Landsat 7 ETM+ panchromatic',
         gsd: 15.0,
-        'gee:wavelength': '0.52 - 0.90 µm',
+        'gee:wavelength': '0.52 - 0.90 &mu;m',
       },
       {
         name: 'B8_radarsat',

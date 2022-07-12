@@ -198,7 +198,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B008',
         description: 'VNIR band B8',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.42682,
         full_width_half_max: 0.0113871,
         'gee:wavelength': '426.8200nm, FWHM: 11.3871nm',
@@ -206,7 +206,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B009',
         description: 'VNIR band B9',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.43699,
         full_width_half_max: 0.0113871,
         'gee:wavelength': '436.9900nm, FWHM: 11.3871nm',
@@ -214,7 +214,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B010',
         description: 'VNIR band B10',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.44717,
         full_width_half_max: 0.0113871,
         'gee:wavelength': '447.1700nm, FWHM: 11.3871nm',
@@ -222,7 +222,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B011',
         description: 'VNIR band B11',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.45734,
         full_width_half_max: 0.0113871,
         'gee:wavelength': '457.3400nm, FWHM: 11.3871nm',
@@ -230,7 +230,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B012',
         description: 'VNIR band B12',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.46752,
         full_width_half_max: 0.0113871,
         'gee:wavelength': '467.5200nm, FWHM: 11.3871nm',
@@ -238,7 +238,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B013',
         description: 'VNIR band B13',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.47769,
         full_width_half_max: 0.0113871,
         'gee:wavelength': '477.6900nm, FWHM: 11.3871nm',
@@ -246,7 +246,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B014',
         description: 'VNIR band B14',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.48787,
         full_width_half_max: 0.0113784,
         'gee:wavelength': '487.8700nm, FWHM: 11.3784nm',
@@ -254,7 +254,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B015',
         description: 'VNIR band B15',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.49804,
         full_width_half_max: 0.0113538,
         'gee:wavelength': '498.0400nm, FWHM: 11.3538nm',
@@ -262,7 +262,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B016',
         description: 'VNIR band B16',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.50822,
         full_width_half_max: 0.0113133,
         'gee:wavelength': '508.2200nm, FWHM: 11.3133nm',
@@ -270,7 +270,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B017',
         description: 'VNIR band B17',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.51839,
         full_width_half_max: 0.011258,
         'gee:wavelength': '518.3900nm, FWHM: 11.2580nm',
@@ -278,7 +278,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B018',
         description: 'VNIR band B18',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.52857,
         full_width_half_max: 0.0111907,
         'gee:wavelength': '528.5700nm, FWHM: 11.1907nm',
@@ -286,7 +286,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B019',
         description: 'VNIR band B19',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.53874,
         full_width_half_max: 0.0111119,
         'gee:wavelength': '538.7400nm, FWHM: 11.1119nm',
@@ -294,7 +294,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B020',
         description: 'VNIR band B20',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.54892,
         full_width_half_max: 0.0110245,
         'gee:wavelength': '548.9200nm, FWHM: 11.0245nm',
@@ -302,7 +302,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B021',
         description: 'VNIR band B21',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.55909,
         full_width_half_max: 0.0109321,
         'gee:wavelength': '559.0900nm, FWHM: 10.9321nm',
@@ -310,7 +310,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B022',
         description: 'VNIR band B22',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.56927,
         full_width_half_max: 0.0108368,
         'gee:wavelength': '569.2700nm, FWHM: 10.8368nm',
@@ -318,7 +318,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B023',
         description: 'VNIR band B23',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.57945,
         full_width_half_max: 0.0107407,
         'gee:wavelength': '579.4500nm, FWHM: 10.7407nm',
@@ -326,7 +326,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B024',
         description: 'VNIR band B24',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.58962,
         full_width_half_max: 0.0106482,
         'gee:wavelength': '589.6200nm, FWHM: 10.6482nm',
@@ -334,7 +334,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B025',
         description: 'VNIR band B25',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.5998,
         full_width_half_max: 0.0105607,
         'gee:wavelength': '599.8000nm, FWHM: 10.5607nm',
@@ -342,7 +342,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B026',
         description: 'VNIR band B26',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.60997,
         full_width_half_max: 0.0104823,
         'gee:wavelength': '609.9700nm, FWHM: 10.4823nm',
@@ -350,7 +350,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B027',
         description: 'VNIR band B27',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.62015,
         full_width_half_max: 0.0104147,
         'gee:wavelength': '620.1500nm, FWHM: 10.4147nm',
@@ -358,7 +358,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B028',
         description: 'VNIR band B28',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.63032,
         full_width_half_max: 0.0103595,
         'gee:wavelength': '630.3200nm, FWHM: 10.3595nm',
@@ -366,7 +366,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B029',
         description: 'VNIR band B29',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.6405,
         full_width_half_max: 0.0103188,
         'gee:wavelength': '640.5000nm, FWHM: 10.3188nm',
@@ -374,7 +374,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B030',
         description: 'VNIR band B30',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.65067,
         full_width_half_max: 0.0102942,
         'gee:wavelength': '650.6700nm, FWHM: 10.2942nm',
@@ -382,7 +382,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B031',
         description: 'VNIR band B31',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.66085,
         full_width_half_max: 0.0102856,
         'gee:wavelength': '660.8500nm, FWHM: 10.2856nm',
@@ -390,7 +390,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B032',
         description: 'VNIR band B32',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.67102,
         full_width_half_max: 0.010298,
         'gee:wavelength': '671.0200nm, FWHM: 10.2980nm',
@@ -398,7 +398,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B033',
         description: 'VNIR band B33',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.6812,
         full_width_half_max: 0.0103349,
         'gee:wavelength': '681.2000nm, FWHM: 10.3349nm',
@@ -406,7 +406,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B034',
         description: 'VNIR band B34',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.69137,
         full_width_half_max: 0.0103909,
         'gee:wavelength': '691.3700nm, FWHM: 10.3909nm',
@@ -414,7 +414,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B035',
         description: 'VNIR band B35',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.70155,
         full_width_half_max: 0.0104592,
         'gee:wavelength': '701.5500nm, FWHM: 10.4592nm',
@@ -422,7 +422,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B036',
         description: 'VNIR band B36',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.71172,
         full_width_half_max: 0.0105322,
         'gee:wavelength': '711.7200nm, FWHM: 10.5322nm',
@@ -430,7 +430,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B037',
         description: 'VNIR band B37',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.7219,
         full_width_half_max: 0.0106004,
         'gee:wavelength': '721.9000nm, FWHM: 10.6004nm',
@@ -438,7 +438,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B038',
         description: 'VNIR band B38',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.73207,
         full_width_half_max: 0.0106562,
         'gee:wavelength': '732.0700nm, FWHM: 10.6562nm',
@@ -446,7 +446,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B039',
         description: 'VNIR band B39',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.74225,
         full_width_half_max: 0.0106933,
         'gee:wavelength': '742.2500nm, FWHM: 10.6933nm',
@@ -454,7 +454,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B040',
         description: 'VNIR band B40',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.75243,
         full_width_half_max: 0.0107058,
         'gee:wavelength': '752.4300nm, FWHM: 10.7058nm',
@@ -462,7 +462,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B041',
         description: 'VNIR band B41',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.7626,
         full_width_half_max: 0.0107276,
         'gee:wavelength': '762.6000nm, FWHM: 10.7276nm',
@@ -470,7 +470,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B042',
         description: 'VNIR band B42',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.77278,
         full_width_half_max: 0.0107907,
         'gee:wavelength': '772.7800nm, FWHM: 10.7907nm',
@@ -478,7 +478,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B043',
         description: 'VNIR band B43',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.78295,
         full_width_half_max: 0.0108833,
         'gee:wavelength': '782.9500nm, FWHM: 10.8833nm',
@@ -486,7 +486,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B044',
         description: 'VNIR band B44',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.79313,
         full_width_half_max: 0.0109938,
         'gee:wavelength': '793.1300nm, FWHM: 10.9938nm',
@@ -494,7 +494,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B045',
         description: 'VNIR band B45',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.8033,
         full_width_half_max: 0.0111044,
         'gee:wavelength': '803.3000nm, FWHM: 11.1044nm',
@@ -502,7 +502,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B046',
         description: 'VNIR band B46',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.81348,
         full_width_half_max: 0.011198,
         'gee:wavelength': '813.4800nm, FWHM: 11.1980nm',
@@ -510,7 +510,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B047',
         description: 'VNIR band B47',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.82365,
         full_width_half_max: 0.01126,
         'gee:wavelength': '823.6500nm, FWHM: 11.2600nm',
@@ -518,7 +518,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B048',
         description: 'VNIR band B48',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.83383,
         full_width_half_max: 0.0112824,
         'gee:wavelength': '833.8300nm, FWHM: 11.2824nm',
@@ -526,7 +526,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B049',
         description: 'VNIR band B49',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.844,
         full_width_half_max: 0.0112822,
         'gee:wavelength': '844.0000nm, FWHM: 11.2822nm',
@@ -534,7 +534,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B050',
         description: 'VNIR band B50',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.85418,
         full_width_half_max: 0.0112816,
         'gee:wavelength': '854.1800nm, FWHM: 11.2816nm',
@@ -542,7 +542,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B051',
         description: 'VNIR band B51',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.86435,
         full_width_half_max: 0.0112809,
         'gee:wavelength': '864.3500nm, FWHM: 11.2809nm',
@@ -550,7 +550,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B052',
         description: 'VNIR band B52',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.87453,
         full_width_half_max: 0.0112797,
         'gee:wavelength': '874.5300nm, FWHM: 11.2797nm',
@@ -558,7 +558,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B053',
         description: 'VNIR band B53',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.8847,
         full_width_half_max: 0.0112782,
         'gee:wavelength': '884.7000nm, FWHM: 11.2782nm',
@@ -566,7 +566,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B054',
         description: 'VNIR band B54',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.89488,
         full_width_half_max: 0.0112771,
         'gee:wavelength': '894.8800nm, FWHM: 11.2771nm',
@@ -574,7 +574,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B055',
         description: 'VNIR band B55',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.90505,
         full_width_half_max: 0.0112765,
         'gee:wavelength': '905.0500nm, FWHM: 11.2765nm',
@@ -582,7 +582,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B056',
         description: 'VNIR band B56',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.91523,
         full_width_half_max: 0.0112756,
         'gee:wavelength': '915.2300nm, FWHM: 11.2756nm',
@@ -590,7 +590,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B057',
         description: 'VNIR band B57',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.92541,
         full_width_half_max: 0.0112754,
         'gee:wavelength': '925.4100nm, FWHM: 11.2754nm',
@@ -598,7 +598,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B077',
         description: 'SWIR band B77',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.91245,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '912.4500nm, FWHM: 11.0457nm',
@@ -606,7 +606,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B078',
         description: 'SWIR band B78',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.92254,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '922.5400nm, FWHM: 11.0457nm',
@@ -614,7 +614,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B079',
         description: 'SWIR band B79',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.93264,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '932.6400nm, FWHM: 11.0457nm',
@@ -622,7 +622,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B080',
         description: 'SWIR band B80',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.94273,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '942.7300nm, FWHM: 11.0457nm',
@@ -630,7 +630,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B081',
         description: 'SWIR band B81',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.95282,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '952.8200nm, FWHM: 11.0457nm',
@@ -638,7 +638,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B082',
         description: 'SWIR band B82',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.96291,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '962.9100nm, FWHM: 11.0457nm',
@@ -646,7 +646,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B083',
         description: 'SWIR band B83',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.97299,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '972.9900nm, FWHM: 11.0457nm',
@@ -654,7 +654,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B084',
         description: 'SWIR band B84',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.98308,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '983.0800nm, FWHM: 11.0457nm',
@@ -662,7 +662,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B085',
         description: 'SWIR band B85',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 0.99317,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '993.1700nm, FWHM: 11.0457nm',
@@ -670,7 +670,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B086',
         description: 'SWIR band B86',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.0033,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '1003.3000nm, FWHM: 11.0457nm',
@@ -678,7 +678,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B087',
         description: 'SWIR band B87',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.0133,
         full_width_half_max: 0.0110457,
         'gee:wavelength': '1013.3000nm, FWHM: 11.0457nm',
@@ -686,7 +686,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B088',
         description: 'SWIR band B88',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.0234,
         full_width_half_max: 0.0110451,
         'gee:wavelength': '1023.4000nm, FWHM: 11.0451nm',
@@ -694,7 +694,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B089',
         description: 'SWIR band B89',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.03349,
         full_width_half_max: 0.0110423,
         'gee:wavelength': '1033.4900nm, FWHM: 11.0423nm',
@@ -702,7 +702,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B090',
         description: 'SWIR band B90',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.04359,
         full_width_half_max: 0.0110372,
         'gee:wavelength': '1043.5900nm, FWHM: 11.0372nm',
@@ -710,7 +710,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B091',
         description: 'SWIR band B91',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.05369,
         full_width_half_max: 0.0110302,
         'gee:wavelength': '1053.6900nm, FWHM: 11.0302nm',
@@ -718,7 +718,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B092',
         description: 'SWIR band B92',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.06379,
         full_width_half_max: 0.0110218,
         'gee:wavelength': '1063.7900nm, FWHM: 11.0218nm',
@@ -726,7 +726,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B093',
         description: 'SWIR band B93',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.07389,
         full_width_half_max: 0.0110122,
         'gee:wavelength': '1073.8900nm, FWHM: 11.0122nm',
@@ -734,7 +734,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B094',
         description: 'SWIR band B94',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.08399,
         full_width_half_max: 0.0110013,
         'gee:wavelength': '1083.9900nm, FWHM: 11.0013nm',
@@ -742,7 +742,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B095',
         description: 'SWIR band B95',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.09409,
         full_width_half_max: 0.0109871,
         'gee:wavelength': '1094.0900nm, FWHM: 10.9871nm',
@@ -750,7 +750,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B096',
         description: 'SWIR band B96',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.10419,
         full_width_half_max: 0.0109732,
         'gee:wavelength': '1104.1900nm, FWHM: 10.9732nm',
@@ -758,7 +758,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B097',
         description: 'SWIR band B97',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.11419,
         full_width_half_max: 0.0109572,
         'gee:wavelength': '1114.1900nm, FWHM: 10.9572nm',
@@ -766,7 +766,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B098',
         description: 'SWIR band B98',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.112428,
         full_width_half_max: 0.0109418,
         'gee:wavelength': '1124.2800nm, FWHM: 10.9418nm',
@@ -774,7 +774,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B099',
         description: 'SWIR band B99',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.113438,
         full_width_half_max: 0.0109248,
         'gee:wavelength': '1134.3800nm, FWHM: 10.9248nm',
@@ -782,7 +782,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B100',
         description: 'SWIR band B100',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.11448,
         full_width_half_max: 0.0109065,
         'gee:wavelength': '1144.4800nm, FWHM: 10.9065nm',
@@ -790,7 +790,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B101',
         description: 'SWIR band B101',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.115458,
         full_width_half_max: 0.0108884,
         'gee:wavelength': '1154.5800nm, FWHM: 10.8884nm',
@@ -798,7 +798,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B102',
         description: 'SWIR band B102',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.116468,
         full_width_half_max: 0.0108696,
         'gee:wavelength': '1164.6800nm, FWHM: 10.8696nm',
@@ -806,7 +806,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B103',
         description: 'SWIR band B103',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.117477,
         full_width_half_max: 0.0108513,
         'gee:wavelength': '1174.7700nm, FWHM: 10.8513nm',
@@ -814,7 +814,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B104',
         description: 'SWIR band B104',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.118487,
         full_width_half_max: 0.0108335,
         'gee:wavelength': '1184.8700nm, FWHM: 10.8335nm',
@@ -822,7 +822,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B105',
         description: 'SWIR band B105',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.119497,
         full_width_half_max: 0.0108154,
         'gee:wavelength': '1194.9700nm, FWHM: 10.8154nm',
@@ -830,7 +830,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B106',
         description: 'SWIR band B106',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.20507,
         full_width_half_max: 0.0107979,
         'gee:wavelength': '1205.0700nm, FWHM: 10.7979nm',
@@ -838,7 +838,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B107',
         description: 'SWIR band B107',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.21517,
         full_width_half_max: 0.0107822,
         'gee:wavelength': '1215.1700nm, FWHM: 10.7822nm',
@@ -846,7 +846,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B108',
         description: 'SWIR band B108',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.22517,
         full_width_half_max: 0.0107663,
         'gee:wavelength': '1225.1700nm, FWHM: 10.7663nm',
@@ -854,7 +854,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B109',
         description: 'SWIR band B109',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.23527,
         full_width_half_max: 0.010752,
         'gee:wavelength': '1235.2700nm, FWHM: 10.7520nm',
@@ -862,7 +862,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B110',
         description: 'SWIR band B110',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.24536,
         full_width_half_max: 0.0107385,
         'gee:wavelength': '1245.3600nm, FWHM: 10.7385nm',
@@ -870,7 +870,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B111',
         description: 'SWIR band B111',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.25546,
         full_width_half_max: 0.010727,
         'gee:wavelength': '1255.4600nm, FWHM: 10.7270nm',
@@ -878,7 +878,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B112',
         description: 'SWIR band B112',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.26556,
         full_width_half_max: 0.0107174,
         'gee:wavelength': '1265.5600nm, FWHM: 10.7174nm',
@@ -886,7 +886,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B113',
         description: 'SWIR band B113',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.27566,
         full_width_half_max: 0.0107091,
         'gee:wavelength': '1275.6600nm, FWHM: 10.7091nm',
@@ -894,7 +894,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B114',
         description: 'SWIR band B114',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.28576,
         full_width_half_max: 0.0107022,
         'gee:wavelength': '1285.7600nm, FWHM: 10.7022nm',
@@ -902,7 +902,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B115',
         description: 'SWIR band B115',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.29586,
         full_width_half_max: 0.010697,
         'gee:wavelength': '1295.8600nm, FWHM: 10.6970nm',
@@ -910,7 +910,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B116',
         description: 'SWIR band B116',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.30596,
         full_width_half_max: 0.0106946,
         'gee:wavelength': '1305.9600nm, FWHM: 10.6946nm',
@@ -918,7 +918,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B117',
         description: 'SWIR band B117',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.31605,
         full_width_half_max: 0.0106937,
         'gee:wavelength': '1316.0500nm, FWHM: 10.6937nm',
@@ -926,7 +926,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B118',
         description: 'SWIR band B118',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.32605,
         full_width_half_max: 0.0106949,
         'gee:wavelength': '1326.0500nm, FWHM: 10.6949nm',
@@ -934,7 +934,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B119',
         description: 'SWIR band B119',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.33615,
         full_width_half_max: 0.0106996,
         'gee:wavelength': '1336.1500nm, FWHM: 10.6996nm',
@@ -942,7 +942,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B120',
         description: 'SWIR band B120',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.34625,
         full_width_half_max: 0.0107058,
         'gee:wavelength': '1346.2500nm, FWHM: 10.7058nm',
@@ -950,7 +950,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B121',
         description: 'SWIR band B121',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.35635,
         full_width_half_max: 0.0107163,
         'gee:wavelength': '1356.3500nm, FWHM: 10.7163nm',
@@ -958,7 +958,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B122',
         description: 'SWIR band B122',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.36645,
         full_width_half_max: 0.0107283,
         'gee:wavelength': '1366.4500nm, FWHM: 10.7283nm',
@@ -966,7 +966,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B123',
         description: 'SWIR band B123',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.37655,
         full_width_half_max: 0.0107437,
         'gee:wavelength': '1376.5500nm, FWHM: 10.7437nm',
@@ -974,7 +974,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B124',
         description: 'SWIR band B124',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.38665,
         full_width_half_max: 0.0107612,
         'gee:wavelength': '1386.6500nm, FWHM: 10.7612nm',
@@ -982,7 +982,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B125',
         description: 'SWIR band B125',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.39674,
         full_width_half_max: 0.0107807,
         'gee:wavelength': '1396.7400nm, FWHM:10.7807nm',
@@ -990,7 +990,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B126',
         description: 'SWIR band B126',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.40684,
         full_width_half_max: 0.0108034,
         'gee:wavelength': '1406.8400nm, FWHM: 10.8034nm',
@@ -998,7 +998,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B127',
         description: 'SWIR band B127',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.41694,
         full_width_half_max: 0.0108267,
         'gee:wavelength': '1416.9400nm, FWHM: 10.8267nm',
@@ -1006,7 +1006,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B128',
         description: 'SWIR band B128',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.42694,
         full_width_half_max: 0.0108534,
         'gee:wavelength': '1426.9400nm, FWHM: 10.8534nm',
@@ -1014,7 +1014,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B129',
         description: 'SWIR band B129',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.43704,
         full_width_half_max: 0.0108818,
         'gee:wavelength': '1437.0400nm, FWHM: 10.8818nm',
@@ -1022,7 +1022,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B130',
         description: 'SWIR band B130',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.44714,
         full_width_half_max: 0.010911,
         'gee:wavelength': '1447.1400nm, FWHM: 10.9110nm',
@@ -1030,7 +1030,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B131',
         description: 'SWIR band B131',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.45723,
         full_width_half_max: 0.0109422,
         'gee:wavelength': '1457.2300nm, FWHM: 10.9422nm',
@@ -1038,7 +1038,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B132',
         description: 'SWIR band B132',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.46733,
         full_width_half_max: 0.0109743,
         'gee:wavelength': '1467.3300nm, FWHM: 10.9743nm',
@@ -1046,7 +1046,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B133',
         description: 'SWIR band B133',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.47743,
         full_width_half_max: 0.0110074,
         'gee:wavelength': '1477.4300nm, FWHM: 11.0074nm',
@@ -1054,7 +1054,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B134',
         description: 'SWIR band B134',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.48753,
         full_width_half_max: 0.0110414,
         'gee:wavelength': '1487.5300nm, FWHM: 11.0414nm',
@@ -1062,7 +1062,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B135',
         description: 'SWIR band B135',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.49763,
         full_width_half_max: 0.0110759,
         'gee:wavelength': '1497.6300nm, FWHM: 11.0759nm',
@@ -1070,7 +1070,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B136',
         description: 'SWIR band B136',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.50773,
         full_width_half_max: 0.0111108,
         'gee:wavelength': '1507.7300nm, FWHM: 11.1108nm',
@@ -1078,7 +1078,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B137',
         description: 'SWIR band B137',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.51783,
         full_width_half_max: 0.0111461,
         'gee:wavelength': '1517.8300nm, FWHM: 11.1461nm',
@@ -1086,7 +1086,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B138',
         description: 'SWIR band B138',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.52792,
         full_width_half_max: 0.0111811,
         'gee:wavelength': '1527.9200nm, FWHM: 11.1811nm',
@@ -1094,7 +1094,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B139',
         description: 'SWIR band B139',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.53792,
         full_width_half_max: 0.0112156,
         'gee:wavelength': '1537.9200nm, FWHM: 11.2156nm',
@@ -1102,7 +1102,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B140',
         description: 'SWIR band B140',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.54802,
         full_width_half_max: 0.0112496,
         'gee:wavelength': '1548.0200nm, FWHM: 11.2496nm',
@@ -1110,7 +1110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B141',
         description: 'SWIR band B141',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.55812,
         full_width_half_max: 0.0112826,
         'gee:wavelength': '1558.1200nm, FWHM: 11.2826nm',
@@ -1118,7 +1118,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B142',
         description: 'SWIR band B142',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.56822,
         full_width_half_max: 0.0113146,
         'gee:wavelength': '1568.2200nm, FWHM: 11.3146nm',
@@ -1126,7 +1126,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B143',
         description: 'SWIR band B143',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.57832,
         full_width_half_max: 0.011346,
         'gee:wavelength': '1578.3200nm, FWHM: 11.3460nm',
@@ -1134,7 +1134,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B144',
         description: 'SWIR band B144',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.58842,
         full_width_half_max: 0.0113753,
         'gee:wavelength': '1588.4200nm, FWHM: 11.3753nm',
@@ -1142,7 +1142,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B145',
         description: 'SWIR band B145',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.59851,
         full_width_half_max: 0.0114037,
         'gee:wavelength': '1598.5100nm, FWHM: 11.4037nm',
@@ -1150,7 +1150,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B146',
         description: 'SWIR band B146',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.60861,
         full_width_half_max: 0.0114302,
         'gee:wavelength': '1608.6100nm, FWHM: 11.4302nm',
@@ -1158,7 +1158,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B147',
         description: 'SWIR band B147',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.61871,
         full_width_half_max: 0.0114538,
         'gee:wavelength': '1618.7100nm, FWHM: 11.4538nm',
@@ -1166,7 +1166,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B148',
         description: 'SWIR band B148',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.62881,
         full_width_half_max: 0.011476,
         'gee:wavelength': '1628.8100nm, FWHM: 11.4760nm',
@@ -1174,7 +1174,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B149',
         description: 'SWIR band B149',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.63881,
         full_width_half_max: 0.0114958,
         'gee:wavelength': '1638.8100nm, FWHM: 11.4958nm',
@@ -1182,7 +1182,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B150',
         description: 'SWIR band B150',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.6489,
         full_width_half_max: 0.0115133,
         'gee:wavelength': '1648.9000nm, FWHM: 11.5133nm',
@@ -1190,7 +1190,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B151',
         description: 'SWIR band B151',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.659,
         full_width_half_max: 0.0115286,
         'gee:wavelength': '1659.0000nm, FWHM: 11.5286nm',
@@ -1198,7 +1198,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B152',
         description: 'SWIR band B152',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.6691,
         full_width_half_max: 0.0115404,
         'gee:wavelength': '1669.1000nm, FWHM: 11.5404nm',
@@ -1206,7 +1206,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B153',
         description: 'SWIR band B153',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.6792,
         full_width_half_max: 0.0115505,
         'gee:wavelength': '1679.2000nm, FWHM: 11.5505nm',
@@ -1214,7 +1214,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B154',
         description: 'SWIR band B154',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.6893,
         full_width_half_max: 0.011558,
         'gee:wavelength': '1689.3000nm, FWHM: 11.5580nm',
@@ -1222,7 +1222,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B155',
         description: 'SWIR band B155',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.6994,
         full_width_half_max: 0.0115621,
         'gee:wavelength': '1699.4000nm, FWHM: 11.5621nm',
@@ -1230,7 +1230,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B156',
         description: 'SWIR band B156',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.7095,
         full_width_half_max: 0.0115634,
         'gee:wavelength': '1709.5000nm, FWHM: 11.5634nm',
@@ -1238,7 +1238,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B157',
         description: 'SWIR band B157',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.7196,
         full_width_half_max: 0.0115617,
         'gee:wavelength': '1719.6000nm, FWHM: 11.5617nm',
@@ -1246,7 +1246,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B158',
         description: 'SWIR band B158',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.7297,
         full_width_half_max: 0.0115563,
         'gee:wavelength': '1729.7000nm, FWHM: 11.5563nm',
@@ -1254,7 +1254,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B159',
         description: 'SWIR band B159',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.7397,
         full_width_half_max: 0.0115477,
         'gee:wavelength': '1739.7000nm, FWHM: 11.5477nm',
@@ -1262,7 +1262,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B160',
         description: 'SWIR band B160',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.74979,
         full_width_half_max: 0.0115346,
         'gee:wavelength': '1749.7900nm, FWHM: 11.5346nm',
@@ -1270,7 +1270,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B161',
         description: 'SWIR band B161',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.75989,
         full_width_half_max: 0.0115193,
         'gee:wavelength': '1759.8900nm, FWHM: 11.5193nm',
@@ -1278,7 +1278,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B162',
         description: 'SWIR band B162',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.76999,
         full_width_half_max: 0.0115002,
         'gee:wavelength': '1769.9900nm, FWHM: 11.5002nm',
@@ -1286,7 +1286,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B163',
         description: 'SWIR band B163',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.78009,
         full_width_half_max: 0.0114789,
         'gee:wavelength': '1780.0900nm, FWHM: 11.4789nm',
@@ -1294,7 +1294,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B164',
         description: 'SWIR band B164',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.79019,
         full_width_half_max: 0.0114548,
         'gee:wavelength': '1790.1900nm, FWHM: 11.4548nm',
@@ -1302,7 +1302,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B165',
         description: 'SWIR band B165',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.80029,
         full_width_half_max: 0.0114279,
         'gee:wavelength': '1800.2900nm, FWHM: 11.4279nm',
@@ -1310,7 +1310,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B166',
         description: 'SWIR band B166',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.81038,
         full_width_half_max: 0.0113994,
         'gee:wavelength': '1810.3800nm, FWHM: 11.3994nm',
@@ -1318,7 +1318,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B167',
         description: 'SWIR band B167',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.82048,
         full_width_half_max: 0.0113688,
         'gee:wavelength': '1820.4800nm, FWHM: 11.3688nm',
@@ -1326,7 +1326,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B168',
         description: 'SWIR band B168',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.83058,
         full_width_half_max: 0.0113366,
         'gee:wavelength': '1830.5800nm, FWHM: 11.3366nm',
@@ -1334,7 +1334,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B169',
         description: 'SWIR band B169',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.84058,
         full_width_half_max: 0.0113036,
         'gee:wavelength': '1840.5800nm, FWHM: 11.3036nm',
@@ -1342,7 +1342,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B170',
         description: 'SWIR band B170',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.85068,
         full_width_half_max: 0.0112696,
         'gee:wavelength': '1850.6800nm, FWHM: 11.2696nm',
@@ -1350,7 +1350,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B171',
         description: 'SWIR band B171',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.86078,
         full_width_half_max: 0.0112363,
         'gee:wavelength': '1860.7800nm, FWHM: 11.2363nm',
@@ -1358,7 +1358,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B172',
         description: 'SWIR band B172',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.87087,
         full_width_half_max: 0.0112007,
         'gee:wavelength': '1870.8700nm, FWHM: 11.2007nm',
@@ -1366,7 +1366,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B173',
         description: 'SWIR band B173',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.88098,
         full_width_half_max: 0.0111666,
         'gee:wavelength': '1880.9800nm, FWHM: 11.1666nm',
@@ -1374,7 +1374,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B174',
         description: 'SWIR band B174',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.89107,
         full_width_half_max: 0.0111333,
         'gee:wavelength': '1891.0700nm, FWHM: 11.1333nm',
@@ -1382,7 +1382,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B175',
         description: 'SWIR band B175',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.900117,
         full_width_half_max: 0.0111018,
         'gee:wavelength': '1901.1700nm, FWHM: 11.1018nm',
@@ -1390,7 +1390,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B176',
         description: 'SWIR band B176',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.91127,
         full_width_half_max: 0.0110714,
         'gee:wavelength': '1911.2700nm, FWHM: 11.0714nm',
@@ -1398,7 +1398,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B177',
         description: 'SWIR band B177',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.92137,
         full_width_half_max: 0.0110424,
         'gee:wavelength': '1921.3700nm, FWHM: 11.0424nm',
@@ -1406,7 +1406,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B178',
         description: 'SWIR band B178',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.93147,
         full_width_half_max: 0.0110155,
         'gee:wavelength': '1931.4700nm, FWHM: 11.0155nm',
@@ -1414,7 +1414,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B179',
         description: 'SWIR band B179',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.94157,
         full_width_half_max: 0.0109912,
         'gee:wavelength': '1941.5700nm, FWHM: 10.9912nm',
@@ -1422,7 +1422,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B180',
         description: 'SWIR band B180',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.95157,
         full_width_half_max: 0.0109698,
         'gee:wavelength': '1951.5700nm, FWHM: 10.9698nm',
@@ -1430,7 +1430,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B181',
         description: 'SWIR band B181',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.96166,
         full_width_half_max: 0.0109508,
         'gee:wavelength': '1961.6600nm, FWHM: 10.9508nm',
@@ -1438,7 +1438,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B182',
         description: 'SWIR band B182',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.97176,
         full_width_half_max: 0.0109355,
         'gee:wavelength': '1971.7600nm, FWHM: 10.9355nm',
@@ -1446,7 +1446,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B183',
         description: 'SWIR band B183',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.98186,
         full_width_half_max: 0.010923,
         'gee:wavelength': '1981.8600nm, FWHM: 10.9230nm',
@@ -1454,7 +1454,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B184',
         description: 'SWIR band B184',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 1.99196,
         full_width_half_max: 0.0109139,
         'gee:wavelength': '1991.9600nm, FWHM: 10.9139nm',
@@ -1462,7 +1462,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B185',
         description: 'SWIR band B185',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.00206,
         full_width_half_max: 0.0109083,
         'gee:wavelength': '2002.0600nm, FWHM: 10.9083nm',
@@ -1470,7 +1470,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B186',
         description: 'SWIR band B186',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.01215,
         full_width_half_max: 0.0109069,
         'gee:wavelength': '2012.1500nm, FWHM: 10.9069nm',
@@ -1478,7 +1478,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B187',
         description: 'SWIR band B187',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.02225,
         full_width_half_max: 0.0109057,
         'gee:wavelength': '2022.2500nm, FWHM: 10.9057nm',
@@ -1486,7 +1486,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B188',
         description: 'SWIR band B188',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.03235,
         full_width_half_max: 0.0109013,
         'gee:wavelength': '2032.3500nm, FWHM: 10.9013nm',
@@ -1494,7 +1494,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B189',
         description: 'SWIR band B189',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.04245,
         full_width_half_max: 0.0108951,
         'gee:wavelength': '2042.4500nm, FWHM: 10.8951nm',
@@ -1502,7 +1502,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B190',
         description: 'SWIR band B190',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.05245,
         full_width_half_max: 0.0108854,
         'gee:wavelength': '2052.4500nm, FWHM: 10.8854nm',
@@ -1510,7 +1510,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B191',
         description: 'SWIR band B191',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.06255,
         full_width_half_max: 0.010874,
         'gee:wavelength': '2062.5500nm, FWHM: 10.8740nm',
@@ -1518,7 +1518,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B192',
         description: 'SWIR band B192',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.07265,
         full_width_half_max: 0.0108591,
         'gee:wavelength': '2072.6500nm, FWHM: 10.8591nm',
@@ -1526,7 +1526,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B193',
         description: 'SWIR band B193',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.08275,
         full_width_half_max: 0.0108429,
         'gee:wavelength': '2082.7500nm, FWHM: 10.8429nm',
@@ -1534,7 +1534,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B194',
         description: 'SWIR band B194',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.09284,
         full_width_half_max: 0.0108242,
         'gee:wavelength': '2092.8400nm, FWHM: 10.8242nm',
@@ -1542,7 +1542,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B195',
         description: 'SWIR band B195',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.10294,
         full_width_half_max: 0.0108039,
         'gee:wavelength': '2102.9400nm, FWHM: 10.8039nm',
@@ -1550,7 +1550,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B196',
         description: 'SWIR band B196',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.11304,
         full_width_half_max: 0.010782,
         'gee:wavelength': '2113.0400nm, FWHM: 10.7820nm',
@@ -1558,7 +1558,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B197',
         description: 'SWIR band B197',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.12314,
         full_width_half_max: 0.0107592,
         'gee:wavelength': '2123.1400nm, FWHM: 10.7592nm',
@@ -1566,7 +1566,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B198',
         description: 'SWIR band B198',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.13324,
         full_width_half_max: 0.0107342,
         'gee:wavelength': '2133.2400nm, FWHM: 10.7342nm',
@@ -1574,7 +1574,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B199',
         description: 'SWIR band B199',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.14334,
         full_width_half_max: 0.0107092,
         'gee:wavelength': '2143.3400nm, FWHM: 10.7092nm',
@@ -1582,7 +1582,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B200',
         description: 'SWIR band B200',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.15334,
         full_width_half_max: 0.0106834,
         'gee:wavelength': '2153.3400nm, FWHM: 10.6834nm',
@@ -1590,7 +1590,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B201',
         description: 'SWIR band B201',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.16343,
         full_width_half_max: 0.0106572,
         'gee:wavelength': '2163.4300nm, FWHM: 10.6572nm',
@@ -1598,7 +1598,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B202',
         description: 'SWIR band B202',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.17353,
         full_width_half_max: 0.0106312,
         'gee:wavelength': '2173.5300nm, FWHM: 10.6312nm',
@@ -1606,7 +1606,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B203',
         description: 'SWIR band B203',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.18363,
         full_width_half_max: 0.0106052,
         'gee:wavelength': '2183.6300nm, FWHM: 10.6052nm',
@@ -1614,7 +1614,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B204',
         description: 'SWIR band B204',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.19373,
         full_width_half_max: 0.0105803,
         'gee:wavelength': '2193.7300nm, FWHM: 10.5803nm',
@@ -1622,7 +1622,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B205',
         description: 'SWIR band B205',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.20383,
         full_width_half_max: 0.010556,
         'gee:wavelength': '2203.8300nm, FWHM: 10.5560nm',
@@ -1630,7 +1630,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B206',
         description: 'SWIR band B206',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.21393,
         full_width_half_max: 0.0105328,
         'gee:wavelength': '2213.9300nm, FWHM: 10.5328nm',
@@ -1638,7 +1638,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B207',
         description: 'SWIR band B207',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.22403,
         full_width_half_max: 0.0105101,
         'gee:wavelength': '2224.0300nm, FWHM: 10.5101nm',
@@ -1646,7 +1646,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B208',
         description: 'SWIR band B208',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.23412,
         full_width_half_max: 0.0104904,
         'gee:wavelength': '2234.1200nm, FWHM: 10.4904nm',
@@ -1654,7 +1654,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B209',
         description: 'SWIR band B209',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.24422,
         full_width_half_max: 0.0104722,
         'gee:wavelength': '2244.2200nm, FWHM: 10.4722nm',
@@ -1662,7 +1662,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B210',
         description: 'SWIR band B210',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.25422,
         full_width_half_max: 0.0104552,
         'gee:wavelength': '2254.2200nm, FWHM: 10.4552nm',
@@ -1670,7 +1670,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B211',
         description: 'SWIR band B211',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.26432,
         full_width_half_max: 0.0104408,
         'gee:wavelength': '2264.3200nm, FWHM: 10.4408nm',
@@ -1678,7 +1678,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B212',
         description: 'SWIR band B212',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.27442,
         full_width_half_max: 0.0104285,
         'gee:wavelength': '2274.4200nm, FWHM: 10.4285nm',
@@ -1686,7 +1686,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B213',
         description: 'SWIR band B213',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.28452,
         full_width_half_max: 0.0104197,
         'gee:wavelength': '2284.5200nm, FWHM: 10.4197nm',
@@ -1694,7 +1694,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B214',
         description: 'SWIR band B214',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.29461,
         full_width_half_max: 0.0104129,
         'gee:wavelength': '2294.6100nm, FWHM: 10.4129nm',
@@ -1702,7 +1702,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B215',
         description: 'SWIR band B215',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.30471,
         full_width_half_max: 0.0104088,
         'gee:wavelength': '2304.7100nm, FWHM: 10.4088nm',
@@ -1710,7 +1710,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B216',
         description: 'SWIR band B216',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.31481,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2314.8100nm, FWHM: 10.4077nm',
@@ -1718,7 +1718,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B217',
         description: 'SWIR band B217',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.32491,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2324.9100nm, FWHM: 10.4077nm',
@@ -1726,7 +1726,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B218',
         description: 'SWIR band B218',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.33501,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2335.0100nm, FWHM: 10.4077nm',
@@ -1734,7 +1734,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B219',
         description: 'SWIR band B219',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.34511,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2345.1100nm, FWHM: 10.4077nm',
@@ -1742,7 +1742,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B220',
         description: 'SWIR band B220',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.35521,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2355.2100nm, FWHM: 10.4077nm',
@@ -1750,7 +1750,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B221',
         description: 'SWIR band B221',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.3652,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2365.2000nm, FWHM: 10.4077nm',
@@ -1758,7 +1758,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B222',
         description: 'SWIR band B222',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.3753,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2375.3000nm, FWHM: 10.4077nm',
@@ -1766,7 +1766,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B223',
         description: 'SWIR band B223',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.3854,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2385.4000nm, FWHM: 10.4077nm',
@@ -1774,7 +1774,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B224',
         description: 'SWIR band B224',
-        'gee:units': 'W/m^2 SRµm',
+        'gee:units': 'W/m^2 SR&mu;m',
         center_wavelength: 2.3955,
         full_width_half_max: 0.0104077,
         'gee:wavelength': '2395.5000nm, FWHM: 10.4077nm',

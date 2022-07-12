@@ -275,10 +275,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           River order. River order is here defined and calculated based on the INT-term
           average discharge (DIS_AV_CMS) using logarithmic progression:
            * 1 = > 100000
-           * 2 = 10000 – 100000
-           * 3 = 1000 – 10000
-           * 4 = 100 – 1000
-           * 5 = 10 – 100
+           * 2 = 10000 - 100000
+           * 3 = 1000 - 10000
+           * 4 = 100 - 1000
+           * 5 = 10 - 100
            * 6 = 1 - 10
            * 7 = 0.1 - 1
            * 8 = 0.01 - 0.1

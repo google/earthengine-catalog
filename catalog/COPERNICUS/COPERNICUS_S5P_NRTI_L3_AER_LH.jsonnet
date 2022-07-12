@@ -267,7 +267,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'aerosol_optical_depth',
-        description: 'Aerosol optical thickness τ of the assumed aerosol layer. The optical thickness\nholds for 760 nm.',
+        description: 'Aerosol optical thickness &tau; of the assumed aerosol layer. The optical thickness\nholds for 760 nm.',
         'gee:units': 'Pa',
       },
       {

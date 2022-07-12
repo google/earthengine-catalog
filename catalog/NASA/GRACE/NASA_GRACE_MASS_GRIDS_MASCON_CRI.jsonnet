@@ -154,7 +154,7 @@ local self_url = catalog_subdir_url + base_filename;
       citation: |||
         Wiese, D. N., F. W. Landerer, and M. M. Watkins (2016),
         Quantifying and reducing leakage errors in the JPL RL05M GRACE
-        mascon solution, Water Resour. Res., 52, 7490–7502,
+        mascon solution, Water Resour. Res., 52, 7490-7502,
         [doi:10.1002/2016WR019344](https://doi.org/10.1002/2016WR019344).
       |||,
       doi: '10.1002/2016WR019344',

@@ -201,7 +201,7 @@
           sky albedo (see Lucht, W., & Lewis, P. (2000). Theoretical noise
           sensitivity of BRDF and albedo retrieval from the EOS-MODIS and MISR
           sensors with respect to angular sampling. International Journal of
-          Remote Sensing, 21(1), 81–98). WoDs give a measure of the
+          Remote Sensing, 21(1), 81-98). WoDs give a measure of the
           uncertainty due to the angular sampling of the inputs available for each
           retrieval.
         |||,

@@ -236,7 +236,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
   },
   'sci:citation': |||
-    Moriyama, M. (Sep. 2014). GCOM–C1/SGLI Land Surface Temperature Product Algorithm Theoretical
+    Moriyama, M. (Sep. 2014). GCOM-C1/SGLI Land Surface Temperature Product Algorithm Theoretical
     Basis Document (Version 1). Retrieved from [https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf](https://suzaku.eorc.jaxa.jp/GCOM_C/data/ATBD/ver1/LST-ATBD_2014.pdf)
   |||,
   'gee:interval': {

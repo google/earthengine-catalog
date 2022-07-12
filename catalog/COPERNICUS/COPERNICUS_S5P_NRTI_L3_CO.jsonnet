@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     fuel combustion is the main source of CO at northern mid-latitudes, the oxidation
     of isoprene and biomass burning play an important role in the tropics. TROPOMI
     on the Sentinel 5 Precursor (S5P) satellite observes the CO global abundance
-    exploiting clear-sky and cloudy-sky Earth radiance measurements in the 2.3 µm
+    exploiting clear-sky and cloudy-sky Earth radiance measurements in the 2.3 &mu;m
     spectral range of the shortwave infrared (SWIR) part of the solar spectrum.
     TROPOMI clear sky observations provide CO total columns with sensitivity to the
     tropospheric boundary layer. For cloudy atmospheres, the column sensitivity

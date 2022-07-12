@@ -49,6 +49,8 @@ local self_url = catalog_subdir_url + base_filename;
 
     The text "C1 (Instructions)" in the table schema descriptions refers to
     [this document](https://ec.europa.eu/eurostat/documents/205002/8072634/LUCAS2018-C1-Instructions.pdf).
+
+    See also [the LUCAS points dataset](JRC_LUCAS_HARMO_THLOC_V1).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

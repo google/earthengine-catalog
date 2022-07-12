@@ -102,14 +102,14 @@ local config = configs[version];
       {
         name: 'gain',
         description: |||
-          Forest gain during the period 2000–2012, defined as the inverse of
+          Forest gain during the period 2000-2012, defined as the inverse of
           loss (a non-forest to forest change entirely within the study
           period). Note that this has not been updated in subsequent versions.
         |||,
         'gee:bitmask': {
           bitmask_parts: [
             {
-              description: 'Forest gain during the period 2000–2012.',
+              description: 'Forest gain during the period 2000-2012.',
               bit_count: 1,
               values: [
                 {
@@ -236,8 +236,8 @@ local config = configs[version];
         description: |||
           Year of gross forest cover loss event. A disaggregation of total forest
           loss to annual time scales. Encoded as either 0 (no loss) or else a value
-          in the range 1–14, representing loss detected primarily in the year
-          2001–2014, respectively.
+          in the range 1-14, representing loss detected primarily in the year
+          2001-2014, respectively.
         |||,
       },
     ],
@@ -289,7 +289,7 @@ local config = configs[version];
     Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.
     Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.
     2013. “High-Resolution Global Maps of 21st-Century Forest Cover Change.”
-    Science 342 (15 November): 850–53. Data available on-line at:
+    Science 342 (15 November): 850-53. Data available on-line at:
     [https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).
   |||,
   'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',

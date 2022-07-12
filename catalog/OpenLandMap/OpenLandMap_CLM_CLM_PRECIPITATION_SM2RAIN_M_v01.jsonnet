@@ -32,7 +32,7 @@ local self_url = catalog_subdir_url + base_filename;
     [Downscaled to 1 km resolution using gdalwarp](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/clim1km)
     (cubic splines) and an average between [WorldClim](https://www.worldclim.com/version2),
     [CHELSA Climate](https://chelsa-climate.org/),
-    and [IMERG monthly product](ftp://jsimpson.pps.eosdis.nasa.gov/NRTPUB/imerg/gis/) (see, e.g, \\"3B-MO-L.GIS.IMERG.20180601.V05B.tif\\").
+    and [IMERG monthly product](ftp://jsimpson.pps.eosdis.nasa.gov/NRTPUB/imerg/gis/) (see, e.g, "3B-MO-L.GIS.IMERG.20180601.V05B.tif").
     3x higher weight is given to the SM2RAIN-ASCAT data since it assumed to be more accurate. Processing steps are available
     [**here**](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/clim1km)
     . Antartica is not included.

@@ -694,7 +694,7 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'CMI_C13',
-        description: 'Infrared - \\"Clean\\" longwave window\n\nSurface and clouds\n\nBrightness',
+        description: 'Infrared - "Clean" longwave window\n\nSurface and clouds\n\nBrightness',
         'gee:units': 'K',
         center_wavelength: 10.35,
         'gee:wavelength': '10.1-10.6&micro;m',
@@ -770,7 +770,7 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'CMI_C15',
-        description: 'Infrared \\"Dirty\\" longwave\n\nTotal water, volcanic ash, sea surface temperature\n\nBrightness',
+        description: 'Infrared "Dirty" longwave\n\nTotal water, volcanic ash, sea surface temperature\n\nBrightness',
         'gee:units': 'K',
         center_wavelength: 12.3,
         'gee:wavelength': '11.8-12.8&micro;m',

@@ -328,7 +328,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'nflh',
         description: 'Normalized fluorescence line height',
-        'gee:units': 'mW cm-2 µm-1 sr-1',
+        'gee:units': 'mW cm-2 &mu;m-1 sr-1',
       },
       {
         name: 'poc',
