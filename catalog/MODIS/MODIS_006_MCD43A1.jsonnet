@@ -1,6 +1,6 @@
 local id = 'MODIS/006/MCD43A1';
-local latest_id = 'MODIS/061/MYD13Q1';
-local successor_id = 'MODIS/061/MYD13Q1';
+local latest_id = 'MODIS/061/MCD43A1';
+local successor_id = 'MODIS/061/MCD43A1';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
