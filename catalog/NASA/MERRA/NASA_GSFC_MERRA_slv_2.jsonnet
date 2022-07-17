@@ -348,7 +348,5 @@ local self_url = catalog_subdir_url + base_filename;
     NASA promotes the full and open sharing of all data with research and
     applications communities, private industry, academia, and the general
     public.
-  |||,
-  // TODO: Remove this when all assets are ingested
-  'gee:skip_indexing': true,
+  |||
 }
