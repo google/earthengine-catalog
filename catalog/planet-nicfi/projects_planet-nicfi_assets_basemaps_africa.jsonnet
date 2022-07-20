@@ -115,6 +115,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'True color',
         lookat: {
+          lon: 23.35,
           lat: -2.4,
           zoom: 4,
         },

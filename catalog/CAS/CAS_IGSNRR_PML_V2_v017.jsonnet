@@ -110,6 +110,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       {
         display_name: 'PML_V2 ' + version + ' Gross Primary Product (GPP)',
         lookat: {
+          lon: 66.3,
           lat: 15.0,
           zoom: 2,
         },

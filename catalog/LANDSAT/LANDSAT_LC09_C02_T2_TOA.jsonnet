@@ -7,6 +7,8 @@ local landsat = import 'landsat.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local template = import 'templates/LC08_C02.libsonnet';
 
+local license = spdx.pddl_1_0;
+
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -30,7 +32,7 @@ local self_url = catalog_subdir_url + base_filename;
       See [Chander et al. (2009)](https://www.sciencedirect.com/science/article/pii/S0034425709000169)
       for details on the TOA computation.
   ||| + landsat.tier2,
-  license: spdx.pddl_1_0.id,
+  license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
     'c2',

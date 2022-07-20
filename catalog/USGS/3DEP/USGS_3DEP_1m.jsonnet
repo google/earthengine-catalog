@@ -55,8 +55,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       'https://www.usgs.gov/information-policies-and-instructions/crediting-usgs'),
     {
       rel: ee_const.rel.source,
-      href: 'https://storage.googleapis.com/coral-atlas-user-downloads-prod/Global-Dataset-20211006223100.zip',
-    },
+      href: 's3://prd-tnm/StagedProducts/Elevation/1m/Projects',
+    }
   ],
   keywords: [
     '3dep',

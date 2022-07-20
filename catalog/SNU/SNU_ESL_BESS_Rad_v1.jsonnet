@@ -82,6 +82,8 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'Surface downwelling photosynthetic radiative flux',
         lookat: {
+          lon: 2.1,
+          lat: 24.9,
           zoom: 1,
         },
         image_visualization: {

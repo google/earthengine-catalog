@@ -847,7 +847,8 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'Blue band',
         lookat: {
-          lon: -75.0,
+          lon: -132.0,
+          lat: 2.8,
           zoom: 3,
         },
         image_visualization: {

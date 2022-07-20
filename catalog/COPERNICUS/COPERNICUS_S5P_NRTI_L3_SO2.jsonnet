@@ -320,6 +320,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'RGB',
         lookat: {
+          lon: -4.6,
+          lat: 40,
           zoom: 2,
         },
         filter: {

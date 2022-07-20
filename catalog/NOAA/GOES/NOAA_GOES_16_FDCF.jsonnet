@@ -217,6 +217,7 @@ local self_url = catalog_subdir_url + base_filename;
         display_name: 'Data Quality Flags (DQF)',
         lookat: {
           lon: -75.0,
+          lat: 15.61,
           zoom: 3,
         },
         image_visualization: {

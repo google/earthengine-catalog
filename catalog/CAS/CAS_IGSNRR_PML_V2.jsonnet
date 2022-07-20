@@ -111,6 +111,7 @@ local successor_url = catalog_subdir_url + successor_filename;
       {
         display_name: 'PML_V2 ' + version + ' Gross Primary Product (GPP)',
         lookat: {
+          lon: 9.84,
           lat: 15.0,
           zoom: 2,
         },

@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         point_size: 1,
       },
       lookat: {
-        lon: 0,
+        lon: 1,
         lat: 1,
         zoom: 2,
       },

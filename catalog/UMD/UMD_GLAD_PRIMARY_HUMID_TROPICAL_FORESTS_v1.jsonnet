@@ -68,6 +68,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'Primary HT forests',
         lookat: {
+          lon: 20.39,
+          lat: -0.85,
           zoom: 2,
         },
         image_visualization: {
