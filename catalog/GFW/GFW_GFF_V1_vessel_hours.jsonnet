@@ -93,6 +93,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Trawlers',
+        lookat: {
+          lon: 130.61,
+          lat: 34.287,
+          zoom: 8,
+        },
         image_visualization: {
           band_vis: {
             min: [

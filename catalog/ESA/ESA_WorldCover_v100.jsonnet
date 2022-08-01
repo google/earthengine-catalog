@@ -128,6 +128,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Landcover',
+        lookat: {
+          lat: -11.2,
+          lon: 29.5,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             bands: [

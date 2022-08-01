@@ -82,6 +82,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'False Color',
+        lookat: {
+          lon: 44.517,
+          lat: 25.998,
+          zoom: 5,
+        },
         image_visualization: {
           band_vis: {
             gamma: [

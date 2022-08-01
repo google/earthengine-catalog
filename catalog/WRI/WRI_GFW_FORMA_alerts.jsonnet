@@ -113,6 +113,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'FORMA Alerts',
+        lookat: {
+          lon: 6.746,
+          lat: 39,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [

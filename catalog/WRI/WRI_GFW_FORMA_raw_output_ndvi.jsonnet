@@ -112,6 +112,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Percent of clearing in the last 365 days',
+        lookat: {
+          lon: 25.73,
+          lat: -7.61,
+          zoom: 2,
+        },
         image_visualization: {
           band_vis: {
             min: [

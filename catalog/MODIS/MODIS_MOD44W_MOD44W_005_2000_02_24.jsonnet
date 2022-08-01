@@ -125,6 +125,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Water Mask',
+        lookat: {
+          lon: 0,
+          lat: 0,
+          zoom: 0,
+        },
         image_visualization: {
           band_vis: {
             min: [

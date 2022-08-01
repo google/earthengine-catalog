@@ -80,6 +80,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'classificationVis',
+        lookat: {
+          lon: -3.0175,
+          lat: 5.2745,
+          zoom: 12,
+        },
         image_visualization: {
           band_vis: {
             min: [

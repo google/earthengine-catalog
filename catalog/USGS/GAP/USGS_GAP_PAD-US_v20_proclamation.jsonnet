@@ -299,6 +299,11 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'Features',
         visualize_as: 'FeatureView',
+        lookat: {
+          lat: 43.0,
+          lon: -73.0,
+          zoom: 8,
+        },
       },
     ],
     'gee:feature_view_ingestion_params': {

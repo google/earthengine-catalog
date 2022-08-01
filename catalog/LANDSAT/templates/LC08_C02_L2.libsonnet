@@ -758,6 +758,11 @@ local ee_const = import 'earthengine_const.libsonnet';
     'gee:visualizations': [
       {
         display_name: 'True Color (432)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -776,6 +781,11 @@ local ee_const = import 'earthengine_const.libsonnet';
       },
       {
         display_name: 'Near Infrared (543)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -794,6 +804,11 @@ local ee_const = import 'earthengine_const.libsonnet';
       },
       {
         display_name: 'Shortwave Infrared (753)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [

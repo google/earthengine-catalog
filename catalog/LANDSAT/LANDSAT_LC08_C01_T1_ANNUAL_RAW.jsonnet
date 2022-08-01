@@ -296,6 +296,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'True Color (432)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -314,6 +319,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Near Infrared (543)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -332,6 +342,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Shortwave Infrared (753)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [

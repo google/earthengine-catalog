@@ -858,6 +858,11 @@ local common_bands = import 'common_bands.libsonnet';
     'gee:visualizations': [
       {
         display_name: 'True Color (321)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             gain: [
@@ -875,6 +880,11 @@ local common_bands = import 'common_bands.libsonnet';
       },
       {
         display_name: 'Near Infrared (432)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             gain: [
@@ -892,6 +902,11 @@ local common_bands = import 'common_bands.libsonnet';
       },
       {
         display_name: 'Shortwave Infrared (742)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             gain: [

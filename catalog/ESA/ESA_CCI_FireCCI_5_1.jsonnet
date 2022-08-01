@@ -216,6 +216,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Burn Date',
+        lookat: {
+          lon: 0,
+          lat: 18,
+          zoom: 2,
+        },
         image_visualization: {
           band_vis: {
             min: [

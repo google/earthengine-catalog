@@ -79,6 +79,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Human modification',
+        lookat: {
+          lon: -0.7,
+          lat: 3.5,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [

@@ -521,6 +521,11 @@
     'gee:visualizations': [
       {
         display_name: 'Land Surface Temperature',
+        lookat: {
+          lon: 0,
+          lat: 0,
+          zoom: 0,
+        },
         image_visualization: {
           band_vis: {
             min: [

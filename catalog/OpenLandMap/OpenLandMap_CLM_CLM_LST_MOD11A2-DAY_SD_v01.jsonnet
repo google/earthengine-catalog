@@ -143,6 +143,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Long-term Land Surface Temperature daytime monthly sd',
+        lookat: {
+          lon: -5.6,
+          lat: 30.7,
+          zoom: 1,
+        },
         image_visualization: {
           global_vis: {
             min: [

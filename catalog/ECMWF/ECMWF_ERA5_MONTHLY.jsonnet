@@ -170,6 +170,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Monthly sums of total precipitation in m',
+        lookat: {
+          lon: 21.2,
+          lat: 22.2,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -194,6 +199,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Monthly mean surface pressure',
+        lookat: {
+          lon: 21.2,
+          lat: 22.2,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -219,6 +229,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Monthly mean u-component of wind at 10m',
+        lookat: {
+          lon: 21.2,
+          lat: 22.2,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [

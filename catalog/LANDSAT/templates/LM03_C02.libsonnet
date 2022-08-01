@@ -516,6 +516,11 @@ local common_bands = import 'common_bands.libsonnet';
     'gee:visualizations': [
       {
         display_name: 'Near Infrared (321)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             bands: [
@@ -528,6 +533,11 @@ local common_bands = import 'common_bands.libsonnet';
       },
       {
         display_name: 'Shortwave Infrared (421)',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             bands: [

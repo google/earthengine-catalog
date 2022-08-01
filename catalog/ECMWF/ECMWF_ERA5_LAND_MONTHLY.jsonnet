@@ -644,6 +644,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Total precipitation in m',
+        lookat: {
+          lat: 21.2,
+          lon: 22.2,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -668,6 +673,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'Surface pressure',
+        lookat: {
+          lat: 21.2,
+          lon: 22.2,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [
@@ -693,6 +703,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         display_name: 'u-component of wind at 10m',
+        lookat: {
+          lat: 21.2,
+          lon: 22.2,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [

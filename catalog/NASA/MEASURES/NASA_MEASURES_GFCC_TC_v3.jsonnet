@@ -53,7 +53,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     Documentation:
 
-    * [User's guide](https://lpdaac.usgs.gov/documents/145/GFCC_User_Guide_V1.pdf)
+    * [User's guide](https://lpdaac.usgs.gov/documents/1371/GFCC_User_Guide_V1.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/1370/GFCC_ATBD.pdf)
 

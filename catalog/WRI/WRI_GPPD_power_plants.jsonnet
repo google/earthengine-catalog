@@ -176,6 +176,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Power Plant capacity',
+        lookat: {
+          lon: 16,
+          lat: 49,
+          zoom: 4,
+        },
         polygon_visualization: {
           property_name: 'capacitymw',
           property_vis: {

@@ -101,6 +101,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Equivalent Water Thickness',
+        lookat: {
+          lat: 6.746,
+          lon: 46.529,
+          zoom: 2,
+        },
         image_visualization: {
           band_vis: {
             min: [

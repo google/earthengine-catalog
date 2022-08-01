@@ -93,6 +93,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Soil Moisture',
+        lookat: {
+          lat: -6.746,
+          lon: 46.529,
+          zoom: 2,
+        },
         image_visualization: {
           band_vis: {
             min: [

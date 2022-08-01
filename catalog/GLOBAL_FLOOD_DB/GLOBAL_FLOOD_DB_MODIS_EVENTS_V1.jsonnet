@@ -268,6 +268,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Flood duration in days',
+        lookat: {
+          lat: -89.2922,
+          lon: 29.4064,
+          zoom: 9,
+        },
         image_visualization: {
           global_vis: {
             min: [

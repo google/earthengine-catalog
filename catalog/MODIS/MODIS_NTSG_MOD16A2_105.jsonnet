@@ -221,6 +221,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gee:visualizations': [
       {
         display_name: 'Evapotranspiration',
+        lookat: {
+          lon: 0,
+          lat: 0,
+          zoom: 0,
+        },
         image_visualization: {
           band_vis: {
             min: [

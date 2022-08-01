@@ -82,6 +82,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'carbon_tonnes_per_ha',
+        lookat: {
+          lat: -14.1,
+          lon: 18.6,
+          zoom: 1,
+        },
         image_visualization: {
           band_vis: {
             min: [

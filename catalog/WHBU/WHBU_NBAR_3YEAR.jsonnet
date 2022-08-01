@@ -114,6 +114,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'False Color',
+        lookat: {
+          lat: 15.3,
+          lon: 50.08,
+          zoom: 4,
+        },
         image_visualization: {
           band_vis: {
             min: [

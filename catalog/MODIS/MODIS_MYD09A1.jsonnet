@@ -94,6 +94,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
       {
         display_name: 'False Color (367: Snow/Water/Ice)',
+        lookat: {
+          lat: 31.052933985705163,
+          lon: -7.03125,
+          zoom: 2,
+        },
         image_visualization: {
           band_vis: {
             min: [

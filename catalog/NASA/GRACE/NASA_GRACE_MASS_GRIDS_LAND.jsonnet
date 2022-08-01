@@ -140,6 +140,11 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Equivalent Water Thickness CSR',
+        lookat: {
+          lon: 6.746,
+          lat: 46.529,
+          zoom: 2,
+        },
         image_visualization: {
           band_vis: {
             min: [
