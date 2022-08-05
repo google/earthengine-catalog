@@ -158,7 +158,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'elevation',
         description: 'ASTER Global Digital Elevation Model V002',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
       },
       {
         name: 'land_water_map',

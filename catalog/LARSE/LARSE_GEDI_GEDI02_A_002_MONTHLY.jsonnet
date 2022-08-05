@@ -81,7 +81,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     beam: {
       minimum: 0,
       maximum: 12,
-      units: 'Meters',
       'gee:estimated_range': false,
     },
     degrade_flag: {

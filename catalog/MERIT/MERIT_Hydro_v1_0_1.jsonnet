@@ -113,7 +113,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'elv',
         description: 'Elevation',
-        'gee:units': 'meters',
+        'gee:units': 'm',
       },
       {
         name: 'dir',
@@ -164,7 +164,7 @@ local self_url = catalog_subdir_url + base_filename;
           above EGM96 geoid is represented in meters, and the vertical increment is set to
           10cm. For detailed method, see [Yamazaki et al., 2012, WRR].
         |||,
-        'gee:units': 'meters',
+        'gee:units': 'm',
       },
       {
         name: 'viswth',

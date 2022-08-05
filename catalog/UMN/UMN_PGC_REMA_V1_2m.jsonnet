@@ -72,7 +72,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'elevation',
         description: 'Elevation',
-        'gee:units': 'meters',
+        'gee:units': 'm',
       },
       {
         name: 'matchtag',

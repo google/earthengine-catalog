@@ -64,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'area_in_meters',
         description: 'Area in square meters of the polygon.',
         type: ee_const.var_type.double,
-        units: 'square meters',
+        units: 'm^2',
       },
       {
         name: 'confidence',

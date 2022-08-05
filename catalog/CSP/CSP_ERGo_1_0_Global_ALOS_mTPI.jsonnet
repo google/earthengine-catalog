@@ -70,7 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'AVE',
         description: 'ALOS-derived mTPI ranging from negative (valleys) to positive (ridges) values',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
       },
     ],
     'gee:visualizations': [

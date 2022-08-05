@@ -55,11 +55,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'ALAND',
         description: 'Land Area (square meters)',
         type: ee_const.var_type.double,
+        units: 'm^2',
       },
       {
         name: 'AWATER',
         description: 'Water Area (square meters)',
         type: ee_const.var_type.double,
+        units: 'm^2',
       },
       {
         name: 'COUNTYFP',

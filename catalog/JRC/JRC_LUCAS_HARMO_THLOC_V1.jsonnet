@@ -89,7 +89,7 @@ local self_url = catalog_subdir_url + base_filename;
         Years: 2006, 2009, 2012, 2015
       |||,
       type: ee_const.var_type.double,
-      units: 'meters',
+      units: 'm',
     }],
     'gee:visualizations': [
       {

@@ -66,12 +66,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bedrock',
         description: 'Elevation at ground level and at the base of the Antarctic and Greenland ice sheets',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
       },
       {
         name: 'ice_surface',
         description: 'Elevation at ground level and at the top of the Antarctic and Greenland ice sheets',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
       },
     ],
     'gee:visualizations': [

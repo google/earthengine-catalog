@@ -82,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'b1',
         description: 'Elevation',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
       },
     ],
     'gee:visualizations': [

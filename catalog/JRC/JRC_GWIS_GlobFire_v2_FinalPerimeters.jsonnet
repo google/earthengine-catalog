@@ -80,6 +80,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'area',
         description: 'Fire area, square meters',
         type: ee_const.var_type.double,
+        units: 'm^2',
       },
       {
         name: 'FinalDate',

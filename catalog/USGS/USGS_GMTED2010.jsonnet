@@ -74,7 +74,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'be75',
         description: 'Elevation',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
       },
     ],
     'gee:visualizations': [

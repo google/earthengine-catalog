@@ -71,7 +71,7 @@ local self_url = catalog_subdir_url + base_filename;
           EGM96 geoid (whereas the floating-point heights in the SRTM-only DEM files are relative to
           the WGS84 ellipsoid).
         |||,
-        'gee:units': 'Meters',
+        'gee:units': 'm',
         gsd: 30.0,
       },
       {

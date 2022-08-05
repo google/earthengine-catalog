@@ -79,7 +79,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'elevation',
         description: 'Elevation (NAVD88)',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
         gsd: 1,
       },
     ],
