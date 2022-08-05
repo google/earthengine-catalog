@@ -192,12 +192,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {
             value: 142,
             color: '999900',
-            description: 'Quinoa',
+            description: 'Sorghum',
           },
           {
-            value: 142,
-            color: '999900',
-            description: 'Sorghum',
+            value: 143,
+            color: 'E9E2B1',
+            description: 'Quinoa',
           },
           {
             value: 145,

@@ -26,15 +26,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset provides offline high-resolution imagery of methane
     concentrations.
 
-    Methane (CH<sub>4</sub>) is, after carbon dioxide (CO<sub>2</sub>), the most important contributor
-    to the anthropogenically enhanced greenhouse effect. Roughly three-quarters
-    of methane emissions are anthropogenic and as such it is important to continue
-    the record of satellite based measurements. TROPOMI aims at providing CH<sub>4</sub>
-    column concentrations with high sensitivity to the Earth’s surface, good
-    spatiotemporal coverage, and sufficient accuracy to facilitate inverse
-    modeling of sources and sinks. TROPOMI uses absorption information from the
-    Oxygen-A Band (760nm) and the SWIR spectral range to monitor CH<sub>4</sub> abundances
-    in the Earth's atmosphere. [[More information](http://www.tropomi.eu/data-products/methane)]
+    Methane (CH<sub>4</sub>) is, after carbon dioxide (CO<sub>2</sub>), the most
+    important contributor to the anthropogenically enhanced greenhouse effect.
+    Roughly three-quarters of methane emissions are anthropogenic and as such it
+    is important to continue the record of satellite based measurements. TROPOMI
+    aims at providing CH<sub>4</sub> column concentrations with high sensitivity
+    to the Earth’s surface, good spatiotemporal coverage, and sufficient
+    accuracy to facilitate inverse modeling of sources and sinks. TROPOMI uses
+    absorption information from the Oxygen-A Band (760nm) and the SWIR spectral
+    range to monitor CH<sub>4</sub> abundances in the Earth's atmosphere.
+    [[More information](http://www.tropomi.eu/data-products/methane)]
 
     Currently, the following data quality issues are known, are not covered by
     the quality flags, and should be kept in mind when looking at the methane
@@ -44,19 +45,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Filtering on qa_value &lt; 0.5 does not remove all pixels considered bad.
     Some pixels with too low methane concentrations are still present:
 
-     - Single TROPOMI overpasses show stripes of erroneous CH<sub>4</sub> values in the
-       flight direction.
+     - Single TROPOMI overpasses show stripes of erroneous CH<sub>4</sub> values
+       in the flight direction.
 
      - Not all pixels above inland water are filtered.
 
-     - Uncertainties for the XCH<sub>4</sub> is only based on the single sounding
-       precision due to measurement noise. For applications requiring an
-       overall uncertainty estimate, we propose to multiply the provided error
-       by a factor 2, which reflects the scatter of single sounding errors in
-       the TCCON validation.
+     - Uncertainties for the XCH<sub>4</sub> is only based on the single
+       sounding precision due to measurement noise. For applications requiring
+       an overall uncertainty estimate, we propose to multiply the provided
+       error by a factor 2, which reflects the scatter of single sounding errors
+       in the TCCON validation.
 
-     - The current data release only provides XCH<sub>4</sub> over land. Glint ocean
-       observations will be added in the next data release.
+     - The current data release only provides XCH<sub>4</sub> over land. Glint
+       ocean observations will be added in the next data release.
 
     ### OFFL L3 Product
 
@@ -280,12 +281,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'CH4_column_volume_mixing_ratio_dry_air',
-        description: 'column averaged dry air mixing ratio of methane',
-        'gee:units': 'ppbV',
+        description: |||
+          Column-averaged dry air mixing ratio of methane, as parts-per-billion
+        |||,
+        'gee:units': 'mol/mol',
       },
       {
         name: 'aerosol_height',
-        description: 'aerosol height parameter in the CH<sub>4</sub> retrieval',
+        description: 'Aerosol height parameter in the CH<sub>4</sub> retrieval',
         'gee:units': 'm',
       },
       {
@@ -294,29 +297,51 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'sensor_azimuth_angle',
-        description: 'Azimuth angle of the satellite at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
+        description: |||
+          Azimuth angle of the satellite at the ground pixel location (WGS84);
+          angle measured East-of-North.
+        |||,
         'gee:units': 'degrees',
       },
       {
         name: 'sensor_zenith_angle',
         description: |||
-          Zenith angle of the satellite at the ground pixel location (WGS84); angle
-          measured away from the vertical.
+          Zenith angle of the satellite at the ground pixel location (WGS84);
+          angle measured away from the vertical.
         |||,
         'gee:units': 'degrees',
       },
       {
         name: 'solar_azimuth_angle',
-        description: 'Azimuth angle of the Sun at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
+        description: |||
+          Azimuth angle of the Sun at the ground pixel location (WGS84); angle
+          measured East-of-North.
+        |||,
         'gee:units': 'degrees',
       },
       {
         name: 'solar_zenith_angle',
         description: |||
-          Zenith angle of the satellite at the ground pixel location (WGS84); angle
-          measured away from the vertical.
+          Zenith angle of the satellite at the ground pixel location (WGS84);
+          angle measured away from the vertical.
         |||,
         'gee:units': 'degrees',
+      },
+      {
+        name: 'CH4_column_volume_mixing_ratio_dry_air_bias_corrected',
+        description: |||
+          Column-averaged dry air mixing ratio of methane, as parts-per-billion,
+          corrected for surface albedo
+        |||,
+        'gee:units': 'mol/mol',
+      },
+      {
+        name: 'CH4_column_volume_mixing_ratio_dry_air_uncertainty',
+        description: |||
+          Uncertainty of the column averaged dry air mixing ratio of methane
+          (1 sigma error)
+        |||,
+        'gee:units': 'mol/mol',
       },
     ],
     'gee:visualizations': [
@@ -356,8 +381,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
     CH4_column_volume_mixing_ratio_dry_air: {
-      minimum: 1491.0,
-      maximum: 2352.0,
+      minimum: 1285.0,
+      maximum: 2405.0,
       'gee:estimated_range': true,
     },
     aerosol_height: {
@@ -388,6 +413,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     solar_zenith_angle: {
       minimum: 6.0,
       maximum: 70.0,
+      'gee:estimated_range': true,
+    },
+    CH4_column_volume_mixing_ratio_dry_air_bias_corrected: {
+      minimum: 1295.0,
+      maximum: 2432.0,
+      'gee:estimated_range': true,
+    },
+    CH4_column_volume_mixing_ratio_dry_air_uncertainty: {
+      minimum: 0.0,
+      maximum: 10.0,
       'gee:estimated_range': true,
     },
   },
