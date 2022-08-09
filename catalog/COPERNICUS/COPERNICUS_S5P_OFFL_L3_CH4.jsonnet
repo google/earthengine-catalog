@@ -56,8 +56,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
        error by a factor 2, which reflects the scatter of single sounding errors
        in the TCCON validation.
 
-     - The current data release only provides XCH<sub>4</sub> over land. Glint
-       ocean observations will be added in the next data release.
+     - Data prior to November 2021 only provides XCH<sub>4</sub> over land,
+       after which glint ocean observations were added.
 
     ### OFFL L3 Product
 
