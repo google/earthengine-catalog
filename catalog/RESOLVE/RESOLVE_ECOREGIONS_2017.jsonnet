@@ -27,12 +27,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Earth Engine](https://code.earthengine.google.com/b961ab2adfcb03c920aab63d86c49eb2).
 
     Ecoregions, in the simplest definition, are ecosystems of regional extent.
-    Specifically, ecoregions represent distinct assemblages of biodiversity―all
-    taxa, not just vegetation―whose boundaries include the space required to
+    Specifically, ecoregions represent distinct assemblages of biodiversity-all
+    taxa, not just vegetation-whose boundaries include the space required to
     sustain ecological processes. Ecoregions provide a useful basemap for
     conservation planning in particular because they draw on natural, rather
     than political, boundaries, define distinct biogeographic assemblages and
-    ecological habitats within biomes, and assist in representation of Earth’s
+    ecological habitats within biomes, and assist in representation of Earth's
     biodiversity.
 
     This dataset is based on recent advances in biogeography - the science
@@ -78,7 +78,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Note - a number of ecoregions are very complex polygons with over a million
     vertices, such as Rock & Ice. These ecoregions were split when necessary,
-    with attributes like Eco_ID being preserved. If you’d like to see all
+    with attributes like Eco_ID being preserved. If you'd like to see all
     ecoregions that have been split, please [run this script](https://code.earthengine.google.com/7a437c78fc8cb46ec586bb4e2c10e526).
   |||,
   license: license.id,

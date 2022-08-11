@@ -60,7 +60,7 @@ local self_url = catalog_subdir_url + base_filename;
           Absolute accuracy in X
 
           This field applies only to standard production USGS DEMs and echoes data
-          element 2 of the source DEM’s Type C record,(Digital Elevation Models,
+          element 2 of the source DEM's Type C record,(Digital Elevation Models,
           USGS, 1993). See Standards for Digital Elevation Models for more
           information. This field is populated with zero if not available.
 
@@ -75,7 +75,7 @@ local self_url = catalog_subdir_url + base_filename;
           Absolute accuracy in Y
 
           This field applies only to standard production USGS DEMs and echoes data
-          element 2 of the source DEM’s Type C record,(Digital Elevation Models,
+          element 2 of the source DEM's Type C record,(Digital Elevation Models,
           USGS, 1993). See Standards for Digital Elevation Models for more
           information. This field is populated with zero if not available.
 
@@ -90,7 +90,7 @@ local self_url = catalog_subdir_url + base_filename;
           Absolute accuracy in Z
 
           This field applies only to standard production USGS DEMs and echoes data
-          element 2 of the source DEM’s Type C record,(Digital Elevation Models,
+          element 2 of the source DEM's Type C record,(Digital Elevation Models,
           USGS, 1993). See Standards for Digital Elevation Models for more
           information. This field is populated with zero if not available.
 
@@ -368,7 +368,7 @@ local self_url = catalog_subdir_url + base_filename;
           Availability of Relative Accuracy Statistics
 
           This field applies only to standard production USGS DEMs and echoes
-          data element 4 of the source DEM’s Type C (relative accuracy statistics)
+          data element 4 of the source DEM's Type C (relative accuracy statistics)
           (Digital Elevation Models, USGS, 1993).
 
           Valid codes:
@@ -385,7 +385,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'rmsepts',
         description: |||
           Sample Size
-          This field applies only to standard production USGS DEMs and echoes data element 6 of the source DEM’s Type C (sample size) (Digital Elevation Models, USGS, 1993).
+          This field applies only to standard production USGS DEMs and echoes data element 6 of the source DEM's Type C (sample size) (Digital Elevation Models, USGS, 1993).
           For DEMs introduced after April 1, 2014 this field will populated with -100.
         |||,
         type: ee_const.var_type.int,
@@ -394,7 +394,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'rmsex',
         description: |||
           Relative Accuracy X
-          This field applies only to standard production USGS DEMs and echoes data element 5 of the source DEM’s Type C (relative accuracy in X, Y, Z (Digital Elevation Models, USGS, 1993). This field is zero if not available.
+          This field applies only to standard production USGS DEMs and echoes data element 5 of the source DEM's Type C (relative accuracy in X, Y, Z (Digital Elevation Models, USGS, 1993). This field is zero if not available.
           For DEMs introduced after April 1, 2014 this field will be populated with -100.
         |||,
         type: ee_const.var_type.int,
@@ -403,7 +403,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'rmsey',
         description: |||
           Relative Accuracy Y
-          This field applies only to standard production USGS DEMs and echoes data element 5 of the source DEM’s Type C (relative accuracy in X, Y, Z (Digital Elevation Models, USGS, 1993). This field is zero if not available.
+          This field applies only to standard production USGS DEMs and echoes data element 5 of the source DEM's Type C (relative accuracy in X, Y, Z (Digital Elevation Models, USGS, 1993). This field is zero if not available.
           For DEMs introduced after April 1, 2014 this field will be populated with -100.
         |||,
         type: ee_const.var_type.int,
@@ -412,7 +412,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'rmsez',
         description: |||
           Relative Accuracy Z
-          This field applies only to standard production USGS DEMs and echoes data element 5 of the source DEM’s Type C (relative accuracy in X, Y, Z (Digital Elevation Models, USGS, 1993). This field is zero if not available.
+          This field applies only to standard production USGS DEMs and echoes data element 5 of the source DEM's Type C (relative accuracy in X, Y, Z (Digital Elevation Models, USGS, 1993). This field is zero if not available.
           For DEMs introduced after April 1, 2014 this field will be populated with -100.
         |||,
         type: ee_const.var_type.int,
@@ -480,7 +480,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'xshift',
         description: |||
           Horizontal Shift in longitude.
-          The positional shift in longitude applied to each posting in the source DEM to convert from NAD27 coordinates to NAD83 coordinates. These values will be zero if the source DEM’s HDATUM field value is 83, 84 or 72. (WGS84 is nearly identical to NAD83, and WGS72 is sufficiently similar that no shift was deemed necessary). The shift values were obtained from NGS’s NADCON software, and were calculated at the nominal center of each quadrangle.
+          The positional shift in longitude applied to each posting in the source DEM to convert from NAD27 coordinates to NAD83 coordinates. These values will be zero if the source DEM's HDATUM field value is 83, 84 or 72. (WGS84 is nearly identical to NAD83, and WGS72 is sufficiently similar that no shift was deemed necessary). The shift values were obtained from NGS's NADCON software, and were calculated at the nominal center of each quadrangle.
           New high-resolution DEMs introduced after April 1, 2014 generally have a horizontal datum of NAD83 and this field will be populated with -100.
         |||,
         type: ee_const.var_type.double,
@@ -489,7 +489,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'yshift',
         description: |||
           Horizontal Shift in latitude.
-          The positional shift in latitude applied to each posting in the source DEM to convert from NAD27 coordinates to NAD83 coordinates. These values will be zero if the source DEM’s HDATUM field value is 83, 84 or 72. (WGS84 is nearly identical to NAD83, and WGS72 is sufficiently similar that no shift was deemed necessary). The shift values were obtained from NGS’s NADCON software, and were calculated at the nominal center of each quadrangle.
+          The positional shift in latitude applied to each posting in the source DEM to convert from NAD27 coordinates to NAD83 coordinates. These values will be zero if the source DEM's HDATUM field value is 83, 84 or 72. (WGS84 is nearly identical to NAD83, and WGS72 is sufficiently similar that no shift was deemed necessary). The shift values were obtained from NGS's NADCON software, and were calculated at the nominal center of each quadrangle.
           New high-resolution DEMs introduced after April 1, 2014 generally have a horizontal datum of NAD83 and this field will be populated with -100.
         |||,
         type: ee_const.var_type.double,
@@ -498,7 +498,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'zmax',
         description: |||
           Maximum Elevation of Source DEM
-          The maximum elevation value of the source DEM before any filtering or reprojection, but after conversion to meters and to NAVD88. For DEMs derived from standard USGS maps, subtracting ZSHIFT and converting to the DEM’s original units results in the min and max values reported in data element 12 of the DEM’s Type A record (Digital Elevation Models, USGS, 1993).
+          The maximum elevation value of the source DEM before any filtering or reprojection, but after conversion to meters and to NAVD88. For DEMs derived from standard USGS maps, subtracting ZSHIFT and converting to the DEM's original units results in the min and max values reported in data element 12 of the DEM's Type A record (Digital Elevation Models, USGS, 1993).
         |||,
         type: ee_const.var_type.double,
       },
@@ -514,7 +514,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'zmin',
         description: |||
           Minimum Elevation of Source DEM
-          The minimum elevation value of the source DEM before any filtering or reprojection, but after conversion to meters and to NAVD88. For DEMs derived from standard USGS maps, subtracting ZSHIFT and converting to the DEM’s original units results in the min and max values reported in data element 12 of the DEM’s Type A record (Digital Elevation Models, USGS, 1993).
+          The minimum elevation value of the source DEM before any filtering or reprojection, but after conversion to meters and to NAVD88. For DEMs derived from standard USGS maps, subtracting ZSHIFT and converting to the DEM's original units results in the min and max values reported in data element 12 of the DEM's Type A record (Digital Elevation Models, USGS, 1993).
         |||,
         type: ee_const.var_type.double,
       },
@@ -522,7 +522,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'zshift',
         description: |||
           Elevation Shift
-          The elevation shift, in meters, applied to each posting within the source DEM to convert to NAVD88 values. The shift values were obtained from NGS’s VERTCON software, and were calculated at the nominal center of each quadrangle.
+          The elevation shift, in meters, applied to each posting within the source DEM to convert to NAVD88 values. The shift values were obtained from NGS's VERTCON software, and were calculated at the nominal center of each quadrangle.
           New high-resolution DEMs introduced into after April 1, 2014 all have a vertical datum of NAVD88, therefore this field will be populated with -100.
         |||,
         type: ee_const.var_type.double,

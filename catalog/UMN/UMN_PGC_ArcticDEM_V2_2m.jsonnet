@@ -36,7 +36,7 @@ local self_url = catalog_subdir_url + base_filename;
     than a single mosaic due to projection differences between strips.
 
     Strip DEM files correspond to the overlapping area of the input stereopair
-    image swaths as they are collected by DigitalGlobe’s constellation of
+    image swaths as they are collected by DigitalGlobe's constellation of
     polar-orbiting satellites. Strip DEM dimensions will vary according to the
     satellite sensor that acquired the images and the off-nadir angle of
     collection. Most strips are between 16km and 18km in width, and 110km and
@@ -132,7 +132,7 @@ local self_url = catalog_subdir_url + base_filename;
   },
   'sci:citation': 'DEM(s) created by the Polar Geospatial Center from DigitalGlobe, Inc. imagery.',
   'gee:terms_of_use': |||
-    National Science Foundation (PGC’s primary funding source) policy requires
+    National Science Foundation (PGC's primary funding source) policy requires
     researchers to acknowledge NSF support in all publications, web pages, and
     media interviews.
 

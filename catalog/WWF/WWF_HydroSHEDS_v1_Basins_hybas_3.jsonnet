@@ -208,7 +208,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     {
       citation: |||
         Lehner, B., Grill G. (2013): Global river hydrography and network routing: baseline data and
-        new approaches to study the world’s large river systems. Hydrological Processes, 27(15):
+        new approaches to study the world's large river systems. Hydrological Processes, 27(15):
         2171-2186. Data is available at www.hydrosheds.org
       |||,
     },

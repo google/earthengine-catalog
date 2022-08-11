@@ -32,7 +32,7 @@ local self_url = catalog_subdir_url + base_filename;
     spatial resolutions.
 
     Strip DEM files correspond to the overlapping area of the input stereoscopic
-    imagery pair strips as they are collected by DigitalGlobe’s constellation
+    imagery pair strips as they are collected by DigitalGlobe's constellation
     of polar-orbiting satellites. Strip DEM dimensions will vary according to
     the satellite sensor that acquired the images and the off-nadir angle of
     collection. Most strips are between 13 km and 17 km in width, and 110 km
@@ -134,7 +134,7 @@ local self_url = catalog_subdir_url + base_filename;
     The Reference Elevation Model of Antarctica, The Cryosphere, 13, 665-674, 2019.
   |||,
   'gee:terms_of_use': |||
-    National Science Foundation (PGC’s primary funding source) policy requires
+    National Science Foundation (PGC's primary funding source) policy requires
     researchers to acknowledge NSF support in all publications, web pages, and
     media interviews.
 

@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The images in this ImageCollection contain the raw FORMA data calculated after new
     MODIS NDVI data becomes available, approximately every 16 days.
 
-    The image contains 4 bands. The ‘delta’, ‘near_term_delta’, and ‘clearing’ bands
+    The image contains 4 bands. The 'delta', 'near_term_delta', and 'clearing' bands
     all give a percentage of clearing (from 0 to 100) for different accumulation periods.
     Accuracy gives a measure of confidence in these predictions
     (0 = very little confidence, 100 is high confidence).

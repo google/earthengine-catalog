@@ -265,7 +265,7 @@ local self_url = catalog_subdir_url + base_filename;
                 {
                   value: 1,
                   description: |||
-                    Pixel area is ≥ 50% land as determined by
+                    Pixel area is >= 50% land as determined by
                     rasterizing the Global Self-consistent Hierarchical High-resolution
                     Shoreline (GSHHS) Database from the NOAA National Geophysical Data
                     Center.
@@ -300,7 +300,7 @@ local self_url = catalog_subdir_url + base_filename;
                 {
                   value: 1,
                   description: |||
-                    Pixel area is ≥ 50% lake covered as determined from
+                    Pixel area is >= 50% lake covered as determined from
                     rasterizing US World Wildlife Fund's Global Lakes and Wetlands
                     Database.
                   |||,
@@ -319,7 +319,7 @@ local self_url = catalog_subdir_url + base_filename;
                 {
                   value: 1,
                   description: |||
-                    Pixel area is ≥ 50% river covered as determined form
+                    Pixel area is >= 50% river covered as determined form
                     rasterizing US World Wildlife Fund's Global Lakes and Wetlands
                     Database.
                   |||,

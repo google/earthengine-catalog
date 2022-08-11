@@ -225,7 +225,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'familyName',
-        description: 'The full mission name. E.g. “SENTINEL-1”',
+        description: 'The full mission name. E.g. "SENTINEL-1"',
         type: ee_const.var_type.string,
       },
       {
@@ -334,7 +334,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'productClass',
-        description: 'Output product class “A” for Annotation or “S” for Standard.',
+        description: 'Output product class "A" for Annotation or "S" for Standard.',
         type: ee_const.var_type.string,
       },
       {

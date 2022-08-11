@@ -139,7 +139,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Temperature of water at the bottom of inland water bodies (lakes, reservoirs, rivers) and
           coastal waters. ECMWF implemented a lake model in May 2015 to represent the water temperature
-          and lake ice of all the world’s major inland water bodies in the Integrated Forecasting System.
+          and lake ice of all the world's major inland water bodies in the Integrated Forecasting System.
           The model keeps lake depth and surface area (or fractional cover) constant in time.
         |||,
         'gee:units': 'K',

@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Organic soils develop in wet soil ecosystems. They include tropical and boreal peatlands, high-latitude
     bogs, ferns, and mires. Organic soils cover globally a mere 3 percent of the terrestrial land area but
     represent up to 30 percent of the total soil carbon, thus playing an important role in maintaining the
-    earth’s carbon balance. Agriculture is a major cause of drainage of organic soils around the world.
+    earth's carbon balance. Agriculture is a major cause of drainage of organic soils around the world.
     Drainage exposes to aerobic conditions the organic matter of organic soils that oxidizes releasing large
     amounts of harmful greenhouse gases (GHG) to the atmosphere.
 

@@ -80,7 +80,7 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Aboveground living biomass carbon stock density of combined woody and herbaceous
           cover in 2010. This includes carbon stored in living plant tissues that are located above
-          the earth’s surface (stems, bark, branches, twigs). This does not include leaf litter or
+          the earth's surface (stems, bark, branches, twigs). This does not include leaf litter or
           coarse woody debris that were once attached to living plants but have since been deposited
           and are no longer living.
         |||,
@@ -100,7 +100,7 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Belowground living biomass carbon stock density of combined woody and herbaceous
           cover in 2010. This includes carbon stored in living plant tissues that are located below
-          the earth’s surface (roots). This does not include dead and/or dislocated root tissue, nor
+          the earth's surface (roots). This does not include dead and/or dislocated root tissue, nor
           does it include soil organic matter.
         |||,
         'gee:units': 'Mg C/ha',

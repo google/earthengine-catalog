@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       {
         name: 'country',
-        description: 'ISO3 country code of the vessel flag state. For all countries, use “WLD”.',
+        description: 'ISO3 country code of the vessel flag state. For all countries, use "WLD".',
         type: ee_const.var_type.string,
       },
     ],
@@ -114,7 +114,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:citation': 'Global Fishing Watch, “Tracking the Global Footprint of Fisheries.” Science 361.6378 (2018).',
+  'sci:citation': 'Global Fishing Watch, "Tracking the Global Footprint of Fisheries." Science 361.6378 (2018).',
   'gee:interval': {
     type: 'cadence',
     unit: 'day',

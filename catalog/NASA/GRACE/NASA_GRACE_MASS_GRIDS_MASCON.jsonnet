@@ -141,7 +141,7 @@ local self_url = catalog_subdir_url + base_filename;
     {
       citation: |||
         Watkins, M. M., D. N. Wiese, D.-N. Yuan, C. Boening, and F. W.
-        Landerer (2015), Improved methods for observing Earth’s time variable mass,
+        Landerer (2015), Improved methods for observing Earth's time variable mass,
         mass distribution with GRACE using spherical cap mascons, J. Geophys. Res
         Solid Earth, 120,
         [doi:10.1002/2014JB011547](https://doi.org/10.1002/2014JB011547).

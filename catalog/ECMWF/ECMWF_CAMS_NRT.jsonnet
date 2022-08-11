@@ -28,7 +28,7 @@ local self_url = catalog_subdir_url + base_filename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Copernicus Atmosphere Monitoring Service provides the capacity to continuously monitor
-    the composition of the Earth’s atmosphere at global and regional scales. The main global
+    the composition of the Earth's atmosphere at global and regional scales. The main global
     near-real-time production system is a data assimilation and forecasting suite providing two
     5-day forecasts per day for aerosols and chemical compounds that are part of the chemical
     scheme.

@@ -229,7 +229,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'duration',
         description: |||
           Duration of surface water during an event in days. Pixel values indicate
-          the number of composite days a pixel’s area was considered water during an
+          the number of composite days a pixel's area was considered water during an
           event. 3-day MODIS composites were used.
         |||,
         'gee:units': 'days',

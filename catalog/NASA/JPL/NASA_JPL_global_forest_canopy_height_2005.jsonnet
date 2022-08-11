@@ -111,7 +111,7 @@ local self_url = catalog_subdir_url + base_filename;
     freely available for re-publication or re-use, including commercial
     purposes, except for where copyright is indicated.
 
-    NASA’s Earth Observatory must be given credit for its original materials;
+    NASA's Earth Observatory must be given credit for its original materials;
     the only mandatory credit is NASA.
 
     For more information about using NASA imagery visit the [Earth Observatory

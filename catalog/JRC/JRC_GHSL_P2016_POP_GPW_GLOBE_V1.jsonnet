@@ -37,9 +37,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Residential population estimates were provided by CIESIN GPW v4. These were
     disaggregated from census or administrative units to grid cells, informed by
     the distribution and density of built-up as mapped in the GHSL global layer
-    per corresponding epoch. (See [“Development of New Open and Free
+    per corresponding epoch. (See ["Development of New Open and Free
     Multi-temporal Global Population Grids at 250 m
-    Resolution.”](https://publications.jrc.ec.europa.eu/repository/handle/JRC100523))
+    Resolution."](https://publications.jrc.ec.europa.eu/repository/handle/JRC100523))
 
     This dataset was produced in the World Mollweide projection (EPSG:54009).
 

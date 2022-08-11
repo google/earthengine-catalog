@@ -113,7 +113,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James
     Verdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison,
     Andrew Hoell & Joel Michaelsen. "The climate hazards infrared precipitation
-    with stations—a new environmental record for monitoring extremes".
+    with stations-a new environmental record for monitoring extremes".
     Scientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66)
     2015.
   |||,

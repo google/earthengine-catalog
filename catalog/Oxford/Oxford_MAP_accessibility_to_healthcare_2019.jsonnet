@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Africa and Australia. To facilitate comparisons between data sources, only
     facilities defined as hospitals and clinics were used. Multiple points
     found within the same pixel were merged to match the resolution of the
-    analysis as defined by the selected gridded representation of the Earth’s
+    analysis as defined by the selected gridded representation of the Earth's
     surface. Each pixel in the resultant accessibility map thus represents the
     modelled shortest time (in minutes) from that location to a hospital or
     clinic.

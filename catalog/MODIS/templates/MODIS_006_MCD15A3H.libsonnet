@@ -137,7 +137,7 @@
         'gee:bitmask': {
           bitmask_parts: [
             {
-              description: 'Land-sea pass−thru',
+              description: 'Land-sea pass-thru',
               bit_count: 2,
               values: [
                 {

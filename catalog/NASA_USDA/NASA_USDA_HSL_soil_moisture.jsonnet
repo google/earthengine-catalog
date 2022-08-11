@@ -54,7 +54,7 @@ local self_url = catalog_subdir_url + base_filename;
     precipitation data.
 
     This dataset was developed by the Hydrological Science Laboratory (HSL) at
-    NASA’s Goddard Space Flight Center in cooperation with USDA Foreign
+    NASA's Goddard Space Flight Center in cooperation with USDA Foreign
     Agricultural Services and USDA Hydrology and Remote Sensing Lab.
   |||,
   license: license.id,

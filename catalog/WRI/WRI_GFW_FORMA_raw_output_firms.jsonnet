@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Each band gives a percentage of clearing (from 0 to 100) for
     different accumulation periods. "N" is the number of days between the latest FIRMS update
-    and the previous NDVI update. N is given by the ‘date_delta’ property.
+    and the previous NDVI update. N is given by the 'date_delta' property.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

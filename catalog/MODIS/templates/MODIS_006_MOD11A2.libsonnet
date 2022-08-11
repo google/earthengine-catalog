@@ -70,16 +70,16 @@
               bit_count: 2,
               values: [
                 {
-                  description: 'Average emissivity error ≤ 0.01',
+                  description: 'Average emissivity error <= 0.01',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Average emissivity error ≤ 0.02',
+                  description: 'Average emissivity error <= 0.02',
                 },
                 {
                   value: 2,
-                  description: 'Average emissivity error ≤ 0.04',
+                  description: 'Average emissivity error <= 0.04',
                 },
                 {
                   value: 3,
@@ -93,16 +93,16 @@
               bit_count: 2,
               values: [
                 {
-                  description: 'Average LST error ≤ 1K',
+                  description: 'Average LST error <= 1K',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Average LST error ≤ 2K',
+                  description: 'Average LST error <= 2K',
                 },
                 {
                   value: 2,
-                  description: 'Average LST error ≤ 3K',
+                  description: 'Average LST error <= 3K',
                 },
                 {
                   value: 3,
@@ -190,16 +190,16 @@
               bit_count: 2,
               values: [
                 {
-                  description: 'Average emissivity error ≤ 0.01',
+                  description: 'Average emissivity error <= 0.01',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Average emissivity error ≤ 0.02',
+                  description: 'Average emissivity error <= 0.02',
                 },
                 {
                   value: 2,
-                  description: 'Average emissivity error ≤ 0.04',
+                  description: 'Average emissivity error <= 0.04',
                 },
                 {
                   value: 3,
@@ -213,16 +213,16 @@
               bit_count: 2,
               values: [
                 {
-                  description: 'Average LST error ≤ 1K',
+                  description: 'Average LST error <= 1K',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Average LST error ≤ 2K',
+                  description: 'Average LST error <= 2K',
                 },
                 {
                   value: 2,
-                  description: 'Average LST error ≤ 3K',
+                  description: 'Average LST error <= 3K',
                 },
                 {
                   value: 3,

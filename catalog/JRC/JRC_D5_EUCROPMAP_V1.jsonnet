@@ -58,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       '2018-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   'sci:citation': |||
     d'Andrimont, R., Verhegghen, A., Lemoine, G., Kempeneers, P., Meroni, M.,
-    & Van der Velde, M. (2021). From parcel to continental scale–A first
+    & Van der Velde, M. (2021). From parcel to continental scale-A first
     European crop type map based on Sentinel-1 and LUCAS Copernicus in-situ
     observations. Remote sensing of environment, 266, 112708.
   |||,

@@ -119,11 +119,11 @@ local self_url = catalog_subdir_url + base_filename;
     Tomko, Karen; Willis, Michael; Kelleher, Cole; Cloutier, Michael; Husby, Eric;
     Foga, Steven; Nakamura, Hitomi; Platson, Melisa; Wethington, Michael, Jr.;
     Williamson, Cathleen; Bauer, Gregory; Enos, Jeremy; Arnold, Galen; Kramer, William;
-    Becker, Peter; Doshi, Abhijit; D’Souza, Cristelle; Cummens, Pat; Laurier, Fabien;
+    Becker, Peter; Doshi, Abhijit; D'Souza, Cristelle; Cummens, Pat; Laurier, Fabien;
     Bojesen, Mikkel, 2018, ArcticDEM, Harvard Dataverse, V1, [Date Accessed].
   |||,
   'gee:terms_of_use': |||
-    National Science Foundation (PGC’s primary funding source) policy requires
+    National Science Foundation (PGC's primary funding source) policy requires
     researchers to acknowledge NSF support in all publications, web pages, and
     media interviews.
 

@@ -158,8 +158,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'CSI_FF1',
         description: |||
           Free-flowing status (two categories). Indicates river reaches that beINT to a
-          river with "freeflowing” status (value = 1) or “non-free-flowing" status (value = 3).
-          Note that the value 2 is reserved for river stretches with “good connectivity”
+          river with "freeflowing" status (value = 1) or "non-free-flowing" status (value = 3).
+          Note that the value 2 is reserved for river stretches with "good connectivity"
           status (see CSI_FF2).
         |||,
         type: ee_const.var_type.int,

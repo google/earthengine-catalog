@@ -40,10 +40,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Here is an [example script](https://code.earthengine.google.com/f29b1e4360f3fc36847bd789ceeb20f6)
     for a quick introduction to the FORMA datasets.
 
-    The images in this ImageCollection contain the “reversed rectified
-    t-statistics” used in calculating NTT, the vegetation color index derived
+    The images in this ImageCollection contain the "reversed rectified
+    t-statistics" used in calculating NTT, the vegetation color index derived
     from MODIS NDVI that FORMA uses to measure browning. Using a sum reducer on
-    over various date ranges in this ImageCollection produces an “NTT” image.
+    over various date ranges in this ImageCollection produces an "NTT" image.
 
     The images are broken by "ecogroup".
   |||,

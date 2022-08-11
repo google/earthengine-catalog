@@ -35,9 +35,9 @@ local self_url = catalog_subdir_url + base_filename;
     The classification was implemented along the entire global coastline
     between 60° North and 60° South from 1 January 1984 to 31 December 2016.
     The image collection consists consists of a time-series of 11 global maps
-    of tidal flats at 30m pixel resolution for set time-periods (1984−1986;
-    1987−1989; 1990−1992; 1993−1995; 1996−1998; 1999−2001; 2002−2004;
-    2005−2007; 2008−2010; 2011−2013; 2014−2016)
+    of tidal flats at 30m pixel resolution for set time-periods (1984-1986;
+    1987-1989; 1990-1992; 1993-1995; 1996-1998; 1999-2001; 2002-2004;
+    2005-2007; 2008-2010; 2011-2013; 2014-2016)
 
     Flag indicating the spatial limits of the implementation of the tidal flat
     classifier as defined by altitudinal (+100m) and bathymetric (-100m) limits.

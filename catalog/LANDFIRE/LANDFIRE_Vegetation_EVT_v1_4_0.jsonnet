@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     EVT is mapped using decision tree models, field data, Landsat imagery, elevation, and biophysical gradient data.
 
-    * Decision tree models are developed separately for each of the three lifeforms—tree, shrub, and herbaceous and are then used to generate lifeform specific EVT layers.
+    * Decision tree models are developed separately for each of the three lifeforms-tree, shrub, and herbaceous and are then used to generate lifeform specific EVT layers.
 
     * Disturbance products are included in LF Remap products to describe areas on the landscape that have experienced change within the previous 10-year period.
 

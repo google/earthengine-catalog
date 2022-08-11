@@ -33,8 +33,8 @@ local config = configs[version];
 
     Please see the [User Notes](https://earthenginepartners.appspot.com/science-2013-global-forest/download_v1.1.html)
     for this Version 1.1 update, as well as the associated journal article:
-    Hansen, Potapov, Moore, Hancher et al. “High-resolution global maps of
-    21st-century forest cover change.” Science 342.6160 (2013): 850-853.
+    Hansen, Potapov, Moore, Hancher et al. "High-resolution global maps of
+    21st-century forest cover change." Science 342.6160 (2013): 850-853.
 
     Note that updated versions of this data are available. The newest version,
     Version 1.9 (produced with data through 2021), is available as
@@ -288,7 +288,7 @@ local config = configs[version];
     Hansen, M. C., P. V. Potapov, R. Moore, M. Hancher, S. A. Turubanova, A.
     Tyukavina, D. Thau, S. V. Stehman, S. J. Goetz, T. R. Loveland, A.
     Kommareddy, A. Egorov, L. Chini, C. O. Justice, and J. R. G. Townshend.
-    2013. “High-Resolution Global Maps of 21st-Century Forest Cover Change.”
+    2013. "High-Resolution Global Maps of 21st-Century Forest Cover Change."
     Science 342 (15 November): 850-53. Data available on-line at:
     [https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).
   |||,

@@ -33,8 +33,8 @@ local self_url = catalog_subdir_url + base_filename;
     Alaska ecosystems have been updated by LANDFIRE to 2012 conditions (LANDFIRE 2012).
     Hawaii and Puerto Rico data represent the 2001 time-frame (Gon et al. 2006, Gould et al. 2008).
     The classification scheme used for the Alaska and the lower 48 states is based
-    on NatureServe’s Ecological System Classification (Comer et al. 2003), while
-    Puerto Rico and Hawaii’s map legend are based on island specific classification
+    on NatureServe's Ecological System Classification (Comer et al. 2003), while
+    Puerto Rico and Hawaii's map legend are based on island specific classification
     systems (Gon et al. 2006, Gould et al. 2008).
   |||,
   license: license.id,

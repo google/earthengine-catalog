@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     This dataset provides near real-time high-resolution imagery of NO<sub>2</sub> concentrations.
 
-    Nitrogen oxides (NO<sub>2</sub> and NO) are important trace gases in the Earth’s atmosphere,
+    Nitrogen oxides (NO<sub>2</sub> and NO) are important trace gases in the Earth's atmosphere,
     present in both the troposphere and the stratosphere. They enter the atmosphere
     as a result of anthropogenic activities (notably fossil fuel combustion and
     biomass burning) and natural processes (wildfires, lightning, and microbiological processes in

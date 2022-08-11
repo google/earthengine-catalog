@@ -50,7 +50,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     Along with the three Vegetation Indices layers, this product also
     includes layers for near-infrared (NIR) reflectance; three shortwave
-    infrared (SWIR) reflectance—red, blue, and green reflectance; composite
+    infrared (SWIR) reflectance-red, blue, and green reflectance; composite
     day of year; pixel reliability; view and sun angles, and a quality layer.
 
     For additional information, visit the VIIRS [Land Product Quality

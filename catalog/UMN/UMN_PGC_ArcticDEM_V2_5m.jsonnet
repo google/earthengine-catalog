@@ -138,7 +138,7 @@ local self_url = catalog_subdir_url + base_filename;
   },
   'sci:citation': 'DEM(s) created by the Polar Geospatial Center from DigitalGlobe, Inc. imagery.',
   'gee:terms_of_use': |||
-    National Science Foundation (PGC’s primary funding source) policy requires
+    National Science Foundation (PGC's primary funding source) policy requires
     researchers to acknowledge NSF support in all publications, web pages, and
     media interviews.
 

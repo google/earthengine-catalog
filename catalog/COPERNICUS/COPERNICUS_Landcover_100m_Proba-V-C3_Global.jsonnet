@@ -409,7 +409,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           * 1 - Potential change. BFASTmon detected break in second half of NRT year -
             potential change.
           * 2 - Medium confidence. Imprint of urban, permanent water, snow or wetland
-            OR change detected by BFAST but HMM model didn’t confirm this break
+            OR change detected by BFAST but HMM model didn't confirm this break
             in higher resolution OR change detected by BFASTmon in the first half
             of NRT year.
           * 3 - High confidence. BFAST detected a change and HMM confirmed
@@ -519,7 +519,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'sci:citation': |||
     Buchhorn, M. ; Lesiv, M. ; Tsendbazar, N. - E. ; Herold, M. ; Bertels, L. ; Smets, B.
-    Copernicus Global Land Cover Layers—Collection 2. Remote Sensing 2020, 12Volume 108, 1044.
+    Copernicus Global Land Cover Layers-Collection 2. Remote Sensing 2020, 12Volume 108, 1044.
     [doi:10.3390/rs12061044](https://doi.org/10.3390/rs12061044)
   |||,
   'gee:terms_of_use': |||

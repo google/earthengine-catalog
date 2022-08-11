@@ -57,7 +57,7 @@ C15     | 12.30      | Dirty IR            | IR      | Clouds
 C16     | 13.30      | CO                  | IR      | Air temperature, clouds
 
 - [goes-r-series-satellites](https://www.ncdc.noaa.gov/data-access/satellite-data/goes-r-series-satellites)
-- [GOES R SERIES PRODUCT DEFINITION AND USERS’ GUIDE, VOLUME 1 - MAIN](https://www.goes-r.gov/users/docs/PUG-main-vol1.pdf)
+- [GOES R SERIES PRODUCT DEFINITION AND USERS' GUIDE, VOLUME 1 - MAIN](https://www.goes-r.gov/users/docs/PUG-main-vol1.pdf)
 - [GOES-16 Band Reference Guide](https://www.weather.gov/media/crp/GOES_16_Guides_FINALBIS.pdf)
 - Wikipedia:
   - [GOES](https://en.wikipedia.org/wiki/Geostationary_Operational_Environmental_Satellite)

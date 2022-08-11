@@ -409,11 +409,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 & < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 & < 7)',
                 },
                 {
                   value: 4,
@@ -450,11 +450,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 & < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 & < 7)',
                 },
                 {
                   value: 4,
@@ -491,11 +491,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 & < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 & < 7)',
                 },
                 {
                   value: 4,
@@ -532,11 +532,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 & < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 & < 7)',
                 },
                 {
                   value: 4,
@@ -573,11 +573,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 & < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 & < 7)',
                 },
                 {
                   value: 4,
@@ -614,11 +614,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 & < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 & < 7)',
                 },
                 {
                   value: 4,
@@ -655,11 +655,11 @@
                 },
                 {
                   value: 2,
-                  description: 'Magnitude inversion (numobs ≥ 7)',
+                  description: 'Magnitude inversion (numobs >= 7)',
                 },
                 {
                   value: 3,
-                  description: 'Magnitude inversion (numobs ≥ 2 and < 7)',
+                  description: 'Magnitude inversion (numobs >= 2 and < 7)',
                 },
                 {
                   value: 4,

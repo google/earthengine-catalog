@@ -222,7 +222,7 @@ local self_url = catalog_subdir_url + base_filename;
     {
       citation: |||
         Alpert, J. C., S-Y. Hong and Y-J. Kim: 1996, Sensitivity of cyclogenesis
-        to lower troposphere enhancement of gravity wave drag using the EMC MRF”,
+        to lower troposphere enhancement of gravity wave drag using the EMC MRF",
         Proc. 11 Conf. On NWP, Norfolk, 322-323.
       |||,
     },
@@ -358,8 +358,8 @@ local self_url = catalog_subdir_url + base_filename;
     },
     {
       citation: |||
-        Lott, F and M. J. Miller: 1997, “A new subgrid-scale orographic drag
-        parameterization: Its formulation and testing”, QJRMS, 123, pp101-127.
+        Lott, F and M. J. Miller: 1997, "A new subgrid-scale orographic drag
+        parameterization: Its formulation and testing", QJRMS, 123, pp101-127.
       |||,
     },
     {

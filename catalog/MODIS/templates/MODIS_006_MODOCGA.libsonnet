@@ -97,11 +97,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -145,11 +145,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -192,11 +192,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -239,11 +239,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -286,11 +286,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -333,11 +333,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -380,11 +380,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -427,11 +427,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,
@@ -494,11 +494,11 @@
                 },
                 {
                   value: 9,
-                  description: 'Solar zenith ≥ 86 degrees',
+                  description: 'Solar zenith >= 86 degrees',
                 },
                 {
                   value: 10,
-                  description: 'Solar zenith ≥ 85 and < 86 degrees',
+                  description: 'Solar zenith >= 85 and < 86 degrees',
                 },
                 {
                   value: 11,

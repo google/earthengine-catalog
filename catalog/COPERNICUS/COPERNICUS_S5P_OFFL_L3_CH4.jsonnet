@@ -31,7 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Roughly three-quarters of methane emissions are anthropogenic and as such it
     is important to continue the record of satellite based measurements. TROPOMI
     aims at providing CH<sub>4</sub> column concentrations with high sensitivity
-    to the Earth’s surface, good spatiotemporal coverage, and sufficient
+    to the Earth's surface, good spatiotemporal coverage, and sufficient
     accuracy to facilitate inverse modeling of sources and sinks. TROPOMI uses
     absorption information from the Oxygen-A Band (760nm) and the SWIR spectral
     range to monitor CH<sub>4</sub> abundances in the Earth's atmosphere.

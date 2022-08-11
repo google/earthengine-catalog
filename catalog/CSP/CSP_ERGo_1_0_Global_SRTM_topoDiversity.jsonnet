@@ -33,9 +33,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     To calculate D, the multi-scale Topographic Position Index (mTPI), being a
     dominant control of soil moisture (T), was used for measuring hillslope
     position. The mTPI was combined with the square-root transform for
-    mTPI>0 (T’) and with the standard deviation of the Continuous
-    Heat-Insolation Load Index (CHILI), calculated at multiple scales (C’) as:
-    D = 1 - ((1-T’) * (1-C’). It is based on the 30m SRTM DEM (available in EE
+    mTPI>0 (T') and with the standard deviation of the Continuous
+    Heat-Insolation Load Index (CHILI), calculated at multiple scales (C') as:
+    D = 1 - ((1-T') * (1-C'). It is based on the 30m SRTM DEM (available in EE
     as USGS/SRTMGL1_003).
 
     The Conservation Science Partners (CSP) Ecologically Relevant Geomorphology
