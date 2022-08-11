@@ -26,6 +26,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('AU', base_url),
     ee.link.child_catalog('BIOPAMA', base_url),
     ee.link.child_catalog('BLM', base_url),
+    ee.link.child_catalog('BNU', base_url),
     ee.link.child_catalog('CAS', base_url),
     ee.link.child_catalog('CGIAR', base_url),
     ee.link.child_catalog('CIESIN', base_url),
