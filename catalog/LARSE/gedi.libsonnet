@@ -310,7 +310,7 @@ local spdx = import 'spdx.libsonnet';
     },
     {
       name: 'shot_number_within_beam',
-      description: 'Shot number withing beam',
+      description: 'Shot number within beam',
       type:: ee_const.var_type.int,
     },
     {
