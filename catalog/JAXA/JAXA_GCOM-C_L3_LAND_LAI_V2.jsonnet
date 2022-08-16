@@ -133,7 +133,6 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'LAI_AVE',
         description: 'The sum of the one-sided green leaf area per unit ground area.',
-        'gee:units': 'none',
       },
       {
         name: 'LAI_QA_flag',

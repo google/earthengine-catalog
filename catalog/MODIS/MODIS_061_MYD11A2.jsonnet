@@ -5,9 +5,9 @@ local subdir = 'MODIS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local template = import 'templates/MODIS_006_MOD11A2.libsonnet';
 
 local license = spdx.proprietary;
-local template = import 'templates/MODIS_006_MOD11A2.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';

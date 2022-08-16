@@ -249,7 +249,7 @@
       {
         name: 'Range',
         description: 'Distance to sensor',
-        'gee:units': 'Meters',
+        'gee:units': 'm',
         gsd: 1000.0,
         'gee:scale': 25.0,
       },
