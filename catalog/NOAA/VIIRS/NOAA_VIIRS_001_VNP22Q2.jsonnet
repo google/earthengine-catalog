@@ -76,7 +76,6 @@ local self_url = catalog_subdir_url + base_filename;
     'surface',
     'vegetation',
     'viirs',
-    'vnp22q2',
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP22Q2.001'),
