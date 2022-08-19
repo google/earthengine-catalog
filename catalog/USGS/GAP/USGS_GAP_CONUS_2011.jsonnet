@@ -546,7 +546,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 97,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 1',
           },
           {
             value: 98,
@@ -1086,12 +1086,12 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 205,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 2',
           },
           {
             value: 206,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 3',
           },
           {
             value: 207,
@@ -1106,7 +1106,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 209,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 4',
           },
           {
             value: 210,
@@ -1116,7 +1116,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 211,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 5',
           },
           {
             value: 212,
@@ -1171,7 +1171,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 222,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 6',
           },
           {
             value: 223,
@@ -1396,7 +1396,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 267,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 7',
           },
           {
             value: 268,
@@ -2031,7 +2031,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 394,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 8',
           },
           {
             value: 395,
@@ -2151,12 +2151,12 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 418,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 9',
           },
           {
             value: 419,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 10',
           },
           {
             value: 420,
@@ -2166,7 +2166,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 421,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 11',
           },
           {
             value: 422,
@@ -2881,7 +2881,7 @@ local self_url = catalog_subdir_url + base_filename;
           {
             value: 564,
             color: '000000',
-            description: '0',
+            description: 'Unmapped 12',
           },
           {
             value: 565,

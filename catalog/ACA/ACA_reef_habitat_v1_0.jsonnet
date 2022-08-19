@@ -79,40 +79,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'seagrass',
   ],
   providers: [
-    ee.producer_provider('Allen Coral Atlas Partnership (ACA)', 'https://allencoralatlas.org/'),
+    ee.producer_provider(
+      'Allen Coral Atlas Partnership (ACA)', 'https://allencoralatlas.org/'),
     ee.host_provider(self_ee_catalog_url),
     {
       name: 'University of Queensland (UQ)',
-      roles: [
-        'producer',
-        'licensor',
-      ],
+      roles: ['licensor', 'producer'],
       url: 'https://www.uq.edu.au/',
     },
     {
-      name: 'Arizona State University Center for Global Discovery and Conservation Science (ASU GDCS)',
-      roles: [
-        'producer',
-        'licensor',
-      ],
+      name: 'Arizona State University Center for Global Discovery and ' +
+        'Conservation Science (ASU GDCS)',
+      roles: ['licensor', 'producer'],
       url: 'https://gdcs.asu.edu/',
     },
     {
       name: 'National Geographic Society (NGS)',
-      roles: [
-        'producer',
-        'licensor',
-      ],
+      roles: ['licensor', 'producer'],
       url: 'https://www.nationalgeographic.org/',
     },
     {
       name: 'Vulcan Inc. (Vulcan)',
-      roles: [
-        'producer',
-        'licensor',
-      ],
+      roles: ['licensor', 'producer'],
       url: 'https://vulcan.com/',
     },
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -33.0, 180.0, 33.0,
                     '2018-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),

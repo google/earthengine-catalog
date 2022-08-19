@@ -52,6 +52,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     While the CDL date is aligned with year of harvest, the map itself is
     more representative of what was planted. In other words, a small percentage
     of fields on a given year will not be harvested.
+
+    Some non-agricultural categories are duplicate due to
+    [two very different epochs in methodology](https://www.google.com/url?sa=D&q=https%3A%2F%2Fwww.nass.usda.gov%2FResearch_and_Science%2FCropland%2F).
+
+    The non-ag codes 63-65 and 81-88 are holdovers from the older
+    methodology and will only appear in CDLs from 2007 and earlier. The non-ag
+    codes from 111-195 are from the current methodology which uses the USGS NLCD
+    as non-ag training and will only appear in CDLs 2007 and newer.
+
+    2007 was a transition year so there may be both sets of categories in the
+    2007 national product but will not appear within the same state.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

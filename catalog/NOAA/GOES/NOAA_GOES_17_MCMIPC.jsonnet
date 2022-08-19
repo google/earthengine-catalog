@@ -34,7 +34,7 @@ local self_url = catalog_subdir_url + base_filename;
     Top-Of-Atmosphere (TOA) is measured in Kelvin. These bands support the characterization of the
     surface, clouds, water vapor, ozone, volcanic ash, and dust based on emissive properties.
 
-    [README](https://www.ncdc.noaa.gov/data-access/satellite-data/goes-r-series-satellites#CMIP)
+    [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

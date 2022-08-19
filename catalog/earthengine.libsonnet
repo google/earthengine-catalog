@@ -18,7 +18,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 
 {
   producer_provider(name, url):
-    { name: name, roles: ['producer', 'licensor'], url: url },
+    { name: name, roles: ['licensor', 'producer'], url: url },
   processor_provider(name, url):
     { name: name, roles: ['processor'], url: url },
   host_provider(ee_catalog_url):

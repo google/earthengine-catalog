@@ -36,7 +36,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     The locations of domains 1 and 2 change over time.
 
-    [README](https://www.ncdc.noaa.gov/data-access/satellite-data/goes-r-series-satellites#CMIP)
+    [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
