@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('USGS/Google', 'https://landsat.usgs.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2003-12-01T01:15:15Z', '2022-04-06T14:30:01Z'),
+  extent: ee.extent_global('2003-12-01T01:15:15Z', null),
   summaries: template.summaries,
   'gee:interval': {
     type: 'revisit_interval',

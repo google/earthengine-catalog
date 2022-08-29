@@ -93,7 +93,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.producer_provider('USGS', 'https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-2-level-2-science-products'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1999-05-28T01:06:16Z', '2022-04-06T14:30:01Z'),
+  extent: ee.extent_global('1999-05-28T01:06:16Z', null),
   summaries: {
     'gee:schema': [
       {
