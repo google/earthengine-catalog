@@ -147,14 +147,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
+
+    **Sazib, N., J. D. Bolten, and I. E. Mladenova. 2021.**
+    Leveraging NASA Soil Moisture Active Passive for Assessing Fire
+    Susceptibility and Potential Impacts Over Australia and California.
+    *IEEE Journal of Selected Topics in Applied Earth Observations and
+    Remote Sensing*, 15: 779-787.
+    [doi:10.1109/jstars.2021.3136756](https://doi.org/10.1109/jstars.2021.3136756)
+
     **Mladenova, I.E., Bolten, J.D., Crow, W., Sazib, N. and Reynolds, C., 2020.**
     Agricultural drought monitoring via the assimilation of SMAP soil moisture retrievals into a
     global soil water balance model. *Front. Big Data*,
     3(10).
     [doi:10.3389/fdata.2020.00010](https://doi.org/10.3389/fdata.2020.00010)
-    [Article](https://www.frontiersin.org/article/10.3389/fdata.2020.00010)
   |||,
   'sci:publications': [
+    {
+      citation: |||
+        **Sazib, N., J. D. Bolten, and I. E. Mladenova. 2021.**
+        Leveraging NASA Soil Moisture Active Passive for Assessing Fire
+        Susceptibility and Potential Impacts Over Australia and California.
+        *IEEE Journal of Selected Topics in Applied Earth Observations and
+        Remote Sensing*, 15: 779-787.
+        [doi:10.1109/jstars.2021.3136756](https://doi.org/10.1109/jstars.2021.3136756)
+      |||,
+      doi: '10.1109/jstars.2021.3136756'
+    },
     {
       citation: |||
         **Mladenova, I.E., Bolten, J.D., Crow, W.T., Sazib, N., Cosh, M.H., Tucker, C.J. and Reynolds,
@@ -163,7 +181,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*,
         12(9): 3387-3397.
         [doi:10.1109/JSTARS.2019.2923555](https://doi.org/10.1109/JSTARS.2019.2923555)
-        [Article](https://ieeexplore.ieee.org/document/8758314)
       |||,
       doi: '10.1109/JSTARS.2019.2923555',
     },
@@ -173,7 +190,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         Assessing the Impact of ENSO on Agriculture over Africa using Earth Observation Data.
         *Frontiers in Sustainable Food Systems*, 4, 188.
         [doi:10.3389/fsufs.2020.509914](https://doi.org/10.3389/fsufs.2020.509914)
-        [Article](https://www.frontiersin.org/articles/10.3389/fsufs.2020.509914/full)
         [Google Scholar](https://scholar.google.com/scholar?cluster=10102210156681705582&oi=scholarr)
       |||,
       doi: '10.3389/fsufs.2020.509914',
@@ -185,7 +201,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         *Remote sensing*,
         10(8): 1265.
         [doi:10.3390/rs10081265](https://doi.org/10.3390/rs10081265)
-        [Article](https://www.mdpi.com/2072-4292/10/8/1265)
       |||,
       doi: '10.3390/rs10081265',
     },
@@ -196,7 +211,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         Drought Monitoring, *IEEE Transactions on Geoscience and Remote Sensing*,
         3(1): 57-66.
         [doi:10.1109/JSTARS.2009.2037163](https://doi.org/10.1109/JSTARS.2009.2037163)
-        [Article](https://ieeexplore.ieee.org/document/5353747)
         [Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)
       |||,
       doi: '10.1109/JSTARS.2009.2037163',
@@ -208,7 +222,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         moisture, *Geophysical Research Letters*,
         39: (L19406).
         [doi:10.1029/2012GL053470][https://doi.org/10.1029/2012GL053470]
-        [Article](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2012GL053470)
         [Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)
       |||,
       doi: '10.1029/2012GL053470',
@@ -222,7 +235,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         The soil moisture active passive (SMAP) mission, *Proceedings of the IEEE*,
         98(5): 704-716.
         [doi:10.1109/JPROC.2010.2043918](https://doi.org/10.1109/JPROC.2010.2043918)
-        [Article](https://ieeexplore.ieee.org/document/5460980)
       |||,
       doi: '10.1109/JPROC.2010.2043918',
     },
@@ -234,7 +246,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*,
         10(4): 1328-1343.
         [doi:10.1109/JSTARS.2016.2639338](https://doi.org/10.1109/JSTARS.2016.2639338)
-        [Article](https://ieeexplore.ieee.org/abstract/document/7811273)
       |||,
       doi: '10.1109/JSTARS.2016.2639338',
     },
