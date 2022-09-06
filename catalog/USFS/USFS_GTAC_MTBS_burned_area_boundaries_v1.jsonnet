@@ -19,11 +19,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Monitoring Trends in Burn Severity (MTBS) Burned Area Boundaries',
+  title: 'MTBS Burned Area Boundaries',
   'gee:type': ee_const.gee_type.table,
   description: |||
-    The burned area boundaries dataset contains the extent polygons of the
-    burned areas of all currently completed MTBS fires for the continental
+    The
+    [Monitoring Trends in Burn Severity (MTBS)](https://www.mtbs.gov/project-overview)
+    burned area boundaries dataset contains the extent polygons of the burned
+    areas of all currently completed MTBS fires for the continental
     United States, Alaska, Hawaii, and Puerto Rico.
 
     Below NBR stands for "Normalized Burn Ratio", while dNBR stands for
@@ -40,6 +42,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       would not warrant the use of a high severity threshold).
     * In some cases values of 999 and -999 were entered (instead of 9999
       and -9999).
+
+    More information:
+
+    * [MTBS Contact Page](https://www.mtbs.gov/contact)
+    * [MTBS Data Explorer](https://apps.fs.usda.gov/lcms-viewer/mtbs.html)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
