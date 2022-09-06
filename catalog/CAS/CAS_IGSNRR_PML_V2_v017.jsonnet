@@ -63,7 +63,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   keywords: [
     'cas',
     'evapotranspiration',
-    // TODO: Redundant tags. Pick one of gpp or gross_primary_product
+    // TODO(schwehr): Redundant tags. Pick one of gpp or gross_primary_product
     'gpp',
     'gross_primary_product',
     'igsnrr',

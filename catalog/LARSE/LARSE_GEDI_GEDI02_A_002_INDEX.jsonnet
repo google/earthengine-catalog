@@ -36,7 +36,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: gedi.providers('Indexing: Google and ', self_ee_catalog_url),
   extent: {
     spatial: gedi.extent.spatial,
-    // TODO: figure out what to do about the end date of table
+    // TODO(b/229788379): figure out what to do about the end date of table
     // collections.
     temporal: { interval: [['2022-08-17T00:00:00Z', '2023-01-01T00:00:00Z']] },
   },

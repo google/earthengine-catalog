@@ -22,7 +22,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   id: id,
   title: 'USGS 3DEP 1m National Map',
   'gee:type': ee_const.gee_type.image_collection,
-  // TODO: Need to link the slope calculations to the catalog
+  // TODO(schwehr): Need to link the slope calculations to the catalog
   // https://code.earthengine.google.com/a8d904ce1894287963cbfc412bc90bea
   description: |||
     This is a tiled collection of images with 1m pixel size from the 3D

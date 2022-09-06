@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Murray Global Tidal Wetland Change v1.0 (1999-2019)',
   version: '1.0',
-  // TODO: make this an image collection once there's more than one image
+  // TODO(simonf): make this an image collection once there's more than one image
   'gee:type': ee_const.gee_type.image,
   description:  importstr 'description.md',
   license: license.id,

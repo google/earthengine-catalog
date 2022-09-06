@@ -1,7 +1,7 @@
 local id = 'USGS/NLCD';
 local subdir = 'USGS';
 
-// TODO: set latest to USGS/NLCD_RELEASES/2019_REL/NLCD
+// TODO(b/195835158): set latest to USGS/NLCD_RELEASES/2019_REL/NLCD
 local latest_id = 'USGS/NLCD_RELEASES/2016_REL';
 local successor_id = 'USGS/NLCD_RELEASES/2016_REL';
 local new_subdir = 'USGS/NLCD_RELEASES';

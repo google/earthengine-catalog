@@ -32,7 +32,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    // TODO: Source site is gone and the authors are not responding.
+    // TODO(b/229788964): Source site is gone and the authors are not responding.
     // {
     //   rel: ee_const.rel.source,
     //   href: 'https://ecocast.arc.nasa.gov/data/pub/gimms/3g.v0/',
@@ -47,7 +47,7 @@ local self_url = catalog_subdir_url + base_filename;
     'vegetation',
   ],
   providers: [
-    // TODO: Broken link.
+    // TODO(b/229788964): Broken link.
     ee.producer_provider('NASA/NOAA', 'https://nex.nasa.gov/nex/projects/1349/'),
     ee.host_provider(self_ee_catalog_url),
   ],

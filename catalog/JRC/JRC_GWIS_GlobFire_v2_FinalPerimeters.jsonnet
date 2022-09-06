@@ -1,5 +1,5 @@
 local id = 'JRC/GWIS/GlobFire/v2/FinalPerimeters';
-// TODO: Add these once there is a new version.
+// TODO(b/224820229): Add these once there is a new version.
 // local successor_id = 'JRC/GWIS/GlobFire/v3/FinalPerimeters;
 // local latest_id = successor_id;
 
@@ -52,7 +52,7 @@ local self_url = catalog_subdir_url + base_filename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.1038/s41597-019-0312-2',
     },
-    // TODO: Add this when there is a new dataset version.
+    // TODO(b/224820229): Add this when there is a new dataset version.
     // {
     //   rel: ee_const.rel.successor,
     //   href: catalog_subdir_url + std.strReplace(successor_id, '/', '_'),

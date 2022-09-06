@@ -1,0 +1,6 @@
+# proto-file: google3/devtools/piper/common/proto/owners_metadata.proto
+# proto-message: OwnersMetadataFile
+
+review_requirements {
+  path_expression: "....md"
+}

@@ -1,4 +1,5 @@
 local common_bands = import 'common_bands.libsonnet';
+local ee_const = import 'earthengine_const.libsonnet';
 
 {
   summaries: {
@@ -6,112 +7,112 @@ local common_bands = import 'common_bands.libsonnet';
       {
         name: 'CLOUD_COVER',
         description: 'Percentage cloud cover (0-100), -1 = not calculated.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'CLOUD_COVER_LAND',
         description: 'Percentage cloud cover over land (0-100), -1 = not calculated.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'COLLECTION_CATEGORY',
         description: 'Tier of scene. (T1 or T2)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'COLLECTION_NUMBER',
         description: 'Number of collection.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'CORRECTION_BIAS_BAND_1',
         description: 'Internal calibration bias method for band 1.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_2',
         description: 'Internal calibration bias method for band 2.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_3',
         description: 'Internal calibration bias method for band 3.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_4',
         description: 'Internal calibration bias method for band 4.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_5',
         description: 'Internal calibration bias method for band 5.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_6_VCID_1',
         description: 'Internal calibration bias method for band 6_VICD_1.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_6_VCID_2',
         description: 'Internal calibration bias method for band 6_VICD_2.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_7',
         description: 'Internal calibration bias method for band 7.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_BIAS_BAND_8',
         description: 'Internal calibration bias method for band 8.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_1',
         description: 'Internal calibration gain method for band 1.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_2',
         description: 'Internal calibration gain method for band 2.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_3',
         description: 'Internal calibration gain method for band 3.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_4',
         description: 'Internal calibration gain method for band 4.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_5',
         description: 'Internal calibration gain method for band 5.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_6_VCID_1',
         description: 'Internal calibration gain method for band 6_VCID_1.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_6_VCID_2',
         description: 'Internal calibration gain method for band 6_VCID_2.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_7',
         description: 'Internal calibration gain method for band 7.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'CORRECTION_GAIN_BAND_8',
         description: 'Internal calibration gain method for band 8.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'DATA_SOURCE_ELEVATION',
@@ -119,82 +120,82 @@ local common_bands = import 'common_bands.libsonnet';
           Indicates the source of the DEM used in the
           correction process. Possible values: "GLS2000", "RAMP", "GTOPO30".'
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'DATE_ACQUIRED',
         description: 'Image acquisition date. "YYYY-MM-DD"',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'DATE_PRODUCT_GENERATED',
         description: 'Product generation epoch.',
-        type: 'INT',
+        type: ee_const.var_type.int,
       },
       {
         name: 'DATUM',
         description: 'Datum used in image creation.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'EARTH_SUN_DISTANCE',
         description: 'Earth sun distance in astronomical units (AU).',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'ELLIPSOID',
         description: 'Ellipsoid used in image creation.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'EPHEMERIS_TYPE',
         description: 'Ephemeris data type used to perform geometric correction. (Definitive or Predictive)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_1',
         description: 'Gain state for Band 1. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_2',
         description: 'Gain state for Band 2. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_3',
         description: 'Gain state for Band 3. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_4',
         description: 'Gain state for Band 4. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_5',
         description: 'Gain state for Band 5. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_6_VCID_1',
         description: 'Gain state for Band 6 VCID_1. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_6_VCID_2',
         description: 'Gain state for Band 6 VCID_2. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_7',
         description: 'Gain state for Band 7. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_BAND_8',
         description: 'Gain state for Band 8. (L = Low gain, H = High)',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_1',
@@ -202,7 +203,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 1 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_2',
@@ -210,7 +211,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 2 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_3',
@@ -218,7 +219,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 3 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_4',
@@ -226,7 +227,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 4 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_5',
@@ -234,7 +235,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 5 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_6_VCID_1',
@@ -242,7 +243,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 6 VCID_1 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_6_VCID_2',
@@ -250,7 +251,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 6 VCID_2 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_7',
@@ -258,7 +259,7 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 7 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_BAND_8',
@@ -266,52 +267,52 @@ local common_bands = import 'common_bands.libsonnet';
           Presence and direction of gain change for Band 8 (LL = no
           change, HH = no change, LH = low to high, HL = high to low, U = Unknown).
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_1',
         description: 'Scan line number where the first change in Band 1 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_2',
         description: 'Scan line number where the first change in Band 2 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_3',
         description: 'Scan line number where the first change in Band 3 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_4',
         description: 'Scan line number where the first change in Band 4 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_5',
         description: 'Scan line number where the first change in Band 5 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_6_VCID_1',
         description: 'Scan line number where the first change in Band 6 VCID 1 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_6_VCID_2',
         description: 'Scan line number where the first change in Band 6 VCID 2 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_7',
         description: 'Scan line number where the first change in Band 7 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GAIN_CHANGE_SCAN_BAND_8',
         description: 'Scan line number where the first change in Band 8 gain was detected.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GEOMETRIC_RMSE_MODEL',
@@ -321,7 +322,7 @@ local common_bands = import 'common_bands.libsonnet';
           measured on the GCPs used in geometric precision correction.
           Not present in L1G products.
         |||,
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GEOMETRIC_RMSE_MODEL_X',
@@ -330,7 +331,7 @@ local common_bands = import 'common_bands.libsonnet';
           on the GCPs used in geometric precision correction. Not present in
           L1G products.
         |||,
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GEOMETRIC_RMSE_MODEL_Y',
@@ -339,22 +340,22 @@ local common_bands = import 'common_bands.libsonnet';
           on the GCPs used in geometric precision correction. Not present in
           L1G products.
         |||,
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GRID_CELL_SIZE_PANCHROMATIC',
         description: 'Grid cell size used in creating the image for the panchromatic band.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GRID_CELL_SIZE_REFLECTIVE',
         description: 'Grid cell size used in creating the image for the reflective band.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GRID_CELL_SIZE_THERMAL',
         description: 'Grid cell size used in creating the image for the thermal band.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GROUND_CONTROL_POINTS_MODEL',
@@ -363,7 +364,7 @@ local common_bands = import 'common_bands.libsonnet';
           Values: 0 - 999 (0 is used for L1T products that have used
           Multi-scene refinement).
         |||,
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'GROUND_CONTROL_POINTS_VERSION',
@@ -371,32 +372,32 @@ local common_bands = import 'common_bands.libsonnet';
           The number of ground control points used in the verification of
           the terrain corrected product. Values: -1 to 1615 (-1 = not available)
         |||,
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'IMAGE_QUALITY',
         description: 'Image quality, 0 = worst, 9 = best, -1 = quality not calculated',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'K1_CONSTANT_BAND_6_VCID_1',
         description: 'Calibration K1 constant for Band 6 VCID 1 radiance to temperature conversion.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'K1_CONSTANT_BAND_6_VCID_2',
         description: 'Calibration K1 constant for Band 6 VCID 2 radiance to temperature conversion.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'K2_CONSTANT_BAND_6_VCID_1',
         description: 'Calibration K2 constant for Band 6 VCID 1 radiance to temperature conversion.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'K2_CONSTANT_BAND_6_VCID_2',
         description: 'Calibration K2 constant for Band 6 VCID 2 radiance to temperature conversion.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'LANDSAT_PRODUCT_ID',
@@ -419,7 +420,7 @@ local common_bands = import 'common_bands.libsonnet';
           *  CC = Collection Number (02)
           *  TX = Collection Category (RT = Real Time, T1 = Tier 1, T2 = Tier 2)
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'LANDSAT_SCENE_ID',
@@ -439,264 +440,264 @@ local common_bands = import 'common_bands.libsonnet';
           *  GSI = Ground Station Identifier
           *  VV = Version
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'MAP_PROJECTION',
         description: 'Projection used to represent the 3-dimensional surface of the earth for the Level-1 product.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'ORIENTATION',
         description: |||
           Orientation used in creating the image. Values: NOMINAL = Nominal Path, NORTH_UP = North Up, TRUE_NORTH = True North, USER = User
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'PANCHROMATIC_LINES',
         description: 'Number of product lines for the panchromatic band.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'PANCHROMATIC_SAMPLES',
         description: 'Number of product samples for the panchromatic bands.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'PROCESSING_LEVEL',
         description: 'One of L1GS, L1GT, or L1TP.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'PROCESSING_SOFTWARE_VERSION',
         description: 'Name and version of the processing software used to generate the L1 product.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'RADIANCE_ADD_BAND_1',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 1.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_2',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 2.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_3',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 3.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_4',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 4.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_5',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 5.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_6_VCID_1',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 6 VCID 1.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_6_VCID_2',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 6 VCID 2.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_7',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 7.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_ADD_BAND_8',
         description: 'Additive rescaling factor used to convert calibrated DN to radiance for Band 8.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_1',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 1 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_2',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 2 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_3',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 3 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_4',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 4 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_5',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 5 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_6_VCID_1',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 6 VCID 1 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_6_VCID_2',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 6 VCID 2 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_7',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 7 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'RADIANCE_MULT_BAND_8',
         description: 'Multiplicative rescaling factor used to convert calibrated Band 8 DN to radiance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_1',
         description: 'Additive rescaling factor used to convert calibrated Band 1 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_2',
         description: 'Additive rescaling factor used to convert calibrated Band 2 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_3',
         description: 'Additive rescaling factor used to convert calibrated Band 3 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_4',
         description: 'Additive rescaling factor used to convert calibrated Band 4 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_5',
         description: 'Additive rescaling factor used to convert calibrated Band 5 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_7',
         description: 'Additive rescaling factor used to convert calibrated Band 7 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_ADD_BAND_8',
         description: 'Additive rescaling factor used to convert calibrated Band 8 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_1',
         description: 'Multiplicative factor used to convert calibrated Band 1 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_2',
         description: 'Multiplicative factor used to convert calibrated Band 2 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_3',
         description: 'Multiplicative factor used to convert calibrated Band 3 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_4',
         description: 'Multiplicative factor used to convert calibrated Band 4 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_5',
         description: 'Multiplicative factor used to convert calibrated Band 5 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_7',
         description: 'Multiplicative factor used to convert calibrated Band 7 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTANCE_MULT_BAND_8',
         description: 'Multiplicative factor used to convert calibrated Band 8 DN to reflectance.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTIVE_LINES',
         description: 'Number of product lines for the reflective bands.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REFLECTIVE_SAMPLES',
         description: 'Number of product samples for the reflective bands.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'REQUEST_ID',
         description: 'Request id, nnnyymmdd0000_0000\n\n*  nnn = node number\n*  yy = year\n*  mm = month\n*  dd = day',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'RESAMPLING_OPTION',
         description: 'Resampling option used in creating the image.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_1',
         description: "Flag indicating saturated pixels for band 1 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_2',
         description: "Flag indicating saturated pixels for band 2 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_3',
         description: "Flag indicating saturated pixels for band 3 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_4',
         description: "Flag indicating saturated pixels for band 4 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_5',
         description: "Flag indicating saturated pixels for band 5 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_6_VCID_1',
         description: "Flag indicating saturated pixels for band 6 VCID 1 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_6_VCID_2',
         description: "Flag indicating saturated pixels for band 6 VCID 2 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_7',
         description: "Flag indicating saturated pixels for band 7 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SATURATION_BAND_8',
         description: "Flag indicating saturated pixels for band 8 ('Y'/'N')",
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SCENE_CENTER_TIME',
@@ -708,77 +709,77 @@ local common_bands = import 'common_bands.libsonnet';
           *  SS.SSSSSSS = Fractional seconds
           *  Z = "Zulu" time (same as GMT)
         |||,
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SENSOR_ANOMALIES',
         description: 'Indicates if shutter intrusion is found within scene.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SENSOR_ID',
         description: 'Sensor used to capture data.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SENSOR_MODE',
         description: 'Operational mode. Scan Angle Monitor (SAM) or BUMPER.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SENSOR_MODE_SLC',
         description: 'Indicates the Scan Line Corrector (SLC) was ON.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SPACECRAFT_ID',
         description: 'Spacecraft identification.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'STATION_ID',
         description: 'Ground Station/Organisation that received the data.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       },
       {
         name: 'SUN_AZIMUTH',
         description: 'Sun azimuth angle in degrees for the image center location at the image centre acquisition time.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'SUN_ELEVATION',
         description: 'Sun elevation angle in degrees for the image center location at the image centre acquisition time.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'THERMAL_LINES',
         description: 'Number of product lines for the thermal band.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'THERMAL_SAMPLES',
         description: 'Number of product samples for the thermal band.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'UTM_ZONE',
         description: 'UTM zone number used in product map projection.',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'WRS_PATH',
         description: 'The WRS orbital path number (001 - 251).',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'WRS_ROW',
         description: 'Landsat satellite WRS row (001-248).',
-        type: 'DOUBLE',
+        type: ee_const.var_type.double,
       },
       {
         name: 'WRS_TYPE',
         description: 'World Reference System (WRS) type used for the collection of this scene.',
-        type: 'STRING',
+        type: ee_const.var_type.string,
       }
     ],
     'eo:bands': [

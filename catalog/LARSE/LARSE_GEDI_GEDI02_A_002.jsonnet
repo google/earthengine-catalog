@@ -38,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: gedi.providers('', self_ee_catalog_url),
   extent: {
     spatial: gedi.extent.spatial,
-    // TODO: figure out what to do about the end date of table collections.
+    // TODO(b/229788379): figure out what to do about the end date of table collections.
     temporal: { interval: [['2019-03-25T00:00:00Z', '2023-01-01T00:00:00Z']] },
   },
   summaries: {
@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // table properties here and the raster bands in the MONTHLY collection
     // are the same.
     'gee:schema': [
-      // TODO: Add gee:units field after adding support for units in table schema.
+      // TODO(b/225852120): Add gee:units field after adding support for units in table schema.
       { name: band.name, description: band.description, type: band.type }
       for band in (gedi.regular_bands + [gedi.shot_number] + gedi.rh_bands)
     ],

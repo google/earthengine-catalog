@@ -1,6 +1,6 @@
 local id = 'USGS/NLCD_RELEASES/2016_REL';
 local latest_id = 'USGS/NLCD_RELEASES/2019_REL/NLCD';
-// TODO: uncomment successor lines once 2019 assets have the same bands
+// TODO(b/195835158): uncomment successor lines once 2019 assets have the same bands
 // and non-CONUS regions.
 // local successor_id = 'USGS/NLCD_RELEASES/2019_REL/NLCD';
 local subdir = 'USGS/NLCD_RELEASES';
