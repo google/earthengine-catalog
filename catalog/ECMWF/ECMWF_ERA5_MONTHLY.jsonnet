@@ -317,16 +317,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': |||
-    Please acknowledge the use of ERA5 as stated in the [Copernicus C3S/CAMS License agreement](https://apps.ecmwf.int/datasets/licences/copernicus/):
+    Please acknowledge the use of ERA5 as stated in the
+    [Copernicus C3S/CAMS License agreement](https://apps.ecmwf.int/datasets/licences/copernicus/):
 
-    - 5.1.2 Where the Licensee communicates or distributes Copernicus Products to the public,
-    the Licensee shall inform the recipients of the source by using the following or any similar notice: "Generated using
-    Copernicus Climate Change Service information (Year)".
-    - 5.1.3 Where the Licensee makes or contributes to a publication or distribution containing adapted or
-    modified Copernicus Products, the Licensee shall provide the following or any similar notice: "Contains modified Copernicus
-    Climate Change Service information (Year)".
-    - 5.1.3 Any such publication or distribution covered by clauses 5.1.1 and 5.1.2 shall state that neither the European Commission
-    nor ECMWF is responsible for any use that may be made of the Copernicus information or Data it contains.
+    5.1. All users of Copernicus Products must provide clear and visible
+      attribution to the Copernicus programme. The Licensee will communicate
+      to the public the source of the Copernicus Products by crediting the
+      Copernicus Climate Change and Atmosphere Monitoring Services:
+    - 5.1.1. Where the Licensee communicates or distributes Copernicus
+      Products to the public, the Licensee shall inform the recipients of the
+      source by using the following or any similar notice:
+      - 'Generated using Copernicus Climate Change Service information [Year]'
+         and/or
+      - 'Generated using Copernicus Atmosphere Monitoring Service information
+        [Year]'.
+    - 5.1.2. Where the Licensee makes or contributes to a publication or
+      distribution containing adapted or modified Copernicus Products, the
+      Licensee shall provide the following or any similar notice:
+      - 'Contains modified Copernicus Climate Change Service information
+        [Year]'; and/or
+      - 'Contains modified Copernicus Atmosphere Monitoring Service
+        information [Year]'
+    - 5.1.3. Any such publication or distribution covered by clauses 5.1.1
+      and 5.1.2 shall state that neither the European Commission nor ECMWF
+      is responsible for any use that may be made of the Copernicus
+      information or data it contains.
   |||,
   'gee:user_uploaded': true,
 }
