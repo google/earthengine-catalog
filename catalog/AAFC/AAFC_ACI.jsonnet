@@ -10,6 +10,7 @@ local license = spdx.ogl_canada_2_0;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
+
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
