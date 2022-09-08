@@ -3,7 +3,8 @@ local subdir = 'LARSE';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
-local gedi = import 'gedi.libsonnet';
+local gedi_l2a = import 'gedi_l2a.libsonnet';
+local gedi = importstr 'gedi.md';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -30,19 +31,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     L4B product uses the sample present within the borders of each 1 km cell to
     statistically infer mean AGBD.
 
-    The GEDI L2A Vector data can be found in the table collection
-    [LARSE/GEDI/GEDI02_A_002](LARSE_GEDI_GEDI02_A_002).
-
-    The GEDI L2A Monthly raster data can be found in the image collection
-    [LARSE/GEDI/GEDI02_A_002_MONTHLY](LARSE_GEDI_GEDI02_A_002_MONTHLY).
-
     Please see [User Guide](https://daac.ornl.gov/GEDI/guides/GEDI_L4B_Gridded_Biomass.html)
     for more information.
-  |||,
-  license: gedi.license,
+  ||| + gedi,
+  license: gedi_l2a.license,
   links: ee.standardLinks(subdir, id),
-  keywords: gedi.keywords,
-  providers: gedi.providers('', self_ee_catalog_url),
+  keywords: gedi_l2a.keywords,
+  providers: gedi_l2a.providers('', self_ee_catalog_url),
   extent: ee.extent(-180,
                     -52.0,
                     180,
@@ -191,5 +186,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Biomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.
     [doi:10.3334/ORNLDAAC/2017](https://doi.org/10.3334/ORNLDAAC/2017)
   |||,
-  'gee:terms_of_use': gedi.terms_of_use,
+  'gee:terms_of_use': gedi_l2a.terms_of_use,
 }

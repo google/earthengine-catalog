@@ -4,14 +4,6 @@ local spdx = import 'spdx.libsonnet';
 
 {
   description: |||
-    The Global Ecosystem Dynamics Investigation (GEDI) mission aims to
-    characterize ecosystem structure and dynamics to enable radically improved
-    quantification and understanding of the Earth's carbon cycle and
-    biodiversity. The GEDI instrument, attached to the International Space
-    Station (ISS), collects data globally between 51.6&deg; N and 51.6&deg; S
-    latitudes at the highest resolution and densest sampling of the
-    3-dimensional structure of the Earth.
-
     GEDI's Level 2A Geolocated Elevation and Height Metrics Product (GEDI02_A)
     is primarily composed of 100 Relative Height (RH) metrics, which
     collectively describe the waveform collected by GEDI.

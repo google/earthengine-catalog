@@ -4,7 +4,8 @@ local subdir = 'LARSE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local gedi = import 'gedi.libsonnet';
+local gedi = importstr 'gedi.md';
+local gedi_l2a = import 'gedi_l2a.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -29,13 +30,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Please see [User Guide](https://lpdaac.usgs.gov/documents/986/GEDI02_UserGuide_V2.pdf)
     for more information.
-  |||,
-  license: gedi.license,
+  ||| + gedi,
+  license: gedi_l2a.license,
   links: ee.standardLinks(subdir, id),
-  keywords: gedi.keywords,
-  providers: gedi.providers('Indexing: Google and ', self_ee_catalog_url),
+  keywords: gedi_l2a.keywords,
+  providers: gedi_l2a.providers('Indexing: Google and ', self_ee_catalog_url),
   extent: {
-    spatial: gedi.extent.spatial,
+    spatial: gedi_l2a.extent.spatial,
     // TODO(b/229788379): figure out what to do about the end date of table
     // collections.
     temporal: { interval: [['2022-08-17T00:00:00Z', '2023-01-01T00:00:00Z']] },
@@ -79,5 +80,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Elevation and Height Metrics Data Global Footprint Level V002. 2021,
     distributed by NASA EOSDIS Land Processes DAAC. Accessed YYYY-MM-DD.
   |||,
-  'gee:terms_of_use': gedi.terms_of_use,
+  'gee:terms_of_use': gedi_l2a.terms_of_use,
 }

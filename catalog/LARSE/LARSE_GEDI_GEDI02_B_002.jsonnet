@@ -1,9 +1,10 @@
-local id = 'LARSE/GEDI/GEDI02_A_002';
+local id = 'LARSE/GEDI/GEDI02_B_002';
 local subdir = 'LARSE';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local gedi_l2a = import 'gedi_l2a.libsonnet';
+local gedi_l2b = import 'gedi_l2b.libsonnet';
 local gedi = importstr 'gedi.md';
 
 local basename = std.strReplace(id, '/', '_');
@@ -19,10 +20,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GEDI L2A Vector Canopy Top Height (Version 2)',
+  title: 'GEDI L2B Vector Canopy Cover Vertical Profile Metrics (Version 2)',
   version: '2',
   'gee:type': ee_const.gee_type.table_collection,
-  description: gedi_l2a.description + |||
+  description: gedi_l2b.description +
+  |||
+    The original GEDI02_B product is a table of points with a spatial resolution
+    (average footprint) of 25 meters.
 
     Please see [User Guide](https://lpdaac.usgs.gov/documents/986/GEDI02_UserGuide_V2.pdf)
     for more information.
@@ -44,7 +48,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       // TODO(b/225852120): Add gee:units field after adding support for units in table schema.
       { name: band.name, description: band.description, type: band.type }
-      for band in (gedi_l2a.regular_bands + [gedi_l2a.shot_number] + gedi_l2a.rh_bands)
+      for band in (
+          gedi_l2b.regular_bands +
+          gedi_l2b.cover_bands +
+          gedi_l2b.pai_bands +
+          gedi_l2b.pavd_bands
+       )
     ],
     'gee:visualizations': [{
       display_name: 'preview',
@@ -53,18 +62,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         point_size: 1,
       },
       lookat: {
-        lon: 1,
-        lat: 1,
-        zoom: 2,
+        lon: 12.6,
+        lat: 51.01,
+        zoom: 12,
       },
     }],
   },
-  'sci:doi': '10.5067/GEDI/GEDI02_A.002',
+  'sci:doi': '10.5067/GEDI/GEDI02_B.002',
   'sci:citation': |||
-    GEDI L2A Elevation and Height Metrics Data Global Footprint Level - GEDI02_A
-    Dubayah, R., M. Hofton, J. Blair, J. Armston, H. Tang, S. Luthcke. GEDI L2A
-    Elevation and Height Metrics Data Global Footprint Level V002. 2021,
-    distributed by NASA EOSDIS Land Processes DAAC. Accessed YYYY-MM-DD.
+    GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global Footprint
+    Level - GEDI02_B Dubayah, R., H. Tang, J. Armston, S. Luthcke, M. Hofton,
+    J. Blair. GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global
+    Footprint Level V002. 2021, distributed by NASA EOSDIS Land Processes DAAC.
+    Accessed YYYY-MM-DD..
   |||,
   'gee:terms_of_use': gedi_l2a.terms_of_use,
 }
