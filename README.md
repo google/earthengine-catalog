@@ -42,9 +42,8 @@ You can use externally hosted services to browse the STAC catalog:
 
 # Contributing
 
-We are not currently accepting unsolicited pull requests and the issue tracker
-is disabled. In the future, we plan to enable the issue tracker and start
-taking general pull requests.
+The issue tracker is currently disabled. In the future, we plan to enable the
+issue tracker.
 
 # Build
 
