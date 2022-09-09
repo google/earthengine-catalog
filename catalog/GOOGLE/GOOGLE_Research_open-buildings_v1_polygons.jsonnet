@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'africa',
-    // TODO(schwehr): Include these keywords once there are more than 1 use.
+    // TODO(schwehr): Include keywords once they are used more than once.
     // 'building',
     // 'built-up',
     // 'open-buildings',
