@@ -48,10 +48,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'africa',
-    'building',
-    'built-up',
-    'open-buildings',
-    'structure',
+    // TODO(schwehr): Include keywords once they are used more than once.
+    // 'building',
+    // 'built-up',
+    // 'open-buildings',
+    // 'structure',
   ],
   providers: [
     ee.producer_provider('Google Research - Open Buildings', 'https://sites.research.google/open-buildings/'),
