@@ -1,4 +1,4 @@
-local id = 'LARSE/GEDI/GEDI02_A_002_INDEX';
+local id = 'LARSE/GEDI/GEDI02_B_002_INDEX';
 local subdir = 'LARSE';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -6,6 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local gedi = importstr 'gedi.md';
 local gedi_l2a = import 'gedi_l2a.libsonnet';
+local gedi_l2b = import 'gedi_l2b.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -19,12 +20,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GEDI L2A table index',
+  title: 'GEDI L2B table index',
   version: '2',
   'gee:type': ee_const.gee_type.table,
   description: |||
-    This is a feature collection created from the geometries of L2A tables in
-    [LARSE/GEDI/GEDI02_A_002](LARSE_GEDI_GEDI02_A_002). Each feature is
+    This is a feature collection created from the geometries of L2B tables in
+    [LARSE/GEDI/GEDI02_B_002](LARSE_GEDI_GEDI02_B_002). Each feature is
     a polygon footprint of a source table with its asset id and start/end
     timestamps.
 
@@ -39,23 +40,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     spatial: gedi_l2a.extent.spatial,
     // TODO(b/229788379): figure out what to do about the end date of table
     // collections.
-    temporal: { interval: [['2019-03-25T00:00:00Z', '2023-01-01T00:00:00Z']] }
+    temporal: { interval: [['2019-03-25T00:00:00Z', '2023-01-01T00:00:00Z']] },
   },
   summaries: {
     'gee:schema': [
       {
         name: 'table_id',
-        description: 'GEDI L2A table collection Ids',
+        description: 'GEDI L2B table collection Ids',
         type: ee_const.var_type.string,
       },
       {
         name: 'time_start',
-        description: 'GEDI L2A table start time in the ISO 8601 format',
+        description: 'GEDI L2B table start time in the ISO 8601 format',
         type: ee_const.var_type.string,
       },
       {
         name: 'time_end',
-        description: 'GEDI L2A table end time in the ISO 8601 format',
+        description: 'GEDI L2B table end time in the ISO 8601 format',
         type: ee_const.var_type.string,
       }
     ],
@@ -74,6 +75,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:citation': gedi_l2a.citation,
+  'sci:citation': gedi_l2b.citation,
   'gee:terms_of_use': gedi_l2a.terms_of_use,
 }

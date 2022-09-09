@@ -60,11 +60,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     }],
   },
   'sci:doi': '10.5067/GEDI/GEDI02_A.002',
-  'sci:citation': |||
-    GEDI L2A Elevation and Height Metrics Data Global Footprint Level - GEDI02_A
-    Dubayah, R., M. Hofton, J. Blair, J. Armston, H. Tang, S. Luthcke. GEDI L2A
-    Elevation and Height Metrics Data Global Footprint Level V002. 2021,
-    distributed by NASA EOSDIS Land Processes DAAC. Accessed YYYY-MM-DD.
-  |||,
+  'sci:citation': gedi_l2a.citation,
   'gee:terms_of_use': gedi_l2a.terms_of_use,
 }

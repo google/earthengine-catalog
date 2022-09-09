@@ -69,12 +69,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     }],
   },
   'sci:doi': '10.5067/GEDI/GEDI02_B.002',
-  'sci:citation': |||
-    GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global Footprint
-    Level - GEDI02_B Dubayah, R., H. Tang, J. Armston, S. Luthcke, M. Hofton,
-    J. Blair. GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global
-    Footprint Level V002. 2021, distributed by NASA EOSDIS Land Processes DAAC.
-    Accessed YYYY-MM-DD..
-  |||,
+  'sci:citation': gedi_l2b.citation,
   'gee:terms_of_use': gedi_l2a.terms_of_use,
 }
