@@ -42,14 +42,13 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    'bathymetry',
+    // TODO(schwehr): Include bathymetry when it is used more than once.
+    // 'bathymetry',
     'bedrock',
     'dem',
     'elevation',
-    'etopo1',
     'geophysical',
     'ice',
-    'ngdc',
     'noaa',
     'topography',
   ],
