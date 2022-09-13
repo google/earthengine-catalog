@@ -35,10 +35,11 @@ local self_url = catalog_subdir_url + base_filename;
 
     The GFS is a coupled model, composed of an atmosphere model, an ocean model,
     a land/soil model, and a sea ice model which work together to provide an
-    accurate picture of weather conditions. See [history of recent modifications
-    to the global forecast/analysis system](https://www.emc.ncep.noaa.gov/gmb/STATS/html/model_changes.html),
-    the [model performance statistical web page](https://www.emc.ncep.noaa.gov/gmb/STATS_vsdb/),
-    and the [documentation homepage](https://nomads.ncep.noaa.gov/txt_descriptions/GFS_doc.shtml)
+    accurate picture of weather conditions. See
+    [history of recent modifications to the global forecast/analysis system
+    ](https://www.emc.ncep.noaa.gov/gmb/STATS/html/model_changes.html)
+    and the
+    [documentation](https://nomads.ncep.noaa.gov/txt_descriptions/GFS_doc.shtml)
     for more information.
   |||,
   license: license.id,
