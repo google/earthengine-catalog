@@ -235,7 +235,16 @@ local self_url = catalog_subdir_url + base_filename;
     at 1 km based on the 2000-2017 time series
     [10.5281/zenodo.1420114](https://doi.org/10.5281/zenodo.1420114)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution Share Alike 4.0 International License.',
+  'gee:terms_of_use': |||
+    Licensed under the
+    [Creative Commons Attribution Share Alike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+
+    Because this asset is licensed for non-commercial use only, it cannot be
+    used in requests originating from a paid project. If you have secured
+    rights to use the asset, but are receiving an error that prevents you from
+    using the asset,
+    [contact support](https://developers.google.com/earth-engine/help). 
+  |||,
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
 }
