@@ -68,7 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [1000],
     'gee:visualizations': [
       {
-        display_name: '',
+        display_name: 'Nighttime Lights',
         lookat: {
           lat: 31.4,
           lon: 30,
