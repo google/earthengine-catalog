@@ -1596,9 +1596,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               lon: 19.97,
               zoom: 5
           },
-          table_visualization: {
-              palette: ['0300ff', '418504', 'efff07', 'efff07', 'ff0303'],
-              max: 5000,
+          polygon_visualization: {
+              property_name: 'UP_AREA',
+              property_vis: {
+                palette: ['0300ff', '418504', 'efff07', 'efff07', 'ff0303'],
+                max: [5000],
+              },
           },
         },
     ],
