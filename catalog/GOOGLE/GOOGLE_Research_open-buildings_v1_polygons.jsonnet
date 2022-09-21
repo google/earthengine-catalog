@@ -91,6 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           lon: 3.389,
           zoom: 17,
         },
+        // TODO(schwehr): Add table_visualization or polygon_visualization.
       },
       {
         display_name: 'Open Buildings V1',
