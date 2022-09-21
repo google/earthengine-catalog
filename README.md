@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
 # Google Earth Engine Public Data Catalog
 
 This repository contains content submitted and/or maintained by the Earth Engine
