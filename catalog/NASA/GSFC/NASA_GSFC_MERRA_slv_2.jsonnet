@@ -1,5 +1,5 @@
 local id = 'NASA/GSFC/MERRA/slv/2';
-local subdir = 'NASA/MERRA';
+local subdir = 'NASA/GSFC';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
