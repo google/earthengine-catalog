@@ -62,7 +62,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         Azimuth of the unit pointing vector for the laser in the local ENU
         frame measured from North and positive towards East.
       |||,
-      'gee:units': 'Radians',
+      'gee:units': 'radians',
       type:: ee_const.var_type.int,
     },
     {
@@ -71,7 +71,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         Elevation of the unit pointing vector for the laser in the local ENU
         frame measured from East-North plane and positive towards Up.
       |||,
-      'gee:units': 'Radians',
+      'gee:units': 'radians',
       type:: ee_const.var_type.int,
     },
     {
