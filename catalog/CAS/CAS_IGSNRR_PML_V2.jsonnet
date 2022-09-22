@@ -41,7 +41,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   description: |||
     Penman-Monteith-Leuning Evapotranspiration V2 (PML_V2) products include
     evapotranspiration (ET), its three components, and
-    gross primary product (GPP) at 500m and 8-day resolution during 2000-2020
+    gross primary product (GPP) at 500m and 8-day resolution during 2002-2017
     and with spatial range from -60°S to 90°N. The major advantages of the
     PML_V2 products are:
 
@@ -74,7 +74,7 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee.producer_provider('PML_V2', 'https://github.com/kongdd/PML'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-02-26T00:00:00Z', null),
+  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2002-07-04T00:00:00Z', null),
   summaries: {
     gsd: [500.0],
     'eo:bands': [
