@@ -49,6 +49,11 @@
     name: 'Creative Commons Zero v1.0 Universal',
     reference: 'https://spdx.org/licenses/CC0-1.0.html',
   },
+  etalab_2_0: {
+    id: 'etalab-2.0',
+    name: 'Etalab Open License 2.0',
+    reference: 'https://spdx.org/licenses/etalab-2.0.html',
+  },
   odbl_1_0: {
     id: 'ODbL-1.0',
     name: 'Open Data Commons Open Database License v1.0',
