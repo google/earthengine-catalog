@@ -270,7 +270,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     },
   },
-  'sci:citation': 'In press at Nature Scientific Data',
+  'sci:citation': |||
+    Brown, C.F., Brumby, S.P., Guzder-Williams, B. et al. Dynamic World, Near
+    real-time global 10 m land use land cover mapping. Sci Data 9, 251 (2022).
+    [doi:10.1038/s41597-022-01307-4](https://doi.org/10.1038/s41597-022-01307-4)
+  |||,
   'gee:terms_of_use': |||
     This dataset is licensed under
     [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
