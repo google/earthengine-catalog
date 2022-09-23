@@ -139,8 +139,8 @@ local self_url = catalog_subdir_url + base_filename;
     },
   },
   'sci:citation': |||
-    IGN (2021). RGE ALTI 1m [Data set]. NASA EOSDIS Land
-    Processes DAAC. Accessed 2022-07-01 from [IGN website](https://geoservices.ign.fr/rgealti#telechargement1m)
+    IGN (2021). RGE ALTI 1m [Data set]. Accessed 2022-07-01 from
+    [IGN website](https://geoservices.ign.fr/rgealti#telechargement1m)
   |||,
   'gee:terms_of_use': '[' + license.id + '](' + license.reference + ')'
 }
