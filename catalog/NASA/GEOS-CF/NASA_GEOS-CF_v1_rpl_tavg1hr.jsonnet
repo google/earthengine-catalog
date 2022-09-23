@@ -371,8 +371,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PHIS',
         description: 'Surface geopotential height',
-        // TODO: check this surprising notation, is it m²/s²?
-        // 'gee:units': 'm+2 s-2',
+        'gee:units': 'm^2 s-2',
       },
       {
         name: 'PM25_RH35_GCC',
