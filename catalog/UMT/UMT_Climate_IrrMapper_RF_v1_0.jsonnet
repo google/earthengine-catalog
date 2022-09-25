@@ -47,7 +47,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   keywords: [
     'irrigated_land',
-    'landsat-derived',
+    'landsat_derived',
   ],
   providers: [
     ee.producer_provider('University of Montana / Montana Climate Office', 'https://climate.umt.edu/progress/irrmapper/default.php'),

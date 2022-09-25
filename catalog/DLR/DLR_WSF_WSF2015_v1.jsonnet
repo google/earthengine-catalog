@@ -73,7 +73,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   keywords: [
     'landcover',
-    'landsat-derived',
+    'landsat_derived',
     'sentinel1-derived',
     'settlement',
     'urban',

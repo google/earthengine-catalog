@@ -195,7 +195,7 @@ local self_url = catalog_subdir_url + base_filename;
     'forest',
     'gtac',
     'landcover',
-    'landsat-derived',
+    'landsat_derived',
     'landuse',
     'lcms',
     'redcastle-resources',

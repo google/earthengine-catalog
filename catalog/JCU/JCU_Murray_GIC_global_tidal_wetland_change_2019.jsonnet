@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'coastal',
     'ecosystem',
     'intertidal',
-    'landsat-derived',
+    'landsat_derived',
     'mangrove',
     'murray',
     'saltmarsh',

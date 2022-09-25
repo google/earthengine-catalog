@@ -77,7 +77,7 @@ local self_url = catalog_subdir_url + base_filename;
     'evaporation',
     'evapotranspiration',
     'hydrology',
-    'landsat-derived',
+    'landsat_derived',
     'tern',
     'viirs-derived',
   ],

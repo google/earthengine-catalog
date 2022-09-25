@@ -84,7 +84,7 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'climate_change',
     'disturbance',
-    'landsat-derived',
+    'landsat_derived',
     'nlcd',
     'rangeland',
     'trends',
