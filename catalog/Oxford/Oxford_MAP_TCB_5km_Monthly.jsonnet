@@ -30,9 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     aggregated temporally and spatially to produce the monthly ≈5km product.
 
     This dataset was produced by Harry Gibson and Daniel Weiss of the
-    Malaria Atlas Project (Big Data Institute, University of Oxford,
-    United Kingdom, [http://www.map.ox.ac.uk/]
-    (http://www.map.ox.ac.uk/)).
+    [Malaria Atlas Project](https://malariaatlas.org/).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
