@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wildlife',
   ],
   providers: [
-    ee.producer_provider('US Department of Interior Bureau of Land Management (BLM)', 'https://landscape.blm.gov/geoportal/catalog/AIM/AIM.page'),
+    ee.producer_provider('US Department of Interior Bureau of Land Management (BLM)', 'https://gbp-blm-egis.hub.arcgis.com/pages/aim'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2011-05-10T00:00:00Z', '2016-12-06T00:00:00Z'),
