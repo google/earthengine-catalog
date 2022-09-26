@@ -27,7 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset is the atmospherically corrected
-    surface reflectance from  the Landsat 8 OLI/TIRS sensors.
+    surface reflectance from the Landsat 8 OLI/TIRS sensors.
     These images contain 5 visible and near-infrared (VNIR) bands and
     2 short-wave infrared (SWIR) bands processed to orthorectified surface
     reflectance, and two thermal infrared (TIR) bands processed to orthorectified

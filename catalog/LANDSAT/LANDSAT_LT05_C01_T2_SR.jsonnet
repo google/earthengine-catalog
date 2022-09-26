@@ -27,7 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset is the atmospherically
-    corrected surface reflectance from  the Landsat 5 ETM sensor.
+    corrected surface reflectance from the Landsat 5 ETM sensor.
     These images contain 4 visible and near-infrared (VNIR) bands and 2 short-wave
     infrared (SWIR) bands processed to orthorectified surface reflectance,
     and one thermal infrared (TIR) band processed to orthorectified brightness
