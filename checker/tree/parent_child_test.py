@@ -1,0 +1,133 @@
+"""Tests for parent_child."""
+
+import pathlib
+
+from google3.third_party.earthengine_catalog.checker import stac
+from google3.third_party.earthengine_catalog.checker.tree import parent_child
+from google3.testing.pybase import googletest
+
+Check = parent_child.Check
+
+CATALOG = stac.StacType.CATALOG
+COLLECTION = stac.StacType.COLLECTION
+GEE_CATALOG = parent_child.GEE_CATALOG
+IMAGE = stac.GeeType.IMAGE
+NONE = stac.GeeType.NONE
+
+CHILD = parent_child.CHILD
+HREF = parent_child.HREF
+LINKS = parent_child.LINKS
+PARENT = parent_child.PARENT
+PREFIX = parent_child.PREFIX
+REL = parent_child.REL
+SELF = parent_child.SELF
+GEE_SKIP_INDEXING = parent_child.GEE_SKIP_INDEXING
+
+ID = 'id'
+CATALOG_ID = 'AAFC'
+COLLECTION_ID = 'AAFC/AAFC_ACI'
+FILE_PATH = pathlib.Path('test/path/should/be/ignored')
+
+
+def root_node(catalog_stac) -> stac.Node:
+  return stac.Node(GEE_CATALOG, FILE_PATH, CATALOG, NONE, catalog_stac)
+
+
+def catalog_node(catalog_stac) -> stac.Node:
+  return stac.Node(CATALOG_ID, FILE_PATH, CATALOG, NONE, catalog_stac)
+
+
+def collection_node(catalog_stac) -> stac.Node:
+  return stac.Node(COLLECTION_ID, FILE_PATH, COLLECTION, IMAGE, catalog_stac)
+
+ROOT_DATA = {LINKS: [
+    {REL: SELF, HREF: PREFIX + 'catalog.json'},
+    {REL: CHILD, HREF: PREFIX + 'AAFC/catalog.json'}]}
+CATALOG_DATA = {LINKS: [
+    {REL: SELF, HREF: PREFIX + 'AAFC/catalog.json'},
+    {REL: CHILD, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
+    {REL: PARENT, HREF: PREFIX + 'catalog.json'}]}
+COLLECTION_DATA = {LINKS: [
+    {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
+    {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'}]}
+
+ROOT_NODE = root_node(ROOT_DATA)
+CATALOG_NODE = catalog_node(CATALOG_DATA)
+COLLECTION_NODE = collection_node(COLLECTION_DATA)
+
+
+class HelperTest(googletest.TestCase):
+
+  def test_self_url_does_not_find(self):
+    # This is the one case that was not obvious on how to trigger.
+    node = root_node(
+        {LINKS: [{REL: CHILD, HREF: PREFIX + 'AAFC/catalog.json'}]})
+    self.assertEqual(parent_child.NO_SELF_URL, parent_child.self_url(node))
+
+
+class ParentChildTest(googletest.TestCase):
+
+  def test_valid(self):
+    nodes = [ROOT_NODE, CATALOG_NODE, COLLECTION_NODE]
+    issues = list(Check.run(nodes))
+    self.assertEmpty(issues)
+
+  def test_skip_indexing(self):
+    catalog = {LINKS: [
+        {REL: SELF, HREF: PREFIX + 'AAFC/catalog.json'},
+        # Correctly leave out child link.
+        {REL: PARENT, HREF: PREFIX + 'catalog.json'}]}
+    collection = {
+        GEE_SKIP_INDEXING: True,
+        LINKS: [
+            {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
+            {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'}]}
+
+    nodes = [ROOT_NODE, catalog_node(catalog), collection_node(collection)]
+
+    issues = list(Check.run(nodes))
+    self.assertEmpty(issues)
+
+  def test_missing_child(self):
+    catalog = {LINKS: [
+        {REL: SELF, HREF: PREFIX + 'AAFC/catalog.json'},
+        # Leave out child triggering an issue.
+        {REL: PARENT, HREF: PREFIX + 'catalog.json'}]}
+    nodes = [ROOT_NODE, catalog_node(catalog), COLLECTION_NODE]
+
+    issues = list(Check.run(nodes))
+    message = 'Not in any catalog as a child link'
+    expect = [Check.new_issue(COLLECTION_NODE, message)]
+    self.assertEqual(expect, issues)
+
+  def test_incorrect_parent(self):
+    incorrect = 'WRONG/catalog'
+    collection = {LINKS: [
+        {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
+        {REL: PARENT, HREF: PREFIX + incorrect + '.json'}]}
+    a_collection_node = collection_node(collection)
+    nodes = [ROOT_NODE, CATALOG_NODE, a_collection_node]
+
+    issues = list(Check.run(nodes))
+    message = 'catalog_url != parent_url: AAFC/catalog ' + incorrect
+    expect = [Check.new_issue(a_collection_node, message)]
+    self.assertEqual(expect, issues)
+
+  def test_incorrectly_have_child_link_with_skip_indexing(self):
+    collection = {
+        GEE_SKIP_INDEXING: True,
+        LINKS: [
+            {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
+            {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'}]}
+    a_collection_node = collection_node(collection)
+    nodes = [ROOT_NODE, CATALOG_NODE, a_collection_node]
+
+    issues = list(Check.run(nodes))
+    message = (
+        'Child link when gee:skip_indexing is true: AAFC/catalog AAFC/AAFC_ACI')
+    expect = [Check.new_issue(a_collection_node, message)]
+    self.assertEqual(expect, issues)
+
+
+if __name__ == '__main__':
+  googletest.main()
