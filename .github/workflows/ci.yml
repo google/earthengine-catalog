@@ -21,9 +21,12 @@ jobs:
       - name: Build
         run: bazel build //...
       - name: Checker
+        - uses: actions/setup-python@v4
+          with:
+          python-version: '3.9' 
         run: |
           pip install absl-py
-          PYTHONPATH=`pwd` python3 checker/ee_stac_check.py
+          PYTHONPATH=`pwd` python checker/ee_stac_check.py
       # TODO: Add tests.
       # - name: Test
       #   run: bazel test //...
