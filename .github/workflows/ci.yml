@@ -7,6 +7,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+          with:
+            python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          pip install absl-py
       - name: Cache bazel
         uses: actions/cache@v2
         env:
@@ -21,11 +28,7 @@ jobs:
       - name: Build
         run: bazel build //...
       - name: Checker
-        - uses: actions/setup-python@v4
-          with:
-          python-version: '3.9' 
         run: |
-          pip install absl-py
           PYTHONPATH=`pwd` python checker/ee_stac_check.py
       # TODO: Add tests.
       # - name: Test
