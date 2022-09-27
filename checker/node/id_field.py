@@ -7,7 +7,7 @@ import pathlib
 import re
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 ID = 'id'
 UNKNOWN_ID = 'unknown'

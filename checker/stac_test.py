@@ -2,8 +2,8 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.testing.pybase import googletest
+from checker import stac
+import unittest
 
 CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
@@ -13,7 +13,7 @@ ID = 'id'
 EMPTY_PATH = pathlib.Path('')
 
 
-class NodeTest(googletest.TestCase):
+class NodeTest(unittest.TestCase):
 
   def test_two_level_catalog(self):
     node = stac.Node(ID, EMPTY_PATH, CATALOG, IMAGE, {})
@@ -50,7 +50,7 @@ class NodeTest(googletest.TestCase):
           node.is_two_level(), f'id should be two level: {dataset_id}')
 
 
-class IssueTest(googletest.TestCase):
+class IssueTest(unittest.TestCase):
 
   def test_str(self):
     issue = stac.Issue('an id', pathlib.Path('a path'), 'a name', 'a message')
@@ -67,7 +67,7 @@ class IssueTest(googletest.TestCase):
     self.assertEqual(expect, str(issue))
 
 
-class CheckTest(googletest.TestCase):
+class CheckTest(unittest.TestCase):
 
   def test_new_issue(self):
     dataset_id = 'an id'
@@ -113,4 +113,4 @@ class CheckTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

@@ -7,7 +7,7 @@ missing fields when starting on a new STAC Catalog or Collection.
 
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 DESCRIPTION = 'description'
 EXTENT = 'extent'

@@ -10,9 +10,9 @@ from typing import Iterator
 from absl import app
 from absl import flags
 
-from google3.third_party.earthengine_catalog.checker import node
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker import tree
+from checker import node
+from checker import stac
+from checker import tree
 
 _CHECKS = flags.DEFINE_multi_string(
     'checks', [], 'List of checks to run or empty to run all checks.')

@@ -21,7 +21,7 @@ Example valid extents at python:
 import datetime
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 BBOX = 'bbox'
 EXTENT = 'extent'

@@ -8,7 +8,7 @@ Checking of deprecated assets is done in the version extension check.
 import re
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP', 'planet-nicfi'})
 COLLECTION_EXCEPTION_IDS = frozenset({

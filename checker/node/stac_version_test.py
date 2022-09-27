@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import stac_version
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import stac_version
+import unittest
 
 Check = stac_version.Check
 
@@ -19,7 +19,7 @@ STAC_VERSION = 'stac_version'
 FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 
 
-class StacVersionTest(googletest.TestCase):
+class StacVersionTest(unittest.TestCase):
 
   def test_version(self):
     stac_node = {STAC_VERSION: CURRENT_STAC_VERSION}
@@ -48,4 +48,4 @@ class StacVersionTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

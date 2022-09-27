@@ -5,9 +5,9 @@ TODO(schwehr): Write a detailed description of what makes a valid dataset id.
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import id_field
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import id_field
+import unittest
 
 Check = id_field.Check
 
@@ -25,7 +25,7 @@ def node_from_catalog_id(dataset_id: str) -> stac.Node:
   return stac.Node(dataset_id, FILE_PATH, CATALOG, IMAGE, {ID: dataset_id})
 
 
-class IdFieldCatalogTest(googletest.TestCase):
+class IdFieldCatalogTest(unittest.TestCase):
 
   def test_valid_id(self):
     id_list = ['A', 'b', 'c_d', 'd-f', 'g' * 50, 'FIRMS', 'NASA', 'NASA/b']
@@ -86,7 +86,7 @@ def node_from_collection_id(dataset_id: str) -> stac.Node:
   return stac.Node(dataset_id, FILE_PATH, COLLECTION, IMAGE, {ID: dataset_id})
 
 
-class IdFieldCollectionTest(googletest.TestCase):
+class IdFieldCollectionTest(unittest.TestCase):
 
   def test_valid_id(self):
     # TODO(schwehr): The top level of catalogs
@@ -146,4 +146,4 @@ class IdFieldCollectionTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import title
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import title
+import unittest
 
 Check = title.Check
 
@@ -20,7 +20,7 @@ FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 NOT_A_STR = ['not a str']
 
 
-class CatalogTest(googletest.TestCase):
+class CatalogTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -70,7 +70,7 @@ class CatalogTest(googletest.TestCase):
     self.assertEqual([expect], issues)
 
 
-class CollectionTest(googletest.TestCase):
+class CollectionTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -110,4 +110,4 @@ class CollectionTest(googletest.TestCase):
     self.assertEqual(expect, issues)
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

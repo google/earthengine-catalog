@@ -12,7 +12,7 @@ Keywords should be sorted and there should be no duplicates.
 import re
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 KEYWORDS = 'keywords'
 

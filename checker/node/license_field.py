@@ -14,7 +14,7 @@ https://github.com/google/earthengine-catalog/blob/main/catalog/spdx.libsonnet
 
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 
 LICENSE = 'license'

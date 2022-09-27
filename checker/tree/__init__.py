@@ -2,8 +2,8 @@
 
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.tree import parent_child
+from checker import stac
+from checker.tree import parent_child
 
 _CHECKS = [
     parent_child.Check,

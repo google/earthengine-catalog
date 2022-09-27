@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import extensions
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import extensions
+import unittest
 
 Check = extensions.Check
 
@@ -20,7 +20,7 @@ FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 ID = 'a/collection'
 
 
-class ExtensionsTest(googletest.TestCase):
+class ExtensionsTest(unittest.TestCase):
 
   def test_has_all_the_extensions(self):
     stac_json = {STAC_EXTENSIONS: EXTENSIONS}
@@ -66,4 +66,4 @@ class ExtensionsTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

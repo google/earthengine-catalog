@@ -10,7 +10,7 @@ https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection
 """
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 STAC_VERSION = '1.0.0'
 STAC_VERSION_FIELD = 'stac_version'

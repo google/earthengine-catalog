@@ -9,7 +9,7 @@ import json
 import pathlib
 from typing import Iterator
 
-from google3.pyglib import resources
+import os
 
 GEE_TYPE = 'gee:type'
 TYPE = 'type'
@@ -37,8 +37,8 @@ class GeeType(str, enum.Enum):
 
 def stac_root() -> pathlib.Path:
   return (
-      pathlib.Path(resources.GetARootDirWithAllResources()) /
-      'google3/third_party/earthengine_catalog/catalog')
+      pathlib.Path(os.getcwd()) /
+      'bazel-bin/catalog')
 
 
 @dataclasses.dataclass

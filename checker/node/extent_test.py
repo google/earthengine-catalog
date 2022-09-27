@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import extent
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import extent
+import unittest
 
 Check = extent.Check
 check_spatial = Check.check_spatial
@@ -32,7 +32,7 @@ def make_node(collection_stac) -> stac.Node:
   return stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, collection_stac)
 
 
-class SpatialTest(googletest.TestCase):
+class SpatialTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -131,7 +131,7 @@ class SpatialTest(googletest.TestCase):
     self.assertEqual(expect, issues)
 
 
-class TemporalTest(googletest.TestCase):
+class TemporalTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -249,7 +249,7 @@ class TemporalTest(googletest.TestCase):
     self.assertEqual(expect, issues)
 
 
-class ExtentTest(googletest.TestCase):
+class ExtentTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -301,4 +301,4 @@ class ExtentTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

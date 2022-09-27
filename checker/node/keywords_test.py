@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import keywords
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import keywords
+import unittest
 
 Check = keywords.Check
 
@@ -18,7 +18,7 @@ FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 NOT_A_LIST = 'not a list'
 
 
-class KeywordsTest(googletest.TestCase):
+class KeywordsTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -90,4 +90,4 @@ class KeywordsTest(googletest.TestCase):
     self.assertEqual(expect, issues)
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

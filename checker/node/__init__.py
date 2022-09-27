@@ -2,15 +2,15 @@
 
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import extensions
-from google3.third_party.earthengine_catalog.checker.node import extent
-from google3.third_party.earthengine_catalog.checker.node import id_field
-from google3.third_party.earthengine_catalog.checker.node import keywords
-from google3.third_party.earthengine_catalog.checker.node import license_field
-from google3.third_party.earthengine_catalog.checker.node import required
-from google3.third_party.earthengine_catalog.checker.node import stac_version
-from google3.third_party.earthengine_catalog.checker.node import title
+from checker import stac
+from checker.node import extensions
+from checker.node import extent
+from checker.node import id_field
+from checker.node import keywords
+from checker.node import license_field
+from checker.node import required
+from checker.node import stac_version
+from checker.node import title
 
 _CHECKS = [
     required.Check,

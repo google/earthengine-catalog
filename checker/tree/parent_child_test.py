@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.tree import parent_child
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.tree import parent_child
+import unittest
 
 Check = parent_child.Check
 
@@ -56,7 +56,7 @@ CATALOG_NODE = catalog_node(CATALOG_DATA)
 COLLECTION_NODE = collection_node(COLLECTION_DATA)
 
 
-class HelperTest(googletest.TestCase):
+class HelperTest(unittest.TestCase):
 
   def test_self_url_does_not_find(self):
     # This is the one case that was not obvious on how to trigger.
@@ -65,7 +65,7 @@ class HelperTest(googletest.TestCase):
     self.assertEqual(parent_child.NO_SELF_URL, parent_child.self_url(node))
 
 
-class ParentChildTest(googletest.TestCase):
+class ParentChildTest(unittest.TestCase):
 
   def test_valid(self):
     nodes = [ROOT_NODE, CATALOG_NODE, COLLECTION_NODE]
@@ -130,4 +130,4 @@ class ParentChildTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

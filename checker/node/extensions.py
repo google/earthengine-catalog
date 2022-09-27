@@ -8,7 +8,7 @@ Extensions are defined here: https://github.com/stac-extensions/
 
 from typing import Iterator
 
-from google3.third_party.earthengine_catalog.checker import stac
+from checker import stac
 
 STAC_EXTENSIONS = 'stac_extensions'
 

@@ -2,9 +2,9 @@
 
 import pathlib
 
-from google3.third_party.earthengine_catalog.checker import stac
-from google3.third_party.earthengine_catalog.checker.node import license_field
-from google3.testing.pybase import googletest
+from checker import stac
+from checker.node import license_field
+import unittest
 
 Check = license_field.Check
 
@@ -19,7 +19,7 @@ FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 NOT_A_STR = ['not a str']
 
 
-class LicenseFieldTest(googletest.TestCase):
+class LicenseFieldTest(unittest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -59,4 +59,4 @@ class LicenseFieldTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()

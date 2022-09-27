@@ -5,11 +5,11 @@ GOOGLE3 ONLY: This test is not for distribution.
 
 from absl import logging
 
-from google3.third_party.earthengine_catalog.checker import ee_stac_check
-from google3.testing.pybase import googletest
+from checker import ee_stac_check
+import unittest
 
 
-class EeStacCheckerTest(googletest.TestCase):
+class EeStacCheckerTest(unittest.TestCase):
 
   def test_public_data_catalog(self):
     issues = []
@@ -24,4 +24,4 @@ class EeStacCheckerTest(googletest.TestCase):
 
 
 if __name__ == '__main__':
-  googletest.main()
+  unittest.main()
