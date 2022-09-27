@@ -21,7 +21,9 @@ jobs:
       - name: Build
         run: bazel build //...
       - name: Checker
-        run: PYTHONPATH=`pwd` python3 checker/ee_stac_check.py
+        run: |
+          pip install absl
+          PYTHONPATH=`pwd` python3 checker/ee_stac_check.py
       # TODO: Add tests.
       # - name: Test
       #   run: bazel test //...
