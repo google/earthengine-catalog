@@ -9,9 +9,8 @@ jobs:
     steps:
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
-          with:
-            python-version: '3.9'
-      - name: Install dependencies
+        with:
+          python-version: '3.9'
         run: |
           pip install absl-py
       - name: Cache bazel
