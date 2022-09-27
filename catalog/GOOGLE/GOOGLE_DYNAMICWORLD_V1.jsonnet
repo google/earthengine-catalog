@@ -12,15 +12,14 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  stac_version: ee_const.stac_version,
+  stac_version: ee_const.stac_version + '-boom',
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
-    ee_const.ext_ver,
   ],
   id: id,
-  title: 'Dynamic World V1',
+  title: 'bad title@Dynamic World V1',
   version: 'V1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -61,12 +60,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     it is recommended to mask Dynamic World outputs by thresholding the
     estimated "probability" of the top-1 prediction.
   |||,
-  license: license.id,
+  // license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     ee.link.license('https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice'),
   ],
   keywords: [
+    'zzz',
     'global',
     'google',
     'landcover',
@@ -79,7 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Google', 'https://research.google.com/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2015-06-23T00:00:00Z', null),
+  extent: ee.extent_global('2099-06-23T00:00:00Z', '2015-06-23T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
