@@ -22,7 +22,7 @@ jobs:
         run: bazel build //...
       - name: Checker
         run: |
-          pip install absl
+          pip install absl-py
           PYTHONPATH=`pwd` python3 checker/ee_stac_check.py
       # TODO: Add tests.
       # - name: Test
