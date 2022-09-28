@@ -53,7 +53,7 @@ local self_url = catalog_subdir_url + base_filename;
     'Africa',
     'iSDA',
     'soil',
-    'sulphur',
+    'sulfur',
   ],
   providers: [
     ee.producer_provider('iSDA', 'https://isda-africa.com/'),

@@ -118,7 +118,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sentinel',
     'so2',
     'sulfur_dioxide',
-    'sulphur_dioxide',
     'tropomi',
   ],
   providers: [
