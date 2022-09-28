@@ -30,7 +30,7 @@ class StacVersionTest(unittest.TestCase):
   def test_missing_version(self):
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, {})
     issues = list(Check.run(node))
-    self.assertLen(issues, 1)
+    self.assertEqual(len(issues), 1)
 
     message = 'Missing: stac_version'
     expect = stac.Issue(ID, FILE_PATH, CHECK_NAME, message)
@@ -40,7 +40,7 @@ class StacVersionTest(unittest.TestCase):
     stac_node = {STAC_VERSION: CURRENT_STAC_VERSION + '-bad'}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_node)
     issues = list(Check.run(node))
-    self.assertLen(issues, 1)
+    self.assertEqual(len(issues), 1)
 
     message = 'Unexpected stac_version: 1.0.0-bad != 1.0.0'
     expect = stac.Issue(ID, FILE_PATH, CHECK_NAME, message)

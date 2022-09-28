@@ -23,17 +23,17 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'iSDAsoil Extractable Sulphur',
+  title: 'iSDAsoil Extractable Sulfur',
   version: 'v1',
   'gee:type': ee_const.gee_type.image,
   description: |||
-    Extractable sulphur at soil depths of 0-20 cm and 20-50 cm,
+    Extractable sulfur at soil depths of 0-20 cm and 20-50 cm,
     predicted mean and standard deviation.
 
     Pixel values must be back-transformed with `exp(x/10)-1`.
 
     In areas of dense jungle (generally over central Africa), model accuracy is
-    low and therefore artefacts such as banding (striping) might be seen.
+    low and therefore artifacts such as banding (striping) might be seen.
 
     Soil property predictions were made by
     [Innovative Solutions for Decision Agriculture Ltd. (iSDA)](https://isda-africa.com/)
@@ -68,28 +68,28 @@ local self_url = catalog_subdir_url + base_filename;
     'eo:bands': [
       {
         name: 'mean_0_20',
-        description: 'Sulphur, extractable, predicted mean at 0-20 cm depth',
+        description: 'Sulfur, extractable, predicted mean at 0-20 cm depth',
         'gee:units': 'ppm',
       },
       {
         name: 'mean_20_50',
-        description: 'Sulphur, extractable, predicted mean at 20-50 cm depth',
+        description: 'Sulfur, extractable, predicted mean at 20-50 cm depth',
         'gee:units': 'ppm',
       },
       {
         name: 'stdev_0_20',
-        description: 'Sulphur, extractable, standard deviation at 0-20 cm depth',
+        description: 'Sulfur, extractable, standard deviation at 0-20 cm depth',
         'gee:units': 'ppm',
       },
       {
         name: 'stdev_20_50',
-        description: 'Sulphur, extractable, standard deviation at 20-50 cm depth',
+        description: 'Sulfur, extractable, standard deviation at 20-50 cm depth',
         'gee:units': 'ppm',
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Sulphur, extractable, predicted mean at 0-20 cm depth',
+        display_name: 'Sulfur, extractable, predicted mean at 0-20 cm depth',
         lookat: {
           lat: 25.0,
           lon: -3.0,
