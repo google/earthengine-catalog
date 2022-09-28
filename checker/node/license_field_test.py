@@ -28,7 +28,7 @@ class LicenseFieldTest(unittest.TestCase):
   def test_valid(self):
     self.node.stac = {LICENSE: list(license_field.KNOWN_LICENSES)[0]}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_catalog_cannot_have_license(self):
     node = stac.Node(

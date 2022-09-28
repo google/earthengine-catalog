@@ -31,13 +31,13 @@ class CatalogTest(unittest.TestCase):
     self.node.id = dataset_id
     self.node.stac = {TITLE: dataset_id}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_exception(self):
     self.node.id = 'USGS/3DEP'
     self.node.stac = {TITLE: '3DEP'}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_required(self):
     self.node.stac = {}
@@ -79,20 +79,20 @@ class CollectionTest(unittest.TestCase):
   def test_valid(self):
     self.node.stac = {TITLE: 'A collection title'}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_deprecated(self):
     # Over size limit with deprecation str
     self.node.stac = {TITLE: 'A' * 140 + DEPRECATED}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_exception(self):
     dataset_id = 'ISDASOIL/Africa/v1/ph'
     self.node.id = dataset_id
     self.node.stac = {TITLE: dataset_id}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_invalid(self):
     self.node.stac = {TITLE: '% not a valid title'}

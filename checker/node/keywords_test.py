@@ -27,7 +27,7 @@ class KeywordsTest(unittest.TestCase):
   def test_valid(self):
     self.node.stac = {KEYWORDS: ['ab', 'c_d', 'e9']}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_catalog_cannot_have_keywords(self):
     node = stac.Node(ID, FILE_PATH, CATALOG, IMAGE, {KEYWORDS: ['ab']})

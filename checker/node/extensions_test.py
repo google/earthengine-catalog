@@ -26,7 +26,7 @@ class ExtensionsTest(unittest.TestCase):
     stac_json = {STAC_EXTENSIONS: EXTENSIONS}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_json)
     issues = list(Check.run(node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_catalogs_cannot_have_extensions(self):
     dataset_id = 'a_catalog'

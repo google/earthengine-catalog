@@ -45,7 +45,7 @@ class SpatialTest(unittest.TestCase):
 
   def test_valid(self):
     issues = list(check_spatial(self.node, self.extent))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_extent_must_have_spatial(self):
     an_extent = {}
@@ -146,7 +146,7 @@ class TemporalTest(unittest.TestCase):
 
   def test_valid(self):
     issues = list(check_temporal(self.node, self.extent))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_extent_must_have_temporal(self):
     an_extent = {}
@@ -266,13 +266,13 @@ class ExtentTest(unittest.TestCase):
   def test_valid(self):
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, self.stac_json)
     issues = list(Check.run(node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_valid_without_end_date(self):
     self.stac_json[EXTENT][TEMPORAL][INTERVAL][0][1] = None
     node = stac.Node(ID, FILE_PATH, COLLECTION, NONE, self.stac_json)
     issues = list(Check.run(node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_catalog_cannot_have_extent(self):
     dataset_id = 'a_catalog'

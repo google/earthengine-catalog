@@ -70,7 +70,7 @@ class ParentChildTest(unittest.TestCase):
   def test_valid(self):
     nodes = [ROOT_NODE, CATALOG_NODE, COLLECTION_NODE]
     issues = list(Check.run(nodes))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_skip_indexing(self):
     catalog = {LINKS: [
@@ -86,7 +86,7 @@ class ParentChildTest(unittest.TestCase):
     nodes = [ROOT_NODE, catalog_node(catalog), collection_node(collection)]
 
     issues = list(Check.run(nodes))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_missing_child(self):
     catalog = {LINKS: [

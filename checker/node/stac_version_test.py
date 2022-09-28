@@ -25,7 +25,7 @@ class StacVersionTest(unittest.TestCase):
     stac_node = {STAC_VERSION: CURRENT_STAC_VERSION}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_node)
     issues = list(Check.run(node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_missing_version(self):
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, {})

@@ -31,7 +31,7 @@ class IdFieldCatalogTest(unittest.TestCase):
     id_list = ['A', 'b', 'c_d', 'd-f', 'g' * 50, 'FIRMS', 'NASA', 'NASA/b']
     for dataset_id in id_list:
       issues = list(Check.run(node_from_catalog_id(dataset_id)))
-      self.assertEmpty(issues)
+      self.assertEqual(0, len(issues))
 
   def test_no_id(self):
     node = stac.Node(UNKNOWN_ID, FILE_PATH, CATALOG, IMAGE, {})
@@ -95,7 +95,7 @@ class IdFieldCollectionTest(unittest.TestCase):
         '1/2/3/4/5/6/7', 'USGS/a', 'USGS/b/c', 'FIRMS']
     for dataset_id in id_list:
       issues = list(Check.run(node_from_collection_id(dataset_id)))
-      self.assertEmpty(issues)
+      self.assertEqual(0, len(issues))
 
   def test_no_top_level(self):
     # 'FIRMS' is the only exception.

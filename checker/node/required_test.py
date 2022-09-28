@@ -31,7 +31,7 @@ class CatalogTest(unittest.TestCase):
   def test_valid(self):
     self.node.stac = {key: DOES_NOT_MATTER for key in CATALOG_FIELDS}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_missing_one(self):
     fields = [key for key in sorted(CATALOG_FIELDS) if key != TYPE]
@@ -59,7 +59,7 @@ class CollectionTest(unittest.TestCase):
   def test_valid(self):
     self.node.stac = {key: DOES_NOT_MATTER for key in COLLECTION_FIELDS}
     issues = list(Check.run(self.node))
-    self.assertEmpty(issues)
+    self.assertEqual(0, len(issues))
 
   def test_missing_one(self):
     fields = [key for key in sorted(COLLECTION_FIELDS) if key != TYPE]

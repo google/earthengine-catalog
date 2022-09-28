@@ -18,6 +18,7 @@ from checker import stac
 
 
 LICENSE = 'license'
+# Add the exact license string from https://spdx.org/licenses/ here.
 KNOWN_LICENSES = frozenset({
     'etalab-2.0',
     'proprietary',
