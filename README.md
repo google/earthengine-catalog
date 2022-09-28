@@ -65,6 +65,7 @@ You will need to install Bazel and Jsonnet. On Debian-based Linux systems:
 
 ```shell
 sudo apt-get install bazel jsonnet
+sudo apt-get install python3-absl
 ```
 
 ## Building
@@ -84,6 +85,12 @@ Finding the results:
 
 ```shell
 ls bazel-bin/catalog/
+```
+
+Running the Earth Engine Catalog Checker:
+
+```shell
+PYTHONPATH=`pwd` python3 checker/ee_stac_check.py
 ```
 
 # Non-commercial datasets
