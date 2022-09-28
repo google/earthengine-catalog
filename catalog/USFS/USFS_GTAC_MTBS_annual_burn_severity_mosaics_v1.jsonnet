@@ -46,6 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landcover',
     'landsat_derived',
     'landscape_disturbance',
+    'mtbs',
     'redcastle_resources',
     'usda',
     'usfs',
