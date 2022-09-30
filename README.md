@@ -87,10 +87,16 @@ Finding the results:
 ls bazel-bin/catalog/
 ```
 
+Running the unittests:
+
+```shell
+bazel test //...
+```
+
 Running the Earth Engine Catalog Checker:
 
 ```shell
-PYTHONPATH=`pwd` python3 checker/ee_stac_check.py
+bazel run //checker:ee_stac_check
 ```
 
 # Non-commercial datasets

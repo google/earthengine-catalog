@@ -37,8 +37,8 @@ class GeeType(str, enum.Enum):
 
 def stac_root() -> pathlib.Path:
   return (
-      pathlib.Path(os.getcwd()) /
-      'bazel-bin/catalog')
+      pathlib.Path(os.path.dirname(__file__)) /
+      '../catalog')
 
 
 @dataclasses.dataclass
