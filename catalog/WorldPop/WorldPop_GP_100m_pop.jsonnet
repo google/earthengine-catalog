@@ -31,7 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Full details on the methods and datasets used in constructing the
     data, along with open access publications, are provided on the
-    [WorldPop website](https://www.worldpop.org.uk). In brief, recent census-based
+    [WorldPop website](https://www.worldpop.org/). In brief, recent census-based
     population counts matched to their associated administrative units are
     disaggregated to ~100x100m grid cells through machine learning approaches
     that exploit the relationships between population densities and a range of
