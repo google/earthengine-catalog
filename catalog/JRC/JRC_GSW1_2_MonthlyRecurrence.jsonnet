@@ -26,7 +26,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   title: 'JRC Monthly Water Recurrence, v1.2 [deprecated]',
-  version: 'v1.0',
+  version: '1.2',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

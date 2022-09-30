@@ -26,7 +26,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   title: 'JRC Global Surface Water Mapping Layers, v1.1 [deprecated]',
-  version: 'v1.0',
+  version: '1.1',
   deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||

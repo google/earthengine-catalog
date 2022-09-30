@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'JRC Yearly Water Classification History, v1.3',
-  version: 'v1.0',
+  version: '1.3',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains maps of the location and temporal
