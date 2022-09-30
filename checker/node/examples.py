@@ -1246,6 +1246,7 @@ class Check(stac.NodeCheck):
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     if node.type == stac.StacType.CATALOG: return
     if _GEE_SKIP_INDEXING in node.stac: return
+    if node.id.startswith('TEMPLATE'): return
 
     if not cls.scripts:
       cls.scripts = load(stac.examples_root())
