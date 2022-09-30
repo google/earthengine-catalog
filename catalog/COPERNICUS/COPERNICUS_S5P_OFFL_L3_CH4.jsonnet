@@ -59,6 +59,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      - Data prior to November 2021 only provides XCH<sub>4</sub> over land,
        after which glint ocean observations were added.
 
+     - No data are present between 2022-07-26 and 2022-08-31 due to a
+       [provider outage](https://scihub.copernicus.eu/news/News01082).
+
     ### OFFL L3 Product
 
     To make our OFFL L3 products, we find which areas within the product's
