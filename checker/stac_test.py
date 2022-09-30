@@ -112,5 +112,12 @@ class CheckTest(unittest.TestCase):
       stac.TreeCheck.run([node])
 
 
+class LoadTest(unittest.TestCase):
+
+  def test_found_collections(self):
+    stac_root = stac.stac_root()
+    nodes = stac.load(stac_root)
+    self.assertGreater(len(nodes), 200)
+
 if __name__ == '__main__':
   unittest.main()

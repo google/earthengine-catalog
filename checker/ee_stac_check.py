@@ -22,6 +22,8 @@ def find_issues(checks: list[str]) -> Iterator[stac.Issue]:
   stac_root = stac.stac_root()
   nodes = stac.load(stac_root)
 
+  print('Number of STAC nodes loaded:', len(nodes))
+
   for a_node in nodes:
     yield from node.run_checks(a_node, checks)
 
