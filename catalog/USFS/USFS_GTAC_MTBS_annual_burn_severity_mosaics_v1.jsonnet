@@ -45,7 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gtac',
     'landcover',
     'landsat_derived',
-    'landscape_disturbance',
+    // TODO(simonf): Bring back when there is more than one instance.
+    // TODO(simonf): Define landscape_disturbance.  Wikipedia, Wiktionary, or ?
+    // 'landscape_disturbance',
     'mtbs',
     'redcastle_resources',
     'usda',
