@@ -1225,7 +1225,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     All products developed by the Soil and Landscape Grid of Australia are
     available at no cost under a
-    [Creative Commons Attribution Licence](https://creativecommons.org/licenses/by/4.0/)
+    [Creative Commons Attribution License](https://creativecommons.org/licenses/by/4.0/)
     (CC BY) and users should read the
     [Disclaimer](https://www.clw.csiro.au/aclep/soilandlandscapegrid/About-Disclaimer.html).
   |||,

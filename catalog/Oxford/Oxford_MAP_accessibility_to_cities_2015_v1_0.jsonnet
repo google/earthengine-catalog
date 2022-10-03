@@ -36,7 +36,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     Densely-populated areas are defined as contiguous areas
     with 1,500 or more inhabitants per square kilometer or a majority
-    of built-up land cover types coincident with a population centre
+    of built-up land cover types coincident with a population center
     of at least 50,000 inhabitants.
 
     This map was produced through

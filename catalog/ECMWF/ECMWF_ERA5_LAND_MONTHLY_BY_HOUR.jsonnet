@@ -86,7 +86,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'dewpoint_temperature_2m',
         description: |||
-          Temperature to which the air, at 2 metres above the surface of the Earth, would have to be
+          Temperature to which the air, at 2 meters above the surface of the Earth, would have to be
           cooled for saturation to occur. It is a measure of the humidity of the air. Combined with
           temperature and pressure, it can be used to calculate the relative humidity. 2m dew point
           temperature is calculated by interpolating between the lowest model level and the Earth's
@@ -234,7 +234,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'snow_density',
         description: |||
-          Mass of snow per cubic metre in the snow layer. The ECMWF Integrated Forecast System (IFS)
+          Mass of snow per cubic meter in the snow layer. The ECMWF Integrated Forecast System (IFS)
           model represents snow as a single additional layer over the uppermost soil level. The snow may
           cover all or part of the grid box.
         |||,
@@ -248,7 +248,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'snow_depth_water_equivalent',
         description: |||
-          Depth of snow from the snow-covered area of a grid box. Its units are metres of water
+          Depth of snow from the snow-covered area of a grid box. Its units are meters of water
           equivalent, so it is the depth the water would have if the snow melted and was spread evenly
           over the whole grid box. The ECMWF Integrated Forecast System represents snow as a single
           additional layer over the uppermost soil level. The snow may cover all or part of the grid box.
@@ -259,8 +259,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'snowfall',
         description: |||
           Accumulated total snow that has fallen to the Earth's surface. It consists of snow due to the
-          large-scale atmospheric flow (horizontal scales greater than around a few hundred metres) and
-          convection where smaller scale areas (around 5km to a few hundred kilometres) of warm air rise.
+          large-scale atmospheric flow (horizontal scales greater than around a few hundred meters) and
+          convection where smaller scale areas (around 5km to a few hundred kilometers) of warm air rise.
           If snow has melted during the period over which this variable was accumulated, then it will be
           higher than the snow depth. This variable is the total amount of water accumulated from the
           beginning of the forecast time to the end of the forecast step. The units given measure the
@@ -358,7 +358,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           absorbed. The rest is incident on the Earth's surface, where some of it is reflected. The
           difference between downward and reflected solar radiation is the surface net solar radiation.
           This variable is accumulated from the beginning of the forecast time to the end of the forecast
-          step. The units are joules per square metre (J m-2). To convert to watts per square metre
+          step. The units are joules per square meter (J m-2). To convert to watts per square meter
           (W m-2), the accumulated values should be divided by the accumulation period expressed in
           seconds. The ECMWF convention for vertical fluxes is positive downwards.
         |||,
@@ -382,7 +382,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           roughness. For example, cold air overlying a warm surface would produce a sensible heat flux
           from the land (or ocean) into the atmosphere. This is a single level variable and it is
           accumulated from the beginning of the forecast time to the end of the forecast step. The units
-          are joules per square metre (J m-2). To convert to watts per square metre (W m-2), the
+          are joules per square meter (J m-2). To convert to watts per square meter (W m-2), the
           accumulated values should be divided by the accumulation period expressed in seconds. The ECMWF
           convention for vertical fluxes is positive downwards.
         |||,
@@ -401,7 +401,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           variables with observations, because observations are often local to a particular point in
           space and time, rather than representing averages over a model grid box and model time step.
           This variable is accumulated from the beginning of the forecast time to the end of the forecast
-          step. The units are joules per square metre (J m-2). To convert to watts per square metre
+          step. The units are joules per square meter (J m-2). To convert to watts per square meter
           (W m-2), the accumulated values should be divided by the accumulation period expressed in
           seconds. The ECMWF convention for vertical fluxes is positive downwards.
         |||,
@@ -415,8 +415,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           some of which is absorbed by the atmosphere and clouds. The atmosphere and clouds likewise emit
           thermal radiation in all directions, some of which reaches the surface (represented by this
           variable). This variable is accumulated from the beginning of the forecast time to the end of
-          the forecast step. The units are joules per square metre (J m-2). To convert to watts per
-          square metre (W m-2), the accumulated values should be divided by the accumulation period
+          the forecast step. The units are joules per square meter (J m-2). To convert to watts per
+          square meter (W m-2), the accumulated values should be divided by the accumulation period
           expressed in seconds. The ECMWF convention for vertical fluxes is positive downwards.
         |||,
         'gee:units': 'J/m2',
@@ -477,11 +477,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Otherwise, the water drains away, either over the surface (surface runoff), or under the ground
           (sub-surface runoff) and the sum of these two is simply called 'runoff'. This variable is the
           total amount of water accumulated from the beginning of the forecast time to the end of the
-          forecast step. The units of runoff are depth in metres. This is the depth the water would have
+          forecast step. The units of runoff are depth in meters. This is the depth the water would have
           if it were spread evenly over the grid box. Care should be taken when comparing model variables
           with observations, because observations are often local to a particular point rather than
           averaged over a grid square area. Observations are also often taken in different units, such as
-          mm/day, rather than the accumulated metres produced here. Runoff is a measure of the
+          mm/day, rather than the accumulated meters produced here. Runoff is a measure of the
           availability of water in the soil, and can, for example, be used as an indicator of drought or
           flood. More information about how runoff is calculated is given in the IFS Physical Processes
           documentation.
@@ -504,11 +504,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Otherwise, the water drains away, either over the surface (surface runoff), or under the ground
           (sub-surface runoff) and the sum of these two is simply called 'runoff'. This variable is
           accumulated from the beginning of the forecast time to the end of the forecast step. The units
-          of runoff are depth in metres. This is the depth the water would have if it were spread evenly
+          of runoff are depth in meters. This is the depth the water would have if it were spread evenly
           over the grid box. Care should be taken when comparing model variables with observations,
           because observations are often local to a particular point rather than averaged over a grid
           square area. Observations are also often taken in different units, such as mm/day, rather than
-          the accumulated metres produced here. Runoff is a measure of the availability of water in the
+          the accumulated meters produced here. Runoff is a measure of the availability of water in the
           soil, and can, for example, be used as an indicator of drought or flood. More information about
           how runoff is calculated is given in the IFS Physical Processes documentation.
         |||,
@@ -521,11 +521,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Otherwise, the water drains away, either over the surface (surface runoff), or under the ground
           (sub-surface runoff) and the sum of these two is simply called 'runoff'. This variable is the
           total amount of water accumulated from the beginning of the forecast time to the end of the
-          forecast step. The units of runoff are depth in metres. This is the depth the water would have
+          forecast step. The units of runoff are depth in meters. This is the depth the water would have
           if it were spread evenly over the grid box. Care should be taken when comparing model variables
           with observations, because observations are often local to a particular point rather than
           averaged over a grid square area. Observations are also often taken in different units, such as
-          mm/day, rather than the accumulated metres produced here. Runoff is a measure of the
+          mm/day, rather than the accumulated meters produced here. Runoff is a measure of the
           availability of water in the soil, and can, for example, be used as an indicator of drought or
           flood. More information about how runoff is calculated is given in the IFS Physical Processes
           documentation.
@@ -536,7 +536,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'total_evaporation',
         description: |||
           Accumulated amount of water that has evaporated from the Earth's surface, including a
-          simplified representation of transpiration (from vegetation), into vapour in the air above.
+          simplified representation of transpiration (from vegetation), into meter in the air above.
           This variable is accumulated from the beginning of the forecast to the end of the forecast
           step. The ECMWF Integrated Forecasting System convention is that downward fluxes are positive.
           Therefore, negative values indicate evaporation and positive values indicate condensation.
@@ -547,7 +547,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'u_component_of_wind_10m',
         description: |||
           Eastward component of the 10m wind. It is the horizontal speed of air moving towards the east,
-          at a height of ten metres above the surface of the Earth, in metres per second. Care should be
+          at a height of ten meters above the surface of the Earth, in meters per second. Care should be
           taken when comparing this variable with observations, because wind observations vary on small
           space and time scales and are affected by the local terrain, vegetation and buildings that are
           represented only on average in the ECMWF Integrated Forecasting System. This variable can be
@@ -560,7 +560,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'v_component_of_wind_10m',
         description: |||
           Northward component of the 10m wind. It is the horizontal speed of air moving towards the
-          north, at a height of ten metres above the surface of the Earth, in metres per second. Care
+          north, at a height of ten meters above the surface of the Earth, in meters per second. Care
           should be taken when comparing this variable with observations, because wind observations vary
           on small space and time scales and are affected by the local terrain, vegetation and buildings
           that are represented only on average in the ECMWF Integrated Forecasting System. This variable
@@ -593,7 +593,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           less dense than the air above, so it rises). Precipitation variables do not include fog, dew or
           the precipitation that evaporates in the atmosphere before it lands at the surface of the
           Earth. This variable is accumulated from the beginning of the forecast time to the end of the
-          forecast step. The units of precipitation are depth in metres. It is the depth the water would
+          forecast step. The units of precipitation are depth in meters. It is the depth the water would
           have if it were spread evenly over the grid box. Care should be taken when comparing model
           variables with observations, because observations are often local to a particular point in
           space and time, rather than representing averages over a model grid box and model time step.

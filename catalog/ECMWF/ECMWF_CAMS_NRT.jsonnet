@@ -98,7 +98,7 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'total_column_sulphur_dioxide_surface',
-        description: 'Total column Sulphur dioxide surface',
+        description: 'Total column Sulfur dioxide surface',
         'gee:units': 'kg m**-2',
       },
       {
@@ -133,7 +133,7 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'sulphate_aerosol_optical_depth_at_550nm_surface',
-        description: 'Sulphate Aerosol Optical Depth at 550 nm surface',
+        description: 'Sulfate Aerosol Optical Depth at 550 nm surface',
       },
       {
         name: 'total_aerosol_optical_depth_at_469nm_surface',

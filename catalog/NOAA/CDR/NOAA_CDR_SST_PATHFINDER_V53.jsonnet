@@ -162,7 +162,7 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           These wind speeds were created by NCEP-DOE Atmospheric Model
           Intercomparison Project (AMIP-II) reanalysis (R-2) and represent winds at
-          10 metres above the sea surface.
+          10 meters above the sea surface.
         |||,
         'gee:units': 'm/s',
       },

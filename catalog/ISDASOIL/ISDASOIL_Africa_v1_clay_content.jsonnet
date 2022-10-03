@@ -29,7 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
   description: |||
     Clay content at soil depths of 0-20 cm and 20-50 cm,\npredicted mean and standard deviation.
     In areas of dense jungle (generally over central Africa), model accuracy is
-    low and therefore artefacts such as banding (striping) might be seen.
+    low and therefore artifacts such as banding (striping) might be seen.
 
     Soil property predictions were made by
     [Innovative Solutions for Decision Agriculture Ltd. (iSDA)](https://isda-africa.com/)

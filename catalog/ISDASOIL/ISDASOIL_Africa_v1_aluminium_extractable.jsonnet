@@ -43,7 +43,7 @@ local self_url = catalog_subdir_url + base_filename;
     [the iSDAsoil site](https://isda-africa.com/isdasoil).
 
     In areas of dense jungle (generally over central Africa), model accuracy is
-    low and therefore artefacts such as banding (striping) might be seen.
+    low and therefore artifacts such as banding (striping) might be seen.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

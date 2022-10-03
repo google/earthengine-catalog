@@ -30,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     For each building in this dataset we include the polygon describing its
     footprint on the ground, a confidence score indicating how sure we are that
     this is a building, and a [Plus Code](https://plus.codes/) corresponding to
-    the centre of the building. There is no information about the type of
+    the center of the building. There is no information about the type of
     building, its street address, or any details other than its geometry.
 
     Building footprints are useful for a range of important applications: from

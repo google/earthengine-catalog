@@ -35,7 +35,7 @@ local self_url = catalog_subdir_url + base_filename;
     back-transformed with `x modulo 3000`.
 
     In areas of dense jungle (generally over central Africa), model accuracy is
-    low and therefore artefacts such as banding (striping) might be seen.
+    low and therefore artifacts such as banding (striping) might be seen.
 
     Soil property predictions were made by
     [Innovative Solutions for Decision Agriculture Ltd. (iSDA)](https://isda-africa.com/)

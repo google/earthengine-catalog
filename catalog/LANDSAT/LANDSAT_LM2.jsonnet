@@ -175,7 +175,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'GEOMETRIC_RMSE_MODEL',
         description: |||
           Combined Root Mean Square Error (RMSE) of the geometric residuals
-          (metres) in both across-track and along-track directions
+          (meters) in both across-track and along-track directions
           measured on the GCPs used in geometric precision correction.
           Not present in L1G products.
         |||,
@@ -184,7 +184,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'GEOMETRIC_RMSE_MODEL_X',
         description: |||
-          RMSE of the X direction geometric residuals (in metres) measured
+          RMSE of the X direction geometric residuals (in meters) measured
           on the GCPs used in geometric precision correction. Not present in
           L1G products.
         |||,
@@ -193,7 +193,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'GEOMETRIC_RMSE_MODEL_Y',
         description: |||
-          RMSE of the Y direction geometric residuals (in metres) measured
+          RMSE of the Y direction geometric residuals (in meters) measured
           on the GCPs used in geometric precision correction. Not present in
           L1G products.
         |||,
@@ -511,12 +511,12 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'SUN_AZIMUTH',
-        description: 'Sun azimuth angle in degrees for the image center location at the image centre acquisition time.',
+        description: 'Sun azimuth angle in degrees for the image center location at the image center acquisition time.',
         type: ee_const.var_type.double,
       },
       {
         name: 'SUN_ELEVATION',
-        description: 'Sun elevation angle in degrees for the image center location at the image centre acquisition time.',
+        description: 'Sun elevation angle in degrees for the image center location at the image center acquisition time.',
         type: ee_const.var_type.double,
       },
       {

@@ -6,6 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc_by_4_0;
+
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -21,16 +22,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Australian 5M DEM',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The Digital Elevation Model (DEM) 5 Metre Grid of Australia
-    derived from LiDAR model represents a National 5 metre (bare
+    The Digital Elevation Model (DEM) 5 meter Grid of Australia
+    derived from LiDAR model represents a National 5 meter (bare
     earth) DEM which has been derived from some 236 individual LiDAR
     surveys between 2001 and 2015 covering an area in excess of 245,000
-    square kilometres. These surveys cover Australia's populated
+    square kilometers. These surveys cover Australia's populated
     coastal zone; floodplain surveys within the Murray Darling Basin,
-    and individual surveys of major and minor population centres.
-    All available 1 metre resolution LiDAR-derived DEMs have been
-    compiled and resampled using a neighbourhood-mean method to 5
-    metre resolution datasets for each survey area, and then merged
+    and individual surveys of major and minor population centers.
+    All available 1 meter resolution LiDAR-derived DEMs have been
+    compiled and resampled using a neighborhood-mean method to 5
+    meter resolution datasets for each survey area, and then merged
     into a single dataset for each State. Each state's dataset is
     provided as a separate image within the image collection.
 
@@ -122,7 +123,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': |||
     This dataset is made available by Geoscience Australia
-    under the Creative Commons Attribution 4.0 International Licence.
+    under the Creative Commons Attribution 4.0 International License.
     The data must be referenced with the provided citation and DOI.
   |||,
 }

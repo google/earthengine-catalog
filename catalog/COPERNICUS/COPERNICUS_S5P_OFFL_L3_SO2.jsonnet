@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_eo,
   ],
   id: id,
-  title: 'Sentinel-5P OFFL SO2: Offline Sulphur Dioxide',
+  title: 'Sentinel-5P OFFL SO2: Offline Sulfur Dioxide',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     ### OFFL/L3_SO2
@@ -26,13 +26,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset provides offline high-resolution imagery of atmospheric sulfur
     dioxide (SO<sub>2</sub>) concentrations.
 
-    Sulphur dioxide (SO<sub>2</sub>) enters the Earth's atmosphere through both natural and
+    Sulfur dioxide (SO<sub>2</sub>) enters the Earth's atmosphere through both natural and
     anthropogenic processes. It plays a role in chemistry on a local and global
     scale and its impact ranges from short-term pollution to effects on climate.
     Only about 30% of the emitted SO<sub>2</sub> comes from natural sources; the majority
     is of anthropogenic origin. SO<sub>2</sub> emissions adversely affect human health and
     air quality. SO<sub>2</sub> has an effect on climate through radiative forcing, via
-    the formation of sulphate aerosols. Volcanic SO<sub>2</sub> emissions can also pose a
+    the formation of sulfate aerosols. Volcanic SO<sub>2</sub> emissions can also pose a
     threat to aviation, along with volcanic ash. S5P/TROPOMI samples the Earth's
     surface with a revisit time of one day with unprecedented spatial resolution
     of 3.5 x 7 km which allows the resolution of fine details including the

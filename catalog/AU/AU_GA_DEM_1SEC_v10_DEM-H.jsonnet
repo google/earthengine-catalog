@@ -35,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     lines (ANZCW0503900101) and lines derived from DEM-S to define
     the watercourses. The drainage enforcement has produced a consistent
     representation of hydrological connectivity with some elevation
-    artefacts resulting from the drainage enforcement. A full description
+    artifacts resulting from the drainage enforcement. A full description
     of the methods is in preparation (Dowling et al., in prep).
 
     This product provides a DEM suitable for use in hydrological analysis

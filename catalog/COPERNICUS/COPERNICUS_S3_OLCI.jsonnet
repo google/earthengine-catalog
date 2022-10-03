@@ -383,7 +383,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa18_radiance',
         description: |||
-          Water vapour absorption reference band. Common reference
+          Water vapor absorption reference band. Common reference
           band with SLSTR instrument. Vegetation monitoring
         |||,
         'gee:units': 'W m^-2 sr^-1 μm^-1',
@@ -393,7 +393,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'Oa19_radiance',
-        description: 'Water vapour absorption/vegetation monitoring (max. reflectance)',
+        description: 'Water vapor absorption/vegetation monitoring (max. reflectance)',
         'gee:units': 'W m^-2 sr^-1 μm^-1',
         center_wavelength: 0.9,
         'gee:scale': 0.00502847,
@@ -401,7 +401,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'Oa20_radiance',
-        description: 'Water vapour absorption, atmospheric/aerosol correction',
+        description: 'Water vapor absorption, atmospheric/aerosol correction',
         'gee:units': 'W m^-2 sr^-1 μm^-1',
         center_wavelength: 0.94,
         'gee:scale': 0.00326378,
@@ -508,7 +508,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                   value: 1,
                   description: |||
                     Stray light correction (of the Ground Imager)
-                    quality is degraded because not enough neighbour pixels
+                    quality is degraded because not enough neighbor pixels
                     were available for its estimation
                   |||,
                 },
@@ -556,7 +556,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                 {
                   description: |||
                     Pixel is not derived from the same instrument
-                    pixel as one of its neighbours during the re-sampling process
+                    pixel as one of its neighbors during the re-sampling process
                   |||,
                   value: 0,
                 },
@@ -564,7 +564,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                   value: 1,
                   description: |||
                     Pixel is derived from the same instrument pixel
-                    as one of its neighbours during the re-sampling process
+                    as one of its neighbors during the re-sampling process
                   |||,
                 },
               ],
@@ -602,7 +602,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                 {
                   description: |||
                     Any pixel's sample is not contaminated
-                    by a neighbour saturated sample or the Instrument Source
+                    by a neighbor saturated sample or the Instrument Source
                     Packet it was extracted from is not corrupted
                   |||,
                   value: 0,
@@ -611,7 +611,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                   value: 1,
                   description: |||
                     Any pixel's sample is potentially contaminated
-                    by a neighbour saturated sample or the Instrument Source
+                    by a neighbor saturated sample or the Instrument Source
                     Packet it was extracted from is corrupted
                   |||,
                 },
