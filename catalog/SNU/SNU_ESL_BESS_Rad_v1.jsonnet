@@ -45,10 +45,10 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    'GPP',
-    'PAR',
     'evapotranspiration',
-    'modis-derived',
+    'gpp',
+    'modis_derived',
+    'par',
     'radiation',
     'shortwave',
   ],

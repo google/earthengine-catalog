@@ -79,7 +79,7 @@ local self_url = catalog_subdir_url + base_filename;
     'hydrology',
     'landsat_derived',
     'tern',
-    'viirs-derived',
+    'viirs_derived',
   ],
   providers: [
     ee.producer_provider('TERN Landscapes / CSIRO Land and Water', 'https://portal.tern.org.au/actual-evapotranspiration-australia-cmrset-algorithm/21915'),

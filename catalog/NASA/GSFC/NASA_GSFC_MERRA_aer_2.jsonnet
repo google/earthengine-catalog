@@ -59,7 +59,7 @@ local self_url = catalog_subdir_url + base_filename;
     'mass',
     'merra',
     'nasa',
-    'sea-salt',
+    'sea_salt',
     'so2',
     'so4',
   ],

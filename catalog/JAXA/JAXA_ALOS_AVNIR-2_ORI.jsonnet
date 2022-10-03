@@ -35,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'alos',
-    'avnir-2',
+    'avnir_2',
     'eorc',
     'jaxa',
     'orthorectified',

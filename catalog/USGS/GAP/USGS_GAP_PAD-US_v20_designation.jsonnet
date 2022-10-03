@@ -83,12 +83,12 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    'conservation-easements',
+    'conservation_easements',
     'designation',
     'management',
     'ownership',
-    'protected-areas',
-    'public-lands',
+    'protected_areas',
+    'public_lands',
     'usgs',
   ],
   providers: [

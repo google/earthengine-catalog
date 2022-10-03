@@ -50,8 +50,8 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.license(license.reference),
   ],
   keywords: [
-    'Africa',
-    'iSDA',
+    'africa',
+    'isda',
     'soil',
     'zinc',
   ],

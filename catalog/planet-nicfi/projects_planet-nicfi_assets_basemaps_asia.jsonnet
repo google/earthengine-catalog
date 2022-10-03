@@ -69,7 +69,7 @@ local self_url = catalog_subdir_url + base_filename;
     'nicfi',
     'planet',
     'sr',
-    'surface-reflectance',
+    'surface_reflectance',
     'tropics',
   ],
   providers: [

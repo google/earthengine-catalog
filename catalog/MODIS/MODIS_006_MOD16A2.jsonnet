@@ -60,7 +60,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     },
   ],
   keywords: [
-    '8-day',
+    '8_day',
     'evapotranspiration',
     'global',
     'mod16a2',

@@ -17,18 +17,7 @@ from checker import stac
 KEYWORDS = 'keywords'
 
 EXCEPTIONS = frozenset({
-    '16-day', '3-hourly', '30-year', '3dep', '4-day', '8-day', 'Africa',
-    'BurnSeverity', 'China', 'EROS', 'EU', 'Fire', 'GPP', 'GTAC', 'JRC', 'MTBS',
-    'PAR', 'PrescribedFire', 'Tsinghua', 'USDA', 'USFS', 'USGS', 'Wildfire',
-    'air-temperature', 'avnir-2', 'built-up', 'bulk-density', 'carbon-organic',
-    'change-detection', 'chlorophyll-a', 'conservation-easements',
-    'corine-derived', 'cryosat-2', 'eo-1', 'era5-land', 'g-portal', 'gcom-c',
-    'goes-16', 'goes-17', 'goes-east', 'goes-r', 'goes-s', 'goes-west',
-    'half-hourly', 'iSDA', 'modis-derived',
-    'nature-conservancy', 'open-buildings', 'planet-derived', 'protected-areas',
-    'public-lands', 'radarsat-1', 'real-time', 'redcastle-resources',
-    'sea-salt', 'sentinel1-derived', 'sentinel2-derived', 'stray-light',
-    'surface-reflectance', 'time-series', 'viirs-derived', 'void-filled'
+    '16_day', '3_hourly', '30_year', '3dep', '4_day', '8_day',
 })
 
 

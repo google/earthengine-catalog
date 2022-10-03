@@ -53,7 +53,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
-    '8-day',
+    '8_day',
     'fire',
     'global',
     'mod14a2',

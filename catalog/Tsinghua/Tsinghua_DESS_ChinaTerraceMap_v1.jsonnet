@@ -44,13 +44,13 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    'China',
-    'Tsinghua',
     'agriculture',
+    'china',
     'dess',
     'landcover',
     'landuse',
     'terrace',
+    'tsinghua',
   ],
   providers: [
     ee.producer_provider('Department of Earth System Science, Tsinghua University (DESS, THU)', 'https://essd.copernicus.org/articles/13/2437/2021/'),

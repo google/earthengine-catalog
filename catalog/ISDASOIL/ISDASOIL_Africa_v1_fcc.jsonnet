@@ -52,9 +52,9 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.license(license.reference),
   ],
   keywords: [
-    'Africa',
+    'africa',
     'fcc',
-    'iSDA',
+    'isda',
     'soil',
   ],
   providers: [

@@ -68,7 +68,7 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
-    '16-day',
+    '16_day',
     'aqua',
     'evi',
     'global',

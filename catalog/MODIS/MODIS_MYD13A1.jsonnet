@@ -67,7 +67,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         successor_id, catalog_subdir_url + successor_basename + '.json'),
   ],
   keywords: [
-    '16-day',
+    '16_day',
     'aqua',
     'evi',
     'global',

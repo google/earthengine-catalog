@@ -48,7 +48,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     },
   ],
   keywords: [
-    '8-day',
+    '8_day',
     'global',
     'gpp',
     'mod17a2',

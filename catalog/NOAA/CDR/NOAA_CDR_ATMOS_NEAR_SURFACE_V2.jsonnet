@@ -45,7 +45,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    'air-temperature',
+    'air_temperature',
     'atmospheric',
     'cdr',
     'hourly',

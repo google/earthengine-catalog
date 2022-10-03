@@ -64,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'hydrosheds',
     'srtm',
     'topography',
-    'void-filled',
+    'void_filled',
     'water',
     'wwf',
   ],

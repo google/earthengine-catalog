@@ -50,8 +50,8 @@ local self_url = catalog_subdir_url + base_filename;
     'esa',
     'landcover',
     'landuse',
-    'sentinel1-derived',
-    'sentinel2-derived',
+    'sentinel1_derived',
+    'sentinel2_derived',
   ],
   providers: [
     ee.producer_provider('ESA/VITO/Brockmann Consult/CS/GAMMA Remote Sensing/IIASA/WUR', 'https://esa-worldcover.org/en'),

@@ -56,7 +56,7 @@ local self_url = catalog_subdir_url + base_filename;
     'noaa',
     'ocean',
     'oisst',
-    'real-time',
+    'real_time',
     'sst',
     'temperature',
   ],

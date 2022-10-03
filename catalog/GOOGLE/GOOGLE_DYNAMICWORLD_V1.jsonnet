@@ -72,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landcover',
     'landuse',
     'nrt',
-    'sentinel2-derived',
+    'sentinel2_derived',
   ],
   providers: [
     ee.producer_provider('World Resources Institute', 'https://www.wri.org/'),

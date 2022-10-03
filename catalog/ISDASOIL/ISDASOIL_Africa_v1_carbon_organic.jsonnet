@@ -50,10 +50,10 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.license(license.reference),
   ],
   keywords: [
-    'Africa',
+    'africa',
     'carbon',
-    'carbon-organic',
-    'iSDA',
+    'carbon_organic',
+    'isda',
     'soil',
   ],
   providers: [

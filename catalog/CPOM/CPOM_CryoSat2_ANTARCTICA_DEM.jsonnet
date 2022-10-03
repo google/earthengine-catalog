@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'antarctica',
     'cpom',
-    'cryosat-2',
+    'cryosat_2',
     'dem',
     'elevation',
     'polar',

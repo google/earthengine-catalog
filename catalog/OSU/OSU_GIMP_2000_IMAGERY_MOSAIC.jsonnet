@@ -62,7 +62,7 @@ local self_url = catalog_subdir_url + base_filename;
     'imagery',
     'nasa',
     'polar',
-    'radarsat-1',
+    'radarsat_1',
   ],
   providers: [
     ee.producer_provider('NASA NSIDC DAAC at CIRES', 'https://doi.org/10.5067/4RNTRRE4JCYD'),

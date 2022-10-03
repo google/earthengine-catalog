@@ -67,7 +67,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
   ],
   keywords: [
-    '3-hourly',
+    '3_hourly',
     'climate',
     'evaporation',
     'forcing',

@@ -96,7 +96,7 @@ local self_url = catalog_subdir_url + base_filename;
     'climate',
     'geophysical',
     'gpm',
-    'half-hourly',
+    'half_hourly',
     'imerg',
     'jaxa',
     'nasa',

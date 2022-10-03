@@ -49,7 +49,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         successor_id, catalog_subdir_url + successor_basename + '.json'),
   ],
   keywords: [
-    '8-day',
+    '8_day',
     'global',
     'mod09q1',
     'modis',

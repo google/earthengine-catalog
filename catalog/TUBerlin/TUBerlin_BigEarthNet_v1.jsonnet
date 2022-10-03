@@ -38,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'chip',
     'copernicus',
-    'corine-derived',
+    'corine_derived',
     'label',
     'ml',
     'sentinel',

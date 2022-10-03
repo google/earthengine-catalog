@@ -64,7 +64,7 @@ local self_url = catalog_subdir_url + base_filename;
     'monthly',
     'nighttime',
     'noaa',
-    'stray-light',
+    'stray_light',
     'viirs',
     'visible',
   ],

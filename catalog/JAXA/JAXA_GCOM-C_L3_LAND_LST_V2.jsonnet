@@ -50,9 +50,9 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   keywords: [
     'climate',
-    'g-portal',
+    'g_portal',
     'gcom',
-    'gcom-c',
+    'gcom_c',
     'jaxa',
     'land',
     'land_surface_temperature',

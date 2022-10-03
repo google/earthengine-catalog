@@ -72,7 +72,7 @@ local self_url = catalog_subdir_url + base_filename;
     'hydrology',
     'landsat_derived',
     'tern',
-    'viirs-derived',
+    'viirs_derived',
   ],
   providers: [
     ee.producer_provider(

@@ -61,9 +61,9 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    'EU',
-    'JRC',
     'copernicus',
+    'eu',
+    'jrc',
     'landcover',
     'landuse',
     'lucas'

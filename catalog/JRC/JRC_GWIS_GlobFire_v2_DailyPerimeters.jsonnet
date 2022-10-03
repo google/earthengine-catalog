@@ -51,7 +51,7 @@ local self_url = catalog_subdir_url + base_filename;
     'fire',
     'globfire',
     'mcd64a1',
-    'modis-derived',
+    'modis_derived',
     'wildfire',
   ],
   providers: [

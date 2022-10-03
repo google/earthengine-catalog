@@ -73,7 +73,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
   ],
   keywords: [
-    '16-day',
+    '16_day',
     'evi',
     'nasa',
     'ndvi',
