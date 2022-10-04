@@ -102,5 +102,5 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     MODIS data and products acquired through the LP DAAC have no restrictions on subsequent use, sale, or redistribution.
   |||,
   'gee:is_derived': true,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

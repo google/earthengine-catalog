@@ -197,5 +197,5 @@ local self_url = catalog_subdir_url + base_filename;
     University of Maryland, Department of Geographical Sciences and NASA. Usage
     is free if acklowedgement is made.
   |||,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

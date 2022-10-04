@@ -163,5 +163,5 @@ local self_url = catalog_subdir_url + base_filename;
     and adapt the work for commercial and non-commercial purposes, without
     restriction, as long as clear attribution of the source is provided.
   |||,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

@@ -752,5 +752,5 @@ local self_url = catalog_subdir_url + base_filename;
     interval: 16,
   },
   'gee:terms_of_use': importstr 'terms_of_use.md',
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

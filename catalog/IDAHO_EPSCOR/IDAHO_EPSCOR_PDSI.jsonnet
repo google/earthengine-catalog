@@ -150,5 +150,5 @@ local self_url = catalog_subdir_url + base_filename;
     publications resulting from the use of this dataset and note the
     date when the data was acquired.
   |||,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

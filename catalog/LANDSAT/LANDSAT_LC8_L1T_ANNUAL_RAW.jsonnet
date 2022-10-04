@@ -366,5 +366,5 @@ local self_url = catalog_subdir_url + base_filename;
   'gee:interval': {type: 'cadence', unit: 'year', interval: 1},
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:is_derived': true,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

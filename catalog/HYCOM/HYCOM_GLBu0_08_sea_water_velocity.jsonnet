@@ -992,5 +992,5 @@ local self_url = catalog_subdir_url + base_filename;
     interval: 1,
   },
   'gee:terms_of_use': 'This dataset is freely available with no restrictions.',
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

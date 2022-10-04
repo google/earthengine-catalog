@@ -547,5 +547,5 @@ local successor_url = catalog_new_subdir_url + successor_filename;
     information on [Acknowledging or Crediting USGS as Information
     Source](https://www.usgs.gov/information-policies-and-instructions/crediting-usgs) is available.
   |||,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

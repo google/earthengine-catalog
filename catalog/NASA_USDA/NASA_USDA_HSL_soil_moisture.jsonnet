@@ -219,5 +219,5 @@ local self_url = catalog_subdir_url + base_filename;
     for additional information.
   |||,
   'gee:user_uploaded': true,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

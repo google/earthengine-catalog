@@ -116,5 +116,5 @@ local self_url = catalog_subdir_url + base_filename;
     WRI does request that the user give proper attribution and identify WRI and
     GFW, where applicable, as the source of the data.
   |||,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

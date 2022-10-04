@@ -112,5 +112,5 @@ local self_url = catalog_subdir_url + base_filename;
     information on [Acknowledging or Crediting USGS as Information
     Source](https://www.usgs.gov/information-policies-and-instructions/crediting-usgs) is available.
   |||,
-  version: 'Unknown',
+  version: ee_const.version_unknown,
 }

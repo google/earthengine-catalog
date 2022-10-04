@@ -50,6 +50,8 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
   ext_sci: self.ext_base + 'scientific/v1.0.0/schema.json',
   ext_ver: self.ext_base + 'version/v1.0.0/schema.json',
 
+  version_unknown: 'Unknown',
+
   // MIME types
   // https://en.wikipedia.org/wiki/Media_type
   // https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#media-type-for-stac-collections
