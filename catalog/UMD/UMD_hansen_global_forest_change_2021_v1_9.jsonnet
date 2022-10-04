@@ -37,11 +37,8 @@ local config = configs[version];
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, config.id) + [
-    ee.link.license(license.reference),
-    ee.link.latest(config.latest_id, config.latest_url),
-    ee.link.predecessor(config.predecessor_id, config.predecessor_url),
-    // No successor
-  ],
+    ee.link.license(license.reference)
+  ] + config.version_links,
   keywords: [
     'forest',
     'geophysical',

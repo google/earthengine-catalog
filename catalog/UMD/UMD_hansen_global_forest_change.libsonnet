@@ -1,4 +1,5 @@
 local ee_const = import 'earthengine_const.libsonnet';
+local ee = import 'earthengine.libsonnet';
 
 local version_table = {
   'v1.0': 'UMD/hansen/global_forest_change_2013',
@@ -50,6 +51,16 @@ local arr = std.range(0, std.length(versions) - 1);
     [if x != last_index then 'successor_basename']: basename(self.successor_id),
     [if x != last_index then 'successor_url']:
         catalog_subdir_url + self.successor_basename + '.json',
+
+    version_links: [
+       ee.link.latest(self.latest_id, self.latest_url)
+    ] + ee.orEmptyArray(
+        x != 0,
+        [ee.link.predecessor(self.predecessor_id, self.predecessor_url)]
+    ) + ee.orEmptyArray(
+        x != last_index,
+        [ee.link.successor(self.successor_id, self.successor_url)]
+    )
   }
   for x in arr
 } + {
