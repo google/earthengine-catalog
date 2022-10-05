@@ -38,19 +38,7 @@ local arr = std.range(0, std.length(versions) - 1);
     latest_basename: basename(self.latest_id),
     latest_url: catalog_subdir_url + self.latest_basename + '.json',
 
-    [if x != 0 then 'predecessor_version']: versions[x - 1],
-    [if x != 0 then 'predecessor_id']: version_table[self.predecessor_version],
-    [if x != 0 then 'predecessor_basename']: basename(self.predecessor_id),
-    [if x != 0 then 'predecessor_url']:
-        catalog_subdir_url + self.predecessor_basename + '.json',
-
     last_index: last_index,
-    [if x != last_index then 'successor_version']: versions[x + 1],
-    [if x != last_index then 'successor_id']:
-        version_table[self.successor_version],
-    [if x != last_index then 'successor_basename']: basename(self.successor_id),
-    [if x != last_index then 'successor_url']:
-        catalog_subdir_url + self.successor_basename + '.json',
 
     version_links: [
        ee.link.latest(self.latest_id, self.latest_url)
@@ -61,9 +49,17 @@ local arr = std.range(0, std.length(versions) - 1);
         x != last_index,
         [ee.link.successor(self.successor_id, self.successor_url)]
     )
-  }
+    } + ee.orEmptyDict(x != 0, {
+        predecessor_version: versions[x - 1],
+        predecessor_id: version_table[self.predecessor_version],
+        predecessor_basename: basename(self.predecessor_id),
+        predecessor_url: catalog_subdir_url + self.predecessor_basename +
+        '.json'
+    }) + ee.orEmptyDict(x != last_index, {
+        successor_version: versions[x + 1],
+        successor_id: version_table[self.successor_version],
+        successor_basename: basename(self.successor_id),
+        successor_url: catalog_subdir_url + self.successor_basename + '.json'
+    })
   for x in arr
-} + {
-  catalog_subdir_url: catalog_subdir_url,
-  parent_url: catalog_subdir_url + 'catalog.json',
 }

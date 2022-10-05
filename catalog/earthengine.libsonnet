@@ -19,6 +19,8 @@ local ee_const = import 'earthengine_const.libsonnet';
 {
   orEmptyArray(condition, arr):
     if condition then arr else [],
+  orEmptyDict(condition, d):
+    if condition then d else {},
   producer_provider(name, url):
     { name: name, roles: ['licensor', 'producer'], url: url },
   processor_provider(name, url):
