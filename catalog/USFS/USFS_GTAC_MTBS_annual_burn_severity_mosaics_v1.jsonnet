@@ -55,7 +55,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'United States Geological Survey (USGS) Earth Resources Observation and Science (EROS) Center'),
+    ee.producer_provider(
+      'USDA Forest Service (USFS) ' +
+      'Geospatial Technology and Applications Center (GTAC)',
+      'https://www.fs.usda.gov/about-agency/gtac'),
+    ee.producer_provider(
+      'United States Geological Survey (USGS) ' +
+      'Earth Resources Observation and Science (EROS) Center',
+      'https://www.usgs.gov/centers/eros'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
