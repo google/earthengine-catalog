@@ -7,7 +7,7 @@ local subdir = 'UMD';
 local license = spdx.cc_by_4_0;
 
 local version = 'v1.9';
-local config = configs[version];
+local config = configs['versions'][version];
 
 {
   stac_version: ee_const.stac_version,

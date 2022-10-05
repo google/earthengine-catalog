@@ -13,53 +13,56 @@ local version_table = {
   'v1.8': 'UMD/hansen/global_forest_change_2020_v1_8',
   'v1.9': 'UMD/hansen/global_forest_change_2021_v1_9',
 };
-
-local last_index = std.length(version_table) - 1;
-
 local subdir = 'UMD';
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+
 
 local basename(id) = std.strReplace(id, '/', '_');
-
-local versions = std.objectFields(version_table);
-local arr = std.range(0, std.length(versions) - 1);
 {
-  [versions[x]]: {
-    version: versions[x],
+  version_objects:: std.objectFields(version_table),
+  last_index:: std.length(version_table) - 1,
+  catalog_subdir_url:: ee_const.catalog_base + subdir + '/',
+  versions: {
+    [$['version_objects'][x]]: {
 
-    id: version_table[self.version],
-    basename: basename(self.id),
-    base_filename: self.basename + '.json',
-    self_url: catalog_subdir_url + self.base_filename,
-    self_ee_catalog_url: ee_const.ee_catalog_url + self.basename,
+      version: $['version_objects'][x],
 
-    latest_version: versions[std.length(versions) - 1],
-    latest_id: version_table[self.latest_version],
-    latest_basename: basename(self.latest_id),
-    latest_url: catalog_subdir_url + self.latest_basename + '.json',
+      id: version_table[self.version],
+      basename: basename(self.id),
+      base_filename: self.basename + '.json',
+      self_url: $['catalog_subdir_url'] + self.base_filename,
+      self_ee_catalog_url: ee_const.ee_catalog_url + self.basename,
 
-    last_index: last_index,
+      predecessor:: ee.orEmptyDict(x != 0, {
+          version: $['version_objects'][x - 1],
+          id: version_table[self.version],
+          basename: basename(self.id),
+          url: $['catalog_subdir_url'] + self.basename + '.json'
+      }),
 
-    version_links: [
-       ee.link.latest(self.latest_id, self.latest_url)
-    ] + ee.orEmptyArray(
-        x != 0,
-        [ee.link.predecessor(self.predecessor_id, self.predecessor_url)]
-    ) + ee.orEmptyArray(
-        x != last_index,
-        [ee.link.successor(self.successor_id, self.successor_url)]
-    )
-    } + ee.orEmptyDict(x != 0, {
-        predecessor_version: versions[x - 1],
-        predecessor_id: version_table[self.predecessor_version],
-        predecessor_basename: basename(self.predecessor_id),
-        predecessor_url: catalog_subdir_url + self.predecessor_basename +
-        '.json'
-    }) + ee.orEmptyDict(x != last_index, {
-        successor_version: versions[x + 1],
-        successor_id: version_table[self.successor_version],
-        successor_basename: basename(self.successor_id),
-        successor_url: catalog_subdir_url + self.successor_basename + '.json'
-    })
-  for x in arr
+      successor:: ee.orEmptyDict(x != $['last_index'], {
+          version: $['version_objects'][x + 1],
+          id: version_table[self.version],
+          basename: basename(self.id),
+          url: $['catalog_subdir_url'] + self.basename + '.json'
+      }),
+
+      latest:: {
+          version: $['version_objects'][$['last_index']],
+          id: version_table[self.version],
+          basename: basename(self.id),
+          url: $['catalog_subdir_url'] + self.basename + '.json',
+      },
+
+      version_links: [
+         ee.link.latest(self.latest.id, self.latest.url)
+      ] + ee.orEmptyArray(
+          x != 0,
+          [ee.link.predecessor(self.predecessor.id, self.predecessor.url)]
+      ) + ee.orEmptyArray(
+          x != $['last_index'],
+          [ee.link.successor(self.successor.id, self.successor.url)]
+      )
+    }
+    for x in std.range(0, $['last_index'])
+  }
 }
