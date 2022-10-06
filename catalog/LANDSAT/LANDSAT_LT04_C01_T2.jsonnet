@@ -26,9 +26,11 @@ local successor_url = catalog_subdir_url + successor_filename;
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
   title: 'USGS Landsat 4 TM Collection 1 Tier 2 Raw Scenes [deprecated]',
+  version: 'C1',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
