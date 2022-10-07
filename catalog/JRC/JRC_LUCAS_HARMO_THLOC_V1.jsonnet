@@ -45,7 +45,7 @@ local self_url = catalog_subdir_url + base_filename;
     the \"Years\" section in property descriptions.
 
     The text \"C1 (Instructions)\" in the table schema descriptions refers to
-    [this document](https://ec.europa.eu/eurostat/documents/205002/8072634/LUCAS2018-C1-Instructions.pdf).
+    [this document](https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/LUCAS/LUCAS_harmonised/3_supporting/LUCAS2018-C1-Instructions.pdf).
 
     See also
     [the 2018 LUCAS polygons dataset](JRC_LUCAS_HARMO_COPERNICUS_POLYGONS_V1_2018).
