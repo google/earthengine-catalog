@@ -1,13 +1,15 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local configs = import 'UMD_hansen_global_forest_change.libsonnet';
+
+local versions = import 'versions.libsonnet';
+local version_table = import 'UMD_hansen_global_forest_change.libsonnet';
+
 local subdir = 'UMD';
+local version = 'v1.9';
+local version_config = versions(subdir, version_table, version);
 
 local license = spdx.cc_by_4_0;
-
-local version = 'v1.9';
-local config = configs['versions'][version];
 
 {
   stac_version: ee_const.stac_version,
@@ -17,7 +19,7 @@ local config = configs['versions'][version];
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: config.id,
+  id: version_config.id,
   title: 'Hansen Global Forest Change v1.9 (2000-2021)',
   version: version,
   'gee:type': ee_const.gee_type.image,
@@ -36,9 +38,9 @@ local config = configs['versions'][version];
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, config.id) + [
+  links: ee.standardLinks(subdir, version_config.id) + [
     ee.link.license(license.reference)
-  ] + config.version_links,
+  ] + version_config.version_links,
   keywords: [
     'forest',
     'geophysical',
@@ -48,7 +50,7 @@ local config = configs['versions'][version];
   ],
   providers: [
     ee.producer_provider('Hansen/UMD/Google/USGS/NASA', 'https://glad.earthengine.app/view/global-forest-change'),
-    ee.host_provider(config.self_ee_catalog_url),
+    ee.host_provider(version_config.self_ee_catalog_url),
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
