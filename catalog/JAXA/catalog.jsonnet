@@ -25,6 +25,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('JAXA_ALOS_AW3D30_V3_2', base_url),
     ee.link.child_collection('JAXA_ALOS_PALSAR_YEARLY_FNF', base_url),
     ee.link.child_collection('JAXA_ALOS_PALSAR_YEARLY_SAR', base_url),
+    ee.link.child_collection('JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH', base_url),
     ee.link.child_collection('JAXA_GCOM-C_L3_LAND_LAI_V1', base_url),
     ee.link.child_collection('JAXA_GCOM-C_L3_LAND_LAI_V2', base_url),
     ee.link.child_collection('JAXA_GCOM-C_L3_LAND_LAI_V3', base_url),

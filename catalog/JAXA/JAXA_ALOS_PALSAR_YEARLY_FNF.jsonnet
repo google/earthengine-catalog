@@ -34,8 +34,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Forest/Non-Forest is conducted by using a region-dependent
     threshold of backscatter. The classification accuracy is
     checked by using in-situ photos and high-resolution optical
-    satellite images. Detailed information is available in the provider's
-    [Dataset Description](https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/DatasetDescription_PALSAR2_Mosaic_FNF_revE.pdf).
+    satellite images.
+
+    Detailed information:
+
+    *   [2017 - 2020](https://www.eorc.jaxa.jp/ALOS/en/dataset/pdf/DatasetDescription_PALSAR2_FNF_v200a.pdf)
+    *   [Before 2010](https://www.eorc.jaxa.jp/ALOS/en/dataset/pdf/DatasetDescription_PALSAR_Mosaic_FNF_revO.pdf)
 
     Attention:
 
@@ -59,10 +63,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar',
   ],
   providers: [
-    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/fnf_index.htm'),
+    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2007-01-01T00:00:00Z', '2018-01-01T00:00:00Z'),
+  extent: ee.extent_global('2007-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       25.0,

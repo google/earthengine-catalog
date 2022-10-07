@@ -1,4 +1,4 @@
-local id = 'JAXA/ALOS/PALSAR/YEARLY/SAR';
+local id = 'JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH';
 local subdir = 'JAXA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -22,8 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Global PALSAR-2/PALSAR Yearly Mosaic',
   'gee:type': ee_const.gee_type.image_collection,
-  #TODO(simonf): add version links between the two datasets
-  version: 'K',
+  version: '2.1.2',
   description: |||
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery
@@ -56,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         backscattering intensity caused by freezing trees in winter.
 
     More information is available in the provider's
-    [Dataset Description](https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/DatasetDescription_PALSAR2_Mosaic_FNF_revH.pdf).
+    [Dataset Description](https://www.eorc.jaxa.jp/ALOS/en/dataset/pdf/DatasetDescription_PALSAR2_Mosaic_ver212.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -69,10 +68,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar',
   ],
   providers: [
-    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/fnf_index.htm'),
+    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2007-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('2015-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       25.0,
@@ -91,8 +90,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Local incidence angle (degrees).',
       },
       {
-        name: 'date',
-        description: 'Observation date (days since Jan 1, 1970).',
+        name: 'epoch',
+        description:|||
+          Observation date timestamp (milliseconds since Jan 1, 1970).
+          This band is computed on the fly from the 'date' band of the
+          raw data, which represents the difference in days between
+          2014-05-24 and the observation date.
+        ||| ,
       },
       {
         name: 'qa',
