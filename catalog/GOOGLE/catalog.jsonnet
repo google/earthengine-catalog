@@ -22,5 +22,6 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('GOOGLE_DYNAMICWORLD_V1', base_url),
     ee.link.child_collection('GOOGLE_Research_open-buildings_v1_polygons', base_url),
+    ee.link.child_collection('GOOGLE_Research_open-buildings_v2_polygons', base_url),
   ],
 }

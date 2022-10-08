@@ -6,7 +6,7 @@ local version_table = import 'GOOGLE_Research_open-buildings_polygons.libsonnet'
 
 local subdir = 'GOOGLE';
 
-local version = 'v1.0';
+local version = 'v2.0';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.cc_by_4_0;
@@ -18,14 +18,14 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'Open Buildings V1 Polygons [deprecated]',
-  version: version,
-  deprecated: true,
+  title: 'Open Buildings V2 Polygons',
+  version: '2.0.0',
   'gee:type': ee_const.gee_type.table,
   description: |||
     This large-scale open dataset consists of outlines of buildings derived
-    from high-resolution 50 cm satellite imagery. It contains 516M building
-    detections across an area of 19.4M km2 (64% of the African continent).
+    from high-resolution 50 cm satellite imagery. It contains 816M building 
+    detections in Africa, South Asia and Southeast Asia. The inference spanned 
+    an area of 39.1M km².
 
     For each building in this dataset we include the polygon describing its
     footprint on the ground, a confidence score indicating how sure we are that
@@ -38,15 +38,11 @@ local license = spdx.cc_by_4_0;
     environmental and climate science. The project being based in Ghana, the
     current focus is on the continent of Africa.
 
-    Inference was carried out during April 2021.
+    Inference was carried out during Aug 2022.
 
     For more details see the official
     [website](https://sites.research.google/open-buildings/) of the Open
     Buildings dataset.
-
-    Note that updated versions of this data are available. The newest version,
-    Version 2.0 (with inference carried out on Aug 2022), is available as
-    [GOOGLE/Research/open-buildings/v2/polygons](GOOGLE_Research_open-buildings_v2_polygons).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
@@ -54,16 +50,19 @@ local license = spdx.cc_by_4_0;
   ] + version_config.version_links,
   keywords: [
     'africa',
+    'asia',
     'building',
     'built_up',
     'open_buildings',
+    'south_asia',
+    'southeast_asia',
     'structure',
   ],
   providers: [
     ee.producer_provider('Google Research - Open Buildings', 'https://sites.research.google/open-buildings/'),
     ee.host_provider(version_config.self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2021-04-30T00:00:00Z', '2021-04-30T00:00:00Z'),
+  extent: ee.extent_global('2022-08-30T00:00:00Z', '2022-08-30T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -90,7 +89,7 @@ local license = spdx.cc_by_4_0;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Open Buildings V1',
+        display_name: 'Open Buildings V2',
         lookat: {
           lat: 6.492,
           lon: 3.389,
@@ -99,7 +98,7 @@ local license = spdx.cc_by_4_0;
         // TODO(schwehr): Add table_visualization or polygon_visualization.
       },
       {
-        display_name: 'Open Buildings V1',
+        display_name: 'Open Buildings V2',
         visualize_as: 'FeatureView',
       },
     ],
@@ -117,5 +116,4 @@ local license = spdx.cc_by_4_0;
   |||,
   'gee:terms_of_use': 'This dataset is licensed under\n[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).',
   'gee:user_uploaded': true,
-  'gee:user_owned': true,
 }
