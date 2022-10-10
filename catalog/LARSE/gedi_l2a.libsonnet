@@ -222,7 +222,6 @@ local spdx = import 'spdx.libsonnet';
       |||,
       minimum: 0,
       maximum: 1,
-      'gee:estimated_range': false,
       type:: ee_const.var_type.int,
     },
     {
