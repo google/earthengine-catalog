@@ -56,6 +56,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider(
+      'Monitoring Trends in Burn Severity (MTBS)', 'https://mtbs.gov'),
+    ee.producer_provider(
       'USDA Forest Service (USFS) ' +
       'Geospatial Technology and Applications Center (GTAC)',
       'https://www.fs.usda.gov/about-agency/gtac'),

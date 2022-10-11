@@ -60,7 +60,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wildfire',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC), DOI United States Geological Survey (USGS) Earth Resources Observation and Science (EROS) Center', 'https://www.mtbs.gov/product-descriptions'),
+    ee.producer_provider(
+      'Monitoring Trends in Burn Severity (MTBS)', 'https://mtbs.gov'),
+    ee.producer_provider(
+      'USDA Forest Service (USFS) ' +
+      'Geospatial Technology and Applications Center (GTAC)',
+      'https://www.fs.usda.gov/about-agency/gtac'),
+    ee.producer_provider(
+      'United States Geological Survey (USGS) ' +
+      'Earth Resources Observation and Science (EROS) Center',
+      'https://www.usgs.gov/centers/eros'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
