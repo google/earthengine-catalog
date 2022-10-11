@@ -51,8 +51,8 @@ class Check(stac.NodeCheck):
         if not re.fullmatch('[a-z][_a-z0-9]{1,49}', keyword):
           yield cls.new_issue(
               node,
-              f'keyword must contain only letters, digits, and underscores '
-              f'and be at most 49 characters long: "{keyword}"'
+              f'keyword must contain only lowercase letters, digits, and '
+              f'underscores and be at most 49 characters long: "{keyword}"'
           )
 
     if keywords != sorted(keywords):

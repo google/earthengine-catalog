@@ -73,8 +73,8 @@ class KeywordsTest(unittest.TestCase):
     for keyword in self.node.stac[KEYWORDS]:
       expect.append(Check.new_issue(
           self.node,
-          f'keyword must contain only letters, digits, and underscores and be '
-          f'at most 49 characters long: "{keyword}"'))
+          f'keyword must contain only lowercase letters, digits, and '
+          f'underscores and be at most 49 characters long: "{keyword}"'))
     self.assertEqual(expect, issues)
 
   def test_sorted(self):
