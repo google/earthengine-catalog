@@ -6,15 +6,14 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local versions = import 'versions.libsonnet';
+local version_table = import 'JRC_GSW_GlobalSurfaceWater_version_map.libsonnet';
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
+local subdir = 'JRC';
+local version = 'v1.1';
+local version_config = versions(subdir, version_table, version);
+
+local license = spdx.proprietary;
 
 {
   stac_version: ee_const.stac_version,
@@ -24,7 +23,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
+  id: version_config.id,
   title: 'JRC Global Surface Water Mapping Layers, v1.1 [deprecated]',
   version: '1.1',
   deprecated: true,
@@ -50,10 +49,8 @@ local self_url = catalog_subdir_url + base_filename;
     never been detected are masked.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, version_config.id) +
+  version_config.version_links,
   keywords: [
     'geophysical',
     'google',
@@ -64,7 +61,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   providers: [
     ee.producer_provider('EC JRC / Google', 'https://global-surface-water.appspot.com'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1984-03-16T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {

@@ -13,9 +13,7 @@ local configs(subdir, version_table) = {
 
       id: version_table[self.version],
       basename: basename(self.id),
-      base_filename: self.basename + '.json',
-      self_url: $['catalog_subdir_url'] + self.base_filename,
-      self_ee_catalog_url: ee_const.ee_catalog_url + self.basename,
+      ee_catalog_url: ee_const.ee_catalog_url + self.basename,
 
       predecessor:: ee.orEmptyDict(x != 0, {
           version: $['version_objects'][x - 1],

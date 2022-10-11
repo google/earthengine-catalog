@@ -54,7 +54,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('Hansen/UMD/Google/USGS/NASA', 'https://glad.earthengine.app/view/global-forest-change'),
-    ee.host_provider(version_config.self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2015-01-01T00:00:00Z'),
   summaries: {

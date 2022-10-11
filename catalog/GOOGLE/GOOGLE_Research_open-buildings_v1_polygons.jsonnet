@@ -61,7 +61,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('Google Research - Open Buildings', 'https://sites.research.google/open-buildings/'),
-    ee.host_provider(version_config.self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2021-04-30T00:00:00Z', '2021-04-30T00:00:00Z'),
   summaries: {

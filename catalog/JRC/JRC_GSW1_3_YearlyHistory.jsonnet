@@ -1,15 +1,15 @@
-local id = 'JRC/GSW1_3/YearlyHistory';
-local subdir = 'JRC';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local versions = import 'versions.libsonnet';
+local version_table = import 'JRC_GSW_YearlyHistory_version_map.libsonnet';
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local subdir = 'JRC';
+local version = 'v1.3';
+local version_config = versions(subdir, version_table, version);
+
+local license = spdx.proprietary;
 
 {
   stac_version: ee_const.stac_version,
@@ -19,7 +19,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
+  id: version_config.id,
   title: 'JRC Yearly Water Classification History, v1.3',
   version: '1.3',
   'gee:type': ee_const.gee_type.image_collection,
@@ -43,7 +43,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     detected throughout the year.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, version_config.id) +
+  version_config.version_links,
   keywords: [
     'annual',
     'geophysical',
@@ -57,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('EC JRC / Google', 'https://global-surface-water.appspot.com'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -59.0, 180.0, 78.0,
                     '1984-03-16T00:00:00Z', '2021-01-01T00:00:00Z'),
