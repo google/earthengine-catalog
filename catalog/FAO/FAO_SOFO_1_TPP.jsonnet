@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'forest',
     'global',
     'population',
-    'rural',
+    'rural_area',
   ],
   providers: [
     ee.producer_provider(
