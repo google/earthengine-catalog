@@ -38,6 +38,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     newer imagery is usually collected with an additional near-infrared band
     (RGBN). RGB asset ids begin with 'n_', NRG asset ids begin with 'c_', RGBN
     asset ids begin with 'm_'.
+
+    Some older images have GSD of 2 meters.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -58,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                     '2002-06-15T00:00:00Z', null),
   summaries: {
     gsd: [
-      1.0,
+      0.6
     ],
     'eo:bands': [
       {
