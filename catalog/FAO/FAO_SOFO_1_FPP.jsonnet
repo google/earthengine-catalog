@@ -77,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Forest proximate people – 1km cutoff distance',
+        display_name: 'Forest proximate people - 1km cutoff distance',
         lookat: {
           lat: -0.4,
           lon: 108.0,
