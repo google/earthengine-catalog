@@ -1,5 +1,5 @@
 local id = 'JRC/GSW1_1/GlobalSurfaceWater';
-local successor_id = 'JRC/GSW1_3/GlobalSurfaceWater';
+local successor_id = 'JRC/GSW1_2/GlobalSurfaceWater';
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';

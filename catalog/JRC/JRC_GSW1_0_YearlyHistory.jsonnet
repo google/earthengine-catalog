@@ -1,5 +1,5 @@
 local id = 'JRC/GSW1_0/YearlyHistory';
-local successor_id = 'JRC/GSW1_2/YearlyHistory';
+local successor_id = 'JRC/GSW1_1/YearlyHistory';
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
