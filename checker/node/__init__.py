@@ -3,6 +3,7 @@
 from typing import Iterator
 
 from checker import stac
+from checker.node import description
 from checker.node import extensions
 from checker.node import extent
 from checker.node import id_field
@@ -20,6 +21,7 @@ _CHECKS = [
     extent.Check,
     keywords.Check,
     title.Check,
+    description.Check,
     license_field.Check,
 ]
 
