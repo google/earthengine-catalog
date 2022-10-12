@@ -68,6 +68,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('NOAA', base_url),
     ee.link.child_catalog('NRCan', base_url),
     ee.link.child_catalog('OREGONSTATE', base_url),
+    ee.link.child_catalog('ORTHO', base_url),
     ee.link.child_catalog('OSU', base_url),
     ee.link.child_catalog('OpenLandMap', base_url),
     ee.link.child_catalog('Oxford', base_url),
