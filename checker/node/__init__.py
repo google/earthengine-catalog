@@ -7,6 +7,7 @@ from checker.node import description
 from checker.node import extensions
 from checker.node import extent
 from checker.node import id_field
+from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
 from checker.node import required
@@ -23,6 +24,9 @@ _CHECKS = [
     title.Check,
     description.Check,
     license_field.Check,
+
+    # gee extensions
+    interval.Check,
 ]
 
 
