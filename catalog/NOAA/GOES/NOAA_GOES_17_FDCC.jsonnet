@@ -44,7 +44,7 @@ local self_url = catalog_subdir_url + base_filename;
 
      - [GOES-16-17_FireDetection.js](https://github.com/google/earthengine-community/blob/master/datasets/scripts/GOES-16-17_FireDetection.js)
      - [GOES-16-17_FireReclassification.js](https://github.com/google/earthengine-community/blob/master/datasets/scripts/GOES-16-17_FireReclassification.js)
-  |||,
+  ||| + importstr '../general_satellite_messages_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {

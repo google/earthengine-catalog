@@ -8,12 +8,15 @@ local base_url = ee_const.catalog_base + 'NOAA/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
+local description = importstr 'description.md';
+local gsm_description = importstr 'general_satellite_messages_description.md';
+
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
   title: id,
-  description: importstr 'description.md',
+  description: description + gsm_description,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
