@@ -10,6 +10,15 @@ py_library(
 )
 
 py_test(
+    name = "description_test",
+    srcs = ["description_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "extensions_test",
     srcs = ["extensions_test.py"],
     deps = [
@@ -30,6 +39,15 @@ py_test(
 py_test(
     name = "id_field_test",
     srcs = ["id_field_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "interval_test",
+    srcs = ["interval_test.py"],
     deps = [
         ":node",
         "//checker:stac",
