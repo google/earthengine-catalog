@@ -7,6 +7,7 @@ from checker.node import description
 from checker.node import extensions
 from checker.node import extent
 from checker.node import file_path
+from checker.node import gee_classes
 from checker.node import id_field
 from checker.node import interval
 from checker.node import keywords
@@ -29,6 +30,7 @@ _CHECKS = [
     license_field.Check,
 
     # gee extensions
+    gee_classes.Check,
     interval.Check,
 ]
 
