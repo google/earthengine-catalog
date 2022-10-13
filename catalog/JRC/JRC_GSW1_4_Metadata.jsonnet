@@ -3,10 +3,10 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local versions = import 'versions.libsonnet';
-local version_table = import 'JRC_GSW_YearlyHistory_version_map.libsonnet';
+local version_table = import 'JRC_GSW_Metadata_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.3';
+local version = 'v1.4';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.proprietary;
@@ -20,10 +20,9 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'JRC Yearly Water Classification History, v1.3 [deprecated]',
-  version: '1.3',
-  deprecated: true,
-  'gee:type': ee_const.gee_type.image_collection,
+  title: 'JRC Global Surface Water Metadata, v1.4',
+  version: '1.4',
+  'gee:type': ee_const.gee_type.image,
   description: |||
     This dataset contains maps of the location and temporal
     distribution of surface water from 1984 to 2020 and provides
@@ -39,109 +38,90 @@ local license = spdx.proprietary;
     history for the entire time period and two epochs (1984-1999,
     2000-2020) for change detection.
 
-    This Yearly Seasonality Classification collection contains a year-by-year
-    classification of the seasonality of water based on the occurrence values
-    detected throughout the year.
+    This product contains metadata about the observations that went into
+    computing The Global Surface Water dataset. Areas where water has never
+    been detected are masked.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) +
   version_config.version_links,
   keywords: [
-    'annual',
     'geophysical',
     'google',
-    'history',
     'jrc',
     'landsat_derived',
     'surface',
     'water',
-    'yearly',
   ],
   providers: [
     ee.producer_provider('EC JRC / Google', 'https://global-surface-water.appspot.com'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -59.0, 180.0, 78.0,
-                    '1984-03-16T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('1984-03-16T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
-    'gee:schema': [
-      {
-        name: 'year',
-        description: 'Year',
-        type: ee_const.var_type.double,
-      },
-    ],
     gsd: [
       30.0,
     ],
     'eo:bands': [
       {
-        name: 'waterClass',
-        description: 'Classification of the seasonality of water throughout the year.',
-        'gee:classes': [
-          {
-            color: 'cccccc',
-            description: 'No data',
-            value: 0,
-          },
-          {
-            value: 1,
-            color: 'ffffff',
-            description: 'Not water',
-          },
-          {
-            value: 2,
-            color: '99d9ea',
-            description: 'Seasonal water',
-          },
-          {
-            value: 3,
-            color: '0000ff',
-            description: 'Permanent water',
-          },
-        ],
+        name: 'detections',
+        description: 'The number of water detections in the study period.',
+      },
+      {
+        name: 'valid_obs',
+        description: 'The number of valid observations in the study period.',
+      },
+      {
+        name: 'total_obs',
+        description: 'The total number of available observations (i.e. scenes) in the study period.',
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Water Class',
+        display_name: 'Detections/Observations',
         lookat: {
-          lat: 45.182,
-          lon: 59.414,
-          zoom: 7,
+          lat: 52.48,
+          lon: 71.72,
+          zoom: 1,
         },
         image_visualization: {
           band_vis: {
             min: [
-              0.0,
+              100.0,
             ],
             max: [
-              3.0,
-            ],
-            palette: [
-              'cccccc',
-              'ffffff',
-              '99d9ea',
-              '0000ff',
+              900.0,
             ],
             bands: [
-              'waterClass',
+              'detections',
+              'valid_obs',
+              'total_obs',
             ],
           },
         },
       },
     ],
+    detections: {
+      minimum: 0.0,
+      maximum: 2007.0,
+      'gee:estimated_range': true,
+    },
+    valid_obs: {
+      minimum: 0.0,
+      maximum: 2076.0,
+      'gee:estimated_range': true,
+    },
+    total_obs: {
+      minimum: 0.0,
+      maximum: 2417.0,
+      'gee:estimated_range': true,
+    },
   },
   'sci:citation': |||
     Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,
     High-resolution mapping of global surface water and its long-term changes.
     Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))
   |||,
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
   'gee:terms_of_use': |||
     All data here is produced under the Copernicus Programme and is provided
     free of charge, without restriction of use. For the full license

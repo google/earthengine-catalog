@@ -20,8 +20,9 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'JRC Monthly Water Recurrence, v1.3',
+  title: 'JRC Monthly Water Recurrence, v1.3 [deprecated]',
   version: '1.3',
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains maps of the location and temporal

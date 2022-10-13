@@ -3,10 +3,10 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local versions = import 'versions.libsonnet';
-local version_table = import 'JRC_GSW_YearlyHistory_version_map.libsonnet';
+local version_table = import 'JRC_GSW_MonthlyRecurrence_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.3';
+local version = 'v1.4';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.proprietary;
@@ -20,9 +20,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'JRC Yearly Water Classification History, v1.3 [deprecated]',
-  version: '1.3',
-  deprecated: true,
+  title: 'JRC Monthly Water Recurrence, v1.4',
+  version: '1.4',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains maps of the location and temporal
@@ -39,35 +38,34 @@ local license = spdx.proprietary;
     history for the entire time period and two epochs (1984-1999,
     2000-2020) for change detection.
 
-    This Yearly Seasonality Classification collection contains a year-by-year
-    classification of the seasonality of water based on the occurrence values
-    detected throughout the year.
+    The Monthly Recurrence collection contains 12 images: monthly measures of
+    the seasonality of water based on the occurrence values detected in that
+    month over all years.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) +
   version_config.version_links,
   keywords: [
-    'annual',
     'geophysical',
     'google',
     'history',
     'jrc',
     'landsat_derived',
+    'monthly',
+    'recurrence',
     'surface',
     'water',
-    'yearly',
   ],
   providers: [
     ee.producer_provider('EC JRC / Google', 'https://global-surface-water.appspot.com'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -59.0, 180.0, 78.0,
-                    '1984-03-16T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('1984-03-16T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
-        name: 'year',
-        description: 'Year',
+        name: 'month',
+        description: 'Month',
         type: ee_const.var_type.double,
       },
     ],
@@ -76,39 +74,42 @@ local license = spdx.proprietary;
     ],
     'eo:bands': [
       {
-        name: 'waterClass',
-        description: 'Classification of the seasonality of water throughout the year.',
-        'gee:classes': [
-          {
-            color: 'cccccc',
-            description: 'No data',
-            value: 0,
-          },
-          {
-            value: 1,
-            color: 'ffffff',
-            description: 'Not water',
-          },
-          {
-            value: 2,
-            color: '99d9ea',
-            description: 'Seasonal water',
-          },
-          {
-            value: 3,
-            color: '0000ff',
-            description: 'Permanent water',
-          },
-        ],
+        name: 'monthly_recurrence',
+        description: 'The recurrence value expressed as a percentage for this month.',
+        'gee:units': '%',
+      },
+      {
+        name: 'has_observations',
+        description: 'A flag to indicate if the month has observations.',
+        'gee:bitmask': {
+          bitmask_parts: [
+            {
+              description: 'Observations for the month.',
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No valid observations',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'At least 1 valid observation was available',
+                },
+              ],
+              first_bit: 0,
+            },
+          ],
+          total_bit_count: 1,
+        },
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Water Class',
+        display_name: 'Monthly Recurrence',
         lookat: {
-          lat: 45.182,
-          lon: 59.414,
-          zoom: 7,
+          lat: -0.835,
+          lon: -51.482,
+          zoom: 6,
         },
         image_visualization: {
           band_vis: {
@@ -116,21 +117,25 @@ local license = spdx.proprietary;
               0.0,
             ],
             max: [
-              3.0,
+              100.0,
             ],
             palette: [
-              'cccccc',
               'ffffff',
-              '99d9ea',
+              'ffbbbb',
               '0000ff',
             ],
             bands: [
-              'waterClass',
+              'monthly_recurrence',
             ],
           },
         },
       },
     ],
+    monthly_recurrence: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
   },
   'sci:citation': |||
     Jean-Francois Pekel, Andrew Cottam, Noel Gorelick, Alan S. Belward,
@@ -138,8 +143,8 @@ local license = spdx.proprietary;
     Nature 540, 418-422 (2016). ([doi:10.1038/nature20584](https://doi.org/10.1038/nature20584))
   |||,
   'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
+    type: 'climatological_interval',
+    unit: 'month',
     interval: 1,
   },
   'gee:terms_of_use': |||

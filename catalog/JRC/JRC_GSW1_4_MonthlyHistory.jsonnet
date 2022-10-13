@@ -3,10 +3,10 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local versions = import 'versions.libsonnet';
-local version_table = import 'JRC_GSW_YearlyHistory_version_map.libsonnet';
+local version_table = import 'JRC_GSW_MonthlyHistory_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.3';
+local version = 'v1.4';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.proprietary;
@@ -20,9 +20,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'JRC Yearly Water Classification History, v1.3 [deprecated]',
-  version: '1.3',
-  deprecated: true,
+  title: 'JRC Monthly Water History, v1.4',
+  version: '1.4',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains maps of the location and temporal
@@ -39,32 +38,36 @@ local license = spdx.proprietary;
     history for the entire time period and two epochs (1984-1999,
     2000-2020) for change detection.
 
-    This Yearly Seasonality Classification collection contains a year-by-year
-    classification of the seasonality of water based on the occurrence values
-    detected throughout the year.
+    This Monthly History collection holds the entire history of water detection
+    on a month-by-month basis. The collection contains 454 images, one for each
+    month between March 1984 and December 2021.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) +
   version_config.version_links,
   keywords: [
-    'annual',
     'geophysical',
     'google',
     'history',
     'jrc',
     'landsat_derived',
+    'monthly',
     'surface',
     'water',
-    'yearly',
   ],
   providers: [
     ee.producer_provider('EC JRC / Google', 'https://global-surface-water.appspot.com'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -59.0, 180.0, 78.0,
-                    '1984-03-16T00:00:00Z', '2021-01-01T00:00:00Z'),
+                    '1984-03-16T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
+      {
+        name: 'month',
+        description: 'Month',
+        type: ee_const.var_type.double,
+      },
       {
         name: 'year',
         description: 'Year',
@@ -76,38 +79,40 @@ local license = spdx.proprietary;
     ],
     'eo:bands': [
       {
-        name: 'waterClass',
-        description: 'Classification of the seasonality of water throughout the year.',
-        'gee:classes': [
-          {
-            color: 'cccccc',
-            description: 'No data',
-            value: 0,
-          },
-          {
-            value: 1,
-            color: 'ffffff',
-            description: 'Not water',
-          },
-          {
-            value: 2,
-            color: '99d9ea',
-            description: 'Seasonal water',
-          },
-          {
-            value: 3,
-            color: '0000ff',
-            description: 'Permanent water',
-          },
-        ],
+        name: 'water',
+        description: 'Water detection for the month.',
+        'gee:bitmask': {
+          bitmask_parts: [
+            {
+              description: 'Water detection',
+              bit_count: 2,
+              values: [
+                {
+                  description: 'No data',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Not water',
+                },
+                {
+                  value: 2,
+                  description: 'Water',
+                },
+              ],
+              first_bit: 0,
+            },
+          ],
+          total_bit_count: 2,
+        },
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Water Class',
+        display_name: 'Water',
         lookat: {
-          lat: 45.182,
-          lon: 59.414,
+          lat: 38.109,
+          lon: -121.234,
           zoom: 7,
         },
         image_visualization: {
@@ -116,16 +121,15 @@ local license = spdx.proprietary;
               0.0,
             ],
             max: [
-              3.0,
+              2.0,
             ],
             palette: [
-              'cccccc',
               'ffffff',
-              '99d9ea',
-              '0000ff',
+              'fffcb8',
+              '0905ff',
             ],
             bands: [
-              'waterClass',
+              'water',
             ],
           },
         },
@@ -139,7 +143,7 @@ local license = spdx.proprietary;
   |||,
   'gee:interval': {
     type: 'cadence',
-    unit: 'year',
+    unit: 'month',
     interval: 1,
   },
   'gee:terms_of_use': |||

@@ -6,7 +6,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'JRC_GSW_YearlyHistory_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.3';
+local version = 'v1.4';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.proprietary;
@@ -20,9 +20,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'JRC Yearly Water Classification History, v1.3 [deprecated]',
-  version: '1.3',
-  deprecated: true,
+  title: 'JRC Yearly Water Classification History, v1.4',
+  version: '1.4',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains maps of the location and temporal
@@ -62,7 +61,7 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -59.0, 180.0, 78.0,
-                    '1984-03-16T00:00:00Z', '2021-01-01T00:00:00Z'),
+                    '1984-03-16T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {

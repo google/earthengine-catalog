@@ -1,6 +1,3 @@
-local id = 'JRC/GSW1_3/GlobalSurfaceWater';
-local subdir = 'JRC';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -9,7 +6,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'JRC_GSW_GlobalSurfaceWater_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.3';
+local version = 'v1.4';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.proprietary;
@@ -23,25 +20,10 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'JRC Global Surface Water Mapping Layers, v1.3 [deprecated]',
-  version: '1.3',
-  deprecated: true,
+  title: 'JRC Global Surface Water Mapping Layers, v1.4',
+  version: '1.4',
   'gee:type': ee_const.gee_type.image,
-  description: |||
-    This dataset contains maps of the location and temporal
-    distribution of surface water from 1984 to 2020 and provides
-    statistics on the extent and change of those water surfaces.
-    For more information see the associated journal article: [High-resolution
-    mapping of global surface water and its long-term changes](https://www.nature.com/nature/journal/v540/n7633/full/nature20584.html)
-    (Nature, 2016) and the online [Data Users Guide](https://storage.googleapis.com/global-surface-water/downloads_ancillary/DataUsersGuidev2.pdf).
-
-    These data were generated using 4,453,989 scenes from Landsat
-    5, 7, and 8 acquired between 16 March 1984 and 31 December 2020.
-    Each pixel was individually classified into water / non-water
-    using an expert system and the results were collated into a monthly
-    history for the entire time period and two epochs (1984-1999,
-    2000-2020) for change detection.
-
+  description: (importstr 'JRC_GSW_1_4_description.md') + |||
     This mapping layers product consists of 1 image containing 7 bands.
     It maps different facets of the spatial and temporal distribution of
     surface water over the last 35 years. Areas where water has
@@ -62,7 +44,7 @@ local license = spdx.proprietary;
     ee.producer_provider('EC JRC / Google', 'https://global-surface-water.appspot.com'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('1984-03-16T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('1984-03-16T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       30.0,
@@ -75,7 +57,7 @@ local license = spdx.proprietary;
       },
       {
         name: 'change_abs',
-        description: 'Absolute change in occurrence between two epochs: 1984-1999 vs 2000-2019.',
+        description: 'Absolute change in occurrence between two epochs: 1984-1999 vs 2000-2021.',
         'gee:units': '%',
       },
       {
