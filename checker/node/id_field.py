@@ -1,6 +1,12 @@
 """Checks that an asset ID is valid.
 
 Detailed description of what makes a valid id here.
+
+New datasets are encouraged, but not required, to use underscores ('_') rather
+than dashes ('-') in folder and dataset names.
+
+TODO(schwehr): id_field.py should enforce that the top level directory is
+  at least 3 characters.
 """
 
 import pathlib
