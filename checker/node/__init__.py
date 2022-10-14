@@ -12,6 +12,7 @@ from checker.node import id_field
 from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
+from checker.node import providers
 from checker.node import required
 from checker.node import stac_version
 from checker.node import title
@@ -28,6 +29,7 @@ _CHECKS = [
     title.Check,
     description.Check,
     license_field.Check,
+    providers.Check,
 
     # gee extensions
     gee_classes.Check,
