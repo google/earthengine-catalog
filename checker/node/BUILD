@@ -37,6 +37,24 @@ py_test(
 )
 
 py_test(
+    name = "file_path_test",
+    srcs = ["file_path_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "gee_classes_test",
+    srcs = ["gee_classes_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "id_field_test",
     srcs = ["id_field_test.py"],
     deps = [
