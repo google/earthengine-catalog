@@ -125,12 +125,12 @@ local self_url = catalog_subdir_url + base_filename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'shape_area*',
+        name: 'shape_area',
         description: "Area of the feature's geometry in its original format",
         type: ee_const.var_type.double,
       },
       {
-        name: 'shape_leng*',
+        name: 'shape_leng',
         description: "Length of the edges in the feature's geometry in its original format",
         type: ee_const.var_type.double,
       },

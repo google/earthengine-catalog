@@ -90,12 +90,12 @@ local self_url = catalog_subdir_url + base_filename;
   summaries: {
     'gee:schema': [
       {
-        name: 'areaacres*',
+        name: 'areaacres',
         description: 'Size of the feature in acres',
         type: ee_const.var_type.string,
       },
       {
-        name: 'areasqkm*',
+        name: 'areasqkm',
         description: 'Size of the feature in square kilometers',
         type: ee_const.var_type.string,
       },
@@ -120,12 +120,12 @@ local self_url = catalog_subdir_url + base_filename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'shape_area*',
+        name: 'shape_area',
         description: 'Area of feature in internal units squared',
         type: ee_const.var_type.string,
       },
       {
-        name: 'shape_leng*',
+        name: 'shape_leng',
         description: 'Length of feature in internal units',
         type: ee_const.var_type.string,
       },
@@ -178,7 +178,7 @@ local self_url = catalog_subdir_url + base_filename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'noncontr00*',
+        name: 'noncontr00',
         description: |||
           Area, in acres, of hydrologic units that do not contribute
           to downstream accumulation of streamflow under normal flow conditions
@@ -187,7 +187,7 @@ local self_url = catalog_subdir_url + base_filename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'noncontrib*',
+        name: 'noncontrib',
         description: |||
           Area, in square kilometers, of hydrologic units that
           do not contribute to downstream accumulation of streamflow under
