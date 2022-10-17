@@ -170,7 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           original polygons are sorted from downstream to upstream. This field can be used to
           sort the polygons back to their original sequence or to perform topological searches.
         |||,
-        type: ee_const.var_type.property_type_unspecified,
+        type: ee_const.var_type.int,
       },
       {
         name: 'SUB_AREA',
