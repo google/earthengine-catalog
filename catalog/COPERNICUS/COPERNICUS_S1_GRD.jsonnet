@@ -327,10 +327,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'transmitterReceiverPolarisation',
         description: |||
           Transmit/Receive polarisation for the data. There
-          is one element for each Tx/Rx combination: [''VV''], [''HH''],
-          [''VV'', ''VH''], or [''HH'', ''HV''].
+          is one element for each Tx/Rx combination: ['VV'], ['HH'],
+          ['VV', 'VH'], or ['HH', ''HV'].
         |||,
-        type: ee_const.var_type.double,
+        type: ee_const.var_type.string_list,
       },
       {
         name: 'productClass',
