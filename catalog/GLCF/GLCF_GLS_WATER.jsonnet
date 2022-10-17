@@ -87,9 +87,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.double,
       },
       {
+        // Always [1,2,4,200,201]
         name: 'water_class_values',
         description: 'Water class values',
-        type: ee_const.var_type.property_type_unspecified,
+        type: ee_const.var_type.int_list,
       },
     ],
     gsd: [
