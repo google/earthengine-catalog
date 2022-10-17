@@ -168,7 +168,7 @@ local self_url = catalog_subdir_url + base_filename;
           "DEFINITIVE" or "PREDICTIVE". If the field is not present, the user should
           assume "PREDICTIVE".
         |||,
-        type: ee_const.var_type.property_type_unspecified,
+        type: ee_const.var_type.string,
       },
       {
         name: 'GEOMETRIC_RMSE_MODEL',
