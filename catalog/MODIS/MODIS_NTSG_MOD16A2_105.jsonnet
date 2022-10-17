@@ -38,11 +38,13 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     System. For more details about the algorithm used see the [algorithm
     theoretical basis document](https://scholarworks.umt.edu/cgi/viewcontent.cgi?article=1267&context=ntsg_pubs).
 
-    *The period of coverage is 8 days with the exception of
+    * The period of coverage is 8 days with the exception of
     the last period at the end of the year which is either 5 or 6 days.
     ET/PET units are 0.1mm/5-day for December 27-31 of 2001, 2002,
     2003, 2005, 2006, 2007, 2009, 2010, and 0.1mm/6-day for December
-    26-31 of 2000, 2004, 2008 (leap years). **For some pixels in African
+    26-31 of 2000, 2004, 2008 (leap years).
+
+    ** For some pixels in African
     rainforest, the MODIS albedo data from MCD43B2/MCD43B3 have no
     cloud-free data throughout an entire year. As a result, pixels
     for that year in all data bands are masked out.
@@ -91,25 +93,25 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'eo:bands': [
       {
         name: 'ET',
-        description: 'Evapotranspiration, aggregated for period of coverage.*',
+        description: 'Evapotranspiration, aggregated for period of coverage.',
         'gee:units': 'kg/m^2',
         'gee:scale': 0.1,
       },
       {
         name: 'LE',
-        description: 'Latent heat flux, averaged daily over the period of coverage.*',
+        description: 'Latent heat flux, averaged daily over the period of coverage.',
         'gee:units': 'J/m^2/day',
         'gee:scale': 0.0001,
       },
       {
         name: 'PET',
-        description: 'Potential evapotranspiration, aggregated for period of coverage.*',
+        description: 'Potential evapotranspiration, aggregated for period of coverage.',
         'gee:units': 'kg/m^2',
         'gee:scale': 0.1,
       },
       {
         name: 'PLE',
-        description: 'Potential Latent Heat Flux, averaged daily over the period ofcoverage.*',
+        description: 'Potential Latent Heat Flux, averaged daily over the period ofcoverage.',
         'gee:units': 'J/m^2/day',
         'gee:scale': 0.0001,
       },
