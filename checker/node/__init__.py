@@ -14,6 +14,7 @@ from checker.node import keywords
 from checker.node import license_field
 from checker.node import providers
 from checker.node import required
+from checker.node import schema
 from checker.node import stac_version
 from checker.node import title
 
@@ -33,6 +34,7 @@ _CHECKS = [
 
     # gee extensions
     gee_classes.Check,
+    schema.Check,
     interval.Check,
 ]
 
