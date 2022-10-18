@@ -26,7 +26,7 @@ local license = spdx.proprietary;
   description: (importstr 'JRC_GSW_1_4_description.md') + |||
     This mapping layers product consists of 1 image containing 7 bands.
     It maps different facets of the spatial and temporal distribution of
-    surface water over the last 35 years. Areas where water has
+    surface water over the last 38 years. Areas where water has
     never been detected are masked.
   |||,
   license: license.id,
