@@ -17,9 +17,11 @@ from checker.node import required
 from checker.node import schema
 from checker.node import stac_version
 from checker.node import title
+from checker.node import top_level
 
 _CHECKS = [
     required.Check,
+    top_level.Check,
     stac_version.Check,
     id_field.Check,
     file_path.Check,
