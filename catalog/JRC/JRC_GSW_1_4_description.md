@@ -3,7 +3,7 @@
     statistics on the extent and change of those water surfaces.
     For more information see the associated journal article: [High-resolution
     mapping of global surface water and its long-term changes](https://www.nature.com/nature/journal/v540/n7633/full/nature20584.html)
-    (Nature, 2016) and the online [Data Users Guide](https://storage.googleapis.com/global-surface-water/downloads_ancillary/DataUsersGuidev2.pdf).
+    (Nature, 2016) and the online [Data Users Guide](https://storage.googleapis.com/global-surface-water/downloads_ancillary/DataUsersGuidev2021.pdf).
 
     These data were generated using 4,716,475 scenes from Landsat
     5, 7, and 8 acquired between 16 March 1984 and 31 December 2021.
