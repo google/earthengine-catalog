@@ -28,7 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for characterizing urban landscapes, providing a holistic classification approach that
     takes into account micro-scale land-cover and associated physical properties.
 
-    This global map of Local Climate Zones, at 100m resolution and representative for the
+    This global map of Local Climate Zones, at 100m pixel size and representative for the
     nominal year 2018, is derived from multiple earth observation datasets and expert
     LCZ class labels. The LCZ scheme complements other land use / land cover schemes by
     its focus on urban and rural landscape types, which can be described by any of the 17
