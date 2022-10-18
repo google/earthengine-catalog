@@ -61,6 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'jaxa',
     'landcover',
     'palsar',
+    'palsar2',
     'sar',
   ],
   providers: [
