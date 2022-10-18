@@ -23,16 +23,17 @@ py_library(
     ],
 )
 
-py_test(
-    name = "ee_stac_check_test",
-    srcs = ["ee_stac_check_test.py"],
-    deps = [
-        ":ee_stac_check_lib",
-        ":stac",
-        "//checker/node",
-        "//checker/tree",
-    ],
-)
+# This test does not work well in a github action.
+# py_test(
+#     name = "ee_stac_check_test",
+#     srcs = ["ee_stac_check_test.py"],
+#     deps = [
+#         ":ee_stac_check_lib",
+#         ":stac",
+#         "//checker/node",
+#         "//checker/tree",
+#     ],
+# )
 
 py_library(
     name = "stac",
