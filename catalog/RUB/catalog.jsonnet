@@ -1,4 +1,4 @@
-local id = 'RESOLVE';
+local id = 'RUB';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
