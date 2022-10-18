@@ -77,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Bochum Urban Climate Lab', 'http://www.climate.ruhr-uni-bochum.de/news/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2018-01-01T00:00:00Z', '2018-12-31T23:59:59Z'),
+  extent: ee.extent_global('2018-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       100.0,
@@ -86,18 +86,190 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'LCZ',
         description: 'The raw, pixel-based global LCZ map, with LCZ classes indicated by numbers 1-17',
-        'gee:units': '-',
+        'gee:classes': [
+          {
+            value: 1,
+            color: '8c0000',
+            description: 'Compact highrise',
+          },
+          {
+            value: 2,
+            color: 'd10000',
+            description: 'Compact midrise',
+          },
+          {
+            value: 3,
+            color: 'ff0000',
+            description: 'Compact lowrise',
+          },
+          {
+            value: 4,
+            color: 'bf4d00',
+            description: 'Open highrise',
+          },
+          {
+            value: 5,
+            color: 'ff6600',
+            description: 'Open midrise',
+          },
+          {
+            value: 6,
+            color: 'ff9955',
+            description: 'Open lowrise',
+          },
+          {
+            value: 7,
+            color: 'faee05',
+            description: 'Lightweight lowrise',
+          },
+          {
+            value: 8,
+            color: 'bcbcbc',
+            description: 'Large lowrise',
+          },
+          {
+            value: 9,
+            color: 'ffccaa',
+            description: 'Sparsely built',
+          },
+          {
+            value: 10,
+            color: '555555',
+            description: 'Heavy industry',
+          },
+          {
+            value: 11,
+            color: '006a00',
+            description: 'Dense Trees (LCZ A)',
+          },
+          {
+            value: 12,
+            color: '00aa00',
+            description: 'Scattered Trees (LCZ B)',
+          },
+          {
+            value: 13,
+            color: '648525',
+            description: 'Bush, scrub (LCZ C)',
+          },
+          {
+            value: 14,
+            color: 'b9db79',
+            description: 'Low plants (LCZ D)',
+          },
+          {
+            value: 15,
+            color: '000000',
+            description: 'Bare rock or paved (LCZ E)',
+          },
+          {
+            value: 16,
+            color: 'fbf7ae',
+            description: 'Bare soil or sand (LCZ F)',
+          },
+          {
+            value: 17,
+            color: '6a6aff',
+            description: 'Water (LCZ G)',
+          },
+        ],
       },
       {
         name: 'LCZ_Filter',
         description: 'The recommended global LCZ map, with LCZ classes indicated by numbers 1-17.
         LCZ labels are obtained after applying the morphological Gaussian filter described in
         Demuzere et al. (2020)',
-        'gee:units': '-',
+        'gee:classes': [
+          {
+            value: 1,
+            color: '8c0000',
+            description: 'Compact highrise',
+          },
+          {
+            value: 2,
+            color: 'd10000',
+            description: 'Compact midrise',
+          },
+          {
+            value: 3,
+            color: 'ff0000',
+            description: 'Compact lowrise',
+          },
+          {
+            value: 4,
+            color: 'bf4d00',
+            description: 'Open highrise',
+          },
+          {
+            value: 5,
+            color: 'ff6600',
+            description: 'Open midrise',
+          },
+          {
+            value: 6,
+            color: 'ff9955',
+            description: 'Open lowrise',
+          },
+          {
+            value: 7,
+            color: 'faee05',
+            description: 'Lightweight lowrise',
+          },
+          {
+            value: 8,
+            color: 'bcbcbc',
+            description: 'Large lowrise',
+          },
+          {
+            value: 9,
+            color: 'ffccaa',
+            description: 'Sparsely built',
+          },
+          {
+            value: 10,
+            color: '555555',
+            description: 'Heavy industry',
+          },
+          {
+            value: 11,
+            color: '006a00',
+            description: 'Dense Trees (LCZ A)',
+          },
+          {
+            value: 12,
+            color: '00aa00',
+            description: 'Scattered Trees (LCZ B)',
+          },
+          {
+            value: 13,
+            color: '648525',
+            description: 'Bush, scrub (LCZ C)',
+          },
+          {
+            value: 14,
+            color: 'b9db79',
+            description: 'Low plants (LCZ D)',
+          },
+          {
+            value: 15,
+            color: '000000',
+            description: 'Bare rock or paved (LCZ E)',
+          },
+          {
+            value: 16,
+            color: 'fbf7ae',
+            description: 'Bare soil or sand (LCZ F)',
+          },
+          {
+            value: 17,
+            color: '6a6aff',
+            description: 'Water (LCZ G)',
+          },
+        ],
       },
       {
         name: 'LCZ_Probability',
-        description: 'A probability layer (%) that identifies how often the modal LCZ was
+        description: 'A probability layer that identifies how often the modal LCZ was
         chosen per pixel (e.g. a probability of 60% means that the modal LCZ class was
         mapped 30 times out of 50 LCZ models). This is a pixel-based probability,
         derived from the LCZ layer',
@@ -159,4 +331,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': 'CC-BY-4.0',
   'gee:user_uploaded': true,
+  'gee:skip_indexing': true,
 }
