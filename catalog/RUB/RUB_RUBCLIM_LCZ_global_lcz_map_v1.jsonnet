@@ -66,12 +66,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   ],
   keywords: [
-    'Local Climate Zones',
-    'WUDAPT',
-    'urban',
-    'landcover',
     'climate',
+    'landcover',
+    'local_climate_zones',
     'rub',
+    'urban',
+    'wudapt',
   ],
   providers: [
     ee.producer_provider('Bochum Urban Climate Lab', 'http://www.climate.ruhr-uni-bochum.de/news/'),
