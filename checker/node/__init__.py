@@ -18,6 +18,7 @@ from checker.node import schema
 from checker.node import stac_version
 from checker.node import title
 from checker.node import top_level
+from checker.node import version_extension
 
 _CHECKS = [
     required.Check,
@@ -33,6 +34,9 @@ _CHECKS = [
     description.Check,
     license_field.Check,
     providers.Check,
+
+    # extensions
+    version_extension.Check,
 
     # gee extensions
     gee_classes.Check,
