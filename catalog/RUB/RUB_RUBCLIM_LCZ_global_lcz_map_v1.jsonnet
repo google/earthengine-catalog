@@ -74,7 +74,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wudapt',
   ],
   providers: [
-    ee.producer_provider('Bochum Urban Climate Lab', 'http://www.climate.ruhr-uni-bochum.de/news/'),
+    ee.producer_provider('Bochum Urban Climate Lab', 'https://lcz-generator.rub.de/global-lcz-map'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2018-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
@@ -319,9 +319,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': 'https://doi.org/10.5194/essd-14-3835-2022',
+  'sci:doi': '10.5281/zenodo.6364594',
   'gee:extra_dois': [
-    '10.5281/zenodo.6364594',
+    'https://doi.org/10.5194/essd-14-3835-2022',
   ],
   'sci:citation': |||
     Demuzere M.; Kittner J.; Martilli A.; Mills, G.; Moede, C.; Stewart, I.D.; van Vliet, J.; Bechtel, B.
