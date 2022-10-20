@@ -23,6 +23,7 @@ from checker.node import top_level
 from checker.node import type_field
 from checker.node import version_extension
 from checker.node import visualizations
+from checker.node import visualizations_filter
 
 TYPE = 'type'
 
@@ -51,6 +52,7 @@ _CHECKS = [
     schema.Check,
     interval.Check,
     visualizations.Check,
+    visualizations_filter.Check,
 ]
 
 
