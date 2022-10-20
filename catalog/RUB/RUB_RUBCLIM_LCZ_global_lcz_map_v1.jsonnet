@@ -30,7 +30,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     This global map of Local Climate Zones, at 100m pixel size and representative for the
     nominal year 2018, is derived from multiple earth observation datasets and expert
-    LCZ class labels. The LCZ scheme complements other land use / land cover schemes by
+    LCZ class labels. LCZ_Filter is the recommended band for most users. The other
+    classification band, LCZ, is only provided as it is used to calculate the
+    LCZ_Probability band.
+
+    The LCZ scheme complements other land use / land cover schemes by
     its focus on urban and rural landscape types, which can be described by any of the 17
     classes in the LCZ scheme. Out of the 17 LCZ classes, 10 reflect the 'built'
     environment, and each LCZ type is associated with generic numerical descriptions
