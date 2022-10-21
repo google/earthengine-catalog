@@ -14,6 +14,7 @@ from checker.node import keywords
 from checker.node import license_field
 from checker.node import providers
 from checker.node import required
+from checker.node import sci_extension
 from checker.node import schema
 from checker.node import stac_version
 from checker.node import title
@@ -36,6 +37,7 @@ _CHECKS = [
     providers.Check,
 
     # extensions
+    sci_extension.Check,
     version_extension.Check,
 
     # gee extensions

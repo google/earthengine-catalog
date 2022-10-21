@@ -334,7 +334,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5281/zenodo.6364594',
   'gee:extra_dois': [
-    'https://doi.org/10.5194/essd-14-3835-2022',
+    '10.5194/essd-14-3835-2022',
   ],
   'sci:citation': |||
     Demuzere M.; Kittner J.; Martilli A.; Mills, G.; Moede, C.; Stewart, I.D.; van Vliet, J.; Bechtel, B.
