@@ -59,7 +59,7 @@ local self_url = catalog_subdir_url + base_filename;
     'biomass',
     'carbon',
     'density',
-    'forests',
+    'forest',
     'nasa',
     'ornl',
     'vegetation',
