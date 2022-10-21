@@ -228,7 +228,7 @@ class SchemaTest(unittest.TestCase):
     self.assertEqual(expect, issues)
 
   # TODO(schwehr): turn on stricter units check.
-  # def test_bad_units_unknonn(self):
+  # def test_bad_units_unknown(self):
   #   stac_data = {'summaries': {'gee:schema': [
   #       {'description': 'A name', 'name': 'ab', 'type': 'INT',
   #        'units': 'bogus'}]}}

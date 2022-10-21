@@ -53,7 +53,6 @@ Example schema in Jsonnet:
 
 import enum
 import re
-
 from typing import Iterator
 
 from checker import stac
