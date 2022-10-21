@@ -26,12 +26,7 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'GLDAS-2.1: Global Land Data Assimilation System',
   version: 'V021',
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
-    Global Land Data Assimilation System (GLDAS) ingests satellite and
-    ground-based observational data products. Using advanced land surface
-    modeling and data assimilation techniques, it generates optimal
-    fields of land surface states and fluxes.
-
+  description: (importstr 'NASA_GLDAS_V2_description.md') + |||
     GLDAS-2.1 is one of two components of the GLDAS Version 2 (GLDAS-2) dataset,
     the second being GLDAS-2.0. GLDAS-2.1 is analogous to GLDAS-1 product stream,
     with upgraded models forced by a combination of [GDAS, disaggregated GPCP,
@@ -49,7 +44,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     Documentation:
 
-    * [Redme](https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/doc/README_GLDAS2.pdf)
+    * [Readme](https://hydro1.gesdisc.eosdis.nasa.gov/data/GLDAS/GLDAS_NOAH025_3H.2.1/doc/README_GLDAS2.pdf)
 
     * [How-to](https://disc.gsfc.nasa.gov/information/howto?tags=hydrology)
 

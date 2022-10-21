@@ -26,12 +26,7 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'Reprocessed GLDAS-2.0: Global Land Data Assimilation System',
   version: 'V20',
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
-    Global Land Data Assimilation System (GLDAS) ingests satellite and
-    ground-based observational data products. Using advanced land surface
-    modeling and data assimilation techniques, it generates optimal
-    fields of land surface states and fluxes.
-
+  description: (importstr 'NASA_GLDAS_V2_description.md') + |||
     GLDAS-2.0 is one of two components of the GLDAS Version 2 (GLDAS-2)
     dataset, the second being GLDAS-2.1. GLDAS-2.0 is reprocessed with
     the updated Princeton Global Meteorological Forcing Dataset
