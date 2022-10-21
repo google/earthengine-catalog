@@ -19,7 +19,7 @@ For a Table:
 
 For a TableCollection:
 
-TODO(simonf): Describe
+1. gee:schema - Describes the column in the constituent ee.FeatureCollections
 
 The rules for schemas:
 
@@ -33,7 +33,9 @@ The rules for schemas:
 - Names cannot be repeated within a particular schema
 - The description is a string from 3 to 1800 characters
 - It is best practice, but not required, to not repeat description strings
-- The units field is a string from the ALL_UNITS list.  In the future, it is
+
+- TODO(schwehr):
+  The units field is a string from the ALL_UNITS list.  In the future, it is
   likely that this list will be merged with the band units and there needs to be
   a glossary for units.
 
@@ -70,7 +72,7 @@ OPTIONAL_KEYS = frozenset({UNITS})
 ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
 # TODO(schwehr): The entire catalog needs a master table of units.
-ALL_UNITS = ['cm', 'knots', 'm', 'm^2', 'millibars', 'nautical miles']
+# ALL_UNITS = ['cm', 'knots', 'm', 'm^2', 'millibars', 'nautical miles']
 
 MAX_SCHEMA_SIZE = 300
 
@@ -185,5 +187,7 @@ class Check(stac.NodeCheck):
           if not isinstance(units, str):
             yield cls.new_issue(node, 'Units must be a str')
           else:
-            if units not in ALL_UNITS:
-              yield cls.new_issue(node, f'Units unknown: {units}')
+            pass
+            # TODO(schwehr): turn on a more stringent units check later.
+            # if units not in ALL_UNITS:
+            #   yield cls.new_issue(node, f'Units unknown: {units}')

@@ -227,14 +227,15 @@ class SchemaTest(unittest.TestCase):
     expect = [Check.new_issue(node, 'Units must be a str')]
     self.assertEqual(expect, issues)
 
-  def test_bad_units_unknonn(self):
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A name', 'name': 'ab', 'type': 'INT',
-         'units': 'bogus'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Units unknown: bogus')]
-    self.assertEqual(expect, issues)
+  # TODO(schwehr): turn on stricter units check.
+  # def test_bad_units_unknonn(self):
+  #   stac_data = {'summaries': {'gee:schema': [
+  #       {'description': 'A name', 'name': 'ab', 'type': 'INT',
+  #        'units': 'bogus'}]}}
+  #   node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
+  #   issues = list(Check.run(node))
+  #   expect = [Check.new_issue(node, 'Units unknown: bogus')]
+  #   self.assertEqual(expect, issues)
 
 if __name__ == '__main__':
   unittest.main()
