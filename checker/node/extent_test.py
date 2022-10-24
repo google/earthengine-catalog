@@ -209,6 +209,13 @@ class TemporalTest(unittest.TestCase):
     expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
+  def test_start_not_str(self):
+    self.first_interval[0] = 222
+    issues = list(check_temporal(self.node, self.extent))
+    message = f'start must be a string'
+    expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
   def test_bad_start(self):
     self.first_interval[0] = NOT_A_DATE
     issues = list(check_temporal(self.node, self.extent))
@@ -220,6 +227,13 @@ class TemporalTest(unittest.TestCase):
     self.first_interval[0] = '1599-01-01T00:00:00Z'
     issues = list(check_temporal(self.node, self.extent))
     message = '1599-01-01 00:00:00+00:00 is before 1600-01-01 00:00:00+00:00'
+    expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
+  def test_end_not_str(self):
+    self.first_interval[1] = 333
+    issues = list(check_temporal(self.node, self.extent))
+    message = 'end must be a string'
     expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 

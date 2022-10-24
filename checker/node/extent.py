@@ -140,6 +140,10 @@ class Check(stac.NodeCheck):
 
     # end is currently allowed be None for on going datasets. This may change.
     start, end = first_interval
+    if not isinstance(start, str):
+      yield cls.new_issue(node, 'start must be a string')
+      return
+
     try:
       start_date = datetime.datetime.strptime(start, ISO8601)
     except ValueError:
@@ -149,7 +153,11 @@ class Check(stac.NodeCheck):
     if start_date < EARLIEST:
       yield cls.new_issue(node, f'{start_date} is before {EARLIEST}')
 
-    if end:
+    if end is not None:
+      if not isinstance(end, str):
+        yield cls.new_issue(node, 'end must be a string')
+        return
+
       try:
         end_date = datetime.datetime.strptime(end, ISO8601)
       except ValueError:
