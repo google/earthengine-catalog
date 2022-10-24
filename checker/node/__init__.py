@@ -20,7 +20,10 @@ from checker.node import sci_extension
 from checker.node import stac_version
 from checker.node import title
 from checker.node import top_level
+from checker.node import type_field
 from checker.node import version_extension
+
+TYPE = 'type'
 
 _CHECKS = [
     required.Check,
@@ -52,6 +55,12 @@ _CHECKS = [
 def run_checks(
     node: stac.Node, checks: list[str]) -> Iterator[stac.Issue]:
   """Runs all checks on one STAC node."""
+
+  # Most of the checks depend on the type being set for the Issues to make
+  # sense, so check it first and do not continue if the type is not set
+  yield from type_field.Check.run(node)
+  if not node.type:
+    return
 
   for check in _CHECKS:
     if checks and check.name not in checks:
