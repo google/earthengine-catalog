@@ -96,7 +96,7 @@ local license = spdx.cc_by_4_0;
           lon: 3.389,
           zoom: 17,
         },
-        // TODO(schwehr): Add table_visualization or polygon_visualization.
+        // TODO(b/254522101): Add table_visualization or polygon_visualization.
       },
       {
         display_name: 'Open Buildings V1',

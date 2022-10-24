@@ -22,6 +22,7 @@ from checker.node import title
 from checker.node import top_level
 from checker.node import type_field
 from checker.node import version_extension
+from checker.node import visualizations
 
 TYPE = 'type'
 
@@ -49,6 +50,7 @@ _CHECKS = [
     gee_classes.Check,
     schema.Check,
     interval.Check,
+    visualizations.Check,
 ]
 
 
