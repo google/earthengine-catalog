@@ -7,7 +7,7 @@ import dataclasses
 import enum
 import json
 import pathlib
-from typing import Iterator
+from typing import Iterator, Optional
 
 import os
 
@@ -128,7 +128,12 @@ def load(root: pathlib.Path) -> list[Node]:
     stac = json.loads(path.read_text())
     dataset_id = stac.get('id', UNKNOWN_ID + str(relative_path))
     asset_type = stac.get(TYPE)
+
     gee_type_str = stac.get(GEE_TYPE)
-    gee_type = GeeType(gee_type_str) if gee_type_str else GeeType.NONE
+    gee_type: Optional[GeeType]
+    try:
+      gee_type = GeeType(gee_type_str)
+    except ValueError:
+      gee_type = GeeType.NONE
     nodes.append(Node(dataset_id, relative_path, asset_type, gee_type, stac))
   return nodes

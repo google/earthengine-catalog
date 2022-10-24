@@ -8,14 +8,15 @@ from checker.node import extensions
 from checker.node import extent
 from checker.node import file_path
 from checker.node import gee_classes
+from checker.node import gee_type
 from checker.node import id_field
 from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
 from checker.node import providers
 from checker.node import required
-from checker.node import sci_extension
 from checker.node import schema
+from checker.node import sci_extension
 from checker.node import stac_version
 from checker.node import title
 from checker.node import top_level
@@ -23,6 +24,7 @@ from checker.node import version_extension
 
 _CHECKS = [
     required.Check,
+    gee_type.Check,
     top_level.Check,
     stac_version.Check,
     id_field.Check,
