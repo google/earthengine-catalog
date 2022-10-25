@@ -253,14 +253,6 @@ local self_url = catalog_subdir_url + base_filename;
               'precipitationCal',
             ],
           },
-          global_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              10.0,
-            ],
-          },
         },
       },
     ],

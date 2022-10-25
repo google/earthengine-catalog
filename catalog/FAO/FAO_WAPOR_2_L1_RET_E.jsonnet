@@ -63,13 +63,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           zoom: 3,
         },
         image_visualization: {
-          global_vis: {
+          band_vis: {
             min: [
               0.0,
             ],
             max: [
               100.0,
             ],
+            bands: ['L1_RET_E'],
           },
         },
       },

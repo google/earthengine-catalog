@@ -151,7 +151,7 @@ local self_url = catalog_subdir_url + base_filename;
           zoom: 1,
         },
         image_visualization: {
-          global_vis: {
+          band_vis: {
             min: [
               -40.5137,
             ],

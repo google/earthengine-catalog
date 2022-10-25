@@ -274,7 +274,7 @@ local self_url = catalog_subdir_url + base_filename;
           zoom: 9,
         },
         image_visualization: {
-          global_vis: {
+          band_vis: {
             min: [
               0.0,
             ],
