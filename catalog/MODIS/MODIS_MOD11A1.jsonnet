@@ -104,11 +104,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gee:visualizations': [
       {
         display_name: 'Surface Temperature',
-        filter: {
-          filter_name: 'DATE_RANGE',
-          time_start: '2018-04-01',
-          time_end: '2018-06-01',
-        },
         lookat: {
           lon: 0,
           lat: 0,

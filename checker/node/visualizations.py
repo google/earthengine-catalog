@@ -16,7 +16,6 @@ The checks in this file cover only common core of checks for visualizations.
 visualization.py delegates to other checker files for parts of visualizations:
 
 - feature_view.py for visualize_as FeatureView.
-- visualizations_filter.py for filters
 - visualizations_image.py for image_visualization
 - visualizations_table.py for polygon_visualization, and table_visualization
 
@@ -37,7 +36,6 @@ The rules covered here in visualizations.py:
     - the point must be inside of the bounding box declared by the collection's
       bounding box inside of the extent field
     - the Zoom must be an integer greater than 0 and less than 20
-  - it can have a filter field
 
 Notes:
 - There is no STAC extension for gee:visualizations and the checker is currently
@@ -64,7 +62,6 @@ BBOX = 'bbox'
 DISPLAY_NAME = 'display_name'
 VISUALIZE_AS = 'visualize_as'
 
-FILTER = 'filter'
 IMAGE_VISUALIZATION = 'image_visualization'
 POLYGON_VISUALIZATION = 'polygon_visualization'
 TABLE_VISUALIZATION = 'table_visualization'
@@ -314,7 +311,7 @@ class Check(stac.NodeCheck):
                     yield cls.new_issue(node, f'{LAT} must be in extent')
 
         other_fields = [
-            f for f in visualization if f not in (DISPLAY_NAME, FILTER, LOOKAT)
+            f for f in visualization if f not in (DISPLAY_NAME, LOOKAT)
         ]
         if 'GOOGLE/Research/open-buildings' in node.id:
           pass  # TODO(b/254522101): Fix the catalog entries.

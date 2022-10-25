@@ -65,11 +65,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           lon: -7.03125,
           zoom: 2,
         },
-        filter: {
-          filter_name: 'DATE_RANGE',
-          time_start: '2018-04-01',
-          time_end: '2018-06-01',
-        },
         image_visualization: {
           band_vis: {
             palette: [

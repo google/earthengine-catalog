@@ -473,11 +473,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           lon: 46.476,
           zoom: 6,
         },
-        filter: {
-          filter_name: 'LIST_CONTAINS',
-          property_name: 'transmitterReceiverPolarisation',
-          property_value: 'VV',
-        },
         image_visualization: {
           band_vis: {
             min: [

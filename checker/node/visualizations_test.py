@@ -77,19 +77,6 @@ class VisualizationsTest(unittest.TestCase):
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
-  def test_valid_filter_date_range(self):
-    stac_data = {'summaries': {'gee:visualizations': [{
-        'filter': {
-            'filter_name': 'DATE_RANGE',
-            'time_end': '1999-06-01',
-            'time_start': '2018-04-02'},
-        'display_name': 'Display name',
-        'image_visualization': {},
-        'lookat': {'lat': 1, 'lon': 2, 'zoom': 3}}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
-
   def test_valid_table_visualization(self):
     stac_data = {'summaries': {'gee:visualizations': [{
         'display_name': 'Display name',

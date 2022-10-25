@@ -85,10 +85,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           lon: 4.1968,
           zoom: 12,
         },
-        filter: {
-          filter_name: 'LAST_N_DAYS',
-          property_value: '15',
-        },
         image_visualization: {
           band_vis: {
             min: [

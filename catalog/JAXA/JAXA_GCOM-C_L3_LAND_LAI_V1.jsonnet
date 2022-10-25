@@ -177,11 +177,6 @@ local self_url = catalog_subdir_url + base_filename;
           lon: 128.45,
           zoom: 5,
         },
-        filter: {
-          filter_name: 'DATE_RANGE',
-          time_start: '2020-01-01T00:00:00',
-          time_end: '2020-02-01T00:00:00',
-        },
         image_visualization: {
           band_vis: {
             min: [

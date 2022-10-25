@@ -1175,11 +1175,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           lon: 132.495,
           zoom: 5,
         },
-        filter: {
-          filter_name: 'EQUALS',
-          property_name: 'attribute_code',
-          property_value: 'DES',
-        },
         image_visualization: {
           band_vis: {
             min: [

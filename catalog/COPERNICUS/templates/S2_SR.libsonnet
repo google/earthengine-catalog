@@ -749,10 +749,6 @@ local license = spdx.proprietary;
               lon: 83.277,
               zoom: 12,
             },
-            filter: {
-              filter_name: 'LAST_N_DAYS',
-              property_value: '30',
-            },
             image_visualization: {
               band_vis: {
                 min: [
