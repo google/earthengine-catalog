@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [User's Guide](https://lpdaac.usgs.gov/documents/112/MOD44B_User_Guide_V6.pdf)
+    * [User's Guide](https://lpdaac.usgs.gov/documents/1322/MOD44B_User_Guide_V6.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/113/MOD44B_ATBD.pdf)
 
