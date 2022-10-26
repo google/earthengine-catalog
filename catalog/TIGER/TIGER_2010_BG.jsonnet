@@ -1,4 +1,4 @@
-local id = 'TIGER/2020/BG';
+local id = 'TIGER/2010/BG';
 local subdir = 'TIGER';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,20 +20,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'TIGER: US Census Block Groups (BG)',
-  version: '2020',
+  version: '2010',
   'gee:type': ee_const.gee_type.table,
   description: |||
     The United States Census Bureau regularly releases
-    a geodatabase named TIGER. This dataset contains the 2020 census
+    a geodatabase named TIGER. This dataset contains the 2010 census
     [block groups](https://www.census.gov/programs-surveys/geography/about/glossary.html#par_textimage_4),
     which is a cluster of blocks within the same census tract that have the same
     first digit of their four-digit census block number. There are just over
-    240,000 polygon features covering the United States, the District
+    300,000 polygon features covering the United States, the District
     of Columbia, Puerto Rico, and the
     Island areas.
 
-    For full technical details on all TIGER 2020 products, see the
-    [TIGER technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2020/TGRSHP2020_TechDoc.pdf).
+    For full technical details on all TIGER 2010 products, see the
+    [TIGER technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2010/TGRSHP10SF1.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -53,39 +53,39 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                     -14.69,
                     -64.435,
                     71.567,
-                    '2020-01-01T00:00:00Z',
-                    '2020-01-02T00:00:00Z'),
+                    '2010-01-01T00:00:00Z',
+                    '2010-01-02T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
-        name: 'ALAND',
+        name: 'ALAND10',
         description: 'Land Area (square meters)',
         type: ee_const.var_type.double,
         units: 'm^2',
       },
       {
-        name: 'AWATER',
+        name: 'AWATER10',
         description: 'Water Area (square meters)',
         type: ee_const.var_type.double,
         units: 'm^2',
       },
       {
-        name: 'BLKGRPCE',
+        name: 'BLKGRPCE10',
         description: 'Block Group Code',
         type: ee_const.var_type.string,
       },
       {
-        name: 'COUNTYFP',
+        name: 'COUNTYFP10',
         description: 'County FIPS Code',
         type: ee_const.var_type.string,
       },
       {
-        name: 'FUNCSTAT',
+        name: 'FUNCSTAT10',
         description: 'Functional Status (S = Statistical)',
         type: ee_const.var_type.string,
       },
       {
-        name: 'GEOID',
+        name: 'GEOID10',
         description: |||
           Unique Identifier of Summary Level, Characteristic
           Iteration, US, State, County, Tract, Block Group Code',
@@ -93,46 +93,46 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'INTPTLAT',
+        name: 'INTPTLAT10',
         description: 'Internal Point Latitude',
         type: ee_const.var_type.double,
       },
       {
-        name: 'INTPTLON',
+        name: 'INTPTLON10',
         description: 'Internal Point Longitude',
         type: ee_const.var_type.double,
       },
       {
-        name: 'MTFCC',
+        name: 'MTFCC10',
         description: 'MAF/TIGER Feature Classification Code',
         type: ee_const.var_type.string,
       },
       {
-        name: 'NAMELSAD',
+        name: 'NAMELSAD10',
         description: 'Full Name',
         type: ee_const.var_type.string,
       },
       {
-        name: 'STATEFP',
+        name: 'STATEFP10',
         description: 'State FIPS Code',
         type: ee_const.var_type.string,
       },
       {
-        name: 'TRACTCE',
+        name: 'TRACTCE10',
         description: 'Census Tract Code',
         type: ee_const.var_type.string,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Water Area 2020',
+        display_name: 'Water Area 2010',
         lookat: {
           lat: 40.74101,
           lon: -73.99172,
           zoom: 13,
         },
         polygon_visualization: {
-          property_name: 'AWATER',
+          property_name: 'AWATER10',
           property_vis: {
             min: [
               0.0,
@@ -145,7 +145,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
       {
-        display_name: 'Water Area 2020',
+        display_name: 'Water Area 2010',
         visualize_as: 'FeatureView',
         lookat: {
           lat: 40.74101,

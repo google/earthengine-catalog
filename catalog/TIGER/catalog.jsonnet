@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('TIGER_2010_BG', base_url),
     ee.link.child_collection('TIGER_2010_Blocks', base_url),
     ee.link.child_collection('TIGER_2010_Tracts_DP1', base_url),
     ee.link.child_collection('TIGER_2010_ZCTA5', base_url),
