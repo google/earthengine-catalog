@@ -266,11 +266,11 @@ local self_url = catalog_subdir_url + base_filename;
               10000.0,
             ],
             palette: [
-              '000',
-              '040',
-              '080',
-              '0B0',
-              '0F0',
+              '000000',
+              '004400',
+              '008800',
+              '00BB00',
+              '00FF00',
             ],
             bands: [
               'EVI2_Growing_Season_Area',
