@@ -130,7 +130,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'ch4',
     'climate',
     'copernicus',
     'esa',

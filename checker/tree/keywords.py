@@ -20,7 +20,7 @@ EXCEPTIONS = frozenset({
     'belowground', 'bioclim', 'biome', 'biopama', 'biota', 'bnu', 'builtup',
     'bulk', 'bulk_density', 'burnseverity', 'c2s', 'c3s', 'calcium',
     'calibrated', 'caltech', 'canopy', 'carbon_organic', 'cci', 'cdem', 'cdl',
-    'cgiar', 'ch4', 'china', 'chip', 'ciesin_derived', 'classification',
+    'cgiar', 'china', 'chip', 'ciesin_derived', 'classification',
     'climatic_water_balance', 'cloudtostreet', 'coldest', 'condensation',
     'coral', 'corine_derived', 'cpom', 'cryosat_2', 'dartmouth', 'day',
     'demographic', 'dess', 'development', 'dfo', 'digital_soil_mapping',
