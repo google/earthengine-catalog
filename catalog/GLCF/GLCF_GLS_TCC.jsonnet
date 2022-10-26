@@ -153,9 +153,7 @@ local self_url = catalog_subdir_url + base_filename;
             max: [
               100.0,
             ],
-            palette: [
-              'ffffff,afce56,5f9c00,0e6a00,003800',
-            ],
+            palette: ['ffffff', 'afce56', '5f9c00', '0e6a00', '003800'],
             bands: [
               'tree_canopy_cover',
             ],
