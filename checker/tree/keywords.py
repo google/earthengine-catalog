@@ -45,7 +45,7 @@ EXCEPTIONS = frozenset({
     'power', 'power_plants', 'precipitable', 'prescribedfire', 'protection',
     'radar', 'radarsat_1', 'range', 'reef', 'resolve', 'rgb', 'river_networks',
     'roads', 'rtma', 'saltmarsh', 'sea_ice', 'sea_salt', 'seagrass',
-    'seasonality', 'seawifs', 'sentinelhub', 'settlement', 'settlements',
+    'seasonality', 'seawifs', 'sentinelhub',
     'shortwave', 'silt', 'slga', 'slv', 'smod', 'smos', 'so4', 'social',
     'soil_depth', 'soil_moisture', 'soil_temperature', 'south_asia',
     'southeast_asia', 'spei', 'spi', 'stone',
