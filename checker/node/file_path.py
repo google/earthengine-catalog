@@ -41,13 +41,13 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
+    # id errors will be reported by id_field.py
+    if not node.id: return
+    if not isinstance(node.id, str): return
+
     id_field = node.id
     id_path = pathlib.Path(id_field)
     id_parts = id_path.parts
-
-    if not id_parts:
-      yield cls.new_issue(node, 'Empty id field')
-      return
 
     if node.type == stac.StacType.CATALOG:
       # The top-level catalog is special.

@@ -14,31 +14,31 @@ IMAGE = stac.GeeType.IMAGE
 NONE = stac.GeeType.NONE
 
 
-class FilePathTest(unittest.TestCase):
+class ValidFilePathTest(unittest.TestCase):
 
-  def test_valid_root_catalog(self):
+  def test_root_catalog(self):
     node = stac.Node(
         'GEE_catalog', pathlib.Path('catalog.json'), CATALOG, NONE, {})
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
-  def test_valid_catalog(self):
+  def test_catalog(self):
     node = stac.Node('A', pathlib.Path('A/catalog.json'), CATALOG, NONE, {})
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
-  def test_valid_2_level_catalog(self):
+  def test_2_level_catalog(self):
     node = stac.Node(
         'NASA/A', pathlib.Path('NASA/A/catalog.json'), CATALOG, NONE, {})
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
-  def test_valid_collection(self):
+  def test_collection(self):
     node = stac.Node('A/B', pathlib.Path('A/A_B.json'), COLLECTION, IMAGE, {})
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
-  def test_valid_2_level_collection(self):
+  def test_2_level_collection(self):
     node = stac.Node(
         'USGS/B/C', pathlib.Path('USGS/B/USGS_B_C.json'), COLLECTION, IMAGE, {})
     issues = list(Check.run(node))
@@ -49,6 +49,23 @@ class FilePathTest(unittest.TestCase):
     node = stac.Node('USGS/GFSAD1000_V1', path, COLLECTION, IMAGE, {})
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
+
+
+class SkipFilePathTestgoogletest(unittest.TestCase):
+
+  def test_node_id_empty(self):
+    node = stac.Node('', pathlib.Path('catalog.json'), CATALOG, NONE, {})
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+  def test_node_id_not_str(self):
+    node = stac.Node('', pathlib.Path('catalog.json'), CATALOG, NONE, {})
+    node.id = 415  # Force a value that is not a str without triggering pytype
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+
+class ErrorFilePathTest(unittest.TestCase):
 
   def test_root_catalog_bad_name(self):
     node = stac.Node(
