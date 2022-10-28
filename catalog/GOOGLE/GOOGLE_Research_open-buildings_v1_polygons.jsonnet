@@ -96,7 +96,10 @@ local license = spdx.cc_by_4_0;
           lon: 3.389,
           zoom: 17,
         },
-        // TODO(b/254522101): Add table_visualization or polygon_visualization.
+        table_visualization: {
+          color: 'ffffffff',
+          fill_color: 'ffffff88',
+        },
       },
       {
         display_name: 'Open Buildings V1',

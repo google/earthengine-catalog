@@ -23,8 +23,8 @@ local license = spdx.cc_by_4_0;
   'gee:type': ee_const.gee_type.table,
   description: |||
     This large-scale open dataset consists of outlines of buildings derived
-    from high-resolution 50 cm satellite imagery. It contains 816M building 
-    detections in Africa, South Asia and Southeast Asia. The inference spanned 
+    from high-resolution 50 cm satellite imagery. It contains 816M building
+    detections in Africa, South Asia and Southeast Asia. The inference spanned
     an area of 39.1M km².
 
     For each building in this dataset we include the polygon describing its
@@ -95,7 +95,10 @@ local license = spdx.cc_by_4_0;
           lon: 3.389,
           zoom: 17,
         },
-        // TODO(b/254522101): Add table_visualization or polygon_visualization.
+        table_visualization: {
+          color: 'ffffffff',
+          fill_color: 'ffffff88',
+        },
       },
       {
         display_name: 'Open Buildings V2',

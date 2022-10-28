@@ -110,8 +110,7 @@ class Check(stac.NodeCheck):
 
       if TABLE_VISUALIZATION not in visualization:
         if (POLYGON_VISUALIZATION not in visualization and
-            VISUALIZE_AS not in visualization and
-            'GOOGLE/Research/open-buildings' not in node.id):
+            VISUALIZE_AS not in visualization):
           if node.gee_type in TABLE_TYPES:
             yield cls.new_issue(
                 node, f'{node.gee_type} must have a {TABLE_VISUALIZATION}')
