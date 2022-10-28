@@ -1191,7 +1191,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               'DES_000_200_EV',
             ],
           },
-          image_id: 'CSIRO/SLGA/DES',
         },
       },
     ],
