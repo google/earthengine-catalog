@@ -141,21 +141,9 @@ local self_url = catalog_subdir_url + base_filename;
         },
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-              0.0,
-              0.0,
-            ],
-            max: [
-              -1000.0,
-              0.0,
-              1000.0,
-            ],
-            bands: [
-              'velocity_x',
-              'velocity_x',
-              'velocity_x',
-            ],
+            min: [-1000],
+            max: [1000],
+            bands: ['velocity_x'],
           },
         },
       },
