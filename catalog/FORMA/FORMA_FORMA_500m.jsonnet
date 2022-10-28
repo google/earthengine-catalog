@@ -90,9 +90,7 @@ local self_url = catalog_subdir_url + base_filename;
             max: [
               1433919600.0,
             ],
-            palette: [
-              'ff0000',
-            ],
+            palette: ['ff8800', 'ff0000'],
             bands: [
               'constant',
             ],
