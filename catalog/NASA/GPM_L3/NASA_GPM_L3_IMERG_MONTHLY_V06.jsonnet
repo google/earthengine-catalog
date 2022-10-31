@@ -156,5 +156,5 @@ local self_url = catalog_subdir_url + base_filename;
     unit: 'month',
     interval: 1,
   },
-  'gee:terms_of_use': 'sAll NASA-produced data from the GPM mission is made\nfreely available for the public to use.',
+  'gee:terms_of_use': 'All NASA-produced data from the GPM mission is made\nfreely available for the public to use.',
 }
