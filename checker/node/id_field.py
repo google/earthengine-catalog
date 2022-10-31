@@ -34,6 +34,10 @@ class Check(stac.NodeCheck):
       return
 
     id_field = node.stac.get(ID)
+    if not isinstance(id_field, str):
+      yield cls.new_issue(node, f'{ID} must be a str')
+      return
+
     if not id_field:
       yield cls.new_issue(node, f'Empty {ID}')
       return

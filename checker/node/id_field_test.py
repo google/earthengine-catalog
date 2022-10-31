@@ -39,6 +39,15 @@ class IdFieldCatalogTest(unittest.TestCase):
     expect = stac.Issue(UNKNOWN_ID, FILE_PATH, CHECK_NAME, 'Missing: id')
     self.assertEqual([expect], issues)
 
+  def test_id_not_str(self):
+    bad_id = 603
+    node = stac.Node(UNKNOWN_ID, FILE_PATH, CATALOG, IMAGE, {'id': bad_id})
+    node.id = bad_id  # Set the id to not a str without triggering pytype
+    issues = list(Check.run(node))
+    expect = stac.Issue(UNKNOWN_ID, FILE_PATH, CHECK_NAME, 'id must be a str')
+    expect.id = bad_id  # Set the id to not a str without triggering pytype
+    self.assertEqual([expect], issues)
+
   def test_empty_id(self):
     node = stac.Node(UNKNOWN_ID, FILE_PATH, CATALOG, IMAGE, {ID: ''})
     issues = list(Check.run(node))
