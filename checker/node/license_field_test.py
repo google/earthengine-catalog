@@ -49,6 +49,12 @@ class LicenseFieldTest(unittest.TestCase):
     expect = [Check.new_issue(self.node, '"license" must be a str')]
     self.assertEqual(expect, issues)
 
+  def test_empty_string(self):
+    self.node.stac = {LICENSE: ''}
+    issues = list(Check.run(self.node))
+    expect = [Check.new_issue(self.node, '"license" cannot be an empty str')]
+    self.assertEqual(expect, issues)
+
   def test_invalid(self):
     invalid_license = 'invalid license'
     self.node.stac = {LICENSE: invalid_license}

@@ -54,5 +54,9 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'"{LICENSE}" must be a str')
       return
 
+    if not license_field:
+      yield cls.new_issue(node, f'"{LICENSE}" cannot be an empty str')
+      return
+
     if license_field not in KNOWN_LICENSES:
       yield cls.new_issue(node, f'Unknown {LICENSE}: "{license_field}"')
