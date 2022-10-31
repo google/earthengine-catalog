@@ -28,7 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     blocks, roughly equivalent to a city block. There are just over
     11 million polygon features covering the United States, the District
     of Columbia, Puerto Rico, and the
-    [Island areas.](https://www.census.gov/2010census/news/press-kits/island-areas/island-areas.html)
+    [Island areas](https://www.census.gov/2010census/news/press-kits/island-areas/island-areas.html).
 
     For full technical details on all TIGER 2010 products, see the
     [TIGER technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2010/TGRSHP10SF1.pdf).
@@ -139,13 +139,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     For the creation of any reports, publications, new data sets, derived
     products, or services resulting from the data set, users should
-    [cite the US Census Bureau.](https://www.census.gov/about/policies/citation.html)
+    [cite the US Census Bureau](https://www.census.gov/about/policies/citation.html).
   |||,
   'gee:terms_of_use': |||
     The U.S. Census Bureau offers some of its public data
     in machine-readable format via an Application Programming Interface
     (API). All of the content, documentation, code and related materials
     made available to you through the API are subject to [these terms and
-    conditions.](https://www.census.gov/data/developers/about/terms-of-service.html)
+    conditions](https://www.census.gov/data/developers/about/terms-of-service.html).
   |||,
 }
