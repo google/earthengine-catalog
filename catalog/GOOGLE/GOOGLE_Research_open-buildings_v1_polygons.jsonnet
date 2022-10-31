@@ -120,5 +120,4 @@ local license = spdx.cc_by_4_0;
   |||,
   'gee:terms_of_use': 'This dataset is licensed under\n[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).',
   'gee:user_uploaded': true,
-  'gee:user_owned': true,
 }

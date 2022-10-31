@@ -171,5 +171,4 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
-  'gee:user_owned': true,
 }
