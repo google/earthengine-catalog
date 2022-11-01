@@ -229,8 +229,9 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'TROPQ',
-        description: 'Tropopause specific humidity using blended tropp (TROPPB)
-        estimate',
+        description: |||
+            Tropopause specific humidity using blended tropp (TROPPB) estimate
+        |||,
         'gee:units': 'kg/kg',
       },
       {
