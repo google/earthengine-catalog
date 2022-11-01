@@ -8,6 +8,7 @@ from checker.node import extensions
 from checker.node import extent
 from checker.node import file_path
 from checker.node import gee_classes
+from checker.node import gee_is_derived
 from checker.node import gee_type
 from checker.node import gee_user_uploaded
 from checker.node import id_field
@@ -51,6 +52,7 @@ _CHECKS = [
 
     # gee extensions
     gee_classes.Check,
+    gee_is_derived.Check,
     gee_user_uploaded.Check,
     schema.Check,
     interval.Check,
