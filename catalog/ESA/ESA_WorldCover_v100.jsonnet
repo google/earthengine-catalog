@@ -144,6 +144,6 @@ local self_url = catalog_subdir_url + base_filename;
     ],
   },
   'sci:citation': 'A publication is under preparation.',
-  'gee:terms_of_use': 'CC-BY-4.0',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

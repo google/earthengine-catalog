@@ -255,6 +255,6 @@ local self_url = catalog_subdir_url + base_filename;
     Journal of Applied Earth Observation and Geoinformation, 74, 269-280.
     [doi:10.1016/j.jag.2018.09.015](https://doi.org/10.1016/j.jag.2018.09.015)
   |||,
-  'gee:terms_of_use': 'CC-BY-4.0',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

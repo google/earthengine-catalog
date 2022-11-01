@@ -125,6 +125,6 @@ local self_url = catalog_subdir_url + base_filename;
     in the European Union. Sci Data 7, 352 (2020).
     [doi:10.1038/s41597-020-00675-z](https://doi.org/10.1038/s41597-020-00675-z)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

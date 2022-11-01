@@ -97,6 +97,6 @@ local self_url = catalog_subdir_url + base_filename;
     Irrigated Agriculture Across the Western U.S.,
     Remote Sens. 2020, 12, 2328. [doi:10.3390/rs12142328](https://doi.org/10.3390/rs12142328)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

@@ -290,6 +290,6 @@ local license = spdx.cc_by_4_0;
     [https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).
   |||,
   'sci:doi': '10.1126/science.1244693',
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

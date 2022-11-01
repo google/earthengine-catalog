@@ -203,6 +203,6 @@ local self_url = catalog_subdir_url + base_filename;
     127318,
     [doi:10.1016/j.jhydrol.2021.127318](https://doi.org/10.1016/j.jhydrol.2021.127318).
   |||,
-  'gee:terms_of_use': spdx.cc_by_4_0.id,
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

@@ -109,7 +109,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for climate adaptation planning. PloS one, 10(12),
     [e0143619](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0143619)
   |||,
-  'gee:terms_of_use': 'This dataset is available to use under the Creative Commons BY-NC-SA license.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
 }

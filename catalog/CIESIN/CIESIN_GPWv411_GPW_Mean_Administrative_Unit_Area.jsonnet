@@ -119,6 +119,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (SEDAC). [https://doi.org/10.7927/H42Z13KG](https://doi.org/10.7927/H42Z13KG).
     Accessed DAY MONTH YEAR.
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

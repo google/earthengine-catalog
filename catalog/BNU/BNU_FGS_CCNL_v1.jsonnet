@@ -58,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (Version 1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6644980
   |||,
   'gee:user_uploaded': true,
-  'gee:terms_of_use': spdx.cc_by_4_0.id,
+  'gee:terms_of_use':  ee.gee_terms_of_use(license),
   'gee:interval': {
     type: 'cadence',
     unit: 'year',

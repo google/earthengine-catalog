@@ -123,7 +123,7 @@ local self_url = catalog_subdir_url + base_filename;
     unit: 'year',
     interval: 1,
   },
-  'gee:terms_of_use': 'This dataset is available to use under the Creative Commons BY-NC-SA license.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
 }

@@ -300,6 +300,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     Allen Coral Atlas (2020). Imagery, maps and monitoring of the world's tropical coral reefs. Zenodo. [doi:10.5281/zenodo.3833242](https://doi.org/10.5281/zenodo.3833242)
   |||,
-  'gee:terms_of_use': 'CC-BY-4.0',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

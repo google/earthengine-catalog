@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     observations. Remote sensing of environment, 266, 112708.
   |||,
   'gee:user_uploaded': true,
-  'gee:terms_of_use': license.id,
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:interval': {
     type: 'cadence',
     unit: 'year',

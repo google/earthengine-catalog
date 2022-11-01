@@ -127,5 +127,5 @@ local self_url = catalog_subdir_url + base_filename;
     Outlining where humans live, the World Settlement Footprint 2015. Scientific Data, 7(1), 1-14.
     [doi:10.1038/s41597-020-00580-5](https://doi.org/10.1038/s41597-020-00580-5)
   |||,
-  'gee:terms_of_use': 'CC0-1.0',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

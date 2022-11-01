@@ -113,7 +113,7 @@ local self_url = catalog_subdir_url + base_filename;
     Tomislav Hengl, & Travis Nauman. (2018). Predicted USDA soil great groups at 250 m (probabilities) (Version v01) [Data set]. Zenodo.
     [10.5281/zenodo.1476844](https://doi.org/10.5281/zenodo.1476844)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution Share Alike 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
 }

@@ -228,5 +228,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Terrestrial Realm](https://academic.oup.com/bioscience/article/67/6/534/3102935)
     [doi:10.1093/biosci/bix014](https://doi.org/10.1093/biosci/bix014)
   |||,
-  'gee:terms_of_use': 'This dataset is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

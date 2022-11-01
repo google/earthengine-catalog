@@ -156,5 +156,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Model of Antarctica derived from CryoSat-2 altimetry, The Cryosphere,
     [doi:10.5194/tc-2017-223](https://doi.org/10.5194/tc-2017-223), 2018
   |||,
-  'gee:terms_of_use': 'The data are freely available. When using these data, please cite the provided article.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

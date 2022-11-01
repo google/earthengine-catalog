@@ -139,7 +139,7 @@ local self_url = catalog_subdir_url + base_filename;
     fire regimes and fire behaviour. Scientific data, 6(1), 1-11.
     [doi:10.1038/s41597-019-0312-2](https://doi.org/10.1038/s41597-019-0312-2)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
   'gee:skip_featureview_generation': true
 }

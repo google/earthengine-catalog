@@ -163,6 +163,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and Applications Center (SEDAC). [doi:10.7927/H46M34XX](https://doi.org/10.7927/H46M34XX).
     Accessed DAY MONTH YEAR.
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

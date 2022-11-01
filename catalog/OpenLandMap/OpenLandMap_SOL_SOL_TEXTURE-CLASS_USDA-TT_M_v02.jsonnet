@@ -505,7 +505,7 @@ local self_url = catalog_subdir_url + base_filename;
     Tomislav Hengl. (2018). Soil texture classes (USDA system) for 6 soil depths (0, 10, 30, 60, 100 and 200 cm) at 250 m (Version v02) [Data set]. Zenodo.
     [10.5281/zenodo.1475451](https://doi.org/10.5281/zenodo.1475451)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution Share Alike 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
 }

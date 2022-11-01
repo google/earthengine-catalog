@@ -317,6 +317,6 @@ local self_url = catalog_subdir_url + base_filename;
     Areas. International Journal of Climatology 25: 1965-1978.
     [doi:10.1002/joc.1276](https://doi.org/10.1002/joc.1276).
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution Share Alike 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
 }

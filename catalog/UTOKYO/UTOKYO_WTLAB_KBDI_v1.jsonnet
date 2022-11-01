@@ -115,5 +115,5 @@ local self_url = catalog_subdir_url + base_filename;
     unit: 'day',
     interval: 1,
   },
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

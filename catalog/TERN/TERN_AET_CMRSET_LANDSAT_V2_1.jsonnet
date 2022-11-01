@@ -178,6 +178,6 @@ local self_url = catalog_subdir_url + base_filename;
     field-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS,
     Landsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)
   |||,
-  'gee:terms_of_use': spdx.cc_by_4_0.id,
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

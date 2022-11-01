@@ -55,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'sci:doi': '10.1126/science.abm9583',
   'gee:user_uploaded': true,
-  'gee:terms_of_use': license.id,
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   summaries: {
     gsd: [
       30

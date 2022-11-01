@@ -197,7 +197,7 @@ local self_url = catalog_subdir_url + base_filename;
     Tomislav Hengl. (2018). Sand content in % (kg / kg) at 6 standard depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution (Version v02) [Data set].
     [10.5281/zenodo.1476851](https://doi.org/10.5281/zenodo.1476851)
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution Share Alike 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
 }

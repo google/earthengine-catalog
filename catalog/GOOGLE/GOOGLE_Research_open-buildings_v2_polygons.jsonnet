@@ -117,6 +117,6 @@ local license = spdx.cc_by_4_0;
     detection from high resolution satellite imagery.
     [arXiv:2107.12283](https://arxiv.org/abs/2107.12283), 2021.
   |||,
-  'gee:terms_of_use': 'This dataset is licensed under\n[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

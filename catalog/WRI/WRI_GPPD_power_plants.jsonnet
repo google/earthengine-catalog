@@ -213,5 +213,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [https://resourcewatch.org/](https://resourcewatch.org/)
     [https://earthengine.google.com/](https://earthengine.google.com/)
   |||,
-  'gee:terms_of_use': 'This dataset is licensed under\n[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

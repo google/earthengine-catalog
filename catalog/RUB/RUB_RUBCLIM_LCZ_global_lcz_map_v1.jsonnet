@@ -342,6 +342,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Earth System Science Data 2022, 14 Volume 8: 3835-3873.
     [doi:10.5194/essd-14-3835-2022](https://doi.org/10.5194/essd-14-3835-2022)
   |||,
-  'gee:terms_of_use': 'CC-BY-4.0',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

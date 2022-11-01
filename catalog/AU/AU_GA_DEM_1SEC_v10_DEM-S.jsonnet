@@ -126,5 +126,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Geoscience Australia, 2015. Digital Elevation Model (DEM) of Australia
     derived from LiDAR 5 Metre Grid. Geoscience Australia, Canberra.
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

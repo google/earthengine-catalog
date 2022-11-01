@@ -114,6 +114,6 @@ local self_url = catalog_subdir_url + base_filename;
     Engine, Earth Syst. Sci. Data, 13, 2437-2456,
     [doi:10.5194/essd-13-2437-2021](https://doi.org/10.5194/essd-13-2437-2021), 2021.
   |||,
-  'gee:terms_of_use': 'This work is licensed under a Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

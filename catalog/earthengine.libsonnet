@@ -38,6 +38,8 @@ local ee_const = import 'earthengine_const.libsonnet';
     temporal: { interval: [[start, end]] },
   },
 
+  gee_terms_of_use(license): '[' + license.id + '](' + license.reference + ')',
+
   link: {
     // Cannot use 'self' as it is special.
     self_link(url):: {

@@ -133,6 +133,6 @@ local self_url = catalog_subdir_url + base_filename;
     Sci Rep 11, 6130 (2021).
     [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)
   |||,
-  'gee:terms_of_use': 'CC-BY-4.0',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
 }

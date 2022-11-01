@@ -291,5 +291,5 @@ local license = spdx.cc_by_4_0;
     Science 342 (15 November): 850-53. Data available on-line at:
     [https://glad.earthengine.app/view/global-forest-change](https://glad.earthengine.app/view/global-forest-change).
   |||,
-  'gee:terms_of_use': 'Licensed under the Creative Commons Attribution 4.0 International License.',
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
