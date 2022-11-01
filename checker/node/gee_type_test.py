@@ -69,6 +69,5 @@ class GeeTypeTest(unittest.TestCase):
     self.assertEqual(expect, issues)
 
 
-
 if __name__ == '__main__':
   unittest.main()
