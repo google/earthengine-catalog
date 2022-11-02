@@ -28,7 +28,7 @@ local self_url = catalog_subdir_url + base_filename;
     Potential Natural Vegetation FAPAR predicted monthly median (based on PROB-V FAPAR 2014-2017).
     [Description](https://gitlab.com/openlandmap/global-layers/#potential-natural-vegetation).
 
-    To access and visualize maps outside of Earth Engine, use [this page](https://landgis.opengeohub.org).
+    To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 
     If you discover a bug, artifact or inconsistency in the LandGIS maps
     or if you have a question please use the following channels:

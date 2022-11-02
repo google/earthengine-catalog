@@ -38,7 +38,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     To report an issue or artifact in data, please use [this link](https://github.com/envirometrix/PNVmaps/issues).
 
-    To access and visualize maps outside of Earth Engine, use [this page](https://landgis.opengeohub.org).
+    To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 
     If you discover a bug, artifact or inconsistency in the LandGIS maps
     or if you have a question please use the following channels:

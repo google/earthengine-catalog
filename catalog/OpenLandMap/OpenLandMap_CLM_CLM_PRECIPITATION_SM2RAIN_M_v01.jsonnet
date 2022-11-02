@@ -37,7 +37,7 @@ local self_url = catalog_subdir_url + base_filename;
     [**here**](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/clim1km)
     . Antartica is not included.
 
-    To access and visualize maps outside of Earth Engine, use [this page](https://landgis.opengeohub.org).
+    To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 
     If you discover a bug, artifact or inconsistency in the LandGIS maps
     or if you have a question please use the following channels:

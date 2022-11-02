@@ -49,7 +49,7 @@ local self_url = catalog_subdir_url + base_filename;
     point multiplied by layer thickness) per layer is available [here](https://doi.org/10.5281/zenodo.2629148).
     Antartica is not included.
 
-    To access and visualize maps outside of Earth Engine, use [this page](https://landgis.opengeohub.org).
+    To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 
     If you discover a bug, artifact or inconsistency in the LandGIS maps
     or if you have a question please use the following channels:
