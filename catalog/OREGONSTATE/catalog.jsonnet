@@ -21,5 +21,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('OREGONSTATE_PRISM_AN81d', base_url),
     ee.link.child_collection('OREGONSTATE_PRISM_AN81m', base_url),
     ee.link.child_collection('OREGONSTATE_PRISM_Norm81m', base_url),
+    ee.link.child_collection('OREGONSTATE_PRISM_Norm91m', base_url),
   ],
 }

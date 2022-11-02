@@ -1,15 +1,9 @@
-local id = 'OREGONSTATE/PRISM/Norm81m';
+local id = 'OREGONSTATE/PRISM/Norm91m';
 local subdir = 'OREGONSTATE';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
-local versions = import 'versions.libsonnet';
-local version_table = import 'OREGONSTATE_PRISM_Norm.libsonnet';
-
-local version = '81m';
-local version_config = versions(subdir, version_table, version);
 
 local license = spdx.proprietary;
 
@@ -23,12 +17,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
-    ee_const.ext_ver,
   ],
-  id: version_config.id,
-  version: version,
-  title: 'PRISM Long-Term Average Climate Dataset Norm81m [deprecated]',
-  deprecated: true,
+  id: id,
+  title: 'PRISM Long-Term Average Climate Dataset Norm91m',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The PRISM daily and monthly datasets are gridded climate
@@ -45,9 +36,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Spatial Climate Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
-    ee.link.license(license.reference)
-  ] + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     '30_year',
     'climate',
@@ -65,11 +54,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-125.0, 24.0, -66.0, 50.0,
-                    '1981-01-01T00:00:00Z', '2010-12-31T00:00:00Z'),
+                    '1991-01-01T00:00:00Z', '2020-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
-        name: 'PRISM_CREATION_DATE',
+        name: 'PRISM_DATASET_CREATE_DATE',
         description: |||
           List of original creation dates for each band, e.g:
           the first element is for the first band "ppt", the second element
@@ -78,17 +67,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string_list,
       },
       {
-        name: 'PRISM_DATASET',
+        name: 'PRISM_DATASET_TYPE',
         description: 'List of dataset types per-band',
         type: ee_const.var_type.string_list,
       },
       {
-        name: 'PRISM_VERSION',
+        name: 'PRISM_CODE_VERSION',
         description: 'List of code versions per-band',
         type: ee_const.var_type.string_list,
       },
       {
-        name: 'PRISM_FILENAME',
+        name: 'PRISM_DATASET_FILENAME',
         description: 'List of original filenames per-band',
         type: ee_const.var_type.string_list,
       },
@@ -99,38 +88,67 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'ppt',
-        description: '30 Year average of monthly total precipitation (including rain and melted snow)',
+        description: '30-year average of monthly total precipitation (including rain and melted snow)',
         'gee:units': 'mm',
       },
       {
         name: 'tmean',
-        description: '30 Year average of monthly mean temperature (calculated as (tmin+tmax)/2)',
+        description: '30-year average of monthly mean temperature (calculated as (tmin+tmax)/2)',
         'gee:units': '°C',
       },
       {
         name: 'tmin',
-        description: '30 Year average of monthly minimum temperature',
+        description: '30-year average of monthly minimum temperature',
         'gee:units': '°C',
       },
       {
         name: 'tmax',
-        description: '30 Year average of monthly maximum temperature',
+        description: '30-year average of monthly maximum temperature',
         'gee:units': '°C',
       },
       {
         name: 'tdmean',
-        description: '30 Year average of monthly mean dew point temperature',
+        description: '30-year average of monthly mean dew point temperature',
         'gee:units': '°C',
       },
       {
         name: 'vpdmin',
-        description: '30 Year average of monthly minimum vapor pressure deficit',
+        description: '30-year average of monthly minimum vapor pressure deficit',
         'gee:units': 'hPa',
       },
       {
         name: 'vpdmax',
-        description: '30 Year average of monthly maximum vapor pressure deficit',
+        description: '30-year average of monthly maximum vapor pressure deficit',
         'gee:units': 'hPa',
+      },
+      {
+        name: 'solclear',
+        description: |||
+          30-year average of monthly global shortwave solar radiation
+          received on a horizontal surface under clear sky conditions
+        |||,
+        'gee:units': 'MJ m^-2 day^-1',
+      },
+      {
+        name: 'solslope',
+        description: |||
+          30-year average of monthly global shortwave solar radiation
+          received on a sloped surface
+        |||,
+        'gee:units': 'MJ m^-2 day^-1',
+      },
+      {
+        name: 'soltotal',
+        description: |||
+          30-year average of monthly global shortwave solar
+          radiation received on a horizontal surface
+        |||,
+        'gee:units': 'MJ m^-2 day^-1',
+      },
+      {
+        name: 'soltrans',
+        description: '30-year average of atmospheric transmittance (cloudiness)',
+        'gee:units': 'fraction',
       },
     ],
     'gee:visualizations': [
