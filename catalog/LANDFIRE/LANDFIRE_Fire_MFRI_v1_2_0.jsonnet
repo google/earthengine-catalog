@@ -287,7 +287,7 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
     [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:
     U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;
     U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).
-    Available: [https://www.landfire.gov/national_veg_models_op2.php](https://www.landfire.gov/national_veg_models_op2.php) [2018, June 27].
+    Available: [https://www.landfire.gov/bps-models.php](https://www.landfire.gov/bps-models.php) [2018, June 27].
     Additional guidance on citation of LANDFIRE products can be found
     [here](https://www.landfire.gov/landfire_citation.php)
   |||,
