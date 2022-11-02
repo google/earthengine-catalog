@@ -18,7 +18,7 @@ GEE_IS_DERIVED = 'gee:is_derived'
 
 
 class Check(stac.NodeCheck):
-  """Checks the stac_version field."""
+  """Checks the gee:is_derived field."""
   name = 'gee_is_derived'
 
   @classmethod

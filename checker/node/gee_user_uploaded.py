@@ -20,7 +20,6 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    print('node type', node.type)
     if node.type == stac.StacType.CATALOG:
       if GEE_USER_UPLOADED in node.stac:
         yield cls.new_issue(
