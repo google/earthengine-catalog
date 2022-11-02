@@ -15,9 +15,11 @@ The requirements and specification are:
   level should be optimized for higher density or consistency in density across
   tiles. If present, it is one of: 'GLOBALLY_CONSISTENT', 'HIGHER_DENSITY'
 - thinning_ranking defines feature thinning priority. It is a string with two
-  values: property_name and order
+  values: property_name and order. Alternatively, it can be a list of strings
+  of the same form.
 - z_order_ranking defines the z-order (stack order) of features displayed on the
-  map. It is a string with two values: property name and order
+  map. It is a string with two values: property name and order. Alternatively,
+  it can be a list of strings of the same form.
 - prerender_tiles is a bool value that can only be present when true
 
 Orders are:
@@ -47,8 +49,14 @@ Jsonnet examples:
   'gee:feature_view_ingestion_params': {
     max_features_per_tile: 12000,
     thinning_strategy: 'HIGHER_DENSITY',
+    thinning_ranking: '.minZoomLevel DESC',
     z_order_ranking: '.minZoomLevel DESC',
     prerender_tiles: true,
+  },
+
+  'gee:feature_view_ingestion_params': {
+    thinning_ranking: ['property1 DESC', 'property2 ASC'],
+    z_order_ranking: ['property3 ASC', 'property4 DESC'],
   },
 """
 
@@ -157,47 +165,69 @@ class Check(stac.NodeCheck):
             ', '.join(sorted(THINNING_STRATEGIES)))
 
     if THINNING_RANKING in params:
-      ranking = params[THINNING_RANKING]
-      if not isinstance(ranking, str):
-        yield cls.new_issue(node, f'{THINNING_RANKING} must be a str')
+      rankings = params[THINNING_RANKING]
+      if isinstance(rankings, str):
+        rankings = [rankings]
+      if not isinstance(rankings, list):
+        yield cls.new_issue(
+            node, f'{THINNING_RANKING} must be a list or a single string')
       else:
-        fields = ranking.split()
-        if len(fields) != 2:
+        if not rankings:
           yield cls.new_issue(
-              node, f'{THINNING_RANKING} must be "<field> ASC|DESC')
-        else:
-          property_name, direction = fields
-          if not re.fullmatch('[a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+              node, f'{THINNING_RANKING} list must have at least one str')
+        for ranking in rankings:
+          if not isinstance(ranking, str):
+            yield cls.new_issue(node, f'Each {THINNING_RANKING} must be a str')
+            continue
+
+          fields = ranking.split()
+          if len(fields) != 2:
             yield cls.new_issue(
-                node, f'Invalid property_name: "{property_name}"')
-          if direction not in DIRECTIONS:
-            yield cls.new_issue(
-                node,
-                f'{THINNING_RANKING} direction must be one of ' +
-                ', '.join(sorted(DIRECTIONS)))
-          # TODO(schwehr): Make sure the property_name is in the schema.
+                node, f'{THINNING_RANKING} must be "<field> ASC|DESC')
+          else:
+            property_name, direction = fields
+            if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+              yield cls.new_issue(
+                  node, f'Invalid property_name: "{property_name}"')
+            if direction not in DIRECTIONS:
+              yield cls.new_issue(
+                  node,
+                  f'{THINNING_RANKING} direction must be one of ' +
+                  ', '.join(sorted(DIRECTIONS)))
+            # TODO(schwehr): Make sure the property_name is in the schema.
 
     if Z_ORDER_RANKING in params:
-      ranking = params[Z_ORDER_RANKING]
-      if not isinstance(ranking, str):
-        yield cls.new_issue(node, f'{Z_ORDER_RANKING} must be a str')
+      rankings = params[Z_ORDER_RANKING]
+      if isinstance(rankings, str):
+        rankings = [rankings]
+      if not isinstance(rankings, list):
+        yield cls.new_issue(
+            node, f'{Z_ORDER_RANKING} must be a list or a single string')
       else:
-        fields = ranking.split()
-        if len(fields) != 2:
+        if not rankings:
           yield cls.new_issue(
-              node, f'{Z_ORDER_RANKING} must be "<field> ASC|DESC')
-        else:
-          property_name, direction = fields
-          # Can start with a fullstop: .minZoomLevel
-          if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+              node, f'{Z_ORDER_RANKING} list must have at least one str')
+        for ranking in rankings:
+          if not isinstance(ranking, str):
+            yield cls.new_issue(node, f'Each {Z_ORDER_RANKING} must be a str')
+            continue
+
+          fields = ranking.split()
+          if len(fields) != 2:
             yield cls.new_issue(
-                node, f'Invalid property_name: "{property_name}"')
-          if direction not in DIRECTIONS:
-            yield cls.new_issue(
-                node,
-                f'{Z_ORDER_RANKING} direction must be one of ' +
-                ', '.join(sorted(DIRECTIONS)))
-          # TODO(schwehr): Make sure the property_name is in the schema.
+                node, f'{Z_ORDER_RANKING} must be "<field> ASC|DESC')
+          else:
+            property_name, direction = fields
+            # Can start with a fullstop: .minZoomLevel
+            if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+              yield cls.new_issue(
+                  node, f'Invalid property_name: "{property_name}"')
+            if direction not in DIRECTIONS:
+              yield cls.new_issue(
+                  node,
+                  f'{Z_ORDER_RANKING} direction must be one of ' +
+                  ', '.join(sorted(DIRECTIONS)))
+            # TODO(schwehr): Make sure the property_name is in the schema.
 
     if PRERENDER_TILES in params:
       prerender = params[PRERENDER_TILES]

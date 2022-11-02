@@ -51,8 +51,24 @@ class ValidFeatureViewTest(unittest.TestCase):
   def test_valid_dot_field(self):
     stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
         'max_features_per_tile': 12000,
-        'thinning_strategy': 'HIGHER_DENSITY',
+        'thinning_ranking': '.random_dot_property DESC',
         'z_order_ranking': '.minZoomLevel DESC'}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+  def test_valid_list_len_1(self):
+    stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
+        'thinning_ranking': ['shape_area DESC'],
+        'z_order_ranking': ['my_property_name ASC']}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+  def test_valid_list_len_2(self):
+    stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
+        'thinning_ranking': ['prop1 DESC', 'prop2 ASC'],
+        'z_order_ranking': ['prop3 ASC', 'prop4 DESC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
@@ -188,12 +204,30 @@ class ErrorFeatureViewTest(unittest.TestCase):
         'GLOBALLY_CONSISTENT, HIGHER_DENSITY')]
     self.assertEqual(expect, issues)
 
+  def test_thinning_ranking_empty_list(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'thinning_ranking': []}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'thinning_ranking list must have at least one str')]
+    self.assertEqual(expect, issues)
+
   def test_thinning_ranking_not_str(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {'thinning_ranking': 13}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'thinning_ranking must be a str')]
+    expect = [Check.new_issue(
+        node, 'thinning_ranking must be a list or a single string')]
+    self.assertEqual(expect, issues)
+
+  def test_thinning_ranking_list_not_str(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'thinning_ranking': [22]}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(node, 'Each thinning_ranking must be a str')]
     self.assertEqual(expect, issues)
 
   def test_thinning_ranking_too_few(self):
@@ -234,12 +268,30 @@ class ErrorFeatureViewTest(unittest.TestCase):
         node, 'thinning_ranking direction must be one of ASC, DESC')]
     self.assertEqual(expect, issues)
 
+  def test_z_order_ranking_empty_list(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'z_order_ranking': []}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'z_order_ranking list must have at least one str')]
+    self.assertEqual(expect, issues)
+
   def test_z_order_ranking_not_str(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {'z_order_ranking': 14}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'z_order_ranking must be a str')]
+    expect = [Check.new_issue(
+        node, 'z_order_ranking must be a list or a single string')]
+    self.assertEqual(expect, issues)
+
+  def test_z_order_ranking_list_not_str(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'z_order_ranking': [21]}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(node, 'Each z_order_ranking must be a str')]
     self.assertEqual(expect, issues)
 
   def test_z_order_ranking_too_few(self):
