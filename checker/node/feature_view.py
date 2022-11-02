@@ -24,7 +24,9 @@ Orders are:
 - ASC: ascending
 - DESC: descending
 
-See: https://developers.google.com/earth-engine/guides/featureview_overview
+See:
+- https://developers.google.com/earth-engine/guides/featureview_overview
+- https://developers.google.com/earth-engine/guides/featureview_optimization
 
 Jsonnet examples:
 
