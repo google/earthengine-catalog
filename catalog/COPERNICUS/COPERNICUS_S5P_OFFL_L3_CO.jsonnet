@@ -107,7 +107,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'air_quality',
     'carbon_monoxide',
-    'co',
     'copernicus',
     'esa',
     'eu',
