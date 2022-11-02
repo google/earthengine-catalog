@@ -65,10 +65,10 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'geophysical',
     'hsl',
-    'moisture',
     'nasa',
     'smos',
     'soil',
+    'soil_moisture',
     'usda',
   ],
   providers: [
