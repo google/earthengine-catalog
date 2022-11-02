@@ -6,6 +6,7 @@ from checker import stac
 from checker.node import description
 from checker.node import extensions
 from checker.node import extent
+from checker.node import feature_view
 from checker.node import file_path
 from checker.node import gee_classes
 from checker.node import gee_is_derived
@@ -61,6 +62,7 @@ _CHECKS = [
     visualizations.Check,
     visualizations_image.Check,
     visualizations_table.Check,
+    feature_view.Check,
 ]
 
 
