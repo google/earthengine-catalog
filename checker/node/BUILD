@@ -37,6 +37,15 @@ py_test(
 )
 
 py_test(
+    name = "feature_view_test",
+    srcs = ["feature_view_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "file_path_test",
     srcs = ["file_path_test.py"],
     deps = [
@@ -48,6 +57,33 @@ py_test(
 py_test(
     name = "gee_classes_test",
     srcs = ["gee_classes_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "gee_is_derived_test",
+    srcs = ["gee_is_derived_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "gee_terms_of_use_test",
+    srcs = ["gee_terms_of_use_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "gee_type_test",
+    srcs = ["gee_type_test.py"],
     deps = [
         ":node",
         "//checker:stac",
@@ -82,8 +118,44 @@ py_test(
 )
 
 py_test(
+    name = "license_field_test",
+    srcs = ["license_field_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "providers_test",
+    srcs = ["providers_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "required_test",
     srcs = ["required_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "schema_test",
+    srcs = ["schema_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "sci_extension_test",
+    srcs = ["sci_extension_test.py"],
     deps = [
         ":node",
         "//checker:stac",
@@ -102,6 +174,60 @@ py_test(
 py_test(
     name = "title_test",
     srcs = ["title_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "top_level_test",
+    srcs = ["top_level_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "type_field_test",
+    srcs = ["type_field_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "version_extension_test",
+    srcs = ["version_extension_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "visualizations_test",
+    srcs = ["visualizations_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "visualizations_image_test",
+    srcs = ["visualizations_image_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "visualizations_table_test",
+    srcs = ["visualizations_table_test.py"],
     deps = [
         ":node",
         "//checker:stac",
