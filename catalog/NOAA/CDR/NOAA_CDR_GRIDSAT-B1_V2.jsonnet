@@ -79,7 +79,9 @@ local self_url = catalog_subdir_url + base_filename;
     'sr',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/fundamental/geostationary-ir-channel-brightness-temperature-gridsat-b1'),
+    ee.producer_provider(
+      'NOAA',
+      'https://www.ncei.noaa.gov/products/climate-data-records/geostationary-IR-channel-brightness-temperature'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1980-01-01T00:00:00Z', null),

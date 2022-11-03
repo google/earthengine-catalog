@@ -28,21 +28,19 @@ local self_url = catalog_subdir_url + base_filename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset provides high quality Climate Data Record (CDR) of multiple
-    cloud properties along with Advanced Very High Resolution Radiometer
-    (AVHRR) brightness temperatures and reflectances. These data have been
-    fitted to a 0.1 x 0.1 equal angle-grid with both ascending and descending
-    assets generated daily from two to ten NOAA and MetOp satellite passes per
-    day.
+    cloud properties along with Advanced Very High Resolution Radiometer (AVHRR)
+    Pathfinder Atmospheres Extended (PATMOS-x) brightness temperatures and
+    reflectances. These data have been fitted to a 0.1 x 0.1 equal angle-grid
+    with both ascending and descending assets generated daily from two to ten
+    NOAA and MetOp satellite passes per day.
 
     This dataset includes 48 bands, 11 of which are deemed CDR quality
     (marked with "CDR variable" in the band list).
     The cloud products are derived using the ABI (Advanced Baseline Imager)
     Cloud Height Algorithm (ACHA), and the Daytime Cloud Optical Properties
-    (DCOMP) algorithm. For more detail on the processing see the algorithm
-    theoretical basis documents for the
-    [ACHA products](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR%20Cloud%20Properties%20-%20PATMOS-x/AlgorithmDescription/CDRP-ATBD-0522%20Rev%201%20AVHRR%20Cloud%20Properties%20-%20PATMOS-x%20(ACHA)%20C-ATBD%20(01B-01b)%20(DSR-653)_mjf.pdf),
-    [DCOMP products](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR%20Cloud%20Properties%20-%20PATMOS-x/AlgorithmDescription/CDRP-ATBD-0523%20Rev%201%20AVHRR%20Cloud%20Properties%20-%20PATMOS-x%20(DCOMP)%20C-ATBD%20(01B-01b)%20(DSR-654).pdf),
-    [reflectance and brightness temperature products](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR_Ch1-2-3a_Reflectance_PATMOS-x/AlgorithmDescription.pdf).
+    (DCOMP) algorithm. For more detail on the processing see the
+    [Climate Algorithm Theoretical Basis Document (C-ATBD)](
+    https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR-HIRS_Reflectance_PATMOS-x/AlgorithmDescription%20_01B-1c.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
