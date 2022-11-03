@@ -17,7 +17,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
     ee_const.ee_catalog_url + basename(version),
   local self_url(version) = catalog_subdir_url + base_filename(version),
 
-  catalog_entry(version): 
+  catalog_entry(version, citation): 
     {
       stac_version: ee_const.stac_version,
       type: ee_const.stac_type.collection,
@@ -59,7 +59,9 @@ local parent_url = catalog_subdir_url + 'catalog.json';
         'sentinel2_derived',
       ],
       providers: [
-        ee.producer_provider('ESA/VITO/Brockmann Consult/CS/GAMMA Remote Sensing/IIASA/WUR', 'https://esa-worldcover.org/en'),
+        ee.producer_provider(
+          'ESA/VITO/Brockmann Consult/CS/GAMMA Remote Sensing/IIASA/WUR',
+          'https://esa-worldcover.org/en'),
         ee.host_provider(self_ee_catalog_url(version)),
       ],
       extent: ee.extent_global('2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
@@ -148,7 +150,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
           },
         ],
       },
-      'sci:citation': 'A publication is under preparation.',
+      'sci:citation': citation,
       'gee:terms_of_use': ee.gee_terms_of_use(license),
       'gee:user_uploaded': true,
     },
