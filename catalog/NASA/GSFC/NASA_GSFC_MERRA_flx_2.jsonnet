@@ -51,7 +51,7 @@ local self_url = catalog_subdir_url + base_filename;
     ),
   ],
   keywords: [
-    // 'bouyancy',
+    // 'buoyancy',
     // 'drag',
     // 'heat_flux',
     'merra',
@@ -77,7 +77,7 @@ local self_url = catalog_subdir_url + base_filename;
     'eo:bands': [
       {
         name: 'BSTAR',
-        description: 'Surface bouyancy scale',
+        description: 'Surface buoyancy scale',
         'gee:units': 'm/s^2',
       },
       {
