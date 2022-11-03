@@ -1,4 +1,3 @@
-local id_prefix = 'ESA/WorldCover/';
 local subdir = 'ESA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -7,14 +6,17 @@ local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
+  local collection_id(version) = 'ESA/WorldCover/' + version,
+  local basename(version) = std.strReplace(collection_id(version), '/', '_'),
+  local base_filename(version) = basename(version) + '.json',
+  local self_ee_catalog_url(version) =
+    ee_const.ee_catalog_url + basename(version),
+  local self_url(version) = catalog_subdir_url + base_filename(version),
+
   catalog_entry(version): 
     {
       stac_version: ee_const.stac_version,
@@ -24,22 +26,25 @@ local self_url = catalog_subdir_url + base_filename;
         ee_const.ext_sci,
         ee_const.ext_ver,
       ],
-      id: id_prefix + version,
+      id: collection_id(version),
       title: 'ESA WorldCover 10m ' + version,
       version: version,
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
         The European Space Agency (ESA) WorldCover 10 m 2020 product provides a
-        global land cover map for 2020 at 10 m resolution based on Sentinel-1 and
-        Sentinel-2 data. The WorldCover product comes with 11 land cover classes and
-        has been generated in the framework of the ESA WorldCover project, part of the
-        5th Earth Observation Envelope Programme (EOEP-5) of the European Space Agency.
+        global land cover map for 2020 at 10 m resolution based on Sentinel-1
+        and Sentinel-2 data. The WorldCover product comes with 11 land cover
+        classes and has been generated in the framework of the ESA WorldCover
+        project, part of the 5th Earth Observation Envelope Programme (EOEP-5)
+        of the European Space Agency.
+        
         See also:
+        
         * [ESA WorldCover website](https://esa-worldcover.org)
         * [User Manual and Validation Report](https://esa-worldcover.org/en/data-access)
       |||,
       license: license.id,
-      links: ee.standardLinks(subdir, id) + [
+      links: ee.standardLinks(subdir, collection_id(version)) + [
         ee.link.license(license.reference),
         {
           rel: ee_const.rel.source,
@@ -55,7 +60,7 @@ local self_url = catalog_subdir_url + base_filename;
       ],
       providers: [
         ee.producer_provider('ESA/VITO/Brockmann Consult/CS/GAMMA Remote Sensing/IIASA/WUR', 'https://esa-worldcover.org/en'),
-        ee.host_provider(self_ee_catalog_url),
+        ee.host_provider(self_ee_catalog_url(version)),
       ],
       extent: ee.extent_global('2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
       summaries: {
@@ -146,5 +151,5 @@ local self_url = catalog_subdir_url + base_filename;
       'sci:citation': 'A publication is under preparation.',
       'gee:terms_of_use': ee.gee_terms_of_use(license),
       'gee:user_uploaded': true,
-    }
+    },
 }
