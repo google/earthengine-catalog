@@ -4,6 +4,11 @@ local subdir = 'OREGONSTATE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local versions = import 'versions.libsonnet';
+local prism = import 'OREGONSTATE_PRISM_Norm.libsonnet';
+
+local version = '91m';
+local version_config = versions(subdir, prism.versions, version);
 
 local license = spdx.proprietary;
 
@@ -17,8 +22,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'PRISM Long-Term Average Climate Dataset Norm91m',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -36,7 +43,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Spatial Climate Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.license(prism.license_link)
+  ] + version_config.version_links,
   keywords: [
     '30_year',
     'climate',
@@ -218,10 +227,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
-    [Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,
+    Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,
     Taylor, G.H., Curtis, J., and Pasteris, P.A. 2008. Physiographically-sensitive
     mapping of temperature and precipitation across the conterminous
-    United States. International Journal of Climatology, 28: 2031-2064](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf)
+    United States. International Journal of Climatology, 28: 2031-2064
+    [doi:10.1002/joc.1688](https://doi.org/10.1002/joc.1688)
+    [pdf](https://www.prism.oregonstate.edu/documents/pubs/2008intjclim_physiographicMapping_daly.pdf).
   |||,
   'sci:publications': [
     {
@@ -244,5 +255,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     on use or distribution. PRISM Climate Group does request that the
     user give proper attribution and identify PRISM, where applicable,
     as the source of the data.
-  |||,
+    [%(license_link)s](%(license_link)s)
+  ||| % {license_link: prism.license_link},
 }
