@@ -8,4 +8,4 @@ local citation = |||
   ([doi:10.5281/zenodo.7254221](https://doi.org/10.5281/zenodo.7254221))
 |||;
 
-worldcover.catalog_entry('v200', citation)
+worldcover.catalog_entry('v200', 2021, citation)

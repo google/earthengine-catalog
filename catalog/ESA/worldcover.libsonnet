@@ -17,7 +17,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
     ee_const.ee_catalog_url + basename(version),
   local self_url(version) = catalog_subdir_url + base_filename(version),
 
-  catalog_entry(version, citation):
+  catalog_entry(version, year, citation): 
     {
       stac_version: ee_const.stac_version,
       type: ee_const.stac_type.collection,
@@ -29,20 +29,21 @@ local parent_url = catalog_subdir_url + 'catalog.json';
       id: collection_id(version),
       title: 'ESA WorldCover 10m ' + version,
       version: version,
+      'gee:skip_indexing': (version == 'v200'),
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
-        The European Space Agency (ESA) WorldCover 10 m 2020 product provides a
-        global land cover map for 2020 at 10 m resolution based on Sentinel-1
-        and Sentinel-2 data. The WorldCover product comes with 11 land cover
-        classes and has been generated in the framework of the ESA WorldCover
-        project, part of the 5th Earth Observation Envelope Programme (EOEP-5)
-        of the European Space Agency.
-
+        The European Space Agency (ESA) WorldCover 10 m %d product provides a
+        global land cover map for %d at 10 m resolution based on Sentinel-1 and
+        Sentinel-2 data. The WorldCover product comes with 11 land cover classes
+        and has been generated in the framework of the ESA WorldCover project,
+        part of the 5th Earth Observation Envelope Programme (EOEP-5) of the
+	European Space Agency.
+        
         See also:
 
         * [ESA WorldCover website](https://esa-worldcover.org)
         * [User Manual and Validation Report](https://esa-worldcover.org/en/data-access)
-      |||,
+      ||| % [year, year],
       license: license.id,
       links: ee.standardLinks(subdir, collection_id(version)) + [
         ee.link.license(license.reference),
