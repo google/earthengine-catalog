@@ -153,7 +153,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 16000,
       thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: 'STATEFP ASC',
+      thinning_ranking: ['STATEFP ASC'],
       prerender_tiles: true,
     },
   },

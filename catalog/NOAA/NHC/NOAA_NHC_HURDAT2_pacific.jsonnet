@@ -230,8 +230,8 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 6000,
       thinning_strategy: 'GLOBALLY_CONSISTENT',
-      thinning_ranking: 'id DESC',
-      z_order_ranking: 'seq ASC',
+      thinning_ranking: ['id DESC'],
+      z_order_ranking: ['seq ASC'],
       prerender_tiles: true,
     },
     seq: {

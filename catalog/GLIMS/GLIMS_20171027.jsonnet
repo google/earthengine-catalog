@@ -245,8 +245,8 @@ local config = configs[version];
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 12000,
       thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: 'area DESC',
-      z_order_ranking: 'area DESC',
+      thinning_ranking: ['area DESC'],
+      z_order_ranking: ['area DESC'],
       prerender_tiles: true,
     },
   },

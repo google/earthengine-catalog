@@ -14,15 +14,20 @@ The requirements and specification are:
 - thinning_strategy controls whether feature thinning for a given tile and zoom
   level should be optimized for higher density or consistency in density across
   tiles. If present, it is one of: 'GLOBALLY_CONSISTENT', 'HIGHER_DENSITY'
-- thinning_ranking defines feature thinning priority. It is a string with two
-  values: property_name and order
+- thinning_ranking defines feature thinning priority. It is a list of one or
+  more string with two values: property_name and order
 - z_order_ranking defines the z-order (stack order) of features displayed on the
-  map. It is a string with two values: property name and order
+  map. It is a list of one or more strings with two values: property name and
+  order
 - prerender_tiles is a bool value that can only be present when true
 
 Orders are:
 - ASC: ascending
 - DESC: descending
+
+Note that thinning_ranking and z_order_ranking can be a csv string with one
+or more entries within the single string. This is excluded from the EE STAC
+Jsonnet files to keep the catalog more uniform.
 
 See:
 - https://developers.google.com/earth-engine/guides/featureview_overview
@@ -33,22 +38,28 @@ Jsonnet examples:
   'gee:feature_view_ingestion_params': {
     max_features_per_tile: 2000,
     thinning_strategy: 'HIGHER_DENSITY',
-    thinning_ranking: 'BurnBndAc DESC',
-    z_order_ranking: 'BurnBndAc DESC',
+    thinning_ranking: ['BurnBndAc DESC'],
+    z_order_ranking: ['BurnBndAc DESC'],
     prerender_tiles: true,
   },
 
   'gee:feature_view_ingestion_params': {
     max_features_per_tile: 250,
     thinning_strategy: 'HIGHER_DENSITY',
-    thinning_ranking: 'shape_area DESC',
+    thinning_ranking: ['shape_area DESC'],
   },
 
   'gee:feature_view_ingestion_params': {
     max_features_per_tile: 12000,
     thinning_strategy: 'HIGHER_DENSITY',
-    z_order_ranking: '.minZoomLevel DESC',
+    thinning_ranking: ['.minZoomLevel DESC'],
+    z_order_ranking: ['.minZoomLevel DESC'],
     prerender_tiles: true,
+  },
+
+  'gee:feature_view_ingestion_params': {
+    thinning_ranking: ['property1 DESC', 'property2 ASC'],
+    z_order_ranking: ['a-prop DESC', '.geometryType ASC', '.minZoomLevel ASC'],
   },
 """
 
@@ -157,47 +168,67 @@ class Check(stac.NodeCheck):
             ', '.join(sorted(THINNING_STRATEGIES)))
 
     if THINNING_RANKING in params:
-      ranking = params[THINNING_RANKING]
-      if not isinstance(ranking, str):
-        yield cls.new_issue(node, f'{THINNING_RANKING} must be a str')
+      rankings = params[THINNING_RANKING]
+      if not isinstance(rankings, list):
+        yield cls.new_issue(
+            node, f'{THINNING_RANKING} must be a list')
+      elif not rankings:
+        yield cls.new_issue(
+            node, f'{THINNING_RANKING} list must have at least one str')
       else:
-        fields = ranking.split()
-        if len(fields) != 2:
-          yield cls.new_issue(
-              node, f'{THINNING_RANKING} must be "<field> ASC|DESC')
-        else:
-          property_name, direction = fields
-          if not re.fullmatch('[a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+        for ranking in rankings:
+          if not isinstance(ranking, str):
             yield cls.new_issue(
-                node, f'Invalid property_name: "{property_name}"')
-          if direction not in DIRECTIONS:
+                node, f'Each {THINNING_RANKING} element must be a str')
+            continue
+
+          fields = ranking.split()
+          if len(fields) != 2:
             yield cls.new_issue(
-                node,
-                f'{THINNING_RANKING} direction must be one of ' +
-                ', '.join(sorted(DIRECTIONS)))
-          # TODO(schwehr): Make sure the property_name is in the schema.
+                node, f'{THINNING_RANKING} must be "<field> ASC|DESC')
+          else:
+            property_name, direction = fields
+            if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+              yield cls.new_issue(
+                  node, f'Invalid property_name: "{property_name}"')
+            if direction not in DIRECTIONS:
+              yield cls.new_issue(
+                  node,
+                  f'{THINNING_RANKING} direction must be one of ' +
+                  ', '.join(sorted(DIRECTIONS)))
+            # TODO(schwehr): Make sure the property_name is in the schema.
 
     if Z_ORDER_RANKING in params:
-      ranking = params[Z_ORDER_RANKING]
-      if not isinstance(ranking, str):
-        yield cls.new_issue(node, f'{Z_ORDER_RANKING} must be a str')
+      rankings = params[Z_ORDER_RANKING]
+      if not isinstance(rankings, list):
+        yield cls.new_issue(
+            node, f'{Z_ORDER_RANKING} must be a list')
+      elif not rankings:
+        yield cls.new_issue(
+            node, f'{Z_ORDER_RANKING} list must have at least one str')
       else:
-        fields = ranking.split()
-        if len(fields) != 2:
-          yield cls.new_issue(
-              node, f'{Z_ORDER_RANKING} must be "<field> ASC|DESC')
-        else:
-          property_name, direction = fields
-          # Can start with a fullstop: .minZoomLevel
-          if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+        for ranking in rankings:
+          if not isinstance(ranking, str):
             yield cls.new_issue(
-                node, f'Invalid property_name: "{property_name}"')
-          if direction not in DIRECTIONS:
+                node, f'Each {Z_ORDER_RANKING} element must be a str')
+            continue
+
+          fields = ranking.split()
+          if len(fields) != 2:
             yield cls.new_issue(
-                node,
-                f'{Z_ORDER_RANKING} direction must be one of ' +
-                ', '.join(sorted(DIRECTIONS)))
-          # TODO(schwehr): Make sure the property_name is in the schema.
+                node, f'{Z_ORDER_RANKING} must be "<field> ASC|DESC')
+          else:
+            property_name, direction = fields
+            # Can start with a fullstop: .minZoomLevel
+            if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
+              yield cls.new_issue(
+                  node, f'Invalid property_name: "{property_name}"')
+            if direction not in DIRECTIONS:
+              yield cls.new_issue(
+                  node,
+                  f'{Z_ORDER_RANKING} direction must be one of ' +
+                  ', '.join(sorted(DIRECTIONS)))
+            # TODO(schwehr): Make sure the property_name is in the schema.
 
     if PRERENDER_TILES in params:
       prerender = params[PRERENDER_TILES]

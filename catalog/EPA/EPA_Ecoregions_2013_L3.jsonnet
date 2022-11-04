@@ -183,7 +183,7 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 1000,
       thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: 'shape_area DESC',
+      thinning_ranking: ['shape_area DESC'],
     },
   },
   'sci:citation': |||

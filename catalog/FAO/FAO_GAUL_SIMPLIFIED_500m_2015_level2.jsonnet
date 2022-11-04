@@ -187,7 +187,7 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 2000,
       thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: 'Shape_Area DESC',
+      thinning_ranking: ['Shape_Area DESC'],
     },
   },
   'gee:terms_of_use': |||

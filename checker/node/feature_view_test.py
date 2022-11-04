@@ -31,8 +31,8 @@ class ValidFeatureViewTest(unittest.TestCase):
     stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
         'max_features_per_tile': 150,
         'thinning_strategy': 'HIGHER_DENSITY',
-        'thinning_ranking': 'BurnBndAc DESC',
-        'z_order_ranking': 'BurnBndAc DESC',
+        'thinning_ranking': ['BurnBndAc DESC'],
+        'z_order_ranking': ['BurnBndAc DESC'],
         'prerender_tiles': True}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
@@ -42,8 +42,8 @@ class ValidFeatureViewTest(unittest.TestCase):
     stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
         'max_features_per_tile': 16000,
         'thinning_strategy': 'GLOBALLY_CONSISTENT',
-        'thinning_ranking': 'rttyp ASC',
-        'z_order_ranking': 'rttyp ASC'}}}
+        'thinning_ranking': ['rttyp ASC'],
+        'z_order_ranking': ['rttyp ASC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
@@ -51,8 +51,16 @@ class ValidFeatureViewTest(unittest.TestCase):
   def test_valid_dot_field(self):
     stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
         'max_features_per_tile': 12000,
-        'thinning_strategy': 'HIGHER_DENSITY',
-        'z_order_ranking': '.minZoomLevel DESC'}}}
+        'thinning_ranking': ['.geometryType DESC'],
+        'z_order_ranking': ['.minZoomLevel DESC']}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+  def test_valid_list_len_2(self):
+    stac_data = {'summaries': {'gee:feature_view_ingestion_params': {
+        'thinning_ranking': ['prop1 DESC', 'prop2 ASC'],
+        'z_order_ranking': ['prop3 ASC', 'prop4 DESC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
@@ -188,17 +196,37 @@ class ErrorFeatureViewTest(unittest.TestCase):
         'GLOBALLY_CONSISTENT, HIGHER_DENSITY')]
     self.assertEqual(expect, issues)
 
-  def test_thinning_ranking_not_str(self):
+  def test_thinning_ranking_not_list(self):
     stac_data = {'summaries': {
-        'gee:feature_view_ingestion_params': {'thinning_ranking': 13}}}
+        'gee:feature_view_ingestion_params': {
+            'thinning_ranking': 'not a list'}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'thinning_ranking must be a str')]
+    expect = [Check.new_issue(
+        node, 'thinning_ranking must be a list')]
+    self.assertEqual(expect, issues)
+
+  def test_thinning_ranking_empty_list(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'thinning_ranking': []}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'thinning_ranking list must have at least one str')]
+    self.assertEqual(expect, issues)
+
+  def test_thinning_ranking_list_not_str(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'thinning_ranking': [22]}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'Each thinning_ranking element must be a str')]
     self.assertEqual(expect, issues)
 
   def test_thinning_ranking_too_few(self):
     stac_data = {'summaries': {
-        'gee:feature_view_ingestion_params': {'thinning_ranking': 'ASC'}}}
+        'gee:feature_view_ingestion_params': {'thinning_ranking': ['ASC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(
@@ -208,7 +236,7 @@ class ErrorFeatureViewTest(unittest.TestCase):
   def test_thinning_ranking_too_many(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {
-            'thinning_ranking': 'id DESC extra'}}}
+            'thinning_ranking': ['id DESC extra']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(
@@ -218,7 +246,7 @@ class ErrorFeatureViewTest(unittest.TestCase):
   def test_thinning_ranking_name(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {
-            'thinning_ranking': 'i DESC'}}}
+            'thinning_ranking': ['i DESC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(node, 'Invalid property_name: "i"')]
@@ -227,24 +255,44 @@ class ErrorFeatureViewTest(unittest.TestCase):
   def test_thinning_ranking_direction(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {
-            'thinning_ranking': 'id ASCENDING'}}}
+            'thinning_ranking': ['id ASCENDING']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(
         node, 'thinning_ranking direction must be one of ASC, DESC')]
     self.assertEqual(expect, issues)
 
-  def test_z_order_ranking_not_str(self):
+  def test_z_order_ranking_not_list(self):
     stac_data = {'summaries': {
-        'gee:feature_view_ingestion_params': {'z_order_ranking': 14}}}
+        'gee:feature_view_ingestion_params': {
+            'z_order_ranking': 'not a list'}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'z_order_ranking must be a str')]
+    expect = [Check.new_issue(
+        node, 'z_order_ranking must be a list')]
+    self.assertEqual(expect, issues)
+
+  def test_z_order_ranking_empty_list(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'z_order_ranking': []}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'z_order_ranking list must have at least one str')]
+    self.assertEqual(expect, issues)
+
+  def test_z_order_ranking_entry_not_str(self):
+    stac_data = {'summaries': {
+        'gee:feature_view_ingestion_params': {'z_order_ranking': [21]}}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'Each z_order_ranking element must be a str')]
     self.assertEqual(expect, issues)
 
   def test_z_order_ranking_too_few(self):
     stac_data = {'summaries': {
-        'gee:feature_view_ingestion_params': {'z_order_ranking': 'ABC'}}}
+        'gee:feature_view_ingestion_params': {'z_order_ranking': ['ABC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(
@@ -254,7 +302,7 @@ class ErrorFeatureViewTest(unittest.TestCase):
   def test_z_order_ranking_too_many(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {
-            'z_order_ranking': 'id DESC extra'}}}
+            'z_order_ranking': ['id DESC extra']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(
@@ -264,7 +312,7 @@ class ErrorFeatureViewTest(unittest.TestCase):
   def test_z_order_ranking_name(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {
-            'z_order_ranking': 'i DESC'}}}
+            'z_order_ranking': ['i DESC']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(node, 'Invalid property_name: "i"')]
@@ -273,7 +321,7 @@ class ErrorFeatureViewTest(unittest.TestCase):
   def test_z_order_ranking_direction(self):
     stac_data = {'summaries': {
         'gee:feature_view_ingestion_params': {
-            'z_order_ranking': 'id DESCENDING'}}}
+            'z_order_ranking': ['id DESCENDING']}}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(
