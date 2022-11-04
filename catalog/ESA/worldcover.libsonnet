@@ -37,7 +37,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
         Sentinel-2 data. The WorldCover product comes with 11 land cover classes
         and has been generated in the framework of the ESA WorldCover project,
         part of the 5th Earth Observation Envelope Programme (EOEP-5) of the
-	European Space Agency.
+        European Space Agency.
         
         See also:
 
