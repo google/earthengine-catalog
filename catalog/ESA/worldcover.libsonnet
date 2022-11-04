@@ -17,7 +17,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
     ee_const.ee_catalog_url + basename(version),
   local self_url(version) = catalog_subdir_url + base_filename(version),
 
-  catalog_entry(version, year_description, citation): 
+  catalog_entry(version, year_description, citation):
     {
       stac_version: ee_const.stac_version,
       type: ee_const.stac_type.collection,
@@ -29,7 +29,6 @@ local parent_url = catalog_subdir_url + 'catalog.json';
       id: collection_id(version),
       title: 'ESA WorldCover 10m ' + version,
       version: version,
-      'gee:skip_indexing': (version == 'v200'),
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
         %s The WorldCover product comes with 11 land cover classes and has been
