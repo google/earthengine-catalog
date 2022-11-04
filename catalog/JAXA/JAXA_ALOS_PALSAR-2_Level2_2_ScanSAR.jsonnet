@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci
   ],
   id: id,
-  title: 'PALSAR-2 Level 2.2',
+  title: 'PALSAR-2 ScanSAR Level 2.2',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The 25 m PALSAR-2 ScanSAR is normalized backscatter data
