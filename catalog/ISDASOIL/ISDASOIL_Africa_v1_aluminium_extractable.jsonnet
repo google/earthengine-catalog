@@ -38,7 +38,7 @@ local self_url = catalog_subdir_url + base_filename;
     and a training set of over 100,000 analyzed soil samples.
 
     Further information can be found in the
-    [FAQ](https://www.isda-africa.com/isdasoil/faqs/) and
+    [FAQ](https://www.isda-africa.com/isdasoil/faq/) and
     [technical information documentation](https://www.isda-africa.com/isdasoil/technical-information/). To submit an issue or request support, please visit
     [the iSDAsoil site](https://isda-africa.com/isdasoil).
 

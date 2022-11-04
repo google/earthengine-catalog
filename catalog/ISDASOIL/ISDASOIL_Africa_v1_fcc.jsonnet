@@ -29,7 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
   description: |||
     Soil fertility capability classification derived using slope, chemical,
     and physical soil properties.  For more information about this layer, please
-    visit [this page](https://www.isda-africa.com/isdasoil/faqs/#faq7).
+    visit [this page](https://www.isda-africa.com/isdasoil/faq/#faq7).
 
     The classes for the 'fcc' band apply to pixel values that must be
     back-transformed with `x modulo 3000`.
@@ -43,7 +43,7 @@ local self_url = catalog_subdir_url + base_filename;
     and a training set of over 100,000 analyzed soil samples.
 
     Further information can be found in the
-    [FAQ](https://www.isda-africa.com/isdasoil/faqs/) and
+    [FAQ](https://www.isda-africa.com/isdasoil/faq/) and
     [technical information documentation](https://www.isda-africa.com/isdasoil/technical-information/). To submit an issue or request support, please visit
     [the iSDAsoil site](https://isda-africa.com/isdasoil).
   |||,
