@@ -32,12 +32,10 @@ local parent_url = catalog_subdir_url + 'catalog.json';
       'gee:skip_indexing': (version == 'v200'),
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
-        %s
-
-        The WorldCover product comes with 11 land cover classes
-        and has been generated in the framework of the ESA WorldCover project,
-        part of the 5th Earth Observation Envelope Programme (EOEP-5) of the
-        European Space Agency.
+        %s The WorldCover product comes with 11 land cover classes and has been
+        generated in the framework of the ESA WorldCover project, part of the
+        5th Earth Observation Envelope Programme (EOEP-5) of the European Space
+        Agency.
 
         See also:
 
