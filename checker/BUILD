@@ -38,7 +38,10 @@ py_library(
 py_library(
     name = "stac",
     srcs = ["stac.py"],
-    data = ["//catalog"],
+    data = [
+        "//:non_commercial_datasets",
+        "//catalog",
+    ],
 )
 
 py_test(
