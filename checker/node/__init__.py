@@ -12,6 +12,7 @@ from checker.node import gee_classes
 from checker.node import gee_is_derived
 from checker.node import gee_terms_of_use
 from checker.node import gee_type
+from checker.node import gee_unusual_terms_of_use
 from checker.node import gee_user_uploaded
 from checker.node import id_field
 from checker.node import interval
@@ -56,6 +57,7 @@ _CHECKS = [
     gee_classes.Check,
     gee_is_derived.Check,
     gee_terms_of_use.Check,
+    gee_unusual_terms_of_use.Check,
     gee_user_uploaded.Check,
     schema.Check,
     interval.Check,
