@@ -1,3 +1,4 @@
+local ee = import 'earthengine.libsonnet';
 local worldcover = import 'worldcover.libsonnet';
 
 local year_description = |||
@@ -13,4 +14,6 @@ local citation = |||
   ([doi:10.5281/zenodo.7254221](https://doi.org/10.5281/zenodo.7254221))
 |||;
 
-worldcover.catalog_entry('v200', year_description, citation)
+worldcover.catalog_entry('v200', year_description, citation) + {
+  extent: ee.extent_global('2021-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
+}

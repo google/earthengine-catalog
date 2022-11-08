@@ -62,7 +62,6 @@ local parent_url = catalog_subdir_url + 'catalog.json';
           'https://esa-worldcover.org/en'),
         ee.host_provider(self_ee_catalog_url(version)),
       ],
-      extent: ee.extent_global('2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
       summaries: {
         gsd: [
           10.0,
