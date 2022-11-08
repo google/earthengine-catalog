@@ -32,10 +32,10 @@ local self_url = catalog_subdir_url + base_filename;
     The NASA-USDA Global soil moisture and the NASA-USDA SMAP Global soil
     moisture dataset provide soil moisture information across the globe at
     0.25°x0.25° spatial resolution. These datasets include
-    [surface](ftp://gimms.gsfc.nasa.gov/SMOS/SMAP/Surface_Soil_Moisture_SMAP.pdf)
-    and [subsurface](ftp://gimms.gsfc.nasa.gov/SMOS/SMAP/Sub_SurfaceSoil_Moisture_SMAP.pdf)
+    [surface](https://gimms.gsfc.nasa.gov/SMOS/SMAP/Surface_Soil_Moisture_SMAP.pdf)
+    and [subsurface](https://gimms.gsfc.nasa.gov/SMOS/SMAP/Sub_SurfaceSoil_Moisture_SMAP.pdf)
     soil moisture (mm),
-    [soil moisture profile](ftp://gimms.gsfc.nasa.gov/SMOS/SMAP/SoilMoisture_Profile_SMAP.pdf) (%),
+    [soil moisture profile](https://gimms.gsfc.nasa.gov/SMOS/SMAP/SoilMoisture_Profile_SMAP.pdf) (%),
     and surface and subsurface soil moisture anomalies. Soil moisture anomalies
     are unitless and represent standardized
     anomalies computed using a 31-days moving window. Values around 0
