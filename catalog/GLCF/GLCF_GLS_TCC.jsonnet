@@ -168,8 +168,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
   },
   'sci:citation': |||
-    Data citation: Tree Canopy Cover, {Year, ...}, Global Land Cover Facility,
-    [www.landcover.org](www.landcover.org).
+    Data citation: Tree Canopy Cover, {Year, ...}, Global Land Cover Facility.
   |||,
   'sci:publications': [
     {

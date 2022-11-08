@@ -170,7 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:citation': |||
     Data Citation: Global Inland Water, {Year, ...}, Global Land Cover
-    Facility, [www.landcover.org](www.landcover.org).
+    Facility.
   |||,
   'sci:publications': [
     {
