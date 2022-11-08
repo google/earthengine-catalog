@@ -62,7 +62,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
           'https://esa-worldcover.org/en'),
         ee.host_provider(self_ee_catalog_url(version)),
       ],
-      extent: ee.extent_global('2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+      extent: ee.extent_global('2021-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
       summaries: {
         gsd: [
           10.0,
@@ -75,7 +75,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
               {
                 value: 10,
                 color: '006400',
-                description: 'Trees',
+                description: 'Tree cover',
               },
               {
                 value: 20,
@@ -100,7 +100,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
               {
                 value: 60,
                 color: 'b4b4b4',
-                description: 'Barren / sparse vegetation',
+                description: 'Bare / sparse vegetation',
               },
               {
                 value: 70,
@@ -110,7 +110,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
               {
                 value: 80,
                 color: '0064c8',
-                description: 'Open water',
+                description: 'Permanent water bodies',
               },
               {
                 value: 90,
