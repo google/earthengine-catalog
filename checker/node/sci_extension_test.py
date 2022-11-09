@@ -248,5 +248,6 @@ class SchemaTest(unittest.TestCase):
         node, f'citation too long: 601 - "{cite[:50]}..."')]
     self.assertEqual(expect, issues)
 
+
 if __name__ == '__main__':
   unittest.main()

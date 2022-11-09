@@ -89,5 +89,6 @@ class KeywordsTest(unittest.TestCase):
     expect = [Check.new_issue(self.node, 'duplicate keyword found')]
     self.assertEqual(expect, issues)
 
+
 if __name__ == '__main__':
   unittest.main()

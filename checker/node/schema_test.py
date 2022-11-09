@@ -237,5 +237,6 @@ class SchemaTest(unittest.TestCase):
   #   expect = [Check.new_issue(node, 'Units unknown: bogus')]
   #   self.assertEqual(expect, issues)
 
+
 if __name__ == '__main__':
   unittest.main()

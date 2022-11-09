@@ -109,5 +109,6 @@ class CollectionTest(unittest.TestCase):
     expect = [Check.new_issue(self.node, message)]
     self.assertEqual(expect, issues)
 
+
 if __name__ == '__main__':
   unittest.main()

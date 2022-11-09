@@ -232,5 +232,6 @@ class ProvidersTest(unittest.TestCase):
     expect = [Check.new_issue(node, 'url must start with https or http')]
     self.assertEqual(expect, issues)
 
+
 if __name__ == '__main__':
   unittest.main()

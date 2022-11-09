@@ -21,6 +21,7 @@ FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 VERSION_URL = 'https://stac-extensions.github.io/version/v1.0.0/schema.json'
 JSON = 'application/json'
 
+
 class VersionExtensionCatalogTest(unittest.TestCase):
 
   def test_valid_empty(self):
