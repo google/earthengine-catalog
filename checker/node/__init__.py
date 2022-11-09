@@ -18,6 +18,7 @@ from checker.node import id_field
 from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
+from checker.node import links
 from checker.node import providers
 from checker.node import required
 from checker.node import schema
@@ -48,6 +49,7 @@ _CHECKS = [
     description.Check,
     license_field.Check,
     providers.Check,
+    links.Check,
 
     # extensions
     sci_extension.Check,
