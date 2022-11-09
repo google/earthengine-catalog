@@ -38,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     This dataset is compatible with the
     [Committee on Earth Observation (CEOS)](https://ceos.org/)
-    [Analysis Ready Data for LAND (CARD4L)[(https://ceos.org/ard/files/PFS/NRB/v5.5/CARD4L-PFS_NRB_v5.5.pdf) standard.
+    [Analysis Ready Data for LAND (CARD4L)](https://ceos.org/ard/files/PFS/NRB/v5.5/CARD4L-PFS_NRB_v5.5.pdf) standard.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
