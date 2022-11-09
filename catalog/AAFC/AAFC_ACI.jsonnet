@@ -5,7 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = 'kurt has a custom license';
+local license = spdx.ogl_canada_2_0;
 
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -32,7 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the overall target accuracy of at least 85% at a final spatial resolution of
     30m (56m in 2009 and 2010).
   |||,
-  license: license.id,
+  license: 'whoops',
 
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
