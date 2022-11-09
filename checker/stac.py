@@ -18,6 +18,9 @@ UNKNOWN_ID = '> UNKNOWN ID: '
 
 _TWO_LEVEL_FOLDERS: list[str] = ['NASA', 'NOAA', 'USGS']
 
+# List loaded from non_commercial_datasets.jsonnet
+NON_COMMERCIAL_LIST = []
+
 
 class StacType(str, enum.Enum):
   CATALOG = 'Catalog'
@@ -35,10 +38,14 @@ class GeeType(str, enum.Enum):
   NONE = 'none'
 
 
-def stac_root() -> pathlib.Path:
+def data_root() -> pathlib.Path:
   return (
       pathlib.Path(os.path.dirname(__file__)) /
-      '../catalog')
+      '..')
+
+
+def stac_root() -> pathlib.Path:
+  return data_root() / 'catalog'
 
 
 @dataclasses.dataclass
@@ -137,3 +144,11 @@ def load(root: pathlib.Path) -> list[Node]:
       gee_type = GeeType.NONE
     nodes.append(Node(dataset_id, relative_path, asset_type, gee_type, stac))
   return nodes
+
+
+def is_in_non_commercial(dataset_id: str) -> bool:
+  global NON_COMMERCIAL_LIST
+  if not NON_COMMERCIAL_LIST:
+    non_commerical_file = data_root() / 'non_commercial_datasets.json'
+    NON_COMMERCIAL_LIST = json.loads(non_commerical_file.read_text())
+  return dataset_id in NON_COMMERCIAL_LIST

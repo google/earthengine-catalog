@@ -19,6 +19,7 @@ from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
 from checker.node import links
+from checker.node import non_commercial
 from checker.node import providers
 from checker.node import required
 from checker.node import schema
@@ -61,6 +62,7 @@ _CHECKS = [
     gee_terms_of_use.Check,
     gee_unusual_terms_of_use.Check,
     gee_user_uploaded.Check,
+    non_commercial.Check,
     schema.Check,
     interval.Check,
     visualizations.Check,
