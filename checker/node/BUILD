@@ -91,6 +91,15 @@ py_test(
 )
 
 py_test(
+    name = "gee_unusual_terms_of_use_test",
+    srcs = ["gee_unusual_terms_of_use_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "id_field_test",
     srcs = ["id_field_test.py"],
     deps = [
@@ -120,6 +129,24 @@ py_test(
 py_test(
     name = "license_field_test",
     srcs = ["license_field_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "links_test",
+    srcs = ["links_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "non_commercial_test",
+    srcs = ["non_commercial_test.py"],
     deps = [
         ":node",
         "//checker:stac",
