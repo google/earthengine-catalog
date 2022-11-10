@@ -21,7 +21,7 @@ class TopLevelTest(unittest.TestCase):
 
   def test_all_catalog_fields(self):
     fields = [
-        'description', 'gee:skip_indexing', 'id', 'links', 'stac_version',
+        'description', 'id', 'links', 'stac_version',
         'title', 'type'
     ]
     stac_data = {x: None for x in fields}
