@@ -220,8 +220,6 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Flag indicating likely invalid waveform (1=valid, 0=invalid)
       |||,
-      minimum: 0,
-      maximum: 1,
       type:: ee_const.var_type.int,
     },
     {
