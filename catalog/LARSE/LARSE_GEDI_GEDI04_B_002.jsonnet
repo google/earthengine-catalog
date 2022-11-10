@@ -55,7 +55,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Mean aboveground biomass density (MU): Estimated mean AGBD for the
           1 km grid cell, including forest and non-forest.
         |||,
-        type: ee_const.var_type.double,
         'gee:units': 'Mg ha^-1'
       },
       {
@@ -64,7 +63,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Variance component 1 (V1): Uncertainty in the estimate of mean
           biomass due to the field-to-GEDI model used in L4A.
         |||,
-        type: ee_const.var_type.double,
       },
       {
         name: 'V2',
@@ -77,7 +75,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             this is uncertainty owing to the model predicting biomass using
             wall-to-wall data, calibrated with the L4A footprint product.
         |||,
-        type: ee_const.var_type.double,
       },
       {
         name: 'SE',
@@ -85,7 +82,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Mean aboveground biomass density standard error (SE): Standard Error
           of the mean estimate, combining sampling and modeling uncertainty.
         |||,
-        type: ee_const.var_type.double,
         'gee:units': 'Mg ha^-1'
       },
       {
@@ -94,7 +90,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Standard error as a fraction of the estimated mean AGBD (PE).
           If >100%, the cell values are truncated to 100.
         |||,
-        type: ee_const.var_type.int,
         'gee:units': 'Percent'
       },
       {
@@ -103,7 +98,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Number of clusters (NC): Number of unique GEDI ground tracks with at
           least one high-quality waveform intersecting the grid cell.
         |||,
-        type: ee_const.var_type.int,
       },
       {
         name: 'NS',
@@ -111,7 +105,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Number of samples (NS): Total number of high-quality waveforms across
           all ground tracks within the grid cell.
         |||,
-        type: ee_const.var_type.int,
       },
       {
         name: 'QF',
@@ -123,7 +116,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           * 2=Land surface and meets GEDI mission L1 requirement
           (Percent standard error <20% or Standard Error < 20 Mg ha-1)
         |||,
-        type: ee_const.var_type.int,
       },
       {
         name: 'PS',
@@ -132,7 +124,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           continent. PS is associated with an L4A model parameter covariance
           matrix that contributes to the Model Error Variance (Table 2).
         |||,
-        type: ee_const.var_type.int,
       },
       {
         name: 'MI',
@@ -145,7 +136,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           * 1=Hybrid Model-Based
           * 2=Generalized Hierarchical Model-Based
         |||,
-        type: ee_const.var_type.int,
       },
     ],
     'gee:visualizations': [
