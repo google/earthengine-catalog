@@ -43,7 +43,8 @@ You can use externally hosted services to browse the STAC catalog:
 # Contributing
 
 The issue tracker is currently disabled. In the future, we plan to enable the
-issue tracker.
+issue tracker. In the meanwhile, you can add an issue
+[here](https://issuetracker.google.com/issues?q=componentid:1161653%2B%20status:open)
 
 # Build
 
