@@ -434,13 +434,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'gee:terms_of_use': |||
-    JAXA retains ownership of the dataset and cannot guarantee
-    any problem caused by or possibly caused by using the datasets.
-
-    Anyone wishing to publish any results using the datasets should
-    clearly acknowledge the ownership of the data in the publication.
-
-    [Full terms of use](https://gportal.jaxa.jp/gpr/index/eula?lang=en)
+    Anyone can use this data free of charge subject to the to the attribution
+    requirements. For detailed terms of use see JAXA
+    [G-Portal Terms of service](https://gportal.jaxa.jp/gpr/index/eula?lang=en)
+    (Section 7. Condition concerning of G-Portal data).
   |||,
   'sci:citation': |||
     The data used for this paper have been provided by Earth Observation
