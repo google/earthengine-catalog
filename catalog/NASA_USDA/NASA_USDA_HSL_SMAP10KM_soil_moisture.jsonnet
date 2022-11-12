@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'NASA-USDA Enhanced SMAP Global Soil Moisture Data',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Note: Data production is temporarily interrupted due to upstream source
+    Data production is temporarily interrupted due to upstream source
     problems. Production is expected to resume in 2023.
 
     The NASA-USDA Enhanced SMAP Global soil moisture data provides soil moisture information across
