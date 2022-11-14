@@ -120,9 +120,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'month',
     interval: 1,
   },
-  'gee:terms_of_use': |||
-    This work is licensed under a Creative Commons
-    Attribution-NonCommercial-ShareAlike 4.0 International License.
-  |||,
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
 }
