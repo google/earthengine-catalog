@@ -23,6 +23,7 @@ from checker.node import links
 from checker.node import non_commercial
 from checker.node import providers
 from checker.node import required
+from checker.node import sar_extension
 from checker.node import schema
 from checker.node import sci_extension
 from checker.node import stac_version
@@ -54,6 +55,7 @@ _CHECKS = [
     links.Check,
 
     # extensions
+    sar_extension.Check,
     sci_extension.Check,
     version_extension.Check,
 

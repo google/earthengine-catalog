@@ -396,26 +396,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     constellation: [
       'Sentinel-1',
     ],
-    'sar:frequency_band': [
-      'C',
-    ],
-    'sar:center_frequency': [
-      5.405,
-    ],
-    'sar:resolution_range': [
-      10,
-    ],
-    'sar:resolution_azimuth': [
-      10,
-    ],
-    'sar:instrument_mode': [
-      'EW',
-      'IW',
-      'SM',
-    ],
-    'sar:product_type': [
-      'GRD',
-    ],
+    'sar:frequency_band': ['C'],
+    'sar:center_frequency': [5.405],
+    'sar:resolution_range': [10],
+    'sar:resolution_azimuth': [10],
+    'sar:instrument_mode': ['EW', 'IW', 'SM'],
+    'sar:product_type': ['GRD'],
+    'sar:polarizations': ['HH', 'HV', 'VH', 'VV'],
     platform: [
       'Sentinel-1A',
       'Sentinel-1B',
@@ -458,12 +445,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': 'Degrees',
         gsd: 20000,
       },
-    ],
-    'sar:polarizations': [
-      'HH',
-      'HV',
-      'VV',
-      'VH',
     ],
     'gee:visualizations': [
       {

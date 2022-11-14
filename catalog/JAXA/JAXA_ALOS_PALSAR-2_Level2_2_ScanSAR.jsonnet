@@ -321,30 +321,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [
       25.0,
     ],
-    'sar:instrument_mode': [
-      'ScanSAR',
-    ],
-    'sar:frequency_band': [
-      'L',
-    ],
-    'sar:center_frequency': [
-      1.27,
-    ],
-    'sar:polarizations': [
-      'HH',
-      'HV',
-      'VH',
-      'VV',
-    ],
-    'sar:product_type': [
-      'Normalised Radar Backscatter'
-    ],
-    'sar:resolution_range': [
-      25,
-    ],
-    'sar:resolution_azimuth': [
-      25,
-    ],
+    'sar:instrument_mode': ['ScanSAR'],
+    'sar:frequency_band': ['L'],
+    'sar:center_frequency': [1.27],
+    'sar:polarizations': ['HH', 'HV', 'VH', 'VV'],
+    'sar:product_type': ['Normalised Radar Backscatter'],
+    'sar:resolution_range': [25],
+    'sar:resolution_azimuth': [25],
     'eo:bands': [
       {
         name: 'HH',
