@@ -26,6 +26,12 @@ class SchemaTest(unittest.TestCase):
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
+  def test_missing_summaries(self):
+    stac_data = {}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
   def test_smallest_valid_schema(self):
     stac_data = {'summaries': {'gee:schema': [{
         'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
@@ -207,7 +213,7 @@ class SchemaTest(unittest.TestCase):
         {'description': description, 'name': 'ab', 'type': 'INT'}]}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Description too short: 1')]
+    expect = [Check.new_issue(node, 'description too short: 1')]
     self.assertEqual(expect, issues)
 
   def test_bad_description_too_long(self):
@@ -216,7 +222,7 @@ class SchemaTest(unittest.TestCase):
         {'description': description, 'name': 'ab', 'type': 'INT'}]}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Description too long: 1801')]
+    expect = [Check.new_issue(node, 'description too long: 1801')]
     self.assertEqual(expect, issues)
 
   def test_bad_units_not_str(self):
@@ -225,6 +231,24 @@ class SchemaTest(unittest.TestCase):
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(node, 'Units must be a str')]
+    self.assertEqual(expect, issues)
+
+  def test_bad_units_too_short(self):
+    stac_data = {'summaries': {'gee:schema': [
+        {'units': '', 'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(node, 'units too short: 0')]
+    self.assertEqual(expect, issues)
+
+  def test_bad_units_too_long(self):
+    size = 21
+    stac_data = {'summaries': {'gee:schema': [
+        {'units': 'a' * size,
+         'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(node, f'units too long: {size}')]
     self.assertEqual(expect, issues)
 
   # TODO(schwehr): turn on stricter units check.

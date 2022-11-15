@@ -174,19 +174,23 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(node, f'"{DESCRIPTION}" must be a str')
           else:
             # TODO(schwehr): Do a better check of the description.
-            if len(description) < 3:
-              yield cls.new_issue(
-                  node, f'Description too short: {len(description)}')
-            elif len(description) > 1800:
-              yield cls.new_issue(
-                  node, f'Description too long: {len(description)}')
+            size = len(description)
+            if size < 3:
+              yield cls.new_issue(node, f'{DESCRIPTION} too short: {size}')
+            elif size > 1800:
+              yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
 
         if UNITS in entry:
           units = entry[UNITS]
           if not isinstance(units, str):
             yield cls.new_issue(node, 'Units must be a str')
           else:
-            pass
+            size = len(units)
+            if size < 1:
+              yield cls.new_issue(node, f'{UNITS} too short: {size}')
+            elif size > 20:
+              yield cls.new_issue(node, f'{UNITS} too long: {size}')
+
             # TODO(schwehr): turn on a more stringent units check later.
             # if units not in ALL_UNITS:
             #   yield cls.new_issue(node, f'Units unknown: {units}')
