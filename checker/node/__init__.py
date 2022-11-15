@@ -4,6 +4,7 @@ from typing import Iterator
 
 from checker import stac
 from checker.node import description
+from checker.node import eo_extension
 from checker.node import extensions
 from checker.node import extent
 from checker.node import feature_view
@@ -55,6 +56,7 @@ _CHECKS = [
     links.Check,
 
     # extensions
+    eo_extension.Check,
     sar_extension.Check,
     sci_extension.Check,
     version_extension.Check,
