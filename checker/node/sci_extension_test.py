@@ -40,8 +40,8 @@ class ValidSciExtTest(unittest.TestCase):
     stac_data = {
         'stac_extensions': [EXTENSION_URL],
         'sci:citation': 'A citation',
-        'sci:doi': '10.5067/an/example',
-        'sci:publications': [{'citation': 'B cite', 'doi': 'a/doi/str'}],
+        'sci:doi': '10.123456/an/example',
+        'sci:publications': [{'citation': 'B cite', 'doi': '10.01234/doi/str'}],
         'gee:extra_dois': ['10.4225/example/1', '10.4225/example/2'],
     }
     node = stac.Node(ID_FOR_EXTRA_DOI, FILE_PATH, COLLECTION, IMAGE, stac_data)
@@ -49,7 +49,7 @@ class ValidSciExtTest(unittest.TestCase):
     self.assertEqual(0, len(issues))
 
   def test_only_gee_extra_dois(self):
-    stac_data = {'gee:extra_dois': ['a', 'b']}
+    stac_data = {'gee:extra_dois': ['10.4225/example/1', '10.4225/example/2']}
     node = stac.Node(ID_FOR_EXTRA_DOI, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
@@ -173,14 +173,14 @@ class ErrorSciExtTest(unittest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_extra_doi_duplicates(self):
-    stac_data = {'gee:extra_dois': ['a', 'a']}
+    stac_data = {'gee:extra_dois': ['10.0000/a', '10.0000/a']}
     node = stac.Node(ID_FOR_EXTRA_DOI, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(node, 'gee:extra_dois has duplicates')]
     self.assertEqual(expect, issues)
 
   def test_extra_doi_unsorted(self):
-    stac_data = {'gee:extra_dois': ['b', 'a']}
+    stac_data = {'gee:extra_dois': ['10.1016/b', '10.1016/a']}
     node = stac.Node(ID_FOR_EXTRA_DOI, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(node, 'gee:extra_dois not sorted')]
@@ -215,6 +215,24 @@ class ErrorSciExtTest(unittest.TestCase):
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
     expect = [Check.new_issue(node, 'sci:doi not valid: example.com/an.html')]
+    self.assertEqual(expect, issues)
+
+  def test_doi_directory_code(self):
+    stac_data = {
+        'stac_extensions': [EXTENSION_URL],
+        'sci:doi': '11.4225/directory_not_10'}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'sci:doi not valid: 11.4225/directory_not_10')]
+    self.assertEqual(expect, issues)
+
+  def test_doi_short_registrant(self):
+    stac_data = {
+        'stac_extensions': [EXTENSION_URL], 'sci:doi': '10.34/rh7v-hg80l'}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(node, 'sci:doi not valid: 10.34/rh7v-hg80l')]
     self.assertEqual(expect, issues)
 
   def test_publications_not_list(self):

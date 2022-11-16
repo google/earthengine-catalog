@@ -5,19 +5,25 @@ https://github.com/stac-extensions/scientific
 This extension adds citations/references for datasets and includes the ability
 to add Digital Object Identifiers (DOIs) for the references.
 
-Citations should be in APA Style format if possible.  https://apastyle.apa.org/
+Citations should be in APA Style format if possible. https://apastyle.apa.org/
 
 - sci:doi is the primary DOI for the dataset
 - sci:citation is the primary reference for the data
   - The citation section is in commonmark / markdown formatted text
 - sci:publications are extra citations with an optional DOI field
 - gee:extra_dois are replaced with the ability to have sci:publications and
-  should no longer be added.  The existing entries will likely be removed in
+  should no longer be added. The existing entries will likely be removed in
   the future.
 
-DOIs are hard to validate offline.  Organizations that give out DOIs are
-permitted to use almost any string for them.  To access a DOI, add the DOI
-string to the end of https://doi.org/.
+DOIs are defined in ANSI/NISO Z39.84-2000 and ISO 26324. A DOI starts with a
+'prefix' section. The prefix begins with '10.', which is the 'directory code'.
+Then comes a 4 or more digit integer that is the 'registrant' code. A '/'
+separates the prefix from the 'suffix' that is hard to validate offline as it
+is arbitrary text defined by the 'registrant' organization designated by the
+prefix. Organizations that give out DOIs are permitted to use almost any string
+for the suffix.
+
+To access a DOI, add the DOI string to the end of https://doi.org/.
 
 In the citation section, use this format to give the DOI:
 
@@ -68,11 +74,9 @@ EXTRA_DOIS_EXCEPTIONS = frozenset({
 
 def doi_valid(doi: str) -> bool:
   """Returns true if a doi passes a minimal test."""
-  if doi.startswith('ftp'): return False
-  if doi.startswith('http'): return False
-  if doi.endswith('html'): return False
-  if doi.endswith('pdf'): return False
-  return True
+  if doi.endswith('.html'): return False
+  if doi.endswith('.pdf'): return False
+  return bool(re.fullmatch('10.[0-9]{4}[0-9]*/.*', doi))
 
 
 class Check(stac.NodeCheck):
