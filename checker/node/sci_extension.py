@@ -7,10 +7,10 @@ to add Digital Object Identifiers (DOIs) for the references.
 
 Citations should be in APA Style format if possible.  https://apastyle.apa.org/
 
-- sci:doi is the primary doi for the dataset
+- sci:doi is the primary DOI for the dataset
 - sci:citation is the primary reference for the data
   - The citation section is in commonmark / markdown formatted text
-- sci:publications are extra citations with an optional doi field
+- sci:publications are extra citations with an optional DOI field
 - gee:extra_dois are replaced with the ability to have sci:publications and
   should no longer be added.  The existing entries will likely be removed in
   the future.
@@ -19,7 +19,7 @@ DOIs are hard to validate offline.  Organizations that give out DOIs are
 permitted to use almost any string for them.  To access a DOI, add the DOI
 string to the end of https://doi.org/.
 
-In the citation section, use this format to give the doi:
+In the citation section, use this format to give the DOI:
 
   [doi:10.1016/j.rse.2019.111493](https://doi.org/10.1016/j.rse.2019.111493)
 
@@ -30,7 +30,12 @@ https://gist.github.com/schwehr/22ce6080eb9e730ef04fccfa25072e3a
 The checker here does not yet enforce the requirement of the scientific
 extension to have matching link entries in the links section for each DOI.
 
-TODO(schwehr): Enforce URLs in the links section for each doi.
+See also:
+
+- https://en.wikipedia.org/wiki/Digital_object_identifier
+- https://www.doi.org/doi_handbook/2_Numbering.html#2.2.2
+
+TODO(schwehr): Enforce URLs in the links section for each DOI.
 """
 
 import re
@@ -176,6 +181,7 @@ class Check(stac.NodeCheck):
               elif not doi_valid(doi):
                 yield cls.new_issue(
                     node, f'{SCI_PUBLICATIONS} entry {DOI} not valid: {doi}')
+
             citation = pub.get(CITATION)
             if CITATION not in pub:
               yield cls.new_issue(
