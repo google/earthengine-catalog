@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Global map of LCZs - paper](https://doi.org/10.5194/essd-14-3835-2022)
 
-    * [Global map of LCZs - dataset](https://doi.org/10.5281/zenodo.6364594)
+    * [Global map of LCZs - dataset](https://doi.org/10.5281/zenodo.6364593)
 
     * [LCZ Gaussian filtering](https://doi.org/10.1038/s41597-020-00605-z)
   |||,
@@ -69,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5281/zenodo.6364594',
+      href: 'https://doi.org/10.5281/zenodo.6364593',
     },
   ],
   keywords: [
@@ -332,7 +332,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '10.5281/zenodo.6364594',
+  'sci:doi': '10.5281/zenodo.6364593',
   'gee:extra_dois': [
     '10.5194/essd-14-3835-2022',
   ],
