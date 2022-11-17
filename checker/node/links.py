@@ -18,7 +18,7 @@ General Rules
   - root - the top of the STAC Catalog (except the root, which does not have it)
   - parent - the catalog node above the current one. One exception is the
     root 'GEE_catalog' node that does not have a parent
-- The href keys' URLs must start with an allowed protocal. One of ftp://,
+- The href keys' URLs must start with an allowed protocol. One of ftp://,
   http://, https://, or s3://.  Prefer https to http or ftp whenever possible
 - There are optional relations:
   - code - Contains the programming language found at the URL

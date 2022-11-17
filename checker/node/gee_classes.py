@@ -1,7 +1,5 @@
 """Check gee:classes.
 
-See also bands.py
-
 The gee:classes field is a list of dictionaries. There can be between 2 and 255
 classes in a gee:classes field.
 
@@ -25,7 +23,11 @@ the allowed color names.
 
 For each of the three fields, the value of the field cannot be repeated.
 
-An example gee:classes in JSON format:
+See also:
+- eo_extension.py
+- gee_bitmask.py
+
+JSON format example:
 
 "summaries": {
       "eo:bands": [

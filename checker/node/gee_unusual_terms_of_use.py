@@ -1,6 +1,6 @@
 """Checks for gee:unusual_terms_of_use.
 
-gee:unusual_terms_of_use is set for licenses that have suprising properties
+gee:unusual_terms_of_use is set for licenses that have surprising properties
 that might make using the data difficult or now allow for some use cases
 or users.
 
