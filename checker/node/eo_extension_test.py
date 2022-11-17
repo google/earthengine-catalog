@@ -313,6 +313,17 @@ class ErrorEoExtensionTest(unittest.TestCase):
         node, 'a_name full_width_half_max must in (0, 0.15) μm')]
     self.assertEqual(expect, issues)
 
+  def test_bitmask_and_classes_not_in_same_band(self):
+    stac_data = {'summaries': {'eo:bands': [{
+        'gee:bitmask': 'does not matter',
+        'gee:classes': 'does not matter',
+        'description': 'abc', 'name': 'a_name'}]}}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    issues = list(Check.run(node))
+    expect = [Check.new_issue(
+        node, 'a_name cannot have both gee:bitmask and gee:classes')]
+    self.assertEqual(expect, issues)
+
   def test_offset_not_number(self):
     stac_data = {'summaries': {'eo:bands': [{
         'gee:offset': 'not a number',

@@ -268,6 +268,9 @@ class Check(stac.NodeCheck):
 
       # GEE_BITMASK: See gee_bitmask.py
       # GEE_CLASSES: See gee_classes.py
+      if GEE_BITMASK in band and GEE_CLASSES in band:
+        yield cls.new_issue(
+            node, f'{name} cannot have both {GEE_BITMASK} and {GEE_CLASSES}')
 
       if GEE_OFFSET in band:
         offset = band[GEE_OFFSET]
