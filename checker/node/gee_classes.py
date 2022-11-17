@@ -305,12 +305,11 @@ class Check(stac.NodeCheck):
           else:
             descriptions.append(description)
             # TODO(schwehr): Validate description with `if not re.fullmatch`
-            if len(description) < 1:
-              yield cls.new_issue(
-                  node, f'Invalid {DESCRIPTION}: "{description}"')
-            elif len(description) > 1000:
-              yield cls.new_issue(
-                  node, f'{DESCRIPTION} too long: {len(description)}')
+            size = len(description)
+            if size < 1:
+              yield cls.new_issue(node, f'{DESCRIPTION} too short: "{size}"')
+            elif size > 1000:
+              yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
 
         if COLOR in a_class:
           color = a_class[COLOR]

@@ -101,19 +101,19 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, f'{DESCRIPTION} must be a str')
       else:
         # TODO(schwehr): See if there is a clean way to factor out these checks
-        if len(description) < 10:
+        size = len(description)
+        if size < 10:
           yield cls.new_issue(node, f'{DESCRIPTION} too short')
-        if len(description) > 200:
-          yield cls.new_issue(
-              node, f'{DESCRIPTION} too long: {len(description)}')
+        if size > 200:
+          yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
 
     if NAME in gee_interval:
-      description = gee_interval[NAME]
-      if not isinstance(description, str):
+      name = gee_interval[NAME]
+      if not isinstance(name, str):
         yield cls.new_issue(node, f'{NAME} must be a str')
       else:
-        if len(description) < 2:
+        size = len(name)
+        if size < 2:
           yield cls.new_issue(node, f'{NAME} too short')
-        if len(description) > 200:
-          yield cls.new_issue(
-              node, f'{NAME} too long: {len(description)}')
+        if size > 200:
+          yield cls.new_issue(node, f'{NAME} too long: {size}')

@@ -42,14 +42,14 @@ class DescriptionTest(unittest.TestCase):
     stac_data = {'description': 'Too short'}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Description too short: 9')]
+    expect = [Check.new_issue(node, 'description too short: 9')]
     self.assertEqual(expect, issues)
 
   def test_too_long(self):
     stac_data = {'description': 'a' * 9000}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Description too long: 9000')]
+    expect = [Check.new_issue(node, 'description too long: 9000')]
     self.assertEqual(expect, issues)
 
 

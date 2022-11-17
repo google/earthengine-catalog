@@ -196,12 +196,10 @@ class Check(stac.NodeCheck):
             else:
               # TODO(schwehr): Possible to use a generic str field length check?
               # TODO(schwehr): Need to see if we can better check citations.
-              if len(citation) < 5:
+              size = len(citation)
+              if size < 5:
                 yield cls.new_issue(
-                    node,
-                    f'{CITATION} too short: {len(citation)} - "{citation}"')
-              if len(citation) > 600:
+                    node, f'{CITATION} too short: {size} - "{citation}"')
+              if size > 600:
                 yield cls.new_issue(
-                    node,
-                    f'{CITATION} too long: '
-                    f'{len(citation)} - "{citation[:50]}..."')
+                    node, f'{CITATION} too long: {size} - "{citation[:50]}..."')

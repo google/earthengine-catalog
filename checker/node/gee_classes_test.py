@@ -128,7 +128,7 @@ class GeeClassesTest(unittest.TestCase):
         {'color': 'red', 'description': '', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Invalid description: ""')]
+    expect = [Check.new_issue(node, 'description too short: "0"')]
     self.assertEqual(expect, issues)
 
   def test_bad_description_too_long(self):

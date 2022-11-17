@@ -35,8 +35,8 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, 'Description must be a str')
       return
 
-    if len(description) < MIN_LEN:
-      yield cls.new_issue(node, f'Description too short: {len(description)}')
-    if len(description) > MAX_LEN:
-      yield cls.new_issue(node, f'Description too long: {len(description)}')
-
+    size = len(description)
+    if size < MIN_LEN:
+      yield cls.new_issue(node, f'{DESCRIPTION} too short: {size}')
+    if size > MAX_LEN:
+      yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
