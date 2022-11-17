@@ -44,7 +44,8 @@ local self_url = catalog_subdir_url + base_filename;
     * Spawn SA et al. (2017) New global biomass map for the year 2010. New Orleans, LA: American Geophysical Union.
     * Xia, J. et al. (2014) Spatio-temporal patterns and climate variables controlling of biomass carbon stock of global grassland ecosystems from 1982 to 2006. Remote Sensing 6, 1783-1802.
 
-    Provider's note: The [WCMC carbon biomass dataset](https://data-gis.unep-wcmc.org/portal/home/item.html?id=2444626e38a04573b3a52904f2a050d9)
+    Provider's note: The UN Environment Programme World Conservation Monitoring
+    Centre (UNEP-WCMC) carbon biomass dataset
     represents conditions between 1982 and 2010 depending on land cover type. The relative patterns
     of carbon stocks are well represented with this dataset. The [NASA/ORNL carbon biomass dataset](https://daac.ornl.gov/VEGETATION/guides/Global_Maps_C_Density_2010.html)
     represents biomass conditions for 2010, with uncertainty estimates at the pixel-level.
