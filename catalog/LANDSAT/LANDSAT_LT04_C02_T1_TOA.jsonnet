@@ -1,7 +1,6 @@
 local id = 'LANDSAT/LT04/C02/T1_TOA';
 local subdir = 'LANDSAT';
 
-local common_bands = import 'templates/common_bands.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
