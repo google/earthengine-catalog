@@ -212,7 +212,7 @@ class TemporalTest(unittest.TestCase):
   def test_start_not_str(self):
     self.first_interval[0] = 222
     issues = list(check_temporal(self.node, self.extent))
-    message = f'start must be a string'
+    message = 'start must be a string'
     expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
@@ -259,6 +259,22 @@ class TemporalTest(unittest.TestCase):
     message = (
         'start is after end: '
         '2055-01-01 00:00:00+00:00 > 2009-01-01 00:00:00+00:00')
+    expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
+  def test_table_must_have_end_date(self):
+    self.first_interval[1] = None
+    self.node.gee_type = stac.GeeType.TABLE
+    issues = list(check_temporal(self.node, self.extent))
+    message = 'table must have an end date'
+    expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
+  def test_table_collection_must_have_end_date(self):
+    self.first_interval[1] = None
+    self.node.gee_type = stac.GeeType.TABLE_COLLECTION
+    issues = list(check_temporal(self.node, self.extent))
+    message = 'table_collection must have an end date'
     expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 

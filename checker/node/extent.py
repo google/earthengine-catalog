@@ -153,7 +153,10 @@ class Check(stac.NodeCheck):
     if start_date < EARLIEST:
       yield cls.new_issue(node, f'{start_date} is before {EARLIEST}')
 
-    if end is not None:
+    if end is None:
+      if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+        yield cls.new_issue(node, f'{node.gee_type} must have an end date')
+    else:
       if not isinstance(end, str):
         yield cls.new_issue(node, 'end must be a string')
         return
