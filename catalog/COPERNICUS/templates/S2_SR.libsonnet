@@ -63,8 +63,7 @@ local license = spdx.proprietary;
         ee.link.parent(parent_url),
         ee.link.root(),
         ee.link.example(id, basename),
-        // TODO(b/222498896): Make these match the resulting files.
-        ee.link.preview(subdir, 'COPERNICUS_S2_SR'),
+        ee.link.preview(subdir, basename),
         ee.link.terms_of_use(self_ee_catalog_url),
       ],
       keywords: [
