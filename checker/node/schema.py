@@ -101,6 +101,7 @@ class Check(stac.NodeCheck):
       return
     summaries = node.stac[SUMMARIES]
 
+    if not isinstance(summaries, dict): return
     schema_field = summaries.get(GEE_SCHEMA, [])
     properties_field = summaries.get(GEE_PROPERTIES, [])
 
@@ -117,7 +118,7 @@ class Check(stac.NodeCheck):
       schema = schemas[schema_num]
 
       if not isinstance(schema, list):
-        yield cls.new_issue(node, 'Schema must be a dict')
+        yield cls.new_issue(node, 'Schema must be a list')
         continue
 
       if len(schema) > MAX_SCHEMA_SIZE:

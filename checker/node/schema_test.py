@@ -32,6 +32,12 @@ class SchemaTest(unittest.TestCase):
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
+  def test_summaries_not_dict(self):
+    stac_data = {'summaries': 'not a dict'}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
   def test_smallest_valid_schema(self):
     stac_data = {'summaries': {'gee:schema': [{
         'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
@@ -85,7 +91,7 @@ class SchemaTest(unittest.TestCase):
     stac_data = {'summaries': {'gee:schema': 'not a dict'}}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
     issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Schema must be a dict')]
+    expect = [Check.new_issue(node, 'Schema must be a list')]
     self.assertEqual(expect, issues)
 
   def test_bad_too_many_entries(self):
