@@ -128,13 +128,11 @@ local self_url = catalog_subdir_url + base_filename;
               description: 'unused',
               first_bit: 2,
               bit_count: 1,
-              values: [],
             },
             {
               description: 'Number of Landsat observations used for this pixel (0-31).',
               first_bit: 3,
               bit_count: 5,
-              values: [],
             },
           ],
           total_bit_count: 8,

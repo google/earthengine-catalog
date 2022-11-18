@@ -42,7 +42,6 @@ local qa_pixel = {
         description: 'Unused',
         first_bit: 2,
         bit_count: 1,
-        values: [],
       },
       {
         description: 'Cloud',
