@@ -300,7 +300,7 @@ local self_url = catalog_subdir_url + base_filename;
       maximum: 1.0,
       'gee:estimated_range': false,
     },
-    flood_duration: {
+    duration: {
       minimum: 0.0,
       maximum: 65535.0,
       'gee:estimated_range': false,
