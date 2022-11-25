@@ -84,8 +84,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       1000.0,
     ],
     platform: [
-      'Terra',
       'Aqua',
+      'Terra',
     ],
     instruments: [
       'MODIS',

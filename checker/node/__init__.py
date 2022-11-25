@@ -19,6 +19,7 @@ from checker.node import gee_type
 from checker.node import gee_unusual_terms_of_use
 from checker.node import gee_user_uploaded
 from checker.node import id_field
+from checker.node import instrument
 from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
@@ -42,6 +43,7 @@ from checker.node import visualizations_table
 TYPE = 'type'
 
 _CHECKS = [
+    # Core components that must be checked first
     required.Check,
     gee_type.Check,
     top_level.Check,
@@ -50,6 +52,7 @@ _CHECKS = [
     file_path.Check,
     extensions.Check,
 
+    # Primary STAC components
     extent.Check,
     keywords.Check,
     title.Check,
@@ -58,6 +61,7 @@ _CHECKS = [
     providers.Check,
     links.Check,
     summaries.Check,
+    instrument.Check,
 
     # extensions
     eo_extension.Check,

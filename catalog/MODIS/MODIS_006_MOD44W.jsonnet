@@ -54,8 +54,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   extent: ee.extent_global('2000-01-01T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
-      'Terra',
       'Space Shuttle Endeavour',
+      'Terra',
     ],
   },
   'sci:doi': '10.5067/MODIS/MOD44W.006',

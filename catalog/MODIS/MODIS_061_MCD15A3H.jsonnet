@@ -70,8 +70,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   extent: ee.extent_global('2002-07-04T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
-      'Terra',
       'Aqua',
+      'Terra',
     ],
   },
   'sci:doi': '10.5067/MODIS/MCD15A3H.061',

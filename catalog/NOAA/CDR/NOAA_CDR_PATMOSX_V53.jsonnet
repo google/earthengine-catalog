@@ -89,8 +89,8 @@ local self_url = catalog_subdir_url + base_filename;
       11132.0,
     ],
     platform: [
-      'NOAA',
       'MetOP',
+      'NOAA',
     ],
     instruments: [
       'AVHRR',
