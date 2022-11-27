@@ -19,6 +19,15 @@ py_test(
 )
 
 py_test(
+    name = "eo_extension_test",
+    srcs = ["eo_extension_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "extensions_test",
     srcs = ["extensions_test.py"],
     deps = [
@@ -73,6 +82,15 @@ py_test(
 )
 
 py_test(
+    name = "gee_skip_indexing_test",
+    srcs = ["gee_skip_indexing_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
     name = "gee_terms_of_use_test",
     srcs = ["gee_terms_of_use_test.py"],
     deps = [
@@ -93,6 +111,15 @@ py_test(
 py_test(
     name = "gee_unusual_terms_of_use_test",
     srcs = ["gee_unusual_terms_of_use_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "gee_user_uploaded_test",
+    srcs = ["gee_user_uploaded_test.py"],
     deps = [
         ":node",
         "//checker:stac",
@@ -165,6 +192,15 @@ py_test(
 py_test(
     name = "required_test",
     srcs = ["required_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+    ],
+)
+
+py_test(
+    name = "sar_extension_test",
+    srcs = ["sar_extension_test.py"],
     deps = [
         ":node",
         "//checker:stac",
