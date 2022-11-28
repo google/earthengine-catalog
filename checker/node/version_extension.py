@@ -50,6 +50,8 @@ from checker import stac
 
 EXTENSION_VERSION = '1.0.0'
 
+LINKS = 'links'
+REL = 'rel'
 VERSION = 'version'
 
 LATEST = 'latest-version'
@@ -84,8 +86,12 @@ class Check(stac.NodeCheck):
     deprecated = node.stac.get(DEPRECATED)
     has_deprecated = DEPRECATED in node.stac
 
-    links = node.stac.get('links', [])
-    version_links = {l['rel']: l for l in links if l['rel'] in LINK_TYPES}
+    links = node.stac.get(LINKS, [])
+    if not isinstance(links, list):
+      links = []
+    version_links = {
+        l[REL]: l for l in links
+        if isinstance(l, dict) and REL in l and l[REL] in LINK_TYPES}
 
     if node.type == stac.StacType.CATALOG:
       if has_version_extension:

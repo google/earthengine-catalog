@@ -96,6 +96,39 @@ class VersionExtensionCollectionTest(unittest.TestCase):
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
+  def test_links_not_list_ignored(self):
+    stac_data = {
+        'stac_extensions': [VERSION_URL],
+        'version': '2.0bis',
+        'title': 'A title',
+        'links': 'not a list'}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    issues = list(Check.run(node))
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+  def test_link_not_dict_ignored(self):
+    stac_data = {
+        'stac_extensions': [VERSION_URL],
+        'version': '2.0bis',
+        'title': 'A title',
+        'links': ['not a dict']}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    issues = list(Check.run(node))
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
+  def test_link_no_rel_ignored(self):
+    stac_data = {
+        'stac_extensions': [VERSION_URL],
+        'version': '2.0bis',
+        'title': 'A title',
+        'links': [{}]}
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    issues = list(Check.run(node))
+    issues = list(Check.run(node))
+    self.assertEqual(0, len(issues))
+
   def test_extension_version_not_str(self):
     stac_data = {'version': '1', 'stac_extensions': [123]}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
