@@ -46,59 +46,9 @@ The issue tracker is currently disabled. In the future, we plan to enable the
 issue tracker. In the meanwhile, you can add an issue
 [here](https://issuetracker.google.com/issues?q=componentid:1161653%2B%20status:open)
 
-# Build
+# Install / Build instructions
 
-## Requirements
-
-- [Bazel](https://bazel.build/)
-- [Jsonnet](https://jsonnet.org)
-
-We have instructions for Debian-based Linux distributions and recommend using
-[DebianTesting](https://wiki.debian.org/DebianTesting).
-
-It is possible to work on this repository using other operating systems such as
-Windows, MacOS X, or other Linux distributions. However, we do not currently
-have instructions.
-
-## Setup
-
-You will need to install Bazel and Jsonnet. On Debian-based Linux systems:
-
-```shell
-sudo apt-get install bazel jsonnet
-sudo apt-get install python3-absl
-```
-
-## Building
-
-```shell
-bazel build //...
-```
-
-If that doesn't work, you might need to specify the Java JDK path. This example
-is using bash:
-
-```shell
-PATH=/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH bazel build //...
-```
-
-Finding the results:
-
-```shell
-ls bazel-bin/catalog/
-```
-
-Running the unittests:
-
-```shell
-bazel test //...
-```
-
-Running the Earth Engine Catalog Checker:
-
-```shell
-bazel run //checker:ee_stac_check
-```
+See [install](docs/install.md)
 
 # Non-commercial datasets
 
