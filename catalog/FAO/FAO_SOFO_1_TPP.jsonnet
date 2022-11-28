@@ -30,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of forest-related indicators (GCS). The TPP dataset provides 4 different
     estimates of tree proximate people (trees outside forests), all of them for
     the year 2019 with a pixel size of 100 meters at a global level.
-    [Find out more about the dataset.](https://data.apps.fao.org/catalog/dcat/tree-proximate-people]
+    [Find out more about the dataset.](https://data.apps.fao.org/catalog/dcat/tree-proximate-people)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
