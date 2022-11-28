@@ -7,6 +7,11 @@ Keywords should be sorted and there should be no duplicates.
   - All letters must be lower case
   - Must start with a letter or number
   - Contain letters, numbers, and underscores
+  - Be used in at least two datasets (see checker/tree/keywords.py)
+
+Example Jsonnet:
+
+  keywords: ['goes_18', 'noaa', 'weather'],
 """
 
 import re
