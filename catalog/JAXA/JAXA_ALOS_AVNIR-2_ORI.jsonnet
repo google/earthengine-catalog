@@ -42,7 +42,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'visible',
   ],
   providers: [
-    ee.producer_provider('JAXA Earth Observation Research Center', 'https://www.eorc.jaxa.jp/ALOS/en/alos-ori/'),
+    ee.producer_provider(
+      'JAXA Earth Observation Research Center',
+      'https://www.eorc.jaxa.jp/ALOS/en/dataset/ori_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(127.05, 23.81, 154.41, 46.04,
