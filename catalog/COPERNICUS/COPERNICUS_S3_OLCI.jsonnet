@@ -421,150 +421,339 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:bitmask': {
           bitmask_parts: [
             {
-              description: 'Land',
-              first_bit: 31,
+              description: 'Saturated at Oa21',
+              first_bit: 0,
               bit_count: 1,
               values: [
                 {
-                  description: 'Pixel is over water',
+                  description: 'The sample of Oa21 is not saturated',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Pixel is over land',
+                  description: 'The sample of Oa21 is saturated',
                 },
               ],
             },
             {
-              description: 'Coastline',
-              first_bit: 30,
+              description: 'Saturated at Oa20',
+              first_bit: 1,
               bit_count: 1,
               values: [
                 {
-                  description: 'Pixel is not on coastline',
+                  description: 'The sample of Oa20 is not saturated',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Pixel is on coastline',
+                  description: 'The sample of Oa20 is saturated',
                 },
               ],
             },
             {
-              description: 'Fresh inland water',
-              first_bit: 29,
+              description: 'Saturated at Oa19',
+              first_bit: 2,
               bit_count: 1,
               values: [
                 {
-                  description: 'Pixel is not over fresh water, rivers, or lakes',
+                  description: 'The sample of Oa19 is not saturated',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Pixel is over fresh water, rivers, or lakes',
+                  description: 'The sample of Oa19 is saturated',
                 },
               ],
             },
             {
-              description: 'Tidal region',
-              first_bit: 28,
+              description: 'Saturated at Oa18',
+              first_bit: 3,
               bit_count: 1,
               values: [
                 {
-                  description: 'Pixel is not over a tidal region',
+                  description: 'The sample of Oa18 is not saturated',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Pixel is over a tidal region',
+                  description: 'The sample of Oa18 is saturated',
                 },
               ],
             },
             {
-              description: 'Bright',
-              first_bit: 27,
+              description: 'Saturated at Oa17',
+              first_bit: 4,
               bit_count: 1,
               values: [
                 {
-                  description: 'Pixel is not bright',
+                  description: 'The sample of Oa17 is not saturated',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'Pixel is bright',
+                  description: 'The sample of Oa17 is saturated',
                 },
               ],
             },
             {
-              description: 'Straylight risk',
-              first_bit: 26,
+              description: 'Saturated at Oa16',
+              first_bit: 5,
               bit_count: 1,
               values: [
                 {
-                  description: 'Stray light correction (of the Ground Imager) quality is not degraded',
+                  description: 'The sample of Oa16 is not saturated',
                   value: 0,
                 },
                 {
                   value: 1,
+                  description: 'The sample of Oa16 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa15',
+              first_bit: 6,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa15 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa15 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa14',
+              first_bit: 7,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa14 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa14 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa13',
+              first_bit: 8,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa13 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa13 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa12',
+              first_bit: 9,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa12 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa12 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa11',
+              first_bit: 10,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa11 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa11 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa10',
+              first_bit: 11,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa10 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa10 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa09',
+              first_bit: 12,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa09 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa09 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa08',
+              first_bit: 13,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa08 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa08 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa07',
+              first_bit: 14,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa07 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa07 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa06',
+              first_bit: 15,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa06 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa06 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa05',
+              first_bit: 16,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa05 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa05 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa04',
+              first_bit: 17,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa04 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa04 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa03',
+              first_bit: 18,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa03 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa03 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa02',
+              first_bit: 19,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa02 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa02 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Saturated at Oa01',
+              first_bit: 20,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'The sample of Oa01 is not saturated',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'The sample of Oa01 is saturated',
+                },
+              ],
+            },
+            {
+              description: 'Dubious',
+              first_bit: 21,
+              bit_count: 1,
+              values: [
+                {
                   description: |||
-                    Stray light correction (of the Ground Imager)
-                    quality is degraded because not enough neighbor pixels
-                    were available for its estimation
+                    Any pixel's sample is not contaminated
+                    by a neighbor saturated sample or the Instrument Source
+                    Packet it was extracted from is not corrupted
                   |||,
-                },
-              ],
-            },
-            {
-              description: 'Invalid',
-              first_bit: 25,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'Pixel is valid',
                   value: 0,
                 },
                 {
                   value: 1,
                   description: |||
-                    Pixel is invalid, i.e. its value is missing
-                    either because it is out of the instrument swath or because
-                    of missing or unusable Level 0 data
-                  |||,
-                },
-              ],
-            },
-            {
-              description: 'Cosmetic',
-              first_bit: 24,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'Pixel has not been filled with cosmetic values',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'Pixel has been filled with cosmetic values',
-                },
-              ],
-            },
-            {
-              description: 'Duplicate',
-              first_bit: 23,
-              bit_count: 1,
-              values: [
-                {
-                  description: |||
-                    Pixel is not derived from the same instrument
-                    pixel as one of its neighbors during the re-sampling process
-                  |||,
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: |||
-                    Pixel is derived from the same instrument pixel
-                    as one of its neighbors during the re-sampling process
+                    Any pixel's sample is potentially contaminated
+                    by a neighbor saturated sample or the Instrument Source
+                    Packet it was extracted from is corrupted
                   |||,
                 },
               ],
@@ -595,342 +784,153 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               ],
             },
             {
-              description: 'Dubious',
-              first_bit: 21,
+              description: 'Duplicate',
+              first_bit: 23,
               bit_count: 1,
               values: [
                 {
                   description: |||
-                    Any pixel's sample is not contaminated
-                    by a neighbor saturated sample or the Instrument Source
-                    Packet it was extracted from is not corrupted
+                    Pixel is not derived from the same instrument
+                    pixel as one of its neighbors during the re-sampling process
                   |||,
                   value: 0,
                 },
                 {
                   value: 1,
                   description: |||
-                    Any pixel's sample is potentially contaminated
-                    by a neighbor saturated sample or the Instrument Source
-                    Packet it was extracted from is corrupted
+                    Pixel is derived from the same instrument pixel
+                    as one of its neighbors during the re-sampling process
                   |||,
                 },
               ],
             },
             {
-              description: 'Saturated at Oa01',
-              first_bit: 20,
+              description: 'Cosmetic',
+              first_bit: 24,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa01 is not saturated',
+                  description: 'Pixel has not been filled with cosmetic values',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa01 is saturated',
+                  description: 'Pixel has been filled with cosmetic values',
                 },
               ],
             },
             {
-              description: 'Saturated at Oa02',
-              first_bit: 19,
+              description: 'Invalid',
+              first_bit: 25,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa02 is not saturated',
+                  description: 'Pixel is valid',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa02 is saturated',
+                  description: |||
+                    Pixel is invalid, i.e. its value is missing
+                    either because it is out of the instrument swath or because
+                    of missing or unusable Level 0 data
+                  |||,
                 },
               ],
             },
             {
-              description: 'Saturated at Oa03',
-              first_bit: 18,
+              description: 'Straylight risk',
+              first_bit: 26,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa03 is not saturated',
+                  description: 'Stray light correction (of the Ground Imager) quality is not degraded',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa03 is saturated',
+                  description: |||
+                    Stray light correction (of the Ground Imager)
+                    quality is degraded because not enough neighbor pixels
+                    were available for its estimation
+                  |||,
                 },
               ],
             },
             {
-              description: 'Saturated at Oa04',
-              first_bit: 17,
+              description: 'Bright',
+              first_bit: 27,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa04 is not saturated',
+                  description: 'Pixel is not bright',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa04 is saturated',
+                  description: 'Pixel is bright',
                 },
               ],
             },
             {
-              description: 'Saturated at Oa05',
-              first_bit: 16,
+              description: 'Tidal region',
+              first_bit: 28,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa05 is not saturated',
+                  description: 'Pixel is not over a tidal region',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa05 is saturated',
+                  description: 'Pixel is over a tidal region',
                 },
               ],
             },
             {
-              description: 'Saturated at Oa06',
-              first_bit: 15,
+              description: 'Fresh inland water',
+              first_bit: 29,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa06 is not saturated',
+                  description: 'Pixel is not over fresh water, rivers, or lakes',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa06 is saturated',
+                  description: 'Pixel is over fresh water, rivers, or lakes',
                 },
               ],
             },
             {
-              description: 'Saturated at Oa07',
-              first_bit: 14,
+              description: 'Coastline',
+              first_bit: 30,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa07 is not saturated',
+                  description: 'Pixel is not on coastline',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa07 is saturated',
+                  description: 'Pixel is on coastline',
                 },
               ],
             },
             {
-              description: 'Saturated at Oa08',
-              first_bit: 13,
+              description: 'Land',
+              first_bit: 31,
               bit_count: 1,
               values: [
                 {
-                  description: 'The sample of Oa08 is not saturated',
+                  description: 'Pixel is over water',
                   value: 0,
                 },
                 {
                   value: 1,
-                  description: 'The sample of Oa08 is saturated',
+                  description: 'Pixel is over land',
                 },
               ],
-            },
-            {
-              description: 'Saturated at Oa09',
-              first_bit: 12,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa09 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa09 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa10',
-              first_bit: 11,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa10 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa10 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa11',
-              first_bit: 10,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa11 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa11 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa12',
-              first_bit: 9,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa12 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa12 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa13',
-              first_bit: 8,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa13 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa13 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa14',
-              first_bit: 7,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa14 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa14 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa15',
-              first_bit: 6,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa15 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa15 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa16',
-              first_bit: 5,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa16 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa16 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa17',
-              first_bit: 4,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa17 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa17 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa18',
-              first_bit: 3,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa18 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa18 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa19',
-              first_bit: 2,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa19 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa19 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa20',
-              first_bit: 1,
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa20 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa20 is saturated',
-                },
-              ],
-            },
-            {
-              description: 'Saturated at Oa21',
-              bit_count: 1,
-              values: [
-                {
-                  description: 'The sample of Oa21 is not saturated',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'The sample of Oa21 is saturated',
-                },
-              ],
-              first_bit: 0,
             },
           ],
           total_bit_count: 32,
