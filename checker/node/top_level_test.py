@@ -1,40 +1,23 @@
 """Tests for top_level."""
 
-import pathlib
-
-from checker import stac
+from checker import test_utils
 from checker.node import top_level
 import unittest
 
-Check = top_level.Check
 
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
-NONE = stac.GeeType.NONE
+class TopLevelTest(test_utils.NodeTest):
 
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
-
-
-class TopLevelTest(unittest.TestCase):
+  def setUp(self):
+    super().setUp()
+    self.check = top_level.Check
 
   def test_all_catalog_fields(self):
-    fields = [
-        'description', 'id', 'links', 'stac_version',
-        'title', 'type'
-    ]
-    stac_data = {x: None for x in fields}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    fields = ['description', 'id', 'links', 'stac_version', 'title', 'type']
+    self.assert_catalog({x: None for x in fields})
 
   def test_bad_catalog_field(self):
-    stac_data = {'bogus': None}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Invalid top-level catalog field: bogus')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {'bogus': None}, 'Invalid top-level catalog field: bogus')
 
   def test_all_collections_fields(self):
     fields = [
@@ -47,18 +30,12 @@ class TopLevelTest(unittest.TestCase):
         'stac_extensions', 'stac_version', 'summaries', 'title', 'type',
         'version'
     ]
-    stac_data = {x: None for x in fields}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({x: None for x in fields})
 
   def test_bad_collection_field(self):
-    stac_data = {'bogus_collection_field': None}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'Invalid top-level collection field: bogus_collection_field')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'bogus_collection_field': None},
+        'Invalid top-level collection field: bogus_collection_field')
 
 
 if __name__ == '__main__':

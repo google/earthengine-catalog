@@ -1,56 +1,36 @@
 """Tests for description."""
 
-import pathlib
-
-from checker import stac
+from checker import test_utils
 from checker.node import description
 import unittest
 
-Check = description.Check
 
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
+class DescriptionTest(test_utils.NodeTest):
 
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
-NOT_A_STR = ['not a str']
+  def setUp(self):
+    super().setUp()
+    self.check = description.Check
 
-
-class DescriptionTest(unittest.TestCase):
+  def test_valid_catalog(self):
+    self.assert_catalog({'description': 'x' * 40})
 
   def test_valid_collection(self):
-    stac_data = {'description': 'z' * 40}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({'description': 'y' * 40})
 
   def test_missing(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Missing: description')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({}, 'Missing: description')
 
   def test_not_a_str(self):
-    stac_data = {'description': NOT_A_STR}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Description must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'description': ['not a str']}, 'Description must be a str')
 
   def test_too_short(self):
-    stac_data = {'description': 'Too short'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'description too short: 9')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'description': 'Too short'}, 'description too short: 9')
 
   def test_too_long(self):
-    stac_data = {'description': 'a' * 9000}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'description too long: 9000')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'description': 'a' * 9000}, 'description too long: 9000')
 
 
 if __name__ == '__main__':

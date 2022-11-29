@@ -1,152 +1,118 @@
 """Tests for file_path."""
 
-import pathlib
-
-from checker import stac
+from checker import test_utils
 from checker.node import file_path
 import unittest
 
-Check = file_path.Check
 
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
-NONE = stac.GeeType.NONE
+class ValidFilePathTest(test_utils.NodeTest):
 
-
-class ValidFilePathTest(unittest.TestCase):
+  def setUp(self):
+    super().setUp()
+    self.check = file_path.Check
 
   def test_root_catalog(self):
-    node = stac.Node(
-        'GEE_catalog', pathlib.Path('catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({}, dataset_id='GEE_catalog', file_path='catalog.json')
 
   def test_catalog(self):
-    node = stac.Node('A', pathlib.Path('A/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({}, dataset_id='A', file_path='A/catalog.json')
 
   def test_2_level_catalog(self):
-    node = stac.Node(
-        'NASA/A', pathlib.Path('NASA/A/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog(
+        {}, dataset_id='NASA/A', file_path='NASA/A/catalog.json')
 
   def test_collection(self):
-    node = stac.Node('A/B', pathlib.Path('A/A_B.json'), COLLECTION, IMAGE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({}, dataset_id='A/B', file_path='A/A_B.json')
 
   def test_2_level_collection(self):
-    node = stac.Node(
-        'USGS/B/C', pathlib.Path('USGS/B/USGS_B_C.json'), COLLECTION, IMAGE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {}, dataset_id='USGS/B/C', file_path='USGS/B/USGS_B_C.json')
 
   def test_2_level_collection_exception_gfsad1000(self):
-    path = pathlib.Path('USGS/GFSAD1000/USGS_GFSAD1000_V1.json')
-    node = stac.Node('USGS/GFSAD1000_V1', path, COLLECTION, IMAGE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {},
+        dataset_id='USGS/GFSAD1000_V1',
+        file_path='USGS/GFSAD1000/USGS_GFSAD1000_V1.json')
 
 
-class SkipFilePathTestgoogletest(unittest.TestCase):
+class SkipFilePathTestgoogletest(test_utils.NodeTest):
+
+  def setUp(self):
+    super().setUp()
+    self.check = file_path.Check
 
   def test_node_id_empty(self):
-    node = stac.Node('', pathlib.Path('catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({}, dataset_id='', file_path='catalog.json')
 
   def test_node_id_not_str(self):
-    node = stac.Node('', pathlib.Path('catalog.json'), CATALOG, NONE, {})
-    node.id = 415  # Force a value that is not a str without triggering pytype
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    # pytype: disable=wrong-arg-types
+    self.assert_catalog({}, dataset_id=415, file_path='catalog.json')
+    # pytype: enable=wrong-arg-types
 
 
-class ErrorFilePathTest(unittest.TestCase):
+class ErrorFilePathTest(test_utils.NodeTest):
+
+  def setUp(self):
+    super().setUp()
+    self.check = file_path.Check
 
   def test_root_catalog_bad_name(self):
-    node = stac.Node(
-        'wrong name', pathlib.Path('catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Root must have an id of GEE_catalog')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {}, 'Root must have an id of GEE_catalog',
+        dataset_id='wrong_name', file_path='catalog.json')
 
   def test_non_root_catalog_used_root_id(self):
-    node = stac.Node(
-        'GEE_catalog', pathlib.Path('A/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, '"GEE_catalog" in the wrong place')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {}, '"GEE_catalog" in the wrong place',
+        dataset_id='GEE_catalog', file_path='A/catalog.json')
 
   def test_bad_catalog_name(self):
-    node = stac.Node('A', pathlib.Path('A/bad_name.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Catalog file must be catalog.json')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {}, 'Catalog file must be catalog.json',
+        dataset_id='A', file_path='A/bad_name.json')
 
   def test_bad_catalog_too_deep(self):
-    node = stac.Node(
-        'A/B/C', pathlib.Path('A/B/C/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Catalog too deep')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {}, 'Catalog too deep',
+        dataset_id='A/B/C', file_path='A/B/C/catalog.json')
 
   def test_bad_catalog_unexpected_2_level(self):
-    node = stac.Node(
-        'USGS/B', pathlib.Path('USGS/C/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
     message = (
         '2-level expected path: USGS/B/catalog.json found: USGS/C/catalog.json')
-    expect = [Check.new_issue(node, message)]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {}, message, dataset_id='USGS/B', file_path='USGS/C/catalog.json')
 
   def test_bad_catalog_invalid_2_level(self):
-    node = stac.Node(
-        'A/B', pathlib.Path('A/B/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'Found 2-level path, but expected 1-level path: [\'A\', \'B\']')]
-    self.assertEqual(expect, issues)
+    message = 'Found 2-level path, but expected 1-level path: [\'A\', \'B\']'
+    self.assert_catalog(
+        {}, message, dataset_id='A/B', file_path='A/B/catalog.json')
 
   def test_bad_catalog_mismatch(self):
-    node = stac.Node(
-        'A', pathlib.Path('B/catalog.json'), CATALOG, NONE, {})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'expected path: A/catalog.json found: B/catalog.json')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {}, 'expected path: A/catalog.json found: B/catalog.json',
+        dataset_id='A', file_path='B/catalog.json')
 
   # COLLECTIONS
   def test_bad_2_level_collection_exception_gfsad1000(self):
-    path = pathlib.Path('USGS/USGS_GFSAD1000_V1.json')
-    node = stac.Node('USGS/GFSAD1000_V1', path, COLLECTION, IMAGE, {})
-    issues = list(Check.run(node))
     message = (
         'Collection USGS/GFSAD1000: expected path: '
         'USGS/GFSAD1000/USGS_GFSAD1000_V1.json '
         'found: USGS/USGS_GFSAD1000_V1.json')
-    expect = [Check.new_issue(node, message)]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {}, message,
+        dataset_id='USGS/GFSAD1000_V1', file_path='USGS/USGS_GFSAD1000_V1.json')
 
   def test_bad_2_level_collection(self):
-    node = stac.Node(
-        'A/B/C', pathlib.Path('A/B/A_B_C.json'), COLLECTION, IMAGE, {})
-    issues = list(Check.run(node))
     message = (
-        'Collection: expected 1-level path: A/A_B_C.json '
-        'found: A/B/A_B_C.json')
-    expect = [Check.new_issue(node, message)]
-    self.assertEqual(expect, issues)
+        'Collection: expected 1-level path: A/A_B_C.json found: A/B/A_B_C.json')
+    self.assert_collection(
+        {}, message,
+        dataset_id='A/B/C', file_path='A/B/A_B_C.json')
 
   def test_bad_collection(self):
-    node = stac.Node('A/B', pathlib.Path('A/B.json'), COLLECTION, IMAGE, {})
-    issues = list(Check.run(node))
-    message = 'Collection: expected 1-level path: A/A_B.json found: A/B.json'
-    expect = [Check.new_issue(node, message)]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {}, 'Collection: expected 1-level path: A/A_B.json found: A/B.json',
+        dataset_id='A/B', file_path='A/B.json')
 
 
 if __name__ == '__main__':

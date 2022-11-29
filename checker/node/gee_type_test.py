@@ -1,72 +1,46 @@
 """Tests for gee_type."""
 
-import pathlib
-
 from checker import stac
+from checker import test_utils
 from checker.node import gee_type
 import unittest
 
-Check = gee_type.Check
-
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
-NONE = stac.GeeType.NONE
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
 
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 
+class GeeTypeTest(test_utils.NodeTest):
 
-class GeeTypeTest(unittest.TestCase):
+  def setUp(self):
+    super().setUp()
+    self.check = gee_type.Check
 
   def test_catalog(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({})
 
   def test_image(self):
-    stac_data = {'gee:type': 'image'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({'gee:type': 'image'})
 
   def test_image_collection(self):
-    stac_data = {'gee:type': 'image_collection'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'gee:type': 'image_collection'}, gee_type=IMAGE_COLLECTION)
 
   def test_table(self):
-    stac_data = {'gee:type': 'table'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({'gee:type': 'table'}, gee_type=TABLE)
 
   def test_table_collection(self):
-    stac_data = {'gee:type': 'table_collection'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'gee:type': 'table_collection'}, gee_type=TABLE_COLLECTION)
 
   def test_not_a_str(self):
-    stac_data = {'gee:type': 77}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'gee:type must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({'gee:type': 77}, 'gee:type must be a str')
 
   def test_bogus(self):
-    stac_data = {'gee:type': 'bogus'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, TABLE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'gee:type must be one of '
-        '[\'image\', \'image_collection\', \'table\', \'table_collection\']')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'gee:type': 'bogus'},
+         'gee:type must be one of '
+        '[\'image\', \'image_collection\', \'table\', \'table_collection\']')
 
 
 if __name__ == '__main__':

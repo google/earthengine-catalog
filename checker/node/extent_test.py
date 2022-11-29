@@ -3,6 +3,7 @@
 import pathlib
 
 from checker import stac
+from checker import test_utils
 from checker.node import extent
 import unittest
 
@@ -11,7 +12,6 @@ check_spatial = Check.check_spatial
 check_temporal = Check.check_temporal
 
 BBOX = extent.BBOX
-CATALOG = stac.StacType.CATALOG
 CHECK_NAME = Check.name
 COLLECTION = stac.StacType.COLLECTION
 EXTENT = extent.EXTENT
@@ -279,10 +279,12 @@ class TemporalTest(unittest.TestCase):
     self.assertEqual(expect, issues)
 
 
-class ExtentTest(unittest.TestCase):
+class ExtentTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
+    self.check = extent.Check
+
     # Components used to build up inputs.
     spatial = {'bbox': [[-1.2, 7.8, 2.3, 8.9]]}
     start = '2009-01-01T00:00:00Z'
@@ -294,41 +296,20 @@ class ExtentTest(unittest.TestCase):
             TEMPORAL: temporal}}
 
   def test_valid(self):
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, self.stac_json)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(self.stac_json)
 
   def test_valid_without_end_date(self):
     self.stac_json[EXTENT][TEMPORAL][INTERVAL][0][1] = None
-    node = stac.Node(ID, FILE_PATH, COLLECTION, NONE, self.stac_json)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(self.stac_json)
 
   def test_catalog_cannot_have_extent(self):
-    dataset_id = 'a_catalog'
-    stac_json = {EXTENT: {}}
-    node = stac.Node(dataset_id, FILE_PATH, CATALOG, NONE, stac_json)
-    issues = list(Check.run(node))
-    message = 'Catalogs cannot have extent'
-    expect = [stac.Issue(dataset_id, FILE_PATH, CHECK_NAME, message)]
-    self.assertEqual(expect, issues)
+    self.assert_catalog({EXTENT: {}}, 'Catalogs cannot have extent')
 
   def test_collection_must_have_extent(self):
-    stac_json = {}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, NONE, stac_json)
-    issues = list(Check.run(node))
-    message = 'Collections must have extent'
-    expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
-    self.assertEqual(expect, issues)
+    self.assert_collection({}, 'Collections must have extent')
 
   def test_extent_is_dict(self):
-    stac_json = {EXTENT: NOT_A_DICT}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, NONE, stac_json)
-    issues = list(Check.run(node))
-    message = '"extent" must be a dict'
-    expect = [stac.Issue(ID, FILE_PATH, CHECK_NAME, message)]
-    self.assertEqual(expect, issues)
-
+    self.assert_collection({EXTENT: 'not a dict'}, '"extent" must be a dict')
 
 if __name__ == '__main__':
   unittest.main()

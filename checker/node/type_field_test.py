@@ -1,82 +1,50 @@
 """Tests for type_field."""
 
-import pathlib
-
-from checker import stac
+from checker import test_utils
 from checker.node import type_field
 import unittest
 
-Check = type_field.Check
 
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
-NONE = stac.GeeType.NONE
+class CatalogTest(test_utils.NodeTest):
 
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
-
-
-class CatalogTest(unittest.TestCase):
+  def setUp(self):
+    super().setUp()
+    self.check = type_field.Check
 
   def test_valid(self):
-    stac_data = {'type': 'Catalog'}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({'type': 'Catalog'})
 
   def test_misssing(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Missing: type')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog({}, 'Missing: type')
 
   def test_not_a_str(self):
-    stac_data = {'type': 555}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'type must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog({'type': 555}, 'type must be a str')
 
   def test_invalid_str(self):
-    stac_data = {'type': 'bogus string'}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'type must be one of [\'Catalog\', \'Collection\']')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {'type': 'bogus string'},
+        'type must be one of [\'Catalog\', \'Collection\']')
 
 
-class CollectionTest(unittest.TestCase):
+class CollectionTest(test_utils.NodeTest):
+
+  def setUp(self):
+    super().setUp()
+    self.check = type_field.Check
 
   def test_valid(self):
-    stac_data = {'type': 'Collection'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({'type': 'Collection'})
 
   def test_misssing(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Missing: type')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({}, 'Missing: type')
 
   def test_not_a_str(self):
-    stac_data = {'type': 555}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'type must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({'type': 555}, 'type must be a str')
 
   def test_invalid_str(self):
-    stac_data = {'type': 'bogus string'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'type must be one of [\'Catalog\', \'Collection\']')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'type': 'bogus string'},
+        'type must be one of [\'Catalog\', \'Collection\']')
 
 
 if __name__ == '__main__':

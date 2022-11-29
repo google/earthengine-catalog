@@ -1,271 +1,227 @@
 """Tests for schema."""
 
-import pathlib
-
 from checker import stac
+from checker import test_utils
 from checker.node import schema
 import unittest
 
-Check = schema.Check
-
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
-NONE = stac.GeeType.NONE
-
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 
 
-class SchemaTest(unittest.TestCase):
+class SchemaTest(test_utils.NodeTest):
+
+  def setUp(self):
+    super().setUp()
+    self.check = schema.Check
 
   def test_catalog_with_neither(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({})
 
   def test_missing_summaries(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({}, gee_type=IMAGE_COLLECTION)
 
   def test_summaries_not_dict(self):
-    stac_data = {'summaries': 'not a dict'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'summaries': 'not a dict'}, gee_type=IMAGE_COLLECTION)
 
   def test_smallest_valid_schema(self):
-    stac_data = {'summaries': {'gee:schema': [{
-        'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{
+            'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}},
+        gee_type=IMAGE_COLLECTION)
 
   def test_valid_schema(self):
-    stac_data = {'summaries': {'gee:schema': [{
-        'description': 'A thing', 'name': 'ab', 'type': 'INT', 'units': 'm'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{
+            'description': 'A thing', 'name': 'ab',
+            'type': 'INT', 'units': 'm'}]}},
+        gee_type=IMAGE_COLLECTION)
 
   def test_smallest_valid_properties(self):
-    stac_data = {'summaries': {'gee:properties': [{
-        'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'summaries': {'gee:properties': [{
+            'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}})
 
   def test_valid_properties(self):
-    stac_data = {'summaries': {'gee:properties': [{
-        'description': 'A thing', 'name': 'ab', 'type': 'INT', 'units': 'cm'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'summaries': {'gee:properties': [{
+            'description': 'A thing', 'name': 'ab',
+            'type': 'INT', 'units': 'cm'}]}})
 
   def test_valid_image_collection_with_both(self):
-    stac_data = {'summaries': {
+    self.assert_collection(
+        {'summaries': {
         'gee:properties': [{
             'description': 'A thing', 'name': 'ab', 'type': 'INT'}],
         'gee:schema': [{
-            'description': 'C thing', 'name': 'cd', 'type': 'STRING'}],
-    }}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+            'description': 'C thing', 'name': 'cd', 'type': 'STRING'}]}},
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_image_cannot_have_properties(self):
     entries = [{'description': 'A thing', 'name': 'ab', 'type': 'INT'}]
-    stac_data = {'summaries': {
-        'gee:schema': entries, 'gee:properties': entries}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'image cannot have gee:schema')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {
+            'gee:schema': entries, 'gee:properties': entries}},
+        'image cannot have gee:schema')
 
   def test_bad_schema_not_dict(self):
-    stac_data = {'summaries': {'gee:schema': 'not a dict'}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Schema must be a list')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': 'not a dict'}},
+        'Schema must be a list',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_too_many_entries(self):
     entries = [
         {'description': f'A thing {i}', 'name': f'a{i}', 'type': 'INT'}
         for i in range(301)]
-    stac_data = {'summaries': {'gee:schema': entries}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Too many schema entries: 301')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': entries}},
+        'Too many schema entries: 301',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_entry_not_a_dict(self):
-    stac_data = {'summaries': {'gee:schema': ['not a dict']}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Schema entries must be a dict')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': ['not a dict']}},
+        'Schema entries must be a dict',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_missing_description_field(self):
-    stac_data = {'summaries': {'gee:schema': [{'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'Schema entry missing field(s): description')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{'name': 'ab', 'type': 'INT'}]}},
+        'Schema entry missing field(s): description',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_missing_all_field(self):
-    stac_data = {'summaries': {'gee:schema': [{}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'Schema entry missing field(s): description, name, type')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{}]}},
+        'Schema entry missing field(s): description, name, type',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_extra_field(self):
-    stac_data = {'summaries': {'gee:schema': [{
-        'bogus': 1, 'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Unexpected field(s): bogus')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{
+            'bogus': 1, 'description': 'A thing',
+            'name': 'ab', 'type': 'INT'}]}},
+        'Unexpected field(s): bogus',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_type_property_type_unspecified(self):
-    stac_data = {'summaries': {'gee:schema': [{
-        'description': 'A thing', 'name': 'ab',
-        'type': 'PROPERTY_TYPE_UNSPECIFIED'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Cannot be PROPERTY_TYPE_UNSPECIFIED: ab')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{
+            'description': 'A thing', 'name': 'ab',
+            'type': 'PROPERTY_TYPE_UNSPECIFIED'}]}},
+        'Cannot be PROPERTY_TYPE_UNSPECIFIED: ab',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_type(self):
-    stac_data = {'summaries': {'gee:schema': [{
-        'description': 'A thing', 'name': 'ab', 'type': 123}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Schema type unknown: "123"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{
+            'description': 'A thing', 'name': 'ab', 'type': 123}]}},
+        'Schema type unknown: "123"',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_type_string_with_units(self):
-    stac_data = {'summaries': {'gee:schema': [{
-        'description': 'A thing', 'name': 'ab', 'type': 'STRING',
-        'units': 'm'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Units not allowed for a string type')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [{
+            'description': 'A thing', 'name': 'ab', 'type': 'STRING',
+            'units': 'm'}]}},
+        'Units not allowed for a string type',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_name_not_str(self):
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A thing', 'name': 2, 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, '"name" must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A thing', 'name': 2, 'type': 'INT'}]}},
+        '"name" must be a str',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_duplicate_name(self):
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A thing', 'name': 'ab', 'type': 'INT'},
-        {'description': 'B thing', 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, '"name" is a duplicate: "ab"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A thing', 'name': 'ab', 'type': 'INT'},
+            {'description': 'B thing', 'name': 'ab', 'type': 'INT'}]}},
+        '"name" is a duplicate: "ab"',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_name_too_short(self):
     name = 'a'
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A thing', 'name': name, 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, f'Invalid name: "{name}"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A thing', 'name': name, 'type': 'INT'}]}},
+        f'Invalid name: "{name}"',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_name_too_long(self):
     name = 'a' * 51
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A thing', 'name': name, 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, f'Invalid name: "{name}"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A thing', 'name': name, 'type': 'INT'}]}},
+        f'Invalid name: "{name}"',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_name_regex(self):
     name = 'Bad name*'
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A thing', 'name': name, 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, f'Invalid name: "{name}"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A thing', 'name': name, 'type': 'INT'}]}},
+        f'Invalid name: "{name}"',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_description_not_str(self):
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 123, 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, '"description" must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 123, 'name': 'ab', 'type': 'INT'}]}},
+        '"description" must be a str',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_description_too_short(self):
     description = 'a'
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': description, 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'description too short: 1')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': description, 'name': 'ab', 'type': 'INT'}]}},
+        'description too short: 1',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_description_too_long(self):
     description = 'a' * 1801
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': description, 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'description too long: 1801')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': description, 'name': 'ab', 'type': 'INT'}]}},
+        'description too long: 1801',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_units_not_str(self):
-    stac_data = {'summaries': {'gee:schema': [
-        {'description': 'A name', 'name': 'ab', 'type': 'INT', 'units': 9}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Units must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A name', 'name': 'ab',
+             'type': 'INT', 'units': 9}]}},
+        'Units must be a str',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_units_too_short(self):
-    stac_data = {'summaries': {'gee:schema': [
-        {'units': '', 'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'units too short: 0')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'units': '', 'description': 'A thing',
+             'name': 'ab', 'type': 'INT'}]}},
+        'units too short: 0',
+        gee_type=IMAGE_COLLECTION)
 
   def test_bad_units_too_long(self):
     size = 21
-    stac_data = {'summaries': {'gee:schema': [
-        {'units': 'a' * size,
-         'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, f'units too long: {size}')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'units': 'a' * size,
+             'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}},
+        f'units too long: {size}',
+        gee_type=IMAGE_COLLECTION)
 
   # TODO(schwehr): turn on stricter units check.
   # def test_bad_units_unknown(self):
-  #   stac_data = {'summaries': {'gee:schema': [
+  #   self.assert_collection({'summaries': {'gee:schema': [
   #       {'description': 'A name', 'name': 'ab', 'type': 'INT',
-  #        'units': 'bogus'}]}}
-  #   node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE_COLLECTION, stac_data)
-  #   issues = list(Check.run(node))
-  #   expect = [Check.new_issue(node, 'Units unknown: bogus')]
-  #   self.assertEqual(expect, issues)
+  #        'units': 'bogus'}]}},
+  #       'Units unknown: bogus',
+  #       gee_type=IMAGE_COLLECTION)
 
 
 if __name__ == '__main__':

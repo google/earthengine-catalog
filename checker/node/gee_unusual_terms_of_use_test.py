@@ -1,90 +1,56 @@
 """Tests for gee_unusual_terms_of_use."""
 
-import pathlib
-
-from checker import stac
+from checker import test_utils
 from checker.node import gee_unusual_terms_of_use
 import unittest
 
-Check = gee_unusual_terms_of_use.Check
 
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
-NONE = stac.GeeType.NONE
+class GeeTypeTest(test_utils.NodeTest):
 
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
-
-
-class GeeTypeTest(unittest.TestCase):
+  def setUp(self):
+    super().setUp()
+    self.check = gee_unusual_terms_of_use.Check
 
   def test_catalog(self):
-    stac_data = {}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_catalog({})
 
   def test_valid_cc_nc(self):
-    stac_data = {'license': 'CC-BY-NC-4.0', 'gee:unusual_terms_of_use': True}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'license': 'CC-BY-NC-4.0', 'gee:unusual_terms_of_use': True})
 
   def test_valid_cc_nc_sa(self):
-    stac_data = {'license': 'CC-BY-NC-SA-4.0', 'gee:unusual_terms_of_use': True}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'license': 'CC-BY-NC-SA-4.0', 'gee:unusual_terms_of_use': True})
 
   def test_valid_proprietary(self):
-    stac_data = {'license': 'proprietary', 'gee:unusual_terms_of_use': True}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection(
+        {'license': 'proprietary', 'gee:unusual_terms_of_use': True})
 
   def test_catalog_with_unusual(self):
-    stac_data = {'gee:unusual_terms_of_use': True}
-    node = stac.Node(ID, FILE_PATH, CATALOG, NONE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'gee:unusual_terms_of_use not allowed in Catalog')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {'gee:unusual_terms_of_use': True},
+        'gee:unusual_terms_of_use not allowed in Catalog')
 
   def test_valid_cc_nc_without_unusual(self):
-    stac_data = {'license': 'CC-BY-NC-4.0'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node,
+    self.assert_collection(
+        {'license': 'CC-BY-NC-4.0'},
         'dataset has license that is unusual, '
-        'but missing gee:unusual_terms_of_use')]
-    self.assertEqual(expect, issues)
+        'but missing gee:unusual_terms_of_use')
 
   def test_not_a_bool(self):
-    stac_data = {
-        'license': 'proprietary', 'gee:unusual_terms_of_use': 'not a bool'}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'gee:unusual_terms_of_use must be of type bool')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'license': 'proprietary', 'gee:unusual_terms_of_use': 'not a bool'},
+        'gee:unusual_terms_of_use must be of type bool')
 
   def test_false(self):
-    stac_data = {'license': 'proprietary', 'gee:unusual_terms_of_use': False}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'gee:unusual_terms_of_use not allowed when false')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'license': 'proprietary', 'gee:unusual_terms_of_use': False},
+        'gee:unusual_terms_of_use not allowed when false')
 
   def test_cc_by_is_not_unusual(self):
-    stac_data = {'license': 'CC-BY-4.0', 'gee:unusual_terms_of_use': True}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(
-        node, 'gee:unusual_terms_of_use not allowed for CC-BY-4.0')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {'license': 'CC-BY-4.0', 'gee:unusual_terms_of_use': True},
+        'gee:unusual_terms_of_use not allowed for CC-BY-4.0')
 
 
 if __name__ == '__main__':

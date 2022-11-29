@@ -1,67 +1,38 @@
 """Tests for license_field."""
 
-import pathlib
-
-from checker import stac
+from checker import test_utils
 from checker.node import license_field
 import unittest
 
-Check = license_field.Check
-
-CATALOG = stac.StacType.CATALOG
-COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
 LICENSE = license_field.LICENSE
-NONE = stac.GeeType.NONE
-
-ID = 'a/collection'
-FILE_PATH = pathlib.Path('test/path/should/be/ignored')
-NOT_A_STR = ['not a str']
 
 
-class LicenseFieldTest(unittest.TestCase):
+class LicenseFieldTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, {})
+    self.check = license_field.Check
 
   def test_valid(self):
-    self.node.stac = {LICENSE: list(license_field.KNOWN_LICENSES)[0]}
-    issues = list(Check.run(self.node))
-    self.assertEqual(0, len(issues))
+    self.assert_collection({LICENSE: list(license_field.KNOWN_LICENSES)[0]})
 
   def test_catalog_cannot_have_license(self):
-    node = stac.Node(
-        'a_catalog', FILE_PATH, CATALOG, NONE, {LICENSE: 'a_license'})
-    issues = list(Check.run(node))
-    expect = [Check.new_issue(node, 'Catalogs cannot have "license"')]
-    self.assertEqual(expect, issues)
+    self.assert_catalog(
+        {LICENSE: 'a_license'}, 'Catalogs cannot have "license"')
 
   def test_missing(self):
-    self.node.stac = {}
-    issues = list(Check.run(self.node))
-    expect = [Check.new_issue(self.node, 'Collections must have "license"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({}, 'Collections must have "license"')
 
   def test_not_a_string(self):
-    self.node.stac = {LICENSE: NOT_A_STR}
-    issues = list(Check.run(self.node))
-    expect = [Check.new_issue(self.node, '"license" must be a str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({LICENSE: ['not a str']}, '"license" must be a str')
 
   def test_empty_string(self):
-    self.node.stac = {LICENSE: ''}
-    issues = list(Check.run(self.node))
-    expect = [Check.new_issue(self.node, '"license" cannot be an empty str')]
-    self.assertEqual(expect, issues)
+    self.assert_collection({LICENSE: ''}, '"license" cannot be an empty str')
 
   def test_invalid(self):
     invalid_license = 'invalid license'
-    self.node.stac = {LICENSE: invalid_license}
-    issues = list(Check.run(self.node))
-    expect = [
-        Check.new_issue(self.node, f'Unknown license: "{invalid_license}"')]
-    self.assertEqual(expect, issues)
+    self.assert_collection(
+        {LICENSE: invalid_license}, f'Unknown license: "{invalid_license}"')
 
 
 if __name__ == '__main__':
