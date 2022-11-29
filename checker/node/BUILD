@@ -15,6 +15,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -24,6 +25,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -33,6 +35,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -42,6 +45,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -51,6 +55,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -60,6 +65,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -69,6 +75,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -78,6 +85,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -87,6 +95,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -96,6 +105,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -105,6 +115,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -114,6 +125,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -123,6 +135,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -132,6 +145,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -141,6 +155,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -150,6 +165,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -159,6 +175,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -168,6 +185,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -177,6 +195,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -186,6 +205,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -195,6 +215,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -204,6 +225,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -213,6 +235,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -222,6 +245,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -231,6 +255,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -240,6 +265,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -249,6 +275,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -258,6 +285,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -267,6 +295,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -276,6 +305,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -285,6 +315,7 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )
 
@@ -294,5 +325,6 @@ py_test(
     deps = [
         ":node",
         "//checker:stac",
+        "//checker:test_utils",
     ],
 )

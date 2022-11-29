@@ -49,3 +49,20 @@ py_test(
     srcs = ["stac_test.py"],
     deps = [":stac"],
 )
+
+py_library(
+    name = "test_utils",
+    testonly = True,
+    srcs = ["test_utils.py"],
+    deps = [":stac"],
+)
+
+py_test(
+    name = "test_utils_test",
+    size = "small",
+    srcs = ["test_utils_test.py"],
+    deps = [
+        ":stac",
+        ":test_utils",
+    ],
+)
