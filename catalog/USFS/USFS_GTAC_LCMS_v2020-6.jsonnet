@@ -207,7 +207,7 @@ local self_url = catalog_subdir_url + base_filename;
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
                     '1985-06-01T00:00:00Z', '2021-05-31T00:00:00Z'),
   summaries: {
-    'gee:properties': [
+    'gee:schema': [
       {
         name: 'study_area',
         description: |||

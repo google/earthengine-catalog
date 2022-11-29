@@ -96,7 +96,7 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
   extent: ee.extent(-175.1, 17.52, -63.66, 71.48,
                     '2010-01-01T00:00:00Z', '2010-12-31T00:00:00Z'),
   summaries: {
-    'gee:properties': [
+    'gee:schema': [
       {
         name: 'PLS_classes',
         description: 'Class values of the  Percent Low-severity Fire.',
