@@ -104,7 +104,6 @@ class VersionExtensionCollectionTest(unittest.TestCase):
         'links': 'not a list'}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
-    issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
   def test_link_not_dict_ignored(self):
@@ -115,7 +114,6 @@ class VersionExtensionCollectionTest(unittest.TestCase):
         'links': ['not a dict']}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run(node))
-    issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
   def test_link_no_rel_ignored(self):
@@ -125,7 +123,6 @@ class VersionExtensionCollectionTest(unittest.TestCase):
         'title': 'A title',
         'links': [{}]}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
-    issues = list(Check.run(node))
     issues = list(Check.run(node))
     self.assertEqual(0, len(issues))
 
