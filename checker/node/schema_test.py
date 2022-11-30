@@ -8,13 +8,13 @@ import unittest
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 
 
-class SchemaTest(test_utils.NodeTest):
+class ValidSchemaTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
     self.check = schema.Check
 
-  def test_catalog_with_neither(self):
+  def test_catalog_without(self):
     self.assert_catalog({})
 
   def test_missing_summaries(self):
@@ -37,32 +37,20 @@ class SchemaTest(test_utils.NodeTest):
             'type': 'INT', 'units': 'm'}]}},
         gee_type=IMAGE_COLLECTION)
 
-  def test_smallest_valid_properties(self):
-    self.assert_collection(
-        {'summaries': {'gee:properties': [{
-            'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}})
-
-  def test_valid_properties(self):
-    self.assert_collection(
-        {'summaries': {'gee:properties': [{
-            'description': 'A thing', 'name': 'ab',
-            'type': 'INT', 'units': 'cm'}]}})
-
-  def test_valid_image_collection_with_both(self):
+  def test_valid_image_collection(self):
     self.assert_collection(
         {'summaries': {
-        'gee:properties': [{
-            'description': 'A thing', 'name': 'ab', 'type': 'INT'}],
-        'gee:schema': [{
-            'description': 'C thing', 'name': 'cd', 'type': 'STRING'}]}},
+            'gee:schema': [
+                {'description': 'A thing', 'name': 'ab', 'type': 'INT'},
+                {'description': 'C thing', 'name': 'cd', 'type': 'STRING'}]}},
         gee_type=IMAGE_COLLECTION)
 
-  def test_bad_image_cannot_have_properties(self):
-    entries = [{'description': 'A thing', 'name': 'ab', 'type': 'INT'}]
-    self.assert_collection(
-        {'summaries': {
-            'gee:schema': entries, 'gee:properties': entries}},
-        'image cannot have gee:schema')
+
+class ErrorSchemaTest(test_utils.NodeTest):
+
+  def setUp(self):
+    super().setUp()
+    self.check = schema.Check
 
   def test_bad_schema_not_dict(self):
     self.assert_collection(

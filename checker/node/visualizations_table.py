@@ -43,7 +43,6 @@ from checker.node import gee_classes
 COLOR_NAMES = gee_classes.COLOR_NAMES
 
 SUMMARIES = 'summaries'
-PROPERTIES = 'gee:properties'
 VISUALIZATIONS = 'gee:visualizations'
 POLYGON_VISUALIZATION = 'polygon_visualization'
 TABLE_VISUALIZATION = 'table_visualization'

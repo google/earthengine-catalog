@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(-120.0, -50.0, 180.0, 40.0,
                     '2012-01-01T00:00:00Z', '2016-01-01T00:00:00Z'),
   summaries: {
-    'gee:properties': [
+    'gee:schema': [
       {
         name: 'start_year',
         description: 'The first year included in determining the historical max for the ecogroup',

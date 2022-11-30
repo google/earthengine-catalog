@@ -97,7 +97,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   extent: ee.extent_global('2018-09-01T00:00:00Z', '2018-09-01T00:00:00Z'),
   summaries: {
-    'gee:properties': [
+    'gee:schema': [
       {
         name: 'Agg_Src',
         description: 'Source of data aggregator.',

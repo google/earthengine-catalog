@@ -1,30 +1,13 @@
 """Checks for schemas.
 
-There are two types of properties field on Earth Engine datasets:
-gee:properties and gee:schema.  They have the same structure within the fields.
-
-For an Image:
-
-1. gee:properties - the properties on the ee.Image.
-
-For an ImageCollection:
-
-1. gee:schema - properties on individual assets within a collection
-2. gee:properties - properties on the collection asset as a whole
-
-For a Table:
-
-1. gee:schema - Describes the column in the ee.FeatureCollection
-2. gee:properties - TODO(simonf): Describe
-
-For a TableCollection:
-
-1. gee:schema - Describes the column in the constituent ee.FeatureCollections
+A gee:schema defines properties on ee.Image(s) for an ee.Image or
+ee.ImageCollection dataset.  For a Table or TableCollection, a gee:schema
+defines the columns in the table(s).
 
 The rules for schemas:
 
-- The gee:properties and gee:schema fields are a list with 1 to 300 schema
-  entries that are each a dict
+- The gee:schema field is a list with 1 to 300 property entries that are each
+  a dict
 - Each entry must have 3 fields: description, name, type
 - Each entry can optionally have a units field
 - The type is any one of the SchemaType values except PROPERTY_TYPE_UNSPECIFIED
@@ -58,7 +41,6 @@ from typing import Iterator
 from checker import stac
 
 GEE_SCHEMA = 'gee:schema'
-GEE_PROPERTIES = 'gee:properties'
 SUMMARIES = 'summaries'
 
 DESCRIPTION = 'description'
@@ -93,105 +75,88 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    if node.type == stac.StacType.CATALOG:
-      # Schemas are under summaries, which should not be present in a catalog
-      return
-
-    if SUMMARIES not in node.stac:
-      return
+    if SUMMARIES not in node.stac: return
     summaries = node.stac[SUMMARIES]
-
     if not isinstance(summaries, dict): return
-    schema_field = summaries.get(GEE_SCHEMA, [])
-    properties_field = summaries.get(GEE_PROPERTIES, [])
 
-    if not schema_field and not properties_field:
+    if GEE_SCHEMA not in summaries: return
+    schema = summaries[GEE_SCHEMA]
+
+    if not isinstance(schema, list):
+      yield cls.new_issue(node, 'Schema must be a list')
       return
 
-    if node.gee_type == stac.GeeType.IMAGE:
-      if schema_field:
-        yield cls.new_issue(
-            node, f'{stac.GeeType.IMAGE} cannot have {GEE_SCHEMA}')
+    if len(schema) > MAX_SCHEMA_SIZE:
+      yield cls.new_issue(node, f'Too many schema entries: {len(schema)}')
 
-    schemas = [x for x in [schema_field, properties_field] if x]
-    for schema_num in range(len(schemas)):
-      schema = schemas[schema_num]
+    names = set()
 
-      if not isinstance(schema, list):
-        yield cls.new_issue(node, 'Schema must be a list')
-        continue
+    for entry in schema:
+      if not isinstance(entry, dict):
+        yield cls.new_issue(node, 'Schema entries must be a dict')
+        return
 
-      if len(schema) > MAX_SCHEMA_SIZE:
-        yield cls.new_issue(node, f'Too many schema entries: {len(schema)}')
+      keys = frozenset(entry)
+      if not REQUIRED_KEYS.issubset(keys):
+        diff = ', '.join(sorted(REQUIRED_KEYS.difference(keys)))
+        yield cls.new_issue(node, f'Schema entry missing field(s): {diff}')
 
-      names = set()
+      if not keys.issubset(ALL_KEYS):
+        diff = ', '.join(sorted(keys.difference(ALL_KEYS)))
+        yield cls.new_issue(node, f'Unexpected field(s): {diff}')
 
-      for entry in schema:
-        if not isinstance(entry, dict):
-          yield cls.new_issue(node, 'Schema entries must be a dict')
-          continue
+      if TYPE in entry:
+        entry_type = entry[TYPE]
+        try:
+          schema_type = SchemaType(entry_type)
+        except ValueError:
+          schema_type = SchemaType.UNKNOWN
 
-        keys = frozenset(entry)
-        if not REQUIRED_KEYS.issubset(keys):
-          diff = ', '.join(sorted(REQUIRED_KEYS.difference(keys)))
-          yield cls.new_issue(node, f'Schema entry missing field(s): {diff}')
+        if schema_type == SchemaType.UNKNOWN:
+          yield cls.new_issue(node, f'Schema type unknown: "{entry_type}"')
 
-        if not keys.issubset(ALL_KEYS):
-          diff = ', '.join(sorted(keys.difference(ALL_KEYS)))
-          yield cls.new_issue(node, f'Unexpected field(s): {diff}')
+        if schema_type == SchemaType.STRING and UNITS in entry:
+          yield cls.new_issue(node, 'Units not allowed for a string type')
 
-        if TYPE in entry:
-          entry_type = entry[TYPE]
-          try:
-            schema_type = SchemaType(entry_type)
-          except ValueError:
-            schema_type = SchemaType.UNKNOWN
-
-          if schema_type == SchemaType.UNKNOWN:
-            yield cls.new_issue(node, f'Schema type unknown: "{entry_type}"')
-
-          if schema_type == SchemaType.STRING and UNITS in entry:
-            yield cls.new_issue(node, 'Units not allowed for a string type')
-
-        if NAME in entry:
-          name = entry[NAME]
-          if not isinstance(name, str):
-            yield cls.new_issue(node, f'"{NAME}" must be a str')
+      if NAME in entry:
+        name = entry[NAME]
+        if not isinstance(name, str):
+          yield cls.new_issue(node, f'"{NAME}" must be a str')
+        else:
+          if name in names:
+            yield cls.new_issue(node, f'"{NAME}" is a duplicate: "{name}"')
           else:
-            if name in names:
-              yield cls.new_issue(node, f'"{NAME}" is a duplicate: "{name}"')
-            else:
-              names.add(name)
-            if schema_type == SchemaType.PROPERTY_TYPE_UNSPECIFIED:
-              yield cls.new_issue(
-                  node, f'Cannot be PROPERTY_TYPE_UNSPECIFIED: {name}')
+            names.add(name)
+          if schema_type == SchemaType.PROPERTY_TYPE_UNSPECIFIED:
+            yield cls.new_issue(
+                node, f'Cannot be PROPERTY_TYPE_UNSPECIFIED: {name}')
 
-            if not re.fullmatch('[a-zA-Z][_a-zA-Z0-9]{1,49}', name):
-              yield cls.new_issue(node, f'Invalid name: "{name}"')
+          if not re.fullmatch('[a-zA-Z][_a-zA-Z0-9]{1,49}', name):
+            yield cls.new_issue(node, f'Invalid name: "{name}"')
 
-        if DESCRIPTION in entry:
-          description = entry[DESCRIPTION]
-          if not isinstance(description, str):
-            yield cls.new_issue(node, f'"{DESCRIPTION}" must be a str')
-          else:
-            # TODO(schwehr): Do a better check of the description.
-            size = len(description)
-            if size < 3:
-              yield cls.new_issue(node, f'{DESCRIPTION} too short: {size}')
-            elif size > 1800:
-              yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
+      if DESCRIPTION in entry:
+        description = entry[DESCRIPTION]
+        if not isinstance(description, str):
+          yield cls.new_issue(node, f'"{DESCRIPTION}" must be a str')
+        else:
+          # TODO(schwehr): Do a better check of the description.
+          size = len(description)
+          if size < 3:
+            yield cls.new_issue(node, f'{DESCRIPTION} too short: {size}')
+          elif size > 1800:
+            yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
 
-        if UNITS in entry:
-          units = entry[UNITS]
-          if not isinstance(units, str):
-            yield cls.new_issue(node, 'Units must be a str')
-          else:
-            size = len(units)
-            if size < 1:
-              yield cls.new_issue(node, f'{UNITS} too short: {size}')
-            elif size > 20:
-              yield cls.new_issue(node, f'{UNITS} too long: {size}')
+      if UNITS in entry:
+        units = entry[UNITS]
+        if not isinstance(units, str):
+          yield cls.new_issue(node, 'Units must be a str')
+        else:
+          size = len(units)
+          if size < 1:
+            yield cls.new_issue(node, f'{UNITS} too short: {size}')
+          elif size > 20:
+            yield cls.new_issue(node, f'{UNITS} too long: {size}')
 
-            # TODO(schwehr): turn on a more stringent units check later.
-            # if units not in ALL_UNITS:
-            #   yield cls.new_issue(node, f'Units unknown: {units}')
+          # TODO(schwehr): turn on a more stringent units check later.
+          # if units not in ALL_UNITS:
+          #   yield cls.new_issue(node, f'Units unknown: {units}')

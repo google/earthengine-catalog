@@ -96,7 +96,7 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
   extent: ee.extent(-175.1, 17.52, -63.66, 71.48,
                     '2014-09-01T00:00:00Z', '2014-09-01T00:00:00Z'),
   summaries: {
-    'gee:properties': [
+    'gee:schema': [
       {
         name: 'VDep_classes',
         description: 'Class values of the  Vegetation Departure.',

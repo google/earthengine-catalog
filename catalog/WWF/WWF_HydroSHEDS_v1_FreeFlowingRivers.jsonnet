@@ -65,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2000-02-11T00:00:00Z', '2000-02-22T00:00:00Z'),
   summaries: {
-    'gee:properties': [
+    'gee:schema': [
       {
         name: 'BAS_ID',
         description: 'Basin Identifier. Identifies the hydrological river basin according to the\nHydroSHEDS framework',
