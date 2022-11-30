@@ -29,6 +29,7 @@ from checker.node import sar_extension
 from checker.node import schema
 from checker.node import sci_extension
 from checker.node import stac_version
+from checker.node import summaries
 from checker.node import title
 from checker.node import top_level
 from checker.node import type_field
@@ -55,6 +56,7 @@ _CHECKS = [
     license_field.Check,
     providers.Check,
     links.Check,
+    summaries.Check,
 
     # extensions
     eo_extension.Check,
