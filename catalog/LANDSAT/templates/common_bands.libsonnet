@@ -256,7 +256,7 @@ local qa_radsat_mss = {
       {
         description: 'Unused',
         first_bit: 6,
-        bit_count: 2,
+        bit_count: 3,
       },
       {
         description: 'Dropped pixel',
@@ -274,7 +274,7 @@ local qa_radsat_mss = {
         ],
       },
     ],
-    total_bit_count: 9,
+    total_bit_count: 10,
   },
 };
 

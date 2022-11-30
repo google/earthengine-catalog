@@ -533,6 +533,11 @@ local license = spdx.proprietary;
             'gee:bitmask': {
               bitmask_parts: [
                 {
+                  description: 'Unused',
+                  first_bit: 0,
+                  bit_count: 10,
+                },
+                {
                   description: 'Opaque clouds',
                   first_bit: 10,
                   bit_count: 1,
@@ -563,7 +568,7 @@ local license = spdx.proprietary;
                   ],
                 },
               ],
-              total_bit_count: 2,
+              total_bit_count: 12,
             },
           },
         ],

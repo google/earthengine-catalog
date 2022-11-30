@@ -32,6 +32,7 @@ For each entry in the 'eo:band' list:
 - 'gee:polarization' - SAR polarization string (HH, HV, VH, or VV)
 - 'gee:units' - String with the units of the band
 - 'gee:wavelength' - String with the range of wavelengths for the band
+- Bands can only have one of gee:bitmask, gee_classes, or gee:offset/gee:scale
 
 For scale and offset:
 
@@ -39,6 +40,9 @@ For scale and offset:
 
 See also:
 
+- gee_bitmask.py
+- gee_classes.py
+- sar_extension.py
 - https://github.com/stac-extensions/eo
 - https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#gsd
 
@@ -271,6 +275,8 @@ class Check(stac.NodeCheck):
       if GEE_BITMASK in band and GEE_CLASSES in band:
         yield cls.new_issue(
             node, f'{name} cannot have both {GEE_BITMASK} and {GEE_CLASSES}')
+      # TODO(schwehr): gee:offset and gee:scale cannot be present with
+      # gee:bitmask or gee:classes.
 
       if GEE_OFFSET in band:
         offset = band[GEE_OFFSET]
