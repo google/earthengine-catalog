@@ -25,15 +25,15 @@ class GeeClassesTest(test_utils.NodeTest):
   def test_valid(self):
     classes = [{'color': 'FAFAFA', 'description': 'A', 'value': 1},
                {'color': 'violet', 'description': 'B', 'value': 2}]
-    self.assert_catalog((make_stac(classes)))
+    self.assert_collection(make_stac(classes))
 
   def test_valid_2(self):
     classes = [{'color': 'AABBCCDD', 'description': 'A', 'value': -1},
                {'color': 'white', 'description': 'B', 'value': 0}]
-    self.assert_catalog((make_stac(classes)))
+    self.assert_collection(make_stac(classes))
 
   def test_bad_classes_must_be_a_list(self):
-    self.assert_catalog(
+    self.assert_collection(
         {'summaries': {
             'eo:bands': [{
                 'name': 'band_name',
@@ -42,7 +42,7 @@ class GeeClassesTest(test_utils.NodeTest):
         '"gee:classes" must be a list')
 
   def test_bad_classes_item_must_be_a_dict(self):
-    self.assert_catalog(
+    self.assert_collection(
         {'summaries': {
             'eo:bands': [{
                 'name': 'band_name',
@@ -56,68 +56,68 @@ class GeeClassesTest(test_utils.NodeTest):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A'},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'A gee:classes entry missing [\'value\'])')
+    self.assert_collection(stac_data, 'A gee:classes entry missing [\'value\'])')
 
   def test_bad_missing_required_description(self):
     stac_data = make_stac([
         {'color': 'red', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(
+    self.assert_collection(
         stac_data, 'A gee:classes entry missing [\'description\'])')
 
   def test_bad_extra_key(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A', 'value': 1, 'bad': 3},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'Unexpected key: "bad"')
+    self.assert_collection(stac_data, 'Unexpected key: "bad"')
 
   def test_bad_extra_keys(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A', 'value': 1, 'bad1': 3, 'bad2': 4},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'Unexpected keys: [\'bad1\', \'bad2\']')
+    self.assert_collection(stac_data, 'Unexpected keys: [\'bad1\', \'bad2\']')
 
   def test_bad_value_is_str(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 'a str'}])
-    self.assert_catalog(stac_data, 'value must be an integer: "a str"')
+    self.assert_collection(stac_data, 'value must be an integer: "a str"')
 
   def test_bad_value_is_float(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 3.14}])
-    self.assert_catalog(stac_data, 'value must be an integer: "3.14"')
+    self.assert_collection(stac_data, 'value must be an integer: "3.14"')
 
   def test_bad_description_not_str(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 3, 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'description must be a str: 3')
+    self.assert_collection(stac_data, 'description must be a str: 3')
 
   def test_bad_description_empty_str(self):
     stac_data = make_stac([
         {'color': 'red', 'description': '', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'description too short: "0"')
+    self.assert_collection(stac_data, 'description too short: "0"')
 
   def test_bad_description_too_long(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A' * 1001, 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'description too long: 1001')
+    self.assert_collection(stac_data, 'description too long: 1001')
 
   def test_bad_color_is_number(self):
     stac_data = make_stac([
         {'color': 1, 'description': 'A', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(stac_data, 'color must be a str: 1')
+    self.assert_collection(stac_data, 'color must be a str: 1')
 
   def test_bad_color_is_nonsense(self):
     stac_data = make_stac([
         {'color': 'nonsense', 'description': 'A', 'value': 1},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_catalog(
+    self.assert_collection(
         stac_data,
         'color must be a 6 (or 8) character hex or color name - '
         'found "nonsense"')
@@ -126,19 +126,19 @@ class GeeClassesTest(test_utils.NodeTest):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A', 'value': 3},
         {'color': 'blue', 'description': 'B', 'value': 3}])
-    self.assert_catalog(stac_data, 'values have duplicates')
+    self.assert_collection(stac_data, 'values have duplicates')
 
   def test_bad_unsorted_values(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A', 'value': 5},
         {'color': 'blue', 'description': 'B', 'value': 4}])
-    self.assert_catalog(stac_data, 'values must be sorted')
+    self.assert_collection(stac_data, 'values must be sorted')
 
   def test_bad_duplicate_descriptions(self):
     stac_data = make_stac([
         {'color': 'red', 'description': 'C', 'value': 1},
         {'color': 'blue', 'description': 'C', 'value': 2}])
-    self.assert_catalog(stac_data, 'descriptions have duplicates')
+    self.assert_collection(stac_data, 'descriptions have duplicates')
 
 
 if __name__ == '__main__':
