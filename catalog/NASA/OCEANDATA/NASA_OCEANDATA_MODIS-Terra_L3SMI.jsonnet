@@ -96,10 +96,10 @@ local self_url = catalog_subdir_url + base_filename;
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
+    'C1200034429-OB_DAAC',
     'C1458097478-OB_DAAC',
     'C1458097483-OB_DAAC',
     'C1458097505-OB_DAAC',
-    'C1200034429-OB_DAAC',
     'C1615934288-OB_DAAC',
   ],
   extent: ee.extent_global('2000-02-24T00:05:01Z', null),

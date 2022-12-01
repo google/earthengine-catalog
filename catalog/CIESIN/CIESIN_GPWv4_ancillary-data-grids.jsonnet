@@ -64,8 +64,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   'gee:provider_ids': [
     'C1417149701-SEDAC',
-    'C1418732711-SEDAC',
     'C1418717760-SEDAC',
+    'C1418732711-SEDAC',
     'C1427612908-SEDAC',
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2020-01-01T00:00:00Z'),

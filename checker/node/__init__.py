@@ -12,6 +12,7 @@ from checker.node import file_path
 from checker.node import gee_bitmask
 from checker.node import gee_classes
 from checker.node import gee_is_derived
+from checker.node import gee_provider_ids
 from checker.node import gee_skip_indexing
 from checker.node import gee_terms_of_use
 from checker.node import gee_type
@@ -68,6 +69,7 @@ _CHECKS = [
     gee_bitmask.Check,
     gee_classes.Check,
     gee_is_derived.Check,
+    gee_provider_ids.Check,
     gee_skip_indexing.Check,
     gee_terms_of_use.Check,
     gee_unusual_terms_of_use.Check,

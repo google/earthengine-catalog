@@ -85,8 +85,8 @@ local self_url = catalog_subdir_url + base_filename;
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1700900626-GES_DISC',  // CMR concept id for early GLDAS data
     'C1342986035-GES_DISC',  // CMR concept id for final GLDAS data
+    'C1700900626-GES_DISC',  // CMR concept id for early GLDAS data
   ],
   extent: ee.extent_global('2000-01-01T03:00:00Z', null),
   summaries: {
