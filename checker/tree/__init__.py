@@ -3,11 +3,9 @@
 from typing import Iterator
 
 from checker import stac
-from checker.tree import keywords
 from checker.tree import parent_child
 
 _CHECKS = [
-    keywords.Check,
     parent_child.Check,
 ]
 
