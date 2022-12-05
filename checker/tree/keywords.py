@@ -16,7 +16,7 @@ KEYWORDS = 'keywords'
 # Do not add more keywords to this list.
 EXCEPTIONS = frozenset({
     '30_year', 'aafc', 'aer', 'aerial', 'aim', 'air_temperature', 'alerts',
-    'aod', 'aot', 'argillic', 'asia', 'aura', 'avnir_2', 'backscattering',
+    'aod', 'aot', 'argillic', 'asia', 'aura', 'avnir_2', 'backscatter',
     'belowground', 'bioclim', 'biome', 'biopama', 'biota', 'bnu', 'builtup',
     'bulk', 'bulk_density', 'burnseverity', 'c2s', 'c3s', 'calcium',
     'calibrated', 'caltech', 'canopy', 'carbon_organic', 'cci', 'cdem', 'cdl',
