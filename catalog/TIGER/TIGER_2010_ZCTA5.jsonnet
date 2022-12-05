@@ -54,8 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'tiger',
     'us',
     'zcta',
-    'zip',
-    'zipcode',
+    'zip_code',
   ],
   providers: [
     ee.producer_provider('United States Census Bureau', 'https://www.census.gov/programs-surveys/geography/guidance/tiger-data-products-guide.html'),

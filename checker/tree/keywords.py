@@ -54,7 +54,7 @@ EXCEPTIONS = frozenset({
     'tirs', 'tnc', 'toms', 'tree', 'tree_cover', 'trends', 'tropical',
     'ukraine', 'unep', 'utokyo', 'visibility', 'vnir', 'vnp09ga', 'vnp13a1',
     'void_filled', 'warmest', 'watercontent', 'wetness', 'wettest', 'whoi',
-    'wildlife', 'wtlab', 'zcta', 'zinc', 'zip', 'zipcode'
+    'wildlife', 'wtlab', 'zcta', 'zinc', 'zip_code',
 })
 
 
