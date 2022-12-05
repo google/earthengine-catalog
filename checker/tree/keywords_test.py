@@ -47,7 +47,8 @@ class KeywordsTest(unittest.TestCase):
     issues = list(Check.run([node]))
     for issue in issues:
       print(issue)
-    expect = [Check.new_issue(node, 'Only one instance of "a_keyword"')]
+    expect = [Check.new_issue(
+        node, 'Only one instance of "a_keyword"', stac.IssueLevel.WARNING)]
     self.assertEqual(expect, issues)
 
 
