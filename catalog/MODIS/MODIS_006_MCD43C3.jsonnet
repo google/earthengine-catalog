@@ -66,8 +66,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent_global('2000-02-24T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
-      'Terra',
       'Aqua',
+      'Terra',
     ],
   },
   'sci:citation': |||

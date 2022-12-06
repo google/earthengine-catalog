@@ -67,10 +67,10 @@ local self_url = catalog_subdir_url + base_filename;
       2.0,
     ],
     platform: [
+      'GeoEye-1',
       'WorldView-1',
       'WorldView-2',
       'WorldView-3',
-      'GeoEye-1',
     ],
     'eo:bands': [
       {

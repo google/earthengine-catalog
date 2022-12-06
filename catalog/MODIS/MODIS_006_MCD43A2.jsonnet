@@ -77,8 +77,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   extent: ee.extent_global('2000-02-24T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
-      'Terra',
       'Aqua',
+      'Terra',
     ],
   },
   'sci:doi': '10.5067/MODIS/MCD43A2.006',
