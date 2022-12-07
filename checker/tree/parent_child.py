@@ -61,6 +61,9 @@ class Check(stac.TreeCheck):
 
   @classmethod
   def run(cls, nodes: list[stac.Node]) -> Iterator[stac.Issue]:
+    # Nodes without links will cause an error in the 'required' check
+    nodes = [node for node in nodes if LINKS in node.stac]
+
     nodes_by_url = {self_url(n): n for n in nodes}
 
     child_link_to_catalog = {}

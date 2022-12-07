@@ -88,6 +88,29 @@ class ParentChildTest(unittest.TestCase):
     issues = list(Check.run(nodes))
     self.assertEqual(0, len(issues))
 
+  def test_root_missing_links(self):
+    root = root_node({})
+    nodes = [root, CATALOG_NODE, COLLECTION_NODE]
+    issues = list(Check.run(nodes))
+    message = 'Not in any catalog as a child link'
+    expect = [Check.new_issue(CATALOG_NODE, message)]
+    self.assertEqual(expect, issues)
+
+  def test_catalog_missing_links(self):
+    catalog = catalog_node({})
+    nodes = [ROOT_NODE, catalog, COLLECTION_NODE]
+    issues = list(Check.run(nodes))
+    message = 'Not in any catalog as a child link'
+    expect = [Check.new_issue(COLLECTION_NODE, message)]
+    self.assertEqual(expect, issues)
+
+  # TODO(schwehr): This should generate an error.
+  def test_collection_missing_links(self):
+    collection = collection_node({})
+    nodes = [ROOT_NODE, CATALOG_NODE, collection]
+    issues = list(Check.run(nodes))
+    self.assertEqual(0, len(issues))
+
   def test_missing_child(self):
     catalog = {LINKS: [
         {REL: SELF, HREF: PREFIX + 'AAFC/catalog.json'},
