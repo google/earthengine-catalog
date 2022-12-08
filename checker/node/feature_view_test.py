@@ -67,6 +67,13 @@ class ValidFeatureViewTest(test_utils.NodeTest):
   def test_table_collection(self):
     self.assert_collection({'summaries': {}}, gee_type=TABLE_COLLECTION)
 
+  def test_skip_featureview_generation(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': True,
+         'summaries': {'gee:feature_view_ingestion_params': {
+             'max_features_per_tile': 16000}}},
+        gee_type=TABLE)
+
 
 class ErrorFeatureViewTest(test_utils.NodeTest):
 
@@ -281,6 +288,48 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
         {'summaries': {
             'gee:feature_view_ingestion_params': {'prerender_tiles': False}}},
         'prerender_tiles can only be present when true',
+        gee_type=TABLE)
+
+  def test_skip_featureview_generation_cannot_be_false(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': False,
+         'summaries': {'gee:feature_view_ingestion_params': {
+             'max_features_per_tile': 16000}}},
+        'gee:skip_featureview_generation cannot be false',
+        gee_type=TABLE)
+
+  def test_skip_featureview_generation_cannot_be_in_an_image(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': 'does not matter'},
+        'gee:skip_featureview_generation not allowed in image')
+
+  def test_skip_featureview_generation_cannot_be_in_an_image_collection(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': 'does not matter'},
+        'gee:skip_featureview_generation not allowed in image_collection',
+        gee_type=IMAGE_COLLECTION)
+
+  def test_skip_featureview_generation_cannot_be_in_an_table_collection(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': 'does not matter'},
+        'gee:skip_featureview_generation not allowed in table_collection',
+        gee_type=TABLE_COLLECTION)
+
+  def test_skip_featureview_generation_without_params(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': True,
+         'summaries': {}},
+        ['gee:skip_featureview_generation cannot be present if there is no ' +
+         'gee:feature_view_ingestion_params',
+         'gee:feature_view_ingestion_params must be present in table'],
+        gee_type=TABLE)
+
+  def test_skip_featureview_generation_must_be_bool(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': 'not a bool',
+         'summaries': {'gee:feature_view_ingestion_params': {
+             'max_features_per_tile': 16000}}},
+        'gee:skip_featureview_generation must be a bool',
         gee_type=TABLE)
 
 

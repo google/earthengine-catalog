@@ -5,6 +5,7 @@ an EarthEngine table dataset.
 
 The requirements and specification are:
 
+- gee:skip_featureview_generation can only be present as true in the top-level
 - gee:feature_view_ingestion_params does not apply to raster datasets (images
   and image collections)
 - table collections do not currently have gee:feature_view_ingestion_params
@@ -35,6 +36,7 @@ See:
 
 Jsonnet examples:
 
+  'gee:skip_featureview_generation': True,
   'gee:feature_view_ingestion_params': {
     max_features_per_tile: 2000,
     thinning_strategy: 'HIGHER_DENSITY',
@@ -73,6 +75,7 @@ from checker import stac
 SUMMARIES = 'summaries'
 
 GEE_FEATURE_VIEW_INGESTION_PARAMS = 'gee:feature_view_ingestion_params'
+GEE_SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 MAX_FEATURES_PER_TILE = 'max_features_per_tile'
 THINNING_STRATEGY = 'thinning_strategy'
 THINNING_RANKING = 'thinning_ranking'
@@ -102,9 +105,16 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    if SUMMARIES not in node.stac:
-      return
+    if node.gee_type in (
+        stac.GeeType.IMAGE,
+        stac.GeeType.IMAGE_COLLECTION,
+        stac.GeeType.TABLE_COLLECTION):
+      if GEE_SKIP_FEATUREVIEW_GENERATION in node.stac:
+        yield cls.new_issue(
+            node,
+            f'{GEE_SKIP_FEATUREVIEW_GENERATION} not allowed in {node.gee_type}')
 
+    if SUMMARIES not in node.stac: return
     summaries = node.stac[SUMMARIES]
     if not isinstance(summaries, dict): return
 
@@ -121,6 +131,11 @@ class Check(stac.NodeCheck):
       return
 
     if GEE_FEATURE_VIEW_INGESTION_PARAMS not in summaries:
+      if GEE_SKIP_FEATUREVIEW_GENERATION in node.stac:
+        yield cls.new_issue(
+            node,
+            f'{GEE_SKIP_FEATUREVIEW_GENERATION} cannot be present if there is '
+            f'no {GEE_FEATURE_VIEW_INGESTION_PARAMS}')
       if not table_without_featureview_exception(node.id):
         yield cls.new_issue(
             node,
@@ -128,6 +143,14 @@ class Check(stac.NodeCheck):
             f'in {node.gee_type}')
       return
 
+    if GEE_SKIP_FEATUREVIEW_GENERATION in node.stac:
+      skip = node.stac[GEE_SKIP_FEATUREVIEW_GENERATION]
+      if not isinstance(skip, bool):
+        yield cls.new_issue(
+            node, f'{GEE_SKIP_FEATUREVIEW_GENERATION} must be a bool')
+      elif not skip:
+        yield cls.new_issue(
+            node, f'{GEE_SKIP_FEATUREVIEW_GENERATION} cannot be false')
     if table_without_featureview_exception(node.id):
       yield cls.new_issue(
           node,
