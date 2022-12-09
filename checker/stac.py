@@ -48,6 +48,10 @@ def stac_root() -> pathlib.Path:
   return data_root() / 'catalog'
 
 
+def examples_root() -> pathlib.Path:
+  return data_root() / 'examples/javascript_examples'
+
+
 @dataclasses.dataclass
 class Node:
   """Container for one STAC Catalog or STAC Collection."""
