@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import stac_version
-import unittest
+from absl.testing import absltest
 
 CURRENT_STAC_VERSION = '1.0.0'
 STAC_VERSION = 'stac_version'
@@ -34,4 +34,4 @@ class StacVersionTest(test_utils.NodeTest):
         'Unexpected stac_version: 1.0.0-bad != 1.0.0')
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

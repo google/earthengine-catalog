@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import top_level
-import unittest
+from absl.testing import absltest
 
 
 class TopLevelTest(test_utils.NodeTest):
@@ -39,4 +39,4 @@ class TopLevelTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import providers
-import unittest
+from absl.testing import absltest
 
 CATALOG_BASE_URL = 'https://developers.google.com/earth-engine/datasets/catalog'
 CATALOG_URL = CATALOG_BASE_URL + '/A_B'
@@ -171,4 +171,4 @@ class ProvidersTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

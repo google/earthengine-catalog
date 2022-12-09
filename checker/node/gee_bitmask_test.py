@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import gee_bitmask
-import unittest
+from absl.testing import absltest
 
 
 class ValidGeeBitmaskTest(test_utils.NodeTest):
@@ -412,4 +412,4 @@ class ErrorGeeBitmaskTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

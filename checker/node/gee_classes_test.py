@@ -4,7 +4,7 @@ from typing import Any
 
 from checker import test_utils
 from checker.node import gee_classes
-import unittest
+from absl.testing import absltest
 
 
 def make_stac(classes: list[dict[str, Any]]) -> dict[str, Any]:
@@ -142,4 +142,4 @@ class GeeClassesTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

@@ -5,7 +5,7 @@ from unittest import mock
 from checker import stac
 from checker import test_utils
 from checker.node import feature_view
-import unittest
+from absl.testing import absltest
 
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
@@ -334,4 +334,4 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

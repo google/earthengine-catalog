@@ -6,7 +6,7 @@ from unittest import mock
 from checker import stac
 from checker import test_utils
 from checker.node import examples
-import unittest
+from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
@@ -100,4 +100,4 @@ class ErrorExamplesTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

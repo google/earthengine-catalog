@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import id_field
-import unittest
+from absl.testing import absltest
 
 ID = 'id'
 UNKNOWN_ID = '> UNKNOWN ID: '
@@ -105,4 +105,4 @@ class IdFieldCollectionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

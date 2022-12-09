@@ -49,7 +49,7 @@ bazel test //...
 Running the Earth Engine Catalog Checker:
 
 ```shell
-bazel run //checker:ee_stac_check
+bazel-bin/checker/ee_stac_check
 ```
 
 ## MacOSX using Homebrew
@@ -82,5 +82,6 @@ pip3 install absl-py
 
 bazel test //...
 
-bazel run //checker:ee_stac_check
+bazel build //checker:ee_stac_check
+bazel-bin/checker/ee_stac_check
 ```

@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import links
-import unittest
+from absl.testing import absltest
 
 BASE_URL = 'https://storage.googleapis.com/earthengine-stac/catalog/'
 DEV_URL = 'https://developers.google.com/earth-engine/datasets/'
@@ -204,4 +204,4 @@ class CollectionLinkTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

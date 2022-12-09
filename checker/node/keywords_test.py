@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import keywords
-import unittest
+from absl.testing import absltest
 
 Check = keywords.Check
 KEYWORDS = keywords.KEYWORDS
@@ -58,4 +58,4 @@ class KeywordsTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import visualizations_table
-import unittest
+from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
@@ -228,4 +228,4 @@ class ErrorVisualizationsTableTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

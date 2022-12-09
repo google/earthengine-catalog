@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import sar_extension
-import unittest
+from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
@@ -329,4 +329,4 @@ class ErrorSarExtensionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

@@ -4,7 +4,7 @@ import pathlib
 
 from checker import stac
 from checker.tree import parent_child
-import unittest
+from absl.testing import absltest
 
 Check = parent_child.Check
 
@@ -56,7 +56,7 @@ CATALOG_NODE = catalog_node(CATALOG_DATA)
 COLLECTION_NODE = collection_node(COLLECTION_DATA)
 
 
-class HelperTest(unittest.TestCase):
+class HelperTest(absltest.TestCase):
 
   def test_self_url_does_not_find(self):
     # This is the one case that was not obvious on how to trigger.
@@ -65,7 +65,7 @@ class HelperTest(unittest.TestCase):
     self.assertEqual(parent_child.NO_SELF_URL, parent_child.self_url(node))
 
 
-class ParentChildTest(unittest.TestCase):
+class ParentChildTest(absltest.TestCase):
 
   def test_valid(self):
     nodes = [ROOT_NODE, CATALOG_NODE, COLLECTION_NODE]
@@ -153,4 +153,4 @@ class ParentChildTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

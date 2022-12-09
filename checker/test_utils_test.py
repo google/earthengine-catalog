@@ -4,7 +4,7 @@ from typing import Iterator
 
 from checker import stac
 from checker import test_utils
-import unittest
+from absl.testing import absltest
 
 
 class Check(stac.NodeCheck):
@@ -80,4 +80,4 @@ class TestUtilsTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

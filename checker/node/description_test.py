@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import description
-import unittest
+from absl.testing import absltest
 
 
 class DescriptionTest(test_utils.NodeTest):
@@ -34,4 +34,4 @@ class DescriptionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

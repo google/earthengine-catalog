@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import summaries
-import unittest
+from absl.testing import absltest
 
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
@@ -176,4 +176,4 @@ class ErrorSummariesTest(test_utils.NodeTest):
         gee_type=TABLE_COLLECTION)
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

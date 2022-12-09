@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import type_field
-import unittest
+from absl.testing import absltest
 
 
 class CatalogTest(test_utils.NodeTest):
@@ -48,4 +48,4 @@ class CollectionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

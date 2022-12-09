@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import gee_skip_indexing
-import unittest
+from absl.testing import absltest
 
 
 class GeeSkipIndexingTest(test_utils.NodeTest):
@@ -32,4 +32,4 @@ class GeeSkipIndexingTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

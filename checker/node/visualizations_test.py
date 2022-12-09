@@ -3,12 +3,12 @@
 from checker import stac
 from checker import test_utils
 from checker.node import visualizations
-import unittest
+from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 
 
-class BboxTest(unittest.TestCase):
+class BboxTest(absltest.TestCase):
 
   def test_valid(self):
     stac_data = {
@@ -360,4 +360,4 @@ class ErrorsVisualizationsTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

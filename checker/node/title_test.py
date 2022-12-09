@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import title
-import unittest
+from absl.testing import absltest
 
 DEPRECATED = title.DEPRECATED
 TITLE = title.TITLE
@@ -76,4 +76,4 @@ class CollectionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

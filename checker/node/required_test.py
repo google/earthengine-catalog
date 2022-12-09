@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import required
-import unittest
+from absl.testing import absltest
 
 TYPE = required.TYPE
 
@@ -55,4 +55,4 @@ class CollectionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

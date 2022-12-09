@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import extensions
-import unittest
+from absl.testing import absltest
 
 EXTENSIONS = extensions.EXTENSIONS
 STAC_EXTENSIONS = extensions.STAC_EXTENSIONS
@@ -38,4 +38,4 @@ class ExtensionsTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()
