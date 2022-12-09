@@ -49,6 +49,11 @@ def stac_root() -> pathlib.Path:
 
 
 def examples_root() -> pathlib.Path:
+  # First try for a local path for bazel.
+  path = pathlib.Path('examples')
+  if path.is_dir(): return path
+
+  # blaze has Fileset support
   return data_root() / 'examples/javascript_examples'
 
 
