@@ -30,6 +30,16 @@ py_test(
 )
 
 py_test(
+    name = "examples_test",
+    srcs = ["examples_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+    ],
+)
+
+py_test(
     name = "extensions_test",
     srcs = ["extensions_test.py"],
     deps = [
