@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Mg',
         description: 'Megagrams of aboveground live woody biomass per Hectare',
-        'gee:units': 'Mg/Ha',
+        'gee:units': 'Mg/ha',
       },
     ],
     'gee:visualizations': [
