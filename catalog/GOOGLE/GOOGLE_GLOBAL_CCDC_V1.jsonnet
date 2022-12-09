@@ -13,6 +13,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   'gee:skip_indexing': true,
+  // TODO(gorelick): remove gee:user_uploaded if the tiles are in a public
+  // location. For now the asset doesn't exist.
+  'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
