@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GEDI L4A Footprint Level , Version 2.1',
+  title: 'GEDI L4A Aboveground Biomass Density, Version 2.1',
   version: '2.1',
   'gee:type': ee_const.gee_type.table_collection,
   description: gedi_l4a.description + |||
