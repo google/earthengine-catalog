@@ -109,9 +109,24 @@ class CatalogLinkTest(test_utils.NodeTest):
   def test_link_extra_key(self):
     self.assert_catalog(
         {'links': [
-            {'href': 'https://1', 'rel': 'self', 'fluf': '3'},
+            {'href': 'https://1', 'rel': 'self', 'fluf': '3', 'type': JSON},
             self.CHILD_LINK, self.PARENT_LINK, self.ROOT_LINK]},
         'unexpected link key(s): fluf')
+
+  def test_link_disallowed_media_type(self):
+    bad_type = 'application/bogus'
+    self_link = {
+        'href': BASE_URL + 'USGS/catalog.json',
+        'rel': 'self',
+        'type': bad_type}
+    media_types = '\', \''.join([
+        'application/json', 'application/pdf', 'image/png', 'text/html'])
+    media_types = '\'' + media_types + '\''
+    self.assert_catalog(
+        {'links': [
+            self_link, self.CHILD_LINK, self.PARENT_LINK, self.ROOT_LINK]},
+        [f'type must be one of [{media_types}]: {bad_type}',
+         'link self must have type of application/json'])
 
   def test_missing_root(self):
     self.assert_catalog(

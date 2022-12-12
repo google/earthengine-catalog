@@ -25,7 +25,7 @@ General Rules
   - title - The title to display for the link
   - type - the media type of the content found at the link (formerly known as
     mimetype). All links to other STAC Nodes must have a media type of
-    'application/json'
+    'application/json'. If new media types are needed, add them to MEDIA_TYPES
 
 Rules for STAC Catalogs:
 - Must have at least one child link. A child is a STAC Catalog or STAC
@@ -106,6 +106,14 @@ JSON = 'application/json'
 
 HREF_PREFIXES = ('ftp://', 'http://', 'https://', 's3://')
 
+# https://en.wikipedia.org/wiki/Media_type
+MEDIA_TYPES = frozenset({
+    'application/json',
+    'application/pdf',
+    'image/png',
+    'text/html',
+})
+
 
 class Check(stac.NodeCheck):
   """Checks the keywords field."""
@@ -161,6 +169,12 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(
             node, 'unexpected link key(s): ' + ', '.join(sorted(extra_keys)))
         return
+
+      if TYPE in link:
+        link_type = link[TYPE]
+        if link_type not in MEDIA_TYPES:
+          yield cls.new_issue(
+              node, f'{TYPE} must be one of {sorted(MEDIA_TYPES)}: {link_type}')
 
     links_by_rel = collections.defaultdict(list)
     for link in links:
