@@ -100,9 +100,14 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
     self.assert_collection(
         {'summaries': {'eo:bands': 'not a list'}}, 'eo:bands must be a list')
 
-  def test_bands_not_dict(self):
+  def test_band_not_dict(self):
     self.assert_collection(
         {'summaries': {'eo:bands': ['not a dict']}}, 'band must be a dict')
+
+  def test_bands_not_dict_and_duplicate(self):
+    self.assert_collection(
+        {'summaries': {'eo:bands': [None, None]}},
+        ['band must be a dict', 'band must be a dict'])
 
   def test_bands_empty(self):
     self.assert_collection(
