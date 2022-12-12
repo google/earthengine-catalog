@@ -42,7 +42,6 @@ local self_url = catalog_subdir_url + base_filename;
     'height',
     'jpl',
     'nasa',
-    'tree',
   ],
   providers: [
     ee.producer_provider('NASA/JPL', 'https://earthobservatory.nasa.gov'),

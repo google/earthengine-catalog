@@ -16,7 +16,7 @@ local spdx = import 'spdx.libsonnet';
     'gedi',
     'larse',
     'nasa',
-    'treecover',
+    'tree_cover',
     'usgs',
   ],
   providers(name, catalog_url): [
