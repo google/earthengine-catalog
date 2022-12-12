@@ -31,15 +31,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     currently included in the OpenET model ensemble are ALEXI/DisALEXI, eeMETRIC, geeSEBAL,
     PT-JPL, SIMS, and SSEBop. The OpenET ensemble ET value is calculated as the mean of the
     ensemble after filtering and removing outliers using the median absolute
-    deviation approach. All of the models included in the OpenET ensemble have been used by
-    government agencies with responsibility for water use reporting and management in the
-    western United States, and some models are widely used internationally. All models
-    currently use Landsat satellite data to produce ET data at a pixel size of
-    30 meters by 30 meters (0.22 acres per pixel), with some models incorporating data
-    from GOES, Terra, Aqua, Sentinel-2 and other satellites as inputs. Additional model
-    inputs include gridded weather variables such as solar radiation, air temperature,
-    humidity, and wind speed. The monthly ET dataset provides data on total ET by month as an
-    equivalent depth of water in millimeters.
+    deviation approach.  
+    All models currently use Landsat satellite data to produce ET data at a pixel size of
+    30 meters by 30 meters (0.22 acres per pixel). The monthly ET dataset provides data on total 
+    ET by month as an equivalent depth of water in millimeters.
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -163,7 +158,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Ozdogon, M., Schull, M., Wang, T., Yang, Y., Anderson, R., 2021.
     OpenET: Filling a Critical Data Gap in Water Management for the Western United States.
     Journal of the American Water Resources Association, 2021 Nov 2.
-    [DOI](https://doi.org/10.1111/1752-1688.12956)
+    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,
   'gee:interval': {
     type: 'cadence',
