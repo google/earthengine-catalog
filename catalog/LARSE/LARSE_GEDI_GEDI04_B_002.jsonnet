@@ -169,12 +169,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '10.3334/ORNLDAAC/2017',
+  'sci:doi': '10.3334/ORNLDAAC/2056',
   'sci:citation': |||
     Dubayah, R.O., J. Armston, S.P. Healey, Z. Yang, P.L. Patterson, S. Saarela,
     G. Stahl, L. Duncanson, and J.R. Kellner. 2022. GEDI L4B Gridded Aboveground
     Biomass Density, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA.
-    [doi:10.3334/ORNLDAAC/2017](https://doi.org/10.3334/ORNLDAAC/2017)
+    [doi:10.3334/ORNLDAAC/2056](https://doi.org/10.3334/ORNLDAAC/2056)
   |||,
   'gee:terms_of_use': gedi_l2a.terms_of_use,
 }
