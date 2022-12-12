@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import visualizations_image
-import unittest
+from absl.testing import absltest
 
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 
@@ -447,4 +447,4 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

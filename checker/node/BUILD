@@ -30,6 +30,16 @@ py_test(
 )
 
 py_test(
+    name = "examples_test",
+    srcs = ["examples_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+    ],
+)
+
+py_test(
     name = "extensions_test",
     srcs = ["extensions_test.py"],
     deps = [
@@ -70,6 +80,16 @@ py_test(
 )
 
 py_test(
+    name = "gee_bitmask_test",
+    srcs = ["gee_bitmask_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+    ],
+)
+
+py_test(
     name = "gee_classes_test",
     srcs = ["gee_classes_test.py"],
     deps = [
@@ -82,6 +102,16 @@ py_test(
 py_test(
     name = "gee_is_derived_test",
     srcs = ["gee_is_derived_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+    ],
+)
+
+py_test(
+    name = "gee_provider_ids_test",
+    srcs = ["gee_provider_ids_test.py"],
     deps = [
         ":node",
         "//checker:stac",
@@ -252,6 +282,16 @@ py_test(
 py_test(
     name = "stac_version_test",
     srcs = ["stac_version_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+    ],
+)
+
+py_test(
+    name = "summaries_test",
+    srcs = ["summaries_test.py"],
     deps = [
         ":node",
         "//checker:stac",

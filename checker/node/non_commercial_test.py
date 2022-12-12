@@ -5,7 +5,7 @@ from unittest import mock
 from checker import stac
 from checker import test_utils
 from checker.node import non_commercial
-import unittest
+from absl.testing import absltest
 
 
 class NonCommercialTest(test_utils.NodeTest):
@@ -46,4 +46,4 @@ class NonCommercialTest(test_utils.NodeTest):
         {}, 'Catalog cannot be in non-commercial dataset list')
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

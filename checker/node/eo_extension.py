@@ -202,7 +202,8 @@ class Check(stac.NodeCheck):
     if len(bands) > MAX_BANDS:
       yield cls.new_issue(node, f'{EO_BANDS} has more than {MAX_BANDS} bands')
 
-    name_counts = collections.Counter([b[NAME] for b in bands if NAME in b])
+    name_counts = collections.Counter(
+        [b[NAME] for b in bands if isinstance(b, dict) and NAME in b])
     duplicate_names = ', '.join(sorted(
         [name for name, count in name_counts.items() if count > 1]))
     if duplicate_names:

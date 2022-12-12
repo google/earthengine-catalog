@@ -4,7 +4,7 @@ import pathlib
 from typing import Any, Optional, Union
 
 from checker import stac
-import unittest
+from absl.testing import absltest
 
 _CATALOG = stac.StacType.CATALOG
 _COLLECTION = stac.StacType.COLLECTION
@@ -15,7 +15,7 @@ _COLLECTION_ID = 'a/collection'
 _FILE_PATH = pathlib.Path('test/path/should/be/ignored')
 
 
-class NodeTest(unittest.TestCase):
+class NodeTest(absltest.TestCase):
   """Encapsulate most node checks."""
   check: stac.NodeCheck
 

@@ -25,7 +25,7 @@ General Rules
   - title - The title to display for the link
   - type - the media type of the content found at the link (formerly known as
     mimetype). All links to other STAC Nodes must have a media type of
-    'application/json'
+    'application/json'. If new media types are needed, add them to MEDIA_TYPES
 
 Rules for STAC Catalogs:
 - Must have at least one child link. A child is a STAC Catalog or STAC
@@ -91,7 +91,7 @@ TYPE = 'type'
 
 REQUIRED_KEYS = frozenset({HREF, REL})
 OPTIONAL_KEYS = frozenset({CODE, TITLE, TYPE})
-ALL_KEYS = frozenset(REQUIRED_KEYS.union(OPTIONAL_KEYS))
+ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
 CHILD = 'child'
 PARENT = 'parent'
@@ -100,11 +100,33 @@ SELF = 'self'
 
 REQUIRED_REL = frozenset({PARENT, ROOT, SELF})
 OPTIONAL_CATALOG_REL = frozenset({CHILD})
-ALL_CATALOG_REL = frozenset(REQUIRED_REL.union(OPTIONAL_CATALOG_REL))
+ALL_CATALOG_REL = REQUIRED_REL.union(OPTIONAL_CATALOG_REL)
+
+CITE_AS = 'cite-as'
+LATEST_VERSION = 'latest-version'
+LICENSE = 'license'
+PREDECESSOR_VERSION = 'predecessor-version'
+PREVIEW = 'preview'
+RELATED = 'related'
+SOURCE = 'source'
+SUCCESSOR_VERSION = 'successor-version'
+
+OPTIONAL_COLLECTION_REL = frozenset({
+    CITE_AS, LATEST_VERSION, LICENSE, PREDECESSOR_VERSION, PREVIEW, RELATED,
+    SOURCE, SUCCESSOR_VERSION})
+ALL_COLLECTION_REL = REQUIRED_REL.union(OPTIONAL_COLLECTION_REL)
 
 JSON = 'application/json'
 
 HREF_PREFIXES = ('ftp://', 'http://', 'https://', 's3://')
+
+# https://en.wikipedia.org/wiki/Media_type
+MEDIA_TYPES = frozenset({
+    'application/json',
+    'application/pdf',
+    'image/png',
+    'text/html',
+})
 
 
 class Check(stac.NodeCheck):
@@ -162,6 +184,12 @@ class Check(stac.NodeCheck):
             node, 'unexpected link key(s): ' + ', '.join(sorted(extra_keys)))
         return
 
+      if TYPE in link:
+        link_type = link[TYPE]
+        if link_type not in MEDIA_TYPES:
+          yield cls.new_issue(
+              node, f'{TYPE} must be one of {sorted(MEDIA_TYPES)}: {link_type}')
+
     links_by_rel = collections.defaultdict(list)
     for link in links:
       links_by_rel[link[REL]].append(link)
@@ -218,5 +246,23 @@ class Check(stac.NodeCheck):
         if count > 1:
           yield cls.new_issue(node, f'{CHILD} url repeated: {url}')
 
+      return
 
-    # TODO(schwehr): Add checks for STAC Collections
+    # Checks for STAC Collections
+
+    extra_rel = rels.difference(ALL_COLLECTION_REL)
+    if extra_rel:
+      yield cls.new_issue(
+          node,
+          'collection: unexpected link rel(s): ' + ', '.join(sorted(extra_rel)))
+      return
+
+    # TODO(b/185832969): Required - preview
+    # TODO(b/185832969): Required - terms
+    # TODO(b/185832969): Required - general example
+    # TODO(b/185832969): Required for tables / banned for images - feature view
+    # TODO(b/185832969): Allowed - license.  Any number
+    # TODO(b/185832969): Allowed - cite-as.  Any number
+    # TODO(b/185832969): Allowed - source. Any number
+    # TODO(b/185832969): Allowed - version: latest, predecessor, successor
+    #   Only one of each

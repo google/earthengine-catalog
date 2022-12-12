@@ -69,7 +69,6 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   keywords: [
     'census',
-    'counties',
     'county',
     'tiger',
     'us',

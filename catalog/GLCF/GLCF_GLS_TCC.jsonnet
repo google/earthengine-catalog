@@ -116,8 +116,8 @@ local self_url = catalog_subdir_url + base_filename;
       'Landsat-7',
     ],
     instruments: [
-      'TM',
       'ETM+',
+      'TM',
     ],
     'eo:bands': [
       {

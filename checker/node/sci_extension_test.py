@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import sci_extension
-import unittest
+from absl.testing import absltest
 
 ID_FOR_EXTRA_DOI = 'CSIRO/SLGA'
 EXTENSION_URL = (
@@ -225,4 +225,4 @@ class ErrorSciExtTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

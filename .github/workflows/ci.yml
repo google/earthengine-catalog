@@ -30,4 +30,4 @@ jobs:
       - name: Test Checker
         run: bazel test --test_output=errors //...
       - name: Checker
-        run: bazel run //checker:ee_stac_check
+        run: bazel-bin/checker/ee_stac_check

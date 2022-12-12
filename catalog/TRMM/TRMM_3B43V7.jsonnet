@@ -84,11 +84,11 @@ local self_url = catalog_subdir_url + base_filename;
       'TRMM',
     ],
     instruments: [
-      'TMI',
-      'PR',
-      'VIRS',
       'CERES',
       'LSI',
+      'PR',
+      'TMI',
+      'VIRS',
     ],
     'eo:bands': [
       {

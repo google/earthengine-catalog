@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import file_path
-import unittest
+from absl.testing import absltest
 
 
 class ValidFilePathTest(test_utils.NodeTest):
@@ -116,4 +116,4 @@ class ErrorFilePathTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

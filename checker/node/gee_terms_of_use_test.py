@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import gee_terms_of_use
-import unittest
+from absl.testing import absltest
 
 
 class GeeTermsOfUseTest(test_utils.NodeTest):
@@ -35,4 +35,4 @@ class GeeTermsOfUseTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

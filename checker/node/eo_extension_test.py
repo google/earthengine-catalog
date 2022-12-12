@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import eo_extension
-import unittest
+from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
@@ -100,9 +100,14 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
     self.assert_collection(
         {'summaries': {'eo:bands': 'not a list'}}, 'eo:bands must be a list')
 
-  def test_bands_not_dict(self):
+  def test_band_not_dict(self):
     self.assert_collection(
         {'summaries': {'eo:bands': ['not a dict']}}, 'band must be a dict')
+
+  def test_bands_not_dict_and_duplicate(self):
+    self.assert_collection(
+        {'summaries': {'eo:bands': [None, None]}},
+        ['band must be a dict', 'band must be a dict'])
 
   def test_bands_empty(self):
     self.assert_collection(
@@ -317,4 +322,4 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

@@ -3,7 +3,7 @@
 import pathlib
 
 from checker import stac
-import unittest
+from absl.testing import absltest
 
 CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
@@ -13,7 +13,7 @@ ID = 'id'
 EMPTY_PATH = pathlib.Path('')
 
 
-class NodeTest(unittest.TestCase):
+class NodeTest(absltest.TestCase):
 
   def test_two_level_catalog(self):
     node = stac.Node(ID, EMPTY_PATH, CATALOG, IMAGE, {})
@@ -50,7 +50,7 @@ class NodeTest(unittest.TestCase):
           node.is_two_level(), f'id should be two level: {dataset_id}')
 
 
-class IssueTest(unittest.TestCase):
+class IssueTest(absltest.TestCase):
 
   def test_str(self):
     issue = stac.Issue('an id', pathlib.Path('a path'), 'a name', 'a message')
@@ -67,7 +67,7 @@ class IssueTest(unittest.TestCase):
     self.assertEqual(expect, str(issue))
 
 
-class CheckTest(unittest.TestCase):
+class CheckTest(absltest.TestCase):
 
   def test_new_issue(self):
     dataset_id = 'an id'
@@ -112,7 +112,7 @@ class CheckTest(unittest.TestCase):
       stac.TreeCheck.run([node])
 
 
-class LoadTest(unittest.TestCase):
+class LoadTest(absltest.TestCase):
 
   def test_found_collections(self):
     stac_root = stac.stac_root()
@@ -121,4 +121,4 @@ class LoadTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

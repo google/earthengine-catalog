@@ -5,7 +5,7 @@ import pathlib
 from checker import stac
 from checker import test_utils
 from checker.node import extent
-import unittest
+from absl.testing import absltest
 
 Check = extent.Check
 check_spatial = Check.check_spatial
@@ -32,7 +32,7 @@ def make_node(collection_stac) -> stac.Node:
   return stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, collection_stac)
 
 
-class SpatialTest(unittest.TestCase):
+class SpatialTest(absltest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -131,7 +131,7 @@ class SpatialTest(unittest.TestCase):
     self.assertEqual(expect, issues)
 
 
-class TemporalTest(unittest.TestCase):
+class TemporalTest(absltest.TestCase):
 
   def setUp(self):
     super().setUp()
@@ -312,4 +312,4 @@ class ExtentTest(test_utils.NodeTest):
     self.assert_collection({EXTENT: 'not a dict'}, '"extent" must be a dict')
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

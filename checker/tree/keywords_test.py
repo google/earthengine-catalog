@@ -5,7 +5,7 @@ from unittest import mock
 
 from checker import stac
 from checker.tree import keywords
-import unittest
+from absl.testing import absltest
 
 Check = keywords.Check
 
@@ -21,7 +21,7 @@ def mock_is_single_use_exception(keyword: str) -> bool:
   return keyword == SINGLE_USE_KEYWORD
 
 
-class KeywordsTest(unittest.TestCase):
+class KeywordsTest(absltest.TestCase):
 
   def test_valid(self):
     stac_data = {'keywords': ['a_keyword']}
@@ -47,9 +47,10 @@ class KeywordsTest(unittest.TestCase):
     issues = list(Check.run([node]))
     for issue in issues:
       print(issue)
-    expect = [Check.new_issue(node, 'Only one instance of "a_keyword"')]
+    expect = [Check.new_issue(
+        node, 'Only one instance of "a_keyword"', stac.IssueLevel.WARNING)]
     self.assertEqual(expect, issues)
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

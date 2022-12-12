@@ -1,8 +1,9 @@
 """Tests for links."""
 
+from checker import stac
 from checker import test_utils
 from checker.node import links
-import unittest
+from absl.testing import absltest
 
 BASE_URL = 'https://storage.googleapis.com/earthengine-stac/catalog/'
 DEV_URL = 'https://developers.google.com/earth-engine/datasets/'
@@ -109,9 +110,24 @@ class CatalogLinkTest(test_utils.NodeTest):
   def test_link_extra_key(self):
     self.assert_catalog(
         {'links': [
-            {'href': 'https://1', 'rel': 'self', 'fluf': '3'},
+            {'href': 'https://1', 'rel': 'self', 'fluf': '3', 'type': JSON},
             self.CHILD_LINK, self.PARENT_LINK, self.ROOT_LINK]},
         'unexpected link key(s): fluf')
+
+  def test_link_disallowed_media_type(self):
+    bad_type = 'application/bogus'
+    self_link = {
+        'href': BASE_URL + 'USGS/catalog.json',
+        'rel': 'self',
+        'type': bad_type}
+    media_types = '\', \''.join([
+        'application/json', 'application/pdf', 'image/png', 'text/html'])
+    media_types = '\'' + media_types + '\''
+    self.assert_catalog(
+        {'links': [
+            self_link, self.CHILD_LINK, self.PARENT_LINK, self.ROOT_LINK]},
+        [f'type must be one of [{media_types}]: {bad_type}',
+         'link self must have type of application/json'])
 
   def test_missing_root(self):
     self.assert_catalog(
@@ -196,12 +212,84 @@ class CatalogLinkTest(test_utils.NodeTest):
 
 class CollectionLinkTest(test_utils.NodeTest):
 
+  required_links = [{
+      'href': BASE_URL + 'AHN/AHN_AHN2_05M_RUW.json',
+      'rel': 'self',
+      'type': 'application/json'
+  }, {
+      'href': BASE_URL + 'AHN/catalog.json',
+      'rel': 'parent',
+      'type': 'application/json'
+  }, {
+      'href': BASE_URL + 'catalog.json',
+      'rel': 'root',
+      'type': 'application/json'
+  }, {
+      'code': 'JavaScript',
+      'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW',
+      'rel': 'related',
+      'title': ('Run the example for AHN/AHN2_05M_RUW in the '
+                'Earth Engine Code Editor'),
+      'type': 'text/html'
+  }, {
+      'href': DEV_URL + 'images/AHN/AHN_AHN2_05M_RUW_sample.png',
+      'rel': 'preview',
+      'type': 'image/png'
+  }, {
+      'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
+      'rel': 'license',
+      'type': 'text/html',
+  }]
+
   def setUp(self):
     super().setUp()
     self.check = links.Check
 
-  # TODO(schwehr): Add tests specific to STAC Collections
+  def test_valid_has_everything(self):
+    stac_data = {'links': self.required_links + [{
+        'code': 'JavaScript',
+        'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW_FeatureView',
+        'rel': 'related',
+        'title': ('Run the example for AHN/AHN2_05M_RUW in the '
+                  'Earth Engine Code Editor'),
+        'type': 'text/html'
+    }, {
+        'href': 'https://example.test/license.html',
+        'rel': 'license',
+        'type': 'text/html'
+    }, {
+        'href': 'https://doi.org/10.5281/zenodo.3518026',
+        'rel': 'cite-as'
+    }, {
+        'href': 'https://lcviewer.vito.be/download',
+        'rel': 'source'
+    }, {
+        'href': BASE_URL + 'THING/THING_latest.json',
+        'rel': 'latest-version',
+        'title': 'THING/THING_latest',
+        'type': 'application/json'
+    }, {
+        'href': BASE_URL + 'THING/THING_predecessor.json',
+        'rel': 'predecessor-version',
+        'title': 'THING/THING_predecessor',
+        'type': 'application/json'
+    }, {
+        'href': BASE_URL + 'THING/THING_successor.json',
+        'rel': 'successor-version',
+        'title': 'THING/THING_successor',
+        'type': 'application/json'
+    }]}
+    self.assert_collection(
+        stac_data, dataset_id='AHN/AHN2_05M_RUW', gee_type=stac.GeeType.TABLE)
+
+  def test_extra_relation(self):
+    stac_data = {'links': self.required_links + [
+        {'href': 'https://example.test', 'rel': 'bogus2'},
+        {'href': 'https://example.test', 'rel': 'bogus1'},
+    ]}
+    self.assert_collection(
+        stac_data, 'collection: unexpected link rel(s): bogus1, bogus2')
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

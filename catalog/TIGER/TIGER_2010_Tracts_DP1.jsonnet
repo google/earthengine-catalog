@@ -29,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     areas vary tremendously, but in urban areas are roughly equivalent
     to a neighborhood. There are about 74,000 polygon features covering
     the United States, the District of Columbia, Puerto Rico, and
-    the [Island areas](https://www.census.gov/2010census/news/press-kits/island-areas/island-areas.html).
+    the [Island areas](https://www.census.gov/data/tables/2010/dec/2010-island-areas.html).
 
     For full technical details on all TIGER 2010 products, see
     the [TIGER technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2010/TGRSHP10SF1.pdf).

@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import gee_provider_ids
-import unittest
+from absl.testing import absltest
 
 PROVIDER_ID_1 = 'ONE23-ID4_5'
 PROVIDER_ID_2 = 'WX-YZ'
@@ -65,4 +65,4 @@ class ErrorGeeProviderIdsTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

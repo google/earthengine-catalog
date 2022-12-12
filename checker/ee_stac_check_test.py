@@ -6,10 +6,10 @@ GOOGLE3 ONLY: This test is not for distribution.
 from absl import logging
 
 from checker import ee_stac_check
-import unittest
+from absl.testing import absltest
 
 
-class EeStacCheckerTest(unittest.TestCase):
+class EeStacCheckerTest(absltest.TestCase):
 
   def test_public_data_catalog(self):
     issues = []
@@ -24,4 +24,4 @@ class EeStacCheckerTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

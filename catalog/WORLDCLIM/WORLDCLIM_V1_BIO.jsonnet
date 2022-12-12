@@ -62,7 +62,6 @@ local self_url = catalog_subdir_url + base_filename;
     'precipitation',
     'seasonality',
     'temperature',
-    'ucb',
     'warmest',
     'weather',
     'wettest',

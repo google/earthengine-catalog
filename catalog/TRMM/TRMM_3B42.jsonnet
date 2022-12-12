@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Details of the TMPA algorithm used in this product](https://pmm.nasa.gov/sites/default/files/imce/3B42_3B43_TMPA_restart.pdf)
 
-    * [TRMM Data Gaps](ftp://gpmweb2.pps.eosdis.nasa.gov/tsdis/AB/docs/anomalous.html)
+    * [TRMM Data Gaps](https://web.archive.org/web/20200701000000*/ftp://gpmweb2.pps.eosdis.nasa.gov/tsdis/AB/docs/anomalous.html)
 
     * [Transition from TMPA to IMERG](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/TMPA-to-IMERG_transition.pdf)
   |||,

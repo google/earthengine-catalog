@@ -64,14 +64,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       111000,
     ],
     platform: [
-      'EarthProbe',
-      'Nimbus-7',
-      'Meteor-3',
       'Aura',
+      'EarthProbe',
+      'Meteor-3',
+      'Nimbus-7',
     ],
     instruments: [
-      'TOMS',
       'OMI',
+      'TOMS',
     ],
     'eo:bands': [
       {

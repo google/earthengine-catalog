@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import license_field
-import unittest
+from absl.testing import absltest
 
 LICENSE = license_field.LICENSE
 
@@ -36,4 +36,4 @@ class LicenseFieldTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

@@ -39,10 +39,8 @@ local self_url = catalog_subdir_url + base_filename;
     'forest',
     'geophysical',
     'glas',
-    'height',
     'jpl',
     'nasa',
-    'tree',
   ],
   providers: [
     ee.producer_provider('NASA/JPL', 'https://earthobservatory.nasa.gov'),

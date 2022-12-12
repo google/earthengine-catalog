@@ -32,9 +32,8 @@ local gsm_description =
     ee.link.child_collection('NOAA_GOES_17_MCMIPC', base_url),
     ee.link.child_collection('NOAA_GOES_17_MCMIPF', base_url),
     ee.link.child_collection('NOAA_GOES_17_MCMIPM', base_url),
-    // TODO(b/222129714): Enable when available.
-    // ee.link.child_collection('NOAA_GOES_18_FDCC', base_url),
-    // ee.link.child_collection('NOAA_GOES_18_FDCF', base_url),
+    ee.link.child_collection('NOAA_GOES_18_FDCC', base_url),
+    ee.link.child_collection('NOAA_GOES_18_FDCF', base_url),
     ee.link.child_collection('NOAA_GOES_18_MCMIPC', base_url),
     ee.link.child_collection('NOAA_GOES_18_MCMIPF', base_url),
     ee.link.child_collection('NOAA_GOES_18_MCMIPM', base_url),

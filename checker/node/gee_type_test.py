@@ -3,7 +3,7 @@
 from checker import stac
 from checker import test_utils
 from checker.node import gee_type
-import unittest
+from absl.testing import absltest
 
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
@@ -44,4 +44,4 @@ class GeeTypeTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

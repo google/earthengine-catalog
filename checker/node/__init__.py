@@ -5,6 +5,7 @@ from typing import Iterator
 from checker import stac
 from checker.node import description
 from checker.node import eo_extension
+from checker.node import examples
 from checker.node import extensions
 from checker.node import extent
 from checker.node import feature_view
@@ -19,6 +20,7 @@ from checker.node import gee_type
 from checker.node import gee_unusual_terms_of_use
 from checker.node import gee_user_uploaded
 from checker.node import id_field
+from checker.node import instrument
 from checker.node import interval
 from checker.node import keywords
 from checker.node import license_field
@@ -42,6 +44,7 @@ from checker.node import visualizations_table
 TYPE = 'type'
 
 _CHECKS = [
+    # Core components that must be checked first
     required.Check,
     gee_type.Check,
     top_level.Check,
@@ -50,6 +53,7 @@ _CHECKS = [
     file_path.Check,
     extensions.Check,
 
+    # Primary STAC components
     extent.Check,
     keywords.Check,
     title.Check,
@@ -58,6 +62,7 @@ _CHECKS = [
     providers.Check,
     links.Check,
     summaries.Check,
+    instrument.Check,
 
     # extensions
     eo_extension.Check,
@@ -81,6 +86,7 @@ _CHECKS = [
     visualizations_image.Check,
     visualizations_table.Check,
     feature_view.Check,
+    examples.Check,
 ]
 
 

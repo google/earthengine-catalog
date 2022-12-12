@@ -83,8 +83,8 @@ local self_url = catalog_subdir_url + base_filename;
       5566.0,
     ],
     platform: [
-      'NOAA-7',
-      'NOAA-9',
+      'NOAA-07',
+      'NOAA-09',
       'NOAA-11',
       'NOAA-14',
       'NOAA-16',

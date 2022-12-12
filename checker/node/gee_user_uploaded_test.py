@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import gee_user_uploaded
-import unittest
+from absl.testing import absltest
 
 
 class GeeUserUploadedTest(test_utils.NodeTest):
@@ -32,4 +32,4 @@ class GeeUserUploadedTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()

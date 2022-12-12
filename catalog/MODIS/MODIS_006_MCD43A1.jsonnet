@@ -97,8 +97,8 @@ local successor_url = catalog_subdir_url + successor_filename;
   extent: ee.extent_global('2000-02-24T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
-      'Terra',
       'Aqua',
+      'Terra',
     ],
   },
   'sci:doi': '10.5067/MODIS/MCD43A1.006',

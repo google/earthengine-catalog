@@ -2,7 +2,7 @@
 
 from checker import test_utils
 from checker.node import interval
-import unittest
+from absl.testing import absltest
 
 
 class IntervalTest(test_utils.NodeTest):
@@ -150,4 +150,4 @@ class IntervalTest(test_utils.NodeTest):
 
 
 if __name__ == '__main__':
-  unittest.main()
+  absltest.main()
