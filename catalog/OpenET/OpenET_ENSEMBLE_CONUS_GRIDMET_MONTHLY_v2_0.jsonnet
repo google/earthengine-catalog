@@ -88,12 +88,104 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'et_ensemble_mad_index',
         description: |||
-           A bit-encoded index value used to determine which
-           individual models were used to compute the ensemble ET value,
-           after filtering for outliers using the median absolute deviation (mad);
-           Bit 0: DisALEXI; Bit 1: EEMETRIC; Bit 2: GEESEBAL; Bit 3: PTJPL ;Bit 4:
-           SIMS; Bit 5: SSEBop
+           Bitmask indicating which models were included in the ensemble ET value,
+           after filtering for outliers using the median absolute deviation (mad)
         |||,
+        'gee:bitmask': {
+          bitmask_parts: [
+            {
+              description: 'DisALEXI included in ensemble',
+              first_bit: 0,
+              bit_count: 1,
+              values: [
+                {
+                  value: 0,
+                  description: 'No',
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'EEMETRIC included in ensemble',
+              first_bit: 1,
+              bit_count: 1,
+              values: [
+                {
+                  value: 0,
+                  description: 'No',
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'GEESEBAL included in ensemble',
+              first_bit: 2,
+              bit_count: 1,
+              values: [
+                {
+                  value: 0,
+                  description: 'No',
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'PTJPL included in ensemble',
+              first_bit: 3,
+              bit_count: 1,
+              values: [
+                {
+                  value: 0,
+                  description: 'No',
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'SIMS included in ensemble',
+              first_bit: 4,
+              bit_count: 1,
+              values: [
+                {
+                  value: 0,
+                  description: 'No',
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'SSEBop included in ensemble',
+              first_bit: 5,
+              bit_count: 1,
+              values: [
+                {
+                  value: 0,
+                  description: 'No',
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+          ],
+          total_bit_count: 6,
+        },
       },
       {
         name: 'et_ensemble_sam',
