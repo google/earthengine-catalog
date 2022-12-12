@@ -39,7 +39,6 @@ local self_url = catalog_subdir_url + base_filename;
     'forest',
     'geophysical',
     'glas',
-    'height',
     'jpl',
     'nasa',
   ],

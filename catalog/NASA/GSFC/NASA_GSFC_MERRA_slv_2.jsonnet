@@ -49,7 +49,6 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   keywords: [
     'condensation',
-    'height',
     'humidity',
     'merra',
     'nasa',
