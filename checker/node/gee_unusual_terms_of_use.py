@@ -29,7 +29,7 @@ MUST_BE_UNUSUAL = frozenset({
     'CC-BY-SA-4.0',
     'ODbL-1.0',
 })
-POSSIBLY_UNUSUAL = frozenset(MUST_BE_UNUSUAL.union({'proprietary'}))
+POSSIBLY_UNUSUAL = MUST_BE_UNUSUAL.union({'proprietary'})
 
 
 class Check(stac.NodeCheck):

@@ -91,7 +91,7 @@ TYPE = 'type'
 
 REQUIRED_KEYS = frozenset({HREF, REL})
 OPTIONAL_KEYS = frozenset({CODE, TITLE, TYPE})
-ALL_KEYS = frozenset(REQUIRED_KEYS.union(OPTIONAL_KEYS))
+ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
 CHILD = 'child'
 PARENT = 'parent'
@@ -100,7 +100,7 @@ SELF = 'self'
 
 REQUIRED_REL = frozenset({PARENT, ROOT, SELF})
 OPTIONAL_CATALOG_REL = frozenset({CHILD})
-ALL_CATALOG_REL = frozenset(REQUIRED_REL.union(OPTIONAL_CATALOG_REL))
+ALL_CATALOG_REL = REQUIRED_REL.union(OPTIONAL_CATALOG_REL)
 
 JSON = 'application/json'
 
