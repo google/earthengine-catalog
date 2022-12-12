@@ -102,6 +102,20 @@ REQUIRED_REL = frozenset({PARENT, ROOT, SELF})
 OPTIONAL_CATALOG_REL = frozenset({CHILD})
 ALL_CATALOG_REL = REQUIRED_REL.union(OPTIONAL_CATALOG_REL)
 
+CITE_AS = 'cite-as'
+LATEST_VERSION = 'latest-version'
+LICENSE = 'license'
+PREDECESSOR_VERSION = 'predecessor-version'
+PREVIEW = 'preview'
+RELATED = 'related'
+SOURCE = 'source'
+SUCCESSOR_VERSION = 'successor-version'
+
+OPTIONAL_COLLECTION_REL = frozenset({
+    CITE_AS, LATEST_VERSION, LICENSE, PREDECESSOR_VERSION, PREVIEW, RELATED,
+    SOURCE, SUCCESSOR_VERSION})
+ALL_COLLECTION_REL = REQUIRED_REL.union(OPTIONAL_COLLECTION_REL)
+
 JSON = 'application/json'
 
 HREF_PREFIXES = ('ftp://', 'http://', 'https://', 's3://')
@@ -232,5 +246,23 @@ class Check(stac.NodeCheck):
         if count > 1:
           yield cls.new_issue(node, f'{CHILD} url repeated: {url}')
 
+      return
 
-    # TODO(schwehr): Add checks for STAC Collections
+    # Checks for STAC Collections
+
+    extra_rel = rels.difference(ALL_COLLECTION_REL)
+    if extra_rel:
+      yield cls.new_issue(
+          node,
+          'collection: unexpected link rel(s): ' + ', '.join(sorted(extra_rel)))
+      return
+
+    # TODO(b/185832969): Required - preview
+    # TODO(b/185832969): Required - terms
+    # TODO(b/185832969): Required - general example
+    # TODO(b/185832969): Required for tables / banned for images - feature view
+    # TODO(b/185832969): Allowed - license.  Any number
+    # TODO(b/185832969): Allowed - cite-as.  Any number
+    # TODO(b/185832969): Allowed - source. Any number
+    # TODO(b/185832969): Allowed - version: latest, predecessor, successor
+    #   Only one of each
