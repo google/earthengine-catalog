@@ -31,10 +31,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     currently included in the OpenET model ensemble are ALEXI/DisALEXI, eeMETRIC, geeSEBAL,
     PT-JPL, SIMS, and SSEBop. The OpenET ensemble ET value is calculated as the mean of the
     ensemble after filtering and removing outliers using the median absolute
-    deviation approach.  
-    All models currently use Landsat satellite data to produce ET data at a pixel size of
-    30 meters by 30 meters (0.22 acres per pixel). The monthly ET dataset provides data on total 
-    ET by month as an equivalent depth of water in millimeters.
+    deviation approach. All models currently use Landsat satellite data to produce ET data at a pixel 
+    size of 30 meters by 30 meters (0.22 acres per pixel). The monthly ET dataset provides data on 
+    total ET by month as an equivalent depth of water in millimeters.
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
