@@ -32,5 +32,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('LARSE_GEDI_GEDI04_B_002', base_url),
     ee.link.child_collection('LARSE_GEDI_GEDI04_A_002', base_url),
     ee.link.child_collection('LARSE_GEDI_GEDI04_A_002_INDEX', base_url),
+    ee.link.child_collection('LARSE_GEDI_GEDI04_A_002_MONTHLY', base_url),
   ],
 }
