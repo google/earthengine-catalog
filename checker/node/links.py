@@ -111,10 +111,10 @@ RELATED = 'related'
 SOURCE = 'source'
 SUCCESSOR_VERSION = 'successor-version'
 
+REQUIRED_COLLECTION_REL = REQUIRED_REL.union({LICENSE, PREVIEW, RELATED})
 OPTIONAL_COLLECTION_REL = frozenset({
-    CITE_AS, LATEST_VERSION, LICENSE, PREDECESSOR_VERSION, PREVIEW, RELATED,
-    SOURCE, SUCCESSOR_VERSION})
-ALL_COLLECTION_REL = REQUIRED_REL.union(OPTIONAL_COLLECTION_REL)
+    CITE_AS, LATEST_VERSION, PREDECESSOR_VERSION, SOURCE, SUCCESSOR_VERSION})
+ALL_COLLECTION_REL = REQUIRED_COLLECTION_REL.union(OPTIONAL_COLLECTION_REL)
 
 JSON = 'application/json'
 
@@ -250,6 +250,14 @@ class Check(stac.NodeCheck):
       return
 
     # Checks for STAC Collections
+
+    missing_required = REQUIRED_COLLECTION_REL.difference(set(rels))
+    if missing_required:
+      yield cls.new_issue(
+          node,
+          'collection: missing required rel(s): ' +
+          ', '.join(sorted(missing_required)))
+      return
 
     extra_rel = rels.difference(ALL_COLLECTION_REL)
     if extra_rel:

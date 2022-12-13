@@ -282,6 +282,19 @@ class CollectionLinkTest(test_utils.NodeTest):
     self.assert_collection(
         stac_data, dataset_id='AHN/AHN2_05M_RUW', gee_type=stac.GeeType.TABLE)
 
+  def test_missing_required(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    self.assert_collection(
+        {'links': stac_links}, 'collection: missing required rel(s): license')
+
+  def test_missing_all_required(self):
+    stac_links = [
+        l for l in self.required_links
+        if l['rel'] not in {'license', 'preview', 'related'}]
+    self.assert_collection(
+        {'links': stac_links},
+        'collection: missing required rel(s): license, preview, related')
+
   def test_extra_relation(self):
     stac_data = {'links': self.required_links + [
         {'href': 'https://example.test', 'rel': 'bogus2'},
