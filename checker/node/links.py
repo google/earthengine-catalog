@@ -226,7 +226,8 @@ class Check(stac.NodeCheck):
       extra_rel = rels.difference(ALL_CATALOG_REL)
       if extra_rel:
         yield cls.new_issue(
-            node, 'unexpected link rel(s): ' + ', '.join(sorted(extra_rel)))
+            node,
+            'catalog: unexpected link rel(s): ' + ', '.join(sorted(extra_rel)))
         return
 
       for child in links_by_rel[CHILD]:

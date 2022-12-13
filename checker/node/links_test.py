@@ -184,7 +184,7 @@ class CatalogLinkTest(test_utils.NodeTest):
         {'links': [
             bogus_link,
             self.CHILD_LINK, self.PARENT_LINK, self.ROOT_LINK, self.SELF_LINK]},
-        'unexpected link rel(s): bogon')
+        'catalog: unexpected link rel(s): bogon')
 
   def test_child_mising_title(self):
     child_link = {'href': 'http://url', 'rel': 'child', 'type': JSON}
