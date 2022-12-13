@@ -12,7 +12,7 @@ class CatalogTest(test_utils.NodeTest):
     self.check = type_field.Check
 
   def test_valid(self):
-    self.assert_catalog({'type': 'Catalog'})
+    self.assert_catalog({'type': 'Catalog'}, file_path='catalog.json')
 
   def test_misssing(self):
     self.assert_catalog({}, 'Missing: type')
@@ -24,6 +24,12 @@ class CatalogTest(test_utils.NodeTest):
     self.assert_catalog(
         {'type': 'bogus string'},
         'type must be one of [\'Catalog\', \'Collection\']')
+
+  def test_path_not_catalog_json(self):
+    self.assert_catalog(
+        {'type': 'Catalog'},
+        'Catalog path must end with catalog.json. Found: not_catalog.json',
+        file_path='not_catalog.json')
 
 
 class CollectionTest(test_utils.NodeTest):
@@ -45,6 +51,12 @@ class CollectionTest(test_utils.NodeTest):
     self.assert_collection(
         {'type': 'bogus string'},
         'type must be one of [\'Catalog\', \'Collection\']')
+
+  def test_path_catalog_json(self):
+    self.assert_collection(
+        {'type': 'Collection'},
+        'catalog.json cannot have type Collection',
+        file_path='catalog.json')
 
 
 if __name__ == '__main__':
