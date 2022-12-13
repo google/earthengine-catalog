@@ -258,8 +258,10 @@ class Check(stac.NodeCheck):
     if not isinstance(summaries, dict): return
     if EO_BANDS not in summaries: return
     bands = summaries[EO_BANDS]
+    if not isinstance(bands, list): return
 
     for band in bands:
+      if not isinstance(band, dict): continue
       if CLASSES not in band: continue
       classes = band[CLASSES]
       if not isinstance(classes, list):

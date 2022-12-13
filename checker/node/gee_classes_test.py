@@ -32,6 +32,12 @@ class GeeClassesTest(test_utils.NodeTest):
                {'color': 'white', 'description': 'B', 'value': 0}]
     self.assert_collection(make_stac(classes))
 
+  def test_skip_bands_not_list(self):
+    self.assert_collection({'summaries': {'eo:bands': 'not a list'}})
+
+  def test_skip_band_not_dict(self):
+    self.assert_collection({'summaries': {'eo:bands': ['not a dict']}})
+
   def test_bad_classes_must_be_a_list(self):
     self.assert_collection(
         {'summaries': {
@@ -40,6 +46,11 @@ class GeeClassesTest(test_utils.NodeTest):
                 'description': 'a descr',
                 'gee:classes': 'not a list'}]}},
         '"gee:classes" must be a list')
+
+  def test_bad_empty_list(self):
+    classes = []
+    self.assert_collection(
+        make_stac(classes), '"gee:classes" must have at least 1 class')
 
   def test_bad_classes_item_must_be_a_dict(self):
     self.assert_collection(
@@ -56,7 +67,8 @@ class GeeClassesTest(test_utils.NodeTest):
     stac_data = make_stac([
         {'color': 'red', 'description': 'A'},
         {'color': 'blue', 'description': 'B', 'value': 2}])
-    self.assert_collection(stac_data, 'A gee:classes entry missing [\'value\'])')
+    self.assert_collection(
+        stac_data, 'A gee:classes entry missing [\'value\'])')
 
   def test_bad_missing_required_description(self):
     stac_data = make_stac([
