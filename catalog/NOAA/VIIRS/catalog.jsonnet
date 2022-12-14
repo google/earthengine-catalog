@@ -20,6 +20,8 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP09GA', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP13A1', base_url),
+    // TODO(b/159274936): Uncomment when ready
+    // ee.link.child_collection('NOAA_VIIRS_001_VNP14A1', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP22Q2', base_url),
     ee.link.child_collection('NOAA_VIIRS_DNB_MONTHLY_V1_VCMCFG', base_url),
     ee.link.child_collection('NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG', base_url),
