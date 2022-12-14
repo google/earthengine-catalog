@@ -9,8 +9,10 @@ from absl.testing import absltest
 
 Check = keywords.Check
 
+CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
 IMAGE = stac.GeeType.IMAGE
+NONE = stac.GeeType.NONE
 
 ID = 'a/collection'
 FILE_PATH = pathlib.Path('test/path/should/be/ignored')
@@ -25,9 +27,10 @@ class KeywordsTest(absltest.TestCase):
 
   def test_valid(self):
     stac_data = {'keywords': ['a_keyword']}
+    collection_node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     nodes = [
-        stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data),
-        stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)]
+        stac.Node('A', pathlib.Path('A/catalog.json'), CATALOG, NONE, {}),
+        collection_node, collection_node]
     issues = list(Check.run(nodes))
     self.assertEqual(0, len(issues))
 
@@ -37,20 +40,26 @@ class KeywordsTest(absltest.TestCase):
     stac_data = {'keywords': [SINGLE_USE_KEYWORD]}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run([node]))
-    for issue in issues:
-      print(issue)
     self.assertEqual(0, len(issues))
 
   def test_bad_single_use(self):
     stac_data = {'keywords': ['a_keyword']}
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run([node]))
-    for issue in issues:
-      print(issue)
     expect = [Check.new_issue(
         node, 'Only one instance of "a_keyword"', stac.IssueLevel.WARNING)]
     self.assertEqual(expect, issues)
 
+  def test_no_longer_single_use(self):
+    single_use_keyword = 'vnp09ga'
+    node = stac.Node(
+        '> UNKNOWN ID: ', pathlib.Path('> UNKNOWN PATH'), COLLECTION, IMAGE,
+        {'keywords': [single_use_keyword]})
+    issues = list(Check.run([node, node]))
+    expect = [Check.new_issue(
+        node, '"vnp09ga" should be removed from exceptions',
+        stac.IssueLevel.WARNING)]
+    self.assertEqual(expect, issues)
 
 if __name__ == '__main__':
   absltest.main()

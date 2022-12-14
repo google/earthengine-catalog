@@ -15,6 +15,7 @@ GEE_TYPE = 'gee:type'
 TYPE = 'type'
 # This is an intentionally invalid dataset_id.
 UNKNOWN_ID = '> UNKNOWN ID: '
+UNKNOWN_PATH = pathlib.Path('> UNKNOWN PATH')
 
 _TWO_LEVEL_FOLDERS: list[str] = ['NASA', 'NOAA', 'USGS']
 

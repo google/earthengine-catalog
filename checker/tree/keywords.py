@@ -19,12 +19,12 @@ KEYWORDS = 'keywords'
 # in more than one STAC collection.
 # Do not add more keywords to this list.
 EXCEPTIONS = frozenset({
-    '30_year', 'aafc', 'aer', 'aerial', 'aim', 'air_temperature', 'alerts',
+    'aafc', 'aer', 'aerial', 'aim', 'air_temperature', 'alerts',
     'aod', 'aot', 'argillic', 'asia', 'aura', 'avnir_2', 'backscatter',
     'belowground', 'bioclim', 'biome', 'biopama', 'biota', 'bnu', 'builtup',
     'bulk', 'bulk_density', 'burnseverity', 'c2s', 'c3s', 'calcium',
     'calibrated', 'caltech', 'canopy', 'carbon_organic', 'cci', 'cdem', 'cdl',
-    'cgiar', 'china', 'chip', 'ciesin_derived', 'classification',
+    'cgiar', 'china', 'chip', 'ciesin_derived',
     'climatic_water_balance', 'cloudtostreet', 'coldest', 'condensation',
     'coral', 'corine_derived', 'cpom', 'cryosat_2', 'dartmouth', 'day',
     'demographic', 'dess', 'development', 'dfo', 'digital_soil_mapping',
@@ -47,11 +47,11 @@ EXCEPTIONS = frozenset({
     'particulate_matter', 'pathfinder', 'persiann', 'phosphorus',
     'planet_derived', 'plantation', 'poes', 'polarization', 'potassium',
     'power', 'power_plants', 'precipitable', 'prescribedfire', 'protection',
-    'radar', 'radarsat_1', 'range', 'reef', 'resolve', 'rgb', 'river_networks',
-    'roads', 'rtma', 'saltmarsh', 'sea_ice', 'sea_salt', 'seagrass',
+    'radarsat_1', 'range', 'reef', 'resolve', 'river_networks',
+    'roads', 'rtma', 'saltmarsh', 'sea_ice', 'seagrass',
     'seasonality', 'seawifs', 'sentinelhub',
-    'shortwave', 'silt', 'slga', 'slv', 'smod', 'smos', 'so4', 'social',
-    'soil_depth', 'soil_moisture', 'soil_temperature', 'south_asia',
+    'silt', 'slga', 'slv', 'smod', 'smos', 'social',
+    'soil_depth', 'soil_temperature', 'south_asia',
     'southeast_asia', 'spei', 'spi', 'stone',
     'stray_light', 'sulfur', 'taxonomy', 'terrace', 'terradat',
     'terrestrialaim', 'texture', 'tidal_flat', 'tidal_marsh', 'tile', 'tir',
@@ -67,25 +67,17 @@ def is_single_use_exception(keyword: str) -> bool:
   return keyword in EXCEPTIONS
 
 
-def normalize_keyword(keyword: str) -> str:
-  return keyword.lower().replace('-', '_')
-
-
 class Check(stac.TreeCheck):
   """Checks keywords across collections."""
   name = 'keywords_tree'
 
   @classmethod
   def run(cls, nodes: list[stac.Node]) -> Iterator[stac.Issue]:
+    nodes = [node for node in nodes if node.type != stac.StacType.CATALOG]
+
     counts = collections.Counter()
-
     for node in nodes:
-      if node.type != stac.StacType.COLLECTION:
-        continue
-
-      original_keywords = node.stac.get(KEYWORDS, [])
-      keywords = [normalize_keyword(k) for k in original_keywords]
-      counts.update(keywords)
+      counts.update(node.stac.get(KEYWORDS, []))
 
     single_keywords = {
         k for k, v in counts.items()
@@ -93,10 +85,7 @@ class Check(stac.TreeCheck):
 
     if single_keywords:
       for node in nodes:
-        if node.type != stac.StacType.COLLECTION:
-          continue
         for keyword in node.stac.get(KEYWORDS, []):
-          keyword = normalize_keyword(keyword)
           if keyword in single_keywords:
             # To add a keyword to the system, it should to occur in at least
             # two datasets.  For those where the keyword is critical, but there
@@ -105,3 +94,14 @@ class Check(stac.TreeCheck):
             yield cls.new_issue(
                 node, f'Only one instance of "{keyword}"',
                 stac.IssueLevel.WARNING)
+
+    multiple_use_keywords = {k for k, v in counts.items() if v > 1}
+    no_longer_single_use = multiple_use_keywords.intersection(EXCEPTIONS)
+    unknown_node = stac.Node(
+        stac.UNKNOWN_ID, stac.UNKNOWN_PATH, stac.StacType.COLLECTION,
+        stac.GeeType.NONE, {})
+    for keyword in sorted(no_longer_single_use):
+      yield cls.new_issue(
+          unknown_node,
+          f'"{keyword}" should be removed from exceptions',
+          stac.IssueLevel.WARNING)
