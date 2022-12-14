@@ -111,6 +111,12 @@ class ParentChildTest(absltest.TestCase):
     issues = list(Check.run(nodes))
     self.assertEqual(0, len(issues))
 
+  def test_collection_links_not_list(self):
+    collection = collection_node({LINKS: 'not a list'})
+    nodes = [ROOT_NODE, CATALOG_NODE, collection]
+    issues = list(Check.run(nodes))
+    self.assertEqual(0, len(issues))
+
   def test_missing_child(self):
     catalog = {LINKS: [
         {REL: SELF, HREF: PREFIX + 'AAFC/catalog.json'},
