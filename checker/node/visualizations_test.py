@@ -61,6 +61,9 @@ class ValidVisualizationsTest(test_utils.NodeTest):
   def test_no_summaries(self):
     self.assert_collection({})
 
+  def test_summaries_not_dict(self):
+    self.assert_collection({'summaries': 'not a dict'})
+
   def test_image_visualization(self):
     self.assert_collection(
         {'summaries': {'gee:visualizations': [{

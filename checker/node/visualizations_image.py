@@ -115,9 +115,7 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    if SUMMARIES not in node.stac:
-      return
-
+    if SUMMARIES not in node.stac: return
     summaries = node.stac[SUMMARIES]
     if not isinstance(summaries, dict): return
 
