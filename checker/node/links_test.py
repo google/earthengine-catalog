@@ -223,6 +223,12 @@ class CollectionLinkTest(test_utils.NodeTest):
       'type': 'image/png'
   }
 
+  terms_of_use = {
+      'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
+      'rel': 'license',
+      'type': 'text/html',
+  }
+
   required_links = [{
       'href': BASE_URL + 'AHN/AHN_AHN2_05M_RUW.json',
       'rel': 'self',
@@ -242,11 +248,7 @@ class CollectionLinkTest(test_utils.NodeTest):
       'title': ('Run the example for AHN/AHN2_05M_RUW in the '
                 'Earth Engine Code Editor'),
       'type': 'text/html'
-  }, preview, {
-      'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
-      'rel': 'license',
-      'type': 'text/html',
-  }]
+  }, preview, terms_of_use]
 
   def setUp(self):
     super().setUp()
@@ -316,7 +318,8 @@ class CollectionLinkTest(test_utils.NodeTest):
   def test_extra_preview(self):
     stac_data = {'links': self.required_links + [self.preview]}
     self.assert_collection(
-        stac_data, 'more than one preview found: 2')
+        stac_data, 'more than one preview found: 2',
+        dataset_id=self.node_id, file_path=self.node_path)
 
   def test_preview_missing(self):
     stac_links = [l for l in self.required_links if l['rel'] != 'preview']
@@ -355,6 +358,63 @@ class CollectionLinkTest(test_utils.NodeTest):
     stac_links.append(preview)
     self.assert_collection(
         {'links': stac_links}, 'unexpected preview key(s): title',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_missing(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    # There has to be at least one license entry to avoid triggering an
+    # earlier check.
+    stac_links.append({'href': 'https://example.test', 'rel': 'license'})
+    self.assert_collection(
+        {'links': stac_links},
+        'cannot find terms license ending in #terms-of-use',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_too_many(self):
+    self.assert_collection(
+        {'links': self.required_links + [self.terms_of_use]},
+        'Only one terms license link allowed',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_bad_url(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    stac_links.append(
+        {'href': 'https://example.test#terms-of-use', 'rel': 'license',
+         'type': 'text/html'})
+    self.assert_collection(
+        {'links': stac_links},
+        'terms license href must be https://developers.google.com/earth-engine/'
+        'datasets/catalog/AHN_AHN2_05M_RUW#terms-of-use. '
+        'Found: https://example.test#terms-of-use',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_missing_type(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    stac_links.append({
+        'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
+        'rel': 'license'})
+    self.assert_collection(
+        {'links': stac_links}, 'terms license missing type',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_wrong_type(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    stac_links.append({
+        'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
+        'rel': 'license', 'type': 'application/json'})
+    self.assert_collection(
+        {'links': stac_links},
+        'terms license type not text/html: application/json',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_extra_key(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    stac_links.append({
+        'code': 'bogus',
+        'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
+        'rel': 'license', 'type': 'text/html'})
+    self.assert_collection(
+        {'links': stac_links}, 'unexpected terms key(s): code',
         dataset_id=self.node_id, file_path=self.node_path)
 
 

@@ -135,6 +135,8 @@ MEDIA_TYPES = frozenset({
 DEV_URL = 'https://developers.google.com/earth-engine/datasets/'
 IMAGE_BASE = DEV_URL + 'images/'
 SAMPLE_SUFFIX = '_sample.png'
+TERMS_BASE = DEV_URL + 'catalog/'
+TERMS_SUFFIX = '#terms-of-use'
 
 
 class Check(stac.NodeCheck):
@@ -274,6 +276,8 @@ class Check(stac.NodeCheck):
           'collection: unexpected link rel(s): ' + ', '.join(sorted(extra_rel)))
       return
 
+    # preview
+
     previews = links_by_rel[PREVIEW]
     if len(previews) != 1:
       yield cls.new_issue(node, f'more than one preview found: {len(previews)}')
@@ -299,7 +303,42 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(
             node, 'unexpected preview key(s): ' + ', '.join(sorted(extra_keys)))
 
-    # TODO(b/185832969): Required - terms
+    # terms-of-use
+
+    all_terms = [
+        l for l in links_by_rel[LICENSE] if l[HREF].endswith(TERMS_SUFFIX)]
+
+    if len(all_terms) > 1:
+      yield cls.new_issue(
+          node, f'Only one terms {LICENSE} link allowed')
+    terms = all_terms[0] if all_terms else None
+
+    if not terms:
+      yield cls.new_issue(
+          node, f'cannot find terms {LICENSE} ending in {TERMS_SUFFIX}')
+    else:
+      name = node.id.replace('/', '_')
+      expected_url = TERMS_BASE + name + TERMS_SUFFIX
+
+      url = terms[HREF]
+      if url != expected_url:
+        yield cls.new_issue(
+            node,
+            f'terms {LICENSE} {HREF} must be {expected_url}. Found: {url}')
+
+      if TYPE not in terms:
+        yield cls.new_issue(node, f'terms {LICENSE} missing {TYPE}')
+      elif terms[TYPE] != HTML:
+        yield cls.new_issue(
+            node, f'terms {LICENSE} {TYPE} not {HTML}: {terms[TYPE]}')
+
+      keys = set(terms)
+      extra_keys = keys.difference(REQUIRED_KEYS.union({TYPE}))
+      if extra_keys:
+        yield cls.new_issue(
+            node,
+            'unexpected terms key(s): ' + ', '.join(sorted(extra_keys)))
+
     # TODO(b/185832969): Required - general example
     # TODO(b/185832969): Required for tables / banned for images - feature view
     # TODO(b/185832969): Allowed - license.  Any number
