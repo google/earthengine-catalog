@@ -116,17 +116,24 @@ OPTIONAL_COLLECTION_REL = frozenset({
     CITE_AS, LATEST_VERSION, PREDECESSOR_VERSION, SOURCE, SUCCESSOR_VERSION})
 ALL_COLLECTION_REL = REQUIRED_COLLECTION_REL.union(OPTIONAL_COLLECTION_REL)
 
-JSON = 'application/json'
-
 HREF_PREFIXES = ('ftp://', 'http://', 'https://', 's3://')
 
 # https://en.wikipedia.org/wiki/Media_type
+HTML = 'text/html'
+JSON = 'application/json'
+PDF = 'application/pdf'
+PNG = 'image/png'
+
 MEDIA_TYPES = frozenset({
-    'application/json',
-    'application/pdf',
-    'image/png',
-    'text/html',
+    HTML,
+    JSON,
+    PDF,
+    PNG,
 })
+
+DEV_URL = 'https://developers.google.com/earth-engine/datasets/'
+IMAGE_BASE = DEV_URL + 'images/'
+SAMPLE_SUFFIX = '_sample.png'
 
 
 class Check(stac.NodeCheck):
@@ -266,7 +273,31 @@ class Check(stac.NodeCheck):
           'collection: unexpected link rel(s): ' + ', '.join(sorted(extra_rel)))
       return
 
-    # TODO(b/185832969): Required - preview
+    previews = links_by_rel[PREVIEW]
+    if len(previews) != 1:
+      yield cls.new_issue(node, f'more than one preview found: {len(previews)}')
+    else:
+      preview = previews[0]
+      parents = str(node.path.parents[0])
+      expected_url = IMAGE_BASE + parents + '/' + node.path.stem + SAMPLE_SUFFIX
+
+      url = preview[HREF]
+      if url != expected_url:
+        yield cls.new_issue(
+            node, f'{PREVIEW} {HREF} must be {expected_url}. Found: {url}')
+
+      if TYPE not in preview:
+        yield cls.new_issue(node, f'preview missing {TYPE}')
+      elif preview[TYPE] != PNG:
+        yield cls.new_issue(
+            node, f'{PREVIEW} {TYPE} not {PNG}: {preview[TYPE]}')
+
+      keys = set(preview)
+      extra_keys = keys.difference(REQUIRED_KEYS.union({TYPE}))
+      if extra_keys:
+        yield cls.new_issue(
+            node, 'unexpected preview key(s): ' + ', '.join(sorted(extra_keys)))
+
     # TODO(b/185832969): Required - terms
     # TODO(b/185832969): Required - general example
     # TODO(b/185832969): Required for tables / banned for images - feature view

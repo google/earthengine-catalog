@@ -1,5 +1,7 @@
 """Tests for links."""
 
+import pathlib
+
 from checker import stac
 from checker import test_utils
 from checker.node import links
@@ -212,6 +214,15 @@ class CatalogLinkTest(test_utils.NodeTest):
 
 class CollectionLinkTest(test_utils.NodeTest):
 
+  node_id = 'AHN/AHN2_05M_RUW'
+  node_path = pathlib.Path('AHN/AHN_AHN2_05M_RUW.json')
+
+  preview = {
+      'href': DEV_URL + 'images/AHN/AHN_AHN2_05M_RUW_sample.png',
+      'rel': 'preview',
+      'type': 'image/png'
+  }
+
   required_links = [{
       'href': BASE_URL + 'AHN/AHN_AHN2_05M_RUW.json',
       'rel': 'self',
@@ -231,11 +242,7 @@ class CollectionLinkTest(test_utils.NodeTest):
       'title': ('Run the example for AHN/AHN2_05M_RUW in the '
                 'Earth Engine Code Editor'),
       'type': 'text/html'
-  }, {
-      'href': DEV_URL + 'images/AHN/AHN_AHN2_05M_RUW_sample.png',
-      'rel': 'preview',
-      'type': 'image/png'
-  }, {
+  }, preview, {
       'href': DEV_URL + 'catalog/AHN_AHN2_05M_RUW#terms-of-use',
       'rel': 'license',
       'type': 'text/html',
@@ -280,7 +287,10 @@ class CollectionLinkTest(test_utils.NodeTest):
         'type': 'application/json'
     }]}
     self.assert_collection(
-        stac_data, dataset_id='AHN/AHN2_05M_RUW', gee_type=stac.GeeType.TABLE)
+        stac_data,
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+        gee_type=stac.GeeType.TABLE)
 
   def test_missing_required(self):
     stac_links = [l for l in self.required_links if l['rel'] != 'license']
@@ -302,6 +312,50 @@ class CollectionLinkTest(test_utils.NodeTest):
     ]}
     self.assert_collection(
         stac_data, 'collection: unexpected link rel(s): bogus1, bogus2')
+
+  def test_extra_preview(self):
+    stac_data = {'links': self.required_links + [self.preview]}
+    self.assert_collection(
+        stac_data, 'more than one preview found: 2')
+
+  def test_preview_missing(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'preview']
+    stac_links.append({
+        'href': DEV_URL + 'images/AHN/AHN_AHN2_05M_RUW_sample.png',
+        'rel': 'preview'})
+    self.assert_collection(
+        {'links': stac_links}, 'preview missing type',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_preview_wrong_type(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'preview']
+    stac_links.append({
+        'href': DEV_URL + 'images/AHN/AHN_AHN2_05M_RUW_sample.png',
+        'rel': 'preview', 'type': JSON})
+    self.assert_collection(
+        {'links': stac_links},
+        'preview type not image/png: application/json',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_preview_bad_url(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'preview']
+    stac_links.append(
+        {'href': 'https://example.test', 'rel': 'preview', 'type': 'image/png'})
+    message = (
+        'preview href must be https://developers.google.com/earth-engine/'
+        'datasets/images/AHN/AHN_AHN2_05M_RUW_sample.png. '
+        'Found: https://example.test')
+    self.assert_collection(
+        {'links': stac_links}, message,
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_preview_extra_key(self):
+    preview = self.preview | {'title': 'should not have a title'}
+    stac_links = [l for l in self.required_links if l['rel'] != 'preview']
+    stac_links.append(preview)
+    self.assert_collection(
+        {'links': stac_links}, 'unexpected preview key(s): title',
+        dataset_id=self.node_id, file_path=self.node_path)
 
 
 if __name__ == '__main__':
