@@ -106,7 +106,7 @@ class CatalogLinkTest(test_utils.NodeTest):
         {'links': [
             {'href': 'gopher://1', 'rel': 'self', 'type': JSON},
             self.CHILD_LINK, self.PARENT_LINK, self.ROOT_LINK]},
-        'href must start with ftp://, http://, https://, s3://: '
+        'href must start with ftp://, gs://, http://, https://, s3://: '
         'found: gopher://1')
 
   def test_link_extra_key(self):

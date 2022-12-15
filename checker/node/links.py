@@ -116,7 +116,8 @@ OPTIONAL_COLLECTION_REL = frozenset({
     CITE_AS, LATEST_VERSION, PREDECESSOR_VERSION, SOURCE, SUCCESSOR_VERSION})
 ALL_COLLECTION_REL = REQUIRED_COLLECTION_REL.union(OPTIONAL_COLLECTION_REL)
 
-HREF_PREFIXES = ('ftp://', 'http://', 'https://', 's3://')
+# Note: ftp and http should be avoided if at all possible.
+HREF_PREFIXES = ('ftp://', 'gs://', 'http://', 'https://', 's3://')
 
 # https://en.wikipedia.org/wiki/Media_type
 HTML = 'text/html'
