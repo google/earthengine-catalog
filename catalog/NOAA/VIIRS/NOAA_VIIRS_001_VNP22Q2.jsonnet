@@ -72,6 +72,7 @@ local self_url = catalog_subdir_url + base_filename;
     'ndvi',
     'noaa',
     'npp',
+    'onset_greenness',
     'phenology',
     'surface',
     'vegetation',
