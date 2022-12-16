@@ -359,13 +359,48 @@ class Check(stac.NodeCheck):
             node,
             'unexpected terms key(s): ' + ', '.join(sorted(extra_keys)))
 
-    # example
-
-    # TODO(b/185832969): regular example scripts
-
-    # feature view script
+    # example script
 
     example_name = node.id.replace('/', '_')
+
+    example_links = [
+        l for l in links_by_rel[RELATED]
+        if CODE in l and not l[HREF].endswith(FEATURE_VIEW)
+    ]
+
+    if not example_links:
+      yield cls.new_issue(node, f'Missing example {RELATED} link')
+    else:
+      num_example_links = len(example_links)
+      if num_example_links > 1:
+        yield cls.new_issue(
+            node, f'More than 1 example {RELATED} link: {num_example_links}')
+      example = example_links[0]
+
+      expected_url = CODE_URL + example_name
+      url = example[HREF]
+      if url != expected_url:
+        yield cls.new_issue(
+            node, f'{CODE} {HREF} must be {expected_url}. Found: {url}')
+
+      if TITLE not in example:
+        yield cls.new_issue(node, f'Missing example {TITLE}')
+      else:
+        expected_title = (
+            f'Run the example for {node.id} in the Earth Engine Code Editor')
+        title = example[TITLE]
+        if title != expected_title:
+          yield cls.new_issue(
+              node, f'{TITLE} must be {expected_title}. Found: {title}')
+
+    for link in example_links:
+      if TYPE not in link:
+        yield cls.new_issue(node, f'example missing {TYPE}')
+      elif link[TYPE] != HTML:
+        yield cls.new_issue(
+            node, f'example {TYPE} not {HTML}: {terms[TYPE]}')
+
+    # feature view script
 
     feature_view_links = [
         l for l in links_by_rel[RELATED]

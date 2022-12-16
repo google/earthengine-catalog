@@ -423,11 +423,70 @@ class CollectionLinkTest(test_utils.NodeTest):
         {'links': stac_links}, 'unexpected terms key(s): code',
         dataset_id=self.node_id, file_path=self.node_path)
 
-  def test_feature_view_missing(self):
+  def test_example_missing(self):
     stac_links = [l for l in self.required_links if l['rel'] != 'related']
     stac_links.append({'href': 'https://example.test', 'rel': 'related'})
     self.assert_collection(
-        {'links': stac_links}, 'Missing example related FeatureView link',
+        {'links': stac_links}, 'Missing example related link',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_double(self):
+    stac_links = self.required_links + [self.example]
+    self.assert_collection(
+        {'links': stac_links}, 'More than 1 example related link: 2',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_bad_url(self):
+    example = {k: v for k, v in self.example.items() if k != 'href'}
+    example['href'] = 'https://example.test'
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    stac_links.append(example)
+    self.assert_collection(
+        {'links': stac_links},
+        'code href must be https://code.earthengine.google.com/?scriptPath='
+        'Examples:Datasets/AHN_AHN2_05M_RUW. Found: https://example.test',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_title_missing(self):
+    example = {k: v for k, v in self.example.items() if k != 'title'}
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    stac_links.append(example)
+    self.assert_collection(
+        {'links': stac_links}, 'Missing example title',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_title_bad(self):
+    example = {k: v for k, v in self.example.items() if k != 'title'}
+    example['title'] = 'bogus'
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    stac_links.append(example)
+    self.assert_collection(
+        {'links': stac_links},
+        'title must be Run the example for AHN/AHN2_05M_RUW in the '
+        'Earth Engine Code Editor. Found: bogus',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_type_missing(self):
+    example = {k: v for k, v in self.example.items() if k != 'type'}
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    stac_links.append(example)
+    self.assert_collection(
+        {'links': stac_links}, 'example missing type',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_type_bad(self):
+    example = {k: v for k, v in self.example.items() if k != 'type'}
+    example['type'] = 'application/json'
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    stac_links.append(example)
+    self.assert_collection(
+        {'links': stac_links}, 'example type not text/html: text/html',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_feature_view_missing(self):
+    self.assert_collection(
+        {'links': self.required_links},
+        'Missing example related FeatureView link',
         dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
 
   def test_feature_view_double(self):
