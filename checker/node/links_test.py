@@ -437,7 +437,7 @@ class CollectionLinkTest(test_utils.NodeTest):
         dataset_id=self.node_id, file_path=self.node_path)
 
   def test_example_bad_url(self):
-    example = {k: v for k, v in self.example.items() if k != 'href'}
+    example = dict(self.example)
     example['href'] = 'https://example.test'
     stac_links = [l for l in self.required_links if l['rel'] != 'related']
     stac_links.append(example)
@@ -448,7 +448,8 @@ class CollectionLinkTest(test_utils.NodeTest):
         dataset_id=self.node_id, file_path=self.node_path)
 
   def test_example_title_missing(self):
-    example = {k: v for k, v in self.example.items() if k != 'title'}
+    example = dict(self.example)
+    example.pop('title')
     stac_links = [l for l in self.required_links if l['rel'] != 'related']
     stac_links.append(example)
     self.assert_collection(
@@ -456,7 +457,7 @@ class CollectionLinkTest(test_utils.NodeTest):
         dataset_id=self.node_id, file_path=self.node_path)
 
   def test_example_title_bad(self):
-    example = {k: v for k, v in self.example.items() if k != 'title'}
+    example = dict(self.example)
     example['title'] = 'bogus'
     stac_links = [l for l in self.required_links if l['rel'] != 'related']
     stac_links.append(example)
@@ -467,7 +468,8 @@ class CollectionLinkTest(test_utils.NodeTest):
         dataset_id=self.node_id, file_path=self.node_path)
 
   def test_example_type_missing(self):
-    example = {k: v for k, v in self.example.items() if k != 'type'}
+    example = dict(self.example)
+    example.pop('type')
     stac_links = [l for l in self.required_links if l['rel'] != 'related']
     stac_links.append(example)
     self.assert_collection(
@@ -475,7 +477,7 @@ class CollectionLinkTest(test_utils.NodeTest):
         dataset_id=self.node_id, file_path=self.node_path)
 
   def test_example_type_bad(self):
-    example = {k: v for k, v in self.example.items() if k != 'type'}
+    example = dict(self.example)
     example['type'] = 'application/json'
     stac_links = [l for l in self.required_links if l['rel'] != 'related']
     stac_links.append(example)

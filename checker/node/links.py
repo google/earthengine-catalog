@@ -393,13 +393,6 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'{TITLE} must be {expected_title}. Found: {title}')
 
-    for link in example_links:
-      if TYPE not in link:
-        yield cls.new_issue(node, f'example missing {TYPE}')
-      elif link[TYPE] != HTML:
-        yield cls.new_issue(
-            node, f'example {TYPE} not {HTML}: {terms[TYPE]}')
-
     # feature view script
 
     feature_view_links = [
@@ -444,15 +437,13 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(
                 node, f'{TITLE} must be {expected_title}. Found: {title}')
 
-    # TODO(b/185832969): example_links
-    for link in feature_view_links:
+    for link in example_links + feature_view_links:
       if TYPE not in link:
         yield cls.new_issue(node, f'example missing {TYPE}')
       elif link[TYPE] != HTML:
         yield cls.new_issue(
             node, f'example {TYPE} not {HTML}: {terms[TYPE]}')
 
-    # TODO(b/185832969): Required for tables / banned for images - feature view
     # TODO(b/185832969): Allowed - license.  Any number
     # TODO(b/185832969): Allowed - cite-as.  Any number
     # TODO(b/185832969): Allowed - source. Any number
