@@ -137,6 +137,26 @@ IMAGE_BASE = DEV_URL + 'images/'
 SAMPLE_SUFFIX = '_sample.png'
 TERMS_BASE = DEV_URL + 'catalog/'
 TERMS_SUFFIX = '#terms-of-use'
+CODE_URL = (
+    'https://code.earthengine.google.com/?scriptPath=Examples:Datasets/')
+FEATURE_VIEW = '_FeatureView'
+
+FEATURE_VIEW_EXCEPTIONS = frozenset({
+    'JRC/GWIS/GlobFire/v2/DailyPerimeters',
+    'JRC/GWIS/GlobFire/v2/FinalPerimeters',
+    'JRC/LUCAS_HARMO/COPERNICUS_POLYGONS/V1/2018',
+    'LARSE/GEDI/GEDI02_A_002',
+    'LARSE/GEDI/GEDI02_A_002_INDEX',
+    'LARSE/GEDI/GEDI02_B_002',
+    'LARSE/GEDI/GEDI02_B_002_INDEX',
+    'LARSE/GEDI/GEDI04_A_002',
+    'LARSE/GEDI/GEDI04_A_002_INDEX',
+    'TIGER/2010/BG',
+})
+
+
+def feature_view_exception(dataset_id: str) -> bool:
+  return dataset_id in FEATURE_VIEW_EXCEPTIONS
 
 
 class Check(stac.NodeCheck):
@@ -339,7 +359,64 @@ class Check(stac.NodeCheck):
             node,
             'unexpected terms key(s): ' + ', '.join(sorted(extra_keys)))
 
-    # TODO(b/185832969): Required - general example
+    # example
+
+    # TODO(b/185832969): regular example scripts
+
+    # feature view script
+
+    example_name = node.id.replace('/', '_')
+
+    feature_view_links = [
+        l for l in links_by_rel[RELATED]
+        if CODE in l and l[HREF].endswith(FEATURE_VIEW)
+    ]
+    if node.gee_type in (stac.GeeType.IMAGE, stac.GeeType.IMAGE_COLLECTION):
+      if feature_view_links:
+        yield cls.new_issue(
+            node,
+            f'{node.gee_type} cannot have example {RELATED} a FeatureView link')
+    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+      if not feature_view_links:
+        if not feature_view_exception(node.id):
+          yield cls.new_issue(
+              node, f'Missing example {RELATED} FeatureView link')
+      else:
+        if feature_view_exception(node.id):
+          yield cls.new_issue(node, 'Remove node from feature view exceptions')
+        num_feature_view_links = len(feature_view_links)
+        if num_feature_view_links > 1:
+          yield cls.new_issue(
+              node,
+              f'More than 1 example {RELATED} FeatureView link: ' +
+              f'{num_feature_view_links}')
+        feature_view = feature_view_links[0]
+
+        expected_url = CODE_URL + example_name + FEATURE_VIEW
+        url = feature_view[HREF]
+        if url != expected_url:
+          yield cls.new_issue(
+              node, f'{CODE} {HREF} must be {expected_url}. Found: {url}')
+
+        if TITLE not in feature_view:
+          yield cls.new_issue(
+              node, f'Missing example {RELATED} FeatureView {TITLE}')
+        else:
+          expected_title = (
+              f'Run the example for {node.id} in the Earth Engine Code Editor')
+          title = feature_view[TITLE]
+          if title != expected_title:
+            yield cls.new_issue(
+                node, f'{TITLE} must be {expected_title}. Found: {title}')
+
+    # TODO(b/185832969): example_links
+    for link in feature_view_links:
+      if TYPE not in link:
+        yield cls.new_issue(node, f'example missing {TYPE}')
+      elif link[TYPE] != HTML:
+        yield cls.new_issue(
+            node, f'example {TYPE} not {HTML}: {terms[TYPE]}')
+
     # TODO(b/185832969): Required for tables / banned for images - feature view
     # TODO(b/185832969): Allowed - license.  Any number
     # TODO(b/185832969): Allowed - cite-as.  Any number

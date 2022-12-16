@@ -40,7 +40,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     table](https://developers.google.com/earth-engine/tiger_2010_tract_dp1_metadata).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
+  ],
   keywords: [
     'census',
     'demographic',

@@ -82,7 +82,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ecoregions that have been split, please [run this script](https://code.earthengine.google.com/7a437c78fc8cb46ec586bb4e2c10e526).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
+  ],
   keywords: [
     'biodiversity',
     'conservation',

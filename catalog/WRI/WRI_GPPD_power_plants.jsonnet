@@ -46,7 +46,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     sign up to receive update notifications.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
+  ],
   keywords: [
     'climate',
     'energy',

@@ -45,7 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       and -9999).
   ||| + importstr 'mtbs_description.md',
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
+  ],
   keywords: [
     'burnseverity',
     'eros',

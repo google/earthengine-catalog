@@ -80,6 +80,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5066/P955KPLE',

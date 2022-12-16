@@ -1,11 +1,14 @@
 """Tests for links."""
 
 import pathlib
+from unittest import mock
 
 from checker import stac
 from checker import test_utils
 from checker.node import links
 from absl.testing import absltest
+
+TABLE = stac.GeeType.TABLE
 
 BASE_URL = 'https://storage.googleapis.com/earthengine-stac/catalog/'
 DEV_URL = 'https://developers.google.com/earth-engine/datasets/'
@@ -229,6 +232,23 @@ class CollectionLinkTest(test_utils.NodeTest):
       'type': 'text/html',
   }
 
+  example = {
+      'code': 'JavaScript',
+      'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW',
+      'rel': 'related',
+      'title': ('Run the example for AHN/AHN2_05M_RUW in the '
+                'Earth Engine Code Editor'),
+      'type': 'text/html'
+  }
+  feature_view = {
+      'code': 'JavaScript',
+      'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW_FeatureView',
+      'rel': 'related',
+      'title': ('Run the example for AHN/AHN2_05M_RUW in the '
+                'Earth Engine Code Editor'),
+      'type': 'text/html'
+  }
+
   required_links = [{
       'href': BASE_URL + 'AHN/AHN_AHN2_05M_RUW.json',
       'rel': 'self',
@@ -241,28 +261,14 @@ class CollectionLinkTest(test_utils.NodeTest):
       'href': BASE_URL + 'catalog.json',
       'rel': 'root',
       'type': 'application/json'
-  }, {
-      'code': 'JavaScript',
-      'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW',
-      'rel': 'related',
-      'title': ('Run the example for AHN/AHN2_05M_RUW in the '
-                'Earth Engine Code Editor'),
-      'type': 'text/html'
-  }, preview, terms_of_use]
+  }, example, preview, terms_of_use]
 
   def setUp(self):
     super().setUp()
     self.check = links.Check
 
   def test_valid_has_everything(self):
-    stac_data = {'links': self.required_links + [{
-        'code': 'JavaScript',
-        'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW_FeatureView',
-        'rel': 'related',
-        'title': ('Run the example for AHN/AHN2_05M_RUW in the '
-                  'Earth Engine Code Editor'),
-        'type': 'text/html'
-    }, {
+    stac_data = {'links': self.required_links + [self.feature_view, {
         'href': 'https://example.test/license.html',
         'rel': 'license',
         'type': 'text/html'
@@ -416,6 +422,78 @@ class CollectionLinkTest(test_utils.NodeTest):
     self.assert_collection(
         {'links': stac_links}, 'unexpected terms key(s): code',
         dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_feature_view_missing(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    stac_links.append({'href': 'https://example.test', 'rel': 'related'})
+    self.assert_collection(
+        {'links': stac_links}, 'Missing example related FeatureView link',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_double(self):
+    stac_links = self.required_links + [self.feature_view, self.feature_view]
+    self.assert_collection(
+        {'links': stac_links},
+        'More than 1 example related FeatureView link: 2',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_bad_url(self):
+    feature_view = dict(self.feature_view)
+    feature_view['href'] = 'https://example.test/foo_FeatureView'
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]},
+        'code href must be https://code.earthengine.google.com/?scriptPath='
+        'Examples:Datasets/AHN_AHN2_05M_RUW_FeatureView. '
+        'Found: https://example.test/foo_FeatureView',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_title_missing(self):
+    feature_view = dict(self.feature_view)
+    feature_view.pop('title')
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]},
+        'Missing example related FeatureView title',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_title_bad(self):
+    feature_view = dict(self.feature_view)
+    feature_view['title'] = 'bogus'
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]},
+        'title must be Run the example for AHN/AHN2_05M_RUW in the '
+        'Earth Engine Code Editor. Found: bogus',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_type_missing(self):
+    feature_view = dict(self.feature_view)
+    feature_view.pop('type')
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]}, 'example missing type',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_type_bad(self):
+    feature_view = dict(self.feature_view)
+    feature_view['type'] = 'application/json'
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]},
+        'example type not text/html: text/html',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_not_for_image_datasets(self):
+    stac_links = self.required_links + [self.feature_view]
+    self.assert_collection(
+        {'links': stac_links},
+        'image cannot have example related a FeatureView link',
+        dataset_id=self.node_id, file_path=self.node_path)
+
+  @mock.patch.object(links, 'feature_view_exception', return_value=True)
+  def test_feature_view_exception_with_fv(self, mock_feature_view_exp):
+    del mock_feature_view_exp  # Unused
+    stac_links = self.required_links + [self.feature_view]
+    self.assert_collection(
+        {'links': stac_links},
+        'Remove node from feature view exceptions',
+        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
 
 
 if __name__ == '__main__':

@@ -46,6 +46,8 @@ local license = spdx.cc_by_4_0;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
+    ee.link.example(
+      version_config.id, version_config.basename + '_FeatureView'),
     ee.link.license(license.reference)
   ] + version_config.version_links,
   keywords: [

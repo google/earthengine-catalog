@@ -53,6 +53,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
     ee.link.latest(config.latest_id, config.latest_url),
     ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {

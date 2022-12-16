@@ -44,7 +44,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     in this dataset.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
+  ],
   keywords: [
     'borders',
     'boundaries',

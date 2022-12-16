@@ -34,7 +34,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license(license.reference),
+   ee.link.license(license.reference),
     {
       rel: ee_const.rel.source,
       href: 'https://gwis-globfire.s3.amazonaws.com/',

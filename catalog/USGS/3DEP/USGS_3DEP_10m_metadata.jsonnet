@@ -35,6 +35,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
     ee.link.license('https://www.usgs.gov/information-policies-and-instructions/crediting-usgs'),
   ],
   keywords: [

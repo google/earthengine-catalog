@@ -44,6 +44,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
     ee.link.successor(
         successor_id, catalog_subdir_url + successor_basename + '.json'),
   ],

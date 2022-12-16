@@ -65,6 +65,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, basename + '_FeatureView'),
     ee.link.license('https://edg.epa.gov/epa_data_license.html'),
   ],
   keywords: [
