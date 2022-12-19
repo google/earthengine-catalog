@@ -6,6 +6,7 @@ GOOGLE3 ONLY: This test is not for distribution.
 from absl import logging
 
 from checker import ee_stac_check
+from checker import stac
 from absl.testing import absltest
 
 
@@ -16,7 +17,9 @@ class EeStacCheckerTest(absltest.TestCase):
 
     for issue in ee_stac_check.find_issues([]):
       logging.error('%s', issue)
-      issues.append(issue)
+
+      if issue.level == stac.IssueLevel.ERROR:
+        issues.append(issue)
 
     num_issues = len(issues)
     issues_str = '\n  '.join([str(issue) for issue in issues])
