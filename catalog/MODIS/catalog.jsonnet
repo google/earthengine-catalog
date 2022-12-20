@@ -68,6 +68,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('MODIS_006_MYD17A3HGF', base_url),
     ee.link.child_collection('MODIS_006_MYDOCGA', base_url),
     ee.link.child_collection('MODIS_055_MOD17A3', base_url),
+    ee.link.child_collection('MODIS_061_MCD12Q1', base_url),
+    ee.link.child_collection('MODIS_061_MCD12Q2', base_url),
     ee.link.child_collection('MODIS_061_MCD15A3H', base_url),
     ee.link.child_collection('MODIS_061_MCD43A1', base_url),
     ee.link.child_collection('MODIS_061_MCD64A1', base_url),
