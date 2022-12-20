@@ -56,7 +56,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'albedo',
     'brdf',
     'global',
-    'mcd43a2',
     'modis',
     'quality',
     'reflectance',

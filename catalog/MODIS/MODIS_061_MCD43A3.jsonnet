@@ -1,6 +1,5 @@
-local id = 'MODIS/006/MCD43A3';
-local latest_id = 'MODIS/061/MCD43A3';
-local successor_id = 'MODIS/061/MCD43A3';
+local id = 'MODIS/061/MCD43A3';
+local predecessor_id = 'MODIS/006/MCD43A3';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -11,16 +10,13 @@ local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MCD43A3.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
 local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
+local predecessor_filename = predecessor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
+local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -31,12 +27,11 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MCD43A3.006 MODIS Albedo Daily 500m [deprecated]',
-  deprecated: true,
-  version: 'V006',
+  title: 'MCD43A3.061 MODIS Albedo Daily 500m',
+  version: 'V061',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MCD43A3 V6 Albedo Model dataset is a daily 16-day
+    The MCD43A3 V6.1 Albedo Model dataset is a daily 16-day
     product. It provides both directional hemispherical reflectance
     (black sky albedo) and bihemispherical reflectance (white sky albedo)
     for each of the MODIS surface reflectance bands (band 1 through
@@ -51,16 +46,15 @@ local successor_url = catalog_subdir_url + successor_filename;
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/97/MCD43_ATBD.pdf)
 
-    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MCD43A3)
+    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MCD43A3)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/MODIS/MCD43A3.006',
+      href: 'https://doi.org/10.5067/MODIS/MCD43A3.061',
     },
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
+    ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
     'albedo',
@@ -73,11 +67,11 @@ local successor_url = catalog_subdir_url + successor_filename;
     'white_sky',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD43A3.006'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD43A3.061'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1000000426-LPDAAC_ECS',
+    'C2278860820-LPCLOUD',
   ],
   extent: ee.extent_global('2000-02-24T00:00:00Z', null),
   summaries: template.summaries {
@@ -86,7 +80,7 @@ local successor_url = catalog_subdir_url + successor_filename;
       'Terra',
     ],
   },
-  'sci:doi': '10.5067/MODIS/MCD43A3.006',
+  'sci:doi': '10.5067/MODIS/MCD43A3.061',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
