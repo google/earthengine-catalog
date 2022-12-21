@@ -1,6 +1,5 @@
-local id = 'MODIS/006/MCD43C3';
-local latest_id = 'MODIS/061/MCD43C3';
-local successor_id = 'MODIS/061/MCD43C3';
+local id = 'MODIS/061/MCD43C3';
+local predecessor_id = 'MODIS/006/MCD43C3';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -11,16 +10,13 @@ local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MCD43C3.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
 local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
+local predecessor_filename = predecessor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
+local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -31,12 +27,11 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MCD43C3.006 BRDF/Albedo Daily L3 0.05 Deg CMG [deprecated]',
-  deprecated: true,
-  version: 'V006',
+  title: 'MCD43C3.061 BRDF/Albedo Daily L3 0.05 Deg CMG',
+  version: 'V061',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MCD43C3 Version 6
+    The MCD43C3 Version 6.1
     Bidirectional Reflectance Distribution Function and Albedo (BRDF/Albedo) Albedo
     dataset is produced daily using 16 days of Terra and Aqua MODIS data in a 0.05
     degree (5,600 meters at the equator) Climate Modeling Grid (CMG). Data are
@@ -60,10 +55,9 @@ local successor_url = catalog_subdir_url + successor_filename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/MODIS/MCD43C3.006',
+      href: 'https://doi.org/10.5067/MODIS/MCD43C3.061',
     },
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
+    ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
     'albedo',
@@ -77,7 +71,7 @@ local successor_url = catalog_subdir_url + successor_filename;
     'white_sky',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD43C3.006'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD43C3.061'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2000-02-24T00:00:00Z', null),
