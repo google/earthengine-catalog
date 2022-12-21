@@ -43,7 +43,7 @@ EXCEPTIONS = frozenset({
     'mod17a3gf', 'mod44b', 'modocga', 'multitemporal', 'myd17a2', 'myd17a3gf',
     'mydocga', 'naip', 'nasadem', 'nass', 'ncdc', 'ned', 'nfdrs', 'night',
     'nitrogen', 'nldas', 'nrcan', 'oilpalm', 'olci', 'omega', 'omi',
-    'onset_greenness', 'organic', 'orthorectified', 'pantropical', 'par',
+    'organic', 'orthorectified', 'pantropical', 'par',
     'particulate_matter', 'pathfinder', 'persiann', 'phosphorus',
     'planet_derived', 'plantation', 'poes', 'polarization', 'potassium',
     'power', 'power_plants', 'precipitable', 'prescribedfire', 'protection',
