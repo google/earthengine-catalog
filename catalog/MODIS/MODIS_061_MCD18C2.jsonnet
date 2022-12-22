@@ -57,7 +57,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   keywords: [
     'par',
     'radiation',
-    'solar',
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/products/mcd18c2v061/'),
