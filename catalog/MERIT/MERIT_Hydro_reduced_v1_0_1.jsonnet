@@ -103,7 +103,7 @@ local self_url = catalog_subdir_url + base_filename;
     MERIT Hydro: A high-resolution global hydrography map based on latest
     topography datasets
     Water Resources Research, vol.55, pp.5053-5073, 2019,
-    [doi:10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873]
+    [doi:10.1029/2019WR024873](https://doi.org/10.1029/2019WR024873)
   |||,
   'gee:terms_of_use': |||
     Citation to the paper is adequate if you simply use MERIT Hydro. If you

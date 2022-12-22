@@ -130,7 +130,7 @@ local self_url = catalog_subdir_url + base_filename;
     S.Y. Kang, E. Cameron, D. Bisanzio, K.E. Battle, S. Bhatt, and
     P.W. Gething. A global map of travel time to cities to assess inequalities
     in accessibility in 2015. Nature (2018).
-    (doi:10.1038/nature25181)[https://doi.org/10.1038/nature25181]
+    [doi:10.1038/nature25181](https://doi.org/10.1038/nature25181)
   |||,
   'gee:terms_of_use': |||
     This work is licensed under a [Creative Commons Attribution
