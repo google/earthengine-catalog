@@ -1,0 +1,15 @@
+# Find common misspellings
+# https://github.com/codespell-project/codespell
+# https://github.com/codespell-project/actions-codespell
+name: codespell
+on: [push, pull_request]
+jobs:
+  codespell:
+    name: Check for spelling errors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: codespell-project/actions-codespell@master
+        with:
+          ignore_words_list: Ake,ALOS,DOAS,Fallow,GES,ISTS,Markey,METDATA,nd,NED,Ot,pervious,PRES,REGIO,ro,Ser,vas,waterMask,Wich 
+
