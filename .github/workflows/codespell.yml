@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: codespell-project/actions-codespell@master
         with:
-          ignore_words_list: Ake,ALOS,DOAS,Fallow,GES,ISTS,Markey,METDATA,nd,NED,Ot,pervious,PRES,REGIO,ro,Ser,vas,waterMask,Wich 
+          ignore_words_list: "Ake,ALOS,DOAS,Fallow,GES,ISTS,Markey,METDATA,nd,NED,Ot,pervious,PRES,REGIO,ro,Ser,vas,waterMask,Wich"
 
