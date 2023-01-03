@@ -25,13 +25,14 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'OpenLandMap USDA Soil Taxonomy Great Groups',
   'gee:type': ee_const.gee_type.image,
   description: |||
-    Predicted USDA soil great group probablities at 250m
+    Predicted USDA soil great group probabilities at 250m.
 
     Distribution of the USDA soil great groups based on machine learning predictions
     from global compilation of soil profiles. To learn more about soil great groups
     please refer to the [Illustrated Guide to Soil Taxonomy - NRCS - USDA](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download/?cid=stelprdb1247203.pdf)
-    . Processing steps are described in detail **[here](https://gitlab.com/openlandmap/global-layers/tree/master/soil)**
-    . Antartica is not included.
+
+    - Processing steps are described in detail **[here](https://gitlab.com/openlandmap/global-layers/tree/master/soil)**
+    - Antarctica is not included.
 
     To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 
