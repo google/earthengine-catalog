@@ -29,8 +29,8 @@ local self_url = catalog_subdir_url + base_filename;
     100 and 200 cm) at 250 m resolution
 
     Based on machine learning predictions from global compilation of soil profiles and samples. Processing
-    steps are described in detail [here](https://gitlab.com/openlandmap/global-layers/tree/master/soil)
-    . Antartica is not included.
+    steps are described in detail [here](https://gitlab.com/openlandmap/global-layers/tree/master/soil).
+    Antarctica is not included.
 
     To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 

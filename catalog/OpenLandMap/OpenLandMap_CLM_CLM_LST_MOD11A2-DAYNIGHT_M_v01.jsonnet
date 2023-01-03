@@ -28,9 +28,9 @@ local self_url = catalog_subdir_url + base_filename;
     Long-term MODIS LST day-time and night-time
     differences at 1 km based on the 2000-2017 time series
 
-    Derived using the [data.table package and quantile function in R](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/MOD11A2)
-    . For more info about the MODIS LST product see [this page](https://lpdaac.usgs.gov/products/mod11a2v006/).
-    Antartica is not included.
+    Derived using the [data.table package and quantile function in R](https://gitlab.com/openlandmap/global-layers/tree/master/input_layers/MOD11A2).
+    For more info about the MODIS LST product see [this page](https://lpdaac.usgs.gov/products/mod11a2v006/).
+    Antarctica is not included.
 
     To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 

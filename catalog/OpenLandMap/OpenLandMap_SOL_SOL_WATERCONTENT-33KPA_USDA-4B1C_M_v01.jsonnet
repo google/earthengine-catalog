@@ -47,7 +47,7 @@ local self_url = catalog_subdir_url + base_filename;
     have been used (except to fill in the missing NCSS bulk densities). Available
     water capacity in mm (derived as a difference between field capacity and wilting
     point multiplied by layer thickness) per layer is available [here](https://doi.org/10.5281/zenodo.2629148).
-    Antartica is not included.
+    Antarctica is not included.
 
     To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 

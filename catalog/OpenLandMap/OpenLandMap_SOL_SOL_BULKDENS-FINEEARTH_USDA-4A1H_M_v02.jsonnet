@@ -29,7 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
     depths (0, 10, 30, 60, 100 and 200 cm) at 250 m resolution.
 
     Processing steps are described in detail [here](https://gitlab.com/openlandmap/global-layers/LandGISmaps/tree/master/soil).
-    Antartica is not included.
+    Antarctica is not included.
 
     To access and visualize maps outside of Earth Engine, use [this page](https://opengeohub.org/about-openlandmap).
 
