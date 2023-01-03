@@ -305,7 +305,7 @@ local self_url = catalog_subdir_url + base_filename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Surface bouyancy scale',
+        display_name: 'Surface buoyancy scale',
         lookat: {
           lat: 39.91,
           lon: -95.62,
