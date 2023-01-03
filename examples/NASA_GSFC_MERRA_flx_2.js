@@ -7,4 +7,4 @@ var sbsVis = {
   palette: ['001137', '01abab', 'e7eb05', '620500']
 };
 Map.setCenter(-95, 39, 2);
-Map.addLayer(surface_buoyancy_scale, sbsVis, 'Surface bouyancy scale');
+Map.addLayer(surface_buoyancy_scale, sbsVis, 'Surface buoyancy scale');
