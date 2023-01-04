@@ -38,8 +38,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'orthophoto',
     'rgb',
-    // 'swissimage',
-    // 'swisstopo'
+    'swissimage',
+    'swisstopo'
   ],
   providers: [
     ee.producer_provider(
@@ -53,9 +53,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   summaries: {
     gsd: [
       0.1,
-    ],
-    platform: [
-      'SwissImage',
     ],
     'eo:bands': [
       {
