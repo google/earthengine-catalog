@@ -181,7 +181,7 @@ class CatalogLinkTest(test_utils.NodeTest):
   def test_missing_child(self):
     self.assert_catalog(
         {'links': [self.PARENT_LINK, self.ROOT_LINK, self.SELF_LINK]},
-        'Catalog must at least one child link',
+        'Catalog must contain at least one child link',
         issue_level=stac.IssueLevel.WARNING)
 
   def test_extra_rel(self):
