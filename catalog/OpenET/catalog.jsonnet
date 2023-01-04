@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // TODO(schwehr): Uncomment when removing gee:skip_indexing
+    // ee.link.child_collection('OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
   ],
 }
