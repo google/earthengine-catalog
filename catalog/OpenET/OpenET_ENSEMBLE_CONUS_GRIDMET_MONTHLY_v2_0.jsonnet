@@ -57,6 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '2016-01-01T00:00:00Z', null),
   summaries: {
+    gsd: [30],
     'eo:bands': [
       {
         name: 'et_ensemble_mad',
