@@ -251,7 +251,9 @@ class Check(stac.NodeCheck):
 
     if node.type == CATALOG:
       if CHILD not in links_by_rel:
-        yield cls.new_issue(node, f'{CATALOG} must at least one {CHILD} link')
+        yield cls.new_issue(
+            node, f'{CATALOG} must contain at least one {CHILD} link',
+            stac.IssueLevel.WARNING)
 
       extra_rel = rels.difference(ALL_CATALOG_REL)
       if extra_rel:
