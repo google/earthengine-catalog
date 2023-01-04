@@ -12,6 +12,8 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  // TODO(schwehr): Remove skip_indexing when everything is ready.
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -24,16 +26,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The OpenET dataset includes satellite-based data on the total amount of water that
-    is transferred from the land surface to the atmosphere through the process of
-    evapotranspiration (ET). OpenET provides ET data from multiple satellite-driven models,
-    and also calculates a single "ensemble value" from the model ensemble. The models
-    currently included in the OpenET model ensemble are ALEXI/DisALEXI, eeMETRIC, geeSEBAL,
-    PT-JPL, SIMS, and SSEBop. The OpenET ensemble ET value is calculated as the mean of the
+    The OpenET dataset includes satellite-based data on the total amount of
+    water that is transferred from the land surface to the atmosphere through
+    the process of evapotranspiration (ET). OpenET provides ET data from
+    multiple satellite-driven models, and also calculates a single "ensemble
+    value" from the model ensemble. The models currently included in the OpenET
+    model ensemble are ALEXI/DisALEXI, eeMETRIC, geeSEBAL, PT-JPL, SIMS, and
+    SSEBop. The OpenET ensemble ET value is calculated as the mean of the
     ensemble after filtering and removing outliers using the median absolute
-    deviation approach. All models currently use Landsat satellite data to produce ET data at a pixel 
-    size of 30 meters by 30 meters (0.22 acres per pixel). The monthly ET dataset provides data on 
-    total ET by month as an equivalent depth of water in millimeters.
+    deviation approach. All models currently use Landsat satellite data to
+    produce ET data at a pixel size of 30 meters by 30 meters (0.22 acres per
+    pixel). The monthly ET dataset provides data on total ET by month as an
+    equivalent depth of water in millimeters.
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -240,15 +245,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
+  'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
     Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,
-    Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G., volk, J.,
-    Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M., Carrara, W., Daudert, B.,
-    Doherty, C., Dunkerly, C., Friedrichs, M., Guzman, A., Halverson, G., Hansen, J.,
-    Harding, J., Kang, Y., Ketchum, D., Minor, B., Morton, C., Ortega-Salazar, S., Ott, T.,
-    Ozdogon, M., Schull, M., Wang, T., Yang, Y., Anderson, R., 2021.
-    OpenET: Filling a Critical Data Gap in Water Management for the Western United States.
-    Journal of the American Water Resources Association, 2021 Nov 2.
+    Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,
+    volk, J., Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M.,
+    Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,
+    A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,
+    B., Morton, C., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang,
+    T., Yang, Y., Anderson, R., 2021.  OpenET: Filling a Critical Data Gap in
+    Water Management for the Western United States.  Journal of the American
+    Water Resources Association, 2021 Nov 2.
     [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,
   'gee:interval': {
@@ -256,6 +263,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'month',
     interval: 1,
   },
-  'sci:doi': '10.1111/1752-1688.12956',
   'gee:terms_of_use': ee.gee_terms_of_use(license),
+  'gee:user_uploaded': true,
 }
