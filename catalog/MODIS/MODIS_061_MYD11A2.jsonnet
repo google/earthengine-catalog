@@ -47,7 +47,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/119/MOD11_ATBD.pdf)
 
-    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MYD11A2)
+    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MYD11A2)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
