@@ -220,6 +220,7 @@ local self_url = catalog_subdir_url + base_filename;
         type: ee_const.var_type.string,
       },
     ],
+    gsd: [30],
     'eo:bands': [
       {
         name: 'Change',
@@ -232,7 +233,6 @@ local self_url = catalog_subdir_url + base_filename;
           probability that is also above a specified threshold. Any pixel that does not have any value
           above each class's respective threshold is assigned to the Stable class.
         |||,
-        gsd: 30.0,
         'gee:classes': [
           {
             value: 1,
@@ -275,7 +275,6 @@ local self_url = catalog_subdir_url + base_filename;
           seven mixed classes. These represent pixels in which an additional land cover class covers at
           least 10% of the pixel.
         |||,
-        gsd: 30.0,
         'gee:classes': [
           {
             value: 1,
@@ -364,7 +363,6 @@ local self_url = catalog_subdir_url + base_filename;
           Because of this, individual pixels have 6 different model outputs for each year, and final
           classes are assigned to the land use with the highest probability.
         |||,
-        gsd: 30.0,
         'gee:classes': [
           {
             value: 1,
@@ -428,7 +426,6 @@ local self_url = catalog_subdir_url + base_filename;
             a dry period (as opposed to stronger, more acute drought) causes an apparent decline in
             vigor, but no loss of woody material or leaf area.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Change_Raw_Probability_Fast-Loss',
@@ -464,7 +461,6 @@ local self_url = catalog_subdir_url + base_filename;
           determined or the type of change fails to meet any of the change process categories defined
           above.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Change_Raw_Probability_Gain',
@@ -481,7 +477,6 @@ local self_url = catalog_subdir_url + base_filename;
           that would, if extended to ~20 years, be on the order of .10 units of NDVI) which persists
           for several years.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Trees',
@@ -489,7 +484,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Trees. Defined as: The majority of the pixel is comprised
           of live or standing dead trees.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Tall-Shrubs-and-Trees-Mix',
@@ -498,7 +492,6 @@ local self_url = catalog_subdir_url + base_filename;
           as: The majority of the pixel is comprised of shrubs greater than 1m in height and is also
           comprised of at least 10% live or standing dead trees.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Shrubs-and-Trees-Mix',
@@ -506,7 +499,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Shrubs and Trees Mix. Defined as: The majority of the pixel
           is comprised of shrubs and is also comprised of at least 10% live or standing dead trees.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Grass-Forb-Herb-and-Trees-Mix',
@@ -515,7 +507,6 @@ local self_url = catalog_subdir_url + base_filename;
           the pixel is comprised of perennial grasses, forbs, or other forms of herbaceous vegetation
           and is also comprised of at least 10% live or standing dead trees.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-and-Trees-Mix',
@@ -527,7 +518,6 @@ local self_url = catalog_subdir_url + base_filename;
           activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
           considered barren and is also comprised of at least 10% live or standing dead trees.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Tall-Shrubs',
@@ -535,7 +525,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Tall Shrubs (SEAK Only). Defined as: The majority of the
           pixel is comprised of shrubs greater than 1m in height.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Shrubs',
@@ -543,7 +532,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Shrubs. Defined as: The majority of the pixel is comprised
           of shrubs.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Grass-Forb-Herb-and-Shrubs-Mix',
@@ -552,7 +540,6 @@ local self_url = catalog_subdir_url + base_filename;
           the pixel is comprised of perennial grasses, forbs, or other forms of herbaceous vegetation
           and is also comprised of at least 10% shrubs.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix',
@@ -564,7 +551,6 @@ local self_url = catalog_subdir_url + base_filename;
           activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
           considered barren and is also comprised of at least 10% shrubs.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Grass-Forb-Herb',
@@ -572,7 +558,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Grass/Forb/Herb. Defined as: The majority of the pixel is
           comprised of perennial grasses, forbs, or other forms of herbaceous vegetation.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix',
@@ -585,7 +570,6 @@ local self_url = catalog_subdir_url + base_filename;
           gravel are also considered barren and is also comprised of at least 10% perennial grasses,
           forbs, or other forms of herbaceous vegetation.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-or-Impervious',
@@ -598,7 +582,6 @@ local self_url = catalog_subdir_url + base_filename;
           considered barren or 2) man-made materials that water cannot penetrate, such as paved roads,
           rooftops, and parking lots.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Snow-or-Ice',
@@ -606,7 +589,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Snow or Ice. Defined as: The majority of the pixel is
           comprised of snow or ice.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Cover_Raw_Probability_Water',
@@ -614,7 +596,6 @@ local self_url = catalog_subdir_url + base_filename;
           Raw LCMS modeled probability of Water. Defined as: The majority of
           the pixel is comprised of water.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Use_Raw_Probability_Agriculture',
@@ -626,7 +607,6 @@ local self_url = catalog_subdir_url + base_filename;
           Roads used primarily for agricultural use (i.e. not used for public transport from town to
           town) are considered agriculture land use.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Use_Raw_Probability_Developed',
@@ -637,7 +617,6 @@ local self_url = catalog_subdir_url + base_filename;
           lawns, recreational facilities, cemeteries, transportation and utility corridors, etc.),
           including any land functionally altered by human activity.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Use_Raw_Probability_Forest',
@@ -647,7 +626,6 @@ local self_url = catalog_subdir_url + base_filename;
           time during a near-term successional sequence. This may include deciduous, evergreen and/or
           mixed categories of natural forest, forest plantations, and woody wetlands.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Use_Raw_Probability_Non-Forest-Wetland',
@@ -660,7 +638,6 @@ local self_url = catalog_subdir_url + base_filename;
           also appear as islands in the middle of lakes or rivers. Other examples also include marshes,
           bogs, swamps, quagmires, muskegs, sloughs, fens, and bayous.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Use_Raw_Probability_Other',
@@ -670,7 +647,6 @@ local self_url = catalog_subdir_url + base_filename;
           occurred but the definitive cause cannot be determined or the type of change fails to meet
           any of the change process categories defined above.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'Land_Use_Raw_Probability_Rangeland-or-Pasture',
@@ -683,7 +659,6 @@ local self_url = catalog_subdir_url + base_filename;
           range from mixed, largely natural grasses, forbs and herbs to more managed vegetation
           dominated by grass species that have been seeded and managed to maintain near monoculture.
         |||,
-        gsd: 30.0,
       },
       {
         name: 'QA_Bits',
@@ -691,7 +666,6 @@ local self_url = catalog_subdir_url + base_filename;
           Ancillary information on the origin of the annual LCMS product output
           values.
         |||,
-        gsd: 30.0,
         'gee:bitmask': {
            bitmask_parts: [
              {

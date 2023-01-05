@@ -137,6 +137,24 @@ IMAGES_WITHOUT_BANDS = frozenset({
     'MODIS/MYD13Q1'
 })
 
+GSD_EXCEPTIONS = frozenset({
+    'LANDSAT/LT04/C02/T1',
+    'LANDSAT/LT04/C02/T1_TOA',
+    'LANDSAT/LT04/C02/T2',
+    'LANDSAT/LT04/C02/T2_TOA',
+    'LANDSAT/LT05/C01/T1_32DAY_RAW',
+    'LANDSAT/LT05/C01/T1_32DAY_TOA',
+    'LANDSAT/LT05/C01/T1_8DAY_RAW',
+    'LANDSAT/LT05/C01/T1_8DAY_TOA',
+    'LANDSAT/LT05/C01/T1_ANNUAL_GREENEST_TOA',
+    'LANDSAT/LT05/C01/T1_ANNUAL_RAW',
+    'LANDSAT/LT05/C01/T1_ANNUAL_TOA',
+    'LANDSAT/LT05/C02/T1',
+    'LANDSAT/LT05/C02/T1_TOA',
+    'LANDSAT/LT05/C02/T2',
+    'LANDSAT/LT05/C02/T2_TOA',
+})
+
 MIN_DESCRIPTION_LEN = 3
 MAX_DESCRIPTION_LEN = 1600
 MAX_BANDS = 200
@@ -236,6 +254,9 @@ class Check(stac.NodeCheck):
     if duplicate_names:
       yield cls.new_issue(
           node, f'Multiple bands with the same name(s): {duplicate_names}')
+
+    # Track all the valid gsd values to check that they are different.
+    gsd_values = []
 
     for band in bands:
       if not isinstance(band, dict):
@@ -375,6 +396,12 @@ class Check(stac.NodeCheck):
             elif gsd > MAX_GSD:
               yield cls.new_issue(
                   node, f'{name} unreasonably large {GSD}: {gsd} m')
+            else:
+              gsd_values.append(gsd)
 
-# TODO(schwehr): If there are multiple band gsd values, make sure they are
-# not all the same.
+    if (len(gsd_values) > 1 and len(set(gsd_values)) == 1 and
+        node.id not in GSD_EXCEPTIONS):
+      yield cls.new_issue(
+          node,
+          f'Must use the {SUMMARIES} {GSD} field: {GSD} values are the same')
+

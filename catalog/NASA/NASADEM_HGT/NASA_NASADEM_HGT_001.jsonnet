@@ -63,6 +63,7 @@ local self_url = catalog_subdir_url + base_filename;
     instruments: [
       'Shuttle Imaging Radar-C (SIR-C)',
     ],
+    gsd: [30],
     'eo:bands': [
       {
         name: 'elevation',
@@ -72,7 +73,6 @@ local self_url = catalog_subdir_url + base_filename;
           the WGS84 ellipsoid).
         |||,
         'gee:units': 'm',
-        gsd: 30.0,
       },
       {
         name: 'num',
@@ -99,13 +99,11 @@ local self_url = catalog_subdir_url + base_filename;
             * 255: ERROR (if NUM IS MISSING - none known to exist)
         |||,
         'gee:units': 'Class',
-        gsd: 30.0,
       },
       {
         name: 'swb',
         description: 'Updated SRTM water body data\n\n  * 0: Land\n  * 255: Water',
         'gee:units': 'Class',
-        gsd: 30.0,
       },
     ],
     'gee:visualizations': [

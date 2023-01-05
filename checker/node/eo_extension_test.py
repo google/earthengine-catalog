@@ -127,7 +127,7 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
   def test_band_too_many(self):
     num_bands = 201
     bands = [
-        {'name': 'ab%d' % x, 'description': 'descr', 'gsd': 2}
+        {'name': 'ab%d' % x, 'description': 'descr', 'gsd': x + 1}
         for x in range(num_bands)]
     self.assert_collection(
         {'summaries': {'eo:bands': bands}}, 'eo:bands has more than 200 bands')
@@ -404,6 +404,14 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
                 {'description': 'abc', 'name': 'a_name'},
                 {'description': 'xyz', 'name': 'b_name', 'gsd': 94}]}},
         'Must set either summaries or eo:bands a_name gsd')
+
+  def test_bands_with_the_same_gsd(self):
+    self.assert_collection(
+        {'summaries': {
+            'eo:bands': [
+                {'description': 'abc', 'name': 'a_name', 'gsd': 95},
+                {'description': 'xyz', 'name': 'b_name', 'gsd': 95}]}},
+        'Must use the summaries gsd field: gsd values are the same')
 
 
 if __name__ == '__main__':

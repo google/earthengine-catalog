@@ -75,12 +75,12 @@ local self_url = catalog_subdir_url + base_filename;
   extent: ee.extent(-5.2, 41.35, 9.85, 51.14,
                     '2009-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
+    'gsd': [1.0],
     'eo:bands': [
       {
         name: 'MNT',
         description: 'Terrain elevation in meters.',
         'gee:units': 'm',
-        gsd: 1.0,
       },
       {
         name: 'SRC',
@@ -89,7 +89,6 @@ local self_url = catalog_subdir_url + base_filename;
           of the node. See Appendix B page 26 in the
           [user guide](https://geoservices.ign.fr/sites/default/files/2021-07/DC_RGEALTI_2-0.pdf).
         |||,
-        gsd: 1.0,
       },
       {
         name: 'DST',
@@ -98,7 +97,6 @@ local self_url = catalog_subdir_url + base_filename;
           calculate its altitude.
         |||,
         'gee:units': 'm',
-        gsd: 1.0,
       },
     ],
     'gee:visualizations': [
