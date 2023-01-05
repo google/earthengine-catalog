@@ -37,7 +37,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'color',
     'finland',
     'orthophoto',
     'rgb',
@@ -111,7 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     },
   },
-  'sci:citation': 'the National Land Survey of Finland',
+  'sci:citation': 'The National Land Survey of Finland',
   'gee:terms_of_use': |||
     Mention the name of the Licensor (the National Land Survey of Finland),
     the name of the dataset(s) and the time when the National Land Survey has

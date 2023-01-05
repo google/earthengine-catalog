@@ -30,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     3 years (in Northern Lapland 12 years).
 
     In these images, the bands are near-infrared, red, and green.
-    
+
     (In Dataset id, VV stands for "v&auml;&auml;r&auml;v&auml;ri", false color)
     For more information, please see the [NLS orthophotos documentation]
     (https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
@@ -112,7 +112,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     },
   },
-  'sci:citation': 'the National Land Survey of Finland',
+  'sci:citation': 'The National Land Survey of Finland',
   'gee:terms_of_use': |||
     Mention the name of the Licensor (the National Land Survey of Finland),
     the name of the dataset(s) and the time when the National Land Survey has
