@@ -17,7 +17,7 @@ local self_url = base_url + base_filename;
     Orthophotos of Finland.
     An orthophoto is an aerial photograph or satellite imagery geometrically
     corrected such that the scale is uniform.
-    
+
     This catalog is dedicated to Finland Orthophotos from a variety of sources.
   |||,
   links: [
