@@ -49,33 +49,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('1975-01-01T00:00:00Z', '1976-01-01T00:00:00Z'),
   summaries: {
+    gsd: [60],
     'eo:bands': [
       {
         name: '10',
         description: 'Green',
         center_wavelength: 0.55,
-        gsd: 60.0,
         'gee:wavelength': '0.50 - 0.60 &mu;m',
       },
       {
         name: '20',
         description: 'Red',
         center_wavelength: 0.65,
-        gsd: 60.0,
         'gee:wavelength': '600-700 &mu;m',
       },
       {
         name: '30',
         description: 'Near infrared',
         center_wavelength: 0.75,
-        gsd: 60.0,
         'gee:wavelength': '0.70-0.80 &mu;m',
       },
       {
         name: '40',
         description: 'Short-wavelength infrared',
         center_wavelength: 0.95,
-        gsd: 60.0,
         'gee:wavelength': '0.80-1.10 &mu;m',
       },
     ],

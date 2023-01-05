@@ -56,54 +56,48 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   extent: ee.extent_global('1984-01-01T00:00:00Z', '2012-04-30T00:00:00Z'),
   summaries: {
+    gsd: [30],
     'eo:bands': [
       {
         name: 'B1',
         description: 'Blue',
         center_wavelength: 0.485,
-        gsd: 30.0,
         'gee:wavelength': '0.45 - 0.52 &mu;m',
       },
       {
         name: 'B2',
         description: 'Green',
         center_wavelength: 0.56,
-        gsd: 30.0,
         'gee:wavelength': '0.52 - 0.60 &mu;m',
       },
       {
         name: 'B3',
         description: 'Red',
         center_wavelength: 0.66,
-        gsd: 30.0,
         'gee:wavelength': '0.63 - 0.69 &mu;m',
       },
       {
         name: 'B4',
         description: 'Near infrared',
         center_wavelength: 0.835,
-        gsd: 30.0,
         'gee:wavelength': '0.76 - 0.90 &mu;m',
       },
       {
         name: 'B5',
         description: 'Shortwave infrared 1',
         center_wavelength: 1.65,
-        gsd: 30.0,
         'gee:wavelength': '1.55 - 1.75 &mu;m',
       },
       {
         name: 'B6',
         description: 'Thermal Infrared 1. Resampled from 60m to 30m.',
         center_wavelength: 11.45,
-        gsd: 30.0,
         'gee:wavelength': '10.40 - 12.50 &mu;m',
       },
       {
         name: 'B7',
         description: 'Shortwave infrared 2',
         center_wavelength: 2.215,
-        gsd: 30.0,
         'gee:wavelength': '2.08 - 2.35 &mu;m',
       },
       {
@@ -111,7 +105,6 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Landsat Collection 1 QA Bitmask ([See Landsat QA page](https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-level-1-quality-assessment-band))
         |||,
-        gsd: 30.0,
         'gee:bitmask': {
           bitmask_parts: [
             {

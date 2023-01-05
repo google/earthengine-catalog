@@ -83,18 +83,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2019-01-01T00:00:00Z', '2020-01-01T00:00:00Z'),
   summaries: {
+    gsd: [927.67],
     'eo:bands': [
       {
         name: 'accessibility',
         description: 'Travel time to the nearest hospital or clinic.',
         'gee:units': 'minutes',
-        gsd: 927.67,
       },
       {
         name: 'accessibility_walking_only',
         description: 'Travel time to the nearest hospital or clinic using non-motorized transport.',
         'gee:units': 'minutes',
-        gsd: 927.67,
       },
     ],
     'gee:visualizations': [

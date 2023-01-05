@@ -57,33 +57,30 @@ local self_url = catalog_subdir_url + base_filename;
   extent: ee.extent(-180.0, -90.0, 180.0, -55.0,
                     '1999-06-30T00:00:00Z', '2002-09-04T00:00:00Z'),
   summaries: {
+    gsd: [15],
     'eo:bands': [
       {
         name: 'B1',
         description: 'Blue',
         center_wavelength: 0.485,
-        gsd: 15.0,
         'gee:wavelength': '0.45 - 0.52 &mu;m',
       },
       {
         name: 'B2',
         description: 'Green',
         center_wavelength: 0.56,
-        gsd: 15.0,
         'gee:wavelength': '0.52 - 0.60 &mu;m',
       },
       {
         name: 'B3',
         description: 'Red',
         center_wavelength: 0.66,
-        gsd: 15.0,
         'gee:wavelength': '0.63 - 0.69 &mu;m',
       },
       {
         name: 'B4',
         description: 'Near infrared',
         center_wavelength: 0.835,
-        gsd: 15.0,
         'gee:wavelength': '0.77 - 0.90 &mu;m',
       },
     ],
