@@ -23,8 +23,13 @@ For each entry in the 'eo:band' list:
 - 'full_width_half_max' (FWHM) is the width of the band, as measured at half
   the maximum transmission, in micrometers (μm)
 - 'solar_illumination' is not allowed
-- 'gsd' is the ground separation distance of pixels in meters (m).
-  Commonly, but incorrectly called 'resolution'
+- 'gsd' is the ground separation distance of pixels in meters (m)
+  - Commonly, but incorrectly called 'resolution'
+  - There are two ways of gsd can be specified:
+    1. gsd under summaries that is a list of 1 or 2 values
+      - This applies to all the bands
+      - If there are 2 values, they are the pixel sizes in the X & Y directions
+    2. all bands have their own gsd field with one value
 - 'gee:bitmask' - See gee_bitmask.py
 - 'gee:classes' - See gee_classes.py
 - 'gee:offset' - What offset value should be added to the band
@@ -135,6 +140,7 @@ IMAGES_WITHOUT_BANDS = frozenset({
 MIN_DESCRIPTION_LEN = 3
 MAX_DESCRIPTION_LEN = 1600
 MAX_BANDS = 200
+MAX_GSD = 3e5
 POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 
 
@@ -180,6 +186,27 @@ class Check(stac.NodeCheck):
 
     if CLOUD_COVER in summaries:
       yield cls.new_issue(node, f'{CLOUD_COVER} not allowed')
+
+    if GSD in summaries:
+      summaries_gsd = summaries.get(GSD)
+      if not isinstance(summaries_gsd, list):
+        yield cls.new_issue(node, f'{SUMMARIES} {GSD} must be a list')
+      else:
+        gsd_len = len(summaries_gsd)
+        if gsd_len not in (1, 2):
+          yield cls.new_issue(
+              node, f'{SUMMARIES} {GSD} length not 1 or 2: {gsd_len}')
+        for gsd in summaries_gsd:
+          if not isinstance(gsd, (int, float)):
+            yield cls.new_issue(node, f'{SUMMARIES} {GSD} must be a number')
+          else:
+            if gsd <= 0:
+              yield cls.new_issue(
+                  node, f'{SUMMARIES} {GSD} too small: {gsd} m')
+            if gsd > MAX_GSD:
+              yield cls.new_issue(
+                  node,
+                  f'unreasonably large {SUMMARIES} {GSD}: {gsd} m')
 
     if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
       if EO_BANDS in summaries:
@@ -321,7 +348,7 @@ class Check(stac.NodeCheck):
         units = band[GEE_UNITS]
         if not isinstance(units, str):
           yield cls.new_issue(node, f'{name} {GEE_UNITS} must be a str')
-        # TODO(schwehr): Check that the units is known
+        # TODO(schwehr): Check that the units are known
 
       if GEE_WAVELENGTH in band:
         wavelength = band[GEE_WAVELENGTH]
@@ -329,13 +356,25 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(node, f'{name} {GEE_WAVELENGTH} must be a str')
         # TODO(schwehr): Check the contents of the str
 
-      if GSD in band:
-        gsd = band[GSD]
-        if not isinstance(gsd, (int, float)):
-          yield cls.new_issue(node, f'{name} {GSD} must be a number')
+      if GSD in summaries:
+        if GSD in band:
+          yield cls.new_issue(
+              node, f'{SUMMARIES} and {name} {GSD} both set')
+      else:
+        if GSD not in band:
+          yield cls.new_issue(
+              node, f'Must set either {SUMMARIES} or {EO_BANDS} {name} {GSD}')
         else:
-          if gsd <= 0:
-            yield cls.new_issue(node, f'{name} {GSD} too small: {gsd} m')
-          if gsd > 1e5:
-            yield cls.new_issue(
-                node, f'{name} unreasonably large {GSD}: {gsd} m')
+          # TODO(schwehr): Support X and Y being different
+          gsd = band[GSD]
+          if not isinstance(gsd, (int, float)):
+            yield cls.new_issue(node, f'{name} {GSD} must be a number')
+          else:
+            if gsd <= 0:
+              yield cls.new_issue(node, f'{name} {GSD} too small: {gsd} m')
+            elif gsd > MAX_GSD:
+              yield cls.new_issue(
+                  node, f'{name} unreasonably large {GSD}: {gsd} m')
+
+# TODO(schwehr): If there are multiple band gsd values, make sure they are
+# not all the same.
