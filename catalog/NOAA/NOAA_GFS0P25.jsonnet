@@ -28,7 +28,8 @@ local self_url = catalog_subdir_url + base_filename;
     The Global Forecast System (GFS) is a weather forecast model produced by
     the National Centers for Environmental Prediction (NCEP). The GFS dataset
     consists of selected model outputs (described below) as gridded forecast
-    variables. The 384-hour forecasts, with 3-hour forecast interval,
+    variables. The 384-hour forecasts, with 1-hour (up to 120 hours)
+    and 3-hour (after 120 hours) forecast intervals,
     are made at 6-hour temporal resolution (i.e. updated four times daily).
     Use the 'creation_time' and 'forecast_time' properties to select data of
     interest.
