@@ -35,6 +35,8 @@ local self_url = catalog_subdir_url + base_filename;
     surface, clouds, water vapor, ozone, volcanic ash, and dust based on emissive properties.
 
     [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
+
+    Formerly known as "GOES West."
   ||| + importstr '../general_satellite_messages_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -49,7 +51,6 @@ local self_url = catalog_subdir_url + base_filename;
     'goes',
     'goes_17',
     'goes_s',
-    'goes_west',
     'mcmip',
     'nesdis',
     'noaa',

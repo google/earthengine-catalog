@@ -37,6 +37,8 @@ local self_url = catalog_subdir_url + base_filename;
     The locations of domains 1 and 2 change over time.
 
     [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
+
+    Formerly known as "GOES West."
   ||| + importstr '../general_satellite_messages_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -51,7 +53,6 @@ local self_url = catalog_subdir_url + base_filename;
     'goes',
     'goes_17',
     'goes_s',
-    'goes_west',
     'mcmip',
     'nesdis',
     'noaa',
