@@ -27,7 +27,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD17A3HGF.061: Terra Net Primary Production  Gap-Filled Yearly Global 500m',
+  title: 'MOD17A3HGF.061: Terra Net Primary Production Gap-Filled Yearly Global 500m',
   version: 'V061',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
