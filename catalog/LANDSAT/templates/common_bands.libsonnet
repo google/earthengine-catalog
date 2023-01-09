@@ -50,11 +50,11 @@ local qa_pixel = {
         values: [
           {
             value: 0,
-            description: 'Cloud is not dilated or no cloud',
+            description: 'Cloud confidence is not high',
           },
           {
             value: 1,
-            description: 'cloud dilation',
+            description: 'High confidence cloud',
           },
         ],
       },
