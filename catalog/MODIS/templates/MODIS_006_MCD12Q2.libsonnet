@@ -511,8 +511,8 @@
       },
     ],
     NumCycles: {
-      minimum: 7.0,
-      maximum: 0.0,
+      minimum: 0.0,
+      maximum: 7.0,
       'gee:estimated_range': false,
     },
     Greenup_1: {

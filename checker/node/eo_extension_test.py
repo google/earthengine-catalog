@@ -54,6 +54,18 @@ class ValidEoExtensionTest(test_utils.NodeTest):
         {'stac_extensions': [EO_URL], 'summaries': {}},
         dataset_id='MODIS/MCD43A1')
 
+  def test_range_object(self):
+    self.assert_collection({
+        'stac_extensions': [EO_URL], 'summaries': {
+            'BAI': {'minimum': -1, 'maximum': 2, 'gee:estimated_range': False},
+            'eo:bands': MINIMUM_BANDS}})
+
+  def test_range_object_estimated(self):
+    self.assert_collection({
+        'stac_extensions': [EO_URL], 'summaries': {
+            'BAI': {'minimum': 3, 'maximum': 3, 'gee:estimated_range': True},
+            'eo:bands': MINIMUM_BANDS}})
+
 
 class ErrorEoExtensionTest(test_utils.NodeTest):
 
@@ -412,6 +424,69 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
                 {'description': 'abc', 'name': 'a_name', 'gsd': 95},
                 {'description': 'xyz', 'name': 'b_name', 'gsd': 95}]}},
         'Must use the summaries gsd field: gsd values are the same')
+
+  def test_range_object_minimum_missing(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {'maximum': 4, 'gee:estimated_range': False},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object must have minimum')
+
+  def test_range_object_minimum_not_a_number(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {
+                'minimum': 'not a number',
+                'maximum': 4, 'gee:estimated_range': False},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object minimum must be a number')
+
+  def test_range_object_maximum_missing(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {'minimum': 5, 'gee:estimated_range': False},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object must have maximum')
+
+  def test_range_object_maximum_not_a_number(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {
+                'minimum': 6,
+                'maximum': 'not a number', 'gee:estimated_range': False},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object maximum must be a number')
+
+  def test_range_object_maximum_less_than_minimum(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {
+                'minimum': 8, 'maximum': 7, 'gee:estimated_range': False},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object minimum > maximum: 8 > 7')
+
+  def test_range_object_estimated_missing(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {'minimum': 9, 'maximum': 10},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object must have gee:estimated_range')
+
+  def test_range_object_estimated_not_bool(self):
+    self.assert_collection(
+        {'summaries': {
+            'a_name': {
+                'minimum': 11, 'maximum': 12,
+                'gee:estimated_range': 'not a bool'},
+            'eo:bands': [
+                {'name': 'a_name', 'description': 'abc', 'gsd': 1}]}},
+        'a_name range object gee:estimated_range must be a bool')
 
 
 if __name__ == '__main__':

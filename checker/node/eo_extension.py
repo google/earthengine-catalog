@@ -38,6 +38,15 @@ For each entry in the 'eo:band' list:
 - 'gee:units' - String with the units of the band
 - 'gee:wavelength' - String with the range of wavelengths for the band
 - Bands can only have one of gee:bitmask, gee_classes, or gee:offset/gee:scale
+- Bands can have `Range Object`s at the summary level
+  - summary.py checks if the field is allowed
+  - The field is named the same as the band name
+  - There are three required fields:
+    - 'minimum' - must be a number
+    - 'maximum' - must be a number greater than the minimum
+    - 'gee:estimated_range' - set to false if the values were given by the
+      dataset provider and to true if the range was estimated by the data
+      ingestor
 
 For scale and offset:
 
@@ -90,6 +99,11 @@ COMMON_NAME = 'common_name'
 CENTER_WAVELENGTH = 'center_wavelength'
 FULL_WIDTH_HALF_MAX = 'full_width_half_max'
 GSD = 'gsd'
+
+# Range Objects constants
+MINIMUM = 'minimum'
+MAXIMUM = 'maximum'
+ESTIMATED_RANGE = 'gee:estimated_range'
 
 GEE_BITMASK = 'gee:bitmask'
 GEE_CLASSES = 'gee:classes'
@@ -254,6 +268,40 @@ class Check(stac.NodeCheck):
     if duplicate_names:
       yield cls.new_issue(
           node, f'Multiple bands with the same name(s): {duplicate_names}')
+
+    # Check range objects at the summary level
+    for band_name in name_counts:
+      if band_name in summaries:
+        range_object = summaries[band_name]
+        minimum = range_object.get(MINIMUM)
+        maximum = range_object.get(MAXIMUM)
+        estimated = range_object.get(ESTIMATED_RANGE)
+        if MINIMUM not in range_object:
+          yield cls.new_issue(
+              node, f'{band_name} range object must have {MINIMUM}')
+        elif not isinstance(minimum, (int, float)):
+          yield cls.new_issue(
+              node, f'{band_name} range object {MINIMUM} must be a number')
+
+        if MAXIMUM not in range_object:
+          yield cls.new_issue(
+              node, f'{band_name} range object must have {MAXIMUM}')
+        elif not isinstance(maximum, (int, float)):
+          yield cls.new_issue(
+              node, f'{band_name} range object {MAXIMUM} must be a number')
+        elif isinstance(minimum, (int, float)) and minimum > maximum:
+          yield cls.new_issue(
+              node,
+              f'{band_name} range object {MINIMUM} > {MAXIMUM}: '
+              f'{minimum} > {maximum}')
+
+        if ESTIMATED_RANGE not in range_object:
+          yield cls.new_issue(
+              node, f'{band_name} range object must have {ESTIMATED_RANGE}')
+        elif not isinstance(estimated, bool):
+          yield cls.new_issue(
+              node,
+              f'{band_name} range object {ESTIMATED_RANGE} must be a bool')
 
     # Track all the valid gsd values to check that they are different.
     gsd_values = []
