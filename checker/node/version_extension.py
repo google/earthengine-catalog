@@ -7,7 +7,8 @@ The remaining is for STAC Collections:
 - The version extension schema URL must be 1.0.0
 - If any version information, it must have:
   - The STAC version extension
-  - A version field
+  - A version field. If there is no version given for the dataset, set it to
+    `not available`.
 - The version is a string.  The preferred format is MAJOR.MINOR.PATH
   following https://semver.org/, e.g. on Debian Linux:
     dpkg --compare-versions 1.1.2 lt 1.2.2 && echo true
