@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('NASA_SMAP_SPL4SMGP_007', base_url)
+    ee.link.child_collection('NASA_SMAP_SPL4SMGP_007', base_url),
+    ee.link.child_collection('NASA_SMAP_SPL3SMP_E_005', base_url)
   ],
 }
