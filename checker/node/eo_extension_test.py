@@ -137,12 +137,13 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         {'summaries': {'eo:bands': []}}, 'eo:bands must have at least one band')
 
   def test_band_too_many(self):
-    num_bands = 201
+    num_bands = 501
     bands = [
         {'name': 'ab%d' % x, 'description': 'descr', 'gsd': x + 1}
         for x in range(num_bands)]
     self.assert_collection(
-        {'summaries': {'eo:bands': bands}}, 'eo:bands has more than 200 bands')
+        {'summaries': {'eo:bands': bands}},
+        f'eo:bands has more than {eo_extension.MAX_BANDS} bands')
 
   def test_missing_name(self):
     self.assert_collection(
