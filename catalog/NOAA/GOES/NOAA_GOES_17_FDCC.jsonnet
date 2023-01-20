@@ -45,7 +45,7 @@ local self_url = catalog_subdir_url + base_filename;
      - [GOES-16-17_FireDetection.js](https://github.com/google/earthengine-community/blob/master/datasets/scripts/GOES-16-17_FireDetection.js)
      - [GOES-16-17_FireReclassification.js](https://github.com/google/earthengine-community/blob/master/datasets/scripts/GOES-16-17_FireReclassification.js)
 
-    Formerly known as "GOES West."
+    Formerly known as "GOES West."  Satellite is in storage.
   ||| + importstr '../general_satellite_messages_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -72,7 +72,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.producer_provider('NOAA', 'https://data.noaa.gov/dataset/dataset/noaa-goes-r-series-advanced-baseline-imager-abi-level-2-fire-hot-spot-characterization-fdc'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, 14.57, 180.0, 53.51, '2018-08-27T00:00:00Z', null),
+  extent: ee.extent(-180.0, 14.57, 180.0, 53.51, '2018-08-27T00:00:00Z', '2023-01-10T16:00:00Z'),
   summaries: {
     gsd: [
       2000.0,

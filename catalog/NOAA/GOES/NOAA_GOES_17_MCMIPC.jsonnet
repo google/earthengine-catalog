@@ -36,7 +36,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
 
-    Formerly known as "GOES West."
+    Formerly known as "GOES West."  Satellite is in storage.
   ||| + importstr '../general_satellite_messages_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -61,7 +61,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.producer_provider('NOAA', 'https://data.noaa.gov/dataset/dataset/noaa-goes-r-series-advanced-baseline-imager-abi-level-2-cloud-and-moisture-imagery-products-cmi1'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, 14.57, 180.0, 53.51, '2018-12-04T16:30:38Z', null),
+  extent: ee.extent(-180.0, 14.57, 180.0, 53.51, '2018-12-04T16:30:38Z', '2023-01-10T16:00:00Z'),
   summaries: {
     'gee:schema': [
       {
