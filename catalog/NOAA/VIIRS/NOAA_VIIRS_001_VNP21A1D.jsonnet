@@ -1,4 +1,4 @@
-local id = 'NOAA/VIIRS/001/VNP21A1N';
+local id = 'NOAA/VIIRS/001/VNP21A1D';
 local subdir = 'NOAA/VIIRS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -24,18 +24,18 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP21A1N: Night Land Surface Temperature and Emissivity Daily 1km',
+  title: 'VNP21A1D: Day Land Surface Temperature and Emissivity Daily 1km',
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NASA Suomi National Polar-Orbiting Partnership (Suomi NPP) Visible
     Infrared Imaging Radiometer Suite (VIIRS) Land Surface Temperature and
-    Emissivity (LST&E) Night Version 1 product (VNP21A1N) is compiled daily
-    from nighttime Level 2 Gridded (L2G) intermediate products.
+    Emissivity (LST&E) Day Version 1 product (VNP21A1D) is compiled daily
+    from daytime Level 2 Gridded (L2G) intermediate products.
 
     The L2G process maps the daily VNP21 swath granules onto a sinusoidal MODIS
     grid and stores all observations overlapping a gridded cell for a given
-    night. The VNP21A1 algorithm sorts through all these observations for each
+    day. The VNP21A1 algorithm sorts through all these observations for each
     cell and estimates the final LST value as an average from all cloud-free
     observations that have good LST accuracies. Only observations having
     observation coverage more than a certain threshold (15%) are considered for
@@ -47,7 +47,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/1332/VNP21_ATBD_V1.pdf)
 
-    * [General Documentation](https://lpdaac.usgs.gov/products/vnp21a1nv001/)
+    * [General Documentation](https://lpdaac.usgs.gov/products/vnp21a1dv001/)
 
     * [Land Product Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/NPP_QA/)
   |||,
@@ -55,29 +55,29 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/VIIRS/VNP21A1N.001',
+      href: 'https://doi.org/10.5067/VIIRS/VNP21A1D.001',
     },
   ],
   keywords: [
     'daily',
+    'day',
     'land',
     'nasa',
-    'night',
     'noaa',
     'surface',
     'temperature',
     'viirs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP21A1N.001'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP21A1D.001'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1442270801-LPDAAC_ECS',
+    'C1442270800-LPDAAC_ECS',
   ],
   extent: ee.extent_global('2012-01-19T00:00:00Z', null),
   summaries: template.summaries,
-  'sci:doi': '10.5067/VIIRS/VNP21A1N.001',
+  'sci:doi': '10.5067/VIIRS/VNP21A1D.001',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
