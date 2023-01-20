@@ -44,6 +44,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('Finland', base_url),
     ee.link.child_catalog('FIRMS', base_url),
     ee.link.child_catalog('FORMA', base_url),
+    ee.link.child_catalog('Germany', base_url),
     ee.link.child_catalog('GFW', base_url),
     ee.link.child_catalog('GLCF', base_url),
     ee.link.child_catalog('GLIMS', base_url),
