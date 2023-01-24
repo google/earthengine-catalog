@@ -1,6 +1,5 @@
-local id = 'ECMWF/ERA5_LAND/MONTHLY';
-local latest_id = 'ECMWF/ERA5_LAND/MONTHLY_AGGR';
-local successor_id = 'ECMWF/ERA5_LAND/MONTHLY_AGGR';
+local id = 'ECMWF/ERA5_LAND/MONTHLY_AGGR';
+local predecessor_id = 'ECMWF/ERA5_LAND/MONTHLY';
 local subdir = 'ECMWF';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -11,16 +10,13 @@ local era5_land = import 'templates/ECMWF_ERA5_LAND.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
 local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
+local predecessor_filename = predecessor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
+local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -31,41 +27,53 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ERA5-Land Monthly Averaged - ECMWF Climate Reanalysis [deprecated]',
-  deprecated: true,
+  title: 'ERA5-Land Monthly Aggregated - ECMWF Climate Reanalysis',
   version: '1.0.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: era5_land.description + |||
 
-    The data presented here is a subset of the full ERA5-Land dataset
-    post-processed by ECMWF. Monthly-mean averages have been pre-calculated to
-    facilitate many applications requiring easy and fast access to the data,
-    when sub-monthly fields are not required.
+    The asset is a monthly aggregate of ECMWF ERA5 Land hourly assets which
+    includes both flow and non-flow bands. Flow bands are formed by collecting
+    the first hour's data of the following day for each day of the month and
+    then adding them together, while the non-flow bands are created by
+    averaging all hourly data of the month. The flow bands are labeled with
+    the "_sum" identifier, which approach is different from the monthly data
+    produced by Copernicus Climate Data Store, where flow bands are averaged
+    too.
 
-    ERA5-Land data is available from 1981 to three months from real-time. More
-    information can be found at the [Copernicus Climate Data Store]
-    (https://cds.climate.copernicus.eu).
+    Monthly aggregates have been pre-calculated to facilitate many applications
+    requiring easy and fast access to the data, when sub-monthly fields are not
+    required.
+
+    ERA5-Land monthly aggregated data is available from 1950 to three months
+    from real-time. More information can be found at the
+    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
+    ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: era5_land.keywords,
   providers: [
     ee.producer_provider(
-      'Copernicus Climate Data Store',
+      'Monthly Aggregates: Google and Copernicus Climate Data Store',
       'https://cds.climate.copernicus.eu/cdsapp'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1981-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1950-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,
     ],
     'eo:bands': [
+      if band.name in era5_land.flow_bands then
       {
+        name: band.name + '_sum',
+        description: band.description,
+        'gee:units': band.units
+      }
+      else {
         name: band.name,
         description: band.description,
         'gee:units': band.units
@@ -97,7 +105,7 @@ local successor_url = catalog_subdir_url + successor_filename;
               '#FF0000',
             ],
             bands: [
-              'total_precipitation',
+              'total_precipitation_sum',
             ],
           },
         },
@@ -110,5 +118,5 @@ local successor_url = catalog_subdir_url + successor_filename;
     unit: 'month',
     interval: 1,
   },
-  'gee:terms_of_use': era5_land.terms_of_use,
+  'gee:terms_of_use': era5_land.terms_of_use
 }
