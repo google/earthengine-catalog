@@ -165,4 +165,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     For more details please see the
     [Terms of use](https://www.govdata.de/dl-de/by-2-0)
   |||,
+  // TODO(sanketagrawal): reupload into a public folder and remove this
+  'gee:user_uploaded': true,
 }
