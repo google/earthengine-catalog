@@ -1,4 +1,4 @@
-local id = 'USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2021_REL_RCMAP_V5_COVER';
+local id = 'USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER';
 local subdir = 'USGS/NLCD_RELEASES';
 
 local ee_const = import 'earthengine_const.libsonnet';
