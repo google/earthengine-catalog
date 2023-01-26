@@ -1,4 +1,4 @@
-local id = 'USGS/NLCD_RELEASES/USGS_RCMAP_RELEASES_V5_COMPONENTS';
+local id = 'USGS/NLCD_RELEASES/USGS_NLCD_RELEASES_2021_REL_RCMAP_V5_COVER';
 local subdir = 'USGS/NLCD_RELEASES';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -14,6 +14,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -71,26 +72,26 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
   ],
   keywords: [
-    'shrublands',
-    'time series',
-    'back-in-time',
-    'trends',
-    'grassland change',
-    'shrubland change',
-    'vegetation change',
-    'climate change',
-    'rangeland management',
-    'shrub',
-    'sagebrush',
-    'big sagebrush',
-    'herbaceous',
     'annual herbaceous',
-    'litter',
-    'grass',
-    'vegetation',
+    'back-in-time',
     'bare ground',
+    'big sagebrush',
+    'climate change',
+    'grass',
+    'grassland change',
+    'herbaceous',
+    'litter',
     'rangeland',
+    'rangeland management',
+    'sagebrush',
+    'shrub',
     'shrubland',
+    'shrublands',
+    'shrubland change',
+    'time series',
+    'trends',
+    'vegetation change',
+    'vegetation',
   ],
   providers: [
     ee.producer_provider('United States Geological Survey and Bureau of Land Management', 'https://www.mrlc.gov/'),
@@ -105,6 +106,7 @@ local self_url = catalog_subdir_url + base_filename;
     [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
   |||,
   'gee:user_uploaded': true,
+  'gee:skip_indexing': true,
   'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an Employee of the United States Government and is therefore a work of the United States Government. In accordance with 17 U.S.C. 105, no copyright protection is available for such works under U.S. Law. This is an Open Access article that has been identified as being free of known restrictions under copyright law, including all related and neighboring rights (https://creativecommons.org/publicdomain/mark/1.0/). You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
   |||,
@@ -347,7 +349,6 @@ local self_url = catalog_subdir_url + base_filename;
       minimum: 0.0,
       maximum: 100.0,
       'gee:estimated_range': false,
-    },
     },
     rangeland_tree: {
       minimum: 0.0,
