@@ -1,4 +1,4 @@
-local id = 'ACA/reef_habitat/v1_0';
+local id = 'ACA/reef_habitat/v2_0';
 local subdir = 'ACA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,29 +20,39 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Allen Coral Atlas (ACA) - Geomorphic Zonation and Benthic Habitat - v1.0',
-  version: 'v1.0',
+  title: 'Allen Coral Atlas (ACA) - Geomorphic Zonation and Benthic Habitat - v2.0',
+  version: 'v2.0',
   'gee:type': ee_const.gee_type.image,
   description: |||
-    The [Allen Coral Atlas](https://allencoralatlas.org/) dataset maps the
-    geomorphic zonation and benthic habitat for the world's shallow coral reefs at
-    5m pixel resolution. The underlying satellite image data are temporal
-    composites of [PlanetScope satellite](https://www.planet.com/products/basemap/)
-    imagery spanning 2018-2020. The habitat maps are created via a machine learning
-    approach with contextual editing, using a range of imagery, bathymetry, and
-    derived products as input data, trained via a globally consistent reference
-    dataset. A global mask layer is also included for use when generating global
-    reporting statistics. A full description of the methods and approaches can be
-    found in the methods section of the [Allen Coral Atlas
-    website](https://allencoralatlas.org/methods/).
+    The [Allen Coral Atlas](https://allencoralatlas.org/) dataset maps the geomorphic 
+    zonation and benthic habitat for the world’s shallow coral reefs at 5 m pixel 
+    resolution. Also included is a global reef extent product that maps additional 
+    reef areas unable to be explicitly included in the geomorphic and benthic mapping. 
+    The underlying satellite image data are temporal composites of [PlanetScope 
+    satellite](https://www.planet.com/products/basemap/) imagery spanning 2018-2020. 
+    The habitat maps are created via a machine learning approach with contextual 
+    editing, using a range of imagery, bathymetry and derived products as input data,
+    trained via a globally consistent reference data set. A full description of the 
+    methods and approaches can be found in the methods section of the [Allen Coral 
+    Atlas website](https://allencoralatlas.org/methods/). 
 
-    The Allen Coral Atlas was funded by [Vulcan Inc.](https://vulcan.com/) and
-    is managed by the [Arizona State University Center for Global Discovery and
-    Conservation Science](https://gdcs.asu.edu/). Partners include
-    [Planet](https://www.planet.com/), the [University of
-    Queensland](https://www.uq.edu.au/), and the [National Geographic
-    Society](https://www.nationalgeographic.org/).
+    The first version 
+    ([v1.0](https://developers.google.com/earth-engine/datasets/catalog/ACA_reef_habitat_v1_0))
+    of the Allen Coral Atlas was completed in Q4 2021, and this new version (v2.0) has 
+    a wide range of improvements across the globe that incorporated both user feedback 
+    on v1.0 and new technical developments in mapping methodology. A brief overview of 
+    the changes can be found 
+    [here](https://allencoralatlas.org/blog/geomorphic-and-benthic-maps-2022-update/) 
+    and a more comprehensive technical summary can be found 
+    [here](https://storage.googleapis.com/coral-atlas-static-files/resources-page-materials/Allen_Coral_Atlas_2022_habitat_map_revisions.pdf).
 
+    The Allen Coral Atlas was funded by [Vulcan Inc.](https://vulcan.com/) and is 
+    managed by the [Arizona State University Center for Global Discovery and 
+    Conservation Science](https://gdcs.asu.edu/). Partners include 
+    [Planet](https://www.planet.com/), the 
+    [University of Queensland](https://www.uq.edu.au/), and the 
+    [Coral Reef Alliance](https://coral.org/en/).
+    
     Scientific background publications:
 
     - Lyons, M. B., Roelfsema, C. M., Kennedy, E. V., Kovacs, E. M., Borrego-Acevedo, R., Markey, K., ... & Murray, N. J. (2020). Mapping the world's coral reefs using a global multiscale earth observation framework. Remote Sensing in Ecology and Conservation, 6(4), 557-568. [doi:10.1002/rse2.157](https://doi.org/10.1002/rse2.157)
@@ -55,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     - Li, J., Knapp, D. E., Fabina, N. S., Kennedy, E. V., Larsen, K., Lyons, M. B., ... & Asner, G. P. (2020). A global coral reef probability map generated using convolutional neural networks. Coral Reefs, 39(6), 1805-1815. [doi:10.1007/s00338-020-02005-6](https://doi.org/10.1007/s00338-020-02005-6)
 
-    Allen Coral Atlas maps, bathymetry and map statistics are &copy; 2020 Allen
+    Allen Coral Atlas maps, bathymetry and map statistics are &copy; 2023 Allen
     Coral Atlas Partnership and Vulcan, Inc.
   |||,
   license: license.id,
@@ -75,6 +85,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'ocean',
     'planet',
     'planet_derived',
+    'sentinel-2',
     'reef',
     'seagrass',
   ],
@@ -94,9 +105,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       url: 'https://gdcs.asu.edu/',
     },
     {
-      name: 'National Geographic Society (NGS)',
+      name: 'Coral Reef Alliance (CORAL)',
       roles: ['licensor', 'producer'],
-      url: 'https://www.nationalgeographic.org/',
+      url: 'https://coral.org/en/',
+    },
+    {
+      name: 'Planet',
+      roles: ['licensor', 'producer'],
+      url: 'https://www.planet.com/',
     },
     {
       name: 'Vulcan Inc. (Vulcan)',
@@ -246,9 +262,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'reef_mask',
         description: |||
-          Globally standardized reef mask using an amalgamation of a global reef
-          classification and bathymetry products. Its intended use is as a mask, not a
-          map, for standardizing global reporting on the global geomorphic/benthic maps.
+          Globally standardised reef extent product that integrates a number of global 
+          reef classification and bahtymetry products ("Reef Extent" on the Atlas portal).
         |||,
         'gee:classes': [
           {
