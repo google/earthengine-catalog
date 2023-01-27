@@ -87,7 +87,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'ocean',
     'planet',
     'planet_derived',
-    'sentinel-2',
+    'sentinel',
     'reef',
     'seagrass',
   ],
