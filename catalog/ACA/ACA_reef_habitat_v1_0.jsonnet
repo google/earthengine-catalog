@@ -1,4 +1,6 @@
 local id = 'ACA/reef_habitat/v1_0';
+local latest_id = 'ACA/reef_habitat/v2_0';
+local successor_id = 'ACA/reef_habitat/v2_0';
 local subdir = 'ACA';
 
 local ee_const = import 'earthengine_const.libsonnet';
