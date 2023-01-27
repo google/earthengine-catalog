@@ -4,7 +4,7 @@ var dataset = ee.Image("ACA/reef_habitat/v2_0");
 Map.setCenter(-149.56194, -17.00872, 13);
 Map.setOptions('SATELLITE');
 
-// Mitch: The visualisations are baked into the image properties
+// The visualisations are baked into the image properties
 
 // Benthic habitat classification
 var benthic_habitat = dataset.select('benthic').selfMask();
