@@ -86,9 +86,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'coral',
     'ocean',
     'planet_derived',
-    'sentinel2_derived',
     'reef',
     'seagrass',
+    'sentinel2_derived',
   ],
   providers: [
     ee.producer_provider(
