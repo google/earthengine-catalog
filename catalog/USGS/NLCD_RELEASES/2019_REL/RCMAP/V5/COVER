@@ -12,6 +12,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 template + {
 id: id,
+'gee:skip_indexing': true,
 title: 'RCMAP Rangeland Component Timeseries v5 (1985-2021)',
 version: 'v5',
 links: ee.standardLinks(subdir, id) + [
