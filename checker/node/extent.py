@@ -6,7 +6,7 @@ https://github.com/radiantearth/stac-spec/issues/1182
 
 https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#extent-object
 
-Example valid extents at python:
+Example valid extents in python:
 
 {'extent': {
     'spatial': {'bbox': [[-1.2, 7.8, 2.3, 8.9]]},
