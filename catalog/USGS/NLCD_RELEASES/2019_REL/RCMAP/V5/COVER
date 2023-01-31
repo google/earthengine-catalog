@@ -1,4 +1,3 @@
-'gee:skip_indexing': true,
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/COVER';
 local subdir = 'USGS/NLCD_RELEASES';
 
@@ -11,8 +10,8 @@ local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 template + {
-id: id,
 'gee:skip_indexing': true,
+id: id,
 title: 'RCMAP Rangeland Component Timeseries v5 (1985-2021)',
 version: 'v5',
 links: ee.standardLinks(subdir, id) + [
