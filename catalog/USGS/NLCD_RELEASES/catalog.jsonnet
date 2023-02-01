@@ -21,5 +21,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('USGS_NLCD_RELEASES_2016_REL', base_url),
     ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_NLCD', base_url),
     ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_RCMAP_V4_COVER', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER', base_url),
   ],
 }

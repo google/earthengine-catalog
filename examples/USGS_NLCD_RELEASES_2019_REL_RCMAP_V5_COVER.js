@@ -1,5 +1,5 @@
 // Import the NLCD RCMAP collection.
-var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V4/COVER');
+var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/COVER');
 
 // Filter the collection to the 2016 product.
 var rcmap2016 = dataset.filter(ee.Filter.eq('system:index', '2016')).first();
