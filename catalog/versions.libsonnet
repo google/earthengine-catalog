@@ -1,3 +1,4 @@
+// TODO(b/267511405): figure out if we should use this more widely
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
