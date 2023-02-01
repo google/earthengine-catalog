@@ -8,10 +8,22 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc_by_4_0;
+local version = '1.0';
+
+local basename = std.strReplace(id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+
+local base_filename = basename + '.json';
+local latest_filename = latest_basename + '.json';
+local successor_filename = successor_basename + '.json';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local latest_url = catalog_subdir_url + latest_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,7 +34,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Allen Coral Atlas (ACA) - Geomorphic Zonation and Benthic Habitat - v1.0',
+  title: 'Allen Coral Atlas (ACA) - Geomorphic Zonation and Benthic Habitat - v1.0 [deprecated]',
+  deprecated: true,
   version: 'v1.0',
   'gee:type': ee_const.gee_type.image,
   description: |||
@@ -71,6 +84,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3833242',
     },
+  ] + [
+    ee.link.latest(latest_id, latest_url),
+    ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
     'coral',
