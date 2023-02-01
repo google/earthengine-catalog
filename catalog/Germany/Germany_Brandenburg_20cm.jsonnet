@@ -167,4 +167,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   // TODO(sanketagrawal): reupload into a public folder and remove this
   'gee:user_uploaded': true,
+  'gee:skip_indexing': true,
 }
