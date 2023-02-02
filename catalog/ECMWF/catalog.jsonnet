@@ -20,6 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('ECMWF_CAMS_NRT', base_url),
     ee.link.child_collection('ECMWF_ERA5_DAILY', base_url),
+    ee.link.child_collection('ECMWF_ERA5_LAND_DAILY_RAW', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_HOURLY', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_MONTHLY', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_MONTHLY_AGGR', base_url),
