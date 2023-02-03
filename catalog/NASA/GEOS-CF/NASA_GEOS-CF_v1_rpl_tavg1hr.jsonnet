@@ -4,7 +4,7 @@ local subdir = 'NASA/GEOS-CF';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local template = import 'NASA_GEOS-CF_v1_rpl.libsonnet';
+local template = import 'NASA_GEOS-CF_v1.libsonnet';
 
 local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');

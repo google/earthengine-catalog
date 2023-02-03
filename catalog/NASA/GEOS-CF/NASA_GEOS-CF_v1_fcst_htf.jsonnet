@@ -1,4 +1,4 @@
-local id = 'NASA/GEOS-CF/v1/rpl/htf';
+local id = 'NASA/GEOS-CF/v1/fcst/htf';
 local subdir = 'NASA/GEOS-CF';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,11 +20,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   'gee:type': ee_const.gee_type.image_collection,
-  title: 'GEOS-CF rpl htf v1: Goddard Earth Observing System Composition Forecast',
+  title: 'GEOS-CF fcst htf v1: Goddard Earth Observing System Composition Forecast',
   version: 'v1',
   description: |||
-    This dataset contains meteorological replay (rpl) of high-temporal
-    frequency data (htf).
+    This dataset contains meteorological forecast (fcst) of high-temporal
+    frequency data (htf). Use the 'creation_time' and 'forecast_time' properties
+    to select data of interest.
   ||| + template.description,
   'sci:citation': template.sci_citation,
   'sci:doi': '10.1029/2020MS002413',
@@ -37,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  extent: ee.extent_global('2018-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2022-10-01T00:00:00Z', null),
   keywords: [
     'composition',
     'forecast',
@@ -47,6 +48,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'gee:terms_of_use': template.gee_terms_of_use,
   summaries: {
+    'gee:schema': [
+      {
+        name: 'creation_time',
+        description: 'Time of creation',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'forecast_time',
+        description: 'Forecast time',
+        type: ee_const.var_type.double,
+      },
+    ],
     gsd: [
       27750.0,
     ],

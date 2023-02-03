@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('NASA_GEOS-CF_v1_fcst_htf', base_url),
     ee.link.child_collection('NASA_GEOS-CF_v1_rpl_htf', base_url),
     ee.link.child_collection('NASA_GEOS-CF_v1_rpl_tavg1hr', base_url),
   ],
