@@ -47,5 +47,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('COPERNICUS_S5P_OFFL_L3_O3', base_url),
     ee.link.child_collection('COPERNICUS_S5P_OFFL_L3_O3_TCL', base_url),
     ee.link.child_collection('COPERNICUS_S5P_OFFL_L3_SO2', base_url),
+    ee.link.child_collection('COPERNICUS_DEM_GLO30', base_url),
   ],
 }
