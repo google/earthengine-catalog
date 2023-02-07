@@ -98,7 +98,7 @@ local self_url = catalog_subdir_url + base_filename;
       '1985-01-01T00:00:00Z',
       '2020-12-31T00:00:00Z'),
   'sci:citation': |||
-    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition Monitoring Assessment and Projection (RCMAP) Fractional Component Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data release, [doi:10.5066/P9ODAZHC], (https://doi.org/10.5066/P9ODAZHC)
+    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition Monitoring Assessment and Projection (RCMAP) Fractional Component Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data release, [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
   |||,
   'gee:user_uploaded': true,
   'gee:terms_of_use': |||
