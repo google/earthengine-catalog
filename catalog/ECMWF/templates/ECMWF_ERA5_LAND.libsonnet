@@ -31,27 +31,27 @@
     'wind',
   ],
   # this means bands describing quantities descried via continuous accumulation
-  flow_bands: {
-      snowfall:'',
-      snowmelt:'',
-      surface_latent_heat_flux:'',
-      surface_net_solar_radiation:'',
-      surface_net_thermal_radiation:'',
-      surface_sensible_heat_flux:'',
-      surface_solar_radiation_downwards:'',
-      surface_thermal_radiation_downwards:'',
-      evaporation_from_bare_soil:'',
-      evaporation_from_open_water_surfaces_excluding_oceans:'',
-      evaporation_from_the_top_of_canopy:'',
-      evaporation_from_vegetation_transpiration:'',
-      potential_evaporation:'',
-      runoff:'',
-      snow_evaporation:'',
-      sub_surface_runoff:'',
-      surface_runoff:'',
-      total_evaporation:'',
-      total_precipitation:''
-  },
+  flow_bands: [
+      'snowfall',
+      'snowmelt',
+      'surface_latent_heat_flux',
+      'surface_net_solar_radiation',
+      'surface_net_thermal_radiation',
+      'surface_sensible_heat_flux',
+      'surface_solar_radiation_downwards',
+      'surface_thermal_radiation_downwards',
+      'evaporation_from_bare_soil',
+      'evaporation_from_open_water_surfaces_excluding_oceans',
+      'evaporation_from_the_top_of_canopy',
+      'evaporation_from_vegetation_transpiration',
+      'potential_evaporation',
+      'runoff',
+      'snow_evaporation',
+      'sub_surface_runoff',
+      'surface_runoff',
+      'total_evaporation',
+      'total_precipitation',
+  ],
   bands:[
       {
         name: 'dewpoint_temperature_2m',
@@ -387,7 +387,7 @@
           (aerosols) and some of it is absorbed. The rest is incident on the
           Earth's surface, where some of it is reflected. The difference between
           downward and reflected solar radiation is the surface net solar
-          radiation. This variable is accumulated from the beginning of the 
+          radiation. This variable is accumulated from the beginning of the
           forecast time to the end of the forecast step. The units are joules
           per square meter (J m-2). To convert to watts per square meter
           (W m-2), the accumulated values should be divided by the accumulation

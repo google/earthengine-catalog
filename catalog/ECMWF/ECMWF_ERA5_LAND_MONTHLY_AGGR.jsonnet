@@ -67,7 +67,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       11132.0,
     ],
     'eo:bands': [
-      if band.name in era5_land.flow_bands then
+      if std.member(era5_land.flow_bands, band.name) then
       {
         name: band.name + '_sum',
         description: band.description,
