@@ -92,7 +92,8 @@ local self_url = catalog_subdir_url + base_filename;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    Contact sm.fs.lcms@usda.gov with any questions or specific data requests.
+    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    questions or specific data requests.
 
     * **Breiman, L., 2001.**
     Machine Learning. *Springer*,
@@ -118,12 +119,6 @@ local self_url = catalog_subdir_url + base_filename;
     Environment. *Science Direct*,
     205: 131-140
     [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
-
-    * **Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., and Moore, R., 2017.**
-    Google Earth Engine: Planetary-scale geospatial analysis for everyone. In Remote Sensing of
-    Environment. *Science Direct*,
-    202: 18-27
-    [doi:10.1016/j.rse.2017.06.031](https://doi.org/10.1016/j.rse.2017.06.031)
 
     * **Healey, S. P., Cohen, W. B., Yang, Z., Kenneth Brewer, C., Brooks, E. B.,
     Gorelick, N., Hernandez, A. J., Huang, C., Joseph Hughes, M., Kennedy,
