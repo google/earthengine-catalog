@@ -26,54 +26,53 @@ local self_url = catalog_subdir_url + base_filename;
   version: 'v5',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-      The RCMAP (Rangeland Condition Monitoring Assessment and Projection) dataset quantifies 
+    The RCMAP (Rangeland Condition Monitoring Assessment and Projection) dataset quantifies 
     the percent cover of rangeland components across the western U.S. using Landsat imagery 
-    from 1985-2021. The RCMAP product suite consists of nine fractional components: annual herbaceous, 
+    from 1985 to 2021. The RCMAP product suite consists of nine fractional components: annual herbaceous, 
     bare ground, herbaceous, litter, non-sagebrush shrub, perennial herbaceous, sagebrush, shrub, 
     and tree, in addition to the temporal trends of each component. Several enhancements were made 
-    to the RCMAP process relative to prior generations. First, we have trained time-series predictions
-    directly from 331 high-resolution sites collected from 2013-2018 from Assessment, Inventory, 
-    and Monitoring (AIM) instead of using the 2016 “base” map as an intermediary. This removes one 
+    to the RCMAP process relative to prior generations. First, they have trained time-series predictions
+    directly from 331 high-resolution sites collected from 2013 to 2018 from Assessment, Inventory, 
+    and Monitoring (AIM) instead of using the 2016 "base" map as an intermediary. This removes one 
     level of model error and allows the direct association of high-resolution derived training data
-    to the corresponding year of Landsat imagery. We have incorporated all available (as of 10/1/22)
+    to the corresponding year of Landsat imagery. They have incorporated all available (as of 10/1/22)
     Bureau of Land Management (BLM), Assessment, Inventory, and Monitoring (AIM), 
     and Landscape Monitoring Framework (LMF) observations. LANDFIRE public reference database training
-    observations spanning 1985-2015 have been added. Neural network models with Keras tuner optimization
-    have replaced Cubist models as our classifier. We have added a tree canopy cover component. 
-    Our study area has expanded to include all of California, Oregon, and Washington; in prior generations
+    observations spanning from 1985 to 2015 have been added. Neural network models with Keras tuner optimization
+    have replaced Cubist models as the classifier. They have added a tree canopy cover component. 
+    The study area has expanded to include all of California, Oregon, and Washington; in prior generations,
     landscapes to the west of the Cascades were excluded. Additional spectral indices have been added as
-    predictor variables, tasseled cap wetness, brightness, and greenness. Location information 
-    (i.e., latitude and longitude/ x and y coordinates) and elevation above sea level have been 
-    added as predictor variables. CCDC-Synthetic Landsat images were obtained for 6 monthly periods
-    for each region and were added as predictors. These data augment the phenologic detail of 
-    the 2 seasonal Landsat composites. 
+    predictor variables, tasseled cap wetness, brightness, and greenness. Geographic location and elevation
+    above sea level have been added as predictor variables. CCDC-Synthetic Landsat images were obtained 
+    for 6 monthly periods for each region and were added as predictors. These data augment the phenologic
+    detail of the 2 seasonal Landsat composites.
     
-      Post-processing has been improved with updated fire recovery equations 
-    stratified by ecosystem resistance and resilience (R and R) classes (Maestas and Campbell 2016)
+    Post-processing has been improved with updated fire recovery equations 
+    stratified by ecosystem resistance and resilience (R and R) classes (Maestas and Campbell, 2016)
     to stratify recovery rates. Ecosystem R and R maps are only available for the sagebrush biome. 
-    We intersected classes with 1985-2020 average water year precipitation to identify precipitation
+    They intersected classes with 1985 to 2020 average water year precipitation to identify precipitation
     thresholds corresponding to R and R classes. Outside of the sagebrush biome, precipitation was used
     to produce R and R equivalent (low, medium, high). Due to the fast recovery following fire in 
-    California chapparal (e.g., Keeley and Keeley 1981, Storey et al. 2016), we used EPA level 3 ecoregions
-    to define a 4th R and R zone. Recovery rates are based on (Arkle et al. (in press)) who evaluated 
-    the recovery of plant functional groups in 1278 post-fire rehab plots by time since disturbance 
-    stratified by ecosystem resistance and resilience. We have expanded this analysis by evaluated 
+    California chaparral (e.g., Keeley and Keeley, 1981, Storey et al., 2016), they used EPA level 3 ecoregions
+    to define a 4th R and R zone. Recovery rates are based on (Arkle et al., (in press)) who evaluated 
+    the recovery of plant functional groups in 1,278 post-fire rehab plots by time since disturbance 
+    stratified by ecosystem resistance and resilience. They have expanded this analysis by evaluated 
     postfire-recovery in all AIM and LMF data across the West to establish maximum sage, shrub, 
     and tree cover by time-since fire. Recovery limits in California follow 
-    (Keeley and Keeley 1981 and Storey et al. 2016). Second, post-processing has been enhanced through
-    a revised noise detection model. For each pixel, we fit a third order polynomial model for each 
+    (Keeley and Keeley, 1981 and Storey et al., 2016). Second, post-processing has been enhanced through
+    a revised noise detection model. For each pixel, they fit a third order polynomial model for each 
     component cover time-series. Observations with a z-score more than 2 standard deviations from 
     the mean are removed, and a new third order polynomial model (i.e., cleaned fit) is fit to 
     observations within this threshold. Finally, looking again at all observations, those observations
     with a z-score more than 2 standard deviations from the mean of the cleaned fit are replaced 
-    with the mean of the prior and subsequent year component cover values. 
+    with the mean of the prior and subsequent year component cover values.
     
-      Processing efficiency has been increased using open-source software and 
+    Processing efficiency has been increased using open-source software and 
     USGS High-Performance Computing (HPC) resources. The mapping area included 
     eight regions which were subsequently mosaicked for all nine components. 
     These data can be used to answer critical questions regarding the influence 
     of climate change and the suitability of management practices. Component products 
-    can be downloaded [https://www.mrlc.gov/data](https://www.mrlc.gov/data).
+    can be downloaded from the [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
     
     See also:
 
