@@ -31,7 +31,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     reference spectral point (the measured reflectance of charcoal).  This
     index is intended to emphasize the charcoal signal in post-fire
     images. See
-    [Chuvieco et al. (2002)](https://www.tandfonline.com/doi/abs/10.1080/01431160210153129) 
+    [Chuvieco et al. (2002)](https://www.tandfonline.com/doi/abs/10.1080/01431160210153129)
     for details. This product is generated from the MODIS/MYD09GA surface reflectance composites.
   |||,
   license: license.id,

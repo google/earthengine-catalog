@@ -478,7 +478,7 @@ local ee_const = import 'earthengine_const.libsonnet';
       {
         name: 'WRS_TYPE',
         description: |||
-          World Reference System (WRS) type used 
+          World Reference System (WRS) type used
           for the collection of this scene.
         |||,
         type: ee_const.var_type.double,

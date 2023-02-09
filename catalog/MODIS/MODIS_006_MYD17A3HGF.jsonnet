@@ -37,7 +37,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   description: |||
     Version 6 MODIS data products. Users are advised to transition to the
     improved Version 6.1.
-    
+
     The MYD17A3HGF V6 product provides information about
     annual Net Primary Productivity (NPP) at 500m pixel resolution.
      Annual NPP is derived from the sum of all 8-day Net Photosynthesis

@@ -226,7 +226,6 @@ local self_url = catalog_subdir_url + base_filename;
         description: 'Terrestrial water storage',
         'gee:units': 'mm',
       },
-      
     ],
     'gee:visualizations': [
       {

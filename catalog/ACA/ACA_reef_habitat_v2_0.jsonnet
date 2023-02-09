@@ -66,7 +66,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     [Planet](https://www.planet.com/), the
     [University of Queensland](https://www.uq.edu.au/), and the
     [Coral Reef Alliance](https://coral.org/en/).
-    
+
     Scientific background publications:
 
     - Lyons, M. B., Roelfsema, C. M., Kennedy, E. V., Kovacs, E. M., Borrego-Acevedo, R., Markey, K., ... & Murray, N. J. (2020). Mapping the world's coral reefs using a global multiscale earth observation framework. Remote Sensing in Ecology and Conservation, 6(4), 557-568. [doi:10.1002/rse2.157](https://doi.org/10.1002/rse2.157)

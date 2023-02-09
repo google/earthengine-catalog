@@ -1,5 +1,4 @@
 {
-  
   bands: [
     {
       name: 'Count_Day',
