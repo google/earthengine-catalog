@@ -26,44 +26,54 @@ local self_url = catalog_subdir_url + base_filename;
   version: 'v5',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Rangeland ecosystems in the western United States have a dynamic response
-    to climate change, fire, and other anthropogenic disturbances. The Rangeland
-    Condition, Monitoring, Assessment, and Projection (RCMAP) product aims to
-    capture this response by quantifying the percent cover of rangeland
-    components, associated error, and trends across the western U.S. using
-    Landsat imagery from 1985-2020.
-
-    RCMAP quantifies the percent cover of components across the western U.S.
-    rangelands (after Rigge et al. 2020) using Landsat imagery from 1985-2020.
-    The RCMAP timeseries consists of eight fractional components: annual
-    herbaceous, bare ground, herbaceous, litter, non-sagebrush shrub, perennial
-    herbaceous, sagebrush and shrub, and the temporal trends of each. The four
-    primary components (bare ground, shrub, litter, and herbaceous) are designed
-    to sum to 100% in each pixel when added to tree canopy cover. The secondary
-    components annual herbaceous and perennial herbaceous are subsets of the
-    primary component herbaceous, while non-sagebrush shrub and sagebrush are
-    subsets of shrub. Secondary components cannot have cover greater than their
-    respective primary component. One year, 2012, was excluded from
-    the timeseries due to a lack of quality imagery.
-
-    MRLC developed an automated method to identify change in spectral
-    conditions between each year in the Landsat archive and the circa 2016 base
-    map. Regression tree models were trained from the unchanged portions of each
-    year in the time series. Post-processing models corrected post-burn
-    trajectories and eliminated noise and illogical change in the predictions.
-    The current generation of RCMAP has been improved with more training data,
-    regional-scale Landsat composites, and more robust change detection. MRLC
-    assessed the temporal patterns in each component with a linear model and
-    structural change method which determines break points in the timeseries
-    using an 8-year temporal moving window. The linear and structural change
-    methods generally agreed on gross patterns of change, but the latter found
-    breaks more often with most pixels having at least one break point. Data
-    provide spatiotemporal information on the occurrence of breaks, but even
-    more critically, attribute those change events to specific component(s).
-    The spatially, temporally, and thematically (i.e., multi-component) detailed
-    specific information on rangeland condition can contribute to understanding
-    major patterns of change at local, regional, and continental levels.
-
+    The RCMAP (Rangeland Condition Monitoring Assessment and Projection) dataset quantifies 
+    the percent cover of rangeland components across the western U.S. using Landsat imagery 
+    from 1985 to 2021. The RCMAP product suite consists of nine fractional components: annual herbaceous, 
+    bare ground, herbaceous, litter, non-sagebrush shrub, perennial herbaceous, sagebrush, shrub, 
+    and tree, in addition to the temporal trends of each component. Several enhancements were made 
+    to the RCMAP process relative to prior generations. First, they have trained time-series predictions
+    directly from 331 high-resolution sites collected from 2013 to 2018 from Assessment, Inventory, 
+    and Monitoring (AIM) instead of using the 2016 "base" map as an intermediary. This removes one 
+    level of model error and allows the direct association of high-resolution derived training data
+    to the corresponding year of Landsat imagery. They have incorporated all available (as of 10/1/22)
+    Bureau of Land Management (BLM), Assessment, Inventory, and Monitoring (AIM), 
+    and Landscape Monitoring Framework (LMF) observations. LANDFIRE public reference database training
+    observations spanning from 1985 to 2015 have been added. Neural network models with Keras tuner optimization
+    have replaced Cubist models as the classifier. They have added a tree canopy cover component. 
+    The study area has expanded to include all of California, Oregon, and Washington; in prior generations,
+    landscapes to the west of the Cascades were excluded. Additional spectral indices have been added as
+    predictor variables, tasseled cap wetness, brightness, and greenness. Geographic location and elevation
+    above sea level have been added as predictor variables. CCDC-Synthetic Landsat images were obtained 
+    for 6 monthly periods for each region and were added as predictors. These data augment the phenologic
+    detail of the 2 seasonal Landsat composites.
+    
+    Post-processing has been improved with updated fire recovery equations 
+    stratified by ecosystem resistance and resilience (R and R) classes (Maestas and Campbell, 2016)
+    to stratify recovery rates. Ecosystem R and R maps are only available for the sagebrush biome. 
+    They intersected classes with 1985 to 2020 average water year precipitation to identify precipitation
+    thresholds corresponding to R and R classes. Outside of the sagebrush biome, precipitation was used
+    to produce R and R equivalent (low, medium, high). Due to the fast recovery following fire in 
+    California chaparral (e.g., Keeley and Keeley, 1981, Storey et al., 2016), they used EPA level 3 ecoregions
+    to define a 4th R and R zone. Recovery rates are based on (Arkle et al., (in press)) who evaluated 
+    the recovery of plant functional groups in 1,278 post-fire rehab plots by time since disturbance 
+    stratified by ecosystem resistance and resilience. They have expanded this analysis by evaluated 
+    postfire-recovery in all AIM and LMF data across the West to establish maximum sage, shrub, 
+    and tree cover by time-since fire. Recovery limits in California follow 
+    (Keeley and Keeley, 1981 and Storey et al., 2016). Second, post-processing has been enhanced through
+    a revised noise detection model. For each pixel, they fit a third order polynomial model for each 
+    component cover time-series. Observations with a z-score more than 2 standard deviations from 
+    the mean are removed, and a new third order polynomial model (i.e., cleaned fit) is fit to 
+    observations within this threshold. Finally, looking again at all observations, those observations
+    with a z-score more than 2 standard deviations from the mean of the cleaned fit are replaced 
+    with the mean of the prior and subsequent year component cover values.
+    
+    Processing efficiency has been increased using open-source software and 
+    USGS High-Performance Computing (HPC) resources. The mapping area included 
+    eight regions which were subsequently mosaicked for all nine components. 
+    These data can be used to answer critical questions regarding the influence 
+    of climate change and the suitability of management practices. Component products 
+    can be downloaded from the [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
+    
     See also:
 
     * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
@@ -96,9 +106,9 @@ local self_url = catalog_subdir_url + base_filename;
   extent: ee.extent(
       -125.0683594, 28.45903302, -101.0742188, 49.32512199,
       '1985-01-01T00:00:00Z',
-      '2020-12-31T00:00:00Z'),
+      '2021-12-31T00:00:00Z'),
   'sci:citation': |||
-    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition Monitoring Assessment and Projection (RCMAP) Fractional Component Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data release, [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
+    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition Monitoring Assessment and Projection (RCMAP) Fractional Component Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data release. [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
   |||,
   'gee:user_uploaded': true,
   'gee:terms_of_use': |||
@@ -296,45 +306,55 @@ local self_url = catalog_subdir_url + base_filename;
         |||,
         'gee:units': '%',
       },
+      {
+        name: 'rangeland_tree',
+        description: 'Percent of the pixel covered by tree.',
+        'gee:units': '%',
+      },
     ],
     rangeland_annual_herbaceous: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_bare_ground: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_non_sagebrush_shrub: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_herbaceous: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_litter: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_sagebrush: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_shrub: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     rangeland_perennial_herbaceous: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
+      'gee:estimated_range': false,
+    },
+    rangeland_tree: {
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
   },
