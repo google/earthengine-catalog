@@ -79,8 +79,7 @@ local self_url = catalog_subdir_url + base_filename;
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-  ],
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'climate_change',
     'disturbance',
