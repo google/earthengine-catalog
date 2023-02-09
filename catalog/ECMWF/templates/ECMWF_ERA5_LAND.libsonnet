@@ -200,7 +200,6 @@
           bodies with two layers in the vertical, the mixed layer above and the
           thermocline below where temperature changes with depth.
         |||,
-        'units': '',
       },
       {
         name: 'lake_total_layer_temperature',
@@ -223,7 +222,6 @@
           grid cells. Values vary between 0 and 1. Typically, snow and ice have
           high reflectivity with albedo values of 0.8 and above.
         |||,
-        'units': '',
       },
       {
         name: 'snow_cover',
@@ -364,7 +362,6 @@
           period of several years) is used, modified by the model
           over water, ice and snow. Albedo is often shown as a percentage (%).
         |||,
-        'units': '',
       },
       {
         name: 'surface_latent_heat_flux',

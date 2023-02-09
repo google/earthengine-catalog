@@ -68,7 +68,7 @@ local successor_url = catalog_subdir_url + successor_filename;
       {
         name: band.name,
         description: band.description,
-        'gee:units': band.units
+        [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands
     ],

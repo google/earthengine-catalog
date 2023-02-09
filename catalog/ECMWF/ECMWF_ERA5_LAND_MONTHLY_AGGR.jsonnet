@@ -67,16 +67,12 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       11132.0,
     ],
     'eo:bands': [
-      if std.member(era5_land.flow_bands, band.name) then
       {
-        name: band.name + '_sum',
+        name: if std.member(
+          era5_land.flow_bands, band.name
+          ) then band.name + '_sum' else band.name,
         description: band.description,
-        'gee:units': band.units
-      }
-      else {
-        name: band.name,
-        description: band.description,
-        'gee:units': band.units
+        [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands
     ],

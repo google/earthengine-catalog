@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: band.name,
         description: band.description,
-        'gee:units': band.units
+        [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands
     ],
