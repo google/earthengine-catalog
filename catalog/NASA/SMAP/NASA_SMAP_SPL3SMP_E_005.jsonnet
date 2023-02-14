@@ -127,7 +127,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           0 = Pass: Soil moisture  with acceptable quality;
           1 = Fail: Soil moisture does  with unacceptable quality; AM overpass
         |||,
-        'gee:units': 'thematic',
       },
       {
         name: 'tb_qual_flag_h_am',
@@ -135,7 +134,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           0= brightness temperatures with unacceptable quality;
           1= brightness temperatures with acceptable quality; AM overpass
         |||,
-        'gee:units': 'thematic',
       },
       {
         name: 'tb_qual_flag_v_am',
@@ -143,7 +141,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           0= brightness temperatures with unacceptable quality;
           1= brightness temperatures with acceptable quality; AM overpass
         |||,
-        'gee:units': 'thematic',
       },
       {
         name: 'soil_moisture_pm',
@@ -194,7 +191,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           0 = Pass: Soil moisture  with acceptable quality;
           1 = Fail: Soil moisture does  with unacceptable quality;  PM overpass
         |||,
-        'gee:units': 'thematic',
       },
       {
         name: 'tb_qual_flag_h_pm',
@@ -202,7 +198,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           0= brightness temperatures with unacceptable quality;
           1= brightness temperatures with acceptable quality; PM overpass
         |||,
-        'gee:units': 'thematic',
       },
       {
         name: 'tb_qual_flag_v_pm',
@@ -210,7 +205,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           0= brightness temperatures with unacceptable quality;
           1= brightness temperatures with acceptable quality; PM overpass
         |||,
-        'gee:units': 'thematic',
+      },
+      {
+        name: 'soil_moisture_am_anomaly',
+        description: |||
+          Experimental. Difference of the 30-day average of 'soil_moisture_am',
+          centered on asset date, relative to the same 30-day period averaged
+          across years from 2015 to present, excluding asset year.
+
+          See
+          [this script](https://github.com/google/earthengine-community/blob/master/datasets/smap_anomaly_l3.py)
+          for anomaly computations.
+        |||
+      },
+      {
+        name: 'soil_moisture_pm_anomaly',
+        description: |||
+          Experimental. Difference of the 30-day average of 'soil_moisture_pm',
+          centered on asset date, relative to the same 30-day period averaged
+          across years from 2015 to present, excluding asset year.
+
+          See
+          [this script](https://github.com/google/earthengine-community/blob/master/datasets/smap_anomaly_l3.py)
+          for anomaly computations.
+        |||
       }
     ],
     'gee:visualizations': [

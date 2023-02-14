@@ -322,7 +322,19 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'mwrtm_vegopacity',
         description: 'Microwave radiative transfer model: Vegetation opacity.',
-      }
+      },
+      {
+        name: 'sm_surface_anomaly',
+        description: |||
+          Experimental. Difference of the 30-day average of 'sm_surface',
+          centered on asset date, relative to the same 30-day period averaged
+          across years from 2015 to present, excluding asset year.
+
+          See
+          [this script](https://github.com/google/earthengine-community/blob/master/datasets/smap_anomaly_l4.py)
+          for anomaly computations.
+        |||
+      },
     ],
     'gee:visualizations': [
       {
