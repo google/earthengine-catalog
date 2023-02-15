@@ -63,9 +63,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: band.name,
         description: band.description,
-        [if std.objectHas(band, 'units') then 'gee:units']: band.units
+        [if std.objectHas(band, 'units') then 'gee:units']: band.units,
       }
       for band in era5_land.bands
+    ] + [
+      {
+        name: era5_land.flow_bands[index] + '_hourly',
+        description: std.join(
+          ' ',
+          [
+            std.join(
+              ' ', std.split(era5_land.flow_bands[index], '_')
+            ),
+            |||
+              disaggregated from the original cumulative values into hourly
+              values
+            |||,
+          ]
+        ),
+        'gee:units': era5_land.flow_bands_unit[index],
+      }
+      for index in std.range(0, std.length(era5_land.flow_bands) - 1)
     ],
     'gee:visualizations': era5_land.visualizations + [
       {
