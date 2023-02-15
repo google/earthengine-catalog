@@ -19,6 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP09GA', base_url),
+    ee.link.child_collection('NOAA_VIIRS_001_VNP09H1', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP13A1', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP14A1', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP21A1D', base_url),
