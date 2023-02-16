@@ -23,7 +23,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP09GA: VIIRS Surface Reflectance 8-Day L3 Global 500m',
+  title: 'VNP09H1: VIIRS Surface Reflectance 8-Day L3 Global 500m',
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
