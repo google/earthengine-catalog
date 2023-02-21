@@ -50,11 +50,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'conus',
     'evapotranspiration',
     'gridmet_derived',
+    'fano',
     'landsat_derived',
     'monthly',
-    'water',
     'ssebop',
-    'fano',
+    'water'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
