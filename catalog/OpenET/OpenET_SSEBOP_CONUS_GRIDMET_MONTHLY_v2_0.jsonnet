@@ -20,8 +20,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS SSEBOP Monthly Evapotranspiration',
-  version: '0.2.6',
+  title: 'OpenET CONUS SSEBop Monthly Evapotranspiration v2.0',
+  version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Operational Simplified Surface Energy Balance (SSEBop)
@@ -42,6 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     parameterization of SSEBop using FANO (Forcing and Normalizing Operation) to better estimate ET
     in all landscapes and all seasons regardless of vegetation cover density, thereby improving model
     accuracy by avoiding extrapolation of Tc to non-calibration regions.
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -50,11 +51,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'conus',
     'evapotranspiration',
     'gridmet_derived',
-    'fano',
     'landsat_derived',
     'monthly',
-    'ssebop',
-    'water'
+    'water',
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -65,9 +64,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: '',
+        name: 'et',
         description: |||
-          SSEBOP ET value
+          SSEBop ET value
         |||,
         'gee:units': 'mm',
       },
@@ -81,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'OpenET SSEBOP Monthly ET',
+        display_name: 'OpenET SSEBop Monthly ET',
         lookat: {
           lat: 38.0,
           lon: -100.0,

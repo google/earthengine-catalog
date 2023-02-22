@@ -25,6 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Satellite Irrigation Management Support
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -36,7 +37,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
-    'sims'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: '',
+        name: 'et',
         description: |||
           SIMS ET value
         |||,

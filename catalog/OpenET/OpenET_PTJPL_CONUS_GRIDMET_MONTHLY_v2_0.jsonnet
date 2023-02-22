@@ -20,8 +20,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS PTJPL Monthly Evapotranspiration',
-  version: '2.1',
+  title: 'OpenET CONUS PT-JPL Monthly Evapotranspiration v2.0',
+  version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Priestley-Taylor Jet Propulsion Laboratory (PT-JPL)
@@ -38,6 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and monthly time integrated ET is based on the fraction of ASCE reference ET. Open water
     evaporation is estimated following a surface energy balance approach of Abdelrady et al. (2016)
     that is specific for water bodies by accounting for water heat flux as opposed to soil heat flux.
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -49,7 +50,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
-    'ptjpl'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -62,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'et',
         description: |||
-          PTJPL ET value
+          PT-JPL ET value
         |||,
         'gee:units': 'mm',
       },
@@ -76,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'OpenET PTJPL Monthly ET',
+        display_name: 'OpenET PT-JPL Monthly ET',
         lookat: {
           lat: 38.0,
           lon: -100.0,
