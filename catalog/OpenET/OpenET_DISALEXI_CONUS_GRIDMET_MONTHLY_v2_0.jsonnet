@@ -20,8 +20,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS DISALEXI Monthly Evapotranspiration v2.0',
-  version: '0.0.32',
+  title: 'OpenET CONUS DisALEXI Monthly Evapotranspiration v2.0',
+  version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Atmosphere-Land Exchange Inverse / Disaggregation of the Atmosphere-Land Exchange Inverse (ALEXI/DisALEXI)
@@ -31,6 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     moderate resolution polar orbiting platforms to generate regional ET maps. DisALEXI then disaggregates the
     regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to resolve individual farm fields and
     other landscape features.
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -42,7 +43,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
-    'disalexi'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -55,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'et',
         description: |||
-          DISALEXI ET value
+          DisALEXI ET value
         |||,
         'gee:units': 'mm',
       },
@@ -69,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'OpenET DISALEXI Monthly ET',
+        display_name: 'OpenET DisALEXI Monthly ET',
         lookat: {
           lat: 38.0,
           lon: -100.0,

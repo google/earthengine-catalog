@@ -20,8 +20,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS EEMETRIC Monthly Evapotranspiration',
-  version: '0.20.26',
+  title: 'OpenET CONUS eeMETRIC Monthly Evapotranspiration v2.0',
+  version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Google Earth Engine implementation of the Mapping Evapotranspiration at high Resolution
@@ -65,6 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     METRIC model are described in the most current METRIC users manual (Allen et al., 2018).
     eeMETRIC uses the atmospherically corrected surface reflectance and LST from Landsat Collection
     2 Level 2, with fallback to Collection 2 Level 1 when needed for near real-time estimates.
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -76,7 +77,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
-    'eemetric'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -87,9 +87,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: '',
+        name: 'et',
         description: |||
-          EEMETRIC ET value
+          eeMETRIC ET value
         |||,
         'gee:units': 'mm',
       },
@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'OpenET EEMETRIC Monthly ET',
+        display_name: 'OpenET eeMETRIC Monthly ET',
         lookat: {
           lat: 38.0,
           lon: -100.0,

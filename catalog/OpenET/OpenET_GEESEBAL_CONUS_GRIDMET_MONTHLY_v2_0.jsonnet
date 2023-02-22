@@ -20,8 +20,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS GEESEBAL Monthly Evapotranspiration v0.2.2',
-  version: '0.2.2',
+  title: 'OpenET CONUS geeSEBAL Monthly Evapotranspiration v2.0',
+  version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Google Earth Engine implementation of the Surface Energy Balance Algorithm for Land (geeSEBAL)
@@ -52,7 +52,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
-    'geesebal'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -63,9 +62,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: '',
+        name: 'et',
         description: |||
-          GEESEBAL ET value
+          geeSEBAL ET value
         |||,
         'gee:units': 'mm',
       },
@@ -79,7 +78,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'OpenET GEESEBAL Monthly ET',
+        display_name: 'OpenET geeSEBAL Monthly ET',
         lookat: {
           lat: 38.0,
           lon: -100.0,
