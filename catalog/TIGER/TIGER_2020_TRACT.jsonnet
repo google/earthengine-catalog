@@ -25,7 +25,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     The United States Census Bureau regularly releases
     a geodatabase named TIGER. This dataset contains the 2020 census
-    blocks, roughly equivalent to a city block. There are just over
+    tracts. Tract areas vary tremendously, but in urban areas are roughly
+    equivalent to a neighborhood. There are just over
     85000 polygon features covering the United States, the District
     of Columbia, Puerto Rico, and the
     [Island areas](https://www.census.gov/programs-surveys/decennial-census/decade/2020/planning-management/release/2020-island-areas-data-products.html).
