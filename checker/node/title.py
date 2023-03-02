@@ -78,5 +78,5 @@ class Check(stac.NodeCheck):
 
     if node.id in COLLECTION_EXCEPTION_IDS:
       return
-    if not re.fullmatch('[A-Z][-+ .,_:/&<()a-zA-Z0-9\n]{1,140}', title):
+    if not re.fullmatch('[A-Z][-+ .,_:/&<()a-zA-Z0-9]{1,140}', title):
       yield cls.new_issue(node, f'Collection {TITLE} not valid: "{title}"')

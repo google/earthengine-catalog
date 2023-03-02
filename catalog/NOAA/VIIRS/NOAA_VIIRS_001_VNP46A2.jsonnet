@@ -23,10 +23,9 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: |||
-    VNP46A2: VIIRS Lunar Gap-Filled BRDF Nighttime Lights Daily L3 Global
-    500m
-  |||,
+  title:
+    'VNP46A2: VIIRS Lunar Gap-Filled BRDF Nighttime Lights Daily L3 ' +
+    'Global 500m',
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -42,7 +41,8 @@ local self_url = catalog_subdir_url + base_filename;
     products.
 
     VNP46A2 dataset is a daily moonlight- and atmosphere-corrected Nighttime
-    Lights (NTL) product.
+    Lights (NTL) product using the Bidirectional Reflectance Distribution
+    Function (BRDF).
 
     Documentation:
 
@@ -62,7 +62,8 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'brdf',
     'daily',
-    'lunar',
+    // TODO(simonf): Explain why lunar applies to this dataset.
+    // 'lunar',
     'nasa',
     'noaa',
     'viirs',
