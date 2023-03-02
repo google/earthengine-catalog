@@ -4,6 +4,7 @@ local subdir = 'NOAA/GOES';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -462,7 +463,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C07',
         description: 'Infrared - Shortwave Window\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 3.89,
         'gee:wavelength': '3.80-4.00&micro;m',
       },
@@ -500,7 +501,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C08',
         description: 'Infrared - Upper-level water vapor\n\nHigh-level atmospheric water vapor, winds, rainfall\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 6.17,
         'gee:wavelength': '5.77-6.6&micro;m',
       },
@@ -538,7 +539,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C09',
         description: 'Infrared - Mid-level water vapor\n\nMid-level atmospheric water vapor, winds, rainfall\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 6.95,
         'gee:wavelength': '6.75-7.15&micro;m',
       },
@@ -576,7 +577,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C10',
         description: 'Infrared - Lower-level water vapor\n\nLower-level water vapor, winds, and sulfur dioxide\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 7.34,
         'gee:wavelength': '7.24-7.44&micro;m',
       },
@@ -620,7 +621,7 @@ local self_url = catalog_subdir_url + base_filename;
 
           Brightness
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 8.44,
         'gee:wavelength': '8.3-8.7&micro;m',
       },
@@ -658,7 +659,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C12',
         description: 'Infrared - Ozone\n\nTotal ozone, turbulence, winds',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 9.61,
         'gee:wavelength': '9.42-9.8&micro;m',
       },
@@ -696,7 +697,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C13',
         description: 'Infrared - "Clean" longwave window\n\nSurface and clouds\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 10.35,
         'gee:wavelength': '10.1-10.6&micro;m',
       },
@@ -734,7 +735,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C14',
         description: 'Infrared - Longwave window\n\nImagery, sea surface temperature, clouds, rainfall\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 11.19,
         'gee:wavelength': '10.8-11.6&micro;m',
       },
@@ -772,7 +773,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C15',
         description: 'Infrared "Dirty" longwave\n\nTotal water, volcanic ash, sea surface temperature\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 12.3,
         'gee:wavelength': '11.8-12.8&micro;m',
       },
@@ -810,7 +811,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CMI_C16',
         description: 'Infrared - CO_2 longwave\n\nAir temperature, cloud heights\n\nBrightness',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 13.3,
         'gee:wavelength': '13.0-13.6&micro;m',
       },

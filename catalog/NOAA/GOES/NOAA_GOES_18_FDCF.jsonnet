@@ -4,6 +4,7 @@ local subdir = 'NOAA/GOES';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -87,7 +88,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Temp',
         description: 'Fire temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.05493667,
         'gee:offset': 400.0,
       },

@@ -4,6 +4,7 @@ local subdir = 'JAXA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -23,7 +24,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Global PALSAR-2/PALSAR Yearly Mosaic',
   'gee:type': ee_const.gee_type.image_collection,
   #TODO(simonf): add version links between the two datasets
-  version: 'K',
+  version: units.kelvin,
   description: |||
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery

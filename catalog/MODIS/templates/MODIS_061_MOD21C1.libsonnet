@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   bands: [
     {
@@ -213,25 +215,25 @@
     {
       name: 'LST_Day',
       description: 'Average Daytime Land Surface Temperature',
-      'gee:units': 'Kelvin',
+      'gee:units': units.kelvin,
       'gee:scale': 0.02,
     },
     {
       name: 'LST_Night',
       description: 'Average Nighttime Land Surface Temperature',
-      'gee:units': 'Kelvin',
+      'gee:units': units.kelvin,
       'gee:scale': 0.02,
     },
     {
       name: 'LST_Day_err',
       description: 'Root-mean-square-error Daytime Land Surface Temperature',
-      'gee:units': 'Kelvin',
+      'gee:units': units.kelvin,
       'gee:scale': 0.04,
     },
     {
       name: 'LST_Night_err',
       description: 'Average Nighttime Land Surface Temperature',
-      'gee:units': 'Kelvin',
+      'gee:units': units.kelvin,
       'gee:scale': 0.04,
     },
     {
@@ -333,7 +335,7 @@
     {
       name: 'Percent_land_in_grid',
       description: 'Percent of Land Detections in Grid Cell',
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
     },
   ],
   summaries: {

@@ -4,6 +4,7 @@ local subdir = 'NOAA/NGDC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -65,12 +66,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bedrock',
         description: 'Elevation at ground level and at the base of the Antarctic and Greenland ice sheets',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'ice_surface',
         description: 'Elevation at ground level and at the top of the Antarctic and Greenland ice sheets',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

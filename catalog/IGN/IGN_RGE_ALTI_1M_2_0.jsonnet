@@ -4,6 +4,7 @@ local subdir = 'IGN';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.etalab_2_0;
 
@@ -80,7 +81,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'MNT',
         description: 'Terrain elevation in meters.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'SRC',
@@ -96,7 +97,7 @@ local self_url = catalog_subdir_url + base_filename;
           The distance in meters between the node and the nearest point used to
           calculate its altitude.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

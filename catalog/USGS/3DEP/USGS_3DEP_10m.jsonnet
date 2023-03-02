@@ -4,6 +4,7 @@ local subdir = 'USGS/3DEP';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -63,7 +64,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'elevation',
         description: 'Elevation',
-        'gee:units': 'm',
+        'gee:units': units.meters,
         gsd: 10.2,
       },
     ],

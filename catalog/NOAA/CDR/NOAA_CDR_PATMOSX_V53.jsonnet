@@ -4,6 +4,7 @@ local subdir = 'NOAA/CDR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -171,7 +172,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'cld_temp_acha',
         description: 'Cloud-top temperature computed using ACHA (CDR variable)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.002441481,
         'gee:offset': 240.0,
       },
@@ -439,7 +440,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'surface_temperature_retrieved',
         description: 'Surface temperature retrieved using atmospherically corrected 11μm radiance',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.472441,
         'gee:offset': 280.0,
       },
@@ -522,7 +523,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temp_11_0um',
         description: 'Top of atmosphere brightness temperature at 11.0μm (CDR variable)',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 11.0,
         'gee:scale': 0.002441481,
         'gee:offset': 260.0,
@@ -531,21 +532,21 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temp_11_0um_clear_sky',
         description: 'Top of atmosphere brightness temperature modeled assuming clear skies at 11.0μm',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.002441481,
         'gee:offset': 260.0,
       },
       {
         name: 'temp_11_0um_stddev_3x3',
         description: 'Standard deviation of the 11.0μm brightness temperature computed over a 3x3 pixel array',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.07874016,
         'gee:offset': 10.9,
       },
       {
         name: 'temp_12_0um',
         description: 'Top of atmosphere brightness temperature 12.0μm (CDR variable)',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 12.0,
         'gee:scale': 0.002441481,
         'gee:offset': 260.0,
@@ -554,7 +555,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temp_3_75um',
         description: 'Top of atmosphere brightness temperature 3.75μm (CDR variable)',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 3.75,
         'gee:scale': 0.002441481,
         'gee:offset': 260.0,

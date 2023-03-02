@@ -4,6 +4,7 @@ local subdir = 'COPERNICUS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -307,7 +308,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'discrete_classification-proba',
         description: 'Quality indicator (classification probability) of the discrete classification',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'forest_type',
@@ -348,52 +349,52 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'bare-coverfraction',
         description: 'Percent vegetation cover for bare-sparse-vegetation land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'crops-coverfraction',
         description: 'Percent vegetation cover for cropland land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'grass-coverfraction',
         description: 'Percent vegetation cover for herbaceous vegetation land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'moss-coverfraction',
         description: 'Percent vegetation cover for moss and lichen land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrub-coverfraction',
         description: 'Percent vegetation cover for shrubland land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'tree-coverfraction',
         description: 'Percent vegetation cover for forest land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'snow-coverfraction',
         description: 'Percent ground cover for snow and ice land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'urban-coverfraction',
         description: 'Percent ground cover for built-up land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'water-permanent-coverfraction',
         description: 'Percent ground cover for permanent water land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'water-seasonal-coverfraction',
         description: 'Percent ground cover for seasonal water land cover class',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'data-density-indicator',

@@ -5,6 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local template = import 'NASA_GEOS-CF_v1.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
@@ -485,17 +486,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'T',
         description: 'Air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T10M',
         description: '10-meter air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T2M',
         description: '2-meter air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TOLU',
@@ -585,7 +586,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TS',
         description: 'Surface skin temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'U',
@@ -710,12 +711,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ZL',
         description: 'Mid layer heights',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'ZPBL',
         description: 'Planetary boundary layer height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

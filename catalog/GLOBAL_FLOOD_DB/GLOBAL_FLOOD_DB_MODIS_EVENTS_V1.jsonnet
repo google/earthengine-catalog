@@ -4,6 +4,7 @@ local subdir = 'GLOBAL_FLOOD_DB';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_nc_4_0;
 
@@ -209,7 +210,7 @@ local self_url = catalog_subdir_url + base_filename;
           events which used an otsu and not the default threshold).
         |||,
         type: ee_const.var_type.double,
-        units: 'm',
+        units: units.meters,
       },
       {
         name: 'slope_threshold',
@@ -251,7 +252,7 @@ local self_url = catalog_subdir_url + base_filename;
           images per flood event.  Cloud coverage is determined by the MODIS
           Quality Assurance band ('state_1km').
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'jrc_perm_water',

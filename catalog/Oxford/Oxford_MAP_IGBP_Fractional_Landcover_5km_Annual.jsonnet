@@ -4,6 +4,7 @@ local subdir = 'Oxford';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_nc_sa_4_0;
 
@@ -149,97 +150,97 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Water',
         description: 'Percentage of water',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Evergreen_Needleleaf_Forest',
         description: 'Percentage of evergreen needleleaf forest',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Evergreen_Broadleaf_Forest',
         description: 'Percentage of evergreen broadleaf forest',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Deciduous_Needleleaf_Forest',
         description: 'Percentage of deciduous needleleaf forest',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Deciduous_Broadleaf_Forest',
         description: 'Percentage of deciduous broadleaf forest',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Mixed_Forest',
         description: 'Percentage of mixed forest',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Closed_Shrublands',
         description: 'Percentage of closed shrublands',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Open_Shrublands',
         description: 'Percentage of open shrublands',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Woody_Savannas',
         description: 'Percentage of woody savannas',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Savannas',
         description: 'Percentage of savannas',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Grasslands',
         description: 'Percentage of grasslands',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Permanent_Wetlands',
         description: 'Percentage of permanent wetlands',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Croplands',
         description: 'Percentage of croplands',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Urban_And_Built_Up',
         description: 'Percentage of urban and built up',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Cropland_Natural_Vegetation_Mosaic',
         description: 'Percentage of cropland natural vegetation mosaic',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Snow_And_Ice',
         description: 'Percentage of snow and ice',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Barren_Or_Sparsely_Populated',
         description: 'Percentage of barren or sparsely populated',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Unclassified',
         description: 'Percentage of unclassified',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'No_Data',
         description: 'Percentage of no data',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

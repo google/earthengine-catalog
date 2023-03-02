@@ -4,6 +4,7 @@ local subdir = 'COPERNICUS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -244,7 +245,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'cloud_top_height',
         description: 'Retrieved altitude of the cloud top',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'cloud_base_pressure',
@@ -254,12 +255,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'cloud_base_height',
         description: 'Cloud base height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'cloud_optical_depth',
         description: 'Retrieved cloud optical depth',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'surface_albedo',

@@ -4,6 +4,7 @@ local subdir = 'NASA/FLDAS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -142,7 +143,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'RadT_tavg',
         description: 'Surface radiative temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Rainf_f_tavg',
@@ -156,7 +157,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SnowDepth_inst',
         description: 'Snow depth',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Snowf_tavg',
@@ -186,22 +187,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SoilTemp00_10cm_tavg',
         description: 'Soil temperature (0 - 10 cm underground)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilTemp10_40cm_tavg',
         description: 'Soil temperature (10 - 40 cm underground)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilTemp100_200cm_tavg',
         description: 'Soil temperature (100 - 200 cm underground)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilTemp40_100cm_tavg',
         description: 'Soil temperature (40 - 100 cm underground)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SWdown_f_tavg',
@@ -221,7 +222,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Tair_f_tavg',
         description: 'Near surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Wind_f_tavg',

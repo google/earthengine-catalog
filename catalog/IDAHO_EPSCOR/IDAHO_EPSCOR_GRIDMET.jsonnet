@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -79,12 +80,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'rmax',
         description: 'Maximum relative humidity',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rmin',
         description: 'Minimum relative humidity',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'sph',
@@ -104,12 +105,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tmmn',
         description: 'Minimum temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tmmx',
         description: 'Maximum temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'vs',
@@ -134,12 +135,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'fm100',
         description: '100-hour dead fuel moisture',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'fm1000',
         description: '1000-hour dead fuel moisture',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'etr',

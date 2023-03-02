@@ -4,6 +4,7 @@ local subdir = 'NASA/SMAP';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -97,7 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           brightness temperature if the water fraction is greater than 0.1
           (otherwise no correction is applied); AM overpass
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tb_v_corrected_am',
@@ -109,7 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           brightness temperature if the water fraction is greater than 0.1
           (otherwise no correction is applied); AM overpass
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
       },
       {
         name: 'vegetation_water_content_am',
@@ -161,7 +162,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           temperature if the water fraction is greater than 0.1 (otherwise no
           correction is applied); PM overpass
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tb_v_corrected_pm',
@@ -173,7 +174,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           temperature if the water fraction is greater than 0.1 (otherwise no
           correction is applied); PM overpass
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
       },
       {
         name: 'vegetation_water_content_pm',

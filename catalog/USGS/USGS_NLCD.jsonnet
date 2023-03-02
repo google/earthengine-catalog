@@ -9,6 +9,7 @@ local new_subdir = 'USGS/NLCD_RELEASES';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -285,7 +286,7 @@ local successor_url = catalog_new_subdir_url + successor_filename;
         description: |||
           Percent of the pixel covered by developed impervious surface. Included in images NLCD2001, NLCD2001_AK, NLCD2001_HI, NLCD2001_PR, NLCD2006, NLCD2011, NLCD2011_AK, and NLCD2016.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'impervious_descriptor',
@@ -368,44 +369,44 @@ local successor_url = catalog_new_subdir_url + successor_filename;
         description: |||
           Percent of the pixel that's covered by tree canopy. No masking of obvious non-tree areas is performed for this product. Included in images NLCD2011, NLCD2011_AK, NLCD2011_HI, NLCD2011_PR, and NLCD2016.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'percent_tree_error',
         description: |||
           Standard error for the model as a percentage from 0 to 45. The higher the value, the greater the model uncertainty in estimating the canopy value for that cell. Included in NLCD2011, NLCD2011_AK, NLCD2011_HI, and NLCD2011_PR.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_annual_herbaceous',
         description: 'The annual only grass and forb proportion in each in 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_bare_ground',
         description: 'The bare ground proportion in each 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_big_sagebrush',
         description: 'The proportion of big sagebrush canopy in each 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_herbaceous',
         description: 'The annual and perennial grass and forb proportion in each 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_litter',
         description: 'The dead plant material proportion in each 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_sagebrush',
         description: 'The proportion of sagebrush canopy in each 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_sagebrush_height',
@@ -415,7 +416,7 @@ local successor_url = catalog_new_subdir_url + successor_filename;
       {
         name: 'shrubland_shrub',
         description: 'The proportion of shrub canopy in each 30m pixel. Included in NLCD2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'shrubland_shrub_height',

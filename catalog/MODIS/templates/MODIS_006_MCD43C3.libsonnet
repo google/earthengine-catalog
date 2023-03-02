@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -187,12 +189,12 @@
       {
         name: 'Percent_Inputs',
         description: 'Percent of the processed finer resolution data which contributed to this CMG pixel',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Percent_Snow',
         description: 'Percent of underlying data flagged as snow',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'BRDF_Albedo_Uncertainty',

@@ -1,7 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local version_table = import 'UMD_hansen_global_forest_change.libsonnet';
 
@@ -64,7 +64,7 @@ local license = spdx.cc_by_4_0;
           Tree canopy cover for year 2000, defined as canopy closure for all
           vegetation taller than 5m in height.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'loss',

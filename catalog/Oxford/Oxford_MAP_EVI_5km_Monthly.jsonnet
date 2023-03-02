@@ -4,6 +4,7 @@ local subdir = 'Oxford';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_nc_sa_4_0;
 
@@ -61,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           each resulting pixel that was comprised of raw data (as opposed to
           gap-filled estimates).
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

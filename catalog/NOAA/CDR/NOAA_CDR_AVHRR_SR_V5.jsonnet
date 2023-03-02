@@ -4,6 +4,7 @@ local subdir = 'NOAA/CDR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -119,7 +120,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'BT_CH3',
         description: 'Brightness temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 3.75,
         'gee:scale': 0.1,
         'gee:wavelength': '3.75μm',
@@ -127,7 +128,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'BT_CH4',
         description: 'Brightness temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 11.0,
         'gee:scale': 0.1,
         'gee:wavelength': '11.0μm',
@@ -135,7 +136,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'BT_CH5',
         description: 'Brightness temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         center_wavelength: 12.0,
         'gee:scale': 0.1,
         'gee:wavelength': '12.0μm',

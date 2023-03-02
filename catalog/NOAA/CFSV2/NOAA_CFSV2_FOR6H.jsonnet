@@ -4,6 +4,7 @@ local subdir = 'NOAA/CFSV2';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -115,7 +116,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Maximum_temperature_height_above_ground_6_Hour_Interval',
         description: 'Maximum temperature 2m above ground, 6-hour interval',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Minimum_specific_humidity_at_2m_height_above_ground_6_Hour_Interval',
@@ -125,7 +126,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Minimum_temperature_height_above_ground_6_Hour_Interval',
         description: 'Minimum temperature 2m above ground, 6-hour interval',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Potential_Evaporation_Rate_surface_6_Hour_Average',
@@ -155,7 +156,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Temperature_height_above_ground',
         description: 'Temperature 2m above ground',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'u-component_of_wind_height_above_ground',

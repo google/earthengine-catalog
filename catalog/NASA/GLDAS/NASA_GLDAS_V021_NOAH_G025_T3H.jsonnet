@@ -4,6 +4,7 @@ local subdir = 'NASA/GLDAS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -109,12 +110,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Albedo_inst',
         description: 'Albedo',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'AvgSurfT_inst',
         description: 'Average surface skin temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'CanopInt_inst',
@@ -219,7 +220,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SnowDepth_inst',
         description: 'Snow depth',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Snowf_tavg',
@@ -249,22 +250,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SoilTMP0_10cm_inst',
         description: 'Soil temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilTMP10_40cm_inst',
         description: 'Soil temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilTMP40_100cm_inst',
         description: 'Soil temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilTMP100_200cm_inst',
         description: 'Soil temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Swnet_tavg',
@@ -274,7 +275,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Tair_f_inst',
         description: 'Air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Tveg_tavg',

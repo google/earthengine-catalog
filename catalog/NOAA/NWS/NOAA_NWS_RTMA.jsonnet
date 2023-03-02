@@ -4,6 +4,7 @@ local subdir = 'NOAA/NWS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -61,7 +62,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'HGT',
         description: 'Model terrain elevation',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'PRES',
@@ -111,12 +112,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'VIS',
         description: 'Visibility',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'TCDC',
         description: 'Total cloud cover',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'ACPC01',

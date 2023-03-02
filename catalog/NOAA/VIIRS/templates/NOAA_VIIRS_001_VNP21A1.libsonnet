@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -16,7 +18,7 @@
           Daily 1 km Land Surface Temperature.
         |||,
         'gee:scale': 0.02,
-        'gee:units': 'Kelvin'
+        'gee:units': units.kelvin,
       },
       {
         name: 'QC',

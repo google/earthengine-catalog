@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -82,22 +83,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tasmax',
         description: 'Maximum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin',
         description: 'Minimum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'rhsmax',
         description: 'Maximum daily relative humidity near surface, not present in models CCSM4 or NorESM1-M',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rhsmin',
         description: 'Minimum daily relative humidity near surface, not present in models CCSM4 or NorESM1-M',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'huss',

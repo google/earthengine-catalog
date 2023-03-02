@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 local meters = 'm';
 local meters_eq = 'm of water equivalent';
 local flux = 'J/m^2';
@@ -89,7 +91,7 @@ local flux = 'J/m^2';
         model level and the Earth's surface, taking account of the atmospheric
         conditions.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'temperature_2m',
@@ -99,7 +101,7 @@ local flux = 'J/m^2';
         lowest model level and the Earth's surface, taking account of the
         atmospheric conditions.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'skin_temperature',
@@ -111,7 +113,7 @@ local flux = 'J/m^2';
         changes in surface fluxes. Skin temperature is calculated differently
         over land and sea.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'soil_temperature_level_1',
@@ -122,7 +124,7 @@ local flux = 'J/m^2';
         interfaces between them. It is assumed that there is no heat transfer
         out of the bottom of the lowest layer.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'soil_temperature_level_2',
@@ -130,7 +132,7 @@ local flux = 'J/m^2';
         Temperature of the soil in layer 2 (7-28 cm) of the ECMWF Integrated
         Forecasting System.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'soil_temperature_level_3',
@@ -138,7 +140,7 @@ local flux = 'J/m^2';
         Temperature of the soil in layer 3 (28-100 cm) of the ECMWF Integrated
         Forecasting System.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'soil_temperature_level_4',
@@ -146,7 +148,7 @@ local flux = 'J/m^2';
         Temperature of the soil in layer 4 (100-289 cm) of the ECMWF
         Integrated Forecasting System.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'lake_bottom_temperature',
@@ -158,7 +160,7 @@ local flux = 'J/m^2';
         System. The model keeps lake depth and surface area (or fractional
         cover) constant in time.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'lake_ice_depth',
@@ -180,7 +182,7 @@ local flux = 'J/m^2';
         Forecasting System represents the formation and melting of ice on
         lakes. A single ice layer is represented.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'lake_mix_layer_depth',
@@ -212,7 +214,7 @@ local flux = 'J/m^2';
         near-surface) water is greater than that of the water below. Mixing
         can also occur through the action of wind on the surface of the lake.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'lake_shape_factor',
@@ -236,7 +238,7 @@ local flux = 'J/m^2';
         thermocline below where temperature changes with depth. This parameter
         is the mean over the two layers.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'snow_albedo',
@@ -254,7 +256,7 @@ local flux = 'J/m^2';
         It represents the fraction (0-1) of the cell / grid-box occupied by
         snow (similar to the cloud cover fields of ERA5).
       |||,
-      units: '%',
+      units: units.percent,
     },
     {
       name: 'snow_density',
@@ -320,7 +322,7 @@ local flux = 'J/m^2';
         model represents snow as a single additional layer over the uppermost
         soil level. The snow may cover all or part of the grid box.
       |||,
-      units: 'K',
+      units: units.kelvin,
     },
     {
       name: 'skin_reservoir_content',

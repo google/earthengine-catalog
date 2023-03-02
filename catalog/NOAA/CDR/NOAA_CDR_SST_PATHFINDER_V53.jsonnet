@@ -4,6 +4,7 @@ local subdir = 'NOAA/CDR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -147,14 +148,14 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'sea_surface_temperature',
         description: 'Skin temperature of the ocean',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 273.15,
       },
       {
         name: 'dt_analysis',
         description: "The difference between this SST and the previous day's.",
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.1,
       },
       {

@@ -5,6 +5,7 @@ local predecessor_id = 'USGS/NLCD_RELEASES/2016_REL';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -250,7 +251,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
         description: |||
           Percent of the pixel covered by developed impervious surface.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'impervious_descriptor',

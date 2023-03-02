@@ -4,6 +4,7 @@ local subdir = 'OpenLandMap';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_sa_4_0;
 
@@ -69,73 +70,73 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'jan',
         description: 'Long-term Land Surface Temperature daytime monthly mean, January',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'feb',
         description: 'Long-term Land Surface Temperature daytime monthly mean, February',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'mar',
         description: 'Long-term Land Surface Temperature daytime monthly mean, March',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'apr',
         description: 'Long-term Land Surface Temperature daytime monthly mean, April',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'may',
         description: 'Long-term Land Surface Temperature daytime monthly mean, May',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'jun',
         description: 'Long-term Land Surface Temperature daytime monthly mean, June',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'jul',
         description: 'Long-term Land Surface Temperature daytime monthly mean, July',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'aug',
         description: 'Long-term Land Surface Temperature daytime monthly mean, August',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'sep',
         description: 'Long-term Land Surface Temperature daytime monthly mean, September',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'oct',
         description: 'Long-term Land Surface Temperature daytime monthly mean, October',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'nov',
         description: 'Long-term Land Surface Temperature daytime monthly mean, November',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
         name: 'dec',
         description: 'Long-term Land Surface Temperature daytime monthly mean, December',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
     ],

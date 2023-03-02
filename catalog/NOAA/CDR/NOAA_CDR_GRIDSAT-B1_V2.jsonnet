@@ -4,6 +4,7 @@ local subdir = 'NOAA/CDR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -125,35 +126,35 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'irwin_cdr',
         description: 'Brightness temperature near 11μm, nadir-most observation',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'irwin_2',
         description: 'Brightness temperature near 11μm, second-best observation\n(based on view zenith angle)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'irwin_3',
         description: 'Brightness temperature, third-best observation based on\nview zenith angle',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'irwvp',
         description: 'Brightness temperature near 6.7μm, nadir-most observation',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'irwvp_2',
         description: 'Brightness temperature near 6.7μm, second-best observation\nbased on view zenith angle',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
@@ -175,7 +176,7 @@ local self_url = catalog_subdir_url + base_filename;
           Adjustment made to all IRWIN channels. Provided to allow
           users to reverse the view zenith correction for the irwin_cdr variable.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.25,
         'gee:offset': -10.0,
       },

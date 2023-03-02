@@ -4,6 +4,8 @@ local subdir = 'NASA/GSFC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -102,7 +104,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'DISPH',
         description: 'Zero plane displacement height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'EFLUX',
@@ -143,7 +145,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'HLML',
         description: 'Surface layer height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'NIRDF',
@@ -158,7 +160,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'PBLH',
         description: 'Planetary boundary layer height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'PGENTOT',
@@ -260,22 +262,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TCZPBL',
         description: 'Transcom planetary boundary layer height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'TLML',
         description: 'Surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSH',
         description: 'Effective surface skin temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSTAR',
         description: 'Surface temperature scale',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'ULML',
@@ -295,12 +297,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Z0H',
         description: 'Surface roughness for heat',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Z0M',
         description: 'Surface roughness',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

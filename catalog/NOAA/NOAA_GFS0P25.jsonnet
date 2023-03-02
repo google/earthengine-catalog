@@ -4,6 +4,7 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -104,7 +105,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'relative_humidity_2m_above_ground',
         description: 'Relative humidity 2m above ground',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'u_component_of_wind_10m_above_ground',
@@ -134,7 +135,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'total_cloud_cover_entire_atmosphere',
         description: 'Total cloud cover for entire atmosphere (only for assets with forecast_hours > 0)',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'downward_shortwave_radiation_flux',

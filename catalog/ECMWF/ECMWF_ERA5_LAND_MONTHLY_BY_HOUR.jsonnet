@@ -4,6 +4,7 @@ local subdir = 'ECMWF';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -92,7 +93,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           temperature is calculated by interpolating between the lowest model level and the Earth's
           surface, taking account of the atmospheric conditions.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'temperature_2m',
@@ -101,7 +102,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           calculated by interpolating between the lowest model level and the Earth's surface, taking
           account of the atmospheric conditions.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'skin_temperature',
@@ -111,7 +112,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           uppermost surface layer, which has no heat capacity and so can respond instantaneously to
           changes in surface fluxes. Skin temperature is calculated differently over land and sea.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temperature_level_1',
@@ -121,22 +122,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           calculated at the interfaces between them. It is assumed that there is no heat transfer out of
           the bottom of the lowest layer.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temperature_level_2',
         description: 'Temperature of the soil in layer 2 (7-28 cm) of the ECMWF Integrated Forecasting System.',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temperature_level_3',
         description: 'Temperature of the soil in layer 3 (28-100 cm) of the ECMWF Integrated Forecasting System.',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temperature_level_4',
         description: 'Temperature of the soil in layer 4 (100-289 cm) of the ECMWF Integrated Forecasting System.',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'lake_bottom_temperature',
@@ -146,7 +147,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           and lake ice of all the world's major inland water bodies in the Integrated Forecasting System.
           The model keeps lake depth and surface area (or fractional cover) constant in time.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'lake_ice_depth',
@@ -156,7 +157,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           inland water bodies (lakes, reservoirs and rivers) and coastal water. A single ice layer is
           represented. This parameter is the thickness of that ice layer.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'lake_ice_temperature',
@@ -165,7 +166,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           rivers) and coastal waters. The ECMWF Integrated Forecasting System represents the formation
           and melting of ice on lakes. A single ice layer is represented.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'lake_mix_layer_depth',
@@ -179,7 +180,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           near-surface) water is greater than that of the water below. Mixing can also occur through the
           action of wind on the surface of the lake.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'lake_mix_layer_temperature',
@@ -192,7 +193,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           (and near-surface) water is greater than that of the water below. Mixing can also occur through
           the action of wind on the surface of the lake.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'lake_shape_factor',
@@ -212,7 +213,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           bodies with two layers in the vertical, the mixed layer above and the thermocline below where
           temperature changes with depth. This parameter is the mean over the two layers.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'snow_albedo',
@@ -229,7 +230,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           It represents the fraction (0-1) of the cell / grid-box occupied by snow (similar to the cloud
           cover fields of ERA5).
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'snow_density',
@@ -243,7 +244,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'snow_depth',
         description: 'Instantaneous grib-box average of the snow thickness on the ground (excluding snow on canopy).',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'snow_depth_water_equivalent',
@@ -287,7 +288,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           interface. The ECMWF Integrated Forecast System (IFS) model represents snow as a single
           additional layer over the uppermost soil level. The snow may cover all or part of the grid box.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'skin_reservoir_content',
@@ -468,7 +469,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           results in arid conditions due to too strong evaporation forced by dry air. This variable is
           accumulated from the beginning of the forecast time to the end of the forecast step.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'runoff',
@@ -486,7 +487,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           flood. More information about how runoff is calculated is given in the IFS Physical Processes
           documentation.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'snow_evaporation',
@@ -512,7 +513,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           soil, and can, for example, be used as an indicator of drought or flood. More information about
           how runoff is calculated is given in the IFS Physical Processes documentation.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'surface_runoff',
@@ -530,7 +531,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           flood. More information about how runoff is calculated is given in the IFS Physical Processes
           documentation.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'total_evaporation',
@@ -598,7 +599,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           variables with observations, because observations are often local to a particular point in
           space and time, rather than representing averages over a model grid box and model time step.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'leaf_area_index_high_vegetation',
@@ -691,12 +692,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'potential_evaporation_hourly',
         description: "Same as 'potential_evaporation' except not accumulated and only for the given forecast step.",
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'runoff_hourly',
         description: "Same as 'runoff' except not accumulated and only for the given forecast step.",
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'snow_evaporation_hourly',
@@ -706,12 +707,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'sub_surface_runoff_hourly',
         description: "Same as 'sub_surface_runoff' except not accumulated and only for the given forecast step.",
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'surface_runoff_hourly',
         description: "Same as 'surface_runoff' except not accumulated and only for the given forecast step.",
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'total_evaporation_hourly',
@@ -721,7 +722,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'total_precipitation_hourly',
         description: "Same as 'total_precipitation' except not accumulated and only for the given forecast step.",
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

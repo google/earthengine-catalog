@@ -4,6 +4,8 @@ local subdir = 'NASA/GSFC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -219,7 +221,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SNODP',
         description: 'Snow depth',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'SNOMAS',
@@ -254,52 +256,52 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TPSNOW',
         description: 'Surface temperature of snow',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSAT',
         description: 'Surface temperature of saturated zone',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSOIL1',
         description: 'Soil temperatures layer 1',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSOIL2',
         description: 'Soil temperatures layer 2',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSOIL3',
         description: 'Soil temperatures layer 3',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSOIL4',
         description: 'Soil temperatures layer 4',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSOIL5',
         description: 'Soil temperatures layer 5',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSOIL6',
         description: 'Soil temperatures layer 6',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TSURF',
         description: 'Surface temperature of land incl snow',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TUNST',
         description: 'Surface temperature of unsaturated zone',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TWLAND',
@@ -309,7 +311,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TWLT',
         description: 'Surface temperature of wilted zone',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'WCHANGE',

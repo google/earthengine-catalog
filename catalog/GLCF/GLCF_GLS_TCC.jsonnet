@@ -5,6 +5,7 @@ local subdir = 'GLCF';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -123,7 +124,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'tree_canopy_cover',
         description: 'The percentage of pixel area covered by trees.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'uncertainty',

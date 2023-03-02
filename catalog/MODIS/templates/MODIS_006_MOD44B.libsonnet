@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -10,17 +12,17 @@
       {
         name: 'Percent_Tree_Cover',
         description: 'Percent of a pixel which is covered by tree canopy',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Percent_NonTree_Vegetation',
         description: 'Percent of a pixel which is covered by non-tree vegetation',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Percent_NonVegetated',
         description: 'Percent of a pixel which is not vegetated',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Quality',
@@ -163,7 +165,7 @@
           used to generate the pixel value in the percent tree cover data
           layer
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
         'gee:scale': 0.01,
       },
       {
@@ -173,7 +175,7 @@
           used to generate the pixel value in the percent non-vegetated
           data layer
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
         'gee:scale': 0.01,
       },
       {

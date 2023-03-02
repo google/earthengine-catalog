@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -10,7 +12,7 @@
       {
         name: 'LST_Day_1km',
         description: 'Day land surface temperature',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
@@ -129,7 +131,7 @@
       {
         name: 'LST_Night_1km',
         description: 'Night land surface temperature',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {

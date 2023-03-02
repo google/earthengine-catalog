@@ -4,6 +4,7 @@ local subdir = 'ISDASOIL';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -69,22 +70,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'mean_0_20',
         description: 'Stone content, predicted mean at 0-20 cm depth',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'mean_20_50',
         description: 'Stone content, predicted mean at 20-50 cm depth',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'stdev_0_20',
         description: 'Stone content, standard deviation at 0-20 cm depth',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'stdev_20_50',
         description: 'Stone content, standard deviation at 20-50 cm depth',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

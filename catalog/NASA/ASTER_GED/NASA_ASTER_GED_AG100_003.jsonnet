@@ -4,6 +4,7 @@ local subdir = 'NASA/ASTER_GED';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -136,13 +137,13 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temperature',
         description: 'Temperature mean',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
       },
       {
         name: 'temperature_sdev',
         description: 'Temperature standard deviation',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
       },
       {
@@ -158,7 +159,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'elevation',
         description: 'ASTER Global Digital Elevation Model V002',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'land_water_map',

@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -238,7 +240,7 @@
       {
         name: 'Injection_Height',
         description: 'Smoke injection height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'cosSZA',

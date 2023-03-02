@@ -5,6 +5,7 @@ local subdir = 'LANDSAT';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -254,7 +255,7 @@ local self_url = catalog_subdir_url + base_filename;
           collected with a resolution of 100m / pixel, has been resampled using
           cubic convolution to 30m.
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 10.895,
         'gee:scale': 0.1,
         'gee:wavelength': '10.60-11.19 &mu;m',
@@ -266,7 +267,7 @@ local self_url = catalog_subdir_url + base_filename;
           collected with a resolution of 100m / pixel, has been resampled using
           cubic convolution to 30m.
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 12.005,
         'gee:scale': 0.1,
         'gee:wavelength': '11.50-12.51 &mu;m',

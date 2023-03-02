@@ -1,6 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local versions = import 'versions.libsonnet';
 local version_table = import 'JRC_GSW_MonthlyRecurrence_version_map.libsonnet';
@@ -78,7 +79,7 @@ local license = spdx.proprietary;
       {
         name: 'monthly_recurrence',
         description: 'The recurrence value expressed as a percentage for this month.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'has_observations',

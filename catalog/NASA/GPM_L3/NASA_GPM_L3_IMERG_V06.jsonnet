@@ -4,6 +4,7 @@ local subdir = 'NASA/GPM_L3';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -205,7 +206,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'IRkalmanFilterWeight',
         description: 'Kalman filter weight for IR',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'IRprecipitation',
@@ -225,7 +226,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'probabilityLiquidPrecipitation',
         description: 'probability of liquid precipitation phase',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'randomError',

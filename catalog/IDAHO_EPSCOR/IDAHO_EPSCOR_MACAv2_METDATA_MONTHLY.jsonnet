@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -89,12 +90,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tasmax',
         description: 'Monthly average of maximum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin',
         description: 'Monthly average of minimum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'huss',

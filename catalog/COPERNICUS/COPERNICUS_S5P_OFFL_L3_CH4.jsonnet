@@ -4,6 +4,7 @@ local subdir = 'COPERNICUS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -291,7 +292,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'aerosol_height',
         description: 'Aerosol height parameter in the CH<sub>4</sub> retrieval',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'aerosol_optical_depth',

@@ -4,6 +4,8 @@ local subdir = 'NASA/GSFC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -79,32 +81,32 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CLDTMP',
         description: 'Cloud top temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'DISPH',
         description: 'Zero plane displacement height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'H1000',
         description: 'Height at 1000 mb',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'H250',
         description: 'Height at 250 hPa',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'H500',
         description: 'Height at 500 hPa',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'H850',
         description: 'Height at 850 hPa',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'OMEGA500',
@@ -154,37 +156,37 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'T10M',
         description: '10-meter air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T250',
         description: 'Air temperature at 250 hPa',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T2MDEW',
         description: 'Dew point temperature at 2 m',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T2MWET',
         description: 'Wet bulb temperature at 2 m',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T2M',
         description: '2-meter air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T500',
         description: 'Air temperature at 500 hPa',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'T850',
         description: 'Air temperature at 850 hPa',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TO3',
@@ -236,12 +238,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TROPT',
         description: 'Tropopause temperature using blended tropp estimate',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'TS',
         description: 'Surface skin temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'U10M',
@@ -306,7 +308,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'ZLCL',
         description: 'Lifting condensation level',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

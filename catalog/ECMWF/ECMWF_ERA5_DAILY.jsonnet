@@ -4,6 +4,7 @@ local subdir = 'ECMWF';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -87,27 +88,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'mean_2m_air_temperature',
         description: 'Average air temperature at 2m height (daily average)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'minimum_2m_air_temperature',
         description: 'Minimum air temperature at 2m height (daily minimum)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'maximum_2m_air_temperature',
         description: 'Maximum air temperature at 2m height (daily maximum)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'dewpoint_2m_temperature',
         description: 'Dewpoint temperature at 2m height (daily average)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'total_precipitation',
         description: 'Total precipitation (daily sums)',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'surface_pressure',

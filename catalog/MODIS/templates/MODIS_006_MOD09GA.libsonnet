@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     instruments: [
@@ -249,7 +251,7 @@
       {
         name: 'Range',
         description: 'Distance to sensor',
-        'gee:units': 'm',
+        'gee:units': units.meters,
         gsd: 1000.0,
         'gee:scale': 25.0,
       },

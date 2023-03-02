@@ -8,6 +8,7 @@ local subdir = 'USGS/NLCD_RELEASES';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -280,7 +281,7 @@ local latest_url = catalog_subdir_url + latest_filename;
         description: |||
           Percent of the pixel covered by developed impervious surface. Included in images 2001, 2001_AK, 2001_HI, 2001_PR, 2006, 2011, 2011_AK, 2016, and 2016_AK.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'impervious_descriptor',
@@ -439,37 +440,37 @@ local latest_url = catalog_subdir_url + latest_filename;
         description: |||
           Percent of the pixel that's covered by tree canopy. No masking of obvious non-tree areas is performed for this product. Included in images 2011, 2011_AK, 2011_HI, 2011_PR, 2016, 2016_AK, 2016_HI, and 2016_PR.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_annual_herbaceous',
         description: 'The annual only grass and forb proportion in each in 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_bare_ground',
         description: 'The bare ground proportion in each 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_big_sagebrush',
         description: 'The proportion of big sagebrush canopy in each 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_herbaceous',
         description: 'The annual and perennial grass and forb proportion in each 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_litter',
         description: 'The dead plant material proportion in each 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_sagebrush',
         description: 'The proportion of sagebrush canopy in each 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_sagebrush_height',
@@ -479,7 +480,7 @@ local latest_url = catalog_subdir_url + latest_filename;
       {
         name: 'rangeland_shrub',
         description: 'The proportion of shrub canopy in each 30m pixel. Included in 2016.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_shrub_height',

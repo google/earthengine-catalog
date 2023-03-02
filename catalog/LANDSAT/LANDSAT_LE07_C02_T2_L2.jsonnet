@@ -5,6 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local landsat = import 'landsat.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -429,7 +430,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'ST_B6',
         description: "Band 6 surface temperature. If 'PROCESSING_LEVEL' is set to 'L2SR', this band is fully masked out.",
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 11.45,
         'gee:scale': 0.00341802,
         'gee:offset': 149.0,
@@ -469,7 +470,7 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Uncertainty of the Surface Temperature band. If 'PROCESSING_LEVEL' is set to 'L2SR', this band is fully masked out.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
       },
       {

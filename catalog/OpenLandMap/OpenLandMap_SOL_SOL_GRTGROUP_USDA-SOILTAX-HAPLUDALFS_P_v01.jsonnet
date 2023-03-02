@@ -4,6 +4,7 @@ local subdir = 'OpenLandMap';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_sa_4_0;
 
@@ -70,7 +71,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'grtgroup',
         description: 'Predicted Hapludalfs probability',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

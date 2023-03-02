@@ -6,6 +6,7 @@ local subdir = 'JAXA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 local version = '1.1';
@@ -95,12 +96,12 @@ local successor_url = catalog_subdir_url + successor_filename;
       {
         name: 'AVE',
         description: 'Elevation value calculated by average resampling a 5-meter mesh model.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'MED',
         description: 'Elevation value calculated by median resampling a 5-meter mesh model.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'AVE_STK',

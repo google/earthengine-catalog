@@ -5,6 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local properties = import 'LUCAS_properties.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -90,7 +91,7 @@ local self_url = catalog_subdir_url + base_filename;
         Years: 2006, 2009, 2012, 2015
       |||,
       type: ee_const.var_type.double,
-      units: 'm',
+      units: units.meters,
     }],
     'gee:visualizations': [
       {

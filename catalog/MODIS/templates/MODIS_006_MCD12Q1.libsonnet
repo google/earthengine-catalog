@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -454,17 +456,17 @@
       {
         name: 'LC_Prop1_Assessment',
         description: 'LCCS1 land cover layer confidence',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LC_Prop2_Assessment',
         description: 'LCCS2 land use layer confidence',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LC_Prop3_Assessment',
         description: 'LCCS3 surface hydrology layer confidence',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LC_Prop1',

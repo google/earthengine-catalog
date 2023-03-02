@@ -4,6 +4,8 @@ local subdir = 'USGS/NLCD_RELEASES';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.cc0_1_0;
 
 local basename = std.strReplace(id, '/', '_');
@@ -245,56 +247,56 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Percent of the pixel covered by annual herbaceous vegetation.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_bare_ground',
         description: |||
           Percent of the pixel covered by bare ground.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_non_sagebrush_shrub',
         description: |||
           Percent of the pixel covered by non-sagebrush shrubs.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_herbaceous',
         description: |||
           Percent of the pixel covered by herbaceous vegetation.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_litter',
         description: |||
           Percent of the pixel covered by litter.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_sagebrush',
         description: |||
           Percent of the pixel covered by sagebrush (*Artemisia* spp).
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_shrub',
         description: |||
           Percent of the pixel covered by shrub.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rangeland_perennial_herbaceous',
         description: |||
           Percent of the pixel covered by perennial herbaceous vegetation.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     rangeland_annual_herbaceous: {

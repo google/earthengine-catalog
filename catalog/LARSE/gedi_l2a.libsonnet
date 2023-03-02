@@ -1,6 +1,7 @@
 local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 {
   description: |||
@@ -84,13 +85,13 @@ local spdx = import 'spdx.libsonnet';
     {
       name: 'digital_elevation_model',
       description: 'TanDEM-X elevation at GEDI footprint location',
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
       name: 'digital_elevation_model_srtm',
       description: 'STRM elevation at GEDI footprint location',
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
@@ -99,7 +100,7 @@ local spdx = import 'spdx.libsonnet';
         Elevation of highest detected return relative
         to reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
@@ -107,7 +108,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
@@ -132,7 +133,7 @@ local spdx = import 'spdx.libsonnet';
         vegetation taller than 5 m in height as a percentage per
         output grid cell
       |||,
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -180,7 +181,7 @@ local spdx = import 'spdx.libsonnet';
     {
       name: 'modis_nonvegetated',
       description: 'Percent non-vegetated from MODIS MOD44B V6 data',
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -188,13 +189,13 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Percent non-vegetated standard deviation from MODIS MOD44B V6 data
       |||,
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
       name: 'modis_treecover',
       description: 'Percent tree cover from MODIS MOD44B V6 data',
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -202,7 +203,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Percent tree cover standard deviation from MODIS MOD44B V6 data
       |||,
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -330,8 +331,8 @@ local spdx = import 'spdx.libsonnet';
   rh_bands: [
     {
       name: 'rh' + step,
-      description: 'Relative height metrics at ' + step + '%',
-      'gee:units': 'm',
+      description: 'Relative height metrics at ' + step + units.percent,
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     }
     for step in std.range(0, 100)

@@ -1,6 +1,7 @@
 local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 {
   description: |||
@@ -134,7 +135,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.int,
     },
     {
@@ -365,7 +366,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to the reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.int,
     },
     {
@@ -405,7 +406,7 @@ local spdx = import 'spdx.libsonnet';
         vegetation taller than 5 m in height (Hansen et al., 2013) and
         encoded as a percentage per output grid cell.
       |||,
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
     {
@@ -415,7 +416,7 @@ local spdx = import 'spdx.libsonnet';
         between 2018 and 2019. Values >80 usually represent permanent water
         while values <10 represent permanent land.
       |||,
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
     {
@@ -486,7 +487,7 @@ local spdx = import 'spdx.libsonnet';
         each shot that is urban land cover. Urban land cover was derived from
         the DLR 12 m resolution TanDEM-X Global Urban Footprint Product.
       |||,
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
   ],

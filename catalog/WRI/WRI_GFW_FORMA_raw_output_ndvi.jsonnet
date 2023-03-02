@@ -4,6 +4,7 @@ local subdir = 'WRI';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -91,22 +92,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'delta',
         description: 'Percentage of clearing in the last 96 days',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'near_term_delta',
         description: 'Percentage of clearing in the last 32 days',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'accuracy',
         description: 'Confidence in predictions',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'clearing',
         description: 'Percentage of clearing in the last 365 days',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

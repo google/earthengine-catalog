@@ -4,6 +4,7 @@ local subdir = 'NASA/GPM_L3';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -97,7 +98,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'gaugeRelativeWeighting',
         description: 'Weighting of gauge precipitation relative to the multi-satellite precipitation',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'precipitation',
@@ -112,7 +113,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'probabilityLiquidPrecipitation',
         description: 'Accumulation-weighted probability of liquid precipitation phase',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'randomError',

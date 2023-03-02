@@ -4,6 +4,8 @@ local subdir = 'NASA/GSFC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -236,7 +238,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TS',
         description: 'Surface skin temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
     ],
     'gee:visualizations': [

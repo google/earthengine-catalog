@@ -4,6 +4,7 @@ local subdir = 'ESA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -100,7 +101,7 @@ local self_url = catalog_subdir_url + base_filename;
           Probability of detecting a pixel as burned, expressing the uncertainty of
           the detection for all pixels, even if they are classified as unburned.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LandCover',

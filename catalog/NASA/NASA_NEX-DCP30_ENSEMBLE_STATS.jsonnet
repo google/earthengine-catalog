@@ -4,6 +4,7 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -127,42 +128,42 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'tasmin_mean',
         description: 'Monthly mean of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin_quartile25',
         description: '25th quartile the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin_median',
         description: 'Median of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin_quartile75',
         description: '75th quartile of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_mean',
         description: 'Monthly mean of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_quartile25',
         description: '25th quartile of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_median',
         description: 'Median of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_quartile75',
         description: '75th quartile of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
     ],
     'gee:visualizations': [

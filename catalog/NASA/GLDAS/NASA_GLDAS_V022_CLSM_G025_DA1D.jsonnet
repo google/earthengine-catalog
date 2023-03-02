@@ -4,6 +4,7 @@ local subdir = 'NASA/GLDAS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -114,7 +115,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'AvgSurfT_tavg',
         description: 'Average surface skin temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'CanopInt_tavg',
@@ -184,12 +185,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SnowDepth_tavg',
         description: 'Snow depth',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'SnowT_tavg',
         description: 'Snow Surface temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'SoilMoist_P_tavg',

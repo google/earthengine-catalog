@@ -4,6 +4,7 @@ local subdir = 'NASA/SMAP';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -114,37 +115,37 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Mean land surface temperature (including snow-covered land
           area).
         ||| + DISCLAIMER,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temp_layer1',
         description: 'Soil temperature in layer 1 of soil heat diffusion model',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temp_layer2',
         description: 'Soil temperature in layer 2 of soil heat diffusion model',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temp_layer3',
         description: 'Soil temperature in layer 3 of soil heat diffusion model',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temp_layer4',
         description: 'Soil temperature in layer 4 of soil heat diffusion model',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temp_layer5',
         description: 'Soil temperature in layer 5 of soil heat diffusion model',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'soil_temp_layer6',
         description: 'Soil temperature in layer 6 of soil heat diffusion model',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'snow_mass',
@@ -155,7 +156,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'snow_depth',
         description: 'Snow depth within snow-covered land fraction of grid cell',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'land_evapotranspiration_flux',
@@ -252,18 +253,18 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'surface_pressure',
         description: 'Mean land surface temperature (incl. snow-covered land area)',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'height_lowatmmodlay',
         description: 'Center height of lowest atmospheric model layer',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'temp_lowatmmodlay',
         description: 'Air temperature at center height of lowest atmospheric
           model layer',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'specific_humidity_lowatmmodlay',
@@ -296,7 +297,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'sm_rootzone_pctl',
         description: 'Root zone soil moisture (0-100 cm; percentile units)',
-        'gee:units': 'percent',
+        'gee:units': units.percent,
       },
       {
         name: 'sm_profile_pctl',
@@ -304,7 +305,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Total profile soil moisture (0 cm to model bedrock depth;
           percentile units)
         |||,
-        'gee:units': 'percent',
+        'gee:units': units.percent,
       },
       {
         name: 'depth_to_water_table_from_surface_in_peat',
@@ -312,7 +313,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Depth to water table from mean surface elevation in
           peatlands (positive above ground)
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'free_surface_water_on_peat_flux',

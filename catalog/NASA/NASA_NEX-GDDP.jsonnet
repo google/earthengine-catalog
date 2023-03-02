@@ -4,6 +4,7 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 // There is a custom public domain statement in gee:terms_of_use.
 local license = spdx.proprietary;
@@ -111,12 +112,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tasmin',
         description: 'Daily mean of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax',
         description: 'Daily mean of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
     ],
     'gee:visualizations': [
