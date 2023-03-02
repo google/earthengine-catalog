@@ -184,7 +184,7 @@ UNITS = frozenset({
     'MJ m^-2 day^-1', 'MW', 'Megawatts', 'Mg C/ha', 'Mg ha^-1', 'Mg/ha',
     'Minutes', 'N/m^2', 'NFDRS fire danger index', 'Number of people/ha',
     'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s', 'Percent',
-    'Pixels', 'Quality Flag', 'Reflectance factor', 'Seconds', 'W m**-2',
+    'Quality Flag', 'Reflectance factor', 'Seconds', 'W m**-2',
     'W m-2', 'W m^-2 sr^-1 μm^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cm', 'cm^3/cm^3', 'cmol(+)/kg', 'cms', 'count',
     'counts/day', 'dB', 'days', 'deg true', 'degree', 'degree C', 'degrees',
