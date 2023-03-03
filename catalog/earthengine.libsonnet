@@ -21,12 +21,21 @@ local ee_const = import 'earthengine_const.libsonnet';
     if condition then arr else [],
   orEmptyDict(condition, d):
     if condition then d else {},
+
   producer_provider(name, url):
-    { name: name, roles: ['licensor', 'producer'], url: url },
+    {
+      name: name,
+      roles: [ee_const.provider_type.licensor, ee_const.provider_type.producer],
+      url: url
+    },
   processor_provider(name, url):
-    { name: name, roles: ['processor'], url: url },
+    { name: name, roles: [ee_const.provider_type.processor], url: url },
   host_provider(ee_catalog_url):
-    { name: 'Google Earth Engine', roles: ['host'], url: ee_catalog_url },
+    {
+      name: 'Google Earth Engine',
+      roles: [ee_const.provider_type.host],
+      url: ee_catalog_url
+    },
 
   extent(xmin, ymin, xmax, ymax, start, end):: {
     spatial: { bbox: [[xmin, ymin, xmax, ymax]] },

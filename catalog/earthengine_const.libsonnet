@@ -52,6 +52,13 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
 
   version_unknown: 'Unknown',
 
+  provider_type: {
+    host: 'host',
+    licensor: 'licensor',
+    processor: 'processor',
+    producer: 'producer',
+  },
+
   // MIME types
   // https://en.wikipedia.org/wiki/Media_type
   // https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md#media-type-for-stac-collections
