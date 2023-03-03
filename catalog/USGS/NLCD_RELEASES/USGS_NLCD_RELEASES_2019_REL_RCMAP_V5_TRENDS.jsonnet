@@ -288,7 +288,7 @@ local self_url = catalog_subdir_url + base_filename;
     ],
     bp_count: {
       minimum: 0,
-      maximum: 4,
+      maximum: 3,
       'gee:estimated_range': false,
     },
     pvalue_linear: {
