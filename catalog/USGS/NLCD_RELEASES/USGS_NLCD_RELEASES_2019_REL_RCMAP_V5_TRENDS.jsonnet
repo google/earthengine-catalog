@@ -248,42 +248,42 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bp_count',
         description: 'Break Point Count',
-        'gee:units': 'integer',
+        'gee:units': 'int8',
       },
       {
         name: 'pvalue_linear',
         description: 'P-Value of Linear Model',
-        'gee:units': 'integer',
+        'gee:units': 'int8',
       },
       {
         name: 'slope_linear',
         description: 'Slope of Linear Model',
-        'gee:units': 'integer',
+        'gee:units': 'int16',
       },
       {
         name: 'total_change_intensity_index',
         description: 'Total Change Intensity Index',
-        'gee:units': 'integer',
+        'gee:units': 'int8',
       },
       {
         name: 'year_recent_break',
         description: 'Year of Most Recent Break',
-        'gee:units': 'integer',
+        'gee:units': 'int16',
       },
       {
         name: 'bp_year',
         description: 'Break Point Presence/Absence in Each Year',
-        'gee:units': 'integer',
+        'gee:units': 'int1',
       },
       {
         name: 'segment_pvalue',
         description: 'P-Value of Segment in Each Year',
-        'gee:units': 'integer',
+        'gee:units': 'int8',
       },
       {
         name: 'segment_slope',
         description: 'Slope of Segment in Each Year',
-        'gee:units': 'integer',
+        'gee:units': 'int16',
       },
     ],
     bp_count: {
