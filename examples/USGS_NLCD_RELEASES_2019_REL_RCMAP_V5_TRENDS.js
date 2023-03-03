@@ -33,4 +33,4 @@ var vis = {
 
 // Display the image on the map.
 Map.setCenter(-114, 38, 6);
-Map.addLayer(percentCover, vis, 'bp_count integer');
+Map.addLayer(percentCover, vis, 'bp_count int');
