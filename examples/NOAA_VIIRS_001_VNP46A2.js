@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('NOAA/VIIRS/001/VNP46A2_RAW');
+var dataset = ee.ImageCollection('NOAA/VIIRS/001/VNP46A2');
 print(dataset.first())
 var brdf = dataset.select('DNB_BRDF_Corrected_NTL');
 var brdfVis = {
