@@ -15,8 +15,9 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  // TODO(b/259499942): Remove this once the computed product is being produced.
+  // TODO(b/259499942): Remove next 2 once the computed product is produced.
   'gee:skip_indexing': true,
+  'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
