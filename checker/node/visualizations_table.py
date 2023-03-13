@@ -147,7 +147,7 @@ class Check(stac.NodeCheck):
         if not isinstance(point_size, int):
           yield cls.new_issue(node, f'{POINT_SIZE} must be an int')
         else:
-          if point_size < MIN_POINT_SIZE or point_size > MAX_POINT_SIZE:
+          if not MIN_POINT_SIZE <= point_size <= MAX_POINT_SIZE:
             yield cls.new_issue(
                 node, f'{POINT_SIZE} must be in the range of ' +
                 f'[{MIN_POINT_SIZE}:{MAX_POINT_SIZE}]')
@@ -169,7 +169,7 @@ class Check(stac.NodeCheck):
         if not isinstance(width, (int, float)):
           yield cls.new_issue(node, f'{WIDTH} must be an number')
         else:
-          if width < MIN_WIDTH or width > MAX_WIDTH:
+          if not MIN_WIDTH <= width <= MAX_WIDTH:
             yield cls.new_issue(
                 node, f'{WIDTH} must be in the range of ' +
                 f'[{MIN_WIDTH}:{MAX_WIDTH}]')

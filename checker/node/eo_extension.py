@@ -394,7 +394,7 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'{name} {CENTER_WAVELENGTH} must be a number')
         else:
-          if center_wavelength < 0 or center_wavelength > 15:
+          if not 0 < center_wavelength < 15:
             yield cls.new_issue(
                 node, f'{name} {CENTER_WAVELENGTH} must in (0, 15) μm')
 
@@ -404,7 +404,7 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'{name} {FULL_WIDTH_HALF_MAX} must be a number')
         else:
-          if full_width_half_max < 0 or full_width_half_max > 0.15:
+          if not 0 < full_width_half_max < 0.15:
             yield cls.new_issue(
                 node, f'{name} {FULL_WIDTH_HALF_MAX} must in (0, 0.15) μm')
 

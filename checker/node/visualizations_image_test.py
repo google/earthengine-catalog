@@ -312,7 +312,7 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
         'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{
             'image_visualization': {'band_vis': {
                 'bands': ['B1'], 'min': [1], 'gamma': [0.9]}}}]}},
-        'gamma must be in the range of 1..5')
+        'gamma must be in the range of [1..5]')
 
   def test_gamma_too_large(self):
     self.assert_collection(
@@ -320,7 +320,7 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
         'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{
             'image_visualization': {'band_vis': {
                 'bands': ['B1'], 'min': [1], 'gamma': [5.01]}}}]}},
-        'gamma must be in the range of 1..5')
+        'gamma must be in the range of [1..5]')
 
   def test_gain_not_list(self):
     self.assert_collection(
@@ -368,7 +368,7 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
         'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{
             'image_visualization': {'band_vis': {
                 'bands': ['B1'], 'min': [1], 'gain': [0]}}}]}},
-        'gain must be in the range of 0.0001..1000',
+        'gain must be in the range of [0.0001..1000]',
         gee_type=IMAGE_COLLECTION)
 
   def test_gain_too_large(self):
@@ -377,7 +377,7 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
         'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{
             'image_visualization': {'band_vis': {
                 'bands': ['B1'], 'min': [1], 'gain': [1001]}}}]}},
-        'gain must be in the range of 0.0001..1000',
+        'gain must be in the range of [0.0001..1000]',
         gee_type=IMAGE_COLLECTION)
 
   def test_bias_not_list(self):

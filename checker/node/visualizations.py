@@ -295,20 +295,20 @@ class Check(stac.NodeCheck):
                     f'{LON} and {LAT} must be floats and {ZOOM} must be ' +
                     f'an int: {lon}, {lat}, {zoom}')
               else:
-                if lon < -180 or lon > 180:
+                if not -180 <= lon <= 180:
                   yield cls.new_issue(node, f'{LON} must be in [-180, 180]')
-                if lat < -90 or lat > 90:
+                if not -90 <= lat <= 90:
                   yield cls.new_issue(node, f'{LAT} must be in [-90, 90]')
-                if zoom < 0 or zoom > 20:
+                if not 0 <= zoom <= 20:
                   yield cls.new_issue(node, f'{ZOOM} must be in [0, 20]')
 
                 bbox = get_bbox(node.stac)
                 if bbox:
                   x1, y1, x2, y2 = bbox
-                  if lon < x1 or lon > x2:
-                    yield cls.new_issue(node, f'{LON} must be in extent')
-                  if lat < y1 or lat > y2:
-                    yield cls.new_issue(node, f'{LAT} must be in extent')
+                  if not x1 < lon < x2:
+                    yield cls.new_issue(node, f'{LON} must be in ({x1}..{x2})')
+                  if not y1 < lat < y2:
+                    yield cls.new_issue(node, f'{LAT} must be in ({y1}..{y2})')
 
         other_fields = [
             f for f in visualization if f not in (DISPLAY_NAME, LOOKAT)
