@@ -33,6 +33,9 @@
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',
 
+  // https://en.wikipedia.org/wiki/Velocity
+  velocity_si: 'm/s',
+
   // https://en.wikipedia.org/wiki/Volume_fraction
   volume_fraction: '1 (volume fraction)',
 }

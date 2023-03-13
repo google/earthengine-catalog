@@ -110,12 +110,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'u_component_of_wind_10m_above_ground',
         description: 'U component of wind 10m above ground',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'v_component_of_wind_10m_above_ground',
         description: 'V component of wind 10m above ground',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'total_precipitation_surface',

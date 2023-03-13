@@ -280,7 +280,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Surface wind speed at center height of lowest atmospheric
           model layer
         |||,
-        'gee:units': 'm s^-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'vegetation_greenness_fraction',

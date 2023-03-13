@@ -123,12 +123,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'u_component_of_wind_10m',
         description: '10m u-component of wind (daily average)',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'v_component_of_wind_10m',
         description: '10m v-component of wind (daily average)',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

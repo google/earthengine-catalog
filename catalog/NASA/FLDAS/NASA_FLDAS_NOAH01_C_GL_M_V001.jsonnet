@@ -227,7 +227,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Wind_f_tavg',
         description: 'Near surface wind speed',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

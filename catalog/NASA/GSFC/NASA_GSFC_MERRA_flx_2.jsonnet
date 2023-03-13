@@ -232,12 +232,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SPEEDMAX',
         description: 'Surface wind speed',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'SPEED',
         description: 'Surface wind speed',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'TAUGWX',
@@ -282,17 +282,17 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'ULML',
         description: 'Surface eastward wind',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'USTAR',
         description: 'Surface velocity scale',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'VLML',
         description: 'Surface northward wind',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Z0H',

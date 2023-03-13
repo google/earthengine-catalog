@@ -646,7 +646,7 @@ local flux = 'J/m^2';
         direction of the horizontal 10m
         wind.
       |||,
-      units: 'm/s',
+      units: units.velocity_si,
     },
     {
       name: 'v_component_of_wind_10m',
@@ -661,7 +661,7 @@ local flux = 'J/m^2';
         combined with the U component of 10m wind to give the speed and
         direction of the horizontal 10m wind.
       |||,
-      units: 'm/s',
+      units: units.velocity_si,
     },
     {
       name: 'surface_pressure',

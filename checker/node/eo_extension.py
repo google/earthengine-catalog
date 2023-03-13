@@ -182,6 +182,7 @@ UNITS_LIBSONNET = frozenset({
     'Dobson',
     'K',
     'm',
+    'm/s',
     '%',
 })
 
@@ -206,7 +207,7 @@ UNITS = UNITS_LIBSONNET.union({
     'kg*C/m^2/8-day', 'kg/(m^2)', 'kg/(m^2*s)', 'kg/(m^2/s)', 'kg/(m^3)',
     'kg/m/s', 'kg/m2', 'kg/m^2', 'kg/m^2/8day', 'kg/m^2/s',
     'kg/m^2/s^1', 'kg/m^2s', 'kg/m^3', 'km', 'km^2',
-    'm of water equivalent', 'm s-1', 'm s^-1', 'm/s', 'm/s^2', 'm2 m^-2',
+    'm of water equivalent', 'm/s^2', 'm2 m^-2',
     'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^2', 'm^2/m^3',
     'meq/100g', 'meter/year', 'mg m-3',
     'mg/m^3', 'millibars', 'min. into half hour', 'minutes', 'minutes/meter',

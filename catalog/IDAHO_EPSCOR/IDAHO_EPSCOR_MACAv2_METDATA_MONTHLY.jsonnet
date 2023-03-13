@@ -115,7 +115,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'was',
         description: 'Monthly average of mean daily near surface wind speed',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

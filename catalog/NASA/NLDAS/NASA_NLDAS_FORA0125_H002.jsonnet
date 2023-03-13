@@ -121,12 +121,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'wind_u',
         description: 'U wind component at 10 meters above the surface',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'wind_v',
         description: 'V wind component at 10 meters above the surface',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'longwave_radiation',

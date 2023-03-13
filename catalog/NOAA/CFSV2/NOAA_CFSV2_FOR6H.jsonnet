@@ -161,7 +161,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'u-component_of_wind_height_above_ground',
         description: 'U-component of wind 10m above ground',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Upward_Long-Wave_Radp_Flux_surface_6_Hour_Average',
@@ -176,7 +176,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'v-component_of_wind_height_above_ground',
         description: 'V-component of wind 10m above ground',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_5_cm',

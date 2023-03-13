@@ -87,12 +87,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'u-component_of_wind_hybrid',
         description: 'u-component of wind at Hybrid level for 00 and 03 forecast',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'v-component_of_wind_hybrid',
         description: 'v-component of wind at Hybrid level for 00 and 03 forecast',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Albedo_surface_3_Hour_Average',
@@ -228,7 +228,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Frictional_Velocity_surface',
         description: 'Frictional Velocity at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Ground_Heat_Flux_surface',

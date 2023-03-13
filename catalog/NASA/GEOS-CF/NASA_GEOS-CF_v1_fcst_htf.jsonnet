@@ -117,12 +117,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'U',
         description: 'Eastward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'V',
         description: 'Northward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

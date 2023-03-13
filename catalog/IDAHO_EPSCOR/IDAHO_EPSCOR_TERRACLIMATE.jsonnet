@@ -180,7 +180,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vs',
         description: 'Wind-speed at 10m',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
         'gee:scale': 0.01,
       },
     ],

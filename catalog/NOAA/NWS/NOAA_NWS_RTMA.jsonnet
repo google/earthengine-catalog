@@ -82,12 +82,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'UGRD',
         description: 'U-component of wind',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'VGRD',
         description: 'V-component of wind',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'SPFH',
@@ -102,12 +102,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'WIND',
         description: 'Wind speed',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'GUST',
         description: 'Wind speed (gust)',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'VIS',

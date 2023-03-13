@@ -283,7 +283,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Wind_f_inst',
         description: 'Wind speed',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

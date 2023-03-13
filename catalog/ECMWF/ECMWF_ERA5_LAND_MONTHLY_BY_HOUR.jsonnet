@@ -555,7 +555,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           combined with the V component of 10m wind to give the speed and direction of the horizontal 10m
           wind.
         |||,
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'v_component_of_wind_10m',
@@ -568,7 +568,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           can be combined with the U component of 10m wind to give the speed and direction of the
           horizontal 10m wind.
         |||,
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'surface_pressure',

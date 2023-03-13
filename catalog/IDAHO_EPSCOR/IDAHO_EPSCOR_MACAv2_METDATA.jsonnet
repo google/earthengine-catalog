@@ -118,12 +118,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'uas',
         description: 'Average daily eastward component of wind near surface',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'vas',
         description: 'Average daily northward component of wind near surface',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

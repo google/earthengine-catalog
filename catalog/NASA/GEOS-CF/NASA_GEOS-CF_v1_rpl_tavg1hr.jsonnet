@@ -591,32 +591,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'U',
         description: 'Eastward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'U10M',
         description: '10-meter eastward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'U2M',
         description: '2-meter eastward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'V',
         description: 'Northward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'V10M',
         description: '10-meter northward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'V2M',
         description: '2-meter northward wind',
-        'gee:units': 'm s-1',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'WETDEPFLX_BCPI',

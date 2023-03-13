@@ -79,7 +79,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'wind_speed',
         description: 'Wind speed at 10m',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'fill_missing_qc',

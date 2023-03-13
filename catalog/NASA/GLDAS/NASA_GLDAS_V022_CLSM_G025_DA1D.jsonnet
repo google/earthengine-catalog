@@ -110,7 +110,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'ACond_tavg',
         description: 'Aerodynamic conductance',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'AvgSurfT_tavg',

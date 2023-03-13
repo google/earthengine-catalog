@@ -115,7 +115,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vs',
         description: 'Wind velocity at 10m',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'erc',
