@@ -531,7 +531,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TOTCOL_O3',
         description: 'Ozone (O3, MW = 48.00 g mol-1) total column density',
-        'gee:units': 'dobsons',
+        'gee:units': units.dobson,
       },
       {
         name: 'TOTCOL_SO2',
@@ -571,7 +571,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TROPCOL_O3',
         description: 'Ozone (O3, MW = 48.00 g mol-1) tropospheric column density',
-        'gee:units': 'dobsons',
+        'gee:units': units.dobson,
       },
       {
         name: 'TROPCOL_SO2',

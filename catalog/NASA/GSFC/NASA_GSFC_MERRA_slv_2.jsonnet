@@ -191,7 +191,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TO3',
         description: 'Total column ozone',
-        'gee:units': 'Dobsons',
+        'gee:units': units.dobson,
       },
       {
         name: 'TOX',

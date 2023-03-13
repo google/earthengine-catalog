@@ -16,6 +16,10 @@
 {
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '°C',
+
+  // https://en.wikipedia.org/wiki/Dobson_unit
+  dobson: 'Dobson',
+
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
 
