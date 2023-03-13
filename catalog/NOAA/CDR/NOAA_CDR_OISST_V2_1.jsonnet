@@ -81,13 +81,13 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'sst',
         description: 'Daily sea surface temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.01,
       },
       {
         name: 'anom',
         description: 'Temperature anomaly; the daily OISST minus a 30-year climatological mean.',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.01,
       },
       {
@@ -99,7 +99,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'err',
         description: 'Estimated error; standard deviation of analyzed sea surface temperature.',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.01,
       },
     ],

@@ -72,12 +72,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TMP',
         description: 'Temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'DPT',
         description: 'Dew point temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'UGRD',

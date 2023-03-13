@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Mean',
         description: 'The mean value of nighttime land surface temperature for each aggregated pixel.',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'FilledProportion',

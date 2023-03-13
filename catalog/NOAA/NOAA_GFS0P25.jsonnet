@@ -95,7 +95,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temperature_2m_above_ground',
         description: 'Temperature 2m above ground',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'specific_humidity_2m_above_ground',

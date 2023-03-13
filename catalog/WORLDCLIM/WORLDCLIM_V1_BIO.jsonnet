@@ -81,13 +81,13 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bio01',
         description: 'Annual mean temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio02',
         description: 'Mean diurnal range (mean of monthly (max temp - min temp))',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
@@ -98,49 +98,49 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bio04',
         description: 'Temperature seasonality (Standard deviation * 100)',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.01,
       },
       {
         name: 'bio05',
         description: 'Max temperature of warmest month',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio06',
         description: 'Min temperature of coldest month',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio07',
         description: 'Temperature annual range (bio05-bio06)',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio08',
         description: 'Mean temperature of wettest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio09',
         description: 'Mean temperature of driest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio10',
         description: 'Mean temperature of warmest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio11',
         description: 'Mean temperature of coldest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {

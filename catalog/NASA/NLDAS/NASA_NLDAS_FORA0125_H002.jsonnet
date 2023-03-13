@@ -4,6 +4,7 @@ local subdir = 'NASA/NLDAS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -105,7 +106,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temperature',
         description: 'Air temperature at 2 meters above the surface',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'specific_humidity',

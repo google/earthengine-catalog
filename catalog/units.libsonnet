@@ -14,6 +14,8 @@
 // TODO(b/198646525): Flush out the rest of the units:
 
 {
+  // https://en.wikipedia.org/wiki/Celsius
+  celsius: '°C',
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
   // https://en.wikipedia.org/wiki/Metre

@@ -4,6 +4,7 @@ local subdir = 'NOAA/CDR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -65,7 +66,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'sea_surface_temperature',
         description: 'Optimum Interpolation Sea Surface Temperature (OISST), with a diurnal warming correction',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'fill_missing_qc',

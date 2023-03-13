@@ -4,6 +4,7 @@ local subdir = 'JAXA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -133,7 +134,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SST_AVE',
         description: 'Temperature of sea surface.',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'SST_QA_flag',

@@ -187,7 +187,7 @@ UNITS = frozenset({
     'Quality Flag', 'Reflectance factor', 'Seconds', 'W m**-2',
     'W m-2', 'W m^-2 sr^-1 μm^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cm', 'cm^3/cm^3', 'cmol(+)/kg', 'cms', 'count',
-    'counts/day', 'dB', 'days', 'deg true', 'degree', 'degree C', 'degrees',
+    'counts/day', 'dB', 'days', 'deg true', 'degree', 'degrees',
     'dobsons', 'fraction', 'g / kg', 'g/cc', 'g/cm^3', 'g/kg', 'g/m^2', 'g/m²',
     'gC m-2 d-1', 'gigagrams', 'gpm', 'grass, mm', 'hPa', 'ha', 'hours',
     'hours/sq. km', 'index', 'kPa', 'kg / m3', 'kg kg-1', 'kg kg^-1',

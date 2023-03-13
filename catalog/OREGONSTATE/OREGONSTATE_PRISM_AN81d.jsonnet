@@ -4,6 +4,7 @@ local subdir = 'OREGONSTATE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -126,22 +127,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tmean',
         description: 'Daily mean temperature (calculated as (tmin+tmax)/2)',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tmin',
         description: 'Daily minimum temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tmax',
         description: 'Daily maximum temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tdmean',
         description: 'Daily mean dew point temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'vpdmin',

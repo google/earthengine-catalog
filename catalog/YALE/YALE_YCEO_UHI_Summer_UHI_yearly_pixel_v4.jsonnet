@@ -4,6 +4,7 @@ local subdir = 'YALE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -96,12 +97,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Daytime',
         description: 'Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Nighttime',
         description: 'Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
     ],
     'gee:visualizations': [

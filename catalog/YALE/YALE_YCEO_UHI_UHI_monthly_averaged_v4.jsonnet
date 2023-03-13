@@ -4,6 +4,7 @@ local subdir = 'YALE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -96,122 +97,122 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Jan_day_UHI',
         description: 'January Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Jan_night_UHI',
         description: 'January Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Feb_day_UHI',
         description: 'February Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Feb_night_UHI',
         description: 'February Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Mar_day_UHI',
         description: 'March Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Mar_night_UHI',
         description: 'March Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Apr_day_UHI',
         description: 'April Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Apr_night_UHI',
         description: 'April Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'May_day_UHI',
         description: 'May Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'May_night_UHI',
         description: 'May Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Jun_day_UHI',
         description: 'June Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Jun_night_UHI',
         description: 'June Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Jul_day_UHI',
         description: 'July Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Jul_night_UHI',
         description: 'July Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Aug_day_UHI',
         description: 'August Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Aug_night_UHI',
         description: 'August Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Sep_day_UHI',
         description: 'September Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Sep_night_UHI',
         description: 'September Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Oct_day_UHI',
         description: 'October Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Oct_night_UHI',
         description: 'October Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Nov_day_UHI',
         description: 'November Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Nov_night_UHI',
         description: 'November Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Dec_day_UHI',
         description: 'December Daytime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
       {
         name: 'Dec_night_UHI',
         description: 'December Nighttime UHI',
-        'gee:units': 'degree C',
+        'gee:units': units.celsius,
       },
     ],
     'gee:visualizations': [

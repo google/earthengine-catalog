@@ -4,6 +4,7 @@ local subdir = 'OREGONSTATE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local prism = import 'OREGONSTATE_PRISM_Norm.libsonnet';
 
@@ -103,22 +104,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tmean',
         description: '30-year average of monthly mean temperature (calculated as (tmin+tmax)/2)',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tmin',
         description: '30-year average of monthly minimum temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tmax',
         description: '30-year average of monthly maximum temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tdmean',
         description: '30-year average of monthly mean dew point temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'vpdmin',

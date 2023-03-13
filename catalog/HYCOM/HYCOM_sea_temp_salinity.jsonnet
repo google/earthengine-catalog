@@ -5,6 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local template = import 'HYCOM.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -54,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_0',
         description: 'Sea water temperature at a depth of 0m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -68,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_2',
         description: 'Sea water temperature at a depth of 2m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -82,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_4',
         description: 'Sea water temperature at a depth of 4m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -96,7 +97,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_6',
         description: 'Sea water temperature at a depth of 6m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -110,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_8',
         description: 'Sea water temperature at a depth of 8m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -124,7 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_10',
         description: 'Sea water temperature at a depth of 10m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -138,7 +139,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_12',
         description: 'Sea water temperature at a depth of 12m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -152,7 +153,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_15',
         description: 'Sea water temperature at a depth of 15m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -166,7 +167,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_20',
         description: 'Sea water temperature at a depth of 20m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -180,7 +181,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_25',
         description: 'Sea water temperature at a depth of 25m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -194,7 +195,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_30',
         description: 'Sea water temperature at a depth of 30m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -208,7 +209,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_35',
         description: 'Sea water temperature at a depth of 35m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -222,7 +223,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_40',
         description: 'Sea water temperature at a depth of 40m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -236,7 +237,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_45',
         description: 'Sea water temperature at a depth of 45m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -250,7 +251,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_50',
         description: 'Sea water temperature at a depth of 50m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -264,7 +265,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_60',
         description: 'Sea water temperature at a depth of 60m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -278,7 +279,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_70',
         description: 'Sea water temperature at a depth of 70m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -292,7 +293,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_80',
         description: 'Sea water temperature at a depth of 80m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -306,7 +307,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_90',
         description: 'Sea water temperature at a depth of 90m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -320,7 +321,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_100',
         description: 'Sea water temperature at a depth of 100m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -334,7 +335,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_125',
         description: 'Sea water temperature at a depth of 125m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -348,7 +349,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_150',
         description: 'Sea water temperature at a depth of 150m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -362,7 +363,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_200',
         description: 'Sea water temperature at a depth of 200m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -376,7 +377,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_250',
         description: 'Sea water temperature at a depth of 250m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -390,7 +391,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_300',
         description: 'Sea water temperature at a depth of 300m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -404,7 +405,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_350',
         description: 'Sea water temperature at a depth of 350m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -418,7 +419,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_400',
         description: 'Sea water temperature at a depth of 400m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -432,7 +433,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_500',
         description: 'Sea water temperature at a depth of 500m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -446,7 +447,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_600',
         description: 'Sea water temperature at a depth of 600m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -460,7 +461,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_700',
         description: 'Sea water temperature at a depth of 700m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -474,7 +475,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_800',
         description: 'Sea water temperature at a depth of 800m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -488,7 +489,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_900',
         description: 'Sea water temperature at a depth of 900m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -502,7 +503,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_1000',
         description: 'Sea water temperature at a depth of 1000m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -516,7 +517,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_1250',
         description: 'Sea water temperature at a depth of 1250m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -530,7 +531,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_1500',
         description: 'Sea water temperature at a depth of 1500m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -544,7 +545,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_2000',
         description: 'Sea water temperature at a depth of 2000m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -558,7 +559,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_2500',
         description: 'Sea water temperature at a depth of 2500m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -572,7 +573,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_3000',
         description: 'Sea water temperature at a depth of 3000m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -586,7 +587,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_4000',
         description: 'Sea water temperature at a depth of 4000m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -600,7 +601,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'water_temp_5000',
         description: 'Sea water temperature at a depth of 5000m',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },

@@ -5,6 +5,7 @@ local subdir = 'NASA/ORNL';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -119,12 +120,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'tmax',
         description: 'Daily maximum 2-meter air temperature.',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'tmin',
         description: 'Daily minimum 2-meter air temperature.',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'vp',
