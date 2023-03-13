@@ -158,7 +158,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Qair_f_inst',
         description: 'Specific humidity',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Qg_tavg',

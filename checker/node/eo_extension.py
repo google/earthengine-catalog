@@ -175,34 +175,43 @@ MAX_BANDS = 500
 MAX_GSD = 3e5
 POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 
-UNITS = frozenset({
-    '%', '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
+# TODO(schwehr): Load this from units.libsonnet
+UNITS_LIBSONNET = frozenset({
+    '1 (mass fraction)',
+    '1 (volume fraction)',
+    'K',
+    'm',
+    '%',
+})
+
+UNITS = UNITS_LIBSONNET.union({
+    '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
     'Alfalfa, mm', 'Class', 'Coefficient of Variation', 'DN', 'DU', 'Day',
     'Degree', 'Degrees', 'Degrees clockwise from North', 'Dimensionless',
     'Dobson units', 'Dobsons', 'Equivalent gauges per 2.5 degree box', 'Hours',
-    'J/kg', 'J/m2', 'J/m^2', 'J/m^2/day', 'Julian Day', 'K', 'Kelvin',
+    'J/kg', 'J/m2', 'J/m^2', 'J/m^2/day', 'Julian Day',
     'MJ m^-2 day^-1', 'MW', 'Megawatts', 'Mg C/ha', 'Mg ha^-1', 'Mg/ha',
     'Minutes', 'N/m^2', 'NFDRS fire danger index', 'Number of people/ha',
-    'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s', 'Percent',
+    'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s',
     'Quality Flag', 'Reflectance factor', 'Seconds', 'W m**-2',
     'W m-2', 'W m^-2 sr^-1 μm^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
-    'W/m^2 SR&mu;m', 'cm', 'cm^3/cm^3', 'cmol(+)/kg', 'cms', 'count',
+    'W/m^2 SR&mu;m', 'cm', 'cmol(+)/kg', 'cms', 'count',
     'counts/day', 'dB', 'days', 'deg true', 'degree', 'degrees',
     'dobsons', 'fraction', 'g/cc', 'g/cm^3', 'g/kg', 'g/m^2', 'g/m²',
     'gC m-2 d-1', 'gigagrams', 'gpm', 'grass, mm', 'hPa', 'ha', 'hours',
-    'hours/sq. km', 'index', 'kPa', 'kg/m3', 'kg kg-1', 'kg kg^-1',
+    'hours/sq. km', 'index', 'kPa', 'kg/m3',
     'kg m**-2', 'kg m**-3', 'kg m-2', 'kg m-2 s-1', 'kg m-3', 'kg m^-2',
     'kg m^-2 s^-1', 'kg m^-2 s^-2', 'kg*C/m^2', 'kg*C/m^2/16-day',
     'kg*C/m^2/8-day', 'kg/(m^2)', 'kg/(m^2*s)', 'kg/(m^2/s)', 'kg/(m^3)',
-    'kg/kg', 'kg/m/s', 'kg/m2', 'kg/m^2', 'kg/m^2/8day', 'kg/m^2/s',
-    'kg/m^2/s^1', 'kg/m^2s', 'kg/m^3', 'km', 'km^2', 'm',
+    'kg/m/s', 'kg/m2', 'kg/m^2', 'kg/m^2/8day', 'kg/m^2/s',
+    'kg/m^2/s^1', 'kg/m^2s', 'kg/m^3', 'km', 'km^2',
     'm of water equivalent', 'm s-1', 'm s^-1', 'm/s', 'm/s^2', 'm2 m^-2',
-    'm3/m3', 'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^2', 'm^2/m^3',
-    'm^3 m-3', 'm^3 m^-3', 'm^3/m^3', 'meq/100g', 'meter/year', 'mg m-3',
+    'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^2', 'm^2/m^3',
+    'meq/100g', 'meter/year', 'mg m-3',
     'mg/m^3', 'millibars', 'min. into half hour', 'minutes', 'minutes/meter',
     'mm', 'mm d-1', 'mm, daily total', 'mm/day', 'mm/hr', 'mm/pentad',
     'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
-    'nanoWatts/cm2/sr', 'occurrence', 'percent', 'pixels', 'ppm', 'psu',
+    'nanoWatts/cm2/sr', 'occurrence', 'pixels', 'ppm', 'psu',
     'radians', 'seconds', 'sq. meter/sq. meter', 'sr-1', 'ug m-3', '°C', 'μm',
 })
 

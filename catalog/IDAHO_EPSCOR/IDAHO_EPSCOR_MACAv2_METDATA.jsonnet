@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'huss',
         description: 'Average daily specific humidity near surface',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'pr',

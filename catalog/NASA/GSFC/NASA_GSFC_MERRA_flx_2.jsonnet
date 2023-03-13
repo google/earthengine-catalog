@@ -212,12 +212,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'QSH',
         description: 'Effective surface specific humidity',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'QSTAR',
         description: 'Surface moisture scale',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'RHOA',

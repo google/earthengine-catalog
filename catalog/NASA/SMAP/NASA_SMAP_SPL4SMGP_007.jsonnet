@@ -82,17 +82,17 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'sm_surface',
         description: 'Top layer soil moisture (0-5 cm)',
-        'gee:units': 'm^3 m^-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'sm_rootzone',
         description: 'Root zone soil moisture (0-100 cm)',
-        'gee:units': 'm^3 m^-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'sm_profile',
         description: 'Total profile soil moisture (0 cm to model bedrock depth).',
-        'gee:units': 'm^3 m^-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'sm_surface_wetness',
@@ -272,7 +272,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Air specific humidity at center height of lowest
           atmospheric model layer
         |||,
-        'gee:units': 'kg kg^-1',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'windspeed_lowatmmodlay',

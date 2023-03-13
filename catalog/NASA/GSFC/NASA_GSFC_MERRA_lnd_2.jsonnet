@@ -186,7 +186,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'PRMC',
         description: 'Water profile',
-        'gee:units': 'm^3/m^3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'QINFIL',
@@ -201,12 +201,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'RZMC',
         description: 'Water root zone',
-        'gee:units': 'm^3/m^3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'SFMC',
         description: 'Water surface layer',
-        'gee:units': 'm^3/m^3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'SHLAND',

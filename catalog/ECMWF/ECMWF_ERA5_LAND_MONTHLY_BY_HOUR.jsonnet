@@ -307,22 +307,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           surface is at 0 cm. The volumetric soil water is associated with the soil texture (or
           classification), soil depth, and the underlying groundwater level.
         |||,
-        'gee:units': 'm3/m3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'volumetric_soil_water_layer_2',
         description: 'Volume of water in soil layer 2 (7 -28 cm) of the ECMWF Integrated Forecasting System.',
-        'gee:units': 'm3/m3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'volumetric_soil_water_layer_3',
         description: 'Volume of water in soil layer 3 (28-100 cm) of the ECMWF Integrated Forecasting System.',
-        'gee:units': 'm3/m3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'volumetric_soil_water_layer_4',
         description: 'Volume of water in soil layer 4 (100-289 cm) of the ECMWF Integrated Forecasting System.',
-        'gee:units': 'm3/m3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'forecast_albedo',

@@ -100,7 +100,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'specific_humidity_2m_above_ground',
         description: 'Specific humidity 2m above ground',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'relative_humidity_2m_above_ground',

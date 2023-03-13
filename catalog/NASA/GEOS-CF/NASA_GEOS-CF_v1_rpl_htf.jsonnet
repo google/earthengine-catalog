@@ -80,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Q',
         description: 'Specific humidity',
-        'gee:units': 'kg kg-1',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'RH',

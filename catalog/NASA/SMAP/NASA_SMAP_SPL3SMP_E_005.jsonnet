@@ -86,7 +86,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           disaggregated/downscaled vertical polarization brightness temperature
           at 9-km grid cell; AM overpass
         |||,
-        'gee:units': 'cm^3/cm^3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'tb_h_corrected_am',
@@ -150,7 +150,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           disaggregated/downscaled vertical polarization brightness temperature
           at 9-km grid cell; PM overpass
         |||,
-        'gee:units': 'cm^3/cm^3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'tb_h_corrected_pm',

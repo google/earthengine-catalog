@@ -111,7 +111,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Maximum_specific_humidity_at_2m_height_above_ground_6_Hour_Interval',
         description: 'Maximum specific humidity 2m above ground, 6-hour interval',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Maximum_temperature_height_above_ground_6_Hour_Interval',
@@ -121,7 +121,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Minimum_specific_humidity_at_2m_height_above_ground_6_Hour_Interval',
         description: 'Minimum specific humidity 2m above ground, 6-hour interval',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Minimum_temperature_height_above_ground_6_Hour_Interval',
@@ -151,7 +151,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Specific_humidity_height_above_ground',
         description: 'Specific humidity 2m above ground',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Temperature_height_above_ground',

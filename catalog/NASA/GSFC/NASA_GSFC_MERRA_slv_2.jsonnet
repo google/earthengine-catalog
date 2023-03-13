@@ -126,27 +126,27 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Q250',
         description: 'Specific humidity at 250 hPa',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Q500',
         description: 'Specific humidity at 500 hPa',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Q850',
         description: 'Specific humidity at 850 hPa',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'QV10M',
         description: '10-meter specific humidity',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'QV2M',
         description: '2-meter specific humidity',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'SLP',
@@ -233,7 +233,7 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
             Tropopause specific humidity using blended tropp (TROPPB) estimate
         |||,
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'TROPT',

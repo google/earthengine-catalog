@@ -298,12 +298,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Maximum_specific_humidity_at_2m_height_above_ground_3_Hour_Interval',
         description: 'Maximum specific humidity for 3 Hour Interval at 2m specified height level above ground for 03 forecast',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Minimum_specific_humidity_at_2m_height_above_ground_3_Hour_Interval',
         description: 'Minimum specific humidity for 3 Hour Interval at 2m specified height level above ground for 03 forecast',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Momentum_flux_u-component_surface_3_Hour_Average',
@@ -418,7 +418,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Specific_humidity_height_above_ground',
         description: 'Specific humidity at Specified height level above ground for 00 forecast',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Surface_Lifted_Index_surface',

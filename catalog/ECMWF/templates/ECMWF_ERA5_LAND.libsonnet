@@ -343,7 +343,7 @@ local flux = 'J/m^2';
         is associated with the soil texture (or classification), soil depth,
         and the underlying groundwater level.
       |||,
-      units: 'm3/m3',
+      units: units.volume_fraction,
     },
     {
       name: 'volumetric_soil_water_layer_2',
@@ -351,7 +351,7 @@ local flux = 'J/m^2';
         Volume of water in soil layer 2 (7 -28 cm) of the ECMWF Integrated
         Forecasting System.
       |||,
-      units: 'm3/m3',
+      units: units.volume_fraction,
     },
     {
       name: 'volumetric_soil_water_layer_3',
@@ -359,7 +359,7 @@ local flux = 'J/m^2';
         Volume of water in soil layer 3 (28-100 cm) of the ECMWF Integrated
         Forecasting System.
       |||,
-      units: 'm3/m3',
+      units: units.volume_fraction,
     },
     {
       name: 'volumetric_soil_water_layer_4',
@@ -367,7 +367,7 @@ local flux = 'J/m^2';
         Volume of water in soil layer 4 (100-289 cm) of the ECMWF Integrated
         Forecasting System.
       |||,
-      units: 'm3/m3',
+      units: units.volume_fraction,
     },
     {
       name: 'forecast_albedo',

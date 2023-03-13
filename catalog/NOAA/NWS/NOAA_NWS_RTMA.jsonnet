@@ -92,7 +92,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SPFH',
         description: 'Specific humidity',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'WDIR',

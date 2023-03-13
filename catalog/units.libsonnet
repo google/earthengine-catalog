@@ -18,9 +18,17 @@
   celsius: '°C',
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
+
+  // https://en.wikipedia.org/wiki/Mass_fraction_(chemistry)
+  mass_fraction: '1 (mass fraction)',
+
   // https://en.wikipedia.org/wiki/Metre
   meters: 'm',
+
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',
+
+  // https://en.wikipedia.org/wiki/Volume_fraction
+  volume_fraction: '1 (volume fraction)',
 }

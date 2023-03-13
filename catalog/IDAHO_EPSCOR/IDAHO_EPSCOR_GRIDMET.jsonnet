@@ -90,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'sph',
         description: 'Specific humididy',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'srad',

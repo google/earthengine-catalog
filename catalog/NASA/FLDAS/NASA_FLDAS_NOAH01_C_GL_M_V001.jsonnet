@@ -113,7 +113,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Qair_f_tavg',
         description: 'Specific humidity',
-        'gee:units': 'kg kg-1',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Qg_tavg',
@@ -167,22 +167,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SoilMoi00_10cm_tavg',
         description: 'Soil moisture (0 - 10 cm underground)',
-        'gee:units': 'm^3 m-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'SoilMoi10_40cm_tavg',
         description: 'Soil moisture (10 - 40 cm underground)',
-        'gee:units': 'm^3 m-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'SoilMoi100_200cm_tavg',
         description: 'Soil moisture (100 - 200 cm underground)',
-        'gee:units': 'm^3 m-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'SoilMoi40_100cm_tavg',
         description: 'Soil moisture (40 - 100 cm underground)',
-        'gee:units': 'm^3 m-3',
+        'gee:units': units.volume_fraction,
       },
       {
         name: 'SoilTemp00_10cm_tavg',
