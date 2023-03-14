@@ -32,7 +32,7 @@ EXCEPTIONS = frozenset({
     'diurnal', 'driest', 'dust', 'ecosystem', 'eddi', 'emc',
     'endangered', 'energy', 'environment', 'eo_1', 'eorc', 'eos', 'eosdis',
     'famine', 'fcc', 'fireburning', 'firecci', 'firecci51', 'firms', 'fldas',
-    'flood', 'flow_regulation', 'fpac', 'fundamental', 'gcos', 'gddp', 'ged',
+    'flood', 'flow_regulation', 'fpac', 'fundamental', 'gcos', 'ged',
     'geostationary', 'germany',
     'ges_disc', 'gfd', 'gfs', 'gimms', 'glad', 'glas',
     'globalsoilmap', 'globcover', 'goddard', 'grsg', 'gtopo30', 'habitats',
