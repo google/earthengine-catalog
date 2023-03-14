@@ -15,7 +15,7 @@ class IdFieldCatalogTest(test_utils.NodeTest):
     self.check = id_field.Check
 
   def test_valid_id(self):
-    id_list = ['A', 'b', 'c_d', 'd-f', 'g' * 50, 'FIRMS', 'NASA', 'NASA/b']
+    id_list = ['A', 'b', 'c_d', 'd-f', 'g' * 50, 'FIRMS', 'NASA']
     for dataset_id in id_list:
       self.assert_catalog({ID: dataset_id}, dataset_id=dataset_id)
 
@@ -42,16 +42,6 @@ class IdFieldCatalogTest(test_utils.NodeTest):
   def test_bad_middle_character(self):
     dataset_id = 'bad$character'
     message = 'id part not valid: "bad$character"'
-    self.assert_catalog({ID: dataset_id}, message, dataset_id=dataset_id)
-
-  def test_bad_two_level(self):
-    dataset_id = 'NOT_NASA/something'
-    message = 'id length must be 1 for catalogs: "NOT_NASA/something": 2'
-    self.assert_catalog({ID: dataset_id}, message, dataset_id=dataset_id)
-
-  def test_bad_two_level_starts_with_two_level(self):
-    dataset_id = 'NASA/b/c'
-    message = 'id length must be 1 for catalogs: "NASA/b/c": 3'
     self.assert_catalog({ID: dataset_id}, message, dataset_id=dataset_id)
 
 

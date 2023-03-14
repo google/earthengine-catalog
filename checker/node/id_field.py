@@ -58,7 +58,7 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, f'id part not valid: "{part}"')
 
     if node.type == stac.StacType.CATALOG:
-      if len(id_path.parts) != 1 and not node.is_two_level():
+      if len(id_path.parts) != 1:
         message = (
             f'id length must be 1 for catalogs: "{id_field}": {len(id_parts)}')
         yield cls.new_issue(node, message)

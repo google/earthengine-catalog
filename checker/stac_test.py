@@ -13,43 +13,6 @@ ID = 'id'
 EMPTY_PATH = pathlib.Path('')
 
 
-class NodeTest(absltest.TestCase):
-
-  def test_two_level_catalog(self):
-    node = stac.Node(ID, EMPTY_PATH, CATALOG, IMAGE, {})
-
-    for dataset_id in ('', 'a', 'a/b', 'a/b/c'):
-      node.id = dataset_id
-      self.assertFalse(node.is_two_level())
-
-    for dataset_id in ('NASA', 'NOAA', 'USGS'):
-      node.id = dataset_id
-      self.assertFalse(
-          node.is_two_level(), f'id should not be two level: {dataset_id}')
-
-    for dataset_id in ('NASA/b', 'NOAA/b', 'USGS/b'):
-      node.id = dataset_id
-      self.assertTrue(
-          node.is_two_level(), f'id should be two level: {dataset_id}')
-
-  def test_two_level_collection(self):
-    node = stac.Node(ID, EMPTY_PATH, COLLECTION, IMAGE, {})
-
-    for dataset_id in ('a', 'a/b', 'a/b/c'):
-      node.id = dataset_id
-      self.assertFalse(node.is_two_level())
-
-    for dataset_id in ('NASA', 'NOAA', 'USGS', 'NASA/b', 'NOAA/b', 'USGS/b'):
-      node.id = dataset_id
-      self.assertFalse(
-          node.is_two_level(), f'id should not be two level: {dataset_id}')
-
-    for dataset_id in ('NASA/b/c', 'NOAA/b/d', 'USGS/b/d', 'NASA/b/c/d'):
-      node.id = dataset_id
-      self.assertTrue(
-          node.is_two_level(), f'id should be two level: {dataset_id}')
-
-
 class IssueTest(absltest.TestCase):
 
   def test_str(self):

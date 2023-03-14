@@ -17,8 +17,6 @@ TYPE = 'type'
 UNKNOWN_ID = '> UNKNOWN ID: '
 UNKNOWN_PATH = pathlib.Path('> UNKNOWN PATH')
 
-_TWO_LEVEL_FOLDERS: list[str] = ['NASA', 'NOAA', 'USGS']
-
 # List loaded from non_commercial_datasets.jsonnet
 NON_COMMERCIAL_LIST = []
 
@@ -66,23 +64,6 @@ class Node:
   type: StacType
   gee_type: GeeType
   stac: dict[str, object]  # The result of json.load
-
-  def is_two_level(self):
-    """Returns true if the asset id is a 2nd directory level asset."""
-    parts = pathlib.Path(self.id).parts
-    if not parts:
-      return False
-    if parts[0] not in _TWO_LEVEL_FOLDERS:
-      return False
-
-    # Special case as there is a V0 and V1.  See cl/390226752.
-    if self.id.startswith('USGS/GFSAD1000'):
-      return True
-
-    if self.type == StacType.CATALOG:
-      return len(parts) == 2
-    elif self.type == StacType.COLLECTION:
-      return len(parts) > 2
 
 
 class IssueLevel(str, enum.Enum):
