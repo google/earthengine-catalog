@@ -33,6 +33,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('OCEANDATA', base_url),
     ee.link.child_catalog('ORNL', base_url),
     ee.link.child_catalog('SMAP', base_url),
+    ee.link.child_collection('NASA_GDDP-CMIP6', base_url),
     ee.link.child_collection('NASA_NEX-DCP30', base_url),
     ee.link.child_collection('NASA_NEX-DCP30_ENSEMBLE_STATS', base_url),
     ee.link.child_collection('NASA_NEX-GDDP', base_url),
