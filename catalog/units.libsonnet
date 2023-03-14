@@ -17,8 +17,14 @@
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '°C',
 
+  // https://en.wikipedia.org/wiki/Day
+  day: 'd',
+
   // https://en.wikipedia.org/wiki/Dobson_unit
   dobson: 'Dobson',
+
+  // https://en.wikipedia.org/wiki/Hour
+  hour: 'h',
 
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
@@ -38,4 +44,7 @@
 
   // https://en.wikipedia.org/wiki/Volume_fraction
   volume_fraction: '1 (volume fraction)',
+
+  // https://en.wikipedia.org/wiki/Minute
+  minute: 'min',
 }

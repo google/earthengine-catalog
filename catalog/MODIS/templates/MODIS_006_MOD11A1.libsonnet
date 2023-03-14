@@ -119,7 +119,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Day_view_time',
         description: 'Local time of day observation',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
         'gee:scale': 0.1,
       },
       {
@@ -238,7 +238,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Night_view_time',
         description: 'Local time of night observation',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
         'gee:scale': 0.1,
       },
       {

@@ -144,7 +144,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TIMEOFDAY',
         description: 'Hours since start of day',
-        'gee:units': 'hours',
+        'gee:units': units.hour,
         'gee:scale': 0.01,
       },
       {

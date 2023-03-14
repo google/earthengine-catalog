@@ -394,7 +394,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'scan_line_time',
         description: 'Scan line time',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
       },
       {
         name: 'sensor_zenith_angle',

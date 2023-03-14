@@ -235,7 +235,7 @@ local units = import 'units.libsonnet';
       {
         name: 'View_Time',
         description: 'Time of MODIS observation',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
         'gee:scale': 0.1,
       },
     ],

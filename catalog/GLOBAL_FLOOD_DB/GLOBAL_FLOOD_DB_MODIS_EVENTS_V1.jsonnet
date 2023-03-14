@@ -233,7 +233,7 @@ local self_url = catalog_subdir_url + base_filename;
           the number of composite days a pixel's area was considered water during an
           event. 3-day MODIS composites were used.
         |||,
-        'gee:units': 'days',
+        'gee:units': units.day,
       },
       {
         name: 'clear_views',
@@ -242,7 +242,7 @@ local self_url = catalog_subdir_url + base_filename;
           of each event. Cloud coverage is determined by the MODIS Quality
           Assurance band ('state_1km').
         |||,
-        'gee:units': 'days',
+        'gee:units': units.day,
       },
       {
         name: 'clear_perc',

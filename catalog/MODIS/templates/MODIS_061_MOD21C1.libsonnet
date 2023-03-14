@@ -251,13 +251,13 @@ local units = import 'units.libsonnet';
     {
       name: 'Day_view_time',
       description: 'Average Daytime View Time (UTC)',
-      'gee:units': 'Hours',
+      'gee:units': units.hour,
       'gee:scale': 0.2,
     },
     {
       name: 'Night_view_time',
       description: 'Average Nighttime View Time (UTC)',
-      'gee:units': 'Hours',
+      'gee:units': units.hour,
       'gee:scale': 0.2,
     },
     {

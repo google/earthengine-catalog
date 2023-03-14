@@ -247,7 +247,7 @@ local units = import 'units.libsonnet';
         name: 'View_Time',
         description: 'Time of LST observation',
         'gee:scale': 0.1,
-        'gee:units': 'Hours'
+        'gee:units': units.hour
       },
     ],
     'gee:visualizations': [
