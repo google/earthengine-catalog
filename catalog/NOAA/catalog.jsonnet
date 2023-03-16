@@ -77,6 +77,7 @@ local gsm_description = importstr 'general_satellite_messages_description.md';
     ee.link.child_collection('NOAA_VIIRS_001_VNP09H1', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP13A1', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP14A1', base_url),
+    ee.link.child_collection('NOAA_VIIRS_001_VNP15A2H', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP21A1D', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP21A1N', base_url),
     ee.link.child_collection('NOAA_VIIRS_001_VNP22Q2', base_url),
