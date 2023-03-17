@@ -5,6 +5,7 @@ local subdir = 'VITO';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -318,7 +319,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TIME',
         description: 'Time elapsed since the start of image collection of this mosaic',
-        'gee:units': 'Minutes',
+        'gee:units': units.minute,
       },
     ],
     'gee:visualizations': [

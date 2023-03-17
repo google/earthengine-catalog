@@ -5,6 +5,7 @@ local subdir = 'Oxford';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -87,7 +88,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'accessibility',
         description: 'Travel time to the nearest densely-populated area.',
-        'gee:units': 'minutes',
+        'gee:units': units.minute,
         gsd: 927.67,
       },
     ],
