@@ -30,6 +30,9 @@
   // https://en.wikipedia.org/wiki/Hour
   hour: 'h',
 
+  // Time spent in an area.
+  hour_per_square_km: 'h/km^2',
+
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
 
