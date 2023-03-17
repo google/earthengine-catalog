@@ -62,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_0',
         description: 'Sea water salinity, in practical salinity units, at a depth of 0m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -76,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_2',
         description: 'Sea water salinity, in practical salinity units, at a depth of 2m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -90,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_4',
         description: 'Sea water salinity, in practical salinity units, at a depth of 4m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -104,7 +104,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_6',
         description: 'Sea water salinity, in practical salinity units, at a depth of 6m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -118,7 +118,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_8',
         description: 'Sea water salinity, in practical salinity units, at a depth of 8m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -132,7 +132,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_10',
         description: 'Sea water salinity, in practical salinity units, at a depth of 10m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -146,7 +146,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_12',
         description: 'Sea water salinity, in practical salinity units, at a depth of 12m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -160,7 +160,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_15',
         description: 'Sea water salinity, in practical salinity units, at a depth of 15m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -174,7 +174,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_20',
         description: 'Sea water salinity, in practical salinity units, at a depth of 20m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -188,7 +188,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_25',
         description: 'Sea water salinity, in practical salinity units, at a depth of 25m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -202,7 +202,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_30',
         description: 'Sea water salinity, in practical salinity units, at a depth of 30m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -216,7 +216,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_35',
         description: 'Sea water salinity, in practical salinity units, at a depth of 35m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -230,7 +230,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_40',
         description: 'Sea water salinity, in practical salinity units, at a depth of 40m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -244,7 +244,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_45',
         description: 'Sea water salinity, in practical salinity units, at a depth of 45m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -258,7 +258,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_50',
         description: 'Sea water salinity, in practical salinity units, at a depth of 50m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -272,7 +272,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_60',
         description: 'Sea water salinity, in practical salinity units, at a depth of 60m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -286,7 +286,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_70',
         description: 'Sea water salinity, in practical salinity units, at a depth of 70m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -300,7 +300,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_80',
         description: 'Sea water salinity, in practical salinity units, at a depth of 80m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -314,7 +314,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_90',
         description: 'Sea water salinity, in practical salinity units, at a depth of 90m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -328,7 +328,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_100',
         description: 'Sea water salinity, in practical salinity units, at a depth of 100m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -342,7 +342,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_125',
         description: 'Sea water salinity, in practical salinity units, at a depth of 125m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -356,7 +356,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_150',
         description: 'Sea water salinity, in practical salinity units, at a depth of 150m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -370,7 +370,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_200',
         description: 'Sea water salinity, in practical salinity units, at a depth of 200m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -384,7 +384,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_250',
         description: 'Sea water salinity, in practical salinity units, at a depth of 250m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -398,7 +398,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_300',
         description: 'Sea water salinity, in practical salinity units, at a depth of 300m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -412,7 +412,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_350',
         description: 'Sea water salinity, in practical salinity units, at a depth of 350m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -426,7 +426,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_400',
         description: 'Sea water salinity, in practical salinity units, at a depth of 400m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -440,7 +440,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_500',
         description: 'Sea water salinity, in practical salinity units, at a depth of 500m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -454,7 +454,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_600',
         description: 'Sea water salinity, in practical salinity units, at a depth of 600m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -468,7 +468,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_700',
         description: 'Sea water salinity, in practical salinity units, at a depth of 700m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -482,7 +482,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_800',
         description: 'Sea water salinity, in practical salinity units, at a depth of 800m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -496,7 +496,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_900',
         description: 'Sea water salinity, in practical salinity units, at a depth of 900m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -510,7 +510,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_1000',
         description: 'Sea water salinity, in practical salinity units, at a depth of 1000m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -524,7 +524,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_1250',
         description: 'Sea water salinity, in practical salinity units, at a depth of 1250m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -538,7 +538,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_1500',
         description: 'Sea water salinity, in practical salinity units, at a depth of 1500m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -552,7 +552,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_2000',
         description: 'Sea water salinity, in practical salinity units, at a depth of 2000m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -566,7 +566,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_2500',
         description: 'Sea water salinity, in practical salinity units, at a depth of 2500m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -580,7 +580,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_3000',
         description: 'Sea water salinity, in practical salinity units, at a depth of 3000m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -594,7 +594,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_4000',
         description: 'Sea water salinity, in practical salinity units, at a depth of 4000m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },
@@ -608,7 +608,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'salinity_5000',
         description: 'Sea water salinity, in practical salinity units, at a depth of 5000m',
-        'gee:units': 'psu',
+        'gee:units': units.practical_salinity_unit,
         'gee:scale': 0.001,
         'gee:offset': 20.0,
       },

@@ -39,6 +39,9 @@
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',
 
+  // https://en.wikipedia.org/wiki/Salinity
+  practical_salinity_unit: 'psu',
+
   // https://en.wikipedia.org/wiki/Velocity
   velocity_si: 'm/s',
 
