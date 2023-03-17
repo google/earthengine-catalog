@@ -292,7 +292,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'leaf_area_index',
         description: 'Vegetation leaf area index',
-        'gee:units': 'm2 m^-2',
+        'gee:units': units.area_fraction,
       },
       {
         name: 'sm_rootzone_pctl',

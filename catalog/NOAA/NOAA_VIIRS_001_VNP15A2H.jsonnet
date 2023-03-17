@@ -318,12 +318,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Lai',
         description: 'Leaf Area Index',
-        'gee:units': 'm^2/m^2',
+        'gee:units': units.area_fraction,
       },
       {
         name: 'LaiStdDev',
         description: 'Standard deviation for LAI',
-        'gee:units': 'm^2/m^2',
+        'gee:units': units.area_fraction,
       },
     ],
     'gee:visualizations': [

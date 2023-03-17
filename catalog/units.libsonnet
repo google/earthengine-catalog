@@ -14,6 +14,10 @@
 // TODO(b/198646525): Flush out the rest of the units:
 
 {
+  // Unitless fraction of area covering an area.
+  // Example: m^2 / m^2
+  area_fraction: '1 (area fraction)',
+
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '°C',
 

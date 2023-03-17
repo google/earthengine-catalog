@@ -18,7 +18,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Lai_500m',
         description: 'Leaf Area Index',
-        'gee:units': 'sq. meter/sq. meter',
+        'gee:units': units.area_fraction,
         'gee:scale': 0.1,
       },
       {
@@ -38,7 +38,7 @@ local units = import 'units.libsonnet';
       {
         name: 'LaiStdDev_500m',
         description: 'Standard deviation of LAI',
-        'gee:units': 'sq. meter/sq. meter',
+        'gee:units': units.area_fraction,
         'gee:scale': 0.1,
       },
     ],

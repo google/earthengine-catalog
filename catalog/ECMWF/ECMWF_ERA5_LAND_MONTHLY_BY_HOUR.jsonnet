@@ -607,12 +607,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           One-half of the total green leaf area per unit horizontal ground surface area for high
           vegetation type.
         |||,
-        'gee:units': 'm^2/m^2',
+        'gee:units': units.area_fraction,
       },
       {
         name: 'leaf_area_index_low_vegetation',
         description: 'One-half of the total green leaf area per unit horizontal ground surface area for low\nvegetation type.',
-        'gee:units': 'm^2/m^2',
+        'gee:units': units.area_fraction,
       },
       {
         name: 'snowfall_hourly',

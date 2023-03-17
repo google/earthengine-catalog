@@ -708,7 +708,7 @@ local flux = 'J/m^2';
         One-half of the total green leaf area per unit horizontal ground
         surface area for high vegetation type.
       |||,
-      units: 'm^2/m^2',
+      units: units.area_fraction,
     },
     {
       name: 'leaf_area_index_low_vegetation',
@@ -716,7 +716,7 @@ local flux = 'J/m^2';
         One-half of the total green leaf area per unit horizontal ground
         surface area for low vegetation type.
       |||,
-      units: 'm^2/m^2',
+      units: units.area_fraction,
     },
   ],
   visualizations: [

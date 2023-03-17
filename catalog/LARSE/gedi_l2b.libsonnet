@@ -78,7 +78,7 @@ local units = import 'units.libsonnet';
     {
       name: 'pai',
       description: 'Total Plant Area Index',
-      'gee:units': 'm^2/m^2',
+      'gee:units': units.area_fraction,
       type:: ee_const.var_type.int,
     },
     {
@@ -141,7 +141,7 @@ local units = import 'units.libsonnet';
     {
       name: 'pai_z' + step,
       description: 'Plant Area Index profile in ' + step + ' m&sup2;/m&sup2;',
-      'gee:units': 'm^2/m^2',
+      'gee:units': units.area_fraction,
       type:: ee_const.var_type.int,
     }
     for step in std.range(0, 30)
