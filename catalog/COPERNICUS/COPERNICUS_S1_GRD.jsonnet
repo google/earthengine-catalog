@@ -442,7 +442,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'angle',
         description: 'Approximate incidence angle from ellipsoid',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         gsd: 20000,
       },
     ],

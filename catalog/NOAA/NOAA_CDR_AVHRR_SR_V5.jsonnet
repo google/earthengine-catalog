@@ -150,19 +150,19 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'RELAZ',
         description: 'Relative sensor azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {
         name: 'SZEN',
         description: 'Solar zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {
         name: 'VZEN',
         description: 'View zenith angle, scale 0.01',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {

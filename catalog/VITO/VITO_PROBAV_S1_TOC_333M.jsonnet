@@ -178,32 +178,32 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SZA',
         description: 'Solar zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SAA',
         description: 'Solar azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SWIRVAA',
         description: 'Viewing azimuth angles SWIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SWIRVZA',
         description: 'Viewing zenith angle SWIR detector',
-        'gee:units': 'Degree',
+        'gee:units': 'degree',
       },
       {
         name: 'VNIRVAA',
         description: 'Viewing azimuth angle VNIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'VNIRVZA',
         description: 'Viewing zenith angle VNIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SM',

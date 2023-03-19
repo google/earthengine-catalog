@@ -79,7 +79,7 @@ local units = import 'units.libsonnet';
     {
       name: 'delta_time',
       description: 'Time delta since Jan 1 00:00 2018',
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.double,
     },
     {
@@ -146,7 +146,7 @@ local units = import 'units.libsonnet';
     {
       name: 'lat_highestreturn',
       description: 'Latitude of highest detected return',
-      'gee:units': 'Degree',
+      'gee:units': 'degree',
       type:: ee_const.var_type.double,
     },
     {
@@ -175,7 +175,7 @@ local units = import 'units.libsonnet';
     {
       name: 'lon_highestreturn',
       description: 'Longitude of highest detected return',
-      'gee:units': 'Degree',
+      'gee:units': 'degree',
       type:: ee_const.var_type.double,
     },
     {
