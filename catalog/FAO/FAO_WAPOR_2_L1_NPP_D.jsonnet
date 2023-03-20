@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'L1_NPP_D',
         description: 'Net Primary Production [g/m²]',
-        'gee:units': 'g/m²',
+        'gee:units': 'g/m^2',
         'gee:scale': 0.001,
       },
     ],

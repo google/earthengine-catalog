@@ -69,22 +69,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'mean_0_20',
         description: 'Bulk density, <2mm fraction, predicted mean at 0-20 cm depth',
-        'gee:units': 'g/cc',
+        'gee:units': 'g/cm^3',
       },
       {
         name: 'mean_20_50',
         description: 'Bulk density, <2mm fraction, predicted mean at 20-50 cm depth',
-        'gee:units': 'g/cc',
+        'gee:units': 'g/cm^3',
       },
       {
         name: 'stdev_0_20',
         description: 'Bulk density, <2mm fraction, standard deviation at 0-20 cm depth',
-        'gee:units': 'g/cc',
+        'gee:units': 'g/cm^3',
       },
       {
         name: 'stdev_20_50',
         description: 'Bulk density, <2mm fraction, standard deviation at 20-50 cm depth',
-        'gee:units': 'g/cc',
+        'gee:units': 'g/cm^3',
       },
     ],
     'gee:visualizations': [

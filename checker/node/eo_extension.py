@@ -205,7 +205,7 @@ UNITS = UNITS_LIBSONNET.union({
     'W m-2', 'W m^-2 sr^-1 μm^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cm', 'cmol(+)/kg', 'cms', 'count',
     'counts/day', 'dB', 'deg true', 'degree', 'degree C', 'degrees',
-    'fraction', 'g/cc', 'g/cm^3', 'g/kg', 'g/m^2', 'g/m²',
+    'fraction', 'g/cm^3', 'g/kg', 'g/m^2',
     'gC m-2 d-1', 'gigagrams', 'gpm', 'grass, mm', 'hPa', 'ha',
     'index', 'kPa', 'kg/m3',
     'kg m**-2', 'kg m**-3', 'kg m-2', 'kg m-2 s-1', 'kg m-3', 'kg m^-2',
