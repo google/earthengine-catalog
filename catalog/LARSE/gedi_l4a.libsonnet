@@ -127,7 +127,7 @@ local units = import 'units.libsonnet';
     {
       name: 'delta_time',
       description: 'Time since Jan 1 00:00 2018',
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.int,
     },
     {
@@ -170,7 +170,7 @@ local units = import 'units.libsonnet';
         Master time, fractional part. master_int+master_frac is equivalent
         to /BEAMXXXX/delta_time
       |||,
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.int,
     },
     {
@@ -179,7 +179,7 @@ local units = import 'units.libsonnet';
         Master time, integer part. Seconds since master_time_epoch.
         master_int+master_frac is equivalent to /BEAMXXXX/delta_time',
       |||,
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.int,
     },
     {

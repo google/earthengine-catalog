@@ -241,7 +241,7 @@ local units = import 'units.libsonnet';
         name: 'View_Angle',
         description: 'View zenith angle of LST',
         'gee:offset': -65,
-        'gee:units': 'Degree'
+        'gee:units': 'degree'
       },
       {
         name: 'View_Time',

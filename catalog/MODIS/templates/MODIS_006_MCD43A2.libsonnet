@@ -110,7 +110,7 @@
       {
         name: 'BRDF_Albedo_LocalSolarNoon',
         description: 'Solar zenith angle of local solar noon',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'BRDF_Albedo_ValidObs_Band1',
