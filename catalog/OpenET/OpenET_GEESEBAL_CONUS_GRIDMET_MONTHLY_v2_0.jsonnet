@@ -24,23 +24,34 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Google Earth Engine implementation of the Surface Energy Balance Algorithm for Land (geeSEBAL)
-    Implementation of geeSEBAL was recently completed within the OpenET framework and an overview
-    of the current geeSEBAL version can be found in Laipelt et al. (2021), which is based on the
-    original algorithms developed by Bastiaanssen et al. (1998). The OpenET geeSEBAL implementation
-    uses land surface temperature (LST) data from Landsat Collection 2, in addition to NLDAS and
-    gridMET datasets as instantaneous and daily meteorological inputs, respectively. The automated
-    statistical algorithm to select the hot and cold endmembers is based on a simplified version
-    of the Calibration using Inverse Modeling at Extreme Conditions (CIMEC) algorithm proposed by
-    Allen et al. (2013), where quantiles of LST and the normalized difference vegetation index (NDVI)
-    values are used to select endmember candidates in the Landsat domain area. The cold and wet
-    endmember candidates are selected in well vegetated areas, while the hot and dry endmember
-    candidates are selected in the least vegetated cropland areas. Based on the selected endmembers,
-    geeSEBAL assumes that in the cold and wet endmember all available energy is converted to latent
-    heat (with high rates of transpiration), while in the hot and dry endmember all available energy
-    is converted to sensible heat. Finally, estimates of daily evapotranspiration are upscaled from
-    instantaneous estimates based on the evaporative fraction, assuming it is constant during the
-    daytime without significant changes in soil moisture and advection.
+    Implementation of geeSEBAL was recently completed within the OpenET framework and an overview of
+    the current geeSEBAL version can be found in Laipelt et al. (2021), which is based on the original
+    algorithms developed by Bastiaanssen et al. (1998). The OpenET geeSEBAL implementation uses land surface
+    temperature (LST) data from Landsat Collection 2, in addition to NLDAS and gridMET datasets as instantaneous
+    and daily meteorological inputs, respectively. The automated statistical algorithm to select the hot and
+    cold endmembers is based on a simplified version of the Calibration using Inverse Modeling at
+    Extreme Conditions (CIMEC) algorithm proposed by Allen et al. (2013), where quantiles of LST and the
+    normalized difference vegetation index (NDVI) values are used to select endmember candidates in the
+    Landsat domain area. The cold and wet endmember candidates are selected in well vegetated areas, while
+    the hot and dry endmember candidates are selected in the least vegetated cropland areas. Based on the
+    selected endmembers, geeSEBAL assumes that in the cold and wet endmember all available energy is converted
+    to latent heat (with high rates of transpiration), while in the hot and dry endmember all available energy is
+    converted to sensible heat. Finally, estimates of daily evapotranspiration are upscaled from instantaneous
+    estimates based on the evaporative fraction, assuming it is constant during the daytime without significant
+    changes in soil moisture and advection. Based on the results from the OpenET Accuracy Assessment and
+    Intercomparison study, the OpenET geeSEBAL algorithm was modified as follows: (i) the simplified version of
+    CIMEC was improved by using additional filters to select the endmembers, including the use of the
+    USDA Cropland Data Layer (CDL) and filters for NDVI, LST and albedo; (ii) corrections to LST for
+    endmembers based on antecedent precipitation; (iii) definition of NLDAS wind speed thresholds to reduce
+    model instability during the atmospheric correction; and, (iv) improvements to estimate daily net
+    radiation, using FAO-56 as reference (Allen et al., 1998). Overall, geeSEBAL performance is dependent on
+    topographic, climate, and meteorological conditions, with higher sensitivity and uncertainty related to hot
+    and cold endmember selections for the CIMEC automated calibration, and lower sensitivity and uncertainty
+    related to meteorological inputs (Laipelt et al., 2021 and Kayser et al., 2022). To reduce uncertainties
+    related to complex terrain, improvements were added to correct LST and global (incident) radiation on the
+    surface (including the environmental lapse rate, elevation slope and aspect) to represent the effects of
+    topographic features on the model’s endmember selection algorithm and ET estimates.
+
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -52,6 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
+    'geesebal'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
@@ -124,16 +136,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
-    Melton, F.S., L.F. Johnson, C.P. Lund, L.L. Pierce, A.R. Michaelis, S.H. Hiatt,
-    A. Guzman et al. 2012. “Satellite Irrigation Management Support with the Terrestrial Observation
-    and Prediction System: A Framework for Integration of Satellite and Surface Observations to
-    Support Improvements in Agricultural Water Resource Management.” IEEE Journal of Selected Topics
-    in Applied Earth Observations and Remote Sensing 5 (6): 1709–21.
+    Bastiaanssen, W.G., Menenti, M., Feddes, R.A. and Holtslag, A.A.M., 1998. A remote sensing surface
+    energy balance algorithm for land (SEBAL). 1. Formulation. Journal of hydrology, 212, pp.198-212.
 
-    Pereira, L.S., P. Paredes, F.S. Melton, L.F. Johnson, R. López-Urrea, J. Cancela, and R.G.
-    Allen. 2020. “Prediction of Basal Crop Coefficients from Fraction of Ground Cover and Height.
-    ” Agricultural Water Management, Special Issue on Updates to the FAO56 Crop Water Requirements
-    Method 241, 106197.
+    Laipelt, L., Kayser, R.H.B., Fleischmann, A.S., Ruhoff, A., Bastiaanssen, W., Erickson, T.A. and M
+    elton, F., 2021. Long-term monitoring of evapotranspiration using the SEBAL algorithm and
+    Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 178, pp.81-96.
+
+    Kayser, R.H., Ruhoff, A., Laipelt, L., de Mello Kich, E., Roberti, D.R., de Arruda Souza, V., Rubert,
+    G.C.D., Collischonn, W. and Neale, C.M.U., 2022. Assessing geeSEBAL automated calibration and meteorological
+    reanalysis uncertainties to estimate evapotranspiration in subtropical humid climates. Agricultural and
+    Forest Meteorology, 314, p.108775.
+
+    Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard, J., Kilic, A., Kelly, C. and Trezza, R., 2013.
+    Automated calibration of the metric‐landsat evapotranspiration process. JAWRA Journal of the
+    American Water Resources Association, 49(3), pp.563-576.
 
     [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,

@@ -252,7 +252,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     volk, J., Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M.,
     Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,
     A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,
-    B., Morton, C., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang,
+    B., Morton, C., Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang,
     T., Yang, Y., Anderson, R., 2021.  OpenET: Filling a Critical Data Gap in
     Water Management for the Western United States.  Journal of the American
     Water Resources Association, 2021 Nov 2.
