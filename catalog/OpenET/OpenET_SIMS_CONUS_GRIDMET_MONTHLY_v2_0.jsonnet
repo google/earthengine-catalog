@@ -25,7 +25,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Satellite Irrigation Management Support
-
     The NASA Satellite Irrigation Management Support (SIMS) model was originally developed to support
     satellite mapping of crop coefficients and evapotranspiration (ET) from irrigated lands and to increase
     access to this data to support use in irrigation scheduling and regional assessment of agricultural
@@ -51,8 +50,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     as measured by the satellite data, and SIMS is generally expected to have a positive bias for deficit
     irrigated crops and croplands with short-term or intermittent crop water stress. At present, SIMS is
     only implemented for croplands, and non-agricultural lands are masked out in this data collection.
-    Future research will extend the vegetation density-crop coefficient approach used within SIMS to other l
-    and cover types.
+    Future research will extend the vegetation density-crop coefficient approach used within SIMS to other
+    land cover types.
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -64,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'monthly',
     'water',
-    'sims
+    'sims'
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
