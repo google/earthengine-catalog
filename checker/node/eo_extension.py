@@ -194,7 +194,7 @@ UNITS_LIBSONNET = frozenset({
 
 UNITS = UNITS_LIBSONNET.union({
     '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
-    'Alfalfa, mm', 'Class', 'Coefficient of Variation', 'DN', 'DU', 'Day',
+    'Alfalfa, mm', 'Class', 'Coefficient of Variation', 'DN', 'DU',
     'Degree', 'Degrees', 'Degrees clockwise from North', 'Dimensionless',
     'Equivalent gauges per 2.5 degree box',
     'J/kg', 'J/m2', 'J/m^2', 'J/m^2/day', 'Julian Day',
