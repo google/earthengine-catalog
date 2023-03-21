@@ -1,10 +1,12 @@
 local id = 'NASA_USDA/HSL/soil_moisture';
 local successor_id = 'NASA_USDA/HSL/SMAP10KM_soil_moisture';
 local subdir = 'NASA_USDA';
+local units = import 'units.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -82,12 +84,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'ssm',
         description: 'Surface soil moisture',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'susm',
         description: 'Subsurface soil moisture',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'smp',

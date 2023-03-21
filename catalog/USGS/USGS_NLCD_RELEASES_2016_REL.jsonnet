@@ -473,7 +473,7 @@ local latest_url = catalog_subdir_url + latest_filename;
       {
         name: 'rangeland_sagebrush_height',
         description: 'Average height of sagebrush. Included in 2016.',
-        'gee:units': 'cms',
+        'gee:units': units.centimeter,
       },
       {
         name: 'rangeland_shrub',
@@ -483,7 +483,7 @@ local latest_url = catalog_subdir_url + latest_filename;
       {
         name: 'rangeland_shrub_height',
         description: 'Average height of shrubs. Included in 2016.',
-        'gee:units': 'cms',
+        'gee:units': units.centimeter,
       },
     ],
     'gee:visualizations': [

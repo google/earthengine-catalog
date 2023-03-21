@@ -4,6 +4,7 @@ local subdir = 'ISDASOIL';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -69,12 +70,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'mean_0_200',
         description: 'Depth to bedrock, predicted mean at 0-200 cm depth',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
       },
       {
         name: 'stdev_0_200',
         description: 'Depth to bedrock, standard deviation at 0-20 cm depth',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
       },
     ],
     'gee:visualizations': [

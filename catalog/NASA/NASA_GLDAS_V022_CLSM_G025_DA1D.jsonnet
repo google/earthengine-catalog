@@ -142,7 +142,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'GWS_tavg',
         description: 'Ground water storage',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'Lwnet_tavg',
@@ -222,7 +222,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TWS_tavg',
         description: 'Terrestrial water storage',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [

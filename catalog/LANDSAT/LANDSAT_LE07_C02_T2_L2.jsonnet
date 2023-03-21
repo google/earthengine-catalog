@@ -442,7 +442,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'ST_CDIST',
         description: "Pixel distance to cloud. If 'PROCESSING_LEVEL' is set to 'L2SR', this band is fully masked out.",
-        'gee:units': 'km',
+        'gee:units': units.kilometer,
         'gee:scale': 0.01,
       },
       {

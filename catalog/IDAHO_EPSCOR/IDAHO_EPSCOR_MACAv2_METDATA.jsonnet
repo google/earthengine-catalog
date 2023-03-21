@@ -108,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pr',
         description: 'Average daily precipitation amount at surface',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'rsds',

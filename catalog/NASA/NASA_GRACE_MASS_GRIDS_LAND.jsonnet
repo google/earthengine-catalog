@@ -4,6 +4,7 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -121,17 +122,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'lwe_thickness_csr',
         description: 'Equivalent liquid water thickness in centimeters calculated by CSR.',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
       },
       {
         name: 'lwe_thickness_gfz',
         description: 'Equivalent liquid water thickness in centimeters calculated by GFZ.',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
       },
       {
         name: 'lwe_thickness_jpl',
         description: 'Equivalent liquid water thickness in centimeters calculated by JPL.',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
       },
     ],
     'gee:visualizations': [

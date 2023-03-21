@@ -84,7 +84,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'prec',
         description: 'Precipitation',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [

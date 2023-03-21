@@ -180,16 +180,20 @@ UNITS_LIBSONNET = frozenset({
     '1 (area fraction)',
     '1 (mass fraction)',
     '1 (volume fraction)',
+    'cm',
     'd',
     'Dobson',
     'h',
     'h/km^2',
     'K',
+    'km',
     'm',
+    'mm',
     'm/s',
     'min',
     'psu',
     '%',
+    'μm',
 })
 
 UNITS = UNITS_LIBSONNET.union({
@@ -203,7 +207,7 @@ UNITS = UNITS_LIBSONNET.union({
     'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s',
     'Quality Flag', 'Reflectance factor', 'W m**-2',
     'W m-2', 'W m^-2 sr^-1 μm^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
-    'W/m^2 SR&mu;m', 'cm', 'cmol(+)/kg', 'cms', 'count',
+    'W/m^2 SR&mu;m', 'cmol(+)/kg', 'count',
     'counts/day', 'dB', 'deg true', 'degree', 'degree C', 'degrees',
     'fraction', 'g/cm^3', 'g/kg', 'g/m^2',
     'gC m-2 d-1', 'gigagrams', 'gpm', 'grass, mm', 'hPa', 'ha',
@@ -212,15 +216,15 @@ UNITS = UNITS_LIBSONNET.union({
     'kg m^-2 s^-1', 'kg m^-2 s^-2', 'kg*C/m^2', 'kg*C/m^2/16-day',
     'kg*C/m^2/8-day', 'kg/(m^2)', 'kg/(m^2*s)', 'kg/(m^2/s)', 'kg/(m^3)',
     'kg/m/s', 'kg/m2', 'kg/m^2', 'kg/m^2/8day', 'kg/m^2/s',
-    'kg/m^2/s^1', 'kg/m^2s', 'kg/m^3', 'km', 'km^2',
+    'kg/m^2/s^1', 'kg/m^2s', 'kg/m^3', 'km^2',
     'm of water equivalent', 'm/s^2',
     'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^3',
     'meq/100g', 'meter/year', 'mg m-3',
     'mg/m^3', 'millibars', 'min. into half hour', 'minutes/meter',
-    'mm', 'mm d-1', 'mm, daily total', 'mm/day', 'mm/hr', 'mm/pentad',
+    'mm d-1', 'mm, daily total', 'mm/day', 'mm/hr', 'mm/pentad',
     'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
     'nanoWatts/cm2/sr', 'occurrence', 'pixels', 'ppm',
-    'radians', 'seconds', 'sr-1', 'ug m-3', '°C', 'μm',
+    'radians', 'seconds', 'sr-1', 'ug m-3', '°C',
 })
 
 

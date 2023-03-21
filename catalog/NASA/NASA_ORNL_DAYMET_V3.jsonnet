@@ -103,7 +103,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'prcp',
         description: 'Daily total precipitation, sum of all forms converted to\nwater-equivalent.',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'srad',

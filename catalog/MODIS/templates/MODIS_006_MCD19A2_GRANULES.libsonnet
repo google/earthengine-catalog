@@ -32,7 +32,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Column_WV',
         description: 'Column water vapor over land',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
         'gee:scale': 0.001,
       },
       {

@@ -41,6 +41,10 @@
 
   // https://en.wikipedia.org/wiki/Metre
   meters: 'm',
+  centimeter: 'cm',
+  kilometer: 'km',
+  micrometer: 'μm',
+  millimeter: 'mm',
 
   // https://en.wikipedia.org/wiki/Minute
   minute: 'min',

@@ -1,6 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local subdir = 'COPERNICUS';
 local license = spdx.proprietary;
@@ -598,7 +599,7 @@ local license = spdx.proprietary;
               Water Vapor Pressure. The height the water would occupy if the vapor were condensed into
               liquid and spread evenly across the column.
             |||,
-            'gee:units': 'cm',
+            'gee:units': units.centimeter,
             gsd: 10.0,
             'gee:scale': 0.001,
           },
