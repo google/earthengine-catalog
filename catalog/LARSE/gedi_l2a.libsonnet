@@ -283,7 +283,7 @@ local units = import 'units.libsonnet';
         The focal window size used to calculate urban_proportion. Values are 3
         (3x3 pixel window size) or 5 (5x5 pixel window size).
       |||,
-      'gee:units': 'pixels',
+      'gee:units': units.pixel,
       type:: ee_const.var_type.int,
     },
     {

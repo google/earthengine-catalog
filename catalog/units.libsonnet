@@ -11,7 +11,8 @@
 //   - https://www.iau.org/publications/proceedings_rules/units/
 //   - https://www.nist.gov/pml/fundamental-physical-constants
 //
-// TODO(b/198646525): Flush out the rest of the units:
+// TODO(b/198646525): All bands and schema should have units fields.
+// TODO(b/198646525): Flush out the rest of the units
 
 {
   // Unitless fraction of area covering an area.
@@ -52,6 +53,10 @@
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',
+
+  // Number of pixels.
+  // TODO(b/198646525): Should we distinguish between distance and area?
+  pixel: 'pixel',
 
   // https://en.wikipedia.org/wiki/Salinity
   practical_salinity_unit: 'psu',

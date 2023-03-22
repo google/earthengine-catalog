@@ -460,6 +460,7 @@ local units = import 'units.libsonnet';
         MODIS MCD12Q1v006 product. Values follow the Land Cover Type 5
         Classification scheme.
       |||,
+      // TODO(schwehr): Use gee:classes
       type:: ee_const.var_type.int,
     },
     {
@@ -469,6 +470,7 @@ local units = import 'units.libsonnet';
         2=North Asia, 3=Australasia, 4=Africa, 5=South Asia, 6=South America,
         7=North America).
       |||,
+      // TODO(schwehr): Use gee:classes
       type:: ee_const.var_type.int,
     },
     {
@@ -477,7 +479,7 @@ local units = import 'units.libsonnet';
         The focal window size used to calculate urban_proportion.
         Values are 3 (3x3 pixel window size) or 5 (5x5 pixel window size).
       |||,
-      'gee:units': 'pixels',
+      'gee:units': units.pixel,
       type:: ee_const.var_type.int,
     },
     {
