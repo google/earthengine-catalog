@@ -17,11 +17,6 @@ The rules for schemas:
 - The description is a string from 3 to 1800 characters
 - It is best practice, but not required, to not repeat description strings
 
-- TODO(schwehr):
-  The units field is a string from the ALL_UNITS list.  In the future, it is
-  likely that this list will be merged with the band units and there needs to be
-  a glossary for units.
-
 Example schema in Jsonnet:
 
   summaries: {
@@ -39,6 +34,7 @@ import re
 from typing import Iterator
 
 from checker import stac
+from checker import units
 
 GEE_SCHEMA = 'gee:schema'
 SUMMARIES = 'summaries'
@@ -51,9 +47,6 @@ UNITS = 'units'
 REQUIRED_KEYS = frozenset({DESCRIPTION, NAME, TYPE})
 OPTIONAL_KEYS = frozenset({UNITS})
 ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
-
-ALL_UNITS = [
-    'cm', 'deg', 'GHz', 'kt', 'm', 'm^2', 'mbar', 'M (nautical mile)']
 
 MAX_SCHEMA_SIZE = 300
 
@@ -147,15 +140,15 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
 
       if UNITS in entry:
-        units = entry[UNITS]
-        if not isinstance(units, str):
+        schema_units = entry[UNITS]
+        if not isinstance(schema_units, str):
           yield cls.new_issue(node, 'Units must be a str')
         else:
-          size = len(units)
+          size = len(schema_units)
           if size < 1:
             yield cls.new_issue(node, f'{UNITS} too short: {size}')
           elif size > 20:
             yield cls.new_issue(node, f'{UNITS} too long: {size}')
 
-          if units not in ALL_UNITS:
-            yield cls.new_issue(node, f'Schema units unknown: {units}')
+          if schema_units not in units.UNITS:
+            yield cls.new_issue(node, f'Schema units unknown: {schema_units}')

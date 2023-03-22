@@ -85,6 +85,7 @@ import re
 from typing import Iterator
 
 from checker import stac
+from checker import units
 
 EXTENSION_VERSION = '1.0.0'
 
@@ -175,33 +176,9 @@ MAX_BANDS = 500
 MAX_GSD = 3e5
 POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 
-# TODO(schwehr): Load this from units.libsonnet
-UNITS_LIBSONNET = frozenset({
-    '1 (area fraction)',
-    '1 (mass fraction)',
-    '1 (volume fraction)',
-    'cm',
-    'd',
-    'Dobson',
-    'deg',
-    'h',
-    'h/km^2',
-    'K',
-    'km',
-    'm',
-    'mbar',
-    'mm',
-    'm/s',
-    'min',
-    'pixel',
-    'psu',
-    'rad',
-    '%',
-    '°C',
-    'μm',
-})
-
-UNITS = UNITS_LIBSONNET.union({
+# TODO(b/198646525): Migrate these units to ../units.py as they units get
+# added to units.libsonnet.
+UNITS = units.UNITS.union({
     '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
     'Class', 'Coefficient of Variation', 'DN', 'DU',
     'Degrees clockwise from North', 'Dimensionless',
@@ -471,11 +448,12 @@ class Check(stac.NodeCheck):
                 ', '.join(sorted(POLARIZATIONS)))
 
       if GEE_UNITS in band:
-        units = band[GEE_UNITS]
-        if not isinstance(units, str):
+        gee_units = band[GEE_UNITS]
+        if not isinstance(gee_units, str):
           yield cls.new_issue(node, f'{name} {GEE_UNITS} must be a str')
-        elif units not in UNITS:
-          yield cls.new_issue(node, f'{name} {GEE_UNITS} not known: {units}')
+        elif gee_units not in UNITS:
+          yield cls.new_issue(
+              node, f'{name} {GEE_UNITS} not known: {gee_units}')
 
       if GEE_WAVELENGTH in band:
         wavelength = band[GEE_WAVELENGTH]
