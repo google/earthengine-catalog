@@ -4,6 +4,7 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -98,13 +99,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'max_wind_kts',
         description: 'Maximum wind speed',
         type: ee_const.var_type.double,
-        units: 'knots',
+        units: units.knot,
       },
       {
         name: 'min_pressure',
         description: 'Minimum pressure',
         type: ee_const.var_type.double,
-        units: 'millibars',
+        units: units.millibar,
       },
       {
         name: 'numEntries',
@@ -115,73 +116,73 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'radii_ne_34kt',
         description: '34 kt wind radii maximum extent in northeastern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_se_34kt',
         description: '34 kt wind radii maximum extent in southeastern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_sw_34kt',
         description: '34 kt wind radii maximum extent in southwestern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_nw_34kt',
         description: '34 kt wind radii maximum extent in northwestern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_ne_50kt',
         description: '50 kt wind radii maximum extent in northeastern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_se_50kt',
         description: '50 kt wind radii maximum extent in southeastern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_sw_50kt',
         description: '50 kt wind radii maximum extent in southwestern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_nw_50kt',
         description: '50 kt wind radii maximum extent in northwestern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_ne_64kt',
         description: '64 kt wind radii maximum extent in northeastern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_se_64kt',
         description: '64 kt wind radii maximum extent in southeastern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_sw_64kt',
         description: '64 kt wind radii maximum extent in southwestern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'radii_nw_64kt',
         description: '64 kt wind radii maximum extent in northwestern quadrant',
         type: ee_const.var_type.double,
-        units: 'nautical miles',
+        units: units.nautical_mile,
       },
       {
         name: 'basin',

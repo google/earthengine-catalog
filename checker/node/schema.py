@@ -52,8 +52,8 @@ REQUIRED_KEYS = frozenset({DESCRIPTION, NAME, TYPE})
 OPTIONAL_KEYS = frozenset({UNITS})
 ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
-# TODO(schwehr): The entire catalog needs a master table of units.
-# ALL_UNITS = ['cm', 'knots', 'm', 'm^2', 'millibars', 'nautical miles']
+ALL_UNITS = [
+    'cm', 'deg', 'GHz', 'kt', 'm', 'm^2', 'mbar', 'M (nautical mile)']
 
 MAX_SCHEMA_SIZE = 300
 
@@ -157,6 +157,5 @@ class Check(stac.NodeCheck):
           elif size > 20:
             yield cls.new_issue(node, f'{UNITS} too long: {size}')
 
-          # TODO(schwehr): turn on a more stringent units check later.
-          # if units not in ALL_UNITS:
-          #   yield cls.new_issue(node, f'Units unknown: {units}')
+          if units not in ALL_UNITS:
+            yield cls.new_issue(node, f'Schema units unknown: {units}')

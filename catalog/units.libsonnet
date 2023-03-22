@@ -19,6 +19,9 @@
   // Example: m^2 / m^2
   area_fraction: '1 (area fraction)',
 
+  // https://en.wikipedia.org/wiki/Bar_(unit)
+  millibar: 'mbar',
+
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '°C',
 
@@ -28,6 +31,12 @@
   // https://en.wikipedia.org/wiki/Dobson_unit
   dobson: 'Dobson',
 
+  // https://en.wikipedia.org/wiki/Degree_(angle)
+  degree: 'deg',
+
+  // https://en.wikipedia.org/wiki/Hertz
+  giga_hertz: 'GHz',
+
   // https://en.wikipedia.org/wiki/Hour
   hour: 'h',
 
@@ -36,6 +45,9 @@
 
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
+
+  // https://simple.wikipedia.org/wiki/Knot_(speed)
+  knot: 'kt',
 
   // https://en.wikipedia.org/wiki/Mass_fraction_(chemistry)
   mass_fraction: '1 (mass fraction)',
@@ -49,6 +61,9 @@
 
   // https://en.wikipedia.org/wiki/Minute
   minute: 'min',
+
+  // https://en.wikipedia.org/wiki/Nautical_mile
+  nautical_mile: 'M (nautical mile)',
 
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
