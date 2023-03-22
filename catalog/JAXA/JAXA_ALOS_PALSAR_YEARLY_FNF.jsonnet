@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Forest/Non-Forest Map',
+  title: 'Global 3-class PALSAR-2/PALSAR Forest/Non-Forest Map',
   'gee:type': ee_const.gee_type.image_collection,
   # TODO(simonf): add version links between this and FNF4 dataset
   # once reprocessed data for earlier years are released and ingested.
