@@ -192,6 +192,7 @@ UNITS_LIBSONNET = frozenset({
     'm/s',
     'min',
     'psu',
+    'rad',
     '%',
     '°C',
     'μm',
@@ -225,7 +226,7 @@ UNITS = UNITS_LIBSONNET.union({
     'mm d-1', 'mm, daily total', 'mm/day', 'mm/hr', 'mm/pentad',
     'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
     'nanoWatts/cm2/sr', 'occurrence', 'pixels', 'ppm',
-    'radians', 'seconds', 'sr-1', 'ug m-3', 'μm',
+    'seconds', 'sr-1', 'ug m-3', 'μm',
 })
 
 

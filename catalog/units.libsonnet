@@ -56,6 +56,9 @@
   // https://en.wikipedia.org/wiki/Salinity
   practical_salinity_unit: 'psu',
 
+  // https://en.wikipedia.org/wiki/Radians
+  radian: 'rad',
+
   // https://en.wikipedia.org/wiki/Velocity
   velocity_si: 'm/s',
 

@@ -315,7 +315,7 @@ local units = import 'units.libsonnet';
         Azimuth in radians of the unit pointing vector for the laser in the
         local ENU frame. The angle is measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
     {
@@ -324,7 +324,7 @@ local units = import 'units.libsonnet';
         Elevation in radians of the unit pointing vector for the laser in the
         local ENU frame. The angle is measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
   ],
