@@ -285,7 +285,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'vegetation_greenness_fraction',
         description: |||
-          Vegetation “greenness” or fraction of transpiring leaves
+          Vegetation "greenness" or fraction of transpiring leaves
           averaged over the land area* of the grid cell.
         |||,
       },

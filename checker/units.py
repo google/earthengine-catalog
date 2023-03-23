@@ -31,6 +31,6 @@ UNITS = {
     'pixel',
     'psu',
     'rad',
-    '°C',
-    'μm',
+    '&deg;C',
+    '&micro;m',
 }

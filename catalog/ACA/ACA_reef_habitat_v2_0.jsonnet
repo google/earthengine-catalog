@@ -39,7 +39,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   'gee:type': ee_const.gee_type.image,
   description: |||
     The [Allen Coral Atlas](https://allencoralatlas.org/) dataset maps the geomorphic
-    zonation and benthic habitat for the world’s shallow coral reefs at 5 m pixel
+    zonation and benthic habitat for the world's shallow coral reefs at 5 m pixel
     resolution. Also included is a global reef extent product that maps additional
     reef areas unable to be explicitly included in the geomorphic and benthic mapping.
     The underlying satellite image data are temporal composites of [PlanetScope

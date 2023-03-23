@@ -23,7 +23,7 @@
   millibar: 'mbar',
 
   // https://en.wikipedia.org/wiki/Celsius
-  celsius: '°C',
+  celsius: '&deg;C',
 
   // https://en.wikipedia.org/wiki/Day
   day: 'd',
@@ -56,7 +56,7 @@
   meters: 'm',
   centimeter: 'cm',
   kilometer: 'km',
-  micrometer: 'μm',
+  micrometer: '&micro;m',
   millimeter: 'mm',
 
   // https://en.wikipedia.org/wiki/Minute

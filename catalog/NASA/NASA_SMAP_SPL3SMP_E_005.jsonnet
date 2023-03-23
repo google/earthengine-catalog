@@ -336,7 +336,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     {
       citation: |||
         Entekhabi et al., 2014
-        D. Entekhabi, S. Yueh, P. O'Neill, K. Kellogg et al. SMAP Handbook –
+        D. Entekhabi, S. Yueh, P. O'Neill, K. Kellogg et al. SMAP Handbook -
         Soil Moisture Active Passive: Mapping Soil Moisture and Freeze/thaw From
         Space. SMAP Project, Jet Propulsion Laboratory, Pasadena, CA (2014)
         [SMAP Handbook](https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf)
@@ -347,11 +347,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         Chan, S. K., R. Bindlish, P. E. O'Neill, E. Njoku, T. Jackson,
         A. Colliander, F. Chen, M. Burgin, S. Dunbar, J. Piepmeier, S. Yueh,
         D. Entekhabi, M. H. Cosh, T. Caldwell, J. Walker, X. Wu, A. Berg,
-        T. Rowlandson, A. Pacheco, H. McNairn, M. Thibeault, J. Martinez-Fernandez,
-        A. Gonzalez-Zamora, M. Seyfried, D. Bosch, P. Starks, D. Goodrich,
-        J. Prueger, M. Palecki, E. E. Small, M. Zreda, J.-C. Calvet, W. T. Crow,
-        and Y. Kerr. 2016. "Assessment of the SMAP Passive Soil Moisture Product"
-        IEEE Transactions on Geoscience and Remote Sensing, 54 (8): 4994-5007
+        T. Rowlandson, A. Pacheco, H. McNairn, M. Thibeault,
+        J. Martinez-Fernandez, A. Gonzalez-Zamora, M. Seyfried, D. Bosch,
+        P. Starks, D. Goodrich, J. Prueger, M. Palecki, E. E. Small, M. Zreda,
+        J.-C. Calvet, W. T. Crow, and Y. Kerr. 2016. "Assessment of the SMAP
+        Passive Soil Moisture Product" IEEE Transactions on Geoscience and
+        Remote Sensing, 54 (8): 4994-5007
         [10.1109/tgrs.2016.2561938](https://doi.org/10.1109/tgrs.2016.2561938)
       |||,
       doi: '10.1109/tgrs.2016.2561938',
@@ -359,13 +360,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     {
       citation: |||
         Chan, S., R. Bindlish, P. O'Neill, T. Jackson, E. Njoku, S. Dunbar,
-        J. Chaubell, J. Piepmeier, S. Yueh, D. Entekhabi, A. Colliander, F. Chen,
-        M. Cosh, T. Caldwell, J. Walker, A. Berg, H. McNairn, M. Thibeault,
-        J. Martínez-Fernández, F. Uldall, M. Seyfried, D. Bosch, P. Starks,
-        C. Holifield Collins, J. Prueger, R. van der Velde, J. Asanuma,
-        M. Palecki, E. Small, M. Zreda, J. Calvet, W. Crow, and Y. Kerr. 2018.
-        "Development and assessment of the SMAP enhanced passive soil moisture
-        product." Remote Sensing of Environment, 204: 931-941
+        J. Chaubell, J. Piepmeier, S. Yueh, D. Entekhabi, A. Colliander,
+        F. Chen, M. Cosh, T. Caldwell, J. Walker, A. Berg, H. McNairn,
+        M. Thibeault, J. Mart&iacute;nez-Fern&aacute;ndez, F. Uldall,
+        M. Seyfried, D. Bosch, P. Starks, C. Holifield Collins, J. Prueger,
+        R. van der Velde, J. Asanuma, M. Palecki, E. Small, M. Zreda, J. Calvet,
+        W. Crow, and Y. Kerr. 2018.  "Development and assessment of the SMAP
+        enhanced passive soil moisture product." Remote Sensing of Environment,
+        204: 931-941
         [10.1016/j.rse.2017.08.025](https://doi.org/10.1016/j.rse.2017.08.025)
       |||,
       doi: '10.1016/j.rse.2017.08.025',
