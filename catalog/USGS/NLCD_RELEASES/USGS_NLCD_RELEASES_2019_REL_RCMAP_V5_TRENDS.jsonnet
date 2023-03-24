@@ -1,5 +1,5 @@
-local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
-local subdir = 'USGS/NLCD_RELEASES';
+local id = 'USGS/2019_REL/RCMAP/V5/TRENDS';
+local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -9,8 +9,6 @@ local license = spdx.cc0_1_0;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
@@ -77,7 +75,7 @@ local self_url = catalog_subdir_url + base_filename;
     'landsat_derived',
     'nlcd',
     'rangeland',
-    'trends statistics',
+    'trends',
   ],
   providers: [
     ee.producer_provider(
@@ -95,8 +93,6 @@ local self_url = catalog_subdir_url + base_filename;
     interval: 1,
   },
   summaries: {
-  },
-  ],
     gsd: [
       30,
     ],
