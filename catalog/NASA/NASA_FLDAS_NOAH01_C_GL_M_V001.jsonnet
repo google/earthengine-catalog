@@ -209,7 +209,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SWE_inst',
         description: 'Snow water equivalent',
-        'gee:units': 'kg m-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Swnet_tavg',

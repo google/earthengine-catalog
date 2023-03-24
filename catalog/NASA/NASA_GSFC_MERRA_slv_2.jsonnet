@@ -193,22 +193,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TOX',
         description: 'Total column odd oxygen',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TQI',
         description: 'Total precipitable ice water',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TQL',
         description: 'Total precipitable liquid water',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TQV',
         description: 'Total precipitable water vapor',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TROPPB',

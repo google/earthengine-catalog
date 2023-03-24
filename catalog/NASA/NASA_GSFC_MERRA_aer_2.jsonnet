@@ -4,6 +4,8 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -78,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'BCCMASS',
         description: 'Black carbon column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'BCEXTTAU',
@@ -106,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DMSCMASS',
         description: 'Dms column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'DMSSMASS',
@@ -120,12 +122,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DUCMASS25',
         description: 'Dust column mass density - PM2.5',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'DUCMASS',
         description: 'Dust column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'DUEXTT25',
@@ -170,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'OCCMASS',
         description: 'Organic carbon column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'OCEXTTAU',
@@ -198,7 +200,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SO2CMASS',
         description: 'So2 column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SO2SMASS',
@@ -208,7 +210,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SO4CMASS',
         description: 'SO4 column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SO4SMASS',
@@ -222,12 +224,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SSCMASS25',
         description: 'Sea salt column mass density - PM2.5',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SSCMASS',
         description: 'Sea salt column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SSEXTT25',

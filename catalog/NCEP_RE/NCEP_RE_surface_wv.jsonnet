@@ -4,6 +4,7 @@ local subdir = 'NCEP_RE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -60,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pr_wtr',
         description: 'Total column water vapor',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
     ],
     'gee:visualizations': [

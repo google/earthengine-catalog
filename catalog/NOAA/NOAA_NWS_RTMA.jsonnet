@@ -119,7 +119,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ACPC01',
         description: 'Total precipitation',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
     ],
     'gee:visualizations': [

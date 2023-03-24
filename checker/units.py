@@ -20,6 +20,7 @@ UNITS = {
     'deg',
     'h',
     'h/km^2',
+    'kg/m^2',
     'km',
     'kt',
     'm',

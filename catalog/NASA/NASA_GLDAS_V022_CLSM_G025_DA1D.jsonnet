@@ -117,7 +117,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CanopInt_tavg',
         description: 'Plant canopy surface water',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'ECanop_tavg',
@@ -192,22 +192,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SoilMoist_P_tavg',
         description: 'Profile Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SoilMoist_RZ_tavg',
         description: 'Root Zone Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SoilMoist_S_tavg',
         description: 'Surface Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SWE_tavg',
         description: 'Snow depth water equivalent',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Swnet_tavg',

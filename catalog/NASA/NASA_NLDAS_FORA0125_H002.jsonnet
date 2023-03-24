@@ -142,12 +142,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'potential_evaporation',
         description: 'Potential evaporation: from NARR',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_precipitation',
         description: 'Hourly total precipitation',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'shortwave_radiation',

@@ -154,7 +154,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Cloud_water_entire_atmosphere_single_layer',
         description: 'Cloud water at entire atmosphere layer for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Cloud_Work_Function_entire_atmosphere_single_layer_3_Hour_Average',
@@ -182,7 +182,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Convective_precipitation_surface_3_Hour_Accumulation',
         description: 'Convective precipitation 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Direct_Evaporation_from_Bare_Soil_surface_3_Hour_Average',
@@ -315,7 +315,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Plant_Canopy_Surface_Water_surface',
         description: 'Plant Canopy Surface Water at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Planetary_Boundary_Layer_Height_surface',
@@ -340,12 +340,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Precipitable_water_entire_atmosphere_single_layer',
         description: 'Precipitable water at entire atmosphere layer for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Precipitable_water_pressure_difference_layer',
         description: 'Precipitable water at specified pressure difference from ground to level layer for 00 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Pressure_msl',
@@ -395,7 +395,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Soil_moisture_content_depth_below_surface_layer',
         description: 'Soil moisture content at Depth below land surface layer for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Soil_type_surface',
@@ -405,7 +405,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Storm_Surface_Runoff_surface_3_Hour_Accumulation',
         description: 'Strom surface runoff 3 hour accumulation at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Sublimation_evaporation_from_snow_surface_3_Hour_Average',
@@ -475,7 +475,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Total_precipitation_surface_3_Hour_Accumulation',
         description: 'Total precipitation 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Transpiration_surface_3_Hour_Average',
@@ -550,12 +550,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Water_equivalent_of_accumulated_snow_depth_surface',
         description: 'Water equivalent of accumulated snow depth at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Water_runoff_surface_3_Hour_Accumulation',
         description: 'Water runoff 3 hour accumulation at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
     ],
     'gee:visualizations': [

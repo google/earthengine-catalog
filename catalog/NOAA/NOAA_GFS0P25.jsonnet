@@ -122,12 +122,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           added together from all forecasts starting from hour 0 (only for assets with
           forecast_hours > 0)
         |||,
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'precipitable_water_entire_atmosphere',
         description: 'Precipitable water for entire atmosphere',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_cloud_cover_entire_atmosphere',

@@ -120,7 +120,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           processing software when the baseline algorithm is used. The valid
           minimum and maximum below are subject to further analysis. AM overpass
         |||,
-        'gee:units': 'kg/m2',
+        'gee:units': units.area_density,
       },
       {
         name: 'retrieval_qual_flag_am',
@@ -184,7 +184,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           processing software when the baseline algorithm is used. The valid
           minimum and maximum below are subject to further analysis. PM overpass
         |||,
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'retrieval_qual_flag_pm',

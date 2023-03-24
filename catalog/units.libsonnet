@@ -15,6 +15,9 @@
 // TODO(b/198646525): Flush out the rest of the units
 
 {
+  // https://en.wikipedia.org/wiki/Area_density
+  area_density: 'kg/m^2',
+
   // Unitless fraction of area covering an area.
   // Example: m^2 / m^2
   area_fraction: '1 (area fraction)',

@@ -113,7 +113,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'swe',
         description: 'Snow water equivalent, the amount of water contained within the snowpack.',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'tmax',

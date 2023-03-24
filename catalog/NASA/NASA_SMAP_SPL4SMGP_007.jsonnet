@@ -151,7 +151,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
         name: 'snow_mass',
         description: 'Average snow mass (or snow water equivalent) over land
           fraction of grid cell',
-        'gee:units': 'kg m^-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'snow_depth',
