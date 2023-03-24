@@ -206,7 +206,7 @@ UNITS = units.UNITS.union({
     'mm, daily total', 'mm/hr', 'mm/pentad',
     'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
     'nanoWatts/cm2/sr', 'occurrence', 'ppm',
-    'seconds', 'sr-1', 'ug m-3', 'μm',
+    'seconds', 'sr-1', 'ug m-3',
 })
 
 
