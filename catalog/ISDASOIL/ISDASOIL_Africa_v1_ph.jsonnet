@@ -125,7 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
-    Hengl, T., Miller, M.A.E., Križan, J., et al. African soil properties and nutrients
+    Hengl, T., Miller, M.A.E., Kri&zcaron;an, J., et al. African soil properties and nutrients
     mapped at 30 m spatial resolution using two-scale ensemble machine learning.
     Sci Rep 11, 6130 (2021).
     [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)

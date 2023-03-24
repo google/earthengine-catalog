@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The DN values can be converted to gamma naught values
     in decibel unit (dB) using the following equation:
 
-      *    γ₀ = 10log₁₀(DN²) - 83.0 dB
+      *    &#947;&#8320; = 10log&#8321;&#8320;(DN&#178;) - 83.0 dB
 
     Attention:
 

@@ -90,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.412,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.402 - 0.422μm',
+        'gee:wavelength': '0.402 - 0.422&micro;m',
       },
       {
         name: 'M2',
@@ -98,7 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.445,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.436 - 0.454μm',
+        'gee:wavelength': '0.436 - 0.454&micro;m',
       },
       {
         name: 'M3',
@@ -106,7 +106,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.483,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.478 - 0.488μm',
+        'gee:wavelength': '0.478 - 0.488&micro;m',
       },
       {
         name: 'M4',
@@ -114,7 +114,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.555,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.545 - 0.565μm',
+        'gee:wavelength': '0.545 - 0.565&micro;m',
       },
       {
         name: 'M5',
@@ -122,7 +122,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.672,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.662 - 0.682μm',
+        'gee:wavelength': '0.662 - 0.682&micro;m',
       },
       {
         name: 'M7',
@@ -130,7 +130,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.866,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.846 - 0.885μm',
+        'gee:wavelength': '0.846 - 0.885&micro;m',
       },
       {
         name: 'M8',
@@ -138,7 +138,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 1.24,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '1.230 - 1.250μm',
+        'gee:wavelength': '1.230 - 1.250&micro;m',
       },
       {
         name: 'M10',
@@ -146,7 +146,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 1.61,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '1.580 - 1.640μm',
+        'gee:wavelength': '1.580 - 1.640&micro;m',
       },
       {
         name: 'M11',
@@ -154,7 +154,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 2.25,
         gsd: 1000.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '2.230 - 2.280μm',
+        'gee:wavelength': '2.230 - 2.280&micro;m',
       },
       {
         name: 'I1',
@@ -162,7 +162,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.64,
         gsd: 500.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.600 - 0.680μm',
+        'gee:wavelength': '0.600 - 0.680&micro;m',
       },
       {
         name: 'I2',
@@ -170,7 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 0.865,
         gsd: 500.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '0.850 - 0.880μm',
+        'gee:wavelength': '0.850 - 0.880&micro;m',
       },
       {
         name: 'I3',
@@ -178,7 +178,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         center_wavelength: 1.61,
         gsd: 500.0,
         'gee:scale': 0.0001,
-        'gee:wavelength': '1.580 - 1.640μm',
+        'gee:wavelength': '1.580 - 1.640&micro;m',
       },
       {
         name: 'SensorAzimuth',

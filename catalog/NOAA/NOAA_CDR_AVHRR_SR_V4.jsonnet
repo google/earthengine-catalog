@@ -113,7 +113,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: 'Bidirectional surface reflectance',
         center_wavelength: 3.75,
         'gee:scale': 0.0001,
-        'gee:wavelength': '3.75μm',
+        'gee:wavelength': '3.75&micro;m',
       },
       {
         name: 'BT_CH3',
@@ -121,7 +121,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         'gee:units': units.kelvin,
         center_wavelength: 3.75,
         'gee:scale': 0.1,
-        'gee:wavelength': '3.75μm',
+        'gee:wavelength': '3.75&micro;m',
       },
       {
         name: 'BT_CH4',
@@ -129,7 +129,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         'gee:units': units.kelvin,
         center_wavelength: 11.0,
         'gee:scale': 0.1,
-        'gee:wavelength': '11.0μm',
+        'gee:wavelength': '11.0&micro;m',
       },
       {
         name: 'BT_CH5',
@@ -137,7 +137,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         'gee:units': units.kelvin,
         center_wavelength: 12.0,
         'gee:scale': 0.1,
-        'gee:wavelength': '12.0μm',
+        'gee:wavelength': '12.0&micro;m',
       },
       {
         name: 'TIMEOFDAY',

@@ -188,7 +188,7 @@ UNITS = units.UNITS.union({
     'N/m^2', 'NFDRS fire danger index', 'Number of people/ha',
     'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s',
     'Quality Flag', 'Reflectance factor', 'W m**-2',
-    'W m-2', 'W m^-2 sr^-1 μm^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
+    'W m-2', 'W m^-2 sr^-1 &micro;m^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cmol(+)/kg', 'count',
     'counts/day', 'dB', 'deg true', 'degree', 'degree C', 'degrees',
     'fraction', 'g/cm^3', 'g/kg', 'g/m^2',

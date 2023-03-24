@@ -29,9 +29,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Record (CDR) of global infrared measurements from geostationary satellites.
 
     The geostationary satellite data (GridSat-B1) provides data from 3
-    channels: the CDR-quality infrared window (IRWIN) channel (near 11μm),
-    the visible channel (near 0.6μm) and the infrared water vapor (IRWVP)
-    channel (near 6.7μm). The GridSat-B1 data is projected onto a global
+    channels: the CDR-quality infrared window (IRWIN) channel (near 11&micro;m),
+    the visible channel (near 0.6&micro;m) and the infrared water vapor (IRWVP)
+    channel (near 6.7&micro;m). The GridSat-B1 data is projected onto a global
     0.07 degree latitude equal-angle grid with date coverage spanning from
     1980-present. This data is sourced from the 3-hourly International Satellite
     Cloud Climatology Project (ISCCP) B1 data. The satellites included in this
@@ -122,14 +122,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'irwin_cdr',
-        description: 'Brightness temperature near 11μm, nadir-most observation',
+        description: 'Brightness temperature near 11&micro;m, nadir-most observation',
         'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'irwin_2',
-        description: 'Brightness temperature near 11μm, second-best observation\n(based on view zenith angle)',
+        description: 'Brightness temperature near 11&micro;m, second-best observation\n(based on view zenith angle)',
         'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
@@ -143,27 +143,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'irwvp',
-        description: 'Brightness temperature near 6.7μm, nadir-most observation',
+        description: 'Brightness temperature near 6.7&micro;m, nadir-most observation',
         'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'irwvp_2',
-        description: 'Brightness temperature near 6.7μm, second-best observation\nbased on view zenith angle',
+        description: 'Brightness temperature near 6.7&micro;m, second-best observation\nbased on view zenith angle',
         'gee:units': units.kelvin,
         'gee:scale': 0.01,
         'gee:offset': 200.0,
       },
       {
         name: 'vschn',
-        description: 'Visible reflectance near 0.6μm, nadir-most observation',
+        description: 'Visible reflectance near 0.6&micro;m, nadir-most observation',
         'gee:scale': 4e-05,
         'gee:offset': 1.0,
       },
       {
         name: 'vschn_2',
-        description: 'Visible reflectance near 0.6μm, second-best observation\nbased on view zenith angle',
+        description: 'Visible reflectance near 0.6&micro;m, second-best observation\nbased on view zenith angle',
         'gee:scale': 4e-05,
         'gee:offset': 1.0,
       },

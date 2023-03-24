@@ -27,7 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     temperature data (MOD11A2), which was gap-filled using the approach
     outlined in Weiss et al. (2014) to eliminate missing data caused by factors
     such as cloud cover. Gap-free outputs were then aggregated temporally and
-    spatially to produce the monthly ≈5km product.
+    spatially to produce the monthly &asymp;5km product.
 
     This dataset was produced by Harry Gibson and Daniel Weiss of the
     Malaria Atlas Project (Big Data Institute, University of Oxford,

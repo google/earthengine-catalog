@@ -102,7 +102,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
         description: |||
           Height above sea level. Signed 16 bits.
           Elevation (in meter) converted from the ellipsoidal height based on ITRF97
-          and GRS80, using EGM96†1 geoid model.
+          and GRS80, using EGM96&#8224;1 geoid model.
         |||,
       },
       {

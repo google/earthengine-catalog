@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     The underlying dataset for this landcover product is the IGBP layer found
     within the MODIS annual landcover product (MCD12Q1). This data was
-    converted from its categorical format, which has a ≈500 meter resolution,
+    converted from its categorical format, which has a &asymp;500 meter resolution,
     to a fractional product indicating the integer percentage (0-100) of the
     output pixel covered by each of the 17 landcover classes (1 per band).
 
