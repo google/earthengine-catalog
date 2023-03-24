@@ -59,6 +59,9 @@
   micrometer: '&micro;m',
   millimeter: 'mm',
 
+  // Typically used for evaporation.
+  millimeter_per_day: 'mm/d',
+
   // https://en.wikipedia.org/wiki/Minute
   minute: 'min',
 

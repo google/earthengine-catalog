@@ -203,7 +203,7 @@ UNITS = units.UNITS.union({
     'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^3',
     'meq/100g', 'meter/year', 'mg m-3',
     'mg/m^3', 'millibars', 'min. into half hour', 'minutes/meter',
-    'mm d-1', 'mm, daily total', 'mm/day', 'mm/hr', 'mm/pentad',
+    'mm, daily total', 'mm/hr', 'mm/pentad',
     'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
     'nanoWatts/cm2/sr', 'occurrence', 'ppm',
     'seconds', 'sr-1', 'ug m-3', 'μm',

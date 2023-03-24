@@ -28,6 +28,7 @@ UNITS = {
     'mbar',
     'min',
     'mm',
+    'mm/d',
     'pixel',
     'psu',
     'rad',
