@@ -77,7 +77,7 @@ local self_url = catalog_subdir_url + base_filename;
     'landsat_derived',
     'nlcd',
     'rangeland',
-    'trends',
+    'trends statistics',
   ],
   providers: [
     ee.producer_provider(
@@ -89,38 +89,62 @@ local self_url = catalog_subdir_url + base_filename;
       -125.0683594, 28.45903302, -101.0742188, 49.32512199,
       '1985-01-01T00:00:00Z',
       '2021-12-31T00:00:00Z'),
-  'sci:citation': |||
-
-    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition
-    Monitoring Assessment and Projection (RCMAP) Fractional Component
-    Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data
-    release.
-    [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
-  |||,
-  'gee:user_uploaded': true,
-  'gee:terms_of_use': |||
-    This work was authored as part of the Contributor's official duties as an
-    Employee of the United States Government and is therefore a work of the
-    United States Government. In accordance with 17 U.S.C. 105, no copyright
-    protection is available for such works under U.S. Law. This is an Open
-    Access article that has been identified as being free of known restrictions
-    under copyright law, including all related and neighboring rights
-    (https://creativecommons.org/publicdomain/mark/1.0/). You can copy, modify,
-    distribute and perform the work, even for commercial purposes, all without
-    asking permission.
-  |||,
   'gee:interval': {
     type: 'cadence',
     unit: 'year',
     interval: 1,
   },
   summaries: {
+  },
+  ],
     gsd: [
-      30
+      30,
+    ],
+    'eo:bands': [
+      {
+        name: 'Break Point Count',
+        description: 'Number of structural breaks observed in the time-series',
+        'gee:units': 'number',
+      },
+      {
+        name: 'P-Value of Linear Model',
+        description: 'P-value of linear trends model × 100',
+        'gee:units': 'confidence',
+      },
+      {
+        name: 'Slope of Linear Model',
+        description: 'Slope of linear trends model, given in units of % change/year × 100',
+        'gee:units': 'units of percent change per year',
+      },
+      {
+        name: 'Year of Most Recent Break',
+        description: 'Year of most recent break in the time-series for each component',
+        'gee:units': 'year',
+      },
+      {
+        name: 'Total Change Intensity Index',
+        description: 'Total Change Intensity is a derivative index, designed to highlight the total amount of change across primary components (shrub, bare ground, litter, and herbaceous). Change is reflective of the slope values from the structural change analysis. Values are indexed so that the maximum observed change across all components and no change equaled 100 and 0, respectively',
+        'gee:units': 'index',
+      },
+      {
+        name: 'Break Point Presence/Absence in each year for each component area',
+        description: 'Presence/absence of structural breaks in each component each year',
+        'gee:units': 'year',
+      },
+      {
+        name: 'P-Value of Segment in each year for each component area',
+        description: 'P-value of structural breaks segment × 100',
+        'gee:units': 'confidence',
+      },
+      {
+        name: 'Slope of Segment in each year for each component area',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100',
+        'gee:units': 'units of percent change per year',
+      },
     ],
     'gee:visualizations': [
       {
-        display_name: 'bp_count integer',
+        display_name: 'Break Point Count',
         lookat: {
           lat: 38,
           lon: -114,
@@ -238,93 +262,70 @@ local self_url = catalog_subdir_url + base_filename;
               '01297a'
             ],
             bands: [
-              'bp_count',
+              'Break Point Count',
             ],
           },
         },
       },
     ],
-    'eo:bands': [
-      {
-        name: 'bp_count',
-        description: 'Break Point Count',
-        'gee:units': 'int8',
-      },
-      {
-        name: 'pvalue_linear',
-        description: 'P-Value of Linear Model',
-        'gee:units': 'int8',
-      },
-      {
-        name: 'slope_linear',
-        description: 'Slope of Linear Model',
-        'gee:units': 'int16',
-      },
-      {
-        name: 'total_change_intensity_index',
-        description: 'Total Change Intensity Index',
-        'gee:units': 'int8',
-      },
-      {
-        name: 'year_recent_break',
-        description: 'Year of Most Recent Break',
-        'gee:units': 'int16',
-      },
-      {
-        name: 'bp_year',
-        description: 'Break Point Presence/Absence in Each Year',
-        'gee:units': 'int1',
-      },
-      {
-        name: 'segment_pvalue',
-        description: 'P-Value of Segment in Each Year',
-        'gee:units': 'int8',
-      },
-      {
-        name: 'segment_slope',
-        description: 'Slope of Segment in Each Year',
-        'gee:units': 'int16',
-      },
-    ],
-    bp_count: {
+    Break Point Count: {
       minimum: 0,
       maximum: 3,
       'gee:estimated_range': false,
     },
-    pvalue_linear: {
+    P-Value of Linear Model: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    slope_linear: {
+    Slope of Linear Model: {
       minimum: -383,
       maximum: 351,
       'gee:estimated_range': false,
     },
-    total_change_intensity_index: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    year_recent_break: {
+    Year of Most Recent Break: {
       minimum: 1986,
       maximum: 2019,
       'gee:estimated_range': false,
     },
-    bp_year: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    segment_pvalue: {
+    Total Change Intensity Index: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    segment_slope: {
+    Break Point Presence/Absence in each year for each component area: {
+      minimum: 0,
+      maximum: 1,
+      'gee:estimated_range': false,
+    },
+    P-Value of Segment in each year for each component area: {
+      minimum: 0,
+      maximum: 100,
+      'gee:estimated_range': false,
+    },
+    Slope of Segment in each year for each component area: {
       minimum: -6185,
       maximum: 5724,
       'gee:estimated_range': false,
     },
   },
+   'sci:citation': |||
+    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition
+    Monitoring Assessment and Projection (RCMAP) Fractional Component
+    Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data
+    release.
+    [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
+  |||,
+  'gee:user_uploaded': true,
+  'gee:terms_of_use': |||
+    This work was authored as part of the Contributor's official duties as an
+    Employee of the United States Government and is therefore a work of the
+    United States Government. In accordance with 17 U.S.C. 105, no copyright
+    protection is available for such works under U.S. Law. This is an Open
+    Access article that has been identified as being free of known restrictions
+    under copyright law, including all related and neighboring rights
+    (https://creativecommons.org/publicdomain/mark/1.0/). You can copy, modify,
+    distribute and perform the work, even for commercial purposes, all without
+    asking permission.
+  |||,
 }
