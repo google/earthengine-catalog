@@ -9,8 +9,13 @@ https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
 UNITS = {
     '%',
     '1 (area fraction)',
+    '1 (count)',
+    '1 (confidence)',
     '1 (mass fraction)',
     '1 (volume fraction)',
+    'a',
+    'c%/a',
+    'class',
     'Dobson',
     'GHz',
     'K',

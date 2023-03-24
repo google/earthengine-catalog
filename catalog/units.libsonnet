@@ -14,6 +14,8 @@
 // TODO(b/198646525): All bands and schema should have units fields.
 // TODO(b/198646525): Flush out the rest of the units
 
+// DO NOT SUBMIT - add units
+
 {
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
