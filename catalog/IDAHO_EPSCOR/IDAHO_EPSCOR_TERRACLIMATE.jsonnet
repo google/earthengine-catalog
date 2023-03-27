@@ -106,13 +106,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'aet',
         description: 'Actual evapotranspiration, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
         name: 'def',
         description: 'Climate water deficit, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
@@ -123,23 +123,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pet',
         description: 'Reference evapotranspiration (ASCE Penman-Montieth)',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
         name: 'pr',
         description: 'Precipitation accumulation',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'ro',
         description: 'Runoff, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'soil',
         description: 'Soil moisture, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
@@ -151,7 +151,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'swe',
         description: 'Snow water equivalent, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'tmmn',

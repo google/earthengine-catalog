@@ -102,13 +102,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'EasternBias',
         description: 'Bias of easting error.',
         type: ee_const.var_type.double,
-        units: 'degrees',
+        units: units.degree,
       },
       {
         name: 'EasternSTDev',
         description: 'Standard deviation of easting error.',
         type: ee_const.var_type.double,
-        units: 'degree',
+        units: units.degree,
       },
       {
         name: 'Easting_LR',
@@ -160,13 +160,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'IncAngleFarRange',
         description: 'Incident angle in far range.',
         type: ee_const.var_type.double,
-        units: 'degree',
+        units: units.degree,
       },
       {
         name: 'IncAngleNearRange',
         description: 'Incident angle in near range.',
         type: ee_const.var_type.double,
-        units: 'degree',
+        units: units.degree,
       },
       {
         name: 'IonosphericDelayCorrectionApplied',
@@ -198,13 +198,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'NorthernBias',
         description: 'Bias of northing error.',
         type: ee_const.var_type.double,
-        units: 'degree',
+        units: units.degree,
       },
       {
         name: 'NorthernSTDev',
         description: 'Standard deviation of northing error.',
         type: ee_const.var_type.double,
-        units: 'degree',
+        units: units.degree,
       },
       {
         name: 'Northing_LR',
@@ -276,7 +276,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'RadarCenterFrequency',
         description: 'Center frequency.',
         type: ee_const.var_type.double,
-        units: 'GHz',
+        units: units.giga_hertz,
       },
       {
         name: 'RangePixelSpacing',
@@ -351,7 +351,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           direction and the normal of the slope.
         |||,
         'gee:scale': 0.01,
-        'gee:units': 'degree'
+        'gee:units': units.degree
       },
       {
         // TODO(simonf): we should add some basic SAR guide that explains

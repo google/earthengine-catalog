@@ -411,7 +411,7 @@ local successor_url = catalog_new_subdir_url + successor_filename;
       {
         name: 'shrubland_sagebrush_height',
         description: 'Average height of sagebrush. Included in NLCD2016.',
-        'gee:units': 'cms',
+        'gee:units': units.centimeter,
       },
       {
         name: 'shrubland_shrub',
@@ -421,7 +421,7 @@ local successor_url = catalog_new_subdir_url + successor_filename;
       {
         name: 'shrubland_shrub_height',
         description: 'Average height of shrubs. Included in NLCD2016.',
-        'gee:units': 'cms',
+        'gee:units': units.centimeter,
       },
     ],
     'gee:visualizations': [

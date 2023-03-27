@@ -4,15 +4,13 @@ local subdir = 'ECMWF';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -94,22 +92,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'total_column_nitrogen_dioxide_surface',
         description: 'Total column Nitrogen dioxide surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_sulphur_dioxide_surface',
         description: 'Total column Sulfur dioxide surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_carbon_monoxide_surface',
         description: 'Total column Carbon monoxide surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_formaldehyde_surface',
         description: 'Total column Formaldehyde surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'gems_total_column_ozone_surface',
@@ -177,32 +175,32 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'total_column__peroxyacetyl_nitrate_surface',
         description: 'Total column peroxyacetyl nitrate surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column__isoprene_surface',
         description: 'Total column isoprene surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_nitrogen_monoxide_surface',
         description: 'Total column nitrogen monoxide surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_hydrogen_peroxide_surface',
         description: 'Total column hydrogen peroxide surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_hydroxyl_radical_surface',
         description: 'Total column hydroxyl radical surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_methane_surface',
         description: 'Total column methane surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column__ethane_surface',
@@ -211,12 +209,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'total_column_propane_surface',
         description: 'Total column propane surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_column_nitric_acid_surface',
         description: 'Total column nitric acid surface',
-        'gee:units': 'kg m**-2',
+        'gee:units': units.area_density,
       },
     ],
     'gee:visualizations': [

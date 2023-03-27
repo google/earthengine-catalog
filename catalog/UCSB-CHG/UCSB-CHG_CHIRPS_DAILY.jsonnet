@@ -4,6 +4,7 @@ local subdir = 'UCSB-CHG';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -53,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'precipitation',
         description: 'Precipitation',
-        'gee:units': 'mm/day',
+        'gee:units': units.millimeter_per_day,
       },
     ],
     'gee:visualizations': [

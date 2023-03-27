@@ -98,7 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
-    D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligorić, S. Bavadekar,
+    D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori&cacute;, S. Bavadekar,
     E. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel,
     C. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi,
     S.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething.

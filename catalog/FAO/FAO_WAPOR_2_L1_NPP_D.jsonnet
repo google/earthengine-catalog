@@ -49,14 +49,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'L1_NPP_D',
-        description: 'Net Primary Production [g/m²]',
-        'gee:units': 'g/m²',
+        description: 'Net Primary Production',
+        'gee:units': 'g/m^2',
         'gee:scale': 0.001,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Net Primary Production [g/m²]',
+        display_name: 'Net Primary Production',
         lookat: {
           lat: 20.0,
           lon: 17.5,

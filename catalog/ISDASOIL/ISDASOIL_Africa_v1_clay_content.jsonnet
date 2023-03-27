@@ -11,9 +11,6 @@ local license = spdx.cc_by_4_0;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -129,7 +126,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
   },
   'sci:citation': |||
-    Hengl, T., Miller, M.A.E., Križan, J., et al. African soil properties and nutrients
+    Hengl, T., Miller, M.A.E., Kri&zcaron;an, J., et al. African soil properties and nutrients
     mapped at 30 m spatial resolution using two-scale ensemble machine learning.
     Sci Rep 11, 6130 (2021).
     [doi:10.1038/s41598-021-85639-y](https://doi.org/10.1038/s41598-021-85639-y)

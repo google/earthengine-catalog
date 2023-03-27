@@ -11,9 +11,6 @@ local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -99,7 +96,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'prcp',
         description: 'Daily total precipitation, sum of all forms converted to\nwater-equivalent.',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'srad',
@@ -109,7 +106,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'swe',
         description: 'Snow water equivalent, the amount of water contained within\nthe snowpack.',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'tmax',

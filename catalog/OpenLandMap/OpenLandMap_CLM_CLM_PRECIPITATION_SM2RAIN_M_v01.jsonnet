@@ -4,15 +4,13 @@ local subdir = 'OpenLandMap';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_sa_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -74,62 +72,62 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'jan',
         description: 'Jan Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'feb',
         description: 'Feb Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'mar',
         description: 'Mar Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'apr',
         description: 'Apr Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'may',
         description: 'May Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'jun',
         description: 'Jun Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'jul',
         description: 'Jul Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'aug',
         description: 'Aug Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'sep',
         description: 'Sep Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'oct',
         description: 'Oct Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'nov',
         description: 'Nov Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'dec',
         description: 'Dec Precipitation monthly',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [

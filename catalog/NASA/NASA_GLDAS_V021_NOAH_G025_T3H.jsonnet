@@ -11,9 +11,6 @@ local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -120,7 +117,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'CanopInt_inst',
         description: 'Plant canopy surface water',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'ECanop_tavg',
@@ -180,17 +177,17 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Qs_acc',
         description: 'Storm surface runoff',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Qsb_acc',
         description: 'Baseflow-groundwater runoff',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Qsm_acc',
         description: 'Snow melt',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Rainf_f_tavg',
@@ -205,12 +202,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'RootMoist_inst',
         description: 'Root zone soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SWE_inst',
         description: 'Snow depth water equivalent',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SWdown_f_tavg',
@@ -230,22 +227,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SoilMoi0_10cm_inst',
         description: 'Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SoilMoi10_40cm_inst',
         description: 'Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SoilMoi40_100cm_inst',
         description: 'Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SoilMoi100_200cm_inst',
         description: 'Soil moisture',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'SoilTMP0_10cm_inst',

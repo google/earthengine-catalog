@@ -125,7 +125,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Day_view_angl',
         description: 'View zenith angle of day observation',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:offset': -65.0,
       },
       {
@@ -244,7 +244,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Night_view_angl',
         description: 'View zenith angle of night observation',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:offset': -65.0,
       },
       {

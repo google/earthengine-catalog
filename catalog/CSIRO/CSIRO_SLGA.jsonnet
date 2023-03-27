@@ -49,9 +49,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|------|------------|
     | Bulk Density (whole earth)             | Bulk density of the whole soil (including coarse fragments) in mass per unit volume by a method equivalent to the core method | BDW  | 18         |
     | Organic Carbon                         | Mass fraction of carbon by weight in the < 2mm soil material as determined by dry combustion at 900 Celsius                   | SOC  | 18         |
-    | Clay                                   | < 2μm mass fraction of the <2mm soil material determined using the pipette method                                             | CLY  | 18         |
-    | Silt                                   | 2-20μm mass fraction of the < 2mm soil material determined using the pipette method                                           | SLT  | 18         |
-    | Sand                                   | 20μm - 2mm mass fraction of the < 2mm soil material determined using the pipette method                                       | SND  | 18         |
+    | Clay                                   | < 2&micro;m mass fraction of the <2mm soil material determined using the pipette method                                             | CLY  | 18         |
+    | Silt                                   | 2-20&micro;m mass fraction of the < 2mm soil material determined using the pipette method                                           | SLT  | 18         |
+    | Sand                                   | 20&micro;m - 2mm mass fraction of the < 2mm soil material determined using the pipette method                                       | SND  | 18         |
     | pH (CaCl2)                             | pH of 1:5 soil/0.01M calcium chloride extract                                                                                 | pHc  | 18         |
     | Available Water Capacity               | Available water capacity computed for each of the specified depth increments                                                  | AWC  | 18         |
     | Total Nitrogen                         | Mass fraction of total nitrogen in the soil by weight                                                                         | NTO  | 18         |

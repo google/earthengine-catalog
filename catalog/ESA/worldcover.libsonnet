@@ -7,7 +7,6 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
 
 {
   local collection_id(version) = 'ESA/WorldCover/' + version,
