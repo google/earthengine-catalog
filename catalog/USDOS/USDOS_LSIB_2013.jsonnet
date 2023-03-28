@@ -42,7 +42,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, basename + '_FeatureView'),
+    ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.successor(
         successor_id, catalog_subdir_url + successor_basename + '.json'),
   ],

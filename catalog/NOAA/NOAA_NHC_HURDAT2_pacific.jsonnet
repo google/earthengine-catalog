@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: 'Hurricane best track database (HURDAT2).\n\nPacific basin 1949-2018.',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, basename + '_FeatureView'),
+    ee.link.example(id, subdir, basename + '_FeatureView'),
     {
       rel: ee_const.rel.source,
       href: 'https://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2018-071519.txt',

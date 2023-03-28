@@ -59,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, basename + '_FeatureView'),
+    ee.link.example(id, subdir, basename + '_FeatureView'),
     {
       rel: ee_const.rel.source,
       href: 'ftp://ftp2.census.gov/geo/tiger/TIGER2016/COUNTY/tl_2016_us_county.zip',
