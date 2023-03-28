@@ -202,7 +202,7 @@ UNITS = units.UNITS.union({
     'm of water equivalent', 'm/s^2',
     'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^3',
     'meq/100g', 'meter/year', 'mg m-3',
-    'mg/m^3', 'millibars', 'min. into half hour', 'minutes/meter',
+    'mg/m^3', 'min. into half hour', 'minutes/meter',
     'mm, daily total', 'mm/hr', 'mm/pentad',
     'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
     'nanoWatts/cm2/sr', 'occurrence', 'ppm',
