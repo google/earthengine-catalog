@@ -36,7 +36,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://open.canada.ca/en/open-government-licence-canada'),
+    ee.link.license(license.reference),
     {
       rel: ee_const.rel.source,
       href: 'https://ftp.geogratis.gc.ca/pub/nrcan_rncan/elevation/cdem_mnec/',

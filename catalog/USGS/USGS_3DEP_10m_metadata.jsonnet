@@ -5,8 +5,10 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
-
+local license = spdx.proprietary {
+  reference:
+   'https://www.usgs.gov/information-policies-and-instructions/crediting-usgs',
+};
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -33,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, basename + '_FeatureView'),
-    ee.link.license('https://www.usgs.gov/information-policies-and-instructions/crediting-usgs'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     '3dep',

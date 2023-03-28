@@ -5,7 +5,9 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://edg.epa.gov/epa_data_license.html',
+};
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -63,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, basename + '_FeatureView'),
-    ee.link.license('https://edg.epa.gov/epa_data_license.html'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     'ecoregions',
