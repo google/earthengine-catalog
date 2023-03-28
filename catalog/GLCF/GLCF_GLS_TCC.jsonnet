@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.successor(
-        successor_id, ee_const.catalog_base + 'NASA/MEASURES/NASA_MEASURES_GFCC_TC_v3.json'),
+        successor_id, ee_const.catalog_base + 'NASA/NASA_MEASURES_GFCC_TC_v3.json'),
   ],
   keywords: [
     'forest',
