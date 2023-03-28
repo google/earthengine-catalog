@@ -382,7 +382,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PM25_RH35_GOCART',
         description: 'Total reconstructed PM2.5 RH 35',
-        'gee:units': 'kg m-3',
+        'gee:units': units.density_si,
       },
       {
         name: 'PM25bc_RH35_GCC',

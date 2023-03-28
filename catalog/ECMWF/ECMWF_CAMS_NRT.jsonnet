@@ -87,7 +87,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'particulate_matter_d_less_than_25_um_surface',
         description: 'Particulate matter d < 2.5 um',
-        'gee:units': 'kg m**-3',
+        'gee:units': units.density_si,
       },
       {
         name: 'total_column_nitrogen_dioxide_surface',
@@ -160,12 +160,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'particulate_matter_d_less_than_1_um_surface',
         description: 'Particulate matter d < 1 um surface',
-        'gee:units': 'kg m**-3',
+        'gee:units': units.density_si,
       },
       {
         name: 'particulate_matter_d_less_than_10_um_surface',
         description: 'Particulate matter d < 10 um surface',
-        'gee:units': 'kg m**-3',
+        'gee:units': units.density_si,
       },
       {
         name: 'uv_biologically_effective_dose_surface',

@@ -239,7 +239,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           model represents snow as a single additional layer over the uppermost soil level. The snow may
           cover all or part of the grid box.
         |||,
-        'gee:units': 'kg/m^3',
+        'gee:units': units.density_si,
       },
       {
         name: 'snow_depth',

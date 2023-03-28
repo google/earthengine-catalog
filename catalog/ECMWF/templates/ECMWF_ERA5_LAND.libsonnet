@@ -266,7 +266,7 @@ local flux = 'J/m^2';
         layer over the uppermost soil level. The snow may cover all or part of
         the grid box.
       |||,
-      units: 'kg/m^3',
+      units: units.density_si,
     },
     {
       name: 'snow_depth',

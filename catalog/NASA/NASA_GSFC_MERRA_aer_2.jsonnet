@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'BCSMASS',
         description: 'Black carbon surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'DMSCMASS',
@@ -113,7 +113,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DMSSMASS',
         description: 'Dms surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'DUANGSTR',
@@ -158,12 +158,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DUSMASS25',
         description: 'Dust surface mass concentration - PM2.5',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'DUSMASS',
         description: 'Dust surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'OCANGSTR',
@@ -195,7 +195,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'OCSMASS',
         description: 'Organic carbon surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'SO2CMASS',
@@ -205,7 +205,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SO2SMASS',
         description: 'So2 surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'SO4CMASS',
@@ -215,7 +215,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SO4SMASS',
         description: 'SO4 surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'SSANGSTR',
@@ -260,12 +260,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SSSMASS25',
         description: 'Sea salt surface mass concentration - PM2.5',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'SSSMASS',
         description: 'Sea salt surface mass concentration',
-        'gee:units': 'kg/(m^3)',
+        'gee:units': units.density_si,
       },
       {
         name: 'SUANGSTR',

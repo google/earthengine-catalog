@@ -37,6 +37,9 @@
   // https://en.wikipedia.org/wiki/Degree_(angle)
   degree: 'deg',
 
+  // https://en.wikipedia.org/wiki/Density
+  density_si: 'kg/m^3',
+
   // https://en.wikipedia.org/wiki/Hertz
   giga_hertz: 'GHz',
 
