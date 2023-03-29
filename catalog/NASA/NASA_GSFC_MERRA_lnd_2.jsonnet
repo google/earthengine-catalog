@@ -248,7 +248,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TELAND',
         description: 'Total energy storage land',
-        'gee:units': 'J/m^2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'TPSNOW',

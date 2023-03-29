@@ -347,7 +347,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           accumulated from the beginning of the forecast time to the end of the forecast step. By model
           convention, downward fluxes are positive.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_net_solar_radiation',
@@ -363,7 +363,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           (W m-2), the accumulated values should be divided by the accumulation period expressed in
           seconds. The ECMWF convention for vertical fluxes is positive downwards.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_net_thermal_radiation',
@@ -371,7 +371,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Net thermal radiation at the surface. Accumulated field from the beginning of the forecast
           time to the end of the forecast step. By model convention downward fluxes are positive.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_sensible_heat_flux',
@@ -387,7 +387,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           accumulated values should be divided by the accumulation period expressed in seconds. The ECMWF
           convention for vertical fluxes is positive downwards.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_solar_radiation_downwards',
@@ -406,7 +406,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           (W m-2), the accumulated values should be divided by the accumulation period expressed in
           seconds. The ECMWF convention for vertical fluxes is positive downwards.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_thermal_radiation_downwards',
@@ -420,7 +420,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           square meter (W m-2), the accumulated values should be divided by the accumulation period
           expressed in seconds. The ECMWF convention for vertical fluxes is positive downwards.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'evaporation_from_bare_soil',
@@ -627,22 +627,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'surface_latent_heat_flux_hourly',
         description: "Same as 'surface_latent_heat_flux' except not accumulated and only for the given forecast step.",
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_net_solar_radiation_hourly',
         description: "Same as 'surface_net_solar_radiation' except not accumulated and only for the given forecast step.",
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_net_thermal_radiation_hourly',
         description: "Same as 'surface_net_thermal_radiation' except not accumulated and only for the given forecast step.",
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_sensible_heat_flux_hourly',
         description: "Same as 'surface_sensible_heat_flux' except not accumulated and only for the given forecast step.",
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_solar_radiation_downwards_hourly',
@@ -650,7 +650,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Same as 'surface_solar_radiation_downwards' except not accumulated and
           only for the given forecast step.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'surface_thermal_radiation_downwards_hourly',
@@ -658,7 +658,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Same as 'surface_thermal_radiation_downwards' except not accumulated and
           only for the given forecast step.
         |||,
-        'gee:units': 'J/m2',
+        'gee:units': units.joules_per_meter2,
       },
       {
         name: 'evaporation_from_bare_soil_hourly',

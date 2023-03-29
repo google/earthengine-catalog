@@ -20,6 +20,7 @@ UNITS = {
     'deg',
     'h',
     'h/km^2',
+    'J/m^2',
     'kg/m^2',
     'kg/m^2/s',
     'kg/m^3',

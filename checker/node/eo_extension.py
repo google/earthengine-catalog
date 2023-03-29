@@ -183,7 +183,7 @@ UNITS = units.UNITS.union({
     'Class', 'Coefficient of Variation', 'DN', 'DU',
     'Degrees clockwise from North', 'Dimensionless',
     'Equivalent gauges per 2.5 degree box',
-    'J/kg', 'J/m2', 'J/m^2', 'J/m^2/day', 'Julian Day',
+    'J/kg', 'J/m^2/day', 'Julian Day',
     'MJ m^-2 day^-1', 'MW', 'Megawatts', 'Mg C/ha', 'Mg ha^-1', 'Mg/ha',
     'N/m^2', 'NFDRS fire danger index', 'Number of people/ha',
     'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s',

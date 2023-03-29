@@ -52,6 +52,12 @@
   // Time spent in an area.
   hour_per_square_km: 'h/km^2',
 
+  // https://en.wikipedia.org/wiki/Joule
+  // https://en.wikipedia.org/wiki/Flux
+  // https://en.wikipedia.org/wiki/Radiant_exposure
+  // Energy storage https://en.wikipedia.org/wiki/Units_of_energy
+  joules_per_meter2: 'J/m^2',
+
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
 
