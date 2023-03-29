@@ -78,10 +78,10 @@ local ee_const = import 'earthengine_const.libsonnet';
       href: ee_const.catalog_url,
       type: ee_const.media_type.stac,
     },
-    example(id, subdir, basename):: {
+    example(id, basename):: {
       title: 'Run the example for ' + id + ' in the Earth Engine Code Editor',
       rel: ee_const.rel.related,
-      href: ee_const.example_base_url + '/' + subdir + '/' + basename,
+      href: ee_const.example_base_url + basename,
       type: ee_const.media_type.html,
       code: ee_const.code_type.javascript,
     },
@@ -131,7 +131,7 @@ local ee_const = import 'earthengine_const.libsonnet';
       $.link.self_link(self_url),
       $.link.parent(parent_url),
       $.link.root(),
-      $.link.example(dataset_id, subdir, basename),
+      $.link.example(dataset_id, basename),
       $.link.preview(subdir, basename),
       $.link.terms_of_use(self_ee_catalog_url),
     ],
