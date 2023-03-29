@@ -235,7 +235,7 @@ class CollectionLinkTest(test_utils.NodeTest):
 
   example = {
       'code': 'JavaScript',
-      'href': EXAMPLES_URL + 'AHN/AHN_AHN2_05M_RUW',
+      'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW',
       'rel': 'related',
       'title': ('Run the example for AHN/AHN2_05M_RUW in the '
                 'Earth Engine Code Editor'),
@@ -243,7 +243,7 @@ class CollectionLinkTest(test_utils.NodeTest):
   }
   feature_view = {
       'code': 'JavaScript',
-      'href': EXAMPLES_URL + 'AHN/AHN_AHN2_05M_RUW_FeatureView',
+      'href': EXAMPLES_URL + 'AHN_AHN2_05M_RUW_FeatureView',
       'rel': 'related',
       'title': ('Run the example for AHN/AHN2_05M_RUW in the '
                 'Earth Engine Code Editor'),
@@ -445,7 +445,7 @@ class CollectionLinkTest(test_utils.NodeTest):
     self.assert_collection(
         {'links': stac_links},
         'code href must be https://code.earthengine.google.com/?scriptPath='
-        'Examples:Datasets/AHN/AHN_AHN2_05M_RUW. Found: https://example.test',
+        'Examples:Datasets/AHN_AHN2_05M_RUW. Found: https://example.test',
         dataset_id=self.node_id, file_path=self.node_path)
 
   def test_example_title_missing(self):
@@ -505,7 +505,7 @@ class CollectionLinkTest(test_utils.NodeTest):
     self.assert_collection(
         {'links': self.required_links + [feature_view]},
         'code href must be https://code.earthengine.google.com/?scriptPath='
-        'Examples:Datasets/AHN/AHN_AHN2_05M_RUW_FeatureView. '
+        'Examples:Datasets/AHN_AHN2_05M_RUW_FeatureView. '
         'Found: https://example.test/foo_FeatureView',
         dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
 

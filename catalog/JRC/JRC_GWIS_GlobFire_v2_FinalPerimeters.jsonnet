@@ -40,7 +40,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.parent(parent_url),
     ee.link.root(),
-    ee.link.example(id, subdir, basename),
+    ee.link.example(id, basename),
     ee.link.preview(subdir, basename),  // Blocks using standardLinks.
     ee.link.license(license.reference),
     ee.link.terms_of_use(self_ee_catalog_url),

@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, subdir, basename + '_FeatureView'),
+    ee.link.example(id, basename + '_FeatureView'),
   ],
   keywords: [
     'flow_regulation',

@@ -34,7 +34,7 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
   catalog_url: self.catalog_base + 'catalog.json',
 
   sample_url(subdir, basename): image_base_url + subdir + '/' + basename + '_sample.png',
-  example_base_url: 'https://code.earthengine.google.com/?scriptPath=Examples:Datasets',
+  example_base_url: 'https://code.earthengine.google.com/?scriptPath=Examples:Datasets/',
 
   // Values for gee:type
   gee_type: {
