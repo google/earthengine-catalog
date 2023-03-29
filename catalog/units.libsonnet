@@ -88,6 +88,9 @@
   // https://en.wikipedia.org/wiki/Radians
   radian: 'rad',
 
+  // https://en.wikipedia.org/wiki/Precipitation#Measurement
+  rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
+
   // https://en.wikipedia.org/wiki/Velocity
   velocity_si: 'm/s',
 

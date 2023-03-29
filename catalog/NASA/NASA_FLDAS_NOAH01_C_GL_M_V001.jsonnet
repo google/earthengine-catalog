@@ -90,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Evap_tavg',
         description: 'Evapotranspiration',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'LWdown_f_tavg',
@@ -130,12 +130,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Qs_tavg',
         description: 'Storm surface runoff',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'Qsb_tavg',
         description: 'Baseflow-groundwater runoff',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'RadT_tavg',
@@ -145,7 +145,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Rainf_f_tavg',
         description: 'Total precipitation rate',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'SnowCover_inst',
@@ -159,7 +159,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Snowf_tavg',
         description: 'Snowfall rate',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'SoilMoi00_10cm_tavg',

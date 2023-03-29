@@ -177,7 +177,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pr',
         description: 'Precipitation (mean of the daily precipitation rate)',
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'rlds',

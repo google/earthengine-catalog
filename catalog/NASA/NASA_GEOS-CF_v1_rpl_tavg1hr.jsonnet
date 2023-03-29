@@ -541,7 +541,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TPREC',
         description: 'Total precipitation',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'TROPCOL_BrO',
@@ -621,87 +621,87 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'WETDEPFLX_BCPI',
         description: 'Hydrophilic black carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_BCPO',
         description: 'Hydrophobic black carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST1',
         description: 'Dust aerosol, Reff = 0.7 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST2',
         description: 'Dust aerosol, Reff = 1.4 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST3',
         description: 'Dust aerosol, Reff = 2.4 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST4',
         description: 'Dust aerosol, Reff = 4.5 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_HCHO',
         description: 'Formaldehyde (CH2O, MW = 30.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_HNO3',
         description: 'Nitric acid (HNO3, MW = 63.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_NH3',
         description: 'Ammonia (NH3, MW = 17.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_NH4',
         description: 'Ammonium (NH4, MW = 18.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_NIT',
         description: 'Inorganic nitrates (MW = 62.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_OCPI',
         description: 'Hydrophilic organic carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_OCPO',
         description: 'Hydrophobic organic carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SALA',
         description: 'Fine (0.01-0.05 microns) sea salt aerosol (MW = 31.40 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SALC',
         description: 'Coarse (0.5-8 microns) sea salt aerosol (MW = 31.40 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SO2',
         description: 'Sulfur dioxide (SO2, MW = 64.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SO4',
         description: 'Sulfate (SO4, MW = 96.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'XYLE',

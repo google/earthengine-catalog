@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           includes both liquid and solid phases from all types of clouds
           (both large-scale and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'pr_quartile25',
@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           liquid and solid phases from all types of clouds (both large-scale
           and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'pr_median',
@@ -111,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Median of precipitation at surface; includes both liquid and
           solid phases from all types of clouds (both large-scale and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'pr_quartile75',
@@ -120,7 +120,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           liquid and solid phases from all types of clouds (both large-scale
           and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'tasmin_mean',

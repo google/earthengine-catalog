@@ -133,7 +133,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Precipitation_rate_surface_6_Hour_Average',
         description: 'Precipitation rate at surface, 6-hour average',
-        'gee:units': 'kg/m^2/s^1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'Pressure_surface',

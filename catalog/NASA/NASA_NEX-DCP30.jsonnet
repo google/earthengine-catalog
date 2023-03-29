@@ -108,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           includes both liquid and solid phases from all types of clouds
           (both large-scale and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'tasmin',
