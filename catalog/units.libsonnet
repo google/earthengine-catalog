@@ -8,6 +8,9 @@
 //   - https://physics.nist.gov/cuu/Units/checklist.html
 //   - https://www.unidata.ucar.edu/software/udunits/
 //   - https://en.wikipedia.org/wiki/International_System_of_Units
+//   - https://en.wikipedia.org/wiki/List_of_physical_quantities
+//   - https://en.wikipedia.org/wiki/SI_derived_unit
+//   - https://en.wikipedia.org/wiki/Template:SI_other_units
 //   - https://www.iau.org/publications/proceedings_rules/units/
 //   - https://www.nist.gov/pml/fundamental-physical-constants
 //
