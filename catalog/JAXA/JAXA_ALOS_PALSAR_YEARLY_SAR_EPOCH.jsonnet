@@ -1,5 +1,6 @@
 local id = 'JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH';
 local subdir = 'JAXA';
+local version = '2';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,9 +21,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version 2',
+  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version ' + version,
   'gee:type': ee_const.gee_type.image_collection,
-  version: '2',
+  version: version,
   description: |||
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery
