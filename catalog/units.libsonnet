@@ -31,6 +31,10 @@
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '&deg;C',
 
+  // A number of items.
+  count: 'count',
+  count_per_day: 'count/d',
+
   // https://en.wikipedia.org/wiki/Day
   day: 'd',
 

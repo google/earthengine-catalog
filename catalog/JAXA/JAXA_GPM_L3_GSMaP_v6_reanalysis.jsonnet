@@ -569,7 +569,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           When the status is 'permanent', the pixel value is the daily
           average of number of gauges used for adjustment in the pixel.
         |||,
-        'gee:units': 'counts/day',
+        'gee:units': units.count_per_day,
       },
     ],
     'gee:visualizations': [
