@@ -21,11 +21,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version K',
+  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version 1',
   'gee:type': ee_const.gee_type.image_collection,
   # TODO(simonf): add version links between this and SAR_EPOCH dataset
   # once reprocessed data for earlier years are released and ingested.
-  version: 'K',
+  version: '1',
   description: |||
     A newer version of this dataset with data for 2015-2021 can be found in
     [JAXA/ALOS/PALSAR/YEARLY/SAR](JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH.html)

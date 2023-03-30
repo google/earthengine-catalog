@@ -20,9 +20,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version 2.1.2',
+  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version 2',
   'gee:type': ee_const.gee_type.image_collection,
-  version: '2.1.2',
+  version: '2',
   description: |||
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery
