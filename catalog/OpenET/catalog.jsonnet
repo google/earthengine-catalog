@@ -19,5 +19,12 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // TODO(schwehr): Enable when the datasets are ready.
+    // ee.link.child_collection('OpenET_DISALEXI_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // ee.link.child_collection('OpenET_EEMETRIC_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // ee.link.child_collection('OpenET_GEESEBAL_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // ee.link.child_collection('OpenET_PTJPL_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // ee.link.child_collection('OpenET_SIMS_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    // ee.link.child_collection('OpenET_SSEBOP_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
   ],
 }

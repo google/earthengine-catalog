@@ -88,6 +88,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
            The number of models used to compute the ensemble ET value,
            after filtering for outliers using the median absolute deviation (mad)
         |||,
+        'gee:units': units.count,
       },
       {
         name: 'et_ensemble_mad_index',

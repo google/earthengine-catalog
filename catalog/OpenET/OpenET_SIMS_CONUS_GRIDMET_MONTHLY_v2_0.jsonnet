@@ -1,0 +1,174 @@
+local id = 'OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0';
+local subdir = 'OpenET';
+
+local ee_const = import 'earthengine_const.libsonnet';
+local ee = import 'earthengine.libsonnet';
+local spdx = import 'spdx.libsonnet';
+
+local license = spdx.cc_by_4_0;
+
+local basename = std.strReplace(id, '/', '_');
+local base_filename = basename + '.json';
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+
+{
+  // TODO(schwehr): Remove skip_indexing when the preview image is ready.
+  'gee:skip_indexing': true,
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.collection,
+  stac_extensions: [
+    ee_const.ext_eo,
+    ee_const.ext_sci,
+    ee_const.ext_ver,
+  ],
+  id: id,
+  title: 'OpenET CONUS SIMS Monthly Evapotranspiration v2.0',
+  version: '2.0',
+  'gee:type': ee_const.gee_type.image_collection,
+  description: |||
+    Satellite Irrigation Management Support
+    The NASA Satellite Irrigation Management Support (SIMS) model was originally developed to support
+    satellite mapping of crop coefficients and evapotranspiration (ET) from irrigated lands and to increase
+    access to this data to support use in irrigation scheduling and regional assessment of agricultural
+    water needs (Melton et al., 2012). SIMS uses a reflectance based approach and incorporates the density
+    coefficient described by Allen and Pereira (2009) and Pereira et al. (2020) to compute basal crop
+    coefficients for each 30 x 30 m pixel. The primary change from the most recent SIMS
+    publication (Pereira et al., 2020) for implementation in OpenET is the integration of a gridded soil
+    water balance model to account for soil evaporation following precipitation events. Results of the OpenET
+    Phase I intercomparison and accuracy assessment (Melton et al., 2022) showed that SIMS generally
+    performed well for cropland sites during the growing season, but had a persistent low bias during the winter
+    months or other time periods with frequent precipitation. This result was anticipated, since the
+    reflectance-based approach used by SIMS is not sensitive to soil evaporation. To correct for this
+    underestimation, a soil water balance model based on FAO-56 (Allen et al., 1998) was implemented on
+    Google Earth Engine and driven with gridded precipitation data from gridMET to estimate soil evaporation
+    coefficients. These coefficients were then combined with the basal crop coefficients calculated by SIMS
+    to calculate total crop evapotranspiration using the dual crop coefficient approach. In addition, a modest
+    positive bias was observed in the SIMS data for periods with low or sparse vegetative cover. To correct
+    for this bias, updates were made to the equations that calculate the minimum basal crop coefficient to allow
+    lower minimum basal crop coefficient values to be achieved. Full documentation of the SIMS model, current
+    algorithms, and details and equations used in the soil water balance model are included in the SIMS user manual.
+
+    The SIMS model calculates ET under well-watered conditions for the current crop growth stage and condition
+    as measured by the satellite data, and SIMS is generally expected to have a positive bias for deficit
+    irrigated crops and croplands with short-term or intermittent crop water stress. At present, SIMS is
+    only implemented for croplands, and non-agricultural lands are masked out in this data collection.
+    Future research will extend the vegetation density-crop coefficient approach used within SIMS to other
+    land cover types.
+    [Additional information](https://openetdata.org/methodologies/)
+  |||,
+  license: license.id,
+  links: ee.standardLinks(subdir, id),
+  keywords: [
+    'conus',
+    'evapotranspiration',
+    'gridmet_derived',
+    'landsat_derived',
+    'monthly',
+    // 'sims',
+    'water',
+  ],
+  providers: [
+    ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
+    ee.host_provider(self_ee_catalog_url),
+  ],
+  extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '2016-01-01T00:00:00Z', null),
+  summaries: {
+    gsd: [30],
+    'eo:bands': [
+      {
+        name: 'et',
+        description: |||
+          SIMS ET value
+        |||,
+        'gee:units': 'mm',
+      },
+
+      {
+        name: 'count',
+        description: |||
+           Number of cloud free values
+        |||
+      },
+    ],
+    'gee:visualizations': [
+      {
+        display_name: 'OpenET SIMS Monthly ET',
+        lookat: {
+          lat: 38.0,
+          lon: -100.0,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              0,
+            ],
+            max: [
+              1400.0,
+            ],
+            palette: [
+              '9E6212',
+              'AC7D1D',
+              'BA9829',
+              'C8B434',
+              'D6CF40',
+              'BED44B',
+              '9FCB51',
+              '80C256',
+              '61B95C',
+              '42B062',
+              '45B677',
+              '49BC8D',
+              '4DC2A2',
+              '51C8B8',
+              '55CECE',
+              '4DB4BA',
+              '459AA7',
+              '3D8094',
+              '356681',
+              '2D4C6E',
+            ],
+            bands: [
+              'et',
+            ],
+          },
+        },
+      },
+    ],
+  },
+  'sci:doi': '10.1111/1752-1688.12956',
+  'sci:citation': |||
+    Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D., Erickson, T., Allen,
+    R., Anderson, M., Fisher, J., Kilic, A., Senay, G., volk, J., Hain, C., Johnson, L., Ruhoff,
+    A., Blanenau, P., Bromley, M., Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M.,
+    Guzman, A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor, B., Morton, C.,
+    Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang, T., Yang, Y., Anderson, R., 2021.
+    “OpenET: Filling a Critical Data Gap in Water Management for the Western United States.”
+    Journal of the American Water Resources Association, 58(6), pp.971-994.
+
+    Pereira, L.S., P. Paredes, F.S. Melton, L.F. Johnson, R. López-Urrea, J. Cancela, and R.G. Allen. 2020.
+    “Prediction of Basal Crop Coefficients from Fraction of Ground Cover and Height.” Agricultural Water
+    Management, Special Issue on Updates to the FAO56 Crop Water Requirements Method 241, 106197.
+
+    Melton, F.S., L.F. Johnson, C.P. Lund, L.L. Pierce, A.R. Michaelis, S.H. Hiatt, A. Guzman et al. 2012.
+    “Satellite Irrigation Management Support with the Terrestrial Observation and Prediction System:
+    A Framework for Integration of Satellite and Surface Observations to Support Improvements in Agricultural
+    Water Resource Management.” IEEE Journal of Selected Topics in Applied Earth Observations and Remote
+    Sensing 5 (6): 1709–21.
+
+    Allen, R.G. and Pereira, L.S., 2009. Estimating crop coefficients from fraction of ground cover
+    and height. Irrigation Science, 28, pp.17-34.
+
+    Allen, R.G., Pereira, L.S., Raes, D. and Smith, M., 1998. Crop evapotranspiration-Guidelines for
+    computing crop water requirements-FAO Irrigation and drainage paper 56. Fao, Rome, 300(9), p.D05109.
+
+    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
+  |||,
+  'gee:interval': {
+    type: 'cadence',
+    unit: 'month',
+    interval: 1,
+  },
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
+  'gee:user_uploaded': true,
+}

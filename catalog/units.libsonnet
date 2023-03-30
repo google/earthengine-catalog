@@ -31,6 +31,9 @@
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '&deg;C',
 
+  // A number of items.
+  count: 'count',
+
   // https://en.wikipedia.org/wiki/Day
   day: 'd',
 
