@@ -190,7 +190,7 @@ UNITS = units.UNITS.union({
     'Quality Flag', 'Reflectance factor', 'W m**-2',
     'W m-2', 'W m^-2 sr^-1 &micro;m^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cmol(+)/kg', 'count',
-    'counts/day', 'dB', 'deg true', 'degree', 'degree C', 'degrees',
+    'counts/day', 'dB', 'deg true', 'degree', 'degrees',
     'fraction', 'g/cm^3', 'g/kg', 'g/m^2',
     'gC m-2 d-1', 'gigagrams', 'gpm', 'hPa', 'ha',
     'index', 'kPa',
