@@ -1,5 +1,5 @@
 // Import the NLCD RCMAP TRENDS collection.
-var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
+var dataset = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
 
 // Filter the collection to the 2019 product.
 var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
