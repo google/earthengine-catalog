@@ -1,6 +1,5 @@
 // Import the NALCMS collection.
 var image = ee.Image('USGS/NLCD_RELEASES/2019_REL/NALCMS');
-print(image);
 
   Map.addLayer(image, {
   palette: [
@@ -24,7 +23,7 @@ print(image);
     '4c73a1',  // 18
     'fff7fe',  // 19
     ],
-  min:1, max:19});
+  min:1, max:19}, 'NALCMS land cover');
 
 // Display the image on the map.
 Map.setCenter(-114, 38, 6);
