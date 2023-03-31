@@ -1,5 +1,5 @@
 // Import the NLCD RCMAP TRENDS YEAR collection.
-var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS/YEAR');
+var dataset = ee.ImageCollection('projects/ee-rcmap/assets/RCMAP_V5_TRENDS/YEAR');
 
 // Filter the collection to the 2019 product.
 var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
@@ -7,8 +7,8 @@ var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
 // Each product has multiple bands for different rangeland categories.
 print('Bands:', nlcd2019.bandNames());
 
-// Select the total_change_intensity_index band.
-var countTrendsYear = nlcd2019.select('tree_segment_slope units_centipercent_per_year');
+// Select the annual_herbaceous_segment_pvalue band.
+var countTrendsYear = nlcd2019.select('annual_herbaceous_segment_pvalue');
 
 var vis = {
   // Map 0..100.
@@ -33,4 +33,4 @@ var vis = {
 
 // Display the image on the map.
 Map.setCenter(-114, 38, 6);
-Map.addLayer(var countTrendsYear = nlcd2019.select('tree_segment_slope units_centipercent_per_year');
+Map.addLayer(countTrendsYear, vis, 'annual_herbaceous_segment_pvalue');
