@@ -1,5 +1,5 @@
 // Import the NLCD RCMAP TRENDS collection.
-var image = ee.Image('projects/ee-rcmap/assets/RCMAP_V5_TRENDS/TRENDS');
+var image = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
 print(image);
 
 var vis = {
