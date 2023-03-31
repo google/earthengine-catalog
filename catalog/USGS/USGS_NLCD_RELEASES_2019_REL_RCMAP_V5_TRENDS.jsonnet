@@ -111,7 +111,6 @@ local units_pixel = 'pixel';
   },
   summaries: {
     gsd: [30],
-    // TODO(schwehr): Use units.thing for gee:units
     'eo:bands': [
       {
         name: 'annual_herbaceous_break_point',
@@ -619,7 +618,6 @@ local units_pixel = 'pixel';
     [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
   |||,
   'sci:doi': '10.5066/P9ODAZHC',
-  // TODO(schwehr): Update terms_of_use to pull from script
   'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
