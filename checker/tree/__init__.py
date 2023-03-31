@@ -6,11 +6,13 @@ from checker import stac
 from checker.tree import keywords
 from checker.tree import parent_child
 from checker.tree import title
+from checker.tree import version_links
 
 _CHECKS = [
     keywords.Check,
     parent_child.Check,
     title.Check,
+    version_links.Check,
 ]
 
 
