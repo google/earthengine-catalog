@@ -1,5 +1,6 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/NALCMS';
 local subdir = 'USGS';
+local version = '1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -93,14 +94,15 @@ local units_class = 'class';  // TODO(schwehr): convert to a gee:class
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-  'landsat',
-  'reflectance',
-  'landcover',
-  'nlcd',
-   // 'land_surface',
-   // 'land_use',
-   // 'north_america',
-   // 'remote_sensing',
+    // 'land_cover',
+    // 'land_surface',
+    // 'land_use',
+    'landcover',
+    'landsat',
+    'nlcd',
+    // 'north_america',
+    'reflectance',
+    // 'remote_sensing',
   ],
   providers: [
     ee.producer_provider(
