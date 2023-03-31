@@ -16,6 +16,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local units_counts = '1 (count)';
 local units_year = 'a';
 local units_centipercent_per_year = 'c%/a';  // % change/year × 100
+local units_slope = 'c%/a';  // % change/year × 100
 local units_confidence = '1 (confidence)';
 local units_class = 'class';
 local units_pixel = 'pixel';
@@ -32,7 +33,7 @@ local units_pixel = 'pixel';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'RCMAP Rangeland Component Timeseries V5 Trends (1985-2021)',
+  title: 'RCMAP Rangeland Component Timeseries V5 Trends Year (1985-2021)',
   version: '5',
   'gee:type': ee_const.gee_type.image,
   description: |||
@@ -111,198 +112,147 @@ local units_pixel = 'pixel';
   },
   summaries: {
     gsd: [30],
-    // TODO(schwehr): Use units.thing for gee:units
-    // TODO(schwehr): Are you able to run the script to pull the band names for the year areas? Thanks! 
+    // TODO(schwehr): Use units.thing for gee:units 
     'eo:bands': [
       {
         name: 'annual_herbaceous_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'bare_ground_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'herbaceous_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'litter_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'sagebrush_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'shrub_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'non_sagebrush_shrub_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'perennial_herbaceous_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
         name: 'tree_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        description: 'Presence or absence of structural breaks in each component for each year',
+        'gee:units': 'units_counts',
       },
       {
-        name: 'annual_herbaceous_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'annual_herbaceous_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'bare_ground_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'bare_ground_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'herbaceous_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'herbaceous_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'litter_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'litter_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'sagebrush_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'sagebrush_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'shrub_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'shrub_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'non_sagebrush_shrub_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'non_sagebrush_shrub_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'perennial_herbaceous_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'perennial_herbaceous_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'tree_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': units_centipercent_per_year,
+        name: 'tree_segment_pvalue',
+        description: 'P-value of structural breaks segment × 100 in each component for each year',
+        'gee:units': 'units_confidence',
       },
       {
-        name: 'annual_herbaceous_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'annual_herbaceous_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'bare_ground_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'bare_ground_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'herbaceous_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'herbaceous_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'litter_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'litter_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'sagebrush_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'sagebrush_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'shrub_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'shrub_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'non_sagebrush_shrub_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'non_sagebrush_shrub_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'perennial_herbaceous_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
+        name: 'perennial_herbaceous_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
       {
-        name: 'tree_linear_model_pvalue',
-        description: 'P-value of linear trends model × 100',
-        'gee:units': units_confidence,
-      },
-      {
-        name: 'annual_herbaceous_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'bare_ground_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'herbaceous_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'litter_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'sagebrush_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'shrub_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'non_sagebrush_shrub_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'perennial_herbaceous_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'tree_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units_year,
-      },
-      {
-        name: 'total_change_intensity_index',
-        description: 'This index reflects the total amount of change occurring across components in that pixel',
-        'gee:units': units_pixel,
+        name: 'tree_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year × 100, in each component for each year',
+        'gee:units': 'units_slope',
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'tree_segment_slope',
+        display_name: 'annual_herbaceous_segment_pvalue',
         lookat: {
           lat: 38,
           lon: -114,
@@ -420,196 +370,145 @@ local units_pixel = 'pixel';
               '01297a'
             ],
             bands: [
-              'tree_segment_slope',
+              'annual_herbaceous_segment_pvalue',
             ],
           },
         },
       },
     ],
-    // TODO (griebel): Update names and min max's
     annual_herbaceous_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     bare_ground_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     herbaceous_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     litter_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     sagebrush_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     shrub_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     non_sagebrush_shrub_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     perennial_herbaceous_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     tree_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
-    annual_herbaceous_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    bare_ground_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    herbaceous_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    litter_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    sagebrush_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    shrub_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    non_sagebrush_shrub_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    perennial_herbaceous_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    tree_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    annual_herbaceous_linear_model_pvalue: {
+    annual_herbaceous_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    bare_ground_linear_model_pvalue: {
+    bare_ground_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    herbaceous_linear_model_pvalue: {
+    herbaceous_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    litter_linear_model_pvalue: {
+    litter_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    sagebrush_linear_model_pvalue: {
+    sagebrush_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    shrub_linear_model_pvalue: {
+    shrub_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    non_sagebrush_shrub_linear_model_pvalue: {
+    non_sagebrush_shrub_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    perennial_herbaceous_linear_model_pvalue: {
+    perennial_herbaceous_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    tree_linear_model_pvalue: {
+    tree_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    annual_herbaceous_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    annual_herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    bare_ground_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    bare_ground_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    herbaceous_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    litter_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    litter_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    sagebrush_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    sagebrush_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    shrub_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    shrub_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    non_sagebrush_shrub_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    non_sagebrush_shrub_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    perennial_herbaceous_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
+    perennial_herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    tree_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    total_change_intensity_index: {
-      minimum: 0,
-      maximum: 100,
+    tree_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
   },
@@ -621,7 +520,6 @@ local units_pixel = 'pixel';
     [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
   |||,
   'sci:doi': '10.5066/P9ODAZHC',
-  // TODO(schwehr): Update terms_of_use to pull from script
   'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
