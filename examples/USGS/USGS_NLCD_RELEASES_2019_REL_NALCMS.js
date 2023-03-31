@@ -2,7 +2,6 @@
 var image = ee.Image('projects/ee-nalcms/assets/nalcms/2020');
 print(image);
 
-var vis = {
   Map.addLayer(image, {
   palette: [
     'tomato',  // 1
