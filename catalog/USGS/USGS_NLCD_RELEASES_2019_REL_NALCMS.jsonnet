@@ -129,9 +129,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         |||,
           'gee:classes': [
             {
-        value: 1,
-        // TODO(griebel) very dark green 
-        color: '1a200e',
+        value: 1, 
+        color: '033e00',
         description: |||
           Temperate or sub-polar needleleaf forest. Forests generally taller than 
           three meters and more than 20 percent of total vegetation cover. This type 
@@ -141,9 +140,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         |||,
             },
           {
-        value: 2,
-        // TODO(griebel) army green 
-        color: '4b5320',
+        value: 2, 
+        color: '939b71',
         description: |||
           Sub-polar taiga needleleaf forest. Forest and woodlands with trees generally 
           taller than three meters and more than 5 percent of total vegetation cover 
@@ -156,8 +154,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 3,
-        // TODO(griebel) dark green 
-        color: '222b13',
+        color: '196d12',
         description: |||
           Tropical or sub-tropical broadleaf evergreen forest. Forests generally 
           taller than five meters and more than 20 percent of total vegetation cover.  
@@ -167,7 +164,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 4,
-        color: '68ab5f',
+        color: '1fab01',
         description: |||
           Tropical or sub-tropical broadleaf deciduous forest. Forests generally 
           taller than five meters and more than 20 percent of total vegetation cover.  
@@ -177,7 +174,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
             {
         value: 5,
-        color: 'b5c58f',
+        color: '5b725c',
         description: |||
           Temperate or sub-polar broadleaf deciduous forest. Forests generally taller 
           than three meters and more than 20 percent of total vegetation cover. These 
@@ -188,7 +185,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 6,
-        color: '1c5f2c',
+        color: '6b7d2c',
         description: |||
           Mixed forest. Forests generally taller than three meters and more than 20 
           percent of total vegetation cover. Neither needleleaf nor broadleaf tree 
@@ -197,8 +194,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
            {
         value: 7,
-        // TODO(griebel) olive green
-        color: '556b2f',
+        color: 'b29d29',
         description: |||
           Tropical or sub-tropical shrubland. Areas dominated by woody perennial 
           plants with persistent woody stems less than five meters tall and typically 
@@ -208,7 +204,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 8,
-        color: 'dec5c5',
+        color: 'b48833',
         description: |||
           Temperate or sub-polar shrubland. Areas dominated by woody perennial plants 
           with persistent woody stems less than three meters tall and typically greater 
@@ -218,7 +214,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 9,
-        color: 'dcd939',
+        color: 'e9da5d',
         description: |||
           Tropical or sub-tropical grassland. Areas dominated by graminoid or 
           herbaceous vegetation generally accounting for greater than 80 percent of 
@@ -229,7 +225,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
            {
         value: 10,
-        color: 'ccb879',
+        color: 'e0cd88',
         description: |||
           Temperate or sub-polar grassland. Areas dominated by graminoid or herbaceous 
           vegetation, generally accounting for greater than 80 percent of total 
@@ -240,7 +236,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
             {
         value: 11,
-        color: 'af963c',
+        color: 'a07451',
         description: |||
           Sub-polar or polar shrubland-lichen-moss. Areas dominated by dwarf shrubs 
           with lichen and moss typically accounting for at least 20 percent of total 
@@ -249,7 +245,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 12,
-        color: 'd1d182',
+        color: 'bad292',
         description: |||
           Sub-polar or polar grassland-lichen-moss. Areas dominated by grassland with 
           lichen and moss typically accounting for at least 20 percent of total 
@@ -258,7 +254,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 13,
-        color: '82ba9e',
+        color: '3f8970',
         description: |||
           Sub-polar or polar barren-lichen-moss. Areas dominated by a mixture of bare 
           areas with lichen and moss that typically account for at least 20 percent of 
@@ -267,7 +263,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 14,
-        color: 'a3cc51',
+        color: '6ca289',
         description: |||
           Wetland. Areas dominated by perennial herbaceous and woody wetland 
           vegetation which is influenced by the water table at or near surface over 
@@ -278,7 +274,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
            {
         value: 15,
-        color: 'ab6c28',
+        color: 'e6ad6a',
         description: |||
           Cropland. Areas dominated by intensively managed crops. These areas 
           typically require human activities for their maintenance. This includes 
@@ -291,7 +287,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 16,
-        color: 'b8d9eb',
+        color: 'a9abae',
         description: |||
           Barren lands. Areas characterized by bare rock, gravel, sand, silt, clay, or 
           other earthen material, with little or no "green" vegetation present 
@@ -301,7 +297,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
            {
         value: 17,
-        color: 'ab0000',
+        color: 'db2126',
         description: |||
           Urban and built-up. Areas that contain at least 30 percent or greater urban 
           constructed materials for human activities (cities, towns, transportation 
@@ -310,7 +306,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 18,
-        color: '466b9f',
+        color: '4c73a1',
         description: |||
           Water. Areas of open water, generally with less than 25 percent cover of 
           non-water cover types. This class refers to areas that are consistently 
@@ -319,7 +315,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             },
           {
         value: 19,
-        color: 'd1def8',
+        color: 'fff7fe',
         description: |||
           Snow and ice. Areas characterized by a perennial cover of ice and/or snow, 
           generally greater than 25 percent of total cover.
