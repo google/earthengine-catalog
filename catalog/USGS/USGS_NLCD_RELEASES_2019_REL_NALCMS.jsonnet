@@ -127,201 +127,225 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           [Product Legend](https://www.mrlc.gov/sites/default/files/inline-images/2005_nalcms_large_0.jpg).
           The classes in the 2020 product legend are given below.
         |||,
-          'gee:classes': [
-            {
-        value: 1, 
-        color: '033e00',
-        description: |||
-          Temperate or sub-polar needleleaf forest. Forests generally taller than 
-          three meters and more than 20 percent of total vegetation cover. This type 
-          occurs across the northern United States, Canada, and mountainous zones of 
-          Mexico. The tree crown cover contains at least 75 percent of needleleaved 
-          species.
-        |||,
-            },
+        'gee:classes': [
           {
-        value: 2, 
-        color: '939b71',
-        description: |||
-          Sub-polar taiga needleleaf forest. Forest and woodlands with trees generally 
-          taller than three meters and more than 5 percent of total vegetation cover 
-          with shrubs and lichens commonly present in the understory. The tree crown 
-          cover contains at least 75 percent of needleleaved species. This type occurs 
-          across Alaska and northern Canada and may consist of treed muskeg or 
-          wetlands. Forest canopies are variable and often sparse, with generally 
-          greater tree cover in the southern latitude parts of the zone than the north.
-        |||,
-            },
+            value: 1,
+            color: '033e00',
+            description: |||
+              Temperate or sub-polar needleleaf forest. Forests generally taller
+              than three meters and more than 20 percent of total vegetation
+              cover. This type occurs across the northern United States, Canada,
+              and mountainous zones of Mexico. The tree crown cover contains at
+              least 75 percent of needleleaved species.
+            |||,
+          },
           {
-        value: 3,
-        color: '196d12',
-        description: |||
-          Tropical or sub-tropical broadleaf evergreen forest. Forests generally 
-          taller than five meters and more than 20 percent of total vegetation cover.  
-          These occur in the southern United States and Mexico. These forests have 
-          greater than 75 percent of tree crown cover represented by evergreen species.
-        |||,
-            },
+            value: 2,
+            color: '939b71',
+            description: |||
+              Sub-polar taiga needleleaf forest. Forest and woodlands with trees
+              generally taller than three meters and more than 5 percent of
+              total vegetation cover with shrubs and lichens commonly present in
+              the understory. The tree crown cover contains at least 75 percent
+              of needleleaved species. This type occurs across Alaska and
+              northern Canada and may consist of treed muskeg or
+              wetlands. Forest canopies are variable and often sparse, with
+              generally greater tree cover in the southern latitude parts of the
+              zone than the north.
+            |||,
+          },
           {
-        value: 4,
-        color: '1fab01',
-        description: |||
-          Tropical or sub-tropical broadleaf deciduous forest. Forests generally 
-          taller than five meters and more than 20 percent of total vegetation cover.  
-          These occur in the southern United States and Mexico. These forests have 
-          greater than 75 percent of tree crown cover represented by deciduous species.
-        |||,
-            },
-            {
-        value: 5,
-        color: '5b725c',
-        description: |||
-          Temperate or sub-polar broadleaf deciduous forest. Forests generally taller 
-          than three meters and more than 20 percent of total vegetation cover. These 
-          occur in the northern United States, Canada and mountainous zones of Mexico.  
-          These forests have greater than 75 percent of tree crown cover represented by 
-          deciduous species.
-        |||,
-            },
+            value: 3,
+            color: '196d12',
+            description: |||
+              Tropical or sub-tropical broadleaf evergreen forest. Forests
+              generally taller than five meters and more than 20 percent of
+              total vegetation cover.  These occur in the southern United States
+              and Mexico. These forests have greater than 75 percent of tree
+              crown cover represented by evergreen species.
+            |||,
+          },
           {
-        value: 6,
-        color: '6b7d2c',
-        description: |||
-          Mixed forest. Forests generally taller than three meters and more than 20 
-          percent of total vegetation cover. Neither needleleaf nor broadleaf tree 
-          species occupy more than 75 percent of total tree cover but are co-dominant.
-        |||,
-            },
-           {
-        value: 7,
-        color: 'b29d29',
-        description: |||
-          Tropical or sub-tropical shrubland. Areas dominated by woody perennial 
-          plants with persistent woody stems less than five meters tall and typically 
-          greater than 20 percent of total vegetation. This class occurs across the 
-          southern United States and Mexico.
-        |||,
-            },
+            value: 4,
+            color: '1fab01',
+            description: |||
+              Tropical or sub-tropical broadleaf deciduous forest. Forests
+              generally taller than five meters and more than 20 percent of
+              total vegetation cover.  These occur in the southern United States
+              and Mexico. These forests have greater than 75 percent of tree
+              crown cover represented by deciduous species.
+            |||,
+          },
           {
-        value: 8,
-        color: 'b48833',
-        description: |||
-          Temperate or sub-polar shrubland. Areas dominated by woody perennial plants 
-          with persistent woody stems less than three meters tall and typically greater 
-          than 20 percent of total vegetation. This class occurs across the northern 
-          United States, Canada and highlands of Mexico.
-        |||,
-            },
+            value: 5,
+            color: '5b725c',
+            description: |||
+              Temperate or sub-polar broadleaf deciduous forest. Forests
+              generally taller than three meters and more than 20 percent of
+              total vegetation cover. These occur in the northern United States,
+              Canada and mountainous zones of Mexico.  These forests have
+              greater than 75 percent of tree crown cover represented by
+              deciduous species.
+            |||,
+          },
           {
-        value: 9,
-        color: 'e9da5d',
-        description: |||
-          Tropical or sub-tropical grassland. Areas dominated by graminoid or 
-          herbaceous vegetation generally accounting for greater than 80 percent of 
-          total vegetation cover. These areas are not subject to intensive management 
-          such as tilling but can be utilized for grazing. This class occurs across 
-          the southern United States and Mexico.
-        |||,
-            },
-           {
-        value: 10,
-        color: 'e0cd88',
-        description: |||
-          Temperate or sub-polar grassland. Areas dominated by graminoid or herbaceous 
-          vegetation, generally accounting for greater than 80 percent of total 
-          vegetation cover. These areas are not subject to intensive management such 
-          as tilling but can be utilized for grazing. This class occurs across 
-          Canada, United States and highlands of Mexico.
-        |||,
-            },
-            {
-        value: 11,
-        color: 'a07451',
-        description: |||
-          Sub-polar or polar shrubland-lichen-moss. Areas dominated by dwarf shrubs 
-          with lichen and moss typically accounting for at least 20 percent of total 
-          vegetation cover. This class occurs across northern Canada and Alaska.
-        |||,
-            },
+            value: 6,
+            color: '6b7d2c',
+            description: |||
+              Mixed forest. Forests generally taller than three meters and more
+              than 20 percent of total vegetation cover. Neither needleleaf nor
+              broadleaf tree species occupy more than 75 percent of total tree
+              cover but are co-dominant.
+            |||,
+          },
           {
-        value: 12,
-        color: 'bad292',
-        description: |||
-          Sub-polar or polar grassland-lichen-moss. Areas dominated by grassland with 
-          lichen and moss typically accounting for at least 20 percent of total 
-          vegetation cover. This class occurs across northern Canada and Alaska.
-        |||,
-            },
+            value: 7,
+            color: 'b29d29',
+            description: |||
+              Tropical or sub-tropical shrubland. Areas dominated by woody
+              perennial plants with persistent woody stems less than five meters
+              tall and typically greater than 20 percent of total
+              vegetation. This class occurs across the southern United States
+              and Mexico.
+            |||,
+          },
           {
-        value: 13,
-        color: '3f8970',
-        description: |||
-          Sub-polar or polar barren-lichen-moss. Areas dominated by a mixture of bare 
-          areas with lichen and moss that typically account for at least 20 percent of 
-          total vegetation cover. This class occurs across northern Canada.
-        |||,
-            },
+            value: 8,
+            color: 'b48833',
+            description: |||
+              Temperate or sub-polar shrubland. Areas dominated by woody
+              perennial plants with persistent woody stems less than three
+              meters tall and typically greater than 20 percent of total
+              vegetation. This class occurs across the northern United States,
+              Canada and highlands of Mexico.
+            |||,
+          },
           {
-        value: 14,
-        color: '6ca289',
-        description: |||
-          Wetland. Areas dominated by perennial herbaceous and woody wetland 
-          vegetation which is influenced by the water table at or near surface over 
-          extensive periods of time. This includes marshes, swamps, bogs, mangroves, 
-          etc., either coastal or inland where water is present for a substantial 
-          period annually.
-        |||,
-            },
-           {
-        value: 15,
-        color: 'e6ad6a',
-        description: |||
-          Cropland. Areas dominated by intensively managed crops. These areas 
-          typically require human activities for their maintenance. This includes 
-          areas used for the production of annual crops, such as corn, soybeans, wheat, 
-          maize, vegetables, tobacco, cotton, etc.; perennial grasses for grazing; and 
-          woody crops such as orchards and vineyards. Crop vegetation accounts for 
-          greater than 20 percent of total vegetation. This class does not represent 
-          natural grasslands used for light to moderate grazing.
-        |||,
-            },
+            value: 9,
+            color: 'e9da5d',
+            description: |||
+              Tropical or sub-tropical grassland. Areas dominated by graminoid
+              or herbaceous vegetation generally accounting for greater than 80
+              percent of total vegetation cover. These areas are not subject to
+              intensive management such as tilling but can be utilized for
+              grazing. This class occurs across the southern United States and
+              Mexico.
+            |||,
+          },
           {
-        value: 16,
-        color: 'a9abae',
-        description: |||
-          Barren lands. Areas characterized by bare rock, gravel, sand, silt, clay, or 
-          other earthen material, with little or no "green" vegetation present 
-          regardless of its inherent ability to support life. Generally, vegetation 
-          accounts for less than 10 percent of total cover.
-        |||,
-            },
-           {
-        value: 17,
-        color: 'db2126',
-        description: |||
-          Urban and built-up. Areas that contain at least 30 percent or greater urban 
-          constructed materials for human activities (cities, towns, transportation 
-          etc.)
-        |||,
-            },
+            value: 10,
+            color: 'e0cd88',
+            description: |||
+              Temperate or sub-polar grassland. Areas dominated by graminoid or
+              herbaceous vegetation, generally accounting for greater than 80
+              percent of total vegetation cover. These areas are not subject to
+              intensive management such as tilling but can be utilized for
+              grazing. This class occurs across Canada, United States and
+              highlands of Mexico.
+            |||,
+          },
           {
-        value: 18,
-        color: '4c73a1',
-        description: |||
-          Water. Areas of open water, generally with less than 25 percent cover of 
-          non-water cover types. This class refers to areas that are consistently 
-          covered by water.
-        |||,
-            },
+            value: 11,
+            color: 'a07451',
+            description: |||
+              Sub-polar or polar shrubland-lichen-moss. Areas dominated by dwarf
+              shrubs with lichen and moss typically accounting for at least 20
+              percent of total vegetation cover. This class occurs across
+              northern Canada and Alaska.
+            |||,
+          },
           {
-        value: 19,
-        color: 'fff7fe',
-        description: |||
-          Snow and ice. Areas characterized by a perennial cover of ice and/or snow, 
-          generally greater than 25 percent of total cover.
-        |||,
-      },
+            value: 12,
+            color: 'bad292',
+            description: |||
+              Sub-polar or polar grassland-lichen-moss. Areas dominated by
+              grassland with lichen and moss typically accounting for at least
+              20 percent of total vegetation cover. This class occurs across
+              northern Canada and Alaska.
+            |||,
+          },
+          {
+            value: 13,
+            color: '3f8970',
+            description: |||
+              Sub-polar or polar barren-lichen-moss. Areas dominated by a
+              mixture of bare areas with lichen and moss that typically account
+              for at least 20 percent of total vegetation cover. This class
+              occurs across northern Canada.
+            |||,
+          },
+          {
+            value: 14,
+            color: '6ca289',
+            description: |||
+              Wetland. Areas dominated by perennial herbaceous and woody wetland
+              vegetation which is influenced by the water table at or near
+              surface over extensive periods of time. This includes marshes,
+              swamps, bogs, mangroves, etc., either coastal or inland where
+              water is present for a substantial period annually.
+            |||,
+          },
+          {
+            value: 15,
+            color: 'e6ad6a',
+            description: |||
+              Cropland. Areas dominated by intensively managed crops. These
+              areas typically require human activities for their
+              maintenance. This includes areas used for the production of annual
+              crops, such as corn, soybeans, wheat, maize, vegetables, tobacco,
+              cotton, etc.; perennial grasses for grazing; and woody crops such
+              as orchards and vineyards. Crop vegetation accounts for greater
+              than 20 percent of total vegetation. This class does not represent
+              natural grasslands used for light to moderate grazing.
+            |||,
+          },
+          {
+            value: 16,
+            color: 'a9abae',
+            description: |||
+              Barren lands. Areas characterized by bare rock, gravel, sand,
+              silt, clay, or other earthen material, with little or no "green"
+              vegetation present regardless of its inherent ability to support
+              life. Generally, vegetation accounts for less than 10 percent of
+              total cover.
+            |||,
+          },
+          {
+            value: 17,
+            color: 'db2126',
+            description: |||
+              Urban and built-up. Areas that contain at least 30 percent or
+              greater urban constructed materials for human activities (cities,
+              towns, transportation etc.)
+            |||,
+          },
+          {
+            value: 18,
+            color: '4c73a1',
+            description: |||
+
+              Water. Areas of open water, generally with less than 25 percent
+              cover of non-water cover types. This class refers to areas that
+              are consistently covered by water.
+
+            |||,
+          },
+          {
+            value: 19,
+            color: 'fff7fe',
+            description: |||
+              Snow and ice. Areas characterized by a perennial cover of ice
+              and/or snow, generally greater than 25 percent of total cover.
+            |||,
+          },
+        ],
+      }
     ],
+    landcover: {
+      minimum: 1,
+      maximum: 19,
+      'gee:estimated_range': false,
+    },
     'gee:visualizations': [
       {
         display_name: 'landcover',
@@ -448,16 +472,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
     ],
-    landcover: {
-      minimum: 1,
-      maximum: 19,
-      'gee:estimated_range': false,
-    },
   },
-    'sci:citation': |||
-      North American Land Change Monitoring System download webpage. 
-      [www.cec.org/north-american-land-change-monitoring-system](http://www.cec.org/north-american-land-change-monitoring-system/)
-    |||,
+  'sci:citation': |||
+    North American Land Change Monitoring System download webpage.
+    [www.cec.org/north-american-land-change-monitoring-system](http://www.cec.org/north-american-land-change-monitoring-system/)
+  |||,
   'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
