@@ -112,7 +112,6 @@ local units_pixel = 'pixel';
   },
   summaries: {
     gsd: [30],
-    // TODO(schwehr): Use units.thing for gee:units 
     'eo:bands': [
       {
         name: 'annual_herbaceous_break_point',
