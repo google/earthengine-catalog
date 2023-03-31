@@ -16,6 +16,7 @@ UNITS = {
     'J/m^2',
     'K',
     'M (nautical mile)',
+    'a',
     'cm',
     'count',
     'count/d',
