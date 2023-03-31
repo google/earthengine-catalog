@@ -1,14 +1,6 @@
 // Import the NLCD RCMAP TRENDS collection.
-var dataset = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
-
-// Filter the collection to the 2019 product.
-var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
-
-// Each product has multiple bands for different rangeland categories.
-print('Bands:', nlcd2019.bandNames());
-
-// Select the total_change_intensity_index band.
-var countTrends = nlcd2019.select('total_change_intensity_index');
+var image = ee.Image('projects/ee-rcmap/assets/RCMAP_V5_TRENDS/TRENDS');
+print(image);
 
 var vis = {
   // Map 0..100.
@@ -33,4 +25,3 @@ var vis = {
 
 // Display the image on the map.
 Map.setCenter(-114, 38, 6);
-Map.addLayer(countTrends, vis, 'total_change_intensity_index pixel');
