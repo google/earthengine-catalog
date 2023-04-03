@@ -4,6 +4,7 @@ local subdir = 'OpenET';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -26,22 +27,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     Operational Simplified Surface Energy Balance (SSEBop)
 
-    The Operational Simplified Surface Energy Balance (SSEBop) model by Senay et al. (2013, 2017) is
-    a thermal-based simplified surface energy model for estimating actual ET based on the principles
-    of satellite psychrometry (Senay 2018). The OpenET SSEBop implementation uses land surface
-    temperature (Ts) from Landsat (Collection 2 Level-2 Science Products) with key model parameters
-    (cold/wet-bulb reference, Tc, and surface psychrometric constant, 1/dT) derived from a combination of
-    observed surface temperature, normalized difference vegetation index (NDVI), climatological average (1980-2017)
-    daily maximum air temperature (Ta, 1-km) from Daymet, and net radiation data from ERA-5. This
-    model implementation uses the Google Earth Engine processing framework for connecting key
-    SSEBop ET functions and algorithms together when generating both intermediate and aggregated ET
-    results. A detailed study and evaluation of the SSEBop model across CONUS (Senay et al., 2022)
-    informs both cloud implementation and assessment for water balance applications at broad scales.
-    Notable model (v0.2.6) enhancements and performance against previous versions include additional
-    compatibility with Landsat 9 (launched Sep 2021), global model extensibility, and improved
-    parameterization of SSEBop using FANO (Forcing and Normalizing Operation) to better estimate ET
-    in all landscapes and all seasons regardless of vegetation cover density, thereby improving model
-    accuracy by avoiding extrapolation of Tc to non-calibration regions.
+    The Operational Simplified Surface Energy Balance (SSEBop) model by Senay
+    et al. (2013, 2017) is a thermal-based simplified surface energy model for
+    estimating actual ET based on the principles of satellite psychrometry
+    (Senay 2018). The OpenET SSEBop implementation uses land surface temperature
+    (Ts) from Landsat (Collection 2 Level-2 Science Products) with key model
+    parameters (cold/wet-bulb reference, Tc, and surface psychrometric
+    constant, 1/dT) derived from a combination of observed surface temperature,
+    normalized difference vegetation index (NDVI), climatological average
+    (1980-2017) daily maximum air temperature (Ta, 1-km) from Daymet, and
+    net radiation data from ERA-5. This model implementation uses the Google
+    Earth Engine processing framework for connecting key SSEBop ET functions
+    and algorithms together when generating both intermediate and aggregated ET
+    results. A detailed study and evaluation of the SSEBop model across CONUS
+    (Senay et al., 2022) informs both cloud implementation and assessment for
+    water balance applications at broad scales. Notable model (v0.2.6)
+    enhancements and performance against previous versions include additional
+    compatibility with Landsat 9 (launched Sep 2021), global model
+    extensibility, and improved parameterization of SSEBop using
+    FANO (Forcing and Normalizing Operation) to better estimate ET
+    in all landscapes and all seasons regardless of vegetation cover density,
+    thereby improving model accuracy by avoiding extrapolation of Tc to
+    non-calibration regions.
 
     [Additional information](https://openetdata.org/methodologies/)
   |||,
@@ -65,25 +72,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: |||
-          SSEBop ET value
-        |||,
-        'gee:units': 'mm',
+        description: 'SSEBop ET value',
+        'gee:units': units.millimeter,
       },
 
       {
         name: 'count',
-        description: |||
-           Number of cloud free values
-        |||,
+        description: 'Number of cloud free values',
+        'gee:units': 'count',
       },
     ],
     'gee:visualizations': [
       {
         display_name: 'OpenET SSEBop Monthly ET',
         lookat: {
-          lat: 38.0,
-          lon: -100.0,
+          lat: 38,
+          lon: -100,
           zoom: 5,
         },
         image_visualization: {

@@ -4,6 +4,7 @@ local subdir = 'OpenET';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -24,14 +25,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Atmosphere-Land Exchange Inverse / Disaggregation of the Atmosphere-Land Exchange Inverse (ALEXI/DisALEXI)
-    DisALEXI was recently ported to Google Earth Engine as part of the OpenET framework and the baseline
-    ALEXI/DisALEXI model structure is described by Anderson et al. (2012, 2018). The ALEXI evapotranspiration (ET)
-    model specifically uses time differential land surface temperature (LST) measurements from geostationary or
-    moderate resolution polar orbiting platforms to generate regional ET maps. DisALEXI then disaggregates the
-    regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to resolve individual farm fields and
-    other landscape features.
+    Atmosphere-Land Exchange Inverse / Disaggregation of the Atmosphere-Land
+    Exchange Inverse (ALEXI/DisALEXI)
 
+    DisALEXI was recently ported to Google Earth Engine as part of the OpenET
+    framework and the baseline ALEXI/DisALEXI model structure is described by
+    Anderson et al. (2012, 2018). The ALEXI evapotranspiration (ET) model
+    specifically uses time differential land surface temperature (LST)
+    measurements from geostationary or moderate resolution polar orbiting
+    platforms to generate regional ET maps. DisALEXI then disaggregates the
+    regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to
+    resolve individual farm fields and other landscape features.
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
@@ -54,25 +58,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: |||
-          DisALEXI ET value
-        |||,
-        'gee:units': 'mm',
+        description: 'DisALEXI ET value',
+        'gee:units': units.millimeter,
       },
 
       {
         name: 'count',
-        description: |||
-           Number of cloud free values
-        |||
+        description: 'Number of cloud free values',
+        'gee:units': 'count',
       },
     ],
     'gee:visualizations': [
       {
         display_name: 'OpenET DisALEXI Monthly ET',
         lookat: {
-          lat: 38.0,
-          lon: -100.0,
+          lat: 38,
+          lon: -100,
           zoom: 5,
         },
         image_visualization: {

@@ -203,8 +203,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'OpenET Ensemble Monthly ET',
         lookat: {
-          lat: 38.0,
-          lon: -100.0,
+          lat: 38,
+          lon: -100,
           zoom: 5,
         },
         image_visualization: {
