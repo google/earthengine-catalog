@@ -1,4 +1,4 @@
-local id = 'projects/shirui-sandbox/assets/NIDEM_Example/NIDEM_Test';
+local id = 'projects/shirui-sandbox/assets/NIDEM/NIDEM';
 local subdir = 'shirui-sandbox';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -35,6 +35,8 @@ local self_url = catalog_subdir_url + base_filename;
     Intertidal zones are faced with increasing threats from coastal erosion, land reclamation (e.g. port construction), and sea level rise. 
     Accurate elevation data describing the height and shape of the coastline is needed to help predict when and where these threats will have the greatest impact. 
     However, this data is expensive and challenging to map across the entire intertidal zone of a continent the size of Australia.
+    The definition of the four bands, including NIDEM, NIDEM_mask, NIDEM_uncertainty, and NIDEM_unfiltered please visit https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#details
+    The product: https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -60,7 +62,7 @@ local self_url = catalog_subdir_url + base_filename;
   // NIDEM: the extend is for full dataset,
   // https://cmi.ga.gov.au/print/pdf/node/325
   // https://epsg.io/3577
-  extent: ee.extent(93.41, -60.55, 173.34, -8.47, '1986-08-16T00:00:00Z', '2017-07-31T23:59:59Z'),
+  extent: ee.extent(108.81, -44.41, 157.82, -9.13, '1986-08-16T00:00:00Z', '2017-07-31T23:59:59Z'),
 
   // TODO(schwehr): Describe optional fields
   // 'gee:provider_ids'
@@ -71,7 +73,7 @@ local self_url = catalog_subdir_url + base_filename;
     // TODO(schwehr): Describe difference between scheam and properties???
     'gee:schema': [
       {
-        name: 'dea_intertidal_elevation_landsat',
+        name: 'dea_national_intertidal_digital_elevation_model',
         description: |||
           The National Intertidal Digital Elevation Model (NIDEM) is a continental-scale elevation dataset for Australia exposed intertidal zone.
           This product provides the first three-dimensional representation of Australia intertidal sandy beaches and shores, 
@@ -81,6 +83,8 @@ local self_url = catalog_subdir_url + base_filename;
           Intertidal zones are faced with increasing threats from coastal erosion, land reclamation (e.g. port construction), and sea level rise. 
           Accurate elevation data describing the height and shape of the coastline is needed to help predict when and where these threats will have the greatest impact. 
           However, this data is expensive and challenging to map across the entire intertidal zone of a continent the size of Australia.
+          The definition of the four bands, including NIDEM, NIDEM_mask, NIDEM_uncertainty, and NIDEM_unfiltered please visit https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#details
+          The product: https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics
         |||,
 
         type: ee_const.var_type.double,  // See var_type for the possibilities
@@ -95,7 +99,7 @@ local self_url = catalog_subdir_url + base_filename;
     // Describe all of the bands in the order they appear in an ee.Image.
     'eo:bands': [
       {
-        name: 'elevation',
+        name: 'b1',
         description: 'Elevation',
         'gee:units': units.meters,
         // center_wavelength: 0.49,  // in nm
@@ -106,7 +110,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     // Optional band statistics - one entry per band.
     // If the exact statistics are known, then set gee:estimated_range to true
-    elevation: {minimum: -3.0, maximum: 3.0, 'gee:estimated_range': true},
+    b1: {minimum: -5.0, maximum: 3.9, 'gee:estimated_range': true},
 
     // 1 or more band visualizations
     'gee:visualizations': [
@@ -117,10 +121,35 @@ local self_url = catalog_subdir_url + base_filename;
         // Do not use too many significant digits.
         // Try to avoid zoom levels of 0-4 for datasets with many assets as that
         // can be hard on the system.
-        lookat: {lat: -18.06, lon: 122.16, zoom: 5},
+        lookat: {lat: -23.70, lon: 133.88, zoom: 5},
         image_visualization: {
           band_vis: {
-            min: [-3.0],  max: [3.0], bands: ['elevation']}},
+            min: [-5.0],
+            max: [3.9],
+            palette: [
+              '440154', 
+              '471365', 
+              '482475', 
+              '463480', 
+              '414487', 
+              '3b528b', 
+              '355f8d',
+              '2f6c8e', 
+              '2a788e', 
+              '25848e', 
+              '21918c', 
+              '1e9c89', 
+              '22a884', 
+              '2fb47c',
+              '44bf70', 
+              '5ec962', 
+              '7ad151', 
+              '9bd93c', 
+              'bddf26', 
+              'dfe318', 
+              'fde725',
+            ],
+             bands: ['b1']}},
       },
       // TODO(schwehr): Example with multiple bands and stats for all.
       // TODO(schwehr): Example with a palette
