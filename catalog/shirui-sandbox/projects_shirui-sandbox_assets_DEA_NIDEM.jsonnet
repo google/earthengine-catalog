@@ -1,4 +1,4 @@
-local id = 'projects/shirui-sandbox/assets/NIDEM/NIDEM';
+local id = 'projects/shirui-sandbox/assets/DEA/NIDEM';
 local subdir = 'shirui-sandbox';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -99,7 +99,7 @@ local self_url = catalog_subdir_url + base_filename;
     // Describe all of the bands in the order they appear in an ee.Image.
     'eo:bands': [
       {
-        name: 'b1',
+        name: 'nidem',
         description: 'Elevation',
         'gee:units': units.meters,
         // center_wavelength: 0.49,  // in nm
@@ -110,7 +110,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     // Optional band statistics - one entry per band.
     // If the exact statistics are known, then set gee:estimated_range to true
-    b1: {minimum: -5.0, maximum: 3.9, 'gee:estimated_range': true},
+    nidem: {minimum: -5.0, maximum: 3.9, 'gee:estimated_range': true},
 
     // 1 or more band visualizations
     'gee:visualizations': [
@@ -149,7 +149,7 @@ local self_url = catalog_subdir_url + base_filename;
               'dfe318', 
               'fde725',
             ],
-             bands: ['b1']}},
+             bands: ['nidem']}},
       },
       // TODO(schwehr): Example with multiple bands and stats for all.
       // TODO(schwehr): Example with a palette

@@ -1,6 +1,6 @@
-var nidem = ee.ImageCollection('projects/shirui-sandbox/assets/NIDEM/NIDEM');
+var nidem = ee.ImageCollection('projects/shirui-sandbox/assets/DEA/NIDEM');
 
-var elevation = nidem.select('b1');
+var elevation = nidem.select('nidem');
 var elevationVis = {
   min: -2.5, //-5.0,
   max: 1.5, //3.9,
@@ -11,4 +11,4 @@ var elevationVis = {
   ],
 };
 Map.setCenter(122.36, -18.10, 11);
-Map.addLayer(elevation, elevationVis, 'b1');
+Map.addLayer(elevation, elevationVis, 'nidem');
