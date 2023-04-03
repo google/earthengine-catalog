@@ -4,6 +4,7 @@ local subdir = 'OpenET';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -26,18 +27,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     Priestley-Taylor Jet Propulsion Laboratory (PT-JPL)
 
-    The core formulation of the PT-JPL model within the OpenET framework has not changed from the
-    original formulation detailed in Fisher et al. (2008). However, enhancements and updates to
-    model inputs and time integration for PT-JPL were made to take advantage of contemporary
-    gridded weather datasets, provide consistency with other models, improve open water evaporation
-    estimates, and account for advection over crop and wetland areas in semiarid and arid
-    environments. These changes include the use of Landsat surface reflectance and thermal radiation
-    for calculating net radiation, photosynthetically active radiation, plant canopy and moisture
-    variables, and use of NLDAS, Spatial CIMIS, and gridMET weather data for estimating insolation
-    and ASCE reference ET. Similar to the implementation of other OpenET models, estimation of daily
-    and monthly time integrated ET is based on the fraction of ASCE reference ET. Open water
-    evaporation is estimated following a surface energy balance approach of Abdelrady et al. (2016)
-    that is specific for water bodies by accounting for water heat flux as opposed to soil heat flux.
+    The core formulation of the PT-JPL model within the OpenET framework has
+    not changed from the original formulation detailed in Fisher et al. (2008).
+    However, enhancements and updates to model inputs and time integration for
+    PT-JPL were made to take advantage of contemporary gridded weather datasets,
+    provide consistency with other models, improve open water evaporation
+    estimates, and account for advection over crop and wetland areas in
+    semiarid and arid environments. These changes include the use of
+    Landsat surface reflectance and thermal radiation for calculating net
+    radiation, photosynthetically active radiation, plant canopy and moisture
+    variables, and use of NLDAS, Spatial CIMIS, and gridMET weather data for
+    estimating insolation and ASCE reference ET. Similar to the implementation
+    of other OpenET models, estimation of daily and monthly time integrated
+    ET is based on the fraction of ASCE reference ET. Open water evaporation
+    is estimated following a surface energy balance approach of Abdelrady
+    et al. (2016) that is specific for water bodies by accounting for water
+    heat flux as opposed to soil heat flux.
 
     [Additional information](https://openetdata.org/methodologies/)
   |||,
@@ -61,25 +66,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: |||
-          PT-JPL ET value
-        |||,
-        'gee:units': 'mm',
+        description: 'PT-JPL ET value',
+        'gee:units': units.millimeter,
       },
 
       {
         name: 'count',
         description: |||
            Number of cloud free values
-        |||
+        |||,
+        'gee:units': 'count',
       },
     ],
     'gee:visualizations': [
       {
         display_name: 'OpenET PT-JPL Monthly ET',
         lookat: {
-          lat: 38.0,
-          lon: -100.0,
+          lat: 38,
+          lon: -100,
           zoom: 5,
         },
         image_visualization: {
