@@ -24,7 +24,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The Ocean and Land Color Instrument (OLCI) Earth Observation
     Full Resolution (EFR) dataset contains top of atmosphere radiances
     at 21 spectral bands with center wavelengths ranging between
-    0.4μm and 1.02μm at spatial resolution of 300m with
+    0.4&micro;m and 1.02&micro;m at spatial resolution of 300m with
     worldwide coverage every ~2 days.
 
     OLCI is one of the instruments
@@ -243,7 +243,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa01_radiance',
         description: 'Aerosol correction, improved water constituent retrieval',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.4,
         'gee:scale': 0.01394646,
         'gee:wavelength': '400nm/15nm',
@@ -251,7 +251,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa02_radiance',
         description: 'Yellow substance and detrital pigments (turbidity)',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.4125,
         'gee:scale': 0.01338726,
         'gee:wavelength': '412.5nm/10nm',
@@ -259,7 +259,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa03_radiance',
         description: 'Chl absorption max., biogeochemistry, vegetation',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.4425,
         'gee:scale': 0.01214812,
         'gee:wavelength': '442.5nm/10nm',
@@ -267,7 +267,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa04_radiance',
         description: 'High Chl, other pigments',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.49,
         'gee:scale': 0.01151982,
         'gee:wavelength': '490nm/10nm',
@@ -275,7 +275,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa05_radiance',
         description: 'Chl, sediment, turbidity, red tide',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.51,
         'gee:scale': 0.01009526,
         'gee:wavelength': '510nm/10nm',
@@ -283,7 +283,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa06_radiance',
         description: 'Chlorophyll reference (Chl minimum)',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.56,
         'gee:scale': 0.0123538,
         'gee:wavelength': '560nm/10nm',
@@ -291,7 +291,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa07_radiance',
         description: 'Sediment loading',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.62,
         'gee:scale': 0.00879161,
         'gee:wavelength': '620nm/10nm',
@@ -299,7 +299,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa08_radiance',
         description: 'Chl (2^nd Chl abs. max.), sediment, yellow substance/vegetation',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.665,
         'gee:scale': 0.00876539,
         'gee:wavelength': '665nm/10nm',
@@ -311,7 +311,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           account for [smile](https://sentinels.copernicus.eu/web/sentinel/technical-guides/sentinel-3-olci/level-2/smile-correction)
           together with the bands 665 and 680nm
         |||,
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.67375,
         'gee:scale': 0.0095103,
         'gee:wavelength': '673.75nm/7.5nm',
@@ -319,7 +319,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa10_radiance',
         description: 'Chl fluorescence peak, red edge',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.68125,
         'gee:scale': 0.00773378,
         'gee:wavelength': '681.25nm/7.5nm',
@@ -327,7 +327,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa11_radiance',
         description: 'Chl fluorescence baseline, red edge transition',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.70875,
         'gee:scale': 0.00675523,
         'gee:wavelength': '708.75nm/10nm',
@@ -335,7 +335,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa12_radiance',
         description: 'O2 absorption/clouds, vegetation',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.75375,
         'gee:scale': 0.0071996,
         'gee:wavelength': '753.75nm/7.5nm',
@@ -343,7 +343,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa13_radiance',
         description: 'O2 absorption band/aerosol correction',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.76125,
         'gee:scale': 0.00749684,
         'gee:wavelength': '761.25nm/7.5nm',
@@ -351,7 +351,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa14_radiance',
         description: 'Atmospheric correction',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.764375,
         'gee:scale': 0.0086512,
         'gee:wavelength': '764.375nm/3.75nm',
@@ -359,7 +359,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa15_radiance',
         description: 'O2A used for cloud top pressure, fluorescence over land',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.7675,
         'gee:scale': 0.00526779,
         'gee:wavelength': '767.5nm/2.5nm',
@@ -367,7 +367,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa16_radiance',
         description: 'Atmospheric correction/aerosol correction',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.77875,
         'gee:scale': 0.00530267,
         'gee:wavelength': '778.75nm/15nm',
@@ -375,7 +375,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa17_radiance',
         description: 'Atmospheric correction/aerosol correction, clouds, pixel co-registration',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.865,
         'gee:scale': 0.00493004,
         'gee:wavelength': '865nm/20nm',
@@ -386,7 +386,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Water vapor absorption reference band. Common reference
           band with SLSTR instrument. Vegetation monitoring
         |||,
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.885,
         'gee:scale': 0.00549962,
         'gee:wavelength': '885nm/10nm',
@@ -394,7 +394,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa19_radiance',
         description: 'Water vapor absorption/vegetation monitoring (max. reflectance)',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.9,
         'gee:scale': 0.00502847,
         'gee:wavelength': '900nm/10nm',
@@ -402,7 +402,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa20_radiance',
         description: 'Water vapor absorption, atmospheric/aerosol correction',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 0.94,
         'gee:scale': 0.00326378,
         'gee:wavelength': '940nm/20nm',
@@ -410,7 +410,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Oa21_radiance',
         description: 'Atmospheric/aerosol correction',
-        'gee:units': 'W m^-2 sr^-1 μm^-1',
+        'gee:units': 'W m^-2 sr^-1 &micro;m^-1',
         center_wavelength: 1.029,
         'gee:scale': 0.00324118,
         'gee:wavelength': '1029nm/40nm',

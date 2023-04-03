@@ -14,8 +14,6 @@ local base_filename = basename + '.json';
 local successor_basename = std.strReplace(successor_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -115,7 +113,7 @@ local self_url = catalog_subdir_url + base_filename;
         description: 'Bidirectional surface reflectance',
         center_wavelength: 3.75,
         'gee:scale': 0.0001,
-        'gee:wavelength': '3.75μm',
+        'gee:wavelength': '3.75&micro;m',
       },
       {
         name: 'BT_CH3',
@@ -123,7 +121,7 @@ local self_url = catalog_subdir_url + base_filename;
         'gee:units': units.kelvin,
         center_wavelength: 3.75,
         'gee:scale': 0.1,
-        'gee:wavelength': '3.75μm',
+        'gee:wavelength': '3.75&micro;m',
       },
       {
         name: 'BT_CH4',
@@ -131,7 +129,7 @@ local self_url = catalog_subdir_url + base_filename;
         'gee:units': units.kelvin,
         center_wavelength: 11.0,
         'gee:scale': 0.1,
-        'gee:wavelength': '11.0μm',
+        'gee:wavelength': '11.0&micro;m',
       },
       {
         name: 'BT_CH5',
@@ -139,7 +137,7 @@ local self_url = catalog_subdir_url + base_filename;
         'gee:units': units.kelvin,
         center_wavelength: 12.0,
         'gee:scale': 0.1,
-        'gee:wavelength': '12.0μm',
+        'gee:wavelength': '12.0&micro;m',
       },
       {
         name: 'TIMEOFDAY',
@@ -150,19 +148,19 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'RELAZ',
         description: 'Relative sensor azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {
         name: 'SZEN',
         description: 'Solar zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {
         name: 'VZEN',
         description: 'View zenith angle, scale 0.01',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {

@@ -11,9 +11,6 @@ local license = spdx.cc_by_sa_4_0;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -146,17 +143,17 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bio12',
         description: 'Annual precipitation',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio13',
         description: 'Precipitation of wettest month',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio14',
         description: 'Precipitation of driest month',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio15',
@@ -166,22 +163,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bio16',
         description: 'Precipitation of wettest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio17',
         description: 'Precipitation of driest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio18',
         description: 'Precipitation of warmest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio19',
         description: 'Precipitation of coldest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [

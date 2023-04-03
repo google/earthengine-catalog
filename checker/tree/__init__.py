@@ -5,10 +5,12 @@ from typing import Iterator
 from checker import stac
 from checker.tree import keywords
 from checker.tree import parent_child
+from checker.tree import title
 
 _CHECKS = [
     keywords.Check,
     parent_child.Check,
+    title.Check,
 ]
 
 

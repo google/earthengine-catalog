@@ -4,6 +4,7 @@ local subdir = 'OpenET';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -63,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Ensemble ET value, computed as the mean of the ensemble
           after filtering outliers using the median absolute deviation (mad)
         |||,
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'et_ensemble_mad_min',
@@ -71,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
            The minimum value in the ensemble range, after filtering for
            outliers using the median absolute deviation (mad)
         |||,
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'et_ensemble_mad_max',
@@ -79,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
            The maximum value in the ensemble range, after filtering for
            outliers using the median absolute deviation (mad)
         |||,
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'et_ensemble_mad_count',
@@ -195,7 +196,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
            The simple arithmetic mean (sam) of all six models in the OpenET model ensemble
         |||,
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [

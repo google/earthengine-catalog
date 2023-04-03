@@ -79,7 +79,7 @@ local units = import 'units.libsonnet';
     {
       name: 'delta_time',
       description: 'Time delta since Jan 1 00:00 2018',
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.double,
     },
     {
@@ -146,7 +146,7 @@ local units = import 'units.libsonnet';
     {
       name: 'lat_highestreturn',
       description: 'Latitude of highest detected return',
-      'gee:units': 'Degree',
+      'gee:units': 'degree',
       type:: ee_const.var_type.double,
     },
     {
@@ -175,7 +175,7 @@ local units = import 'units.libsonnet';
     {
       name: 'lon_highestreturn',
       description: 'Longitude of highest detected return',
-      'gee:units': 'Degree',
+      'gee:units': 'degree',
       type:: ee_const.var_type.double,
     },
     {
@@ -283,7 +283,7 @@ local units = import 'units.libsonnet';
         The focal window size used to calculate urban_proportion. Values are 3
         (3x3 pixel window size) or 5 (5x5 pixel window size).
       |||,
-      'gee:units': 'pixels',
+      'gee:units': units.pixel,
       type:: ee_const.var_type.int,
     },
     {
@@ -315,7 +315,7 @@ local units = import 'units.libsonnet';
         Azimuth in radians of the unit pointing vector for the laser in the
         local ENU frame. The angle is measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
     {
@@ -324,7 +324,7 @@ local units = import 'units.libsonnet';
         Elevation in radians of the unit pointing vector for the laser in the
         local ENU frame. The angle is measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
   ],

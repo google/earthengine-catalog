@@ -34,7 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     scenarios derived from the General Circulation Model (GCM) runs conducted
     under the Coupled Model Intercomparison Project Phase 6 (CMIP6, see
     [Thrasher et al. 2022](https://doi.org/10.7917/OFSG3345)) and across two of
-    the four “Tier 1” greenhouse gas emissions scenarios known as Shared
+    the four "Tier 1" greenhouse gas emissions scenarios known as Shared
     Socioeconomic Pathways (SSPs).
 
     The CMIP6 GCM runs were developed in support of the Sixth Assessment Report

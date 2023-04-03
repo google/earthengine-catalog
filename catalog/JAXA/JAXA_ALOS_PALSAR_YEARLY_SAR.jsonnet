@@ -21,11 +21,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Yearly Mosaic',
+  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version K',
   'gee:type': ee_const.gee_type.image_collection,
-  #TODO(simonf): add version links between the two datasets
-  version: units.kelvin,
+  # TODO(simonf): add version links between this and SAR_EPOCH dataset
+  # once reprocessed data for earlier years are released and ingested.
+  version: 'K',
   description: |||
+    A newer version of this dataset with data for 2015-2021 can be found in
+    [JAXA/ALOS/PALSAR/YEARLY/SAR](JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH.html)
+
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery
     from PALSAR/PALSAR-2. For each year and location,
@@ -48,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The DN values can be converted to gamma naught values
     in decibel unit (dB) using the following equation:
 
-      *    γ₀ = 10log₁₀(DN²) - 83.0 dB
+      *    &#947;&#8320; = 10log&#8321;&#8320;(DN&#178;) - 83.0 dB
 
     Attention:
 

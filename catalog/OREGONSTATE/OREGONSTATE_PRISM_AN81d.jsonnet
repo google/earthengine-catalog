@@ -122,7 +122,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ppt',
         description: 'Daily total precipitation (including rain and melted snow)',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'tmean',

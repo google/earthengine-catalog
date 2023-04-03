@@ -14,8 +14,6 @@ local base_filename = basename + '.json';
 local successor_basename = std.strReplace(successor_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -178,32 +176,32 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SZA',
         description: 'Solar zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SAA',
         description: 'Solar azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SWIRVAA',
         description: 'Viewing azimuth angles SWIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SWIRVZA',
         description: 'Viewing zenith angle SWIR detector',
-        'gee:units': 'Degree',
+        'gee:units': 'degree',
       },
       {
         name: 'VNIRVAA',
         description: 'Viewing azimuth angle VNIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'VNIRVZA',
         description: 'Viewing zenith angle VNIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SM',

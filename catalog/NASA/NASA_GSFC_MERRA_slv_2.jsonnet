@@ -11,9 +11,6 @@ local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -196,22 +193,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'TOX',
         description: 'Total column odd oxygen',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TQI',
         description: 'Total precipitable ice water',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TQL',
         description: 'Total precipitable liquid water',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TQV',
         description: 'Total precipitable water vapor',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'TROPPB',

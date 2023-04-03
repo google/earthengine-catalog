@@ -43,7 +43,7 @@ local units = import 'units.libsonnet';
         Transmit time of the shot, measured in seconds from the
         master_time_epoch since 2018-01-01
       |||,
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.double,
     },
     {
@@ -63,7 +63,7 @@ local units = import 'units.libsonnet';
         Azimuth of the unit pointing vector for the laser in the local ENU
         frame measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.int,
     },
     {
@@ -72,7 +72,7 @@ local units = import 'units.libsonnet';
         Elevation of the unit pointing vector for the laser in the local ENU
         frame measured from East-North plane and positive towards Up.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.int,
     },
     {
@@ -108,7 +108,7 @@ local units = import 'units.libsonnet';
         position in the local ENU frame measured from North and is positive
         towards East.
       |||,
-      'gee:units': 'Degrees',
+      'gee:units': 'degrees',
       type:: ee_const.var_type.int,
     },
     {
@@ -118,7 +118,7 @@ local units = import 'units.libsonnet';
         position in the local ENU frame measured from the East-North plane and
         is positive Up.
       |||,
-      'gee:units': 'Degrees',
+      'gee:units': 'degrees',
       type:: ee_const.var_type.int,
     },
     gedi_l2a.shot_number,

@@ -191,25 +191,23 @@ class ErrorSchemaTest(test_utils.NodeTest):
         {'summaries': {'gee:schema': [
             {'units': '', 'description': 'A thing',
              'name': 'ab', 'type': 'INT'}]}},
-        'units too short: 0',
-        gee_type=IMAGE_COLLECTION)
+        ['units too short: 0', 'Schema units unknown: '])
 
   def test_bad_units_too_long(self):
     size = 21
+    units = 'a' * size
     self.assert_collection(
         {'summaries': {'gee:schema': [
-            {'units': 'a' * size,
+            {'units': units,
              'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}},
-        f'units too long: {size}',
-        gee_type=IMAGE_COLLECTION)
+        [f'units too long: {size}', 'Schema units unknown: ' + units])
 
-  # TODO(schwehr): turn on stricter units check.
-  # def test_bad_units_unknown(self):
-  #   self.assert_collection({'summaries': {'gee:schema': [
-  #       {'description': 'A name', 'name': 'ab', 'type': 'INT',
-  #        'units': 'bogus'}]}},
-  #       'Units unknown: bogus',
-  #       gee_type=IMAGE_COLLECTION)
+  def test_bad_units_unknown(self):
+    self.assert_collection(
+        {'summaries': {'gee:schema': [
+            {'description': 'A name', 'name': 'ab', 'type': 'INT',
+             'units': 'bogus'}]}},
+        'Schema units unknown: bogus')
 
 
 if __name__ == '__main__':

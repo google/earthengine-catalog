@@ -4,14 +4,13 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -81,7 +80,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'BCCMASS',
         description: 'Black carbon column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'BCEXTTAU',
@@ -109,7 +108,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'DMSCMASS',
         description: 'Dms column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'DMSSMASS',
@@ -123,12 +122,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'DUCMASS25',
         description: 'Dust column mass density - PM2.5',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'DUCMASS',
         description: 'Dust column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'DUEXTT25',
@@ -173,7 +172,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'OCCMASS',
         description: 'Organic carbon column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'OCEXTTAU',
@@ -201,7 +200,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SO2CMASS',
         description: 'So2 column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SO2SMASS',
@@ -211,7 +210,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SO4CMASS',
         description: 'SO4 column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SO4SMASS',
@@ -225,12 +224,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'SSCMASS25',
         description: 'Sea salt column mass density - PM2.5',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SSCMASS',
         description: 'Sea salt column mass density',
-        'gee:units': 'kg/(m^2)',
+        'gee:units': units.area_density,
       },
       {
         name: 'SSEXTT25',

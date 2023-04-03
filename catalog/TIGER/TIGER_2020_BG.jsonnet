@@ -19,7 +19,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'TIGER: US Census Block Groups (BG)',
+  title: 'TIGER: US Census Block Groups (BG) 2020',
   version: '2020',
   'gee:type': ee_const.gee_type.table,
   description: |||

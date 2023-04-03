@@ -124,8 +124,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'eto',
-        description: 'Daily reference evapotranspiration',
-        'gee:units': 'grass, mm',
+        description: 'Daily grass reference evapotranspiration',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bi',
@@ -144,8 +144,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'etr',
-        description: 'Daily reference evapotranspiration',
-        'gee:units': 'Alfalfa, mm',
+        description: 'Daily alfalfa reference evapotranspiration',
+        'gee:units': units.millimeter,
       },
       {
         name: 'vpd',

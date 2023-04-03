@@ -764,7 +764,7 @@ local units = import 'units.libsonnet';
             description: |||
               Omitted snow/ice: land according to the water mask that
               was classified as something other than snow but with a maximum annual
-              temperature below 1◦C, relabeled as snow/ice.
+              temperature below 1&deg;C, relabeled as snow/ice.
             |||,
           },
           {
@@ -772,7 +772,7 @@ local units = import 'units.libsonnet';
             description: |||
               Misclassified snow/ice: land according to the water mask
               that was classified as snow but with a minimum annual temperature
-              greater than 1◦C, relabeled as barren.
+              greater than 1&deg;C, relabeled as barren.
             |||,
           },
           {
