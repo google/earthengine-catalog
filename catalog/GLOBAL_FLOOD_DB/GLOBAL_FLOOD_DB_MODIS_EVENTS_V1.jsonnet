@@ -4,15 +4,13 @@ local subdir = 'GLOBAL_FLOOD_DB';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_nc_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -209,7 +207,7 @@ local self_url = catalog_subdir_url + base_filename;
           events which used an otsu and not the default threshold).
         |||,
         type: ee_const.var_type.double,
-        units: 'm',
+        units: units.meters,
       },
       {
         name: 'slope_threshold',
@@ -232,7 +230,7 @@ local self_url = catalog_subdir_url + base_filename;
           the number of composite days a pixel's area was considered water during an
           event. 3-day MODIS composites were used.
         |||,
-        'gee:units': 'days',
+        'gee:units': units.day,
       },
       {
         name: 'clear_views',
@@ -241,7 +239,7 @@ local self_url = catalog_subdir_url + base_filename;
           of each event. Cloud coverage is determined by the MODIS Quality
           Assurance band ('state_1km').
         |||,
-        'gee:units': 'days',
+        'gee:units': units.day,
       },
       {
         name: 'clear_perc',
@@ -251,7 +249,7 @@ local self_url = catalog_subdir_url + base_filename;
           images per flood event.  Cloud coverage is determined by the MODIS
           Quality Assurance band ('state_1km').
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'jrc_perm_water',

@@ -13,8 +13,6 @@ local base_filename = basename + '.json';
 local successor_basename = std.strReplace(successor_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -36,14 +34,14 @@ local self_url = catalog_subdir_url + base_filename;
     access population distribution datasets built using transparent and
     peer-reviewed approaches.
 
-    Full details on the methods and datasets used in constructing the
-    data, along with open access publications, are provided on the
-    [WorldPop website](https://www.worldpop.org/). In brief, recent census-based
+    Full details on the methods and datasets used in constructing the data,
+    along with open access publications, are provided on the [WorldPop
+    website](https://www.worldpop.org/). In brief, recent census-based
     population counts matched to their associated administrative units are
-    disaggregated to ≈100x100m grid cells through machine learning approaches
-    that exploit the relationships between population densities and a range of
-    geospatial covariate layers. The datasets depict estimated number of people
-    residing in each grid cell in 2010, 2015, and other years.
+    disaggregated to &asymp;100x100m grid cells through machine learning
+    approaches that exploit the relationships between population densities and a
+    range of geospatial covariate layers. The datasets depict estimated number
+    of people residing in each grid cell in 2010, 2015, and other years.
 
     Further WorldPop gridded datasets on population age structures,
     poverty, urban growth, and population dynamics are freely available on

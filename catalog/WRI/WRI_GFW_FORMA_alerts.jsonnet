@@ -4,6 +4,7 @@ local subdir = 'WRI';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -102,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Percentage of clearing which during the 6 MODIS periods (96 + N days)
           preceding the corresponding alert_date value for the pixel
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'alert_date',

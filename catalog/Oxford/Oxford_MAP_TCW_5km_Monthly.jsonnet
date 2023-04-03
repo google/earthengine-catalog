@@ -4,6 +4,7 @@ local subdir = 'Oxford';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_nc_sa_4_0;
 
@@ -27,7 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MODIS BRDF-corrected imagery (MCD43B4). The resulting data were
     gap-filled using the approach outlined in Weiss et al. (2014) to eliminate
     missing data caused by factors such as cloud cover, and then the data were
-    aggregated temporally and spatially to produce the monthly ≈5km product.
+    aggregated temporally and spatially to produce the monthly &asymp;5km product.
 
     This dataset was produced by Harry Gibson and Daniel Weiss of the
     Malaria Atlas Project (Big Data Institute, University of Oxford,
@@ -63,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           each resulting pixel that was comprised of raw data (as opposed to
           gap-filled estimates).
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

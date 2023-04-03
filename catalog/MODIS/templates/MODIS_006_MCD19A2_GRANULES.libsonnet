@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -30,7 +32,7 @@
       {
         name: 'Column_WV',
         description: 'Column water vapor over land',
-        'gee:units': 'cm',
+        'gee:units': units.centimeter,
         'gee:scale': 0.001,
       },
       {
@@ -238,7 +240,7 @@
       {
         name: 'Injection_Height',
         description: 'Smoke injection height',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'cosSZA',

@@ -4,6 +4,7 @@ local subdir = 'COPERNICUS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -258,7 +259,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'sensor_altitude',
         description: 'Altitude of the satellite with respect to the geodetic sub-satellite point\n(WGS84).',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'sensor_azimuth_angle',

@@ -4,6 +4,7 @@ local subdir = 'WRI';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -82,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'delta_bound',
         description: 'The thresholds at which, when crossed, a FORMA alert is produced',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

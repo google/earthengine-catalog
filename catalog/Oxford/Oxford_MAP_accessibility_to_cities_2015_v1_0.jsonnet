@@ -5,6 +5,7 @@ local subdir = 'Oxford';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -13,8 +14,6 @@ local base_filename = basename + '.json';
 local successor_basename = std.strReplace(successor_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -87,7 +86,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'accessibility',
         description: 'Travel time to the nearest densely-populated area.',
-        'gee:units': 'minutes',
+        'gee:units': units.minute,
         gsd: 927.67,
       },
     ],

@@ -4,6 +4,7 @@ local subdir = 'COPERNICUS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -270,7 +271,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           appropriate temperature profile, i.e. the temperature profile used in the retrieval.
           The value is given relative to the geoid.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'aerosol_pressure',

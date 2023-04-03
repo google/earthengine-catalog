@@ -1,7 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local version_table = import 'UMD_hansen_global_forest_change.libsonnet';
 
@@ -64,7 +64,7 @@ local license = spdx.cc_by_4_0;
           Tree canopy cover for year 2000, defined as canopy closure for all
           vegetation taller than 5m in height.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'loss',
@@ -128,7 +128,7 @@ local license = spdx.cc_by_4_0;
           multispectral imagery from the first available year, typically 2000.
         |||,
         center_wavelength: 0.66,
-        'gee:wavelength': '0.63-0.69μm',
+        'gee:wavelength': '0.63-0.69&micro;m',
       },
       {
         name: 'first_b40',
@@ -137,7 +137,7 @@ local license = spdx.cc_by_4_0;
           multispectral imagery from the first available year, typically 2000.
         |||,
         center_wavelength: 0.835,
-        'gee:wavelength': '0.77-0.90μm',
+        'gee:wavelength': '0.77-0.90&micro;m',
       },
       {
         name: 'first_b50',
@@ -146,7 +146,7 @@ local license = spdx.cc_by_4_0;
           multispectral imagery from the first available year, typically 2000.
         |||,
         center_wavelength: 1.65,
-        'gee:wavelength': '1.55-1.75μm',
+        'gee:wavelength': '1.55-1.75&micro;m',
       },
       {
         name: 'first_b70',
@@ -155,7 +155,7 @@ local license = spdx.cc_by_4_0;
           multispectral imagery from the first available year, typically 2000.
         |||,
         center_wavelength: 2.22,
-        'gee:wavelength': '2.09-2.35μm',
+        'gee:wavelength': '2.09-2.35&micro;m',
       },
       {
         name: 'last_b30',
@@ -165,7 +165,7 @@ local license = spdx.cc_by_4_0;
           year of the study period.
         |||,
         center_wavelength: 0.66,
-        'gee:wavelength': '0.63-0.69μm',
+        'gee:wavelength': '0.63-0.69&micro;m',
       },
       {
         name: 'last_b40',
@@ -175,7 +175,7 @@ local license = spdx.cc_by_4_0;
           year of the study period.
         |||,
         center_wavelength: 0.835,
-        'gee:wavelength': '0.77-0.90μm',
+        'gee:wavelength': '0.77-0.90&micro;m',
       },
       {
         name: 'last_b50',
@@ -185,7 +185,7 @@ local license = spdx.cc_by_4_0;
           year of the study period.
         |||,
         center_wavelength: 1.65,
-        'gee:wavelength': '1.55-1.75μm',
+        'gee:wavelength': '1.55-1.75&micro;m',
       },
       {
         name: 'last_b70',
@@ -195,7 +195,7 @@ local license = spdx.cc_by_4_0;
           year of the study period.
         |||,
         center_wavelength: 2.22,
-        'gee:wavelength': '2.09-2.35μm',
+        'gee:wavelength': '2.09-2.35&micro;m',
       },
       {
         name: 'datamask',

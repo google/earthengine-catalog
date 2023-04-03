@@ -17,22 +17,8 @@ class ValidFilePathTest(test_utils.NodeTest):
   def test_catalog(self):
     self.assert_catalog({}, dataset_id='A', file_path='A/catalog.json')
 
-  def test_2_level_catalog(self):
-    self.assert_catalog(
-        {}, dataset_id='NASA/A', file_path='NASA/A/catalog.json')
-
   def test_collection(self):
     self.assert_collection({}, dataset_id='A/B', file_path='A/A_B.json')
-
-  def test_2_level_collection(self):
-    self.assert_collection(
-        {}, dataset_id='USGS/B/C', file_path='USGS/B/USGS_B_C.json')
-
-  def test_2_level_collection_exception_gfsad1000(self):
-    self.assert_collection(
-        {},
-        dataset_id='USGS/GFSAD1000_V1',
-        file_path='USGS/GFSAD1000/USGS_GFSAD1000_V1.json')
 
 
 class SkipFilePathTestgoogletest(test_utils.NodeTest):
@@ -77,13 +63,12 @@ class ErrorFilePathTest(test_utils.NodeTest):
         dataset_id='A/B/C', file_path='A/B/C/catalog.json')
 
   def test_bad_catalog_unexpected_2_level(self):
-    message = (
-        '2-level expected path: USGS/B/catalog.json found: USGS/C/catalog.json')
+    message = 'Catalog too deep'
     self.assert_catalog(
         {}, message, dataset_id='USGS/B', file_path='USGS/C/catalog.json')
 
   def test_bad_catalog_invalid_2_level(self):
-    message = 'Found 2-level path, but expected 1-level path: [\'A\', \'B\']'
+    message = 'Catalog too deep'
     self.assert_catalog(
         {}, message, dataset_id='A/B', file_path='A/B/catalog.json')
 
@@ -93,15 +78,6 @@ class ErrorFilePathTest(test_utils.NodeTest):
         dataset_id='A', file_path='B/catalog.json')
 
   # COLLECTIONS
-  def test_bad_2_level_collection_exception_gfsad1000(self):
-    message = (
-        'Collection USGS/GFSAD1000: expected path: '
-        'USGS/GFSAD1000/USGS_GFSAD1000_V1.json '
-        'found: USGS/USGS_GFSAD1000_V1.json')
-    self.assert_collection(
-        {}, message,
-        dataset_id='USGS/GFSAD1000_V1', file_path='USGS/USGS_GFSAD1000_V1.json')
-
   def test_bad_2_level_collection(self):
     message = (
         'Collection: expected 1-level path: A/A_B_C.json found: A/B/A_B_C.json')

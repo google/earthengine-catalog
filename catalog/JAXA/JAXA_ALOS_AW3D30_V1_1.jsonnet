@@ -6,8 +6,11 @@ local subdir = 'JAXA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://earth.jaxa.jp/en/data/policy/',
+};
 local version = '1.1';
 
 local basename = std.strReplace(id, '/', '_');
@@ -20,8 +23,6 @@ local successor_filename = successor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 local latest_url = catalog_subdir_url + latest_filename;
 local successor_url = catalog_subdir_url + successor_filename;
@@ -72,7 +73,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.latest(latest_id, latest_url),
     ee.link.successor(successor_id, successor_url),
-    ee.link.license('https://earth.jaxa.jp/en/data/policy/'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     'alos',
@@ -95,12 +96,12 @@ local successor_url = catalog_subdir_url + successor_filename;
       {
         name: 'AVE',
         description: 'Elevation value calculated by average resampling a 5-meter mesh model.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'MED',
         description: 'Elevation value calculated by median resampling a 5-meter mesh model.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'AVE_STK',

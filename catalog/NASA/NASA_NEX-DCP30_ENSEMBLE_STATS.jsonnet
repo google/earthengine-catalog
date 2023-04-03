@@ -4,15 +4,13 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -96,7 +94,7 @@ local self_url = catalog_subdir_url + base_filename;
           includes both liquid and solid phases from all types of clouds
           (both large-scale and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'pr_quartile25',
@@ -105,7 +103,7 @@ local self_url = catalog_subdir_url + base_filename;
           liquid and solid phases from all types of clouds (both large-scale
           and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'pr_median',
@@ -113,7 +111,7 @@ local self_url = catalog_subdir_url + base_filename;
           Median of precipitation at surface; includes both liquid and
           solid phases from all types of clouds (both large-scale and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'pr_quartile75',
@@ -122,47 +120,47 @@ local self_url = catalog_subdir_url + base_filename;
           liquid and solid phases from all types of clouds (both large-scale
           and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'tasmin_mean',
         description: 'Monthly mean of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin_quartile25',
         description: '25th quartile the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin_median',
         description: 'Median of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin_quartile75',
         description: '75th quartile of the daily-minimum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_mean',
         description: 'Monthly mean of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_quartile25',
         description: '25th quartile of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_median',
         description: 'Median of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmax_quartile75',
         description: '75th quartile of the daily-maximum near-surface air temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
     ],
     'gee:visualizations': [

@@ -4,15 +4,13 @@ local subdir = 'FIRMS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -73,7 +71,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'T21',
         description: 'The brightness temperature of a fire pixel using MODIS channels 21/22.',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'confidence',
@@ -84,7 +82,7 @@ local self_url = catalog_subdir_url + base_filename;
           confidence field should be used with caution; it is likely that it will
           vary in meaning in different parts of the world.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'line_number',

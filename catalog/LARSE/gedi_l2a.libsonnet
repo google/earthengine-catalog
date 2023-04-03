@@ -1,6 +1,7 @@
 local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 {
   description: |||
@@ -78,19 +79,19 @@ local spdx = import 'spdx.libsonnet';
     {
       name: 'delta_time',
       description: 'Time delta since Jan 1 00:00 2018',
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.double,
     },
     {
       name: 'digital_elevation_model',
       description: 'TanDEM-X elevation at GEDI footprint location',
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
       name: 'digital_elevation_model_srtm',
       description: 'STRM elevation at GEDI footprint location',
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
@@ -99,7 +100,7 @@ local spdx = import 'spdx.libsonnet';
         Elevation of highest detected return relative
         to reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
@@ -107,7 +108,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     },
     {
@@ -132,7 +133,7 @@ local spdx = import 'spdx.libsonnet';
         vegetation taller than 5 m in height as a percentage per
         output grid cell
       |||,
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -145,7 +146,7 @@ local spdx = import 'spdx.libsonnet';
     {
       name: 'lat_highestreturn',
       description: 'Latitude of highest detected return',
-      'gee:units': 'Degree',
+      'gee:units': 'degree',
       type:: ee_const.var_type.double,
     },
     {
@@ -174,13 +175,13 @@ local spdx = import 'spdx.libsonnet';
     {
       name: 'lon_highestreturn',
       description: 'Longitude of highest detected return',
-      'gee:units': 'Degree',
+      'gee:units': 'degree',
       type:: ee_const.var_type.double,
     },
     {
       name: 'modis_nonvegetated',
       description: 'Percent non-vegetated from MODIS MOD44B V6 data',
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -188,13 +189,13 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Percent non-vegetated standard deviation from MODIS MOD44B V6 data
       |||,
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
       name: 'modis_treecover',
       description: 'Percent tree cover from MODIS MOD44B V6 data',
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -202,7 +203,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Percent tree cover standard deviation from MODIS MOD44B V6 data
       |||,
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.double,
     },
     {
@@ -282,7 +283,7 @@ local spdx = import 'spdx.libsonnet';
         The focal window size used to calculate urban_proportion. Values are 3
         (3x3 pixel window size) or 5 (5x5 pixel window size).
       |||,
-      'gee:units': 'Pixels',
+      'gee:units': units.pixel,
       type:: ee_const.var_type.int,
     },
     {
@@ -314,7 +315,7 @@ local spdx = import 'spdx.libsonnet';
         Azimuth in radians of the unit pointing vector for the laser in the
         local ENU frame. The angle is measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
     {
@@ -323,15 +324,15 @@ local spdx = import 'spdx.libsonnet';
         Elevation in radians of the unit pointing vector for the laser in the
         local ENU frame. The angle is measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
   ],
   rh_bands: [
     {
       name: 'rh' + step,
-      description: 'Relative height metrics at ' + step + '%',
-      'gee:units': 'm',
+      description: 'Relative height metrics at ' + step + units.percent,
+      'gee:units': units.meters,
       type:: ee_const.var_type.double,
     }
     for step in std.range(0, 100)

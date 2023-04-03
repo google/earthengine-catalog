@@ -4,15 +4,16 @@ local subdir = 'LANDSAT';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://www.usgs.gov/centers/eros/data-citation',
+};
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -64,7 +65,7 @@ local self_url = catalog_subdir_url + base_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://www.usgs.gov/centers/eros/data-citation'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     'cfmask',
@@ -420,7 +421,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'ST_B6',
         description: "Band 6 surface temperature.\nIf 'PROCESSING_LEVEL' is set to 'L2SR', this band is fully masked out.",
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 11.45,
         'gee:scale': 0.00341802,
         'gee:offset': 149.0,
@@ -434,7 +435,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'ST_CDIST',
         description: "Pixel distance to cloud.\nIf 'PROCESSING_LEVEL' is set to 'L2SR', this band is fully masked out.",
-        'gee:units': 'km',
+        'gee:units': units.kilometer,
         'gee:scale': 0.01,
       },
       {
@@ -462,7 +463,7 @@ local self_url = catalog_subdir_url + base_filename;
           Uncertainty of the Surface Temperature band.
           If 'PROCESSING_LEVEL' is set to 'L2SR', this band is fully masked out.
         |||,
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
         'gee:scale': 0.01,
       },
       {

@@ -13,10 +13,17 @@
   //   licenseListVersion: f9911cd
   //   releaseDate: 2021-11-19
 
-  // Proprietary is for any non-standard license, both open and closed.
+  // "Proprietary" is for any non-standard license, both open and closed.
   proprietary: {
     id: 'proprietary',
     name: 'Non-standard license',
+    reference: 'DO NOT USE THIS - use a custom URL',
+  },
+  // "Various" indicates that multiple licenses apply to the data. It is
+  // recommended to put the details in gee:terms_of_use.
+  various: {
+    id: 'various',
+    name: 'Various licenses',
     reference: 'DO NOT USE THIS - use a custom URL',
   },
   cc_by_4_0: {

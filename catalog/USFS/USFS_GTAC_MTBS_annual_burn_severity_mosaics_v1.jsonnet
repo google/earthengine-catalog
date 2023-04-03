@@ -5,7 +5,9 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://data.fs.usda.gov/geodata/',
+};
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -32,7 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + importstr 'mtbs_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://data.fs.usda.gov/geodata/'),
+    ee.link.license(license.reference),
     {
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/',

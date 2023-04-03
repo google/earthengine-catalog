@@ -4,6 +4,7 @@ local subdir = 'NASA_USDA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -69,12 +70,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ssm',
         description: 'Surface soil moisture',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'susm',
         description: 'Subsurface soil moisture',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'smp',

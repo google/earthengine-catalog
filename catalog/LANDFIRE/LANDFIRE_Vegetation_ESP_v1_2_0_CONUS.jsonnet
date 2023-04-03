@@ -83367,950 +83367,950 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
           {
             value: 18473,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Undetermined',
+            description: 'Mississippi Alluvial Plains; Open Water; Undetermined',
           },
           {
             value: 18474,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Open Water; Upland Herb',
           },
           {
             value: 18475,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Open Water; Upland Shrub',
           },
           {
             value: 18476,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Open Water; Upland Woodland',
           },
           {
             value: 18477,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Open Water; Upland Forest',
           },
           {
             value: 18478,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Open Water; Wetland Shrub-Herb',
           },
           {
             value: 18479,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Open Water; Wetland Forest',
           },
           {
             value: 18480,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Open Water; Wetland Shrub',
           },
           {
             value: 18481,
             color: '005ce6',
-            description: 'Mississipi Alluvial Plains; Open Water; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Open Water; Wetland Herb',
           },
           {
             value: 18482,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Undetermined',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Undetermined',
           },
           {
             value: 18483,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Upland Shrub',
           },
           {
             value: 18484,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Upland Woodland',
           },
           {
             value: 18485,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Upland Forest',
           },
           {
             value: 18486,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Shrub-Herb',
           },
           {
             value: 18487,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Forest',
           },
           {
             value: 18488,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Shrub',
           },
           {
             value: 18489,
             color: '000000',
-            description: 'Mississipi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Barren-Rock/Sand/Clay; Wetland Herb',
           },
           {
             value: 18490,
             color: '737300',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Dry-Mesic Oak Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Dry-Mesic Oak Forest; Undetermined',
           },
           {
             value: 18491,
             color: 'b89c21',
-            description: 'Mississipi Alluvial Plains; Southern Interior Low Plateau Dry-Mesic Oak Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Southern Interior Low Plateau Dry-Mesic Oak Forest; Undetermined',
           },
           {
             value: 18492,
             color: 'd994ab',
             description: |||
-              Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Plain Oak-Hickory Upland; Undetermined
+              Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Plain Oak-Hickory Upland; Undetermined
             |||,
           },
           {
             value: 18493,
             color: 'decd95',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Dry Upland Hardwood Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Dry Upland Hardwood Forest; Undetermined',
           },
           {
             value: 18494,
             color: 'decd95',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Dry Upland Hardwood Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Dry Upland Hardwood Forest; Upland Forest',
           },
           {
             value: 18495,
             color: 'b0a3de',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Dry-Mesic Oak Forest and Woodland; Undetermined',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Dry-Mesic Oak Forest and Woodland; Undetermined',
           },
           {
             value: 18496,
             color: 'b0a3de',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Dry-Mesic Oak Forest and Woodland; Upland Forest',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Dry-Mesic Oak Forest and Woodland; Upland Forest',
           },
           {
             value: 18497,
             color: 'b3cf8f',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Dry Oak Forest and Woodland; Undetermined',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Dry Oak Forest and Woodland; Undetermined',
           },
           {
             value: 18498,
             color: 'b3cf8f',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Dry Oak Forest and Woodland; Upland Forest',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Dry Oak Forest and Woodland; Upland Forest',
           },
           {
             value: 18499,
             color: 'eda166',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Maple-Basswood Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Maple-Basswood Forest; Undetermined',
           },
           {
             value: 18500,
             color: 'eda166',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Maple-Basswood Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Maple-Basswood Forest; Upland Woodland',
           },
           {
             value: 18501,
             color: 'eda166',
-            description: 'Mississipi Alluvial Plains; North-Central Interior Maple-Basswood Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; North-Central Interior Maple-Basswood Forest; Upland Forest',
           },
           {
             value: 18502,
             color: '478794',
-            description: 'Mississipi Alluvial Plains; South-Central Interior Mesophytic Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; South-Central Interior Mesophytic Forest; Undetermined',
           },
           {
             value: 18503,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Undetermined',
           },
           {
             value: 18504,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Upland Herb',
           },
           {
             value: 18505,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Upland Woodland',
           },
           {
             value: 18506,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Upland Forest',
           },
           {
             value: 18507,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Shrub-Herb',
           },
           {
             value: 18508,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Forest',
           },
           {
             value: 18509,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Shrub',
           },
           {
             value: 18510,
             color: '3ef533',
-            description: 'Mississipi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Southern Crowley`s Ridge Mesic Loess Slope Forest; Wetland Herb',
           },
           {
             value: 18511,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Undetermined',
           },
           {
             value: 18512,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Upland Shrub',
           },
           {
             value: 18513,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Upland Woodland',
           },
           {
             value: 18514,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Upland Forest',
           },
           {
             value: 18515,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Wetland Forest',
           },
           {
             value: 18516,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Wetland Shrub',
           },
           {
             value: 18517,
             color: 'b59e8f',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Mesic Hardwood Forest; Wetland Herb',
           },
           {
             value: 18518,
             color: 'a87c23',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Undetermined',
           },
           {
             value: 18519,
             color: 'a87c23',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Upland Shrub',
           },
           {
             value: 18520,
             color: 'a87c23',
             description: |||
-              Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Upland Woodland
+              Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Upland Woodland
             |||,
           },
           {
             value: 18521,
             color: 'a87c23',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Mesic Hardwood Slope Forest; Upland Forest',
           },
           {
             value: 18522,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Undetermined',
           },
           {
             value: 18523,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Herb',
           },
           {
             value: 18524,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Shrub',
           },
           {
             value: 18525,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Woodland',
           },
           {
             value: 18526,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Upland Forest',
           },
           {
             value: 18527,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Wetland Forest',
           },
           {
             value: 18528,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Wetland Shrub',
           },
           {
             value: 18529,
             color: 'e8a1d4',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Northern Loess Bluff Forest; Wetland Herb',
           },
           {
             value: 18530,
             color: 'c3ff4a',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Limestone Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Limestone Forest; Undetermined',
           },
           {
             value: 18531,
             color: 'c3ff4a',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Limestone Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Limestone Forest; Upland Woodland',
           },
           {
             value: 18532,
             color: 'c3ff4a',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Limestone Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Limestone Forest; Upland Forest',
           },
           {
             value: 18533,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Undetermined',
           },
           {
             value: 18534,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Herb',
           },
           {
             value: 18535,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Shrub',
           },
           {
             value: 18536,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Woodland',
           },
           {
             value: 18537,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Upland Forest',
           },
           {
             value: 18538,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Wetland Forest',
           },
           {
             value: 18539,
             color: 'a80836',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loess Bluff Forest; Wetland Herb',
           },
           {
             value: 18540,
             color: 'f5e7ba',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Dry Upland Hardwood Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Dry Upland Hardwood Forest; Upland Forest',
           },
           {
             value: 18541,
             color: '00874a',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Undetermined',
           },
           {
             value: 18542,
             color: '00874a',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Upland Woodland',
           },
           {
             value: 18543,
             color: '00874a',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Upland Forest',
           },
           {
             value: 18544,
             color: '00874a',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Mesic Hardwood Forest; Wetland Forest',
           },
           {
             value: 18545,
             color: '707f00',
             description: |||
-              Mississipi Alluvial Plains; West Gulf Coastal Plain Upland Longleaf Pine Forest and Woodland; Upland Woodland
+              Mississippi Alluvial Plains; West Gulf Coastal Plain Upland Longleaf Pine Forest and Woodland; Upland Woodland
             |||,
           },
           {
             value: 18546,
             color: '707f00',
             description: |||
-              Mississipi Alluvial Plains; West Gulf Coastal Plain Upland Longleaf Pine Forest and Woodland; Upland Forest
+              Mississippi Alluvial Plains; West Gulf Coastal Plain Upland Longleaf Pine Forest and Woodland; Upland Forest
             |||,
           },
           {
             value: 18547,
             color: '98b000',
             description: |||
-              Mississipi Alluvial Plains; East Gulf Coastal Plain Interior Upland Longleaf Pine Woodland; Upland Forest
+              Mississippi Alluvial Plains; East Gulf Coastal Plain Interior Upland Longleaf Pine Woodland; Upland Forest
             |||,
           },
           {
             value: 18548,
             color: 'bf9747',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Undetermined',
           },
           {
             value: 18549,
             color: 'bf9747',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Upland Woodland',
           },
           {
             value: 18550,
             color: 'bf9747',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Upland Forest',
           },
           {
             value: 18551,
             color: 'bf9747',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Mesic Slope Forest; Wetland Forest',
           },
           {
             value: 18552,
             color: '614500',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Dry Oak Woodland; Undetermined',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Dry Oak Woodland; Undetermined',
           },
           {
             value: 18553,
             color: 'c4a464',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland; Undetermined',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland; Undetermined',
           },
           {
             value: 18554,
             color: 'c4a464',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Shortleaf Pine-Oak Forest and Woodland; Upland Forest',
           },
           {
             value: 18555,
             color: '64a800',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Undetermined',
           },
           {
             value: 18556,
             color: '64a800',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Herb',
           },
           {
             value: 18557,
             color: '64a800',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Shrub',
           },
           {
             value: 18558,
             color: '64a800',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Woodland',
           },
           {
             value: 18559,
             color: '64a800',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Upland Forest',
           },
           {
             value: 18560,
             color: '64a800',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Forest; Wetland Forest',
           },
           {
             value: 18561,
             color: 'df61ff',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Undetermined',
           },
           {
             value: 18562,
             color: 'df61ff',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Upland Herb',
           },
           {
             value: 18563,
             color: 'df61ff',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Upland Woodland',
           },
           {
             value: 18564,
             color: 'df61ff',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Interior Shortleaf Pine-Oak Forest; Upland Forest',
           },
           {
             value: 18565,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Undetermined',
           },
           {
             value: 18566,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Herb',
           },
           {
             value: 18567,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Shrub',
           },
           {
             value: 18568,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Woodland',
           },
           {
             value: 18569,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Upland Forest',
           },
           {
             value: 18570,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Wetland Forest',
           },
           {
             value: 18571,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Wetland Shrub',
           },
           {
             value: 18572,
             color: 'dec48a',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Dune Woodland and Forest; Wetland Herb',
           },
           {
             value: 18573,
             color: 'ff249e',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Herb',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Herb',
           },
           {
             value: 18574,
             color: 'ff249e',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Shrub',
           },
           {
             value: 18575,
             color: 'ff249e',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Woodland',
           },
           {
             value: 18576,
             color: 'ff249e',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Upland Forest',
           },
           {
             value: 18577,
             color: 'ff249e',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Southern Calcareous Prairie; Wetland Forest',
           },
           {
             value: 18578,
             color: 'ff8e6b',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Blackland Prairie and Woodland; Undetermined',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Blackland Prairie and Woodland; Undetermined',
           },
           {
             value: 18579,
             color: 'ff8e6b',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Blackland Prairie and Woodland; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Blackland Prairie and Woodland; Upland Forest',
           },
           {
             value: 18580,
             color: 'e3e35c',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Undetermined',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Undetermined',
           },
           {
             value: 18581,
             color: 'e3e35c',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Wetland Forest',
           },
           {
             value: 18582,
             color: 'e3e35c',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Wetland Shrub',
           },
           {
             value: 18583,
             color: 'e3e35c',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi Alluvial Plain Grand Prairie; Wetland Herb',
           },
           {
             value: 18584,
             color: '95e376',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Near-Coast Pine Flatwoods; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Near-Coast Pine Flatwoods; Undetermined',
           },
           {
             value: 18585,
             color: '4d219c',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Undetermined',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Undetermined',
           },
           {
             value: 18586,
             color: '4d219c',
             description: |||
-              Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Upland Woodland
+              Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Upland Woodland
             |||,
           },
           {
             value: 18587,
             color: '4d219c',
-            description: 'Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Upland Forest',
+            description: 'Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Upland Forest',
           },
           {
             value: 18588,
             color: '4d219c',
             description: |||
-              Mississipi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Wetland Forest
+              Mississippi Alluvial Plains; East Gulf Coastal Plain Southern Loblolly-Hardwood Flatwoods; Wetland Forest
             |||,
           },
           {
             value: 18589,
             color: 'baed26',
-            description: 'Mississipi Alluvial Plains; South-Central Interior/Upper Coastal Plain Wet Flatwoods; Undetermined',
+            description: 'Mississippi Alluvial Plains; South-Central Interior/Upper Coastal Plain Wet Flatwoods; Undetermined',
           },
           {
             value: 18590,
             color: '63eb61',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Undetermined',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Undetermined',
           },
           {
             value: 18591,
             color: '63eb61',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Herb',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Herb',
           },
           {
             value: 18592,
             color: '63eb61',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Shrub',
           },
           {
             value: 18593,
             color: '63eb61',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Woodland',
           },
           {
             value: 18594,
             color: '63eb61',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Upland Forest',
           },
           {
             value: 18595,
             color: '63eb61',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Pine-Hardwood Flatwoods; Wetland Forest',
           },
           {
             value: 18596,
             color: 'bee8ff',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Seepage Swamp and Baygall; Undetermined',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Seepage Swamp and Baygall; Undetermined',
           },
           {
             value: 18597,
             color: 'bee8ff',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Seepage Swamp and Baygall; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Seepage Swamp and Baygall; Upland Woodland',
           },
           {
             value: 18598,
             color: 'bee8ff',
-            description: 'Mississipi Alluvial Plains; Southern Coastal Plain Seepage Swamp and Baygall; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Southern Coastal Plain Seepage Swamp and Baygall; Wetland Forest',
           },
           {
             value: 18599,
             color: '00bfb0',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Undetermined',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Undetermined',
           },
           {
             value: 18600,
             color: '00bfb0',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Upland Woodland',
           },
           {
             value: 18601,
             color: '00bfb0',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Upland Forest',
           },
           {
             value: 18602,
             color: '00bfb0',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Wetland Shrub-Herb',
           },
           {
             value: 18603,
             color: '00bfb0',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Wetland Forest',
           },
           {
             value: 18604,
             color: '00bfb0',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Floodplain Systems; Wetland Herb',
           },
           {
             value: 18605,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Undetermined',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Undetermined',
           },
           {
             value: 18606,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Herb',
           },
           {
             value: 18607,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Shrub',
           },
           {
             value: 18608,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Woodland',
           },
           {
             value: 18609,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Upland Forest',
           },
           {
             value: 18610,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Shrub-Herb',
           },
           {
             value: 18611,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Forest',
           },
           {
             value: 18612,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Shrub',
           },
           {
             value: 18613,
             color: '6677cd',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Floodplain Systems; Wetland Herb',
           },
           {
             value: 18614,
             color: 'abb9eb',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Undetermined',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Undetermined',
           },
           {
             value: 18615,
             color: 'abb9eb',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Herb',
           },
           {
             value: 18616,
             color: 'abb9eb',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Shrub',
           },
           {
             value: 18617,
             color: 'abb9eb',
             description: |||
-              Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Woodland
+              Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Woodland
             |||,
           },
           {
             value: 18618,
             color: 'abb9eb',
             description: |||
-              Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Forest
+              Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Upland Forest
             |||,
           },
           {
             value: 18619,
             color: 'abb9eb',
             description: |||
-              Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Wetland Shrub-Herb
+              Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Wetland Shrub-Herb
             |||,
           },
           {
             value: 18620,
             color: 'abb9eb',
             description: |||
-              Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Wetland Forest
+              Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Wetland Forest
             |||,
           },
           {
             value: 18621,
             color: 'abb9eb',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Small Stream Riparian Systems; Wetland Herb',
           },
           {
             value: 18622,
             color: 'cf3dff',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Swamp Systems; Undetermined',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Swamp Systems; Undetermined',
           },
           {
             value: 18623,
             color: 'cf3dff',
-            description: 'Mississipi Alluvial Plains; Central Interior and Appalachian Swamp Systems; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Central Interior and Appalachian Swamp Systems; Wetland Shrub-Herb',
           },
           {
             value: 18624,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Undetermined',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Undetermined',
           },
           {
             value: 18625,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Herb',
           },
           {
             value: 18626,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Shrub',
           },
           {
             value: 18627,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Woodland',
           },
           {
             value: 18628,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Upland Forest',
           },
           {
             value: 18629,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Shrub-Herb',
           },
           {
             value: 18630,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Forest',
           },
           {
             value: 18631,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Shrub',
           },
           {
             value: 18632,
             color: '66d4b3',
-            description: 'Mississipi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Gulf and Atlantic Coastal Plain Swamp Systems; Wetland Herb',
           },
           {
             value: 18633,
             color: '267300',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods; Undetermined',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods; Undetermined',
           },
           {
             value: 18634,
             color: '267300',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods; Upland Woodland',
           },
           {
             value: 18635,
             color: '267300',
-            description: 'Mississipi Alluvial Plains; West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods; Upland Forest',
+            description: 'Mississippi Alluvial Plains; West Gulf Coastal Plain Nonriverine Wet Hardwood Flatwoods; Upland Forest',
           },
           {
             value: 18636,
             color: '448970',
-            description: 'Mississipi Alluvial Plains; Ozark-Ouachita Shortleaf Pine-Bluestem Woodland; Undetermined',
+            description: 'Mississippi Alluvial Plains; Ozark-Ouachita Shortleaf Pine-Bluestem Woodland; Undetermined',
           },
           {
             value: 18637,
             color: '006b52',
-            description: 'Mississipi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Undetermined',
           },
           {
             value: 18638,
             color: '006b52',
             description: |||
-              Mississipi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Upland Woodland
+              Mississippi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Upland Woodland
             |||,
           },
           {
             value: 18639,
             color: '006b52',
             description: |||
-              Mississipi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Upland Forest
+              Mississippi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Upland Forest
             |||,
           },
           {
             value: 18640,
             color: '006b52',
             description: |||
-              Mississipi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Wetland Forest
+              Mississippi Alluvial Plains; Mississippi River Alluvial Plain Dry-Mesic Loess Slope Forest; Wetland Forest
             |||,
           },
           {
             value: 18641,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Undetermined',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Undetermined',
           },
           {
             value: 18642,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Upland Herb',
           },
           {
             value: 18643,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Upland Woodland',
           },
           {
             value: 18644,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Upland Forest',
           },
           {
             value: 18645,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Wetland Forest',
           },
           {
             value: 18646,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Wetland Shrub',
           },
           {
             value: 18647,
             color: 'ca7af5',
-            description: 'Mississipi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Northern Crowley`s Ridge Sand Forest; Wetland Herb',
           },
           {
             value: 18648,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Undetermined',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Undetermined',
           },
           {
             value: 18649,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Herb',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Herb',
           },
           {
             value: 18650,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Shrub',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Shrub',
           },
           {
             value: 18651,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Woodland',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Woodland',
           },
           {
             value: 18652,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Forest',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Upland Forest',
           },
           {
             value: 18653,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Shrub-Herb',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Shrub-Herb',
           },
           {
             value: 18654,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Forest',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Forest',
           },
           {
             value: 18655,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Shrub',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Shrub',
           },
           {
             value: 18656,
             color: '620075',
-            description: 'Mississipi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Herb',
+            description: 'Mississippi Alluvial Plains; Lower Mississippi River Flatwoods; Wetland Herb',
           },
           {
             value: 18657,

@@ -4,6 +4,7 @@ local subdir = 'JAXA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -570,7 +571,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           If no observation exists within the hourly window, the time
           will be the negative number of hours since the last observation.
         |||,
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
       },
       {
         name: 'gaugeQualityInfo',
@@ -580,7 +581,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           When the status is 'permanent', the pixel value is the daily
           average of number of gauges used for adjustment in the pixel.
         |||,
-        'gee:units': 'counts/day',
+        'gee:units': units.count_per_day,
       },
     ],
     'gee:visualizations': [

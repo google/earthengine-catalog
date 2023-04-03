@@ -4,6 +4,7 @@ local subdir = 'TRMM';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -169,7 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           In case of overlapping satellite observations, the two or more
           observation times are equal-weighting averaged.
         |||,
-        'gee:units': 'Minutes',
+        'gee:units': units.minute,
       },
     ],
     'gee:visualizations': [

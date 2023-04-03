@@ -25,7 +25,7 @@ local license = spdx.cc_by_4_0;
     This large-scale open dataset consists of outlines of buildings derived
     from high-resolution 50 cm satellite imagery. It contains 816M building
     detections in Africa, South Asia and Southeast Asia. The inference spanned
-    an area of 39.1M km².
+    an area of 39.1M km&#178;.
 
     For each building in this dataset we include the polygon describing its
     footprint on the ground, a confidence score indicating how sure we are that

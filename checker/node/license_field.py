@@ -22,6 +22,7 @@ LICENSE = 'license'
 KNOWN_LICENSES = frozenset({
     'etalab-2.0',
     'proprietary',
+    'various',
     'CC-BY-4.0',
     'CC-BY-NC-4.0',
     'CC-BY-NC-SA-4.0',

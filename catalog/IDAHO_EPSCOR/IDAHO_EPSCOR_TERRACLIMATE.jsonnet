@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -105,13 +106,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'aet',
         description: 'Actual evapotranspiration, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
         name: 'def',
         description: 'Climate water deficit, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
@@ -122,23 +123,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pet',
         description: 'Reference evapotranspiration (ASCE Penman-Montieth)',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
         name: 'pr',
         description: 'Precipitation accumulation',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'ro',
         description: 'Runoff, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'soil',
         description: 'Soil moisture, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
       {
@@ -150,18 +151,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'swe',
         description: 'Snow water equivalent, derived using a one-dimensional soil water balance model',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'tmmn',
         description: 'Minimum temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'tmmx',
         description: 'Maximum temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
@@ -179,7 +180,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vs',
         description: 'Wind-speed at 10m',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
         'gee:scale': 0.01,
       },
     ],

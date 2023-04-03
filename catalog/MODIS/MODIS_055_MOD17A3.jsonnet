@@ -1,6 +1,7 @@
 local id = 'MODIS/055/MOD17A3';
 local successor_id = 'MODIS/006/MOD17A3HGF';
 local subdir = 'MODIS';
+local units = import 'units.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -98,7 +99,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           frequency of cloud-contamination. For example, QA is high for
           tropical rainforests but low in arid areas.
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

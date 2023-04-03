@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -79,17 +80,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'rmax',
         description: 'Maximum relative humidity',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rmin',
         description: 'Minimum relative humidity',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'sph',
         description: 'Specific humididy',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'srad',
@@ -104,17 +105,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tmmn',
         description: 'Minimum temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tmmx',
         description: 'Maximum temperature',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'vs',
         description: 'Wind velocity at 10m',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'erc',
@@ -123,8 +124,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'eto',
-        description: 'Daily reference evapotranspiration',
-        'gee:units': 'grass, mm',
+        description: 'Daily grass reference evapotranspiration',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bi',
@@ -134,17 +135,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'fm100',
         description: '100-hour dead fuel moisture',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'fm1000',
         description: '1000-hour dead fuel moisture',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'etr',
-        description: 'Daily reference evapotranspiration',
-        'gee:units': 'Alfalfa, mm',
+        description: 'Daily alfalfa reference evapotranspiration',
+        'gee:units': units.millimeter,
       },
       {
         name: 'vpd',

@@ -4,15 +4,13 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -94,27 +92,27 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'temperature_2m_above_ground',
         description: 'Temperature 2m above ground',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
       },
       {
         name: 'specific_humidity_2m_above_ground',
         description: 'Specific humidity 2m above ground',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'relative_humidity_2m_above_ground',
         description: 'Relative humidity 2m above ground',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'u_component_of_wind_10m_above_ground',
         description: 'U component of wind 10m above ground',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'v_component_of_wind_10m_above_ground',
         description: 'V component of wind 10m above ground',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'total_precipitation_surface',
@@ -124,17 +122,17 @@ local self_url = catalog_subdir_url + base_filename;
           added together from all forecasts starting from hour 0 (only for assets with
           forecast_hours > 0)
         |||,
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'precipitable_water_entire_atmosphere',
         description: 'Precipitable water for entire atmosphere',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'total_cloud_cover_entire_atmosphere',
         description: 'Total cloud cover for entire atmosphere (only for assets with forecast_hours > 0)',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'downward_shortwave_radiation_flux',

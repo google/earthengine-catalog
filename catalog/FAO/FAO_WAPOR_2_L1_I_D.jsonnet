@@ -4,6 +4,7 @@ local subdir = 'FAO';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -52,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'L1_I_D',
         description: 'Interception (Dekadal) [mm]',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
         'gee:scale': 0.1,
       },
     ],

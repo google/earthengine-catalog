@@ -5,6 +5,7 @@ local subdir = 'JRC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local versions = import 'versions.libsonnet';
 local version_table = import 'JRC_GSW_GlobalSurfaceWater_version_map.libsonnet';
@@ -72,17 +73,17 @@ local license = spdx.proprietary;
       {
         name: 'occurrence',
         description: 'The frequency with which water was present.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'change_abs',
         description: 'Absolute change in occurrence between two epochs: 1984-1999 vs 2000-2018.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'change_norm',
         description: 'Normalized change in occurrence. (epoch1-epoch2)/(epoch1+epoch2) * 100',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'seasonality',
@@ -91,7 +92,7 @@ local license = spdx.proprietary;
       {
         name: 'recurrence',
         description: 'The frequency with which water returns from year to year.',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'transition',

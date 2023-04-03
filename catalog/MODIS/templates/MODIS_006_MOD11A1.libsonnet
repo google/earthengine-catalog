@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -10,7 +12,7 @@
       {
         name: 'LST_Day_1km',
         description: 'Daytime Land Surface Temperature',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
@@ -117,19 +119,19 @@
       {
         name: 'Day_view_time',
         description: 'Local time of day observation',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
         'gee:scale': 0.1,
       },
       {
         name: 'Day_view_angle',
         description: 'View zenith angle of day observation',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:offset': -65.0,
       },
       {
         name: 'LST_Night_1km',
         description: 'Nighttime Land Surface Temperature',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
@@ -236,13 +238,13 @@
       {
         name: 'Night_view_time',
         description: 'Local time of night observation',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
         'gee:scale': 0.1,
       },
       {
         name: 'Night_view_angle',
         description: 'View zenith angle of night observation',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:offset': -65.0,
       },
       {

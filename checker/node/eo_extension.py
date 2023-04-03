@@ -85,6 +85,7 @@ import re
 from typing import Iterator
 
 from checker import stac
+from checker import units
 
 EXTENSION_VERSION = '1.0.0'
 
@@ -174,6 +175,38 @@ MAX_DESCRIPTION_LEN = 1600
 MAX_BANDS = 500
 MAX_GSD = 3e5
 POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
+
+# TODO(b/198646525): Migrate these units to ../units.py as they units get
+# added to units.libsonnet.
+UNITS = units.UNITS.union({
+    '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
+    'Class', 'Coefficient of Variation', 'DN', 'DU',
+    'Degrees clockwise from North', 'Dimensionless',
+    'Equivalent gauges per 2.5 degree box',
+    'J/kg', 'J/m^2/day', 'Julian Day',
+    'MJ m^-2 day^-1', 'MW', 'Megawatts', 'Mg C/ha', 'Mg ha^-1', 'Mg/ha',
+    'N/m^2', 'NFDRS fire danger index', 'Number of people/ha',
+    'Number of upstream pixels', 'Number per pixel', 'Pa', 'Pa/s',
+    'Quality Flag', 'Reflectance factor', 'W m**-2',
+    'W m-2', 'W m^-2 sr^-1 &micro;m^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
+    'W/m^2 SR&mu;m', 'cmol(+)/kg',
+    'dB', 'deg true', 'degree', 'degrees',
+    'fraction', 'g/cm^3', 'g/kg', 'g/m^2',
+    'gC m-2 d-1', 'gigagrams', 'gpm', 'hPa', 'ha',
+    'index', 'kPa',
+    'kg m^-2 s^-2', 'kg*C/m^2', 'kg*C/m^2/16-day',
+    'kg*C/m^2/8-day',
+    'kg/m/s', 'kg/m^2/8day',
+    'km^2',
+    'm of water equivalent', 'm/s^2',
+    'mW cm-2 &mu;m-1 sr-1', 'm^2', 'm^2 s-2', 'm^2/m^3',
+    'meq/100g', 'meter/year', 'mg m-3',
+    'mg/m^3', 'min. into half hour', 'minutes/meter',
+    'mm, daily total', 'mm/hr', 'mm/pentad',
+    'mol mol-1', 'mol/m^2', 'mol/mol', 'molec cm-2 s-1', 'ms',
+    'nanoWatts/cm2/sr', 'occurrence', 'ppm',
+    'seconds', 'sr-1', 'ug m-3',
+})
 
 
 class Check(stac.NodeCheck):
@@ -353,7 +386,7 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'{name} {CENTER_WAVELENGTH} must be a number')
         else:
-          if center_wavelength < 0 or center_wavelength > 15:
+          if not 0 < center_wavelength < 15:
             yield cls.new_issue(
                 node, f'{name} {CENTER_WAVELENGTH} must in (0, 15) μm')
 
@@ -363,7 +396,7 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'{name} {FULL_WIDTH_HALF_MAX} must be a number')
         else:
-          if full_width_half_max < 0 or full_width_half_max > 0.15:
+          if not 0 < full_width_half_max < 0.15:
             yield cls.new_issue(
                 node, f'{name} {FULL_WIDTH_HALF_MAX} must in (0, 0.15) μm')
 
@@ -414,10 +447,12 @@ class Check(stac.NodeCheck):
                 ', '.join(sorted(POLARIZATIONS)))
 
       if GEE_UNITS in band:
-        units = band[GEE_UNITS]
-        if not isinstance(units, str):
+        gee_units = band[GEE_UNITS]
+        if not isinstance(gee_units, str):
           yield cls.new_issue(node, f'{name} {GEE_UNITS} must be a str')
-        # TODO(schwehr): Check that the units are known
+        elif gee_units not in UNITS:
+          yield cls.new_issue(
+              node, f'{name} {GEE_UNITS} not known: {gee_units}')
 
       if GEE_WAVELENGTH in band:
         wavelength = band[GEE_WAVELENGTH]
@@ -452,4 +487,3 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(
           node,
           f'Must use the {SUMMARIES} {GSD} field: {GSD} values are the same')
-

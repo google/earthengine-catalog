@@ -331,6 +331,13 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
             'gsd': 37}]}},
         'a_name gee:units must be a str')
 
+  def test_units_unknown(self):
+    self.assert_collection(
+        {'summaries': {'eo:bands': [{
+            'gee:units': 'bogus', 'description': 'abc', 'name': 'a_name',
+            'gsd': 37}]}},
+        'a_name gee:units not known: bogus')
+
   def test_gee_wavelength_not_str(self):
     self.assert_collection(
         {'summaries': {'eo:bands': [{

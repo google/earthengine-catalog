@@ -7,7 +7,9 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://earth.jaxa.jp/en/data/policy/',
+};
 local version = '3.2';
 
 local basename = std.strReplace(id, '/', '_');
@@ -20,8 +22,6 @@ local predecessor_filename = predecessor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 local latest_url = catalog_subdir_url + latest_filename;
 local predecessor_url = catalog_subdir_url + predecessor_filename;
@@ -79,7 +79,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.latest(latest_id, latest_url),
     ee.link.predecessor(predecessor_id, predecessor_url),
-    ee.link.license('https://earth.jaxa.jp/en/data/policy/'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     'alos',
@@ -104,7 +104,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
         description: |||
           Height above sea level. Signed 16 bits.
           Elevation (in meter) converted from the ellipsoidal height based on ITRF97
-          and GRS80, using EGM96†1 geoid model.
+          and GRS80, using EGM96&#8224;1 geoid model.
         |||,
       },
       {

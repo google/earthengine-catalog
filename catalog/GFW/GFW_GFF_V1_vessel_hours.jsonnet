@@ -4,6 +4,7 @@ local subdir = 'GFW';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_sa_4_0;
 
@@ -62,32 +63,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'drifting_longlines',
         description: 'Hours per sq. km of fishing vessel presence with drifting longlines.',
-        'gee:units': 'hours/sq. km',
+        'gee:units': units.hour_per_square_km,
       },
       {
         name: 'fixed_gear',
         description: 'Hours per sq. km of fishing vessel presence with fixed gear.',
-        'gee:units': 'hours/sq. km',
+        'gee:units': units.hour_per_square_km,
       },
       {
         name: 'other_fishing',
         description: 'Hours per sq. km of fishing vessel presence with other gear types.',
-        'gee:units': 'hours/sq. km',
+        'gee:units': units.hour_per_square_km,
       },
       {
         name: 'purse_seines',
         description: 'Hours per sq. km of fishing vessel presence with purse seines.',
-        'gee:units': 'hours/sq. km',
+        'gee:units': units.hour_per_square_km,
       },
       {
         name: 'squid_jigger',
         description: 'Hours per sq. km of fishing vessel presence with squid jiggers.',
-        'gee:units': 'hours/sq. km',
+        'gee:units': units.hour_per_square_km,
       },
       {
         name: 'trawlers',
         description: 'Hours per sq. km of fishing vessel presence with trawlers.',
-        'gee:units': 'hours/sq. km',
+        'gee:units': units.hour_per_square_km,
       },
     ],
     'gee:visualizations': [

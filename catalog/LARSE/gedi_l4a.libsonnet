@@ -1,6 +1,7 @@
 local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 {
   description: |||
@@ -126,7 +127,7 @@ local spdx = import 'spdx.libsonnet';
     {
       name: 'delta_time',
       description: 'Time since Jan 1 00:00 2018',
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.int,
     },
     {
@@ -134,7 +135,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.int,
     },
     {
@@ -169,7 +170,7 @@ local spdx = import 'spdx.libsonnet';
         Master time, fractional part. master_int+master_frac is equivalent
         to /BEAMXXXX/delta_time
       |||,
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.int,
     },
     {
@@ -178,7 +179,7 @@ local spdx = import 'spdx.libsonnet';
         Master time, integer part. Seconds since master_time_epoch.
         master_int+master_frac is equivalent to /BEAMXXXX/delta_time',
       |||,
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.int,
     },
     {
@@ -365,7 +366,7 @@ local spdx = import 'spdx.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to the reference ellipsoid
       |||,
-      'gee:units': 'm',
+      'gee:units': units.meters,
       type:: ee_const.var_type.int,
     },
     {
@@ -405,7 +406,7 @@ local spdx = import 'spdx.libsonnet';
         vegetation taller than 5 m in height (Hansen et al., 2013) and
         encoded as a percentage per output grid cell.
       |||,
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
     {
@@ -415,7 +416,7 @@ local spdx = import 'spdx.libsonnet';
         between 2018 and 2019. Values >80 usually represent permanent water
         while values <10 represent permanent land.
       |||,
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
     {
@@ -459,6 +460,7 @@ local spdx = import 'spdx.libsonnet';
         MODIS MCD12Q1v006 product. Values follow the Land Cover Type 5
         Classification scheme.
       |||,
+      // TODO(schwehr): Use gee:classes
       type:: ee_const.var_type.int,
     },
     {
@@ -468,6 +470,7 @@ local spdx = import 'spdx.libsonnet';
         2=North Asia, 3=Australasia, 4=Africa, 5=South Asia, 6=South America,
         7=North America).
       |||,
+      // TODO(schwehr): Use gee:classes
       type:: ee_const.var_type.int,
     },
     {
@@ -476,7 +479,7 @@ local spdx = import 'spdx.libsonnet';
         The focal window size used to calculate urban_proportion.
         Values are 3 (3x3 pixel window size) or 5 (5x5 pixel window size).
       |||,
-      'gee:units': 'pixels',
+      'gee:units': units.pixel,
       type:: ee_const.var_type.int,
     },
     {
@@ -486,7 +489,7 @@ local spdx = import 'spdx.libsonnet';
         each shot that is urban land cover. Urban land cover was derived from
         the DLR 12 m resolution TanDEM-X Global Urban Footprint Product.
       |||,
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
   ],

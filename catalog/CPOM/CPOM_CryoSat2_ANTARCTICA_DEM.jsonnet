@@ -4,6 +4,7 @@ local subdir = 'CPOM';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -32,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The DEM is formed from spatio-temporal fits to elevation
     measurements accumulated within 1, 2, and 5 km grid cells,
     and is posted at the modal resolution of 1 km. The median
-    and root mean square difference between the DEM and 2.3*10⁷
+    and root mean square difference between the DEM and 2.3*10&#8311;
     airborne laser altimeter measurements acquired during
     NASA Operation IceBridge campaigns are -0.30 and 13.50 m,
     respectively.
@@ -71,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'elevation',
         description: 'Antarctic ice sheet and ice shelf elevation.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'data_composition',
@@ -107,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'z_smoothed',
         description: 'Smoothed version of elevation model using a median filter.',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'z_uncertainty',
@@ -116,7 +117,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           residuals in observed grid cells and the kriging variance error
           in interpolated grid cells.
         |||,
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
     ],
     'gee:visualizations': [

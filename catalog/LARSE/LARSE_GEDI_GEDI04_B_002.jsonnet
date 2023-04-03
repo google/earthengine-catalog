@@ -5,6 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local gedi_l2a = import 'gedi_l2a.libsonnet';
 local gedi = importstr 'gedi.md';
+local units = import 'units.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -90,7 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Standard error as a fraction of the estimated mean AGBD (PE).
           If >100%, the cell values are truncated to 100.
         |||,
-        'gee:units': 'Percent'
+        'gee:units': units.percent,
       },
       {
         name: 'NC',

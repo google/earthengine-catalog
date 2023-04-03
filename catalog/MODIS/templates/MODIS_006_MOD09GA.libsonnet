@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     instruments: [
@@ -235,35 +237,35 @@
       {
         name: 'SensorZenith',
         description: 'Sensor zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         gsd: 1000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'SensorAzimuth',
         description: 'Sensor azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         gsd: 1000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'Range',
         description: 'Distance to sensor',
-        'gee:units': 'm',
+        'gee:units': units.meters,
         gsd: 1000.0,
         'gee:scale': 25.0,
       },
       {
         name: 'SolarZenith',
         description: 'Solar zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         gsd: 1000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'SolarAzimuth',
         description: 'Solar azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         gsd: 1000.0,
         'gee:scale': 0.01,
       },

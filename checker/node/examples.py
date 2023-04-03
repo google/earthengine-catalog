@@ -9,7 +9,7 @@
 # TODO(schwehr): Add a generate_examples script and add a message to use it.
 
 import pathlib
-from typing import Iterator, Optional
+from typing import Iterator
 
 from checker import stac
 
@@ -170,12 +170,12 @@ _EXCEPTIONS_RAW = frozenset((
 _EXCEPTIONS = frozenset({x + '.js' for x in _EXCEPTIONS_RAW})
 
 _FEATURE_VIEW_EXCEPTIONS = frozenset({
-    'JRC_LUCAS_HARMO_COPERNICUS_POLYGONS_V1_2018_FeatureView.js',
-    'LARSE_GEDI_GEDI02_A_002_INDEX_FeatureView.js',
-    'LARSE_GEDI_GEDI02_B_002_INDEX_FeatureView.js',
-    'LARSE_GEDI_GEDI04_A_002_INDEX_FeatureView.js',
-    'TIGER_2010_BG_FeatureView.js',
-    'WWF_HydroATLAS_v1_Basins_level12_FeatureView.js',
+    'JRC/JRC_LUCAS_HARMO_COPERNICUS_POLYGONS_V1_2018_FeatureView.js',
+    'LARSE/LARSE_GEDI_GEDI02_A_002_INDEX_FeatureView.js',
+    'LARSE/LARSE_GEDI_GEDI02_B_002_INDEX_FeatureView.js',
+    'LARSE/LARSE_GEDI_GEDI04_A_002_INDEX_FeatureView.js',
+    'TIGER/TIGER_2010_BG_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level12_FeatureView.js',
 })
 
 _GEE_SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
@@ -183,7 +183,8 @@ _GEE_SKIP_INDEXING = 'gee:skip_indexing'
 
 
 def load(examples_root: pathlib.Path) -> set[str]:
-  return {path.name for path in examples_root.glob('*.js')}
+  return {str(path.relative_to(examples_root))
+          for path in examples_root.rglob('*.js')}
 
 
 class Check(stac.NodeCheck):
@@ -199,16 +200,21 @@ class Check(stac.NodeCheck):
     if not cls.scripts:
       cls.scripts = load(stac.examples_root())
 
-    basename = node.id.replace('/', '_')
+    stem = node.path.stem
+    name = stem + '.js'
+    subdir = (node.id.split('/')[1] if node.id.startswith('projects/')
+              else node.id.split('/')[0])
+    basename = subdir + '/' + node.id.replace('/', '_')
     filename = basename + '.js'
     featureview_filename = basename + '_FeatureView.js'
-    if filename not in cls.scripts and filename not in _EXCEPTIONS:
+
+    if filename not in cls.scripts and name not in _EXCEPTIONS:
       yield cls.new_issue(node, f'Missing script: {filename}')
 
     if node.gee_type == stac.GeeType.TABLE:
       if (featureview_filename not in cls.scripts and
           _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac and
-          featureview_filename not in _FEATURE_VIEW_EXCEPTIONS):
+          str(featureview_filename) not in _FEATURE_VIEW_EXCEPTIONS):
         yield cls.new_issue(
             node, f'Missing FeatureView script: {featureview_filename}')
     else:
@@ -216,4 +222,4 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(
             node,
             'Only a table can have a FeatureView script: ' +
-            featureview_filename)
+            str(featureview_filename))

@@ -247,10 +247,10 @@ class Check(stac.NodeCheck):
               yield cls.new_issue(node, f'{GAMMA} value must be a number')
               break
 
-            if gamma < GAMMA_MIN or gamma > GAMMA_MAX:
+            if not GAMMA_MIN <= gamma <= GAMMA_MAX:
               yield cls.new_issue(
                   node,
-                  f'{GAMMA} must be in the range of {GAMMA_MIN}..{GAMMA_MAX}')
+                  f'{GAMMA} must be in the range of [{GAMMA_MIN}..{GAMMA_MAX}]')
 
       if GAIN in band_viz:
         gain_list = band_viz[GAIN]
@@ -270,10 +270,10 @@ class Check(stac.NodeCheck):
                 break
 
               # TODO(schwehr): Consider refactoring this type of check.
-              if gain < GAIN_MIN or gain > GAIN_MAX:
+              if not GAIN_MIN <= gain <= GAIN_MAX:
                 yield cls.new_issue(
                     node,
-                    f'{GAIN} must be in the range of {GAIN_MIN}..{GAIN_MAX}')
+                    f'{GAIN} must be in the range of [{GAIN_MIN}..{GAIN_MAX}]')
 
       if BIAS in band_viz:
         bias_list = band_viz[BIAS]

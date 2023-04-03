@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -454,17 +456,17 @@
       {
         name: 'LC_Prop1_Assessment',
         description: 'LCCS1 land cover layer confidence',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LC_Prop2_Assessment',
         description: 'LCCS2 land use layer confidence',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LC_Prop3_Assessment',
         description: 'LCCS3 surface hydrology layer confidence',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'LC_Prop1',
@@ -762,7 +764,7 @@
             description: |||
               Omitted snow/ice: land according to the water mask that
               was classified as something other than snow but with a maximum annual
-              temperature below 1◦C, relabeled as snow/ice.
+              temperature below 1&deg;C, relabeled as snow/ice.
             |||,
           },
           {
@@ -770,7 +772,7 @@
             description: |||
               Misclassified snow/ice: land according to the water mask
               that was classified as snow but with a minimum annual temperature
-              greater than 1◦C, relabeled as barren.
+              greater than 1&deg;C, relabeled as barren.
             |||,
           },
           {

@@ -6,6 +6,7 @@ local subdir = 'CAS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 local version = '0.1.4';
@@ -86,17 +87,17 @@ local successor_url = catalog_subdir_url + successor_filename;
       {
         name: 'Ec',
         description: 'Vegetation transpiration',
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
       },
       {
         name: 'Es',
         description: 'Soil evaporation',
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
       },
       {
         name: 'Ei',
         description: 'Interception from vegetation canopy',
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
       },
       {
         name: 'ET_water',
@@ -104,7 +105,7 @@ local successor_url = catalog_subdir_url + successor_filename;
           Water body, snow and ice evaporation. Penman evapotranspiration is
           regarded as actual evaporation for them.
         |||,
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
       },
     ],
     'gee:visualizations': [

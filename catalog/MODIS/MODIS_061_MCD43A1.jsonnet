@@ -19,8 +19,6 @@ local predecessor_filename = predecessor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 local latest_url = catalog_subdir_url + latest_filename;
 local predecessor_url = catalog_subdir_url + predecessor_filename;
 

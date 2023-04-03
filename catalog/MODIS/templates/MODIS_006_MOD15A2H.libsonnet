@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -10,13 +12,13 @@
       {
         name: 'Fpar_500m',
         description: 'Fraction of Photosynthetically Active Radiation',
-        'gee:units': 'Percent',
+        'gee:units': units.percent,
         'gee:scale': 0.01,
       },
       {
         name: 'Lai_500m',
         description: 'Leaf Area Index',
-        'gee:units': 'sq. meter/sq. meter',
+        'gee:units': units.area_fraction,
         'gee:scale': 0.1,
       },
       {
@@ -30,13 +32,13 @@
       {
         name: 'FparStdDev_500m',
         description: 'Standard deviation of FPAR',
-        'gee:units': 'Percent',
+        'gee:units': units.percent,
         'gee:scale': 0.01,
       },
       {
         name: 'LaiStdDev_500m',
         description: 'Standard deviation of LAI',
-        'gee:units': 'sq. meter/sq. meter',
+        'gee:units': units.area_fraction,
         'gee:scale': 0.1,
       },
     ],

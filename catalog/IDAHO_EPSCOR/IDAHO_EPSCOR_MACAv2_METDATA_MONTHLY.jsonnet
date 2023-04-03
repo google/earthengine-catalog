@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -89,22 +90,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tasmax',
         description: 'Monthly average of maximum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin',
         description: 'Monthly average of minimum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'huss',
         description: 'Monthly average of mean daily specific humidity near surface',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'pr',
         description: 'Total monthly precipitation amount at surface',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'rsds',
@@ -114,7 +115,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'was',
         description: 'Monthly average of mean daily near surface wind speed',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

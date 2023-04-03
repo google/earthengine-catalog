@@ -4,15 +4,13 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -86,17 +84,17 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'u-component_of_wind_hybrid',
         description: 'u-component of wind at Hybrid level for 00 and 03 forecast',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'v-component_of_wind_hybrid',
         description: 'v-component of wind at Hybrid level for 00 and 03 forecast',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Albedo_surface_3_Hour_Average',
         description: 'Albedo 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Canopy_water_evaporation_surface_3_Hour_Average',
@@ -156,7 +154,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Cloud_water_entire_atmosphere_single_layer',
         description: 'Cloud water at entire atmosphere layer for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Cloud_Work_Function_entire_atmosphere_single_layer_3_Hour_Average',
@@ -179,12 +177,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Convective_Precipitation_Rate_surface_3_Hour_Average',
         description: 'Convective precipitation rate 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/(m^2/s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'Convective_precipitation_surface_3_Hour_Accumulation',
         description: 'Convective precipitation 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Direct_Evaporation_from_Bare_Soil_surface_3_Hour_Average',
@@ -227,7 +225,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Frictional_Velocity_surface',
         description: 'Frictional Velocity at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'Ground_Heat_Flux_surface',
@@ -247,7 +245,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Ice_thickness_surface',
         description: 'Ice thickness at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Land_cover_0__sea_1__land_surface',
@@ -287,22 +285,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Maximum_temperature_height_above_ground_3_Hour_Interval',
         description: 'Maximum temperature for 3 Hour Interval at specified height level above ground for 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Minimum_temperature_height_above_ground_3_Hour_Interval',
         description: 'Minimum temperature for 3 Hour Interval at specified height level above ground for 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Maximum_specific_humidity_at_2m_height_above_ground_3_Hour_Interval',
         description: 'Maximum specific humidity for 3 Hour Interval at 2m specified height level above ground for 03 forecast',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Minimum_specific_humidity_at_2m_height_above_ground_3_Hour_Interval',
         description: 'Minimum specific humidity for 3 Hour Interval at 2m specified height level above ground for 03 forecast',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Momentum_flux_u-component_surface_3_Hour_Average',
@@ -317,12 +315,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Plant_Canopy_Surface_Water_surface',
         description: 'Plant Canopy Surface Water at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Planetary_Boundary_Layer_Height_surface',
         description: 'Planetary Boundary Layer Height at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Potential_Evaporation_Rate_surface',
@@ -337,17 +335,17 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Precipitation_rate_surface_3_Hour_Average',
         description: 'Precipitable rate 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2s',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'Precipitable_water_entire_atmosphere_single_layer',
         description: 'Precipitable water at entire atmosphere layer for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Precipitable_water_pressure_difference_layer',
         description: 'Precipitable water at specified pressure difference from ground to level layer for 00 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Pressure_msl',
@@ -367,7 +365,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Relative_humidity_entire_atmosphere_single_layer',
         description: 'Relative humidity at entire atmosphere layer for 00 and 03 forecast',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Sensible_heat_net_flux_surface',
@@ -382,12 +380,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Snow_Cover_surface_3_Hour_Average',
         description: 'Snow cover 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Snow_depth_surface',
         description: 'Snow depth at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Snow_Phase_Change_Heat_Flux_surface_3_Hour_Average',
@@ -397,7 +395,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Soil_moisture_content_depth_below_surface_layer',
         description: 'Soil moisture content at Depth below land surface layer for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Soil_type_surface',
@@ -407,7 +405,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Storm_Surface_Runoff_surface_3_Hour_Accumulation',
         description: 'Strom surface runoff 3 hour accumulation at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Sublimation_evaporation_from_snow_surface_3_Hour_Average',
@@ -417,17 +415,17 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Specific_humidity_height_above_ground',
         description: 'Specific humidity at Specified height level above ground for 00 forecast',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'Surface_Lifted_Index_surface',
         description: 'Surface Lifted Index at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Surface_roughness_surface',
         description: 'Surface roughness at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'm',
+        'gee:units': units.meters,
       },
       {
         name: 'Surface_Slope_Type_surface',
@@ -437,37 +435,37 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Temperature_depth_below_surface_layer_5_cm',
         description: 'Temperature 5cm depth below land surface layer for 00 and 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Temperature_depth_below_surface_layer_25_cm',
         description: 'Temperature 25cm epth below land surface layer for 00 and 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Temperature_depth_below_surface_layer_70_cm',
         description: 'Temperature 70 cm depth below land surface layer for 00 and 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Temperature_depth_below_surface_layer_150_cm',
         description: 'Temperature 150cm depth below land surface layer for 00 and 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Temperature_height_above_ground',
         description: 'Temperature at Specified height level above ground for 00 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Temperature_surface',
         description: 'Temperature at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Total_cloud_cover_convective_cloud',
         description: 'Total cloud cover at Convective cloud layer for 00 forecast',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Total_ozone_entire_atmosphere_single_layer',
@@ -477,7 +475,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Total_precipitation_surface_3_Hour_Accumulation',
         description: 'Total precipitation 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Transpiration_surface_3_Hour_Average',
@@ -522,7 +520,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Vegetation_surface',
         description: 'Vegetation at ground or water surface for 00 and 03 forecast',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'Vegetation_Type_surface',
@@ -552,12 +550,12 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Water_equivalent_of_accumulated_snow_depth_surface',
         description: 'Water equivalent of accumulated snow depth at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
       {
         name: 'Water_runoff_surface_3_Hour_Accumulation',
         description: 'Water runoff 3 hour accumulation at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
       },
     ],
     'gee:visualizations': [

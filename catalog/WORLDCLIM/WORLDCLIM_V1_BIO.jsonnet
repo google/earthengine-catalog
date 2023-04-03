@@ -4,15 +4,13 @@ local subdir = 'WORLDCLIM';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_sa_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -80,82 +78,82 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bio01',
         description: 'Annual mean temperature',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio02',
         description: 'Mean diurnal range (mean of monthly (max temp - min temp))',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio03',
         description: 'Isothermality (bio02/bio07)',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'bio04',
         description: 'Temperature seasonality (Standard deviation * 100)',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.01,
       },
       {
         name: 'bio05',
         description: 'Max temperature of warmest month',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio06',
         description: 'Min temperature of coldest month',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio07',
         description: 'Temperature annual range (bio05-bio06)',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio08',
         description: 'Mean temperature of wettest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio09',
         description: 'Mean temperature of driest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio10',
         description: 'Mean temperature of warmest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio11',
         description: 'Mean temperature of coldest quarter',
-        'gee:units': '°C',
+        'gee:units': units.celsius,
         'gee:scale': 0.1,
       },
       {
         name: 'bio12',
         description: 'Annual precipitation',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio13',
         description: 'Precipitation of wettest month',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio14',
         description: 'Precipitation of driest month',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio15',
@@ -165,22 +163,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'bio16',
         description: 'Precipitation of wettest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio17',
         description: 'Precipitation of driest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio18',
         description: 'Precipitation of warmest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'bio19',
         description: 'Precipitation of coldest quarter',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [

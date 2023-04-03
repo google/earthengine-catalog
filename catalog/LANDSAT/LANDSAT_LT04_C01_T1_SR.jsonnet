@@ -5,6 +5,7 @@ local subdir = 'LANDSAT';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -13,8 +14,6 @@ local base_filename = basename + '.json';
 local successor_basename = std.strReplace(successor_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -244,7 +243,7 @@ local self_url = catalog_subdir_url + base_filename;
           resolution of 120m / pixel (60m / pixel for Landsat 7), this band has
           been resampled using cubic convolution to 30m.
         |||,
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         center_wavelength: 11.45,
         'gee:scale': 0.1,
         'gee:wavelength': '10.40-12.50 &mu;m',

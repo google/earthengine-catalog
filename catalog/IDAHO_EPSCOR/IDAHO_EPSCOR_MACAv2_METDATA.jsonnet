@@ -4,6 +4,7 @@ local subdir = 'IDAHO_EPSCOR';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc0_1_0;
 
@@ -82,32 +83,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'tasmax',
         description: 'Maximum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'tasmin',
         description: 'Minimum daily temperature near surface',
-        'gee:units': 'K',
+        'gee:units': units.kelvin,
       },
       {
         name: 'rhsmax',
         description: 'Maximum daily relative humidity near surface, not present in models CCSM4 or NorESM1-M',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'rhsmin',
         description: 'Minimum daily relative humidity near surface, not present in models CCSM4 or NorESM1-M',
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
       {
         name: 'huss',
         description: 'Average daily specific humidity near surface',
-        'gee:units': 'kg/kg',
+        'gee:units': units.mass_fraction,
       },
       {
         name: 'pr',
         description: 'Average daily precipitation amount at surface',
-        'gee:units': 'mm',
+        'gee:units': units.millimeter,
       },
       {
         name: 'rsds',
@@ -117,12 +118,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'uas',
         description: 'Average daily eastward component of wind near surface',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
       {
         name: 'vas',
         description: 'Average daily northward component of wind near surface',
-        'gee:units': 'm/s',
+        'gee:units': units.velocity_si,
       },
     ],
     'gee:visualizations': [

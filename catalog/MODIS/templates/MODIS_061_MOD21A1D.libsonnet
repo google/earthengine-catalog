@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -10,7 +12,7 @@
       {
         name: 'LST_1KM',
         description: 'Land Surface Temperature',
-        'gee:units': 'Kelvin',
+        'gee:units': units.kelvin,
         'gee:scale': 0.02,
       },
       {
@@ -227,13 +229,13 @@
       {
         name: 'View_Angle',
         description: 'MODIS view zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:offset': -65.0,
       },
       {
         name: 'View_Time',
         description: 'Time of MODIS observation',
-        'gee:units': 'Hours',
+        'gee:units': units.hour,
         'gee:scale': 0.1,
       },
     ],

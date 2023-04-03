@@ -18,16 +18,43 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_catalog('3DEP', base_url),
-    ee.link.child_catalog('GAP', base_url),
-    ee.link.child_catalog('GFSAD1000', base_url),
-    ee.link.child_catalog('LIMA', base_url),
-    ee.link.child_catalog('NLCD_RELEASES', base_url),
-    ee.link.child_catalog('WBD', base_url),
+
     ee.link.child_collection('USGS_GMTED2010', base_url),
     ee.link.child_collection('USGS_GTOPO30', base_url),
     ee.link.child_collection('USGS_NED', base_url),
     ee.link.child_collection('USGS_NLCD', base_url),
     ee.link.child_collection('USGS_SRTMGL1_003', base_url),
+
+    ee.link.child_collection('USGS_3DEP_10m', base_url),
+    ee.link.child_collection('USGS_3DEP_10m_metadata', base_url),
+    ee.link.child_collection('USGS_3DEP_1m', base_url),
+
+    ee.link.child_collection('USGS_GAP_AK_2001', base_url),
+    ee.link.child_collection('USGS_GAP_CONUS_2011', base_url),
+    ee.link.child_collection('USGS_GAP_HI_2001', base_url),
+    ee.link.child_collection('USGS_GAP_PAD-US_v20_designation', base_url),
+    ee.link.child_collection('USGS_GAP_PAD-US_v20_easement', base_url),
+    ee.link.child_collection('USGS_GAP_PAD-US_v20_fee', base_url),
+    ee.link.child_collection('USGS_GAP_PAD-US_v20_proclamation', base_url),
+    ee.link.child_collection('USGS_GAP_PR_2001', base_url),
+
+    ee.link.child_collection('USGS_GFSAD1000_V0', base_url),
+    ee.link.child_collection('USGS_GFSAD1000_V1', base_url),
+
+    ee.link.child_collection('USGS_LIMA_MOSAIC', base_url),
+    ee.link.child_collection('USGS_LIMA_SR', base_url),
+
+    ee.link.child_collection('USGS_NLCD_RELEASES_2016_REL', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_NLCD', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_RCMAP_V4_COVER', base_url),
+    ee.link.child_collection(
+      'USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER', base_url),
+
+    ee.link.child_collection('USGS_WBD_2017_HUC02', base_url),
+    ee.link.child_collection('USGS_WBD_2017_HUC04', base_url),
+    ee.link.child_collection('USGS_WBD_2017_HUC06', base_url),
+    ee.link.child_collection('USGS_WBD_2017_HUC08', base_url),
+    ee.link.child_collection('USGS_WBD_2017_HUC10', base_url),
+    ee.link.child_collection('USGS_WBD_2017_HUC12', base_url),
   ],
 }

@@ -268,19 +268,19 @@
       {
         name: 'ViewZenith',
         description: 'View zenith angle of VI Pixel',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {
         name: 'SolarZenith',
         description: 'Sun zenith angle of VI pixel',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {
         name: 'RelativeAzimuth',
         description: 'Relative azimuth angle of VI pixel',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
         'gee:scale': 0.01,
       },
       {

@@ -4,13 +4,13 @@ local subdir = 'MODIS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -94,7 +94,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'ET',
         description: 'Evapotranspiration, aggregated for period of coverage.',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
         'gee:scale': 0.1,
       },
       {
@@ -106,7 +106,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'PET',
         description: 'Potential evapotranspiration, aggregated for period of coverage.',
-        'gee:units': 'kg/m^2',
+        'gee:units': units.area_density,
         'gee:scale': 0.1,
       },
       {

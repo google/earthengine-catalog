@@ -4,6 +4,7 @@ local subdir = 'RUB';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -286,7 +287,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             LCZ class was mapped 30 times out of 50 LCZ models). This is a
             pixel-based probability derived from the LCZ layer
         |||,
-        'gee:units': '%',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [

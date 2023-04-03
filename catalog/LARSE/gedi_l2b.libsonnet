@@ -1,5 +1,6 @@
 local gedi_l2a = import 'gedi_l2a.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
+local units = import 'units.libsonnet';
 
 {
   description: |||
@@ -32,7 +33,7 @@ local ee_const = import 'earthengine_const.libsonnet';
     {
       name: 'cover',
       description: 'Total canopy cover',
-      'gee:units': 'Percent',
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     },
     gedi_l2a.regular_bands[1],
@@ -42,7 +43,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         Transmit time of the shot, measured in seconds from the
         master_time_epoch since 2018-01-01
       |||,
-      'gee:units': 'Seconds',
+      'gee:units': 'seconds',
       type:: ee_const.var_type.double,
     },
     {
@@ -62,7 +63,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         Azimuth of the unit pointing vector for the laser in the local ENU
         frame measured from North and positive towards East.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.int,
     },
     {
@@ -71,13 +72,13 @@ local ee_const = import 'earthengine_const.libsonnet';
         Elevation of the unit pointing vector for the laser in the local ENU
         frame measured from East-North plane and positive towards Up.
       |||,
-      'gee:units': 'radians',
+      'gee:units': units.radian,
       type:: ee_const.var_type.int,
     },
     {
       name: 'pai',
       description: 'Total Plant Area Index',
-      'gee:units': 'm^2/m^2',
+      'gee:units': units.area_fraction,
       type:: ee_const.var_type.int,
     },
     {
@@ -107,7 +108,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         position in the local ENU frame measured from North and is positive
         towards East.
       |||,
-      'gee:units': 'Degrees',
+      'gee:units': 'degrees',
       type:: ee_const.var_type.int,
     },
     {
@@ -117,7 +118,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         position in the local ENU frame measured from the East-North plane and
         is positive Up.
       |||,
-      'gee:units': 'Degrees',
+      'gee:units': 'degrees',
       type:: ee_const.var_type.int,
     },
     gedi_l2a.shot_number,
@@ -130,8 +131,8 @@ local ee_const = import 'earthengine_const.libsonnet';
   cover_bands: [
     {
       name: 'cover_z' + step,
-      description: 'Cumulative canopy cover vertical profile at ' + step + '%',
-      'gee:units': 'Percent',
+      description: 'Cumulative canopy cover vertical profile at ' + step + units.percent,
+      'gee:units': units.percent,
       type:: ee_const.var_type.int,
     }
     for step in std.range(0, 30)
@@ -140,7 +141,7 @@ local ee_const = import 'earthengine_const.libsonnet';
     {
       name: 'pai_z' + step,
       description: 'Plant Area Index profile in ' + step + ' m&sup2;/m&sup2;',
-      'gee:units': 'm^2/m^2',
+      'gee:units': units.area_fraction,
       type:: ee_const.var_type.int,
     }
     for step in std.range(0, 30)

@@ -4,6 +4,7 @@ local subdir = 'Oxford';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -88,12 +89,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'accessibility',
         description: 'Travel time to the nearest hospital or clinic.',
-        'gee:units': 'minutes',
+        'gee:units': units.minute,
       },
       {
         name: 'accessibility_walking_only',
         description: 'Travel time to the nearest hospital or clinic using non-motorized transport.',
-        'gee:units': 'minutes',
+        'gee:units': units.minute,
       },
     ],
     'gee:visualizations': [
@@ -134,7 +135,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
-    D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligorić, S. Bavadekar,
+    D.J. Weiss, A. Nelson, C.A. Vargas-Ruiz, K. Gligori&cacute;, S. Bavadekar,
     E. Gabrilovich, A. Bertozzi-Villa, J. Rozier, H.S. Gibson, T. Shekel,
     C. Kamath, A. Lieber, K. Schulman, Y. Shao, V. Qarkaxhija, A.K. Nandi,
     S.H. Keddie, S. Rumisha, E. Cameron, K.E. Battle, S. Bhatt, P.W. Gething.

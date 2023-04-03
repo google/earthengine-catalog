@@ -4,6 +4,7 @@ local subdir = 'VITO';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -168,32 +169,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SZA',
         description: 'Solar zenith angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SAA',
         description: 'Solar azimuth angle',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SWIRVAA',
         description: 'Viewing azimuth angles SWIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SWIRVZA',
         description: 'Viewing zenith angle SWIR detector',
-        'gee:units': 'Degree',
+        'gee:units': 'degree',
       },
       {
         name: 'VNIRVAA',
         description: 'Viewing azimuth angle VNIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'VNIRVZA',
         description: 'Viewing zenith angle VNIR detector',
-        'gee:units': 'Degrees',
+        'gee:units': 'degrees',
       },
       {
         name: 'SM',
@@ -309,7 +310,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TIME',
         description: 'Time elapsed since the start of image collection of this mosaic',
-        'gee:units': 'Minutes',
+        'gee:units': units.minute,
       },
     ],
     'gee:visualizations': [
