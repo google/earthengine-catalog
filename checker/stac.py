@@ -20,6 +20,8 @@ UNKNOWN_PATH = pathlib.Path('> UNKNOWN PATH')
 # List loaded from non_commercial_datasets.jsonnet
 NON_COMMERCIAL_LIST = []
 
+SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
+
 
 class StacType(str, enum.Enum):
   CATALOG = 'Catalog'

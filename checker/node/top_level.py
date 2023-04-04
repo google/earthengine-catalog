@@ -17,7 +17,7 @@ CATALOG_ALLOWED_FIELDS = [
 COLLECTION_ALLOWED_FIELDS = [
     'deprecated', 'description', 'extent', 'gee:extra_dois', 'gee:interval',
     'gee:is_derived', 'gee:min_zoom_level', 'gee:provider_ids',
-    'gee:skip_featureview_generation', 'gee:skip_indexing', 'gee:terms_of_use',
+    stac.SKIP_FEATUREVIEW_GENERATION, 'gee:skip_indexing', 'gee:terms_of_use',
     'gee:type', 'gee:unusual_terms_of_use', 'gee:user_owned',
     'gee:user_uploaded', 'id', 'keywords', 'license', 'links', 'providers',
     'sci:citation', 'sci:doi', 'sci:publications', 'stac_extensions',

@@ -407,7 +407,9 @@ class Check(stac.NodeCheck):
             node,
             f'{node.gee_type} cannot have example {RELATED} a FeatureView link')
     if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
-      if not feature_view_links:
+      if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
+        pass
+      elif not feature_view_links:
         if not feature_view_exception(node.id):
           yield cls.new_issue(
               node, f'Missing example {RELATED} FeatureView link')
