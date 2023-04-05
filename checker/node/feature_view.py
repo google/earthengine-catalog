@@ -87,6 +87,15 @@ THINNING_STRATEGIES = frozenset({'GLOBALLY_CONSISTENT', 'HIGHER_DENSITY'})
 DIRECTIONS = frozenset({'ASC', 'DESC'})
 
 TABLES_WITHOUT_FEATUREVIEW = frozenset({
+    'WWF/HydroATLAS/v1/Basins/level03',
+    'WWF/HydroATLAS/v1/Basins/level04',
+    'WWF/HydroATLAS/v1/Basins/level05',
+    'WWF/HydroATLAS/v1/Basins/level06',
+    'WWF/HydroATLAS/v1/Basins/level07',
+    'WWF/HydroATLAS/v1/Basins/level08',
+    'WWF/HydroATLAS/v1/Basins/level09',
+    'WWF/HydroATLAS/v1/Basins/level10',
+    'WWF/HydroATLAS/v1/Basins/level11',
     'WWF/HydroATLAS/v1/Basins/level12',
 })
 
