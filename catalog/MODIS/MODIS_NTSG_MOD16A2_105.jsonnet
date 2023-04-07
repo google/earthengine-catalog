@@ -101,7 +101,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'LE',
         description: 'Latent heat flux, averaged daily over the period of coverage.',
         'gee:units': 'J/m^2/day',
-        'gee:scale': 0.0001,
+        'gee:scale': 10000,
       },
       {
         name: 'PET',
@@ -113,7 +113,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'PLE',
         description: 'Potential Latent Heat Flux, averaged daily over the period ofcoverage.',
         'gee:units': 'J/m^2/day',
-        'gee:scale': 0.0001,
+        'gee:scale': 10000,
       },
       {
         name: 'ET_QC',
