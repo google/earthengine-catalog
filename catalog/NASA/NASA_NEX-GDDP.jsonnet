@@ -43,9 +43,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
+    'cag',
     'climate',
     'cmip5',
-    'csu',
     'gddp',
     'geophysical',
     'nasa',
@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'temperature',
   ],
   providers: [
-    ee.producer_provider('NASA / CSU', 'https://cds.nccs.nasa.gov/nex-gddp/'),
+    ee.producer_provider('NASA /  Climate Analytics Group', 'https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1950-01-01T00:00:00Z', '2100-12-31T00:00:00Z'),

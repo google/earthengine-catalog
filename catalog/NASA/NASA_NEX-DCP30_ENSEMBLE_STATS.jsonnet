@@ -51,9 +51,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
   ],
   keywords: [
+    'cag',
     'climate',
     'cmip5',
-    'csu',
     'geophysical',
     'nasa',
     'nex',
@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'temperature',
   ],
   providers: [
-    ee.producer_provider('NASA / CSU', 'https://cds.nccs.nasa.gov/nex/'),
+    ee.producer_provider('NASA / Climate Analytics Group', 'https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-dcp30'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-125.03, 24.07, -66.47, 49.93,
