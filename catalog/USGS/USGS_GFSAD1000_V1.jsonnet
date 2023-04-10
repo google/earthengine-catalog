@@ -82,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 3,
-            color: '02a50f',
+            color: 'darkseagreen',  // was 02a50f
             description: 'Croplands: rainfed',
           },
           {
@@ -118,7 +118,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               'black',
               'orange',
               'brown',
-              '02a50f',
+              'darkseagreen',  // was 02a50f
               'green',
               'yellow',
             ],

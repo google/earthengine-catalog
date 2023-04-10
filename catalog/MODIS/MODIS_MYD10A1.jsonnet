@@ -199,7 +199,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               100.0,
             ],
             palette: [
-              'black',
+              '000000',
               '0dffff',
               '0524ff',
               'ffffff',

@@ -299,10 +299,20 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'{PALETTE} size should be <= {MAX_PALETTE_SIZE}')
         else:
+          have_name = False
+          have_hex = False
           for color in palette_list:
-            if not re.fullmatch(r'[0-9a-f]{6}([0-9a-f]{2})?', color):
-              if color not in COLOR_NAMES:
-                yield cls.new_issue(
-                    node,
-                    'color must be a 6 (or 8) character hex or ' +
-                    f'color name - found "{color}"')
+            if color in COLOR_NAMES:
+              have_name = True
+            elif re.fullmatch(r'[0-9a-f]{6}([0-9a-f]{2})?', color):
+              have_hex = True
+            else:
+              yield cls.new_issue(
+                  node,
+                  'color must be a 6 (or 8) character hex or ' +
+                  f'color name - found "{color}"')
+          if have_name and have_hex:
+            yield cls.new_issue(
+                node,
+                'colors must be all hex or all color names. '
+                'Found a mix of both')
