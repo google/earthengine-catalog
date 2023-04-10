@@ -82,7 +82,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   'gee:provider_ids': [
     'C194001222-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2002-07-04T00:00:00Z', null),
+  extent: ee.extent_global('2002-07-04T00:00:00Z', '2023-02-25T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Aqua',
