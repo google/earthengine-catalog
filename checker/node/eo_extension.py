@@ -180,7 +180,7 @@ POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 # added to units.libsonnet.
 UNITS = units.UNITS.union({
     '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
-    'Class', 'Coefficient of Variation', 'DN', 'DU',
+    'Coefficient of Variation', 'DN', 'DU',
     'Degrees clockwise from North', 'Dimensionless',
     'Equivalent gauges per 2.5 degree box',
     'J/kg', 'J/m^2/day', 'Julian Day',
