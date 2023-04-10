@@ -47,7 +47,7 @@ class KeywordsTest(absltest.TestCase):
     node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
     issues = list(Check.run([node]))
     expect = [Check.new_issue(
-        node, 'Only one instance of "a_keyword"', stac.IssueLevel.WARNING)]
+        node, 'Only one instance of "a_keyword"')]
     self.assertEqual(expect, issues)
 
   def test_no_longer_single_use(self):
@@ -57,8 +57,7 @@ class KeywordsTest(absltest.TestCase):
         {'keywords': [single_use_keyword]})
     issues = list(Check.run([node, node]))
     expect = [Check.new_issue(
-        node, '"vnp09ga" should be removed from exceptions',
-        stac.IssueLevel.WARNING)]
+        node, '"vnp09ga" should be removed from exceptions')]
     self.assertEqual(expect, issues)
 
 if __name__ == '__main__':

@@ -36,7 +36,7 @@ EXCEPTIONS = frozenset({
     'geostationary', 'germany',
     'ges_disc', 'gfd', 'gfs', 'gimms', 'glad', 'glas',
     'globalsoilmap', 'globcover', 'goddard', 'grsg', 'gtopo30', 'habitats',
-    'half_hourly', 'hapludalfs', 'health', 'human', 'hydroatlas', 'hyperion',
+    'half_hourly', 'hapludalfs', 'health', 'human', 'hyperion',
     'hyperspectral', 'igbp', 'impervious', 'infrastructure', 'inundation',
     'iran', 'iron', 'irrigated_land', 'isccp', 'isothermality', 'kbdi', 'kntu',
     'label', 'lance', 'landscan', 'landscape', 'lst_derived', 'lt8',
@@ -95,9 +95,7 @@ class Check(stac.TreeCheck):
             # two datasets.  For those where the keyword is critical, but there
             # is currently only one keyword, add the keyword to the exception
             # list.
-            yield cls.new_issue(
-                node, f'Only one instance of "{keyword}"',
-                stac.IssueLevel.WARNING)
+            yield cls.new_issue(node, f'Only one instance of "{keyword}"')
 
     multiple_use_keywords = {k for k, v in counts.items() if v > 1}
     no_longer_single_use = multiple_use_keywords.intersection(EXCEPTIONS)
@@ -107,5 +105,4 @@ class Check(stac.TreeCheck):
     for keyword in sorted(no_longer_single_use):
       yield cls.new_issue(
           unknown_node,
-          f'"{keyword}" should be removed from exceptions',
-          stac.IssueLevel.WARNING)
+          f'"{keyword}" should be removed from exceptions')
