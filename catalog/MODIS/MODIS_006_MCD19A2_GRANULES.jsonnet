@@ -65,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:provider_ids': [
     'C1000000505-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2000-02-26T00:00:00Z', null),
+  extent: ee.extent_global('2000-02-26T00:00:00Z', '2023-02-17T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Aqua',
