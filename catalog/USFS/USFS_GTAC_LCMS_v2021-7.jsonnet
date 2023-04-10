@@ -254,7 +254,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 5,
-            color: '1B1716',
+            color: '1b1716',
             description: 'Non-Processing Area Mask',
           },
         ],
@@ -326,7 +326,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 11,
-            color: 'AA7700',
+            color: 'aa7700',
             description: 'Barren & Grass/Forb/Herb Mix',
           },
           {
@@ -346,7 +346,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 15,
-            color: '1B1716',
+            color: '1b1716',
             description: 'Non-Processing Area Mask',
           },
         ],
@@ -394,7 +394,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 7,
-            color: '1B1716',
+            color: '1b1716',
             description: 'Non-Processing Area Mask',
           },
         ],
@@ -719,7 +719,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               'f39268',
               'd54309',
               '00a398',
-              '1B1716',
+              '1b1716',
               'b30088',
             ],
             bands: [
@@ -754,11 +754,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               'ffad33',
               'ffe0b3',
               'ffff00',
-              'AA7700',
+              'aa7700',
               'd3bf9b',
               'ffffff',
               '4780f3',
-              '1B1716',
+              '1b1716',
             ],
             bands: [
               'Land_Cover',
@@ -786,7 +786,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               'f39268',
               'd54309',
               '00a398',
-              '1B1716',
+              '1b1716',
             ],
             bands: [
               'Land_Use',

@@ -19,8 +19,8 @@ The requirement and components for this section:
     - gain: Number by which to multiply each pixel value
     - bias: Number to add to each value (after multiplying by gain)
     - palette: A list of CSS style strings. There may be from 1 to 250 colors.
-      CSS '#rgb' colors are not allowed, e.g. '0f0'.  A leading '#' is currently
-      allowed, but is discouraged. Each color entry is one of:
+      CSS 'rgb' colors are not allowed, e.g. '0f0'.  A leading '#' is not
+      allowed. Each color entry is one of:
       - 'rrggbb': 6 character hex
       - 'rrggbbaa': 8 character hex with transparency (alpha)
       - 'color': A supported color name, e.g. 'red'
@@ -300,7 +300,7 @@ class Check(stac.NodeCheck):
               node, f'{PALETTE} size should be <= {MAX_PALETTE_SIZE}')
         else:
           for color in palette_list:
-            if not re.fullmatch(r'#?[0-9a-fA-F]{6}([0-9a-fA-F]{2})?', color):
+            if not re.fullmatch(r'[0-9a-f]{6}([0-9a-f]{2})?', color):
               if color not in COLOR_NAMES:
                 yield cls.new_issue(
                     node,

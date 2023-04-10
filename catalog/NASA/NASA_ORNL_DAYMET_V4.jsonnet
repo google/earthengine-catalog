@@ -141,7 +141,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               30.0,
             ],
             palette: [
-              '1621A2',
+              '1621a2',
               'white',
               'cyan',
               'green',

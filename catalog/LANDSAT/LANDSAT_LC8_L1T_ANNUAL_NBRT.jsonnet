@@ -81,7 +81,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             ],
             palette: [
               '000000',
-              'FFFFFF',
+              'ffffff',
             ],
             bands: [
               'NBRT',

@@ -87,12 +87,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 2,
-            color: 'FEFF99',
+            color: 'feff99',
             description: 'Non-Forest',
           },
           {
             value: 3,
-            color: '0000FF',
+            color: '0000ff',
             description: 'Water',
           },
         ],
@@ -116,8 +116,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             ],
             palette: [
               '006400',
-              'FEFF99',
-              '0000FF',
+              'feff99',
+              '0000ff',
             ],
             bands: [
               'fnf',

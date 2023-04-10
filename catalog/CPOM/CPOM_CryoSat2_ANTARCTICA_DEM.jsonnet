@@ -85,17 +85,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 1,
-            color: 'CBCBCB',
+            color: 'cbcbcb',
             description: '1 km fit',
           },
           {
             value: 2,
-            color: '377EB7',
+            color: '377eb7',
             description: 'resampled 2 km fit',
           },
           {
             value: 3,
-            color: 'E2191B',
+            color: 'e2191b',
             description: 'resampled 5 km fit',
           },
         ],

@@ -85,12 +85,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0.1,
             ],
             palette: [
-              '#FFFFFF',
-              '#00FFFF',
-              '#0080FF',
-              '#DA00FF',
-              '#FFA400',
-              '#FF0000',
+              'ffffff',
+              '00ffff',
+              '0080ff',
+              'da00ff',
+              'ffa400',
+              'ff0000',
             ],
             bands: [
               'total_precipitation_sum',

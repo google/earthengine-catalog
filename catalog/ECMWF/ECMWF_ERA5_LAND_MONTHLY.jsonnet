@@ -89,12 +89,12 @@ local successor_url = catalog_subdir_url + successor_filename;
               0.1,
             ],
             palette: [
-              '#FFFFFF',
-              '#00FFFF',
-              '#0080FF',
-              '#DA00FF',
-              '#FFA400',
-              '#FF0000',
+              'ffffff',
+              '00ffff',
+              '0080ff',
+              'da00ff',
+              'ffa400',
+              'ff0000',
             ],
             bands: [
               'total_precipitation',

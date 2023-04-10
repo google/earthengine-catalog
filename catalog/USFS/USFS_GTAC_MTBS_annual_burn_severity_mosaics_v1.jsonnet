@@ -107,27 +107,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 2,
-            color: '7FFFD4',
+            color: '7fffd4',
             description: 'Low',
           },
           {
             value: 3,
-            color: 'FFFF00',
+            color: 'ffff00',
             description: 'Moderate',
           },
           {
             value: 4,
-            color: 'FF0000',
+            color: 'ff0000',
             description: 'High',
           },
           {
             value: 5,
-            color: '7FFF00',
+            color: '7fff00',
             description: 'Increased Greenness'
           },
           {
             value: 6,
-            color: 'FFFFFF',
+            color: 'ffffff',
             description: 'Non-Mapping Area'
           }
         ],
@@ -152,11 +152,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             palette: [
               '000000', // background
               '006400', // unburned to low
-              '7FFFD4', // low
-              'FFFF00', // moderate
-              'FF0000', // high
-              '7FFF00', // increased greenness
-              'FFFFFF'  // non mapping area
+              '7fffd4', // low
+              'ffff00', // moderate
+              'ff0000', // high
+              '7fff00', // increased greenness
+              'ffffff'  // non mapping area
             ],
             bands: [
               'Severity',

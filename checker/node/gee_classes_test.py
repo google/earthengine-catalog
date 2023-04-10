@@ -23,12 +23,12 @@ class GeeClassesTest(test_utils.NodeTest):
     self.check = gee_classes.Check
 
   def test_valid(self):
-    classes = [{'color': 'FAFAFA', 'description': 'A', 'value': 1},
+    classes = [{'color': 'fafafa', 'description': 'A', 'value': 1},
                {'color': 'violet', 'description': 'B', 'value': 2}]
     self.assert_collection(make_stac(classes))
 
   def test_valid_2(self):
-    classes = [{'color': 'AABBCCDD', 'description': 'A', 'value': -1},
+    classes = [{'color': 'aabbccdd', 'description': 'A', 'value': -1},
                {'color': 'white', 'description': 'B', 'value': 0}]
     self.assert_collection(make_stac(classes))
 

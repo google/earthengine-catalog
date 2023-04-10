@@ -70,9 +70,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             palette: [
               '000088',
-              '0000FF',
-              '8888FF',
-              'FFFFFF',
+              '0000ff',
+              '8888ff',
+              'ffffff',
             ],
             bands: [
               'NDSI',

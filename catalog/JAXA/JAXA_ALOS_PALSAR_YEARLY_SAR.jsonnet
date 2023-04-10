@@ -112,12 +112,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 50,
-            color: '0000FF',
+            color: '0000ff',
             description: 'Ocean and water',
           },
           {
             value: 100,
-            color: 'AAAA00',
+            color: 'aaaa00',
             description: 'Radar layover',
           },
           {
@@ -127,7 +127,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 255,
-            color: 'AA9988',
+            color: 'aa9988',
             description: 'Land',
           },
         ],

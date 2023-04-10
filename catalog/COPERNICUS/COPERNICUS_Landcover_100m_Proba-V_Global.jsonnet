@@ -127,7 +127,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 20,
-            color: 'FFBB22',
+            color: 'ffbb22',
             description: |||
               Shrubs. Woody perennial plants with persistent and woody stems
               and without any defined main stem being less than 5 m tall. The
@@ -136,7 +136,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 30,
-            color: 'FFFF4C',
+            color: 'ffff4c',
             description: |||
               Herbaceous vegetation. Plants without persistent stem or shoots above ground
               and lacking definite firm structure. Tree and shrub cover is less
@@ -145,7 +145,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 40,
-            color: 'F096FF',
+            color: 'f096ff',
             description: |||
               Cultivated and managed vegetation / agriculture. Lands covered with temporary crops followed by harvest
               and a bare soil period (e.g., single and multiple cropping systems).
@@ -155,12 +155,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 50,
-            color: 'FA0000',
+            color: 'fa0000',
             description: 'Urban / built up. Land covered by buildings and other man-made structures.',
           },
           {
             value: 60,
-            color: 'B4B4B4',
+            color: 'b4b4b4',
             description: |||
               Bare / sparse vegetation. Lands with exposed soil, sand, or rocks and never has
               more than 10 % vegetated cover during any time of the year.
@@ -168,17 +168,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 70,
-            color: 'F0F0F0',
+            color: 'f0f0f0',
             description: 'Snow and ice. Lands under snow or ice cover throughout the year.',
           },
           {
             value: 80,
-            color: '0032C8',
+            color: '0032c8',
             description: 'Permanent water bodies. Lakes, reservoirs, and rivers. Can be either fresh or salt-water bodies.',
           },
           {
             value: 90,
-            color: '0096A0',
+            color: '0096a0',
             description: |||
               Herbaceous wetland. Lands with a permanent mixture of water and herbaceous
               or woody vegetation. The vegetation can be present in either salt,
@@ -187,12 +187,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 100,
-            color: 'FAE6A0',
+            color: 'fae6a0',
             description: 'Moss and lichen.',
           },
           {
             value: 111,
-            color: '58481F',
+            color: '58481f',
             description: |||
               Closed forest, evergreen needle leaf. Tree canopy >70 %, almost all needle leaf trees remain
               green all year. Canopy is never without green foliage.
@@ -208,7 +208,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 113,
-            color: '70663E',
+            color: '70663e',
             description: |||
               Closed forest, deciduous needle leaf. Tree canopy >70 %, consists of seasonal needle leaf
               tree communities with an annual cycle of leaf-on and leaf-off
@@ -217,7 +217,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 114,
-            color: '00CC00',
+            color: '00cc00',
             description: |||
               Closed forest, deciduous broad leaf. Tree canopy >70 %, consists of seasonal broadleaf
               tree communities with an annual cycle of leaf-on and leaf-off periods.
@@ -225,7 +225,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 115,
-            color: '4E751F',
+            color: '4e751f',
             description: 'Closed forest, mixed.',
           },
           {
@@ -244,7 +244,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 122,
-            color: '8DB400',
+            color: '8db400',
             description: |||
               Open forest, evergreen broad leaf. Top layer- trees 15-70 % and second layer- mixed of shrubs
               and grassland, almost all broadleaf trees remain green year round.
@@ -253,7 +253,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 123,
-            color: '8D7400',
+            color: '8d7400',
             description: |||
               Open forest, deciduous needle leaf. Top layer- trees 15-70 % and second layer- mixed of shrubs
               and grassland, consists of seasonal needle leaf tree communities with
@@ -262,7 +262,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 124,
-            color: 'A0DC00',
+            color: 'a0dc00',
             description: |||
               Open forest, deciduous broad leaf. Top layer- trees 15-70 % and second layer- mixed of shrubs
               and grassland, consists of seasonal broadleaf tree communities with
@@ -276,7 +276,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 126,
-            color: '648C00',
+            color: '648c00',
             description: 'Open forest, not matching any of the other definitions.',
           },
           {
@@ -312,12 +312,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 3,
-            color: '70663E',
+            color: '70663e',
             description: 'Deciduous needle leaf',
           },
           {
             value: 4,
-            color: 'A0DC00',
+            color: 'a0dc00',
             description: 'Deciduous broad leaf',
           },
           {
