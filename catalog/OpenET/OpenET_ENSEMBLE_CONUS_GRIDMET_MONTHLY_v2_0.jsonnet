@@ -213,7 +213,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              1400.0,
+              1400,
             ],
             palette: [
               '9e6212',
@@ -249,7 +249,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,
     Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,
-    volk, J., Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M.,
+    volk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P., Bromley, M.,
     Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,
     A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,
     B., Morton, C., Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang,

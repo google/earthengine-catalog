@@ -81,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '2016-01-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '2016-01-01T00:00:00Z', null),
   summaries: {
     gsd: [30],
     'eo:bands': [
@@ -111,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              1400.0,
+              1400,
             ],
             palette: [
               '9E6212',
@@ -145,22 +145,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
-    Bastiaanssen, W.G., Menenti, M., Feddes, R.A. and Holtslag, A.A.M., 1998. A remote sensing surface
-    energy balance algorithm for land (SEBAL). 1. Formulation. Journal of hydrology, 212, pp.198-212.
-
     Laipelt, L., Kayser, R.H.B., Fleischmann, A.S., Ruhoff, A., Bastiaanssen, W., Erickson, T.A. and M
     elton, F., 2021. Long-term monitoring of evapotranspiration using the SEBAL algorithm and
     Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 178, pp.81-96.
-
-    Kayser, R.H., Ruhoff, A., Laipelt, L., de Mello Kich, E., Roberti, D.R., de Arruda Souza, V., Rubert,
-    G.C.D., Collischonn, W. and Neale, C.M.U., 2022. Assessing geeSEBAL automated calibration and meteorological
-    reanalysis uncertainties to estimate evapotranspiration in subtropical humid climates. Agricultural and
-    Forest Meteorology, 314, p.108775.
-
-    Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard, J., Kilic, A., Kelly, C. and Trezza, R., 2013.
-    Automated calibration of the metric‐landsat evapotranspiration process. JAWRA Journal of the
-    American Water Resources Association, 49(3), pp.563-576.
-
+    |||,
+  'sci:publications': [
+    {
+      citation: |||
+      Bastiaanssen, W.G., Menenti, M., Feddes, R.A. and Holtslag, A.A.M., 1998. A remote sensing surface
+      energy balance algorithm for land (SEBAL). 1. Formulation. Journal of hydrology, 212, pp.198-212.
+      |||,
+    },
+    {
+      citation: |||
+      Kayser, R.H., Ruhoff, A., Laipelt, L., de Mello Kich, E., Roberti, D.R., de Arruda Souza, V., Rubert,
+      G.C.D., Collischonn, W. and Neale, C.M.U., 2022. Assessing geeSEBAL automated calibration and meteorological
+      reanalysis uncertainties to estimate evapotranspiration in subtropical humid climates. Agricultural and
+      Forest Meteorology, 314, p.108775.
+      |||,
+    },
+    {
+      citation: |||
+      Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard, J., Kilic, A., Kelly, C. and Trezza, R., 2013.
+      Automated calibration of the metric‐landsat evapotranspiration process. JAWRA Journal of the
+      American Water Resources Association, 49(3), pp.563-576.
+      |||
+    },
+   ]
     [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,
   'gee:interval': {
