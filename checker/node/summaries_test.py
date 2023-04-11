@@ -157,6 +157,20 @@ class ErrorSummariesTest(test_utils.NodeTest):
             'gee:visualizations': 'does not matter'}},
         'summaries has unexpected keys: bogus')
 
+  def test_band_summary_with_dash(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': [{
+                    'name': 'My-Band',
+                    'description': 'Band with a dash in the name',
+                }],
+                'gee:visualizations': 'does not matter',
+                'My_Band': 'does not matter',
+            }
+        }
+    )
+
   def test_table_eo_bands(self):
     self.assert_collection(
         {'summaries': {
