@@ -145,30 +145,35 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
-    Laipelt, L., Kayser, R.H.B., Fleischmann, A.S., Ruhoff, A., Bastiaanssen, W., Erickson, T.A. and M
-    elton, F., 2021. Long-term monitoring of evapotranspiration using the SEBAL algorithm and
-    Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 178, pp.81-96.
-    |||,
+    Laipelt, L., Kayser, R.H.B., Fleischmann, A.S., Ruhoff, A., Bastiaanssen,
+    W., Erickson, T.A. and Melton, F., 2021. Long-term monitoring of
+    evapotranspiration using the SEBAL algorithm and Google Earth Engine cloud
+    computing. ISPRS Journal of Photogrammetry and Remote Sensing, 178,
+    pp.81-96.
+  |||,
   'sci:publications': [
     {
       citation: |||
-      Bastiaanssen, W.G., Menenti, M., Feddes, R.A. and Holtslag, A.A.M., 1998. A remote sensing surface
-      energy balance algorithm for land (SEBAL). 1. Formulation. Journal of hydrology, 212, pp.198-212.
+      Bastiaanssen, W.G., Menenti, M., Feddes, R.A. and Holtslag, A.A.M., 1998.
+      A remote sensing surface energy balance algorithm for land (SEBAL). 1.
+      Formulation. Journal of hydrology, 212, pp.198-212.
       |||,
     },
     {
       citation: |||
-      Kayser, R.H., Ruhoff, A., Laipelt, L., de Mello Kich, E., Roberti, D.R., de Arruda Souza, V., Rubert,
-      G.C.D., Collischonn, W. and Neale, C.M.U., 2022. Assessing geeSEBAL automated calibration and meteorological
-      reanalysis uncertainties to estimate evapotranspiration in subtropical humid climates. Agricultural and
-      Forest Meteorology, 314, p.108775.
+      Kayser, R.H., Ruhoff, A., Laipelt, L., de Mello Kich, E., Roberti, D.R.,
+      de Arruda Souza, V., Rubert, G.C.D., Collischonn, W. and Neale, C.M.U.,
+      2022. Assessing geeSEBAL automated calibration and meteorological
+      reanalysis uncertainties to estimate evapotranspiration in subtropical
+      humid climates. Agricultural and Forest Meteorology, 314, p.108775.
       |||,
     },
     {
       citation: |||
-      Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard, J., Kilic, A., Kelly, C. and Trezza, R., 2013.
-      Automated calibration of the metric‐landsat evapotranspiration process. JAWRA Journal of the
-      American Water Resources Association, 49(3), pp.563-576.
+      Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard, J.,
+      Kilic, A., Kelly, C. and Trezza, R., 2013. Automated calibration of the
+      metric‐landsat evapotranspiration process. JAWRA Journal of the American
+      Water Resources Association, 49(3), pp.563-576.
       |||,
     },
    ]
