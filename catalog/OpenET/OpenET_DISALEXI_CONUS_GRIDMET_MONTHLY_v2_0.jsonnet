@@ -123,10 +123,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:publications': [
     {
       citation: |||
-       Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and Kustas, W.P., 2007.
-       A climatological study of evapotranspiration and moisture stress across the continental
-       United States based on thermal remote sensing: 1. Model formulation. Journal of
-       Geophysical Research: Atmospheres, 112(D10).
+       Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and Kustas,
+       W.P., 2007. A climatological study of evapotranspiration and moisture
+       stress across the continental United States based on thermal remote
+       sensing: 1. Model formulation. Journal of Geophysical Research:
+       Atmospheres, 112(D10).
       |||,
     },
   ],
