@@ -44,7 +44,7 @@ local config = configs[version];
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, config.id) + [
-    ee.link.example(config.id, config.basename + '_FeatureView'),
+    ee.link.example(config.id, subdir, config.basename + '_FeatureView'),
     ee.link.latest(config.latest_id, config.latest_url),
     ee.link.successor(config.successor_id, config.successor_url),
     {
