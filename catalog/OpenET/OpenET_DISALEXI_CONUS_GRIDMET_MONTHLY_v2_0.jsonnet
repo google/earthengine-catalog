@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '2016-01-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '2016-01-01T00:00:00Z', null),
   summaries: {
     gsd: [30],
     'eo:bands': [
@@ -82,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              1400.0,
+              1400,
             ],
             palette: [
               '9E6212',
@@ -115,16 +115,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:citation': |||
-    Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and Kustas, W.P., 2007.
-    A climatological study of evapotranspiration and moisture stress across the continental
-    United States based on thermal remote sensing: 1. Model formulation. Journal of
-    Geophysical Research: Atmospheres, 112(D10).
-
-    Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D., Eichelmann, E.,
-    Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas, W., 2018. Field-scale assessment of
-    land and water use change over the California Delta using remote sensing. Remote Sensing,
-    10(6), p.889.
+    Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D.,
+    Eichelmann, E., Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas, W.,
+    2018. Field-scale assessment of land and water use change over the
+    California Delta using remote sensing. Remote Sensing, 10(6), p.889.
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+       Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and Kustas, W.P., 2007.
+       A climatological study of evapotranspiration and moisture stress across the continental
+       United States based on thermal remote sensing: 1. Model formulation. Journal of
+       Geophysical Research: Atmospheres, 112(D10).
+      |||,
+    },
+  ],
   'gee:interval': {
     type: 'cadence',
     unit: 'month',

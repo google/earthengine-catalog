@@ -81,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '2016-01-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '2016-01-01T00:00:00Z', null),
   summaries: {
     gsd: [30],
     'eo:bands': [
@@ -111,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              1400.0,
+              1400,
             ],
             palette: [
               '9E6212',
@@ -150,25 +150,39 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     A., Blanenau, P., Bromley, M., Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M.,
     Guzman, A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor, B., Morton, C.,
     Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang, T., Yang, Y., Anderson, R., 2021.
-    “OpenET: Filling a Critical Data Gap in Water Management for the Western United States.”
+    "OpenET: Filling a Critical Data Gap in Water Management for the Western United States."
     Journal of the American Water Resources Association, 58(6), pp.971-994.
-
-    Pereira, L.S., P. Paredes, F.S. Melton, L.F. Johnson, R. López-Urrea, J. Cancela, and R.G. Allen. 2020.
-    “Prediction of Basal Crop Coefficients from Fraction of Ground Cover and Height.” Agricultural Water
-    Management, Special Issue on Updates to the FAO56 Crop Water Requirements Method 241, 106197.
-
-    Melton, F.S., L.F. Johnson, C.P. Lund, L.L. Pierce, A.R. Michaelis, S.H. Hiatt, A. Guzman et al. 2012.
-    “Satellite Irrigation Management Support with the Terrestrial Observation and Prediction System:
-    A Framework for Integration of Satellite and Surface Observations to Support Improvements in Agricultural
-    Water Resource Management.” IEEE Journal of Selected Topics in Applied Earth Observations and Remote
-    Sensing 5 (6): 1709–21.
-
-    Allen, R.G. and Pereira, L.S., 2009. Estimating crop coefficients from fraction of ground cover
-    and height. Irrigation Science, 28, pp.17-34.
-
-    Allen, R.G., Pereira, L.S., Raes, D. and Smith, M., 1998. Crop evapotranspiration-Guidelines for
-    computing crop water requirements-FAO Irrigation and drainage paper 56. Fao, Rome, 300(9), p.D05109.
-
+   |||,
+   'sci:publications': [
+     {
+       citation: |||
+       Pereira, L.S., P. Paredes, F.S. Melton, L.F. Johnson, R. López-Urrea, J. Cancela, and R.G. Allen. 2020.
+       "Prediction of Basal Crop Coefficients from Fraction of Ground Cover and Height." Agricultural Water
+       Management, Special Issue on Updates to the FAO56 Crop Water Requirements Method 241, 106197.
+       |||,
+      },
+     {
+       citation: |||
+       Melton, F.S., L.F. Johnson, C.P. Lund, L.L. Pierce, A.R. Michaelis, S.H. Hiatt, A. Guzman et al. 2012.
+       "Satellite Irrigation Management Support with the Terrestrial Observation and Prediction System:
+       A Framework for Integration of Satellite and Surface Observations to Support Improvements in Agricultural
+       Water Resource Management.IEEE Journal of Selected Topics in Applied Earth Observations and Remote
+       Sensing 5 (6): 1709–21.
+       |||,
+     },
+     {
+       citation: |||
+       Allen, R.G. and Pereira, L.S., 2009. Estimating crop coefficients from fraction of ground cover
+       and height. Irrigation Science, 28, pp.17-34.
+       |||,
+     },
+     {
+       citation: |||
+       Allen, R.G., Pereira, L.S., Raes, D. and Smith, M., 1998. Crop evapotranspiration-Guidelines for
+       computing crop water requirements-FAO Irrigation and drainage paper 56. Fao, Rome, 300(9), p.D05109.
+       |||,
+     },
+   ]
     [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,
   'gee:interval': {
