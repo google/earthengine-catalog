@@ -115,19 +115,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:citation': |||
-    Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D.,
-    Eichelmann, E., Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas, W.,
-    2018. Field-scale assessment of land and water use change over the
-    California Delta using remote sensing. Remote Sensing, 10(6), p.889.
+      Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D
+      ., Eichelmann, E., Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas,
+      W., 2018. Field-scale assessment of land and water use change over the
+      California Delta using remote sensing. Remote Sensing, 10(6), p.889.
   |||,
   'sci:publications': [
     {
       citation: |||
-       Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and Kustas,
-       W.P., 2007. A climatological study of evapotranspiration and moisture
-       stress across the continental United States based on thermal remote
-       sensing: 1. Model formulation. Journal of Geophysical Research:
-       Atmospheres, 112(D10).
+          Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and
+          Kustas, W.P., 2007. A climatological study of evapotranspiration
+          and moisture stress across the continental United States based on
+          thermal remote sensing: 1. Model formulation. Journal of
+          Geophysical Research: Atmospheres, 112(D10).
       |||,
     },
   ],
