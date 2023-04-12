@@ -8,7 +8,7 @@ var upstreamDrainageArea = ee.Image().byte().paint({
 });
 
 // Set map extent to show the Nile and surrounding basins.
-Map.setCenter(-43.50, -24.70, 3);
+Map.setCenter(-43.50, -24.70, 6);
 
 // Create a viridis colormap.
 var viridis = ['#481567FF', '#482677FF', '#453781FF', '#404788FF',
