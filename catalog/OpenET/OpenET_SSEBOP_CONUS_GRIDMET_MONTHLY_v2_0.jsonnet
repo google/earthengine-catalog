@@ -171,9 +171,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           p.113011.
       |||,
     },
-   ]
-    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
-  |||,
+   ],
   'gee:interval': {
     type: 'cadence',
     unit: 'month',
