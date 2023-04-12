@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -268,19 +270,19 @@
       {
         name: 'ViewZenith',
         description: 'View zenith angle of VI Pixel',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'SolarZenith',
         description: 'Sun zenith angle of VI pixel',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'RelativeAzimuth',
         description: 'Relative azimuth angle of VI pixel',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {

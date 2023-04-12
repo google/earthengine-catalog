@@ -290,7 +290,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'sensor_azimuth_angle',
         description: 'Azimuth angle of the satellite at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'sensor_zenith_angle',
@@ -298,12 +298,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Zenith angle of the satellite at the ground pixel location (WGS84); angle
           measured away from the vertical.
         |||,
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'solar_azimuth_angle',
         description: 'Azimuth angle of the Sun at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'solar_zenith_angle',
@@ -311,7 +311,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Zenith angle of the satellite at the ground pixel location (WGS84); angle
           measured away from the vertical.
         |||,
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
     ],
     'gee:visualizations': [

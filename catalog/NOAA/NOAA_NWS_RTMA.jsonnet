@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'WDIR',
         description: 'Wind direction (from which blowing)',
-        'gee:units': 'deg true',
+        'gee:units': units.degree,
       },
       {
         name: 'WIND',

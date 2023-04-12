@@ -148,19 +148,19 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'RELAZ',
         description: 'Relative sensor azimuth angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'SZEN',
         description: 'Solar zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'VZEN',
         description: 'View zenith angle, scale 0.01',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {

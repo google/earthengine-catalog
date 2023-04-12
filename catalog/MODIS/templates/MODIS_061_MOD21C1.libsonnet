@@ -239,13 +239,13 @@ local units = import 'units.libsonnet';
     {
       name: 'Day_view_angle',
       description: 'Average Daytime View Zenith Angle',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       'gee:offset': -65.0,
     },
     {
       name: 'Night_view_angle',
       description: 'Average Nighttime View Zenith Angle',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       'gee:offset': -65.0,
     },
     {
@@ -329,7 +329,7 @@ local units = import 'units.libsonnet';
     {
       name: 'View_Angle',
       description: 'MODIS view zenith angle',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       'gee:offset': -65.0,
     },
     {

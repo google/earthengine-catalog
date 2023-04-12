@@ -447,17 +447,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'relative_azimuth_angle',
         description: 'Relative azimuth angle for each pixel',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'sun_zenith_angle',
         description: 'Sun zenith angle for each pixel',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'view_zenith_angle',
         description: 'View zenith angle for each pixel',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
     ],
     'gee:visualizations': [

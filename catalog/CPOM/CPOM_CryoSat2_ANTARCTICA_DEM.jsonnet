@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'slope',
         description: 'Slope derived from elevation gradient.',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'z_smoothed',

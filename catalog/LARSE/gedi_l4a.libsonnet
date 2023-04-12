@@ -155,13 +155,13 @@ local units = import 'units.libsonnet';
     {
       name: 'lat_lowestmode',
       description: 'Latitude of center of lowest mode',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     {
       name: 'lon_lowestmode',
       description: 'Longitude of center of lowest mode',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     {
@@ -232,7 +232,7 @@ local units = import 'units.libsonnet';
     {
       name: 'solar_elevation',
       description: 'Solar elevation angle',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     {
@@ -372,13 +372,13 @@ local units = import 'units.libsonnet';
     {
       name: 'lat_lowestmode_aN',
       description: 'Latitude of center of lowest mode',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     {
       name: 'lon_lowestmode_aN',
       description: 'Longitude of center of lowest mode',
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     {

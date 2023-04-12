@@ -181,7 +181,7 @@ POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 UNITS = units.UNITS.union({
     '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
     'Coefficient of Variation', 'DN', 'DU',
-    'Degrees clockwise from North', 'Dimensionless',
+    'Dimensionless',
     'Equivalent gauges per 2.5 degree box',
     'J/kg', 'J/m^2/day', 'Julian Day',
     'MJ m^-2 day^-1', 'MW', 'Megawatts', 'Mg C/ha', 'Mg ha^-1', 'Mg/ha',
@@ -190,7 +190,7 @@ UNITS = units.UNITS.union({
     'Quality Flag', 'Reflectance factor', 'W m**-2',
     'W m-2', 'W m^-2 sr^-1 &micro;m^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cmol(+)/kg',
-    'dB', 'deg true', 'degree', 'degrees',
+    'dB',
     'fraction', 'g/cm^3', 'g/kg', 'g/m^2',
     'gC m-2 d-1', 'gigagrams', 'gpm', 'hPa', 'ha',
     'index', 'kPa',

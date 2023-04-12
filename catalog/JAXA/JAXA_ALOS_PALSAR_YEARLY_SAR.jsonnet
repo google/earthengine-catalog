@@ -95,7 +95,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'angle',
-        description: 'Local incidence angle (degrees).',
+        description: 'Local incidence angle.',
+        'gee:units': units.degree,
       },
       {
         name: 'date',
