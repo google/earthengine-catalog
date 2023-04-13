@@ -39,7 +39,7 @@
   day: 'd',
 
   // https://en.wikipedia.org/wiki/Dimensionless_quantity
-  dimensionless: '1',
+  dimensionless: '1 (dimensionless)',
 
   // https://en.wikipedia.org/wiki/Dobson_unit
   dobson: 'Dobson',
