@@ -1,3 +1,5 @@
+// This collection is not publicly accessible. To sign up for access,
+// please see https://developers.planet.com/docs/integrations/gee/nicfi
 var nicfi = ee.ImageCollection('projects/planet-nicfi/assets/basemaps/africa');
 
 // Filter basemaps by date and get the first image from filtered results
