@@ -8,6 +8,7 @@ https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
 # TODO(schwehr): Load this from units.libsonnet
 UNITS = {
     '%',
+    '1',
     '1 (area fraction)',
     '1 (mass fraction)',
     '1 (volume fraction)',

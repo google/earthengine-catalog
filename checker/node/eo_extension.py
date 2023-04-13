@@ -179,9 +179,8 @@ POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 # TODO(b/198646525): Migrate these units to ../units.py as they units get
 # added to units.libsonnet.
 UNITS = units.UNITS.union({
-    '% (kg / kg)', '(kg/m^3)/(m/s)', '-', '1.0e15 molec cm-2',
+    '% (kg / kg)', '(kg/m^3)/(m/s)', '1.0e15 molec cm-2',
     'Coefficient of Variation', 'DN', 'DU',
-    'Dimensionless',
     'Equivalent gauges per 2.5 degree box',
     'J/kg', 'J/m^2/day', 'Julian Day',
     'MJ m^-2 day^-1', 'MW', 'Megawatts', 'Mg C/ha', 'Mg ha^-1', 'Mg/ha',

@@ -97,12 +97,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'ssma',
         description: 'Surface soil moisture anomaly',
-        'gee:units': '-',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'susma',
         description: 'Subsurface soil moisture anomaly',
-        'gee:units': '-',
+        'gee:units': units.dimensionless,
       },
     ],
     'gee:visualizations': [

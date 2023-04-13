@@ -284,7 +284,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Aerosol index (at wavelengths 354/388, i.e. the OMI pair) from the AER_AI
           level 2 product.  See [Level 2 Algorithms - Aerosol Index](https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/level-2/aerosol-index).
         |||,
-        'gee:units': 'Dimensionless',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'cloud_fraction',
