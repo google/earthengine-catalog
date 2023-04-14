@@ -65,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'count',
         description: 'Number of cloud free values',
-        'gee:units': 'count',
+        'gee:units': units.count,
       },
     ],
     'gee:visualizations': [

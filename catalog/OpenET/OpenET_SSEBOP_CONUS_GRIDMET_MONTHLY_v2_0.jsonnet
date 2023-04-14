@@ -79,7 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'count',
         description: 'Number of cloud free values',
-        'gee:units': 'count',
+        'gee:units': units.count,
       },
     ],
     'gee:visualizations': [
@@ -128,7 +128,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
     Senay, G.B., Parrish, G.E., Schauer, M., Friedrichs, M., Khand, K., Boiko,
     O., Kagone, S., Dittmeier, R., Arab, S. and Ji, L., 2023. Improving the
