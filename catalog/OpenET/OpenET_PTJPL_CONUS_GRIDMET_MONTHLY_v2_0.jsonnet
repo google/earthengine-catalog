@@ -75,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
            Number of cloud free values
         |||,
-        'gee:units': 'count',
+        'gee:units': units.count,
       },
     ],
     'gee:visualizations': [
@@ -124,19 +124,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
-    Fisher, J.B., Tu, K.P. and Baldocchi, D.D., 2008. Global estimates of the
-    land–atmosphere water flux based on monthly AVHRR and ISLSCP-II data,
-    validated at 16 FLUXNET sites. Remote Sensing of Environment, 112(3),
-    pp.901-919.
-
-    Abdelrady, A., Timmermans, J., Vekerdy, Z. and Salama, M., 2016. Surface
-    energy balance of fresh and saline waters: AquaSEBS. Remote sensing, 8(7),
-    p.583.
-
-    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
+      Fisher, J.B., Tu, K.P. and Baldocchi, D.D., 2008. Global estimates of the
+      land–atmosphere water flux based on monthly AVHRR and ISLSCP-II data,
+      validated at 16 FLUXNET sites. Remote Sensing of Environment, 112(3),
+      pp.901-919.
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+          Abdelrady, A., Timmermans, J., Vekerdy, Z. and Salama, M., 2016.
+          Surface energy balance of fresh and saline waters: AquaSEBS. Remote
+          sensing, 8(7), p.583.
+      |||,
+    },
+  ],
   'gee:interval': {
     type: 'cadence',
     unit: 'month',

@@ -107,7 +107,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'count',
         description: 'Number of cloud free values',
-        'gee:units': 'count',
+        'gee:units': units.count,
       },
     ],
     'gee:visualizations': [
@@ -157,59 +157,111 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:citation': |||
-   Allen, R.G., Tasumi, M., Morse, A. and Trezza, R., 2005. A Landsat-based energy balance and
-   evapotranspiration model in Western US water rights regulation and planning. Irrigation and
-   Drainage systems, 19, pp.251-268.
-
-   Allen, R.G., Tasumi, M. and Trezza, R., 2007. Satellite-based energy balance for mapping
-   evapotranspiration with internalized calibration (METRIC)—Model. Journal of irrigation and
-   drainage engineering, 133(4), pp.380-394.
-
-   Allen, R., Irmak, A., Trezza, R., Hendrickx, J.M., Bastiaanssen, W. and Kjaersgaard, J., 2011.
-   Satellite‐based ET estimation in agriculture using SEBAL and METRIC. Hydrological Processes,
-   25(26), pp.4011-4027.
-
-   Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard, J., Kilic, A., Kelly, C.
-   and Trezza, R., 2013a. Automated calibration of the metric‐landsat evapotranspiration process.
-   JAWRA Journal of the American Water Resources Association, 49(3), pp.563-576.
-
-   Allen, R.G., Trezza, R., Kilic, A., Tasumi, M. and Li, H., 2013b. Sensitivity of Landsat‐scale
-   energy balance to aerodynamic variability in mountains and complex terrain. JAWRA Journal of the
-   American Water Resources Association, 49(3), pp.592-604.
-
-   Allen, R.G., Morton, C., Kamble, B., Kilic, A., Huntington, J., Thau, D., Gorelick, N.,
-   Erickson, T., Moore, R., Trezza, R. and Ratcliffe, I., 2015. EEFlux: A Landsat-based
-   evapotranspiration mapping tool on the Google Earth Engine. In 2015 ASABE/IA Irrigation
-   Symposium: Emerging Technologies for Sustainable Irrigation-A Tribute to the Career of
-   Terry Howell, Sr. Conference Proceedings (pp. 1-11). American Society of Agricultural and
-   Biological Engineers.
-
-   Jensen, M.E. and R.G. Allen (ed.). 2016. Evaporation, evapotranspiration, and irrigation water
-   requirements. Manuals of Practice no. 70 (2nd edition). Task Committee on Revision of Manual 70,
-   2016, April. American Society of Civil Engineers. Reston, VA. 744 p.
-
-   Kilic, A., Allen, R., Trezza, R., Ratcliffe, I., Kamble, B., Robison, C. and Ozturk, D., 2016.
-   Sensitivity of evapotranspiration retrievals from the METRIC processing algorithm to improved
-   radiometric resolution of Landsat 8 thermal data and to calibration bias in Landsat 7 and
-   8 surface temperature. Remote Sensing of Environment, 185, pp.198-209.
-
-   Kilic, A., Allen, R.G., Blankenau, P., ReVelle, P., Ozturk, D. and Huntington, J., 2021. Global
-   production and free access to Landsat-scale Evapotranspiration with EEFlux and eeMETRIC. In
-   6th Decennial National Irrigation Symposium, 6-8, December 2021, San Diego, California (p. 1).
-   American Society of Agricultural and Biological Engineers.
-
-   ReVelle, P., A. Kilic and R.G. Allen. 2019a. Updated Calibration Description: Spatial Delapsing
-   in eeMETRIC. Research Note. School of Natural Resources, University of Nebraska-Lincoln and
-   University of Idaho. 9 p.
-
-   ReVelle, P., A. Kilic and R.G. Allen. 2019b. Updated Calibration Description: Automated Pixel
-   Selection Method in eeMETRIC. Research Note. School of Natural Resources, University of
-   Nebraska-Lincoln and University of Idaho. 20 p.
-
-   Santos, C., Lorite, I.J., Allen, R.G. and Tasumi, M., 2012. Aerodynamic parameterization of the
-   satellite-based energy balance (METRIC) model for ET estimation in rainfed olive orchards of
-   Andalusia, Spain. Water Resources Management, 26, pp.3267-3283.
+      Kilic, A., Allen, R.G., Blankenau, P., ReVelle, P., Ozturk, D. and
+      Huntington, J., 2021. Global production and free access to
+      Landsat-scale Evapotranspiration with EEFlux and eeMETRIC. In 6th
+      Decennial National Irrigation Symposium, 6-8, December 2021, San Diego,
+       California (p. 1). American Society of Agricultural and Biological
+       Engineers.
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+          Allen, R.G., Tasumi, M., Morse, A. and Trezza, R., 2005. A
+          Landsat-based energy balance and evapotranspiration model in
+          Western US water rights regulation and planning. Irrigation and
+          Drainage systems, 19, pp.251-268.
+      |||,
+    },
+    {
+      citation: |||
+          Allen, R.G., Tasumi, M. and Trezza, R., 2007. Satellite-based
+          energy balance for mapping evapotranspiration with internalized
+          calibration (METRIC)—Model. Journal of irrigation and drainage
+          engineering, 133(4), pp.380-394.
+      |||,
+    },
+    {
+      citation: |||
+          Allen, R., Irmak, A., Trezza, R., Hendrickx, J.M., Bastiaanssen, W.
+          and Kjaersgaard, J., 2011. Satellite‐based ET estimation in
+          agriculture using SEBAL and METRIC. Hydrological Processes, 25(26),
+          pp.4011-4027.
+      |||,
+    },
+    {
+      citation: |||
+          Allen, R.G., Burnett, B., Kramber, W., Huntington, J., Kjaersgaard,
+          J., Kilic, A., Kelly, C. and Trezza, R., 2013a. Automated
+          calibration of the metric‐landsat evapotranspiration process. JAWRA
+          Journal of the American Water Resources Association, 49(3),
+          pp.563-576.
+      |||,
+    },
+    {
+      citation: |||
+          Allen, R.G., Trezza, R., Kilic, A., Tasumi, M. and Li, H., 2013b.
+          Sensitivity of Landsat‐scale energy balance to aerodynamic
+          variability in mountains and complex terrain. JAWRA Journal of the
+          American Water Resources Association, 49(3), pp.592-604.
+      |||,
+    },
+    {
+      citation: |||
+          Allen, R.G., Morton, C., Kamble, B., Kilic, A., Huntington, J., Thau,
+          D., Gorelick, N., Erickson, T., Moore, R., Trezza, R. and
+          Ratcliffe, I., 2015. EEFlux: A Landsat-based evapotranspiration
+          mapping tool on the Google Earth Engine. In 2015 ASABE/IA
+          Irrigation Symposium: Emerging Technologies for Sustainable
+          Irrigation-A Tribute to the Career of Terry Howell, Sr. Conference
+          Proceedings (pp. 1-11). American Society of Agricultural and
+          Biological Engineers.
+      |||,
+    },
+    {
+      citation: |||
+          Jensen, M.E. and R.G. Allen (ed.). 2016. Evaporation,
+          evapotranspiration, and irrigation water requirements. Manuals of
+          Practice no. 70 (2nd edition). Task Committee on Revision of Manual
+          70, 2016, April. American Society of Civil Engineers. Reston, VA.
+          744 p.
+      |||,
+    },
+    {
+      citation: |||
+          Kilic, A., Allen, R., Trezza, R., Ratcliffe, I., Kamble, B., Robison,
+          C. and Ozturk, D., 2016. Sensitivity of evapotranspiration retrievals
+          from the METRIC processing algorithm to improved radiometric
+          resolution of Landsat 8 thermal data and to calibration bias in
+          Landsat 7 and 8 surface temperature. Remote Sensing of Environment,
+          185, pp.198-209.
+      |||,
+    },
+    {
+      citation: |||
+          ReVelle, P., A. Kilic and R.G. Allen. 2019a. Updated Calibration
+          Description: Spatial Delapsing in eeMETRIC. Research Note. School of
+          Natural Resources, University of Nebraska-Lincoln and University of
+          Idaho. 9 p.
+      |||,
+    },
+    {
+      citation: |||
+          ReVelle, P., A. Kilic and R.G. Allen. 2019b. Updated Calibration
+          Description: Automated Pixel Selection Method in eeMETRIC. Research
+          Note. School of Natural Resources, University of Nebraska-Lincoln and
+          University of Idaho. 20 p.
+      |||,
+    },
+    {
+      citation: |||
+          Santos, C., Lorite, I.J., Allen, R.G. and Tasumi, M., 2012.
+          Aerodynamic parameterization of the satellite-based energy balance
+          (METRIC) model for ET estimation in rainfed olive orchards of
+          Andalusia, Spain. Water Resources Management, 26, pp.3267-3283.
+      |||,
+    },
+  ],
   'gee:interval': {
     type: 'cadence',
     unit: 'month',
