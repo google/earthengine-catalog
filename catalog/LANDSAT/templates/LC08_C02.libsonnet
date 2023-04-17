@@ -677,7 +677,7 @@ local ee_const = import 'earthengine_const.libsonnet';
         name: 'B9',
         description: 'Cirrus',
         center_wavelength: 1.37,
-        gsd: 15.0,
+        gsd: 30.0,
         'gee:wavelength': '1.36 - 1.38 &mu;m',
       },
       {
