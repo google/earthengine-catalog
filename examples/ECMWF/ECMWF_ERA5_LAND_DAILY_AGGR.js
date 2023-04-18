@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("ECMWF/ERA5_LAND/DAILY_RAW")
+var dataset = ee.ImageCollection("ECMWF/ERA5_LAND/DAILY_AGGR")
                 .filter(ee.Filter.date('2021-06-01', '2021-07-01'));
 
 var visualization = {

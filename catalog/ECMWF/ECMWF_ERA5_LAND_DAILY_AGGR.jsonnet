@@ -1,4 +1,4 @@
-local id = 'ECMWF/ERA5_LAND/DAILY_RAW';
+local id = 'ECMWF/ERA5_LAND/DAILY_AGGR';
 local subdir = 'ECMWF';
 
 local ee_const = import 'earthengine_const.libsonnet';
