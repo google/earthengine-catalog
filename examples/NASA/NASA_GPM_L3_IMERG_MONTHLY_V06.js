@@ -6,7 +6,7 @@ var precipitation = dataset.select('precipitation').max();
 var mask = precipitation.gt(0.25);
 var precipitation = precipitation.updateMask(mask);
 
-var palette = [ 
+var palette = [
   '000096','0064ff', '00b4ff', '33db80', '9beb4a',
   'ffeb00', 'ffb300', 'ff6400', 'eb1e00', 'af0000'
 ];
