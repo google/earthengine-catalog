@@ -1,5 +1,5 @@
 var dataset = ee.ImageCollection(
-    "UMD/GLAD/PRIMARY_HUMID_TROPICAL_FORESTS/v1").mosaic().selfMask();
+    'UMD/GLAD/PRIMARY_HUMID_TROPICAL_FORESTS/v1').mosaic().selfMask();
 
 var visualization = {
   bands: ['Primary_HT_forests'],
@@ -10,4 +10,4 @@ var visualization = {
 
 Map.setCenter(0.0, 0.0, 2);
 
-Map.addLayer(dataset, visualization, "Primary HT forests");
+Map.addLayer(dataset, visualization, 'Primary HT forests');

@@ -1,4 +1,4 @@
-var dataset = ee.Image("OpenLandMap/CLM/CLM_PRECIPITATION_SM2RAIN_M/v01");
+var dataset = ee.Image('OpenLandMap/CLM/CLM_PRECIPITATION_SM2RAIN_M/v01');
 
 var visualization = {
   bands: ['jan'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Precipitation monthly in mm");
+Map.addLayer(dataset, visualization, 'Precipitation monthly in mm');

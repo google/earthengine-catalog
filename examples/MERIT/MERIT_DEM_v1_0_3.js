@@ -1,4 +1,4 @@
-var dataset = ee.Image("MERIT/DEM/v1_0_3");
+var dataset = ee.Image('MERIT/DEM/v1_0_3');
 
 var visualization = {
   bands: ['dem'],
@@ -10,4 +10,4 @@ var visualization = {
 
 Map.setCenter(90.301, 23.052, 10);
 
-Map.addLayer(dataset, visualization, "Elevation");
+Map.addLayer(dataset, visualization, 'Elevation');

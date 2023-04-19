@@ -1,5 +1,5 @@
 // Load the HydroATLAS dataset.
-var basinATLAS = ee.FeatureCollection("WWF/HydroATLAS/v1/Basins/level06");
+var basinATLAS = ee.FeatureCollection('WWF/HydroATLAS/v1/Basins/level06');
 
 // Set visualization to show upstream drainage area.
 var upstreamDrainageArea = ee.Image().byte().paint({

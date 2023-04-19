@@ -1,6 +1,6 @@
 var dataset = ee.FeatureCollection('WWF/HydroSHEDS/v1/FreeFlowingRivers');
 
-// Paint "RIV_ORD" (river order) value to an image for visualization.
+// Paint 'RIV_ORD' (river order) value to an image for visualization.
 var datasetVis = ee.Image().byte().paint(dataset, 'RIV_ORD', 2);
 
 var visParams = {

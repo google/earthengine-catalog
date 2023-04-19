@@ -1,7 +1,7 @@
-var dataset = ee.ImageCollection("JAXA/GCOM-C/L3/OCEAN/SST/V3")
+var dataset = ee.ImageCollection('JAXA/GCOM-C/L3/OCEAN/SST/V3')
                 .filterDate('2021-12-01', '2022-01-01')
                 // filter to daytime data only
-                .filter(ee.Filter.eq("SATELLITE_DIRECTION", "D"));
+                .filter(ee.Filter.eq('SATELLITE_DIRECTION', 'D'));
 
 // Multiply with slope coefficient and add offset
 var dataset = dataset.mean().multiply(0.0012).add(-10);
@@ -15,4 +15,4 @@ var vis = {
 
 Map.setCenter(128.45, 33.33, 5);
 
-Map.addLayer(dataset, vis, "Sea Surface Temperature");
+Map.addLayer(dataset, vis, 'Sea Surface Temperature');

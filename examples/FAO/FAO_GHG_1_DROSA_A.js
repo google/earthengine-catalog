@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("FAO/GHG/1/DROSA_A");
+var dataset = ee.ImageCollection('FAO/GHG/1/DROSA_A');
 
 var visualization = {
   bands: ['cropland'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.setCenter(108.0, -0.4, 6);
 
-Map.addLayer(dataset, visualization, "Cropland area drained (Annual)");
+Map.addLayer(dataset, visualization, 'Cropland area drained (Annual)');

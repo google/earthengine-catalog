@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("SNU/ESL/BESS/Rad/v1");
+var dataset = ee.ImageCollection('SNU/ESL/BESS/Rad/v1');
 
 var visualization = {
   bands: ['PAR_Daily'],
@@ -10,4 +10,4 @@ Map.setCenter(0.0, 0.0, 1);
 
 Map.addLayer(
     dataset, visualization,
-    "Surface downwelling photosynthetic radiative flux");
+    'Surface downwelling photosynthetic radiative flux');

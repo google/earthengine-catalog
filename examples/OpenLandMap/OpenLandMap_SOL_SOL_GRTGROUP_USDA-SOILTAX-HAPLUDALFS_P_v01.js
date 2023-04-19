@@ -1,4 +1,4 @@
-var dataset = ee.Image("OpenLandMap/SOL/SOL_GRTGROUP_USDA-SOILTAX-HAPLUDALFS_P/v01");
+var dataset = ee.Image('OpenLandMap/SOL/SOL_GRTGROUP_USDA-SOILTAX-HAPLUDALFS_P/v01');
 
 var visualization = {
   bands: ['grtgroup'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Hapludalfs");
+Map.addLayer(dataset, visualization, 'Hapludalfs');

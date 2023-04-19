@@ -1,7 +1,7 @@
 // Visualization for WRI/GPPD/power_plants
 // https://code.earthengine.google.com/9efbd726e4a8ba9b8b56ba94f1267678
 
-var table = ee.FeatureCollection("WRI/GPPD/power_plants");
+var table = ee.FeatureCollection('WRI/GPPD/power_plants');
 
 // Get a color from a fuel
 var fuelColor = ee.Dictionary({

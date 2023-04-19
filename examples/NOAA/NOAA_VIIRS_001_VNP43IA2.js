@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("NOAA/VIIRS/001/VNP43IA2")
+var dataset = ee.ImageCollection('NOAA/VIIRS/001/VNP43IA2')
                 .filter(ee.Filter.date('2021-06-01', '2021-06-03'));
 
 var visualization = {
@@ -14,4 +14,4 @@ var visualization = {
 
 Map.setCenter(89, 58, 6);
 
-Map.addLayer(dataset, visualization, "Days of valid observation for band I1");
+Map.addLayer(dataset, visualization, 'Days of valid observation for band I1');

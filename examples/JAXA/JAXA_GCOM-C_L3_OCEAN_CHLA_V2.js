@@ -1,7 +1,7 @@
-var dataset = ee.ImageCollection("JAXA/GCOM-C/L3/OCEAN/CHLA/V2")
+var dataset = ee.ImageCollection('JAXA/GCOM-C/L3/OCEAN/CHLA/V2')
                 .filterDate('2020-01-01', '2020-02-01')
                 // filter to daytime data only
-                .filter(ee.Filter.eq("SATELLITE_DIRECTION", "D"));
+                .filter(ee.Filter.eq('SATELLITE_DIRECTION', 'D'));
 
 // Multiply with slope coefficient
 var image = dataset.mean().multiply(0.0016).log10();
@@ -17,6 +17,6 @@ var vis = {
   ]
 };
 
-Map.addLayer(image, vis, "Chlorophyll-a concentration");
+Map.addLayer(image, vis, 'Chlorophyll-a concentration');
 
 Map.setCenter(128.45, 33.33, 5);

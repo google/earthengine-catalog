@@ -6,4 +6,4 @@ var visualization = {
 
 Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Landcover");
+Map.addLayer(dataset, visualization, 'Landcover');

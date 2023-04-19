@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("LANDSAT/LT08/C01/T2");
+var dataset = ee.ImageCollection('LANDSAT/LT08/C01/T2');
 
 var visualization = {
   bands: ['B10', 'B11'],
@@ -8,4 +8,4 @@ var visualization = {
 
 Map.setCenter(99.46, 68.91, 4);
 
-Map.addLayer(dataset, visualization, "Thermal Infrared");
+Map.addLayer(dataset, visualization, 'Thermal Infrared');

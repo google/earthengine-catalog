@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("RUB/RUBCLIM/LCZ/global_lcz_map/v1")
+var dataset = ee.ImageCollection('RUB/RUBCLIM/LCZ/global_lcz_map/v1')
             .mosaic();
 
 var visualization = {
