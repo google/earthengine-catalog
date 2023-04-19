@@ -287,7 +287,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Column-averaged dry air mixing ratio of methane, as parts-per-billion
         |||,
-        'gee:units': 'mol/mol',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'aerosol_height',
@@ -336,7 +336,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Column-averaged dry air mixing ratio of methane, as parts-per-billion,
           corrected for surface albedo
         |||,
-        'gee:units': 'mol/mol',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'CH4_column_volume_mixing_ratio_dry_air_uncertainty',
@@ -344,7 +344,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Uncertainty of the column averaged dry air mixing ratio of methane
           (1 sigma error)
         |||,
-        'gee:units': 'mol/mol',
+        'gee:units': units.mole_fraction,
       },
     ],
     'gee:visualizations': [

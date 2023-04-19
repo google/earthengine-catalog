@@ -73,6 +73,11 @@
 
   // https://en.wikipedia.org/wiki/Mass_fraction_(chemistry)
   mass_fraction: '1 (mass fraction)',
+  // https://en.wikipedia.org/wiki/Mole_fraction
+  // https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8
+  // a.k.a. molar fraction
+  // See also: https://en.wikipedia.org/wiki/Mixing_ratio
+  mole_fraction: '1 (mol fraction)',
 
   // https://en.wikipedia.org/wiki/Metre
   meters: 'm',

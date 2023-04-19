@@ -11,6 +11,7 @@ UNITS = {
     '1 (area fraction)',
     '1 (dimensionless)',
     '1 (mass fraction)',
+    '1 (mol fraction)',
     '1 (volume fraction)',
     'Dobson',
     'GHz',

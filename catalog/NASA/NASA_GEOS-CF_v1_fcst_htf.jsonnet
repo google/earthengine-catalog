@@ -68,17 +68,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CO',
         description: 'Carbon monoxide (CO, MW = 28.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NO2',
         description: 'Nitrogen dioxide (NO2, MW = 46.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'O3',
         description: 'Ozone (O3, MW = 48.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'PM25_RH35_GCC',
@@ -107,7 +107,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SO2',
         description: 'Sulfur dioxide (SO2, MW = 64.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'T',
