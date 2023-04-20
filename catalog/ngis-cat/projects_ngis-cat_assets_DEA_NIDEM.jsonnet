@@ -1,5 +1,5 @@
-local id = 'projects/shirui-sandbox/assets/DEA/NIDEM';
-local subdir = 'shirui-sandbox';
+local id = 'projects/ngis-cat/assets/DEA/NIDEM';
+local subdir = 'ngis-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
