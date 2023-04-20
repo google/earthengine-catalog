@@ -45,6 +45,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     See also
     [the provider tech note](https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf).
+
+    [You can submit data questions about CMIP6 to the provider](https://airtable.com/shr01weJfA7DYq6jf)
+    and
+    [see their answers](https://airtable.com/shrX4mj20TLSH0r2y/tblUMAYpCfCCwucSV).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
