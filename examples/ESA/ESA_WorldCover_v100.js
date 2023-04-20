@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("ESA/WorldCover/v100").first();
+var dataset = ee.ImageCollection('ESA/WorldCover/v100').first();
 
 var visualization = {
   bands: ['Map'],
@@ -6,4 +6,4 @@ var visualization = {
 
 Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Landcover");
+Map.addLayer(dataset, visualization, 'Landcover');

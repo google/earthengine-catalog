@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -454,19 +456,19 @@
       {
         name: 'SolarZenith',
         description: 'MODIS Solar zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'ViewZenith',
         description: 'MODIS view zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'RelativeAzimuth',
         description: 'MODIS relative azimuth angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {

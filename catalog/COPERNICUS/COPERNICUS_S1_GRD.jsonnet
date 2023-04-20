@@ -4,6 +4,7 @@ local subdir = 'COPERNICUS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -442,7 +443,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'angle',
         description: 'Approximate incidence angle from ellipsoid',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         gsd: 20000,
       },
     ],

@@ -1,5 +1,5 @@
 // Load the HydroATLAS dataset.
-var basinATLAS = ee.FeatureCollection("WWF/HydroATLAS/v1/Basins/level11");
+var basinATLAS = ee.FeatureCollection('WWF/HydroATLAS/v1/Basins/level11');
 
 // Set visualization to show upstream drainage area.
 var upstreamDrainageArea = ee.Image().byte().paint({
@@ -8,7 +8,7 @@ var upstreamDrainageArea = ee.Image().byte().paint({
 });
 
 // Set map extent to show the Nile and surrounding basins.
-Map.setCenter(36.35, 24.0, 5.5);
+Map.setCenter(-43.50, -24.70, 6);
 
 // Create a viridis colormap.
 var viridis = ['#481567FF', '#482677FF', '#453781FF', '#404788FF',
@@ -17,5 +17,7 @@ var viridis = ['#481567FF', '#482677FF', '#453781FF', '#404788FF',
                '#3CBB75FF', '#55C667FF', '#73D055FF', '#95D840FF',
                '#B8DE29FF', '#DCE319FF', '#FDE725FF'];
 
-Map.addLayer(upstreamDrainageArea, {palette: viridis, max: 10000},
+// View the continent of South America.
+var region = ee.Geometry.BBox(-80, -60, -20, 20);
+Map.addLayer(upstreamDrainageArea.clip(region), {palette: viridis, max: 1e4},
              'Upstream Drainage Area [mm]', true, 0.8);

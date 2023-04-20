@@ -379,7 +379,9 @@ class Check(stac.NodeCheck):
             node, f'More than 1 example {RELATED} link: {num_example_links}')
       example = example_links[0]
 
-      expected_url = CODE_URL + example_name
+      subdir = (node.id.split('/')[1] if node.id.startswith('projects/')
+                else node.id.split('/')[0])
+      expected_url = CODE_URL + subdir + '/' + example_name
       url = example[HREF]
       if url != expected_url:
         yield cls.new_issue(
@@ -407,7 +409,9 @@ class Check(stac.NodeCheck):
             node,
             f'{node.gee_type} cannot have example {RELATED} a FeatureView link')
     if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
-      if not feature_view_links:
+      if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
+        pass
+      elif not feature_view_links:
         if not feature_view_exception(node.id):
           yield cls.new_issue(
               node, f'Missing example {RELATED} FeatureView link')
@@ -422,7 +426,7 @@ class Check(stac.NodeCheck):
               f'{num_feature_view_links}')
         feature_view = feature_view_links[0]
 
-        expected_url = CODE_URL + example_name + FEATURE_VIEW
+        expected_url = CODE_URL + subdir + '/' + example_name + FEATURE_VIEW
         url = feature_view[HREF]
         if url != expected_url:
           yield cls.new_issue(

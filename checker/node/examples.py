@@ -176,6 +176,15 @@ _FEATURE_VIEW_EXCEPTIONS = frozenset({
     'LARSE/LARSE_GEDI_GEDI04_A_002_INDEX_FeatureView.js',
     'TIGER/TIGER_2010_BG_FeatureView.js',
     'WWF/WWF_HydroATLAS_v1_Basins_level12_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level11_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level10_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level09_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level08_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level07_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level06_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level05_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level04_FeatureView.js',
+    'WWF/WWF_HydroATLAS_v1_Basins_level03_FeatureView.js',
 })
 
 _GEE_SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'

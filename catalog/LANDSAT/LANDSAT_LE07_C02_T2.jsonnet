@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('USGS', 'https://www.usgs.gov/land-resources/nli/landsat/landsat-7-data-users-handbook'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1999-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1999-05-28T01:05:28Z', null),
   summaries: template.summaries,
   'gee:interval': {
     type: 'revisit_interval',

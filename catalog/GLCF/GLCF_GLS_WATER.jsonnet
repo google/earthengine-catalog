@@ -111,17 +111,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:classes': [
           {
             value: 1,
-            color: 'FAFAFA',
+            color: 'fafafa',
             description: 'Land',
           },
           {
             value: 2,
-            color: '00C5FF',
+            color: '00c5ff',
             description: 'Water',
           },
           {
             value: 4,
-            color: 'DF73FF',
+            color: 'df73ff',
             description: 'Snow/ice',
           },
           {
@@ -131,7 +131,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 201,
-            color: 'CCCCCC',
+            color: 'cccccc',
             description: 'Cloud',
           },
         ],
@@ -154,11 +154,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               4.0,
             ],
             palette: [
-              'FAFAFA',
-              '00C5FF',
-              'DF73FF',
+              'fafafa',
+              '00c5ff',
+              'df73ff',
               '828282',
-              'CCCCCC',
+              'cccccc',
             ],
             bands: [
               'water',

@@ -368,8 +368,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',
               '004400',
               '008800',
-              '00BB00',
-              '00FF00',
+              '00bb00',
+              '00ff00',
             ],
             bands: [
               'MaxFRP',

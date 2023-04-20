@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("NASA/ORNL/biomass_carbon_density/v1");
+var dataset = ee.ImageCollection('NASA/ORNL/biomass_carbon_density/v1');
 
 var visualization = {
   bands: ['agb'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.setCenter(-60.0, 7.0, 4);
 
-Map.addLayer(dataset, visualization, "Aboveground biomass carbon");
+Map.addLayer(dataset, visualization, 'Aboveground biomass carbon');

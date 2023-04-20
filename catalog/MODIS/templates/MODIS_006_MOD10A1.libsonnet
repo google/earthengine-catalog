@@ -332,7 +332,7 @@
               100.0,
             ],
             palette: [
-              'black',
+              '000000',
               '0dffff',
               '0524ff',
               'ffffff',

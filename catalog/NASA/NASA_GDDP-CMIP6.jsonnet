@@ -42,6 +42,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     includes downscaled projections from ScenarioMIP model runs for which daily
     scenarios were produced and distributed through the Earth System Grid
     Federation.
+
+    See also
+    [the provider tech note](https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -52,11 +55,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   ],
   keywords: [
+    'cag',
     'climate',
     // TODO(dpencosk): Consider making a "cmip" keyword for this dataset and
     // the three existing datasets with the "cmip5" keyword.
     // 'cmip6',
-    'csu',
     'gddp',
     'geophysical',
     'nasa',
@@ -65,7 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'temperature',
   ],
   providers: [
-    ee.producer_provider('NASA / CSU', 'https://cds.nccs.nasa.gov/nex-gddp/'),
+    ee.producer_provider('NASA / Climate Analytics Group', 'https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1950-01-01T00:00:00Z', '2100-12-31T00:00:00Z'),
@@ -177,7 +180,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pr',
         description: 'Precipitation (mean of the daily precipitation rate)',
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'rlds',

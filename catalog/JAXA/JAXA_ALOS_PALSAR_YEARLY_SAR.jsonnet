@@ -1,5 +1,6 @@
 local id = 'JAXA/ALOS/PALSAR/YEARLY/SAR';
 local subdir = 'JAXA';
+local version = '1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,11 +22,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version K',
+  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   # TODO(simonf): add version links between this and SAR_EPOCH dataset
   # once reprocessed data for earlier years are released and ingested.
-  version: 'K',
+  version: version,
   description: |||
     A newer version of this dataset with data for 2015-2021 can be found in
     [JAXA/ALOS/PALSAR/YEARLY/SAR](JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH.html)
@@ -94,7 +95,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'angle',
-        description: 'Local incidence angle (degrees).',
+        description: 'Local incidence angle.',
+        'gee:units': units.degree,
       },
       {
         name: 'date',
@@ -111,12 +113,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 50,
-            color: '0000FF',
+            color: '0000ff',
             description: 'Ocean and water',
           },
           {
             value: 100,
-            color: 'AAAA00',
+            color: 'aaaa00',
             description: 'Radar layover',
           },
           {
@@ -126,7 +128,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 255,
-            color: 'AA9988',
+            color: 'aa9988',
             description: 'Land',
           },
         ],

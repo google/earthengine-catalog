@@ -146,7 +146,7 @@ local units = import 'units.libsonnet';
     {
       name: 'lat_highestreturn',
       description: 'Latitude of highest detected return',
-      'gee:units': 'degree',
+      'gee:units': units.degree,
       type:: ee_const.var_type.double,
     },
     {
@@ -175,7 +175,7 @@ local units = import 'units.libsonnet';
     {
       name: 'lon_highestreturn',
       description: 'Longitude of highest detected return',
-      'gee:units': 'degree',
+      'gee:units': units.degree,
       type:: ee_const.var_type.double,
     },
     {

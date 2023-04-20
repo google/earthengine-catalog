@@ -103,17 +103,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           },
           {
             value: 6,
-            color: '02be11',
+            color: 'forestgreen',  // was 02be11
             description: 'Rainfed: corn, soybens',
           },
           {
             value: 7,
-            color: '015e08',
+            color: 'darkgreen',  // was 015e08
             description: 'Rainfed mixed crops: wheat, corn, rice, barley, soybeans',
           },
           {
             value: 8,
-            color: '02a50f',
+            color: 'darkseagreen',  // was 02a50f
             description: 'Fractions of mixed crops: wheat, maize, rice, barley, soybeans',
           },
           {
@@ -147,9 +147,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               'yellow',
               'brown',
               'orange',
-              '02be11',
-              '015e08',
-              '02a50f',
+              'forestgreen',  // was 02be11
+              'darkgreen',  // was 015e08
+              'darkseagreen',  // was 02a50f
               'purple',
             ],
             bands: [

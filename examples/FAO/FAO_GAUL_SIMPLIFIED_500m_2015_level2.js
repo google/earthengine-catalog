@@ -1,4 +1,4 @@
-var dataset = ee.FeatureCollection("FAO/GAUL_SIMPLIFIED_500m/2015/level2");
+var dataset = ee.FeatureCollection('FAO/GAUL_SIMPLIFIED_500m/2015/level2');
 
 Map.setCenter(12.876, 42.682, 5);
 

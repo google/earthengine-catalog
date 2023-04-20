@@ -5,7 +5,9 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://data.fs.usda.gov/geodata/',
+};
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -32,7 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + importstr 'mtbs_description.md',
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://data.fs.usda.gov/geodata/'),
+    ee.link.license(license.reference),
     {
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/',
@@ -105,27 +107,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 2,
-            color: '7FFFD4',
+            color: '7fffd4',
             description: 'Low',
           },
           {
             value: 3,
-            color: 'FFFF00',
+            color: 'ffff00',
             description: 'Moderate',
           },
           {
             value: 4,
-            color: 'FF0000',
+            color: 'ff0000',
             description: 'High',
           },
           {
             value: 5,
-            color: '7FFF00',
+            color: '7fff00',
             description: 'Increased Greenness'
           },
           {
             value: 6,
-            color: 'FFFFFF',
+            color: 'ffffff',
             description: 'Non-Mapping Area'
           }
         ],
@@ -150,11 +152,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             palette: [
               '000000', // background
               '006400', // unburned to low
-              '7FFFD4', // low
-              'FFFF00', // moderate
-              'FF0000', // high
-              '7FFF00', // increased greenness
-              'FFFFFF'  // non mapping area
+              '7fffd4', // low
+              'ffff00', // moderate
+              'ff0000', // high
+              '7fff00', // increased greenness
+              'ffffff'  // non mapping area
             ],
             bands: [
               'Severity',

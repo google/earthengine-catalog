@@ -23,7 +23,7 @@ var SPEI2y = filtered.select('spei2y');
 var EDDI2y = filtered.select('spei2y');
 
 // Make a color palette that is similar to USDM drought classification
-var usdmColors = "0000aa,0000ff,00aaff,00ffff,aaff55,ffffff,ffff00,fcd37f,ffaa00,e60000,730000";
+var usdmColors = '0000aa,0000ff,00aaff,00ffff,aaff55,ffffff,ffff00,fcd37f,ffaa00,e60000,730000';
 
 // Make color options for standardized variables spi/spei/eddi
 var minColorbar= -2.5;

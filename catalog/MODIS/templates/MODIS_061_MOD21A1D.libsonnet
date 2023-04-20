@@ -229,7 +229,7 @@ local units = import 'units.libsonnet';
       {
         name: 'View_Angle',
         description: 'MODIS view zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:offset': -65.0,
       },
       {

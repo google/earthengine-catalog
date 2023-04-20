@@ -1,4 +1,4 @@
-var ecoRegions = ee.FeatureCollection("RESOLVE/ECOREGIONS/2017");
+var ecoRegions = ee.FeatureCollection('RESOLVE/ECOREGIONS/2017');
 
 // patch updated colors
 var colorUpdates = [

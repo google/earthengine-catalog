@@ -1,4 +1,4 @@
-var dataset = ee.Image("OpenLandMap/PNV/PNV_FAPAR_PROBA-V_D/v01");
+var dataset = ee.Image('OpenLandMap/PNV/PNV_FAPAR_PROBA-V_D/v01');
 
 var visualization = {
   bands: ['jan'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Potential FAPAR monthly");
+Map.addLayer(dataset, visualization, 'Potential FAPAR monthly');

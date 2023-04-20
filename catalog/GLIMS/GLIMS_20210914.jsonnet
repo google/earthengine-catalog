@@ -17,6 +17,8 @@ local config = configs[version];
     ee_const.ext_ver,
   ],
   id: config.id,
+  basename:: std.strReplace(config.id, '/', '_'),
+
   title: 'GLIMS 2021: Global Land Ice Measurements From Space',
   version: version,
   'gee:type': ee_const.gee_type.table,
@@ -43,7 +45,7 @@ local config = configs[version];
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, config.id) + [
-    ee.link.example(config.id, config.basename + '_FeatureView'),
+    ee.link.example(config.id, subdir, self.basename + '_FeatureView'),
     ee.link.latest(config.latest_id, config.latest_url),
     ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {

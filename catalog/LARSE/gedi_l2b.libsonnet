@@ -108,7 +108,7 @@ local units = import 'units.libsonnet';
         position in the local ENU frame measured from North and is positive
         towards East.
       |||,
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     {
@@ -118,7 +118,7 @@ local units = import 'units.libsonnet';
         position in the local ENU frame measured from the East-North plane and
         is positive Up.
       |||,
-      'gee:units': 'degrees',
+      'gee:units': units.degree,
       type:: ee_const.var_type.int,
     },
     gedi_l2a.shot_number,

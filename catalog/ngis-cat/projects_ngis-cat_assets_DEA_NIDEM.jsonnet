@@ -40,7 +40,6 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'australia',
-    'dea',
     'dea_australia',
     'dem',
     'nidem',

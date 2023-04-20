@@ -110,7 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             ],
             palette: [
               '000000',
-              'FFFFFF',
+              'ffffff',
             ],
             bands: [
               'datamask',

@@ -57,17 +57,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ACET',
         description: 'Acetone (CH3C(O)CH3, MW = 58.08 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'ALD2',
         description: 'Acetaldehyde (CH3CHO, MW = 44.05 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'ALK4',
         description: 'Lumped >= C4 Alkanes (MW = 58.12 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'AOD550_BC',
@@ -128,32 +128,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'BCPI',
         description: 'Hydrophilic black carbon aerosol (MW = 12.01 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'BCPO',
         description: 'Hydrophobic black carbon aerosol (MW = 12.01 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'BENZ',
         description: 'Benzene (C6H6, MW = 78.11 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'C2H6',
         description: 'Ethane (C2H6, MW = 30.07 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'C3H8',
         description: 'Propane (C3H8, MW = 44.10 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'CH4',
         description: 'Methane (CH4, MW = 16.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'CLDTT',
@@ -162,7 +162,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CO',
         description: 'Carbon monoxide (CO, MW = 28.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'DRYDEPFLX_BCPI',
@@ -252,122 +252,122 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DST1',
         description: 'Dust aerosol, Reff = 0.7 microns (MW = 29.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'DST2',
         description: 'Dust aerosol, Reff = 1.4 microns (MW = 29.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'DST3',
         description: 'Dust aerosol, Reff = 2.4 microns (MW = 29.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'DST4',
         description: 'Dust aerosol, Reff = 4.5 microns (MW = 29.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'EOH',
         description: 'Ethanol (C2H5OH, MW = 46.07 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'H2O2',
         description: 'Hydrogen peroxide (H2O2, MW = 34.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'HCHO',
         description: 'Formaldehyde (CH2O, MW = 30.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'HNO3',
         description: 'Nitric acid (HNO3, MW = 63.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'HNO4',
         description: 'Peroxynitric acid (HNO4, MW = 79.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'ISOP',
         description: 'Isoprene (CH2=C(CH3)CH=CH2, MW = 68.12 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'MACR',
         description: 'Methacrolein (CH2=C(CH3)CHO, MW = 70.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'MEK',
         description: 'Methyl Ethyl Ketone (RC(O)R, MW = 72.11 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'MVK',
         description: 'Methyl vinyl ketone (CH2=CHC(=O)CH3, MW = 70.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'N2O5',
         description: 'Dinitrogen pentoxide (N2O5, MW = 108.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NH3',
         description: 'Ammonia (NH3, MW = 17.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NH4',
         description: 'Ammonium (NH4, MW = 18.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NIT',
         description: 'Inorganic nitrates (MW = 62.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NO',
         description: 'Nitrogen oxide (NO, MW = 30.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NO2',
         description: 'Nitrogen dioxide (NO2, MW = 46.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'NOy',
         description: 'Reactive nitrogen = NO NO2 HNO3 HNO4 HONO 2xN2O5 PAN OrganicNitrates AerosolNitrates',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'O3',
         description: 'Ozone (O3, MW = 48.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'OCPI',
         description: 'Hydrophilic organic carbon aerosol (MW = 12.01 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'OCPO',
         description: 'Hydrophobic organic carbon aerosol (MW = 12.01 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'PAN',
         description: 'Peroxyacetyl nitrate (CH3C(O)OONO2, MW = 121.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'PHIS',
@@ -382,7 +382,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PM25_RH35_GOCART',
         description: 'Total reconstructed PM2.5 RH 35',
-        'gee:units': 'kg m-3',
+        'gee:units': units.density_si,
       },
       {
         name: 'PM25bc_RH35_GCC',
@@ -422,7 +422,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PRPE',
         description: 'Lumped >= C3 alkenes (C3H6, MW = 42.08 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'PS',
@@ -447,7 +447,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'RCHO',
         description: 'Lumped aldehyde >= C3 (CH3CH2CHO, MW = 58.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'RH',
@@ -456,12 +456,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SALA',
         description: 'Fine (0.01-0.05 microns) sea salt aerosol (MW = 31.40 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'SALC',
         description: 'Coarse (0.5-8 microns) sea salt aerosol (MW = 31.40 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'SLP',
@@ -471,17 +471,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SO2',
         description: 'Sulfur dioxide (SO2, MW = 64.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'SOAP',
         description: 'SOA Precursor - lumped species for simplified SOA parameterization (MW = 150.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'SOAS',
         description: 'SOA Simple - simplified non-volatile SOA parameterization (MW = 150.00 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'T',
@@ -501,7 +501,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TOLU',
         description: 'Toluene (C7H8, MW = 92.14 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'TOTCOL_BrO',
@@ -541,7 +541,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TPREC',
         description: 'Total precipitation',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'TROPCOL_BrO',
@@ -621,92 +621,92 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'WETDEPFLX_BCPI',
         description: 'Hydrophilic black carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_BCPO',
         description: 'Hydrophobic black carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST1',
         description: 'Dust aerosol, Reff = 0.7 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST2',
         description: 'Dust aerosol, Reff = 1.4 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST3',
         description: 'Dust aerosol, Reff = 2.4 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_DST4',
         description: 'Dust aerosol, Reff = 4.5 microns (MW = 29.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_HCHO',
         description: 'Formaldehyde (CH2O, MW = 30.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_HNO3',
         description: 'Nitric acid (HNO3, MW = 63.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_NH3',
         description: 'Ammonia (NH3, MW = 17.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_NH4',
         description: 'Ammonium (NH4, MW = 18.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_NIT',
         description: 'Inorganic nitrates (MW = 62.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_OCPI',
         description: 'Hydrophilic organic carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_OCPO',
         description: 'Hydrophobic organic carbon aerosol (MW = 12.01 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SALA',
         description: 'Fine (0.01-0.05 microns) sea salt aerosol (MW = 31.40 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SALC',
         description: 'Coarse (0.5-8 microns) sea salt aerosol (MW = 31.40 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SO2',
         description: 'Sulfur dioxide (SO2, MW = 64.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'WETDEPFLX_SO4',
         description: 'Sulfate (SO4, MW = 96.00 g mol-1) vertical integrated loss due to wet scavenging',
-        'gee:units': 'kg m-2 s-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'XYLE',
         description: 'Xylene (C8H10, MW = 106.16 g mol-1) volume mixing ratio dry air',
-        'gee:units': 'mol mol-1',
+        'gee:units': units.mole_fraction,
       },
       {
         name: 'ZL',

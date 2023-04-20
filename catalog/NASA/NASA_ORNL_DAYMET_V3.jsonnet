@@ -148,7 +148,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               30.0,
             ],
             palette: [
-              '1621A2',
+              'blue',
               'white',
               'cyan',
               'green',

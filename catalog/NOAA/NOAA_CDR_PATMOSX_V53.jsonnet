@@ -376,7 +376,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'relative_azimuth_angle',
         description: 'Sun-sensor relative azimuth angle; 0 is the principal plane looking towards sun',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.7086614,
         'gee:offset': 90.0,
       },
@@ -396,7 +396,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'sensor_zenith_angle',
         description: 'Sensor zenith for each pixel measured in degrees from nadir',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.3543307,
         'gee:offset': 45.0,
       },
@@ -424,13 +424,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'solar_azimuth_angle',
         description: 'Solar azimuth angle in degrees from north, pixel to sun,\npositive values are clockwise from north',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 1.417323,
       },
       {
         name: 'solar_zenith_angle',
         description: 'Solar zenith for each pixel measured in degrees away from the\nsun (0=looking at sun)',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.7086614,
         'gee:offset': 90.0,
       },

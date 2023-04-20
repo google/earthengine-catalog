@@ -169,32 +169,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SZA',
         description: 'Solar zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'SAA',
         description: 'Solar azimuth angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'SWIRVAA',
         description: 'Viewing azimuth angles SWIR detector',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'SWIRVZA',
         description: 'Viewing zenith angle SWIR detector',
-        'gee:units': 'degree',
+        'gee:units': units.degree,
       },
       {
         name: 'VNIRVAA',
         description: 'Viewing azimuth angle VNIR detector',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'VNIRVZA',
         description: 'Viewing zenith angle VNIR detector',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'SM',

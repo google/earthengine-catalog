@@ -7,7 +7,9 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary {
+  reference: 'https://earth.jaxa.jp/en/data/policy/',
+};
 local version = '3.2';
 
 local basename = std.strReplace(id, '/', '_');
@@ -77,7 +79,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.latest(latest_id, latest_url),
     ee.link.predecessor(predecessor_id, predecessor_url),
-    ee.link.license('https://earth.jaxa.jp/en/data/policy/'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     'alos',

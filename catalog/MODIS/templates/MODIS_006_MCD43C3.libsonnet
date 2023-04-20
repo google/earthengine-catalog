@@ -184,7 +184,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Local_Solar_Noon',
         description: 'Local solar noon zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
       },
       {
         name: 'Percent_Inputs',

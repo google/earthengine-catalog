@@ -4,9 +4,11 @@ local subdir = 'LANDSAT';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
-local license = spdx.proprietary;
 local template = import 'templates/LC08_C02_L2.libsonnet';
+
+local license = spdx.proprietary {
+  reference: 'https://www.usgs.gov/centers/eros/data-citation',
+};
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -62,7 +64,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://www.usgs.gov/centers/eros/data-citation'),
+    ee.link.license(license.reference),
   ],
   keywords: [
     'cfmask',

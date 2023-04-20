@@ -4,7 +4,6 @@ local subdir = 'USGS';
 // TODO(b/195835158): set latest to USGS/NLCD_RELEASES/2019_REL/NLCD
 local latest_id = 'USGS/NLCD_RELEASES/2016_REL';
 local successor_id = 'USGS/NLCD_RELEASES/2016_REL';
-local new_subdir = 'USGS/NLCD_RELEASES';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,9 +20,9 @@ local latest_filename = latest_basename + '.json';
 local successor_filename = successor_basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
-local catalog_new_subdir_url = ee_const.catalog_base + new_subdir + '/';
-local latest_url = catalog_new_subdir_url + latest_filename;
-local successor_url = catalog_new_subdir_url + successor_filename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local latest_url = catalog_subdir_url + latest_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,

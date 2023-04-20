@@ -21,6 +21,10 @@ b = blue, and a = alpha (1 - transparency).  Alternatively, the color can be
 the all lower case color string from web colors.  See `COLOR_NAMES` below for
 the allowed color names.
 
+Not allowed:
+- rgb short color names, e.g. f0a
+- leanding '#' characters for hex
+
 For each of the three fields, the value of the field cannot be repeated.
 
 See also:
@@ -35,12 +39,12 @@ JSON format example:
             "description": "Water classification",
             "gee:classes": [
                {
-                  "color": "FAFAFA",
+                  "color": "fafafa",
                   "description": "Land",
                   "value": 1
                },
                {
-                  "color": "00C5FF",
+                  "color": "00c5ff",
                   "description": "Water",
                   "value": 2
                },
@@ -274,6 +278,8 @@ class Check(stac.NodeCheck):
       values = []
       descriptions = []
       colors = []
+      have_name = False
+      have_hex = False
       for a_class in classes:
         if not isinstance(a_class, dict):
           yield cls.new_issue(node, f'"{CLASSES}" item must be a dict')
@@ -320,12 +326,15 @@ class Check(stac.NodeCheck):
                 node, f'{COLOR} must be a str: {color}')
           else:
             colors.append(color)
-            if not re.fullmatch(r'[0-9a-fA-F]{6}([0-9a-fA-F]{2})?', color):
-              if color not in COLOR_NAMES:
-                yield cls.new_issue(
-                    node,
-                    f'{COLOR} must be a 6 (or 8) character hex or ' +
-                    f'color name - found "{color}"')
+            if color in COLOR_NAMES:
+              have_name = True
+            elif re.fullmatch(r'[0-9a-f]{6}([0-9a-f]{2})?', color):
+              have_hex = True
+            else:
+              yield cls.new_issue(
+                  node,
+                  f'{COLOR} must be a 6 (or 8) character hex or ' +
+                  f'color name - found "{color}"')
 
       if len(values) != len(set(values)):
         # TODO(schwehr): List duplicates
@@ -338,3 +347,9 @@ class Check(stac.NodeCheck):
         if node.id not in DUPLICATE_DESCRIPTIONS:
           # TODO(schwehr): List duplicates
           yield cls.new_issue(node, f'{DESCRIPTION}s have duplicates')
+
+      if have_name and have_hex:
+        yield cls.new_issue(
+            node,
+            'colors must be all hex or all color names. '
+            'Found a mix of both')

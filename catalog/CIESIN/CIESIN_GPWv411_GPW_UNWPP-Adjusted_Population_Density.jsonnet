@@ -91,7 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             ],
             palette: [
               'ffffe7',
-              'FFc869',
+              'ffc869',
               'ffac1d',
               'e17735',
               'f2552c',

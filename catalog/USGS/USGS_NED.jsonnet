@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.successor(
-        successor_id, ee_const.catalog_base + 'USGS/3DEP/USGS_3DEP_10m.json'),
+        successor_id, ee_const.catalog_base + 'USGS/USGS_3DEP_10m.json'),
   ],
   keywords: [
     'dem',

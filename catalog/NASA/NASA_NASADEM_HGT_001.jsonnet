@@ -73,6 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.meters,
       },
       {
+        // TODO(b/198646525): Convert to use gee:classes
         name: 'num',
         description: |||
           Index indicating the data source and the number of source scenes.
@@ -96,12 +97,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             * 251: Quad edge averaged where two neighboring quads disagreed (generally a GDEM error)
             * 255: ERROR (if NUM IS MISSING - none known to exist)
         |||,
-        'gee:units': 'Class',
       },
       {
         name: 'swb',
         description: 'Updated SRTM water body data\n\n  * 0: Land\n  * 255: Water',
-        'gee:units': 'Class',
+        'gee:classes': [
+          {value: 0, description: 'Land', color: 'brown'},
+          {value: 255, description: 'Water', color: 'cadetblue'}
+        ],
       },
     ],
     'gee:visualizations': [

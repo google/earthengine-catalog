@@ -177,7 +177,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Convective_Precipitation_Rate_surface_3_Hour_Average',
         description: 'Convective precipitation rate 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/(m^2/s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'Convective_precipitation_surface_3_Hour_Accumulation',
@@ -335,7 +335,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Precipitation_rate_surface_3_Hour_Average',
         description: 'Precipitable rate 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'kg/m^2s',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'Precipitable_water_entire_atmosphere_single_layer',

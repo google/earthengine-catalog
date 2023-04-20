@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -268,19 +270,19 @@
       {
         name: 'ViewZenith',
         description: 'View zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'SolarZenith',
         description: 'Solar zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
         name: 'RelativeAzimuth',
         description: 'Relative azimuth angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         'gee:scale': 0.01,
       },
       {
@@ -340,22 +342,22 @@
               0.0001,
             ],
             palette: [
-              'FFFFFF',
-              'CE7E45',
-              'DF923D',
-              'F1B555',
-              'FCD163',
-              '99B718',
-              '74A901',
-              '66A000',
+              'ffffff',
+              'ce7e45',
+              'df923d',
+              'f1b555',
+              'fcd163',
+              '99b718',
+              '74a901',
+              '66a000',
               '529400',
-              '3E8601',
+              '3e8601',
               '207401',
               '056201',
-              '004C00',
-              '023B01',
-              '012E01',
-              '011D01',
+              '004c00',
+              '023b01',
+              '012e01',
+              '011d01',
               '011301',
             ],
             bands: [

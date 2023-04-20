@@ -161,27 +161,27 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'land_evapotranspiration_flux',
         description: 'Evapotranspiration from land',
-        'gee:units': 'kg m^-2 s^-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'overland_runoff_flux',
         description: 'Overland (surface) runoff (including throughflow)',
-        'gee:units': 'kg m^-2 s^-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'baseflow_flux',
         description: 'Baseflow',
-        'gee:units': 'kg m^-2 s^-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'snow_melt_flux',
         description: 'Snowmelt',
-        'gee:units': 'kg m^-2 s^-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'soil_water_infiltration_flux',
         description: 'Soil water infiltration rate',
-        'gee:units': 'kg m^-2 s^-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'land_fraction_saturated',
@@ -318,7 +318,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'free_surface_water_on_peat_flux',
         description: 'Change in free surface water storage on peatlands',
-        'gee:units': 'kg m^-2 s^-1',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'mwrtm_vegopacity',

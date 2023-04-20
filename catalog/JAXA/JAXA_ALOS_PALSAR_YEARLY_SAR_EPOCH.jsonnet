@@ -1,9 +1,11 @@
 local id = 'JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH';
 local subdir = 'JAXA';
+local version = '2';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -20,9 +22,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version 2.1.2',
+  title: 'Global PALSAR-2/PALSAR Yearly Mosaic, version ' + version,
   'gee:type': ee_const.gee_type.image_collection,
-  version: '2.1.2',
+  version: version,
   description: |||
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery
@@ -88,7 +90,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'angle',
-        description: 'Local incidence angle (degrees).',
+        description: 'Local incidence angle.',
+        'gee:units': units.degree,
       },
       {
         name: 'epoch',
@@ -110,12 +113,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 50,
-            color: '0000FF',
+            color: '0000ff',
             description: 'Ocean and water',
           },
           {
             value: 100,
-            color: 'AAAA00',
+            color: 'aaaa00',
             description: 'Radar layover',
           },
           {
@@ -125,7 +128,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 255,
-            color: 'AA9988',
+            color: 'aa9988',
             description: 'Land',
           },
         ],

@@ -1,11 +1,11 @@
 var dataset = ee.FeatureCollection('USGS/GAP/PAD-US/v20/designation');
 
-// Encode "GAP_Sts" (protection level) as a number for visualization.
+// Encode 'GAP_Sts' (protection level) as a number for visualization.
 dataset = dataset.map(function(feature) {
   return feature.set('status', ee.Number.parse(feature.get('GAP_Sts')));
 });
 
-// Paint new "status" value to an image for visualization.
+// Paint new 'status' value to an image for visualization.
 var datasetVis = ee.Image().byte().paint(dataset, 'status');
 
 var visualization = {

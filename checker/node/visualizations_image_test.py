@@ -435,15 +435,27 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
   def test_palette_bad_color(self):
     self.assert_collection(
         {'summaries': {
-        'eo:bands': [{'name': 'B1'}],
-        'gee:visualizations': [{
-            'image_visualization': {'band_vis': {
-                'bands': ['B1'],
-                'min': [1],
-                'palette': ['red', 'bogus']}}}]}},
+            'eo:bands': [{'name': 'B1'}],
+            'gee:visualizations': [{
+                'image_visualization': {'band_vis': {
+                    'bands': ['B1'],
+                    'min': [1],
+                    'palette': ['red', 'bogus']}}}]}},
         'color must be a 6 (or 8) character hex or color name - '
         'found "bogus"',
         gee_type=IMAGE_COLLECTION)
+
+  def test_palette_color_name_and_hex(self):
+    self.assert_collection(
+        {'summaries': {
+            'eo:bands': [{'name': 'B1'}],
+            'gee:visualizations': [{
+              'image_visualization': {'band_vis': {
+                  'bands': ['B1'],
+                  'min': [1],
+                  'palette': ['violet', 'aa22ff']}}}]}},
+        'colors must be all hex or all color names. Found a mix of both')
+
 
 
 if __name__ == '__main__':

@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('USGS', 'https://www.usgs.gov/centers/eros/science/usgs-eros-archive-landsat-archives-landsat-4-5-thematic-mapper-tm-level-1-data'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1984-01-01T00:00:00Z', '2012-05-05T00:00:00Z'),
+  extent: ee.extent_global('1984-03-06T16:20:00Z', '2001-02-06T16:13:31Z'),
   summaries: template.summaries,
   'gee:interval': {
     type: 'revisit_interval',

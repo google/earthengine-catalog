@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("LANDSAT/LC09/C02/T1_TOA")
+var dataset = ee.ImageCollection('LANDSAT/LC09/C02/T1_TOA')
   .filterDate('2022-01-01', '2022-02-01');
 var trueColor432 = dataset.select(['B4', 'B3', 'B2']);
 var trueColor432Vis = {

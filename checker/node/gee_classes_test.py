@@ -22,14 +22,19 @@ class GeeClassesTest(test_utils.NodeTest):
     super().setUp()
     self.check = gee_classes.Check
 
-  def test_valid(self):
-    classes = [{'color': 'FAFAFA', 'description': 'A', 'value': 1},
-               {'color': 'violet', 'description': 'B', 'value': 2}]
+  def test_valid_hex(self):
+    classes = [{'color': 'fafafa', 'description': 'A', 'value': 1},
+               {'color': '00ff11', 'description': 'B', 'value': 2}]
     self.assert_collection(make_stac(classes))
 
-  def test_valid_2(self):
-    classes = [{'color': 'AABBCCDD', 'description': 'A', 'value': -1},
-               {'color': 'white', 'description': 'B', 'value': 0}]
+  def test_valid_hex_with_alpha(self):
+    classes = [{'color': 'aabbccdd', 'description': 'A', 'value': -1},
+               {'color': '00aaff', 'description': 'B', 'value': 0}]
+    self.assert_collection(make_stac(classes))
+
+  def test_valid_color_names(self):
+    classes = [{'color': 'blue', 'description': 'A', 'value': 1},
+               {'color': 'silver', 'description': 'B', 'value': 2}]
     self.assert_collection(make_stac(classes))
 
   def test_skip_bands_not_list(self):
@@ -151,6 +156,14 @@ class GeeClassesTest(test_utils.NodeTest):
         {'color': 'red', 'description': 'C', 'value': 1},
         {'color': 'blue', 'description': 'C', 'value': 2}])
     self.assert_collection(stac_data, 'descriptions have duplicates')
+
+  def test_bad_names_and_hex(self):
+    stac_data = make_stac([
+        {'color': 'aabbcc', 'description': 'A', 'value': -1},
+        {'color': 'violet', 'description': 'B', 'value': 0}])
+    self.assert_collection(
+        stac_data,
+        'colors must be all hex or all color names. Found a mix of both')
 
 
 if __name__ == '__main__':

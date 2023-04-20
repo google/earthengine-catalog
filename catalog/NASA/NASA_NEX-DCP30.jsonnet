@@ -51,9 +51,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
   ],
   keywords: [
+    'cag',
     'climate',
     'cmip5',
-    'csu',
     'geophysical',
     'nasa',
     'nex',
@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'temperature',
   ],
   providers: [
-    ee.producer_provider('NASA / CSU', 'https://cds.nccs.nasa.gov/nex/'),
+    ee.producer_provider('NASA / Climate Analytics Group', 'https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-dcp30'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-125.03, 24.07, -66.47, 53.74,
@@ -108,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           includes both liquid and solid phases from all types of clouds
           (both large-scale and convective)
         |||,
-        'gee:units': 'kg/(m^2*s)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'tasmin',

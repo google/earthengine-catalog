@@ -15,4 +15,4 @@ var landSurfaceTemperatureVis = {
 Map.setCenter(6.746, 46.529, 2);
 Map.addLayer(
     landSurfaceTemperature, landSurfaceTemperatureVis,
-    'Average Daytime Land Surface Temperature	');
+    'Average Daytime Land Surface Temperature');

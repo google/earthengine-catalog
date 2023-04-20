@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("WorldPop/GP/100m/pop_age_sex_cons_unadj");
+var dataset = ee.ImageCollection('WorldPop/GP/100m/pop_age_sex_cons_unadj');
 
 var visualization = {
   bands: ['population'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.setCenter(113.643, 34.769, 7);
 
-Map.addLayer(dataset, visualization, "Population");
+Map.addLayer(dataset, visualization, 'Population');

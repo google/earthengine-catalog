@@ -79,9 +79,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           band_vis: {
             palette: [
               '000088',
-              '0000FF',
-              '8888FF',
-              'FFFFFF',
+              '0000ff',
+              '8888ff',
+              'ffffff',
             ],
             bands: [
               'NDSI',

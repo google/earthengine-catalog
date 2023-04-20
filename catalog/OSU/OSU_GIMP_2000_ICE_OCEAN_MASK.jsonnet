@@ -76,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 1,
-            color: '0000FF',
+            color: '0000ff',
             description: 'ocean',
           },
         ],
@@ -92,7 +92,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           },
           {
             value: 1,
-            color: 'FFFFFF',
+            color: 'ffffff',
             description: 'glacier ice',
           },
         ],

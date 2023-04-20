@@ -351,7 +351,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           direction and the normal of the slope.
         |||,
         'gee:scale': 0.01,
-        'gee:units': units.degree
+        'gee:units': units.degree,
       },
       {
         // TODO(simonf): we should add some basic SAR guide that explains

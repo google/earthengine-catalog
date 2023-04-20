@@ -315,13 +315,11 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
         'gee:skip_featureview_generation not allowed in table_collection',
         gee_type=TABLE_COLLECTION)
 
-  def test_skip_featureview_generation_without_params(self):
+  def test_skip_featureview_generation_without_params_ok(self):
     self.assert_collection(
         {'gee:skip_featureview_generation': True,
          'summaries': {}},
-        ['gee:skip_featureview_generation cannot be present if there is no ' +
-         'gee:feature_view_ingestion_params',
-         'gee:feature_view_ingestion_params must be present in table'],
+        ['gee:feature_view_ingestion_params must be present in table'],
         gee_type=TABLE)
 
   def test_skip_featureview_generation_must_be_bool(self):

@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("WorldPop/GP/100m/pop");
+var dataset = ee.ImageCollection('WorldPop/GP/100m/pop');
 
 var visualization = {
   bands: ['population'],

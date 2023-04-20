@@ -1,4 +1,4 @@
-var dataset = ee.Image("OpenLandMap/SOL/SOL_BULKDENS-FINEEARTH_USDA-4A1H_M/v02");
+var dataset = ee.Image('OpenLandMap/SOL/SOL_BULKDENS-FINEEARTH_USDA-4A1H_M/v02');
 
 var visualization = {
   bands: ['b0'],
@@ -9,4 +9,4 @@ var visualization = {
 
 Map.centerObject(dataset);
 
-Map.addLayer(dataset, visualization, "Soil bulk density in x 10 kg / m3");
+Map.addLayer(dataset, visualization, 'Soil bulk density in x 10 kg / m3');

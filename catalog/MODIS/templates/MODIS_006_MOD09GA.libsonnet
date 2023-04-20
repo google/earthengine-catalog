@@ -237,14 +237,14 @@ local units = import 'units.libsonnet';
       {
         name: 'SensorZenith',
         description: 'Sensor zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         gsd: 1000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'SensorAzimuth',
         description: 'Sensor azimuth angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         gsd: 1000.0,
         'gee:scale': 0.01,
       },
@@ -258,14 +258,14 @@ local units = import 'units.libsonnet';
       {
         name: 'SolarZenith',
         description: 'Solar zenith angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         gsd: 1000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'SolarAzimuth',
         description: 'Solar azimuth angle',
-        'gee:units': 'degrees',
+        'gee:units': units.degree,
         gsd: 1000.0,
         'gee:scale': 0.01,
       },

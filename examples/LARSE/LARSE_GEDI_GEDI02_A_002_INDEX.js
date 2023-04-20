@@ -4,7 +4,7 @@ var rectangle = ee.Geometry.Rectangle([
 // Filter index by date and location
 var filter_index = ee.FeatureCollection(
     'LARSE/GEDI/GEDI02_A_002_INDEX').filter(
-    "time_start > '2020-10-10T15:57:18Z' && time_end < '2020-10-11T01:20:45Z'")
+    'time_start > "2020-10-10T15:57:18Z" && time_end < "2020-10-11T01:20:45Z"')
     .filterBounds(rectangle);
 
 Map.addLayer(filter_index);

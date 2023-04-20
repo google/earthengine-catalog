@@ -100,7 +100,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'th',
         description: 'Wind direction',
-        'gee:units': 'Degrees clockwise from North',
+        'gee:units': units.degree,
       },
       {
         name: 'tmmn',
