@@ -1,14 +1,15 @@
-local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
+local ee_const = import 'earthengine_const.libsonnet';
+local units = import 'units.libsonnet';
 
 {
-  providers(self_ee_catalog_url) :
-  [
-    ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-5p-tropomi'),
-    ee.host_provider(self_ee_catalog_url),
-  ],
- schema() :
- [
+  providers(self_ee_catalog_url):
+    [
+      ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-5p-tropomi'),
+      ee.host_provider(self_ee_catalog_url),
+    ],
+  schema():
+    [
       {
         name: 'ALGORITHM_VERSION',
         description: |||
@@ -131,9 +132,38 @@ local ee = import 'earthengine.libsonnet';
         description: 'UUID for the L2 product file.',
         type: ee_const.var_type.string,
       },
-  ],
-  terms_of_use : |||
+    ],
+  terms_of_use: |||
     The use of Sentinel data is governed by the [Copernicus
     Sentinel Data Terms and Conditions.](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice)
   |||,
+  bands_common:
+    [
+      {
+        name: 'sensor_azimuth_angle',
+        description: 'Azimuth angle of the satellite at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
+        'gee:units': units.degree,
+      },
+      {
+        name: 'sensor_zenith_angle',
+        description: |||
+          Zenith angle of the satellite at the ground pixel location (WGS84); angle
+          measured away from the vertical.
+        |||,
+        'gee:units': units.degree,
+      },
+      {
+        name: 'solar_azimuth_angle',
+        description: 'Azimuth angle of the Sun at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
+        'gee:units': units.degree,
+      },
+      {
+        name: 'solar_zenith_angle',
+        description: |||
+          Zenith angle of the satellite at the ground pixel location (WGS84); angle
+          measured away from the vertical.
+        |||,
+        'gee:units': units.degree,
+      },
+    ],
 }

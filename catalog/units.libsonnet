@@ -38,6 +38,10 @@
   // https://en.wikipedia.org/wiki/Day
   day: 'd',
 
+  // https://en.wikipedia.org/wiki/Decibel
+  // For fixed reference value use, the reference needs to be known.
+  decibel: 'dB',
+
   // https://en.wikipedia.org/wiki/Dimensionless_quantity
   dimensionless: '1 (dimensionless)',
 

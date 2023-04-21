@@ -23,6 +23,7 @@ UNITS = {
     'count',
     'count/d',
     'd',
+    'dB',
     'deg',
     'h',
     'h/km^2',

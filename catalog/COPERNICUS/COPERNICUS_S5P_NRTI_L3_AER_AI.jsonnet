@@ -103,33 +103,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
         description: 'Altitude of the satellite with respect to the geodetic sub-satellite point\n(WGS84).',
         'gee:units': units.meters,
       },
-      {
-        name: 'sensor_azimuth_angle',
-        description: 'Azimuth angle of the satellite at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
-        'gee:units': units.degree,
-      },
-      {
-        name: 'sensor_zenith_angle',
-        description: |||
-          Zenith angle of the satellite at the ground pixel location (WGS84); angle
-          measured away from the vertical.
-        |||,
-        'gee:units': units.degree,
-      },
-      {
-        name: 'solar_azimuth_angle',
-        description: 'Azimuth angle of the Sun at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
-        'gee:units': units.degree,
-      },
-      {
-        name: 'solar_zenith_angle',
-        description: |||
-          Zenith angle of the satellite at the ground pixel location (WGS84); angle
-          measured away from the vertical.
-        |||,
-        'gee:units': units.degree,
-      },
-    ],
+    ] + COPERNICUS_S5P.bands_common,
     'gee:visualizations': [
       {
         display_name: 'RGB',
