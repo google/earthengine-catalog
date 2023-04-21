@@ -72,6 +72,10 @@
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
 
+  // https://en.wikipedia.org/wiki/Kilogram
+  // Unused: kilogram: 'kg',
+  gigagrams: 'Gg',
+
   // https://simple.wikipedia.org/wiki/Knot_(speed)
   knot: 'kt',
 

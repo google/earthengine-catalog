@@ -15,6 +15,7 @@ UNITS = {
     '1 (volume fraction)',
     'Dobson',
     'GHz',
+    'Gg',
     'J/m^2',
     'K',
     'M (nautical mile)',

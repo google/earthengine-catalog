@@ -190,7 +190,7 @@ UNITS = units.UNITS.union({
     'W m-2', 'W m^-2 sr^-1 &micro;m^-1', 'W/(m^2*sr*um)/ DN', 'W/m^2',
     'W/m^2 SR&mu;m', 'cmol(+)/kg',
     'fraction', 'g/cm^3', 'g/kg', 'g/m^2',
-    'gC m-2 d-1', 'gigagrams', 'gpm', 'ha',
+    'gC m-2 d-1', 'gpm', 'ha',
     'index',
     'kg m^-2 s^-2', 'kg*C/m^2', 'kg*C/m^2/16-day',
     'kg*C/m^2/8-day',
