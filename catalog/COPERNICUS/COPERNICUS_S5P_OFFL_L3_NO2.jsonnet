@@ -129,7 +129,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'tropopause_pressure',
         description: 'topopause pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'absorbing_aerosol_index',

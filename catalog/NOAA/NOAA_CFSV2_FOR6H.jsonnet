@@ -138,7 +138,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Pressure_surface',
         description: 'Pressure at surface',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Sensible_heat_net_flux_surface_6_Hour_Average',

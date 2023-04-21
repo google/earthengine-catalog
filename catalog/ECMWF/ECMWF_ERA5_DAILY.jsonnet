@@ -113,12 +113,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'surface_pressure',
         description: 'Surface pressure (daily average)',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'mean_sea_level_pressure',
         description: 'Mean sea level pressure (daily average)',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'u_component_of_wind_10m',

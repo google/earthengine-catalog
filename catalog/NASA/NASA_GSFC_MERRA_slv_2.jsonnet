@@ -73,7 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CLDPRS',
         description: 'Cloud top pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'CLDTMP',
@@ -113,12 +113,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PBLTOP',
         description: 'Pbltop pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'PS',
         description: 'Surface pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Q250',
@@ -148,7 +148,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SLP',
         description: 'Sea level pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'T10M',
@@ -213,17 +213,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TROPPB',
         description: 'Tropopause pressure (TROPP) based on blended estimate',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'TROPPT',
         description: 'Tropopause pressure based on thermal estimate',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'TROPPV',
         description: 'Tropopause pressure based on epv estimate',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'TROPQ',

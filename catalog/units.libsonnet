@@ -99,6 +99,11 @@
   // https://en.wikipedia.org/wiki/Nautical_mile
   nautical_mile: 'M (nautical mile)',
 
+  // https://en.wikipedia.org/wiki/Pascal_(unit)
+  pascal: 'Pa',
+  hectopascal: 'hPa',
+  kilopascal: 'kPa',
+
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',

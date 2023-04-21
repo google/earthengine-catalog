@@ -582,7 +582,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           variable are Pascals (Pa). Surface pressure is often measured in hPa and sometimes is presented
           in the old units of millibars, mb (1 hPa = 1 mb = 100 Pa).
         |||,
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'total_precipitation',

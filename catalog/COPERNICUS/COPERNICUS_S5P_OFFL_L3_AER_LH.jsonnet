@@ -122,12 +122,12 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
           hPa and a constant aerosol volume extinction coefficient and single scattering
           albedo.
         |||,
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'aerosol_optical_depth',
         description: 'Aerosol optical thickness &tau; of the assumed aerosol layer. The optical thickness\nholds for 760 nm.',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
     ] + COPERNICUS_S5P.bands_common,
     'gee:visualizations': [

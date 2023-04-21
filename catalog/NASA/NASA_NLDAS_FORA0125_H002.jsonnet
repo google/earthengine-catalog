@@ -113,7 +113,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'pressure',
         description: 'Surface pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'wind_u',

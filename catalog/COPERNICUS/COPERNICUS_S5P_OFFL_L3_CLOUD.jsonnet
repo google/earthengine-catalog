@@ -249,7 +249,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'cloud_top_pressure',
         description: 'Retrieved atmospheric pressure at the level of cloud top',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'cloud_top_height',
@@ -259,7 +259,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'cloud_base_pressure',
         description: 'Cloud base pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'cloud_base_height',
