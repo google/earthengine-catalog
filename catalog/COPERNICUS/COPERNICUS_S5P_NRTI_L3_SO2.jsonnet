@@ -126,32 +126,8 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
         |||,
         'gee:units': 'fraction',
       },
-      {
-        name: 'sensor_azimuth_angle',
-        description: 'Azimuth angle of the satellite at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
-        'gee:units': units.degree,
-      },
-      {
-        name: 'sensor_zenith_angle',
-        description: |||
-          Zenith angle of the satellite at the ground pixel location (WGS84); angle
-          measured away from the vertical.
-        |||,
-        'gee:units': units.degree,
-      },
-      {
-        name: 'solar_azimuth_angle',
-        description: 'Azimuth angle of the Sun at the ground pixel location (WGS84); angle\nmeasured East-of-North.',
-        'gee:units': units.degree,
-      },
-      {
-        name: 'solar_zenith_angle',
-        description: |||
-          Zenith angle of the satellite at the ground pixel location (WGS84); angle
-          measured away from the vertical.
-        |||,
-        'gee:units': units.degree,
-      },
+    ] + COPERNICUS_S5P.bands_common +
+    [
       {
         name: 'SO2_column_number_density_15km',
         description: 'SO<sub>2</sub> vertical column density at 15km,\ncalculated using the DOAS technique.',
