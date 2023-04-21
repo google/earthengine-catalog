@@ -6,6 +6,7 @@ local id = 'JRC/GWIS/GlobFire/v2/FinalPerimeters';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 local subdir = 'JRC';
@@ -80,7 +81,7 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'area',
         description: 'Fire area, square meters',
         type: ee_const.var_type.double,
-        units: 'm^2',
+        units: units.square_m,
       },
       {
         name: 'FinalDate',

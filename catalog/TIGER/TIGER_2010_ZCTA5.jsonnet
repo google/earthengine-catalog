@@ -4,6 +4,7 @@ local subdir = 'TIGER';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -70,13 +71,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'ALAND10',
         description: '2010 Census Land area',
         type: ee_const.var_type.double,
-        units: 'm^2',
+        units: units.square_m,
       },
       {
         name: 'AWATER10',
         description: '2010 Census Water area',
         type: ee_const.var_type.double,
-        units: 'm^2',
+        units: units.square_m,
       },
       {
         name: 'CLASSFP10',

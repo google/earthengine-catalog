@@ -5,6 +5,7 @@ local subdir = 'CIESIN';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -135,7 +136,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'mean-administrative-unit-area',
         description: 'The mean area of the input unit(s) from which population count\nand density grids are created.',
-        'gee:units': 'km^2',
+        'gee:units': units.square_km,
       },
       {
         name: 'national-identifier',
@@ -151,12 +152,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'land-area',
         description: 'Estimate of the land area, excluding permanent ice and water, within each 30 arc-second pixel.',
-        'gee:units': 'km^2',
+        'gee:units': units.square_km,
       },
       {
         name: 'water-area',
         description: 'Estimate of the water area (permanent ice and water) within each 30 arc-second pixel.',
-        'gee:units': 'km^2',
+        'gee:units': units.square_km,
       },
     ],
     'gee:visualizations': [

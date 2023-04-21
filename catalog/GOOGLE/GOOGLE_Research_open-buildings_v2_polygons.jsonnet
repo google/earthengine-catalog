@@ -1,6 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local version_table = import 'GOOGLE_Research_open-buildings_polygons.libsonnet';
 
@@ -71,7 +72,7 @@ local license = spdx.cc_by_4_0;
         name: 'area_in_meters',
         description: 'Area in square meters of the polygon.',
         type: ee_const.var_type.double,
-        units: 'm^2',
+        units: units.square_m,
       },
       {
         name: 'confidence',

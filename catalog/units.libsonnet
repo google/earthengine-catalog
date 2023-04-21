@@ -57,6 +57,11 @@
   // https://en.wikipedia.org/wiki/Hertz
   giga_hertz: 'GHz',
 
+  // https://en.wikipedia.org/wiki/Hectare
+  hectare: 'ha',
+  square_m: 'm^2',
+  square_km: 'km^2',
+
   // https://en.wikipedia.org/wiki/Hour
   hour: 'h',
 

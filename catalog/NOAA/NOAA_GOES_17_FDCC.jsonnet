@@ -79,7 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Area',
         description: 'Fire area',
-        'gee:units': 'm^2',
+        'gee:units': units.square_m,
         'gee:scale': 60.98,
         'gee:offset': 4000.0,
       },

@@ -4,6 +4,7 @@ local subdir = 'MERIT';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 // Alternative license: cc_by_nc_4_0
 local license = spdx.odbl_1_0;
@@ -68,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           to 18 arc seconds from the original 3 arc seconds for better visualization
           at global scale.
         |||,
-        'gee:units': 'km^2',
+        'gee:units': units.square_km,
       },
     ],
     'gee:visualizations': [
