@@ -29,7 +29,6 @@ local self_url = catalog_subdir_url + base_filename;
   version: version,
   title: 'National Intertidal Digital Elevation Model 25m ' + version,
   'gee:type': ee_const.gee_type.image,
-  
   description: |||
     The National Intertidal Digital Elevation Model (NIDEM; Bishop-Taylor et 
     al. 2018, 2019) is a continental-scale elevation dataset for Australia's 
@@ -63,12 +62,10 @@ local self_url = catalog_subdir_url + base_filename;
     'nidem',
   ],
   providers: [
-    ee.producer_provider('Digital Earth Australia', 'https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics'),
+    ee.producer_provider('Digital Earth Australia', 'https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat'),
     ee.host_provider(self_ee_catalog_url),
   ],
-
   extent: ee.extent(108.81, -44.41, 157.82, -9.13, '1986-08-16T00:00:00Z', '2017-07-31T23:59:59Z'),
-
   summaries: {
     gsd: [
       25,
@@ -108,9 +105,7 @@ local self_url = catalog_subdir_url + base_filename;
         'gee:units': units.meters,
       },
     ],
-
     nidem: {minimum: -5.0, maximum: 3.9, 'gee:estimated_range': true},
-
     'gee:visualizations': [
       {
         display_name: 'nidem',
@@ -146,7 +141,6 @@ local self_url = catalog_subdir_url + base_filename;
       },
     ],
   },
-
   'sci:doi': '10.1016/j.ecss.2019.03.006',
   'sci:citation': |||
     Bishop-Taylor, R., Sagar, S., Lymburner, L., & Beaman, R. J. (2019).
@@ -155,7 +149,6 @@ local self_url = catalog_subdir_url + base_filename;
     Estuarine, Coastal and Shelf Science, 223, 115 128. 
     [doi:10.1016/j.ecss.2019.03.006](https://doi.org/10.1016/j.ecss.2019.03.006)
   |||,
-
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
 
