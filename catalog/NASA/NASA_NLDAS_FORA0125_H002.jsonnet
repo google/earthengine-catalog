@@ -137,7 +137,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'potential_energy',
         description: 'Convective available potential energy (J/kg): from NARR',
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'potential_evaporation',

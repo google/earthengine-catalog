@@ -81,6 +81,10 @@
   // Unused: kilogram: 'kg',
   gigagrams: 'Gg',
 
+  // https://en.wikipedia.org/wiki/Convective_available_potential_energy (CAPE)
+  // https://en.wikipedia.org/wiki/Specific_energy
+  joules_per_kg: 'J/kg',
+
   // https://simple.wikipedia.org/wiki/Knot_(speed)
   knot: 'kt',
 

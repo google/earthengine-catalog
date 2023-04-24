@@ -16,6 +16,7 @@ UNITS = {
     'Dobson',
     'GHz',
     'Gg',
+    'J/kg',
     'J/m^2',
     'K',
     'M (nautical mile)',

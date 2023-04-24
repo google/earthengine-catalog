@@ -186,7 +186,6 @@ UNITS = units.UNITS.union({
     'DN',
     'DU',
     'Equivalent gauges per 2.5 degree box',
-    'J/kg',
     'J/m^2/day',
     'Julian Day',
     'MJ m^-2 day^-1',

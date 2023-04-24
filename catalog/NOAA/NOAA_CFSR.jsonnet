@@ -159,12 +159,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Cloud_Work_Function_entire_atmosphere_single_layer_3_Hour_Average',
         description: 'Cloud work function 3 hour average at entire atmosphere layer for 03 forecast',
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'Convective_available_potential_energy_surface',
         description: 'Convective available potential energy at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'Convective_available_potential_energy_pressure_difference_layer',
@@ -172,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Convective available potential energy at specified pressure difference from
           ground to level layer for 03 forecast
         |||,
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'Convective_Precipitation_Rate_surface_3_Hour_Average',
