@@ -6,7 +6,7 @@ https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
 """
 
 # TODO(schwehr): Load this from units.libsonnet
-UNITS = {
+UNITS = frozenset({
     '%',
     '1 (area fraction)',
     '1 (dimensionless)',
@@ -51,4 +51,4 @@ UNITS = {
     'rad',
     '&deg;C',
     '&micro;m',
-}
+})
