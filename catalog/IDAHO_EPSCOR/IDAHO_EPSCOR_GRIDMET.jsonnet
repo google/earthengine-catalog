@@ -95,7 +95,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'srad',
         description: 'Surface downward shortwave radiation',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'th',

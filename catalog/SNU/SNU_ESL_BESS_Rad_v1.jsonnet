@@ -4,6 +4,7 @@ local subdir = 'SNU';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -62,17 +63,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PAR_Daily',
         description: 'Surface downwelling photosynthetic radiative flux in air',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'PARdiff_Daily',
         description: 'Surface diffuse downwelling photosynthetic radiative flux in air',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'RSDN_Daily',
         description: 'Surface downwelling shortwave flux in air',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
     ],
     'gee:visualizations': [

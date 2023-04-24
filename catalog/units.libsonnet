@@ -144,6 +144,10 @@
   // Unused: watt: 'w',
   megawatt: 'MW',
 
+  // https://en.wikipedia.org/wiki/Irradiance
+  // https://en.wikipedia.org/wiki/Flux
+  watt_per_meter_squared: 'W/m^2',
+
   // https://en.wikipedia.org/wiki/Year
   year: 'a',
 }

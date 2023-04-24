@@ -205,12 +205,12 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'heat_flux_sensible',
         description: 'Sensible heat flux from land',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'heat_flux_latent',
         description: 'Latent heat flux from land',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'heat_flux_ground',
@@ -218,27 +218,27 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Downward ground heat flux into layer 1 of soil heat
           diffusion model
         |||,
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'net_downward_shortwave_flux',
         description: 'Net downward shortwave flux over land',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'net_downward_longwave_flux',
         description: 'Net downward longwave flux over land',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'radiation_shortwave_downward_flux',
         description: 'Downward shortwave flux incident on the surface',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'radiation_longwave_absorbed_flux',
         description: 'Absorbed (downward) longwave radiation at the surface',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'precipitation_total_surface_flux',

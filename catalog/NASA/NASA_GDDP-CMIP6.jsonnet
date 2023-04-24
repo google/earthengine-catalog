@@ -189,12 +189,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'rlds',
         description: 'Surface downwelling longwave radiation',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'rsds',
         description: 'Surface downwelling shortwave radiation',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'sfcWind',

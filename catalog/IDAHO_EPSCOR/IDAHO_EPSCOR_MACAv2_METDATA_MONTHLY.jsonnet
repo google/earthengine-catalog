@@ -110,7 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'rsds',
         description: 'Monthly average of mean daily downward shortwave radiation at surface',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'was',

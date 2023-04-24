@@ -101,7 +101,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'srad',
         description: 'Incident shortwave radiation flux density, taken as an average\nover the daylight period of the day.',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'swe',

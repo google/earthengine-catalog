@@ -122,12 +122,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ECanop_tavg',
         description: 'Canopy water evaporation',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'ESoil_tavg',
         description: 'Direct evaporation from bare soil',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Evap_tavg',
@@ -137,17 +137,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'LWdown_f_tavg',
         description: 'Downward long-wave radiation flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Lwnet_tavg',
         description: 'Net long-wave radiation flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'PotEvap_tavg',
         description: 'Potential evaporation rate',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Psurf_f_inst',
@@ -162,17 +162,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Qg_tavg',
         description: 'Heat flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qh_tavg',
         description: 'Sensible heat net flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qle_tavg',
         description: 'Latent heat net flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qs_acc',
@@ -212,7 +212,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SWdown_f_tavg',
         description: 'Downward short-wave radiation flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'SnowDepth_inst',
@@ -267,7 +267,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Swnet_tavg',
         description: 'Net short wave radiation flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Tair_f_inst',
@@ -277,7 +277,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Tveg_tavg',
         description: 'Transpiration',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Wind_f_inst',

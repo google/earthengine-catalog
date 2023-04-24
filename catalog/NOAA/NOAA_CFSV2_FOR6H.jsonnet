@@ -88,12 +88,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Downward_Long-Wave_Radp_Flux_surface_6_Hour_Average',
         description: 'Downward long-wave radiation flux at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Downward_Short-Wave_Radiation_Flux_surface_6_Hour_Average',
         description: 'Downward short-wave radiation flux at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Geopotential_height_surface',
@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Latent_heat_net_flux_surface_6_Hour_Average',
         description: 'Latent heat net flux at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Maximum_specific_humidity_at_2m_height_above_ground_6_Hour_Interval',
@@ -128,7 +128,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Potential_Evaporation_Rate_surface_6_Hour_Average',
         description: 'Potential evaporation rate at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Precipitation_rate_surface_6_Hour_Average',
@@ -143,7 +143,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Sensible_heat_net_flux_surface_6_Hour_Average',
         description: 'Sensible heat net flux at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Specific_humidity_height_above_ground',
@@ -163,12 +163,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Upward_Long-Wave_Radp_Flux_surface_6_Hour_Average',
         description: 'Upward long-wave radiation flux at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Short-Wave_Radiation_Flux_surface_6_Hour_Average',
         description: 'Upward short-wave radiation flux at surface, 6-hour average',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'v-component_of_wind_height_above_ground',

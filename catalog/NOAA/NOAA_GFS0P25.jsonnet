@@ -137,7 +137,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'downward_shortwave_radiation_flux',
         description: 'Downward shortwave radiation flux (only for assets with forecast_hours > 0)',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
     ],
     'gee:visualizations': [
