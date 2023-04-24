@@ -22,8 +22,7 @@ local self_url = base_url + base_filename;
     Intertidal zones are faced with increasing threats from coastal erosion, land reclamation (e.g. port construction), and sea level rise. 
     Accurate elevation data describing the height and shape of the coastline is needed to help predict when and where these threats will have the greatest impact. 
     However, this data is expensive and challenging to map across the entire intertidal zone of a continent the size of Australia.
-    For more information, please see the [DEA Intertidal Elevation]
-    (https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics)
+    https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics
   |||,
   links: [
     ee.link.root(),
