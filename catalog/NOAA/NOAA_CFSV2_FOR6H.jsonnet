@@ -178,22 +178,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_5_cm',
         description: 'Volumetric soil moisture content 5cm below surface layer',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_25_cm',
         description: 'Volumetric soil moisture content 25cm below surface layer',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_70_cm',
         description: 'Volumetric soil moisture content 70cm below surface layer',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_150_cm',
         description: 'Volumetric soil moisture content 150cm below surface layer',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
     ],
     'gee:visualizations': [

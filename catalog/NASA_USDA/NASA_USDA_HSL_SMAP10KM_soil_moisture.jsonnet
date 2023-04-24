@@ -80,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'smp',
         description: 'Soil moisture profile',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'ssma',

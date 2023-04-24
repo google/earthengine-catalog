@@ -204,9 +204,8 @@ UNITS = units.UNITS.union({
     'W/(m^2*sr*um)/ DN',
     'W/m^2 SR&mu;m',
     'cmol(+)/kg',
-    'fraction',
     'g/cm^3',
-    'g/kg',
+    'g/kg',  # per mille
     'g/m^2',
     'gC m-2 d-1',
     'gpm',

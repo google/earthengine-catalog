@@ -94,7 +94,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'smp',
         description: 'Soil moisture profile',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'ssma',

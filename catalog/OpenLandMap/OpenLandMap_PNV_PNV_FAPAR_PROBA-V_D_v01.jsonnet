@@ -4,6 +4,7 @@ local subdir = 'OpenLandMap';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_sa_4_0;
 
@@ -62,72 +63,72 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'jan',
         description: 'Jan Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'feb',
         description: 'Feb Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'mar',
         description: 'Mar Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'apr',
         description: 'Apr Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'may',
         description: 'May Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'jun',
         description: 'Jun Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'jul',
         description: 'Jul Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'aug',
         description: 'Aug Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'sep',
         description: 'Sep Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'oct',
         description: 'Oct Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'nov',
         description: 'Nov Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'dec',
         description: 'Dec Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'annual',
         description: 'Anuual Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'annualdiff',
         description: 'Annual Difference Potential FAPAR monthly',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
     ],
     'gee:visualizations': [

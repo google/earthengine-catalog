@@ -12,6 +12,7 @@ UNITS = frozenset({
     '1 (dimensionless)',
     '1 (mass fraction)',
     '1 (mol fraction)',
+    '1 (unspecified fraction)',
     '1 (volume fraction)',
     'Dobson',
     'GHz',
