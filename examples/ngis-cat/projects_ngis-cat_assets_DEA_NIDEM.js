@@ -12,4 +12,3 @@ var elevationVis = {
 };
 Map.setCenter(122.36, -18.10, 11);
 Map.addLayer(elevation, elevationVis, 'nidem');
-
