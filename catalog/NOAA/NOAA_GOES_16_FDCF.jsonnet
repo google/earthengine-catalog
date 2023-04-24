@@ -171,7 +171,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Power',
         description: 'Fire radiative power',
-        'gee:units': 'MW',
+        'gee:units': units.megawatt,
       },
       {
         name: 'DQF',

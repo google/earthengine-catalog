@@ -189,8 +189,6 @@ UNITS = units.UNITS.union({
     'J/m^2/day',
     'Julian Day',
     'MJ m^-2 day^-1',
-    'MW',
-    'Megawatts',
     'Mg C/ha',
     'Mg ha^-1',
     'Mg/ha',
