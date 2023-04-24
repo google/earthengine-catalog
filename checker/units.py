@@ -44,6 +44,7 @@ UNITS = frozenset({
     'kt',
     'm',
     'm/s',
+    'm/s^2',
     'm^2',
     'mbar',
     'min',

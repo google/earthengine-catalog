@@ -77,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'BSTAR',
         description: 'Surface buoyancy scale',
-        'gee:units': 'm/s^2',
+        'gee:units': units.acceleration_si,
       },
       {
         name: 'CDH',

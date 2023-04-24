@@ -217,7 +217,6 @@ UNITS = units.UNITS.union({
     'kg/m/s',
     'kg/m^2/8day',
     'm of water equivalent',
-    'm/s^2',
     'mW cm-2 &mu;m-1 sr-1',
     'm^2 s-2',
     'm^2/m^3',

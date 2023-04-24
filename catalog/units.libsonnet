@@ -18,6 +18,9 @@
 // TODO(b/198646525): Flush out the rest of the units
 
 {
+  // https://en.wikipedia.org/wiki/Acceleration
+  acceleration_si: 'm/s^2',
+
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
 
