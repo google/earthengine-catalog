@@ -13,13 +13,13 @@ var image = ee.Image('USGS/NLCD_RELEASES/2019_REL/NALCMS');
     'b48833',  // 8  Temperate or sub-polar shrubland
     'e9da5d',  // 9  Tropical or sub-tropical grassland
     'e0cd88',  // 10  Temperate or sub-polar grassland
-    'a07451',  // 11  Sub-polar or polar shrubland-lichen-moss CAN and AK
+    'a07451',  // 11  Sub-polar or polar shrubland-lichen-moss
     'bad292',  // 12  Sub-polar or polar grassland-lichen-moss
     '3f8970',  // 13  Sub-polar or polar barren-lichen-moss
     '6ca289',  // 14  Wetland
     'e6ad6a',  // 15  Cropland
-    'a9abae',  // 16  Barren
-    'db2126',  // 17  Urban
+    'a9abae',  // 16  Barren land 
+    'db2126',  // 17  Urban and built-up
     '4c73a1',  // 18  Water
     'fff7fe',  // 19  Snow and ice
     ],
