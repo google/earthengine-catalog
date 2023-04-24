@@ -139,3 +139,4 @@ local self_url = catalog_subdir_url + base_filename;
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
+

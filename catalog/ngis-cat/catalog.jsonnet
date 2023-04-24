@@ -32,3 +32,4 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_ngis-cat_assets_DEA_NIDEM', base_url),
   ],
 }
+
