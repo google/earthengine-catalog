@@ -89,7 +89,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SLP',
         description: 'Sea level pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'SO2',

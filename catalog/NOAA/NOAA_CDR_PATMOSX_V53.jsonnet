@@ -141,7 +141,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'cld_press_acha',
         description: 'Cloud-top pressure computed using ACHA',
-        'gee:units': 'hPa',
+        'gee:units': units.hectopascal,
         'gee:scale': 0.01678518,
         'gee:offset': 550.0,
       },

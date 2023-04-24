@@ -147,12 +147,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vpdmin',
         description: 'Daily minimum vapor pressure deficit',
-        'gee:units': 'hPa',
+        'gee:units': units.hectopascal,
       },
       {
         name: 'vpdmax',
         description: 'Daily maximum vapor pressure deficit',
-        'gee:units': 'hPa',
+        'gee:units': units.hectopascal,
       },
     ],
     'gee:visualizations': [

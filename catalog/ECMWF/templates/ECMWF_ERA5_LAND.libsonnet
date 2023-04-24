@@ -678,7 +678,7 @@ local flux = 'J/m^2';
         pressure is often measured in hPa and sometimes is presented
         in the old units of millibars, mb (1 hPa = 1 mb = 100 Pa).
       |||,
-      units: 'Pa',
+      units: units.pascal,
     },
     {
       name: 'total_precipitation',

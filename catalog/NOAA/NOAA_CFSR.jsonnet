@@ -350,17 +350,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Pressure_msl',
         description: 'Pressure at Mean sea level for 03 forecast',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Pressure_reduced_to_MSL_msl',
         description: 'Pressure reduced to MSL at Mean sea level for 00 and 03 forecast',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Pressure_surface',
         description: 'Pressure at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Relative_humidity_entire_atmosphere_single_layer',

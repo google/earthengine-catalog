@@ -168,13 +168,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vap',
         description: 'Vapor pressure',
-        'gee:units': 'kPa',
+        'gee:units': units.kilopascal,
         'gee:scale': 0.001,
       },
       {
         name: 'vpd',
         description: 'Vapor pressure deficit',
-        'gee:units': 'kPa',
+        'gee:units': units.kilopascal,
         'gee:scale': 0.01,
       },
       {

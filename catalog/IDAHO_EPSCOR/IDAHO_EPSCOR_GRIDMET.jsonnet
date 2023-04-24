@@ -150,7 +150,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vpd',
         description: 'Mean vapor pressure deficit',
-        'gee:units': 'kPa',
+        'gee:units': units.kilopascal,
       },
     ],
     'gee:visualizations': [

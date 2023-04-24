@@ -57,6 +57,11 @@
   // https://en.wikipedia.org/wiki/Hertz
   giga_hertz: 'GHz',
 
+  // https://en.wikipedia.org/wiki/Hectare
+  hectare: 'ha',
+  square_m: 'm^2',
+  square_km: 'km^2',
+
   // https://en.wikipedia.org/wiki/Hour
   hour: 'h',
 
@@ -71,6 +76,10 @@
 
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
+
+  // https://en.wikipedia.org/wiki/Kilogram
+  // Unused: kilogram: 'kg',
+  gigagrams: 'Gg',
 
   // https://simple.wikipedia.org/wiki/Knot_(speed)
   knot: 'kt',
@@ -98,6 +107,11 @@
 
   // https://en.wikipedia.org/wiki/Nautical_mile
   nautical_mile: 'M (nautical mile)',
+
+  // https://en.wikipedia.org/wiki/Pascal_(unit)
+  pascal: 'Pa',
+  hectopascal: 'hPa',
+  kilopascal: 'kPa',
 
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign

@@ -121,7 +121,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vp',
         description: 'Daily average partial pressure of water vapor.',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
     ],
     'gee:visualizations': [

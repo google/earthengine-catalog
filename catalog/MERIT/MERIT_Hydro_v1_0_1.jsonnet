@@ -145,7 +145,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'upa',
         description: 'Upstream drainage area (flow accumulation area)',
-        'gee:units': 'km^2',
+        'gee:units': units.square_km,
       },
       {
         name: 'upg',

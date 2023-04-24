@@ -124,12 +124,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'vpdmin',
         description: '30-year average of monthly minimum vapor pressure deficit',
-        'gee:units': 'hPa',
+        'gee:units': units.hectopascal,
       },
       {
         name: 'vpdmax',
         description: '30-year average of monthly maximum vapor pressure deficit',
-        'gee:units': 'hPa',
+        'gee:units': units.hectopascal,
       },
       {
         name: 'solclear',

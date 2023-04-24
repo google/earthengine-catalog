@@ -4,6 +4,7 @@ local subdir = 'FAO';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -73,22 +74,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'croplandc',
         description: 'C emissions from cropland organic soils',
-        'gee:units': 'gigagrams',
+        'gee:units': units.gigagrams,
       },
       {
         name: 'croplandn2o',
         description: 'N2O emissions from cropland organic soils',
-        'gee:units': 'gigagrams',
+        'gee:units': units.gigagrams,
       },
       {
         name: 'grasslandc',
         description: 'C emissions from grassland organic soils',
-        'gee:units': 'gigagrams',
+        'gee:units': units.gigagrams,
       },
       {
         name: 'grasslandn2o',
         description: 'N2O emissions from grassland organic soils',
-        'gee:units': 'gigagrams',
+        'gee:units': units.gigagrams,
       },
     ],
     'gee:visualizations': [

@@ -150,7 +150,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Psurf_f_inst',
         description: 'Pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Qair_f_inst',

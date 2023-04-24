@@ -105,7 +105,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Psurf_f_tavg',
         description: 'Surface pressure',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
       {
         name: 'Qair_f_tavg',

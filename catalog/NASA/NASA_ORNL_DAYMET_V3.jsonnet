@@ -128,7 +128,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'vp',
         description: 'Daily average partial pressure of water vapor.',
-        'gee:units': 'Pa',
+        'gee:units': units.pascal,
       },
     ],
     'gee:visualizations': [
