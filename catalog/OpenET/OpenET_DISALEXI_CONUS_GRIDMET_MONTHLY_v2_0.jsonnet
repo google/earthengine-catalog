@@ -13,6 +13,8 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  // TODO(b/262306177): Remove when the dataset is ready.
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -114,20 +116,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
+  'sci:doi': '10.3390/rs10060889',
   'sci:citation': |||
-      Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D
-      ., Eichelmann, E., Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas,
-      W., 2018. Field-scale assessment of land and water use change over the
-      California Delta using remote sensing. Remote Sensing, 10(6), p.889.
+    Anderson, M., Gao, F., Knipper, K., Hain, C., Dulaney, W., Baldocchi, D .,
+    Eichelmann, E., Hemes, K., Yang, Y., Medellin-Azuara, J. and Kustas, W.,
+    2018. Field-scale assessment of land and water use change over the
+    California Delta using remote sensing. Remote Sensing, 10(6), p.889.
+    [doi:10.3390/rs10060889](https://doi.org/10.3390/rs10060889)
   |||,
   'sci:publications': [
     {
       citation: |||
-          Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and
-          Kustas, W.P., 2007. A climatological study of evapotranspiration
-          and moisture stress across the continental United States based on
-          thermal remote sensing: 1. Model formulation. Journal of
-          Geophysical Research: Atmospheres, 112(D10).
+        Anderson, M.C., Norman, J.M., Mecikalski, J.R., Otkin, J.A. and Kustas,
+        W.P., 2007. A climatological study of evapotranspiration and moisture
+        stress across the continental United States based on thermal remote
+        sensing: 1. Model formulation. Journal of Geophysical Research:
+        Atmospheres, 112(D10).
+        [10.1029/2006JD007506](https://doi.org/10.1029/2006JD007506)
       |||,
     },
   ],

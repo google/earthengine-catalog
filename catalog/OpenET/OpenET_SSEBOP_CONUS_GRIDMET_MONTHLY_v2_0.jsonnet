@@ -13,6 +13,8 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  // TODO(b/262306177): Remove when the dataset is ready.
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -128,46 +130,51 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
+  'sci:doi': '10.3390/rs15010260',
   'sci:citation': |||
     Senay, G.B., Parrish, G.E., Schauer, M., Friedrichs, M., Khand, K., Boiko,
     O., Kagone, S., Dittmeier, R., Arab, S. and Ji, L., 2023. Improving the
     Operational Simplified Surface Energy Balance Evapotranspiration Model Using
     the Forcing and Normalizing Operation. Remote Sensing, 15(1), p.260.
+    [doi:10.3390/rs15010260](https://doi.org/10.3390/rs15010260)
   |||,
   'sci:publications': [
     {
       citation: |||
-          Senay, G.B., Bohms, S., Singh, R.K., Gowda, P.H., Velpuri, N.M.,
-          Alemu, H. and Verdin, J.P., 2013. Operational evapotranspiration
-          mapping using remote sensing and weather datasets: A new
-          parameterization for the SSEB approach. JAWRA Journal of the
-          American Water Resources Association, 49(3), pp.577-591.
+        Senay, G.B., Bohms, S., Singh, R.K., Gowda, P.H., Velpuri, N.M., Alemu,
+        H. and Verdin, J.P., 2013. Operational evapotranspiration mapping using
+        remote sensing and weather datasets: A new parameterization for the SSEB
+        approach. JAWRA Journal of the American Water Resources Association,
+        49(3), pp.577-591.
+        [doi:10.1111/jawr.12057](https://doi.org/10.1111/jawr.12057)
       |||,
     },
     {
       citation: |||
-          Senay, G.B., Schauer, M., Friedrichs, M., Velpuri, N.M. and Singh, R
-          .K., 2017. Satellite-based water use dynamics using historical
-          Landsat data (1984–2014) in the southwestern United States. Remote
-          Sensing of Environment, 202, pp.98-112.
+        Senay, G.B., Schauer, M., Friedrichs, M., Velpuri, N.M. and Singh, R.K.,
+        2017. Satellite-based water use dynamics using historical Landsat data
+        (1984–2014) in the southwestern United States. Remote Sensing of
+        Environment, 202, pp.98-112.
+        [doi:10.1016/j.rse.2017.05.005c](https://doi.org/10.1016/j.rse.2017.05.005)
       |||,
     },
     {
       citation: |||
-          Senay, G.B., 2018. Satellite psychrometric formulation of the
-          Operational Simplified Surface Energy Balance (SSEBop) model for
-          quantifying and mapping evapotranspiration. Applied Engineering in
-          Agriculture, 34(3), pp.555-566.
+        Senay, G.B., 2018. Satellite psychrometric formulation of the
+        Operational Simplified Surface Energy Balance (SSEBop) model for
+        quantifying and mapping evapotranspiration. Applied Engineering in
+        Agriculture, 34(3), pp.555-566.
+        [doi:10.13031/aea.12614](https://doi.org/10.13031/aea.12614)
       |||,
     },
     {
       citation: |||
-          Senay, G.B., Friedrichs, M., Morton, C., Parrish, G.E., Schauer, M
-          ., Khand, K., Kagone, S., Boiko, O. and Huntington, J., 2022.
-          Mapping actual evapotranspiration using Landsat for the
-          conterminous United States: Google Earth Engine implementation and
-          assessment of the SSEBop model. Remote Sensing of Environment, 275,
-          p.113011.
+        Senay, G.B., Friedrichs, M., Morton, C., Parrish, G.E., Schauer, M.,
+        Khand, K., Kagone, S., Boiko, O. and Huntington, J., 2022.  Mapping
+        actual evapotranspiration using Landsat for the conterminous United
+        States: Google Earth Engine implementation and assessment of the SSEBop
+        model. Remote Sensing of Environment, 275, p.113011.
+        [doi:10.1016/j.rse.2022.113011](https://doi.org/10.1016/j.rse.2022.113011)
       |||,
     },
    ],
