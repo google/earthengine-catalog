@@ -132,7 +132,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     land–atmosphere water flux based on monthly AVHRR and ISLSCP-II data,
     validated at 16 FLUXNET sites. Remote Sensing of Environment, 112(3),
     pp.901-919.
-    [10.1016/j.rse.2007.06.025](https://doi.org/10.1016/j.rse.2007.06.025)
+    [doi:10.1016/j.rse.2007.06.025](https://doi.org/10.1016/j.rse.2007.06.025)
   |||,
   'sci:publications': [
     {

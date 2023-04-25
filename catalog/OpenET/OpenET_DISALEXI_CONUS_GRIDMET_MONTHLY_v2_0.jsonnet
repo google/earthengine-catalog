@@ -132,7 +132,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         stress across the continental United States based on thermal remote
         sensing: 1. Model formulation. Journal of Geophysical Research:
         Atmospheres, 112(D10).
-        [10.1029/2006JD007506](https://doi.org/10.1029/2006JD007506)
+        [doi:10.1029/2006JD007506](https://doi.org/10.1029/2006JD007506)
       |||,
     },
   ],
