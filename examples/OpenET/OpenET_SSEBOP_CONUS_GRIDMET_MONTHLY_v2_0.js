@@ -1,8 +1,8 @@
-var dataset = ee.ImageCollection('OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0')
+var dataset = ee.ImageCollection('OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0')
   .filterDate('2020-01-01', '2021-01-01');
 
 // Compute the annual ET as the sum of the monthly ET images for the year.
-var et = dataset.select('et_ensemble_mad').sum();
+var et = dataset.select('et').sum();
 
 var visualization = {
   min: 0,
@@ -16,4 +16,4 @@ var visualization = {
 
 Map.setCenter(-100, 38, 5);
 
-Map.addLayer(et, visualization, 'OpenET Ensemble Annual ET');
+Map.addLayer(et, visualization, 'OpenET SSEBop Annual ET');

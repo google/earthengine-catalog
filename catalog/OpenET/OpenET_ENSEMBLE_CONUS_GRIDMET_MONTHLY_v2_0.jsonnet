@@ -85,15 +85,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'et_ensemble_mad_count',
         description: |||
-           The number of models used to compute the ensemble ET value,
-           after filtering for outliers using the median absolute deviation (mad)
+           The number of models used to compute the ensemble ET value, after
+           filtering for outliers using the median absolute deviation (mad)
         |||,
       },
       {
         name: 'et_ensemble_mad_index',
         description: |||
-           Bitmask indicating which models were included in the ensemble ET value,
-           after filtering for outliers using the median absolute deviation (mad)
+           Bitmask indicating which models were included in the ensemble ET
+           value, after filtering for outliers using the median absolute
+           deviation (mad)
         |||,
         'gee:bitmask': {
           bitmask_parts: [
@@ -194,7 +195,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'et_ensemble_sam',
         description: |||
-           The simple arithmetic mean (sam) of all six models in the OpenET model ensemble
+           The simple arithmetic mean (sam) of all six models in the OpenET
+           model ensemble
         |||,
         'gee:units': units.millimeter,
       },
@@ -203,8 +205,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'OpenET Ensemble Monthly ET',
         lookat: {
-          lat: 38.0,
-          lon: -100.0,
+          lat: 38,
+          lon: -100,
           zoom: 5,
         },
         image_visualization: {
@@ -213,7 +215,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              1400.0,
+              1400,
             ],
             palette: [
               '9e6212',
@@ -247,16 +249,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
-    Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,
-    Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,
-    volk, J., Hain, C., Johnson, L., Ruhoff, A., Blanenau, P., Bromley, M.,
-    Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,
-    A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,
-    B., Morton, C., Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang,
-    T., Yang, Y., Anderson, R., 2021.  OpenET: Filling a Critical Data Gap in
-    Water Management for the Western United States.  Journal of the American
-    Water Resources Association, 2021 Nov 2.
-    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
+      Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison,
+      D., Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A.,
+      Senay, G., volk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P.,
+      Bromley, M., Carrara, W., Daudert, B., Doherty, C., Dunkerly, C.,
+      Friedrichs, M., Guzman, A., Halverson, G., Hansen, J., Harding, J.,
+      Kang, Y., Ketchum, D., Minor, B., Morton, C., Revelle, P.,
+      Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang, T., Yang, Y
+      ., Anderson, R., 2021. OpenET: Filling a Critical Data Gap in Water
+      Management for the Western United States. Journal of the American Water
+      Resources Association, 2021 Nov 2.
+      [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,
   'gee:interval': {
     type: 'cadence',
