@@ -145,7 +145,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '',
+  'sci:doi': '10.1016/j.isprsjprs.2021.05.018',
   'sci:citation': |||
     Laipelt, L., Kayser, R.H.B., Fleischmann, A.S., Ruhoff, A., Bastiaanssen,
     W., Erickson, T.A. and Melton, F., 2021. Long-term monitoring of
