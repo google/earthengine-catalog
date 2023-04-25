@@ -11,11 +11,11 @@ var upstreamDrainageArea = ee.Image().byte().paint({
 Map.setCenter(-43.50, -24.70, 6);
 
 // Create a viridis colormap.
-var viridis = ['#481567FF', '#482677FF', '#453781FF', '#404788FF',
-               '#39568CFF', '#33638DFF', '#2D708EFF', '#287D8EFF',
-               '#238A8DFF', '#1F968BFF', '#20A387FF', '#29AF7FFF',
-               '#3CBB75FF', '#55C667FF', '#73D055FF', '#95D840FF',
-               '#B8DE29FF', '#DCE319FF', '#FDE725FF'];
+var viridis = ['481567FF', '482677FF', '453781FF', '404788FF',
+               '39568CFF', '33638DFF', '2D708EFF', '287D8EFF',
+               '238A8DFF', '1F968BFF', '20A387FF', '29AF7FFF',
+               '3CBB75FF', '55C667FF', '73D055FF', '95D840FF',
+               'B8DE29FF', 'DCE319FF', 'FDE725FF'];
 
 // View the continent of South America.
 var region = ee.Geometry.BBox(-80, -60, -20, 20);
