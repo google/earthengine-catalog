@@ -91,14 +91,6 @@ class ValidVisualizationsImageTest(test_utils.NodeTest):
             'image_visualization': {'band_vis': {
                 'bands': ['B1'], 'palette': ['000088', 'ffffff']}}}]}})
 
-  def test_palette_hex_with_alpha(self):
-    self.assert_collection({'summaries': {
-        'eo:bands': [{'name': 'B1'}],
-        'gee:visualizations': [{
-            'display_name': 'Display name',
-            'image_visualization': {'band_vis': {
-                'bands': ['B1'], 'palette': ['ff000088', 'ff8800ff']}}}]}})
-
   def test_palette_color_names(self):
     self.assert_collection({'summaries': {
         'eo:bands': [{'name': 'B1'}],
@@ -441,9 +433,19 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
                     'bands': ['B1'],
                     'min': [1],
                     'palette': ['red', 'bogus']}}}]}},
-        'color must be a 6 (or 8) character hex or color name - '
+        'color must be a 6 character hex or color name - '
         'found "bogus"',
         gee_type=IMAGE_COLLECTION)
+
+  def test_palette_hex_with_alpha(self):
+    self.assert_collection(
+        {'summaries': {
+            'eo:bands': [{'name': 'B1'}],
+            'gee:visualizations': [{
+                'display_name': 'Display name',
+                'image_visualization': {'band_vis': {
+                    'bands': ['B1'], 'palette': ['violet', 'ff000088']}}}]}},
+        'color must be a 6 character hex or color name - found "ff000088"')
 
   def test_palette_color_name_and_hex(self):
     self.assert_collection(

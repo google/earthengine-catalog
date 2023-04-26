@@ -304,12 +304,12 @@ class Check(stac.NodeCheck):
           for color in palette_list:
             if color in COLOR_NAMES:
               have_name = True
-            elif re.fullmatch(r'[0-9a-f]{6}([0-9a-f]{2})?', color):
+            elif re.fullmatch(r'[0-9a-f]{6}', color):
               have_hex = True
             else:
               yield cls.new_issue(
                   node,
-                  'color must be a 6 (or 8) character hex or ' +
+                  'color must be a 6 character hex or ' +
                   f'color name - found "{color}"')
           if have_name and have_hex:
             yield cls.new_issue(

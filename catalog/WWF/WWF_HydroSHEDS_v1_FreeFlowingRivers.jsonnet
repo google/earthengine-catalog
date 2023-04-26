@@ -332,7 +332,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           zoom: 12,
         },
         table_visualization: {
-          color: 'B2B2B3',
+          color: 'b2b2b3',
           width: 1.0,
         },
       },

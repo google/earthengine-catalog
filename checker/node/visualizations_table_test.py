@@ -142,7 +142,7 @@ class ErrorVisualizationsTableTest(test_utils.NodeTest):
         {'summaries': {
             'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{
                 'table_visualization': {'color': 'fff'}}]}},
-        'color must be a 6 (or 8) character hex or color name - found "fff"',
+        'color must be a 6 character hex or color name - found "fff"',
         gee_type=TABLE)
 
   def test_fill_color_not_str(self):

@@ -123,11 +123,11 @@ class Check(stac.NodeCheck):
         if not isinstance(color, str):
           yield cls.new_issue(node, f'{COLOR} must be a str')
         else:
-          if not re.fullmatch(r'[0-9a-fA-F]{6}([0-9a-fA-F]{2})?', color):
+          if not re.fullmatch(r'[0-9a-f]{6}', color):
             if color not in COLOR_NAMES:
               yield cls.new_issue(
                   node,
-                  f'{COLOR} must be a 6 (or 8) character hex or color name - ' +
+                  f'{COLOR} must be a 6 character hex or color name - ' +
                   f'found "{color}"')
 
       if FILL_COLOR in table_visualization:
@@ -135,6 +135,7 @@ class Check(stac.NodeCheck):
         if not isinstance(fill_color, str):
           yield cls.new_issue(node, f'{FILL_COLOR} must be a str')
         else:
+          # TODO(schwehr): Does transparency work?
           if not re.fullmatch(r'[0-9a-fA-F]{6}([0-9a-fA-F]{2})?', fill_color):
             if fill_color not in COLOR_NAMES:
               yield cls.new_issue(
