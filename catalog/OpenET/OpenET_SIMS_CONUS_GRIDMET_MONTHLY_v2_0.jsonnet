@@ -1,5 +1,6 @@
 local id = 'OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0';
 local subdir = 'OpenET';
+local version = '2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -23,8 +24,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS SIMS Monthly Evapotranspiration v2.0',
-  version: '2.0',
+  title: 'OpenET CONUS SIMS Monthly Evapotranspiration v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Satellite Irrigation Management Support
@@ -109,37 +110,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              1400,
-            ],
+            min: [0],
+            max: [1400],
             palette: [
-              '9e6212',
-              'ac7d1d',
-              'ba9829',
-              'c8b434',
-              'd6cf40',
-              'bed44b',
-              '9fcb51',
-              '80c256',
-              '61b95c',
-              '42b062',
-              '45b677',
-              '49bc8d',
-              '4dc2a2',
-              '51c8b8',
-              '55cece',
-              '4db4ba',
-              '459aa7',
-              '3d8094',
-              '356681',
-              '2d4c6e',
+              '9e6212', 'ac7d1d', 'ba9829', 'c8b434', 'd6cf40', 'bed44b',
+              '9fcb51', '80c256', '61b95c', '42b062', '45b677', '49bc8d',
+              '4dc2a2', '51c8b8', '55cece', '4db4ba', '459aa7', '3d8094',
+              '356681', '2d4c6e',
             ],
-            bands: [
-              'et',
-            ],
+            bands: ['et'],
           },
         },
       },

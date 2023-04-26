@@ -1,5 +1,6 @@
 local id = 'OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0';
 local subdir = 'OpenET';
+local version = '2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,8 +22,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS Ensemble Monthly Evapotranspiration v2.0',
-  version: '2.0',
+  title: 'OpenET CONUS Ensemble Monthly Evapotranspiration v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The OpenET dataset includes satellite-based data on the total amount of
@@ -194,10 +195,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'et_ensemble_sam',
-        description: |||
-           The simple arithmetic mean (sam) of all six models in the OpenET
-           model ensemble
-        |||,
+        description:
+           'The simple arithmetic mean (sam) of all six models in the OpenET' +
+           'model ensemble',
         'gee:units': units.millimeter,
       },
     ],
@@ -211,37 +211,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              1400,
-            ],
+            min: [0],
+            max: [1400],
             palette: [
-              '9e6212',
-              'ac7d1d',
-              'ba9829',
-              'c8b434',
-              'd6cf40',
-              'bed44b',
-              '9fcb51',
-              '80c256',
-              '61b95c',
-              '42b062',
-              '45b677',
-              '49bc8d',
-              '4dc2a2',
-              '51c8b8',
-              '55cece',
-              '4db4ba',
-              '459aa7',
-              '3d8094',
-              '356681',
-              '2d4c6e',
+              '9e6212', 'ac7d1d', 'ba9829', 'c8b434', 'd6cf40', 'bed44b',
+              '9fcb51', '80c256', '61b95c', '42b062', '45b677', '49bc8d',
+              '4dc2a2', '51c8b8', '55cece', '4db4ba', '459aa7', '3d8094',
+              '356681', '2d4c6e',
             ],
-            bands: [
-              'et_ensemble_mad',
-            ],
+            bands: ['et_ensemble_mad'],
           },
         },
       },
@@ -249,17 +227,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.1111/1752-1688.12956',
   'sci:citation': |||
-      Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison,
-      D., Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A.,
-      Senay, G., volk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P.,
-      Bromley, M., Carrara, W., Daudert, B., Doherty, C., Dunkerly, C.,
-      Friedrichs, M., Guzman, A., Halverson, G., Hansen, J., Harding, J.,
-      Kang, Y., Ketchum, D., Minor, B., Morton, C., Revelle, P.,
-      Ortega-Salazar, S., Ott, T., Ozdogon, M., Schull, M., Wang, T., Yang, Y
-      ., Anderson, R., 2021. OpenET: Filling a Critical Data Gap in Water
-      Management for the Western United States. Journal of the American Water
-      Resources Association, 2021 Nov 2.
-      [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
+    Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,
+    Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,
+    volk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P., Bromley, M.,
+    Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,
+    A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,
+    B., Morton, C., Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M.,
+    Schull, M., Wang, T., Yang, Y., Anderson, R., 2021. OpenET: Filling a
+    Critical Data Gap in Water Management for the Western United States.
+    Journal of the American Water Resources Association, 2021 Nov 2.
+    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
   |||,
   'gee:interval': {
     type: 'cadence',
