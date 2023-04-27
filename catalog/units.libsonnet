@@ -131,6 +131,9 @@
   // https://en.wikipedia.org/wiki/Salinity
   practical_salinity_unit: 'psu',
 
+  // https://en.wikipedia.org/wiki/Pressure
+  pressure_si: 'N/m^2',
+
   // https://en.wikipedia.org/wiki/Radians
   radian: 'rad',
 

@@ -305,12 +305,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Momentum_flux_u-component_surface_3_Hour_Average',
         description: 'Momentum flux, u-component 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'Momentum_flux_v-component_surface_3_Hour_Average',
         description: 'Momentum flux, u-component 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'Plant_Canopy_Surface_Water_surface',

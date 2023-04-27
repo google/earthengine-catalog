@@ -192,7 +192,6 @@ UNITS = units.UNITS.union({
     'Mg C/ha',
     'Mg ha^-1',
     'Mg/ha',
-    'N/m^2',
     'NFDRS fire danger index',
     'Number of people/ha',
     'Number of upstream pixels',

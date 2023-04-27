@@ -239,22 +239,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TAUGWX',
         description: 'Surface eastward gravity wave stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TAUGWY',
         description: 'Surface northward gravity wave stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TAUX',
         description: 'Eastward surface stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TAUY',
         description: 'Northward surface stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TCZPBL',
