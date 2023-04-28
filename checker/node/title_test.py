@@ -16,7 +16,11 @@ class CatalogTest(test_utils.NodeTest):
     self.check = title.Check
 
   def test_valid(self):
-    dataset_id = 'ValidCatalogTitle'
+    dataset_id = 'Valid_Catalog-Title42'
+    self.assert_catalog({TITLE: dataset_id}, dataset_id=dataset_id)
+
+  def test_valid_project_style(self):
+    dataset_id = 'nonlinear-rocket'
     self.assert_catalog({TITLE: dataset_id}, dataset_id=dataset_id)
 
   def test_exception(self):

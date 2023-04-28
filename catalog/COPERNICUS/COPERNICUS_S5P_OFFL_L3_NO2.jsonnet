@@ -145,7 +145,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
           Effective cloud fraction.
           See the [Sentinel 5P L2 Input/Output Data Definition Spec](https://sentinels.copernicus.eu/documents/247904/3119978/Sentinel-5P-Level-2-Input-Output-Data-Definition), p.220.
         |||,
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'sensor_altitude',

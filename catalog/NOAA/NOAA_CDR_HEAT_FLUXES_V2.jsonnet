@@ -4,6 +4,7 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -66,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           change in phase of matter, e.g. evaporation of water at the surface and
           subsequent condensation of water vapor in the troposphere
         |||,
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'surface_upward_sensible_heat_flux',
@@ -74,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Flux of heat from the Earth's surface to the atmosphere which causes a
           change in air temperature, primarily through conduction and convection
         |||,
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'fill_missing_qc',

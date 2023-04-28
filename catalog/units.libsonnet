@@ -18,6 +18,9 @@
 // TODO(b/198646525): Flush out the rest of the units
 
 {
+  // https://en.wikipedia.org/wiki/Acceleration
+  acceleration_si: 'm/s^2',
+
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
 
@@ -81,6 +84,10 @@
   // Unused: kilogram: 'kg',
   gigagrams: 'Gg',
 
+  // https://en.wikipedia.org/wiki/Convective_available_potential_energy (CAPE)
+  // https://en.wikipedia.org/wiki/Specific_energy
+  joules_per_kg: 'J/kg',
+
   // https://simple.wikipedia.org/wiki/Knot_(speed)
   knot: 'kt',
 
@@ -124,17 +131,31 @@
   // https://en.wikipedia.org/wiki/Salinity
   practical_salinity_unit: 'psu',
 
+  // https://en.wikipedia.org/wiki/Pressure
+  pressure_si: 'N/m^2',
+
   // https://en.wikipedia.org/wiki/Radians
   radian: 'rad',
 
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
 
+  // https://en.wikipedia.org/wiki/Fraction
+  unspecified_fraction: '1 (unspecified fraction)',
+
   // https://en.wikipedia.org/wiki/Velocity
   velocity_si: 'm/s',
 
   // https://en.wikipedia.org/wiki/Volume_fraction
   volume_fraction: '1 (volume fraction)',
+
+  // https://en.wikipedia.org/wiki/Watt
+  // Unused: watt: 'w',
+  megawatt: 'MW',
+
+  // https://en.wikipedia.org/wiki/Irradiance
+  // https://en.wikipedia.org/wiki/Flux
+  watt_per_meter_squared: 'W/m^2',
 
   // https://en.wikipedia.org/wiki/Year
   year: 'a',

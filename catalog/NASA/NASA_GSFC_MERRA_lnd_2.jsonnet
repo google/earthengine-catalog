@@ -80,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ECHANGE',
         description: 'Rate of change of total land energy',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'EVLAND',
@@ -90,22 +90,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'EVPINTR',
         description: 'Interception loss energy flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'EVPSBLN',
         description: 'Snow ice evaporation energy flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'EVPSOIL',
         description: 'Baresoil evaporation energy flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'EVPTRNS',
         description: 'Transpiration energy flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'FRSAT',
@@ -126,7 +126,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'GHLAND',
         description: 'Ground heating land',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'GRN',
@@ -151,24 +151,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'LHLAND',
         description: 'Latent heat flux land',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'LWLAND',
         description: 'Net longwave land',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'PARDFLAND',
         description: |||
           Surface downwelling photosynthetic active radiation diffuse flux
         |||,
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'PARDRLAND',
         description: 'Surface downwelling par beam flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'PRECSNOLAND',
@@ -208,7 +208,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SHLAND',
         description: 'Sensible heat flux land',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'SMLAND',
@@ -228,12 +228,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SPLAND',
         description: 'Rate of spurious land energy source',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'SPSNOW',
         description: 'Rate of spurious snow energy',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'SPWATR',
@@ -243,7 +243,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SWLAND',
         description: 'Net shortwave land',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'TELAND',

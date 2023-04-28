@@ -77,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'BSTAR',
         description: 'Surface buoyancy scale',
-        'gee:units': 'm/s^2',
+        'gee:units': units.acceleration_si,
       },
       {
         name: 'CDH',
@@ -106,7 +106,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'EFLUX',
         description: 'Total latent energy flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'EVAP',
@@ -132,12 +132,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'GHTSKIN',
         description: 'Ground heating for skin temperature',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'HFLUX',
         description: 'Sensible heat flux from turbulence',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'HLML',
@@ -147,12 +147,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'NIRDF',
         description: 'Surface downwelling nearinfrared diffuse flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'NIRDR',
         description: 'Surface downwelling nearinfrared beam flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'PBLH',
@@ -239,22 +239,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TAUGWX',
         description: 'Surface eastward gravity wave stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TAUGWY',
         description: 'Surface northward gravity wave stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TAUX',
         description: 'Eastward surface stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TAUY',
         description: 'Northward surface stress',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'TCZPBL',

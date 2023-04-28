@@ -99,7 +99,7 @@ local license = spdx.cc_by_4_0;
           zoom: 17,
         },
         table_visualization: {
-          color: 'ffffffff',
+          color: 'ffffff',
           fill_color: 'ffffff88',
         },
       },

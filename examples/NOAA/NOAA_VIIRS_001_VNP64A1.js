@@ -4,9 +4,9 @@ var visualization = {
   min: 250.0,
   max: 320.0,
   palette: [
-    '#000080','#0000D9','#4000FF','#8000FF','#0080FF','#00FFFF',
-    '#00FF80','#80FF00','#DAFF00','#FFFF00','#FFF500','#FFDA00',
-    '#FFB000','#FFA400','#FF4F00','#FF2500','#FF0A00','#FF00FF',
+    '000080', '0000d9', '4000ff', '8000ff', '0080ff', '00ffff',
+    '00ff80', '80ff00', 'daff00', 'ffff00', 'fff500', 'ffda00',
+    'ffb000', 'ffa400', 'ff4f00', 'ff2500', 'ff0a00', 'ff00ff',
   ]
 };
 

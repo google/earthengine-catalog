@@ -173,7 +173,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         table_visualization: {
           color: '0000be',
           width: 3.0,
-          fill_color: '5885E3',
+          fill_color: '5885e3',
         },
       },
       {

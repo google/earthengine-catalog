@@ -128,7 +128,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'longwave_radiation',
         description: 'Surface downward longwave radiation',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'convective_fraction',
@@ -137,7 +137,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'potential_energy',
         description: 'Convective available potential energy (J/kg): from NARR',
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'potential_evaporation',
@@ -152,7 +152,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'shortwave_radiation',
         description: 'Surface downward shortwave radiation - bias corrected',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
     ],
     'gee:visualizations': [

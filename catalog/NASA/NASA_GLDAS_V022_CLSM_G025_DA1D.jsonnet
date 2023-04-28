@@ -147,22 +147,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Lwnet_tavg',
         description: 'Net long-wave radiation flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qg_tavg',
         description: 'Heat flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qh_tavg',
         description: 'Sensible heat net flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qle_tavg',
         description: 'Latent heat net flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qsb_tavg',
@@ -212,7 +212,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Swnet_tavg',
         description: 'Net short wave radiation flux',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'TVeg_tavg',

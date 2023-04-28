@@ -244,7 +244,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'cloud_fraction',
         description: 'Retrieved effective radiometric cloud fraction',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'cloud_top_pressure',

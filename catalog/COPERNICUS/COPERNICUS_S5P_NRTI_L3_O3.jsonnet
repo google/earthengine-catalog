@@ -266,7 +266,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Effective cloud fraction.  See the [Sentinel 5P L2 Input/Output Data Definition Spec](https://sentinels.copernicus.eu/documents/247904/3119978/Sentinel-5P-Level-2-Input-Output-Data-Definition),
           p.220.
         |||,
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
     ] + COPERNICUS_S5P.bands_common,
     'gee:visualizations': [

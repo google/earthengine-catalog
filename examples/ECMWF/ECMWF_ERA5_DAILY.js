@@ -40,9 +40,9 @@ var era5_sp = era5_sp.map(function(image) {
 
 // Visualization palette for total precipitation
 var visTp = {
-  min: 0,
+  min: 0.0,
   max: 0.1,
-  palette: ['#FFFFFF', '#00FFFF', '#0080FF', '#DA00FF', '#FFA400', '#FF0000']
+  palette: ['ffffff', '00ffff', '0080ff', 'da00ff', 'ffa400', 'ff0000']
 };
 
 // Visualization palette for temperature (mean, min and max) and 2m dewpoint
@@ -51,9 +51,9 @@ var vis2mt = {
   min: 250,
   max: 320,
   palette: [
-    '#000080', '#0000D9', '#4000FF', '#8000FF', '#0080FF', '#00FFFF', '#00FF80',
-    '#80FF00', '#DAFF00', '#FFFF00', '#FFF500', '#FFDA00', '#FFB000', '#FFA400',
-    '#FF4F00', '#FF2500', '#FF0A00', '#FF00FF'
+    '000080', '0000d9', '4000ff', '8000ff', '0080ff', '00ffff', '00ff80',
+    '80ff00', 'daff00', 'ffff00', 'fff500', 'ffda00', 'ffb000', 'ffa400',
+    'ff4f00', 'ff2500', 'ff0a00', 'ff00ff'
   ]
 };
 
@@ -62,8 +62,8 @@ var visWind = {
   min: 0,
   max: 30,
   palette: [
-    '#FFFFFF', '#FFFF71', '#DEFF00', '#9EFF00', '#77B038', '#007E55', '#005F51',
-    '#004B51', '#013A7B', '#023AAD'
+    'ffffff', 'ffff71', 'deff00', '9eff00', '77b038', '007e55', '005f51',
+    '004b51', '013a7b', '023aad'
   ]
 };
 
@@ -73,7 +73,7 @@ var visPressure = {
   min: 500,
   max: 1150,
   palette: [
-    '#01FFFF', '#058BFF', '#0600FF', '#DF00FF', '#FF00FF', '#FF8C00', '#FF8C00'
+    '01ffff', '058bff', '0600ff', 'df00ff', 'ff00ff', 'ff8c00', 'ff8c00'
   ]
 };
 

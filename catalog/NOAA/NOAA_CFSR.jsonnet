@@ -99,7 +99,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Canopy_water_evaporation_surface_3_Hour_Average',
         description: 'Canopy water evaporation 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Categorical_Rain_surface',
@@ -129,27 +129,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Clear_Sky_Downward_Long_Wave_Flux_surface_3_Hour_Average',
         description: 'Clear Sky Downward Long Wave Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Clear_Sky_Downward_Solar_Flux_surface_3_Hour_Average',
         description: 'Clear Sky Downward Solar Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Clear_Sky_Upward_Long_Wave_Flux_surface_3_Hour_Average',
         description: 'Clear Sky Upward Long Wave Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Clear_Sky_Upward_Solar_Flux_atmosphere_top_3_Hour_Average',
         description: 'Clear Sky Upward Solar Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Clear_sky_UV-B_Downward_Solar_Flux_surface_3_Hour_Average',
         description: 'Clear Sky UV-B Downward Solar Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Cloud_water_entire_atmosphere_single_layer',
@@ -159,12 +159,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Cloud_Work_Function_entire_atmosphere_single_layer_3_Hour_Average',
         description: 'Cloud work function 3 hour average at entire atmosphere layer for 03 forecast',
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'Convective_available_potential_energy_surface',
         description: 'Convective available potential energy at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'Convective_available_potential_energy_pressure_difference_layer',
@@ -172,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Convective available potential energy at specified pressure difference from
           ground to level layer for 03 forecast
         |||,
-        'gee:units': 'J/kg',
+        'gee:units': units.joules_per_kg,
       },
       {
         name: 'Convective_Precipitation_Rate_surface_3_Hour_Average',
@@ -187,27 +187,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Direct_Evaporation_from_Bare_Soil_surface_3_Hour_Average',
         description: 'Direct evaporation from bare soil surface 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Downward_Long-Wave_Radp_Flux_surface',
         description: 'Downward Long-Wave Rad. Flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Downward_Long-Wave_Radp_Flux_surface_3_Hour_Average',
         description: 'Downward Long-Wave Rad. Flux  3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Downward_Short-Wave_Radiation_Flux_surface',
         description: 'Downward Short-Wave Radiation Flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Downward_Short-Wave_Radiation_Flux_surface_3_Hour_Average',
         description: 'Downward Short-Wave Radiation Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Downward_Short-Wave_Radiation_Flux_atmosphere_top_3_Hour_Average',
@@ -215,7 +215,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Downward Short-Wave Radiation Flux atmosphere top 3 hour average at
           ground or water surface for 03 forecast
         |||,
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Exchange_Coefficient_surface',
@@ -230,12 +230,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Ground_Heat_Flux_surface',
         description: 'Ground Heat Flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Ground_Heat_Flux_surface_3_Hour_Average',
         description: 'Ground Heat Flux 4 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Ice_cover_surface',
@@ -255,12 +255,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Latent_heat_net_flux_surface',
         description: 'Latent heat net flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Latent_heat_net_flux_surface_3_Hour_Average',
         description: 'Latent heat net flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Liquid_Volumetric_Soil_Moisture_non_Frozen_depth_below_surface_layer_5_cm',
@@ -305,12 +305,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Momentum_flux_u-component_surface_3_Hour_Average',
         description: 'Momentum flux, u-component 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'Momentum_flux_v-component_surface_3_Hour_Average',
         description: 'Momentum flux, u-component 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'N/m^2',
+        'gee:units': units.pressure_si,
       },
       {
         name: 'Plant_Canopy_Surface_Water_surface',
@@ -325,12 +325,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Potential_Evaporation_Rate_surface',
         description: 'Potential Evaporation Rate at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Potential_Evaporation_Rate_surface_3_Hour_Average',
         description: 'Potential Evaporation Rate 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Precipitation_rate_surface_3_Hour_Average',
@@ -370,12 +370,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Sensible_heat_net_flux_surface',
         description: 'Sensible heat net flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Sensible_heat_net_flux_surface_3_Hour_Average',
         description: 'Sensible heat net flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Snow_Cover_surface_3_Hour_Average',
@@ -390,7 +390,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Snow_Phase_Change_Heat_Flux_surface_3_Hour_Average',
         description: 'Snow phase change hear flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Soil_moisture_content_depth_below_surface_layer',
@@ -410,7 +410,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Sublimation_evaporation_from_snow_surface_3_Hour_Average',
         description: 'Sublimation (evaporation from snow) 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Specific_humidity_height_above_ground',
@@ -480,42 +480,42 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Transpiration_surface_3_Hour_Average',
         description: 'Transpiration surface 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Long-Wave_Radp_Flux_surface',
         description: 'Upward Long-Wave Rad. Flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Long-Wave_Radp_Flux_surface_3_Hour_Average',
         description: 'Upward Long-Wave Radiation Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Long-Wave_Radp_Flux_atmosphere_top_3_Hour_Average',
         description: 'Upward Long-Wave Radiation Flux 3 hour average at nominal top of the atmosphere for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Short-Wave_Radiation_Flux_surface',
         description: 'Upward Short-Wave Radiation Flux at ground or water surface for 00 and 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Short-Wave_Radiation_Flux_surface_3_Hour_Average',
         description: 'Upward Short-Wave Radiation Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Upward_Short-Wave_Radiation_Flux_atmosphere_top_3_Hour_Average',
         description: 'Upward Short-Wave Radiation Flux 3 hour average at nominal top of the atmosphere for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'UV-B_Downward_Solar_Flux_surface_3_Hour_Average',
         description: 'UV-B Downward Solar Flux 3 hour average at ground or water surface for 03 forecast',
-        'gee:units': 'W/m^2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Vegetation_surface',
@@ -530,22 +530,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_5_cm',
         description: 'Volumetric soil moisture content 5cm below surface layer for 00 and 03 forecast',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_25_cm',
         description: 'Volumetric soil moisture content 25cm below surface layer for 00 and 03 forecast',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_70_cm',
         description: 'Volumetric soil moisture content 70cm below surface layer for 00 and 03 forecast',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Volumetric_Soil_Moisture_Content_depth_below_surface_layer_150_cm',
         description: 'Volumetric soil moisture content 150cm below surface layer for 00 and 03 forecast',
-        'gee:units': 'fraction',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'Water_equivalent_of_accumulated_snow_depth_surface',

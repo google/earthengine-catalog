@@ -10,7 +10,11 @@ from typing import Iterator
 
 from checker import stac
 
+<<<<<<< HEAD
 CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP', 'planet-nicfi', 'ngis-cat'})
+=======
+CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP'})
+>>>>>>> main
 COLLECTION_EXCEPTION_IDS = frozenset({
     'ISDASOIL/Africa/v1/aluminium_extractable',
     'ISDASOIL/Africa/v1/bedrock_depth',
@@ -70,7 +74,7 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, message, stac.IssueLevel.WARNING)
 
       if node.id not in CATALOG_EXCEPTIONS_IDS:
-        if not re.fullmatch('[A-Z][-_a-zA-Z0-9]{1,30}', title):
+        if not re.fullmatch('[a-zA-Z][-_a-zA-Z0-9]{1,30}', title):
           yield cls.new_issue(node, f'Catalog {TITLE} not valid: "{title}"')
       return
 

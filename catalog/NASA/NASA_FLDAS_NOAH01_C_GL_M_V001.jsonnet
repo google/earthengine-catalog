@@ -95,12 +95,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'LWdown_f_tavg',
         description: 'Downward longwave radiation flux',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Lwnet_tavg',
         description: 'Net longwave radiation flux',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Psurf_f_tavg',
@@ -115,17 +115,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Qg_tavg',
         description: 'Soil heat flux',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qh_tavg',
         description: 'Sensible heat net flux',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qle_tavg',
         description: 'Latent heat net flux',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Qs_tavg',
@@ -204,7 +204,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SWdown_f_tavg',
         description: 'Surface downward shortwave radiation',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'SWE_inst',
@@ -214,7 +214,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Swnet_tavg',
         description: 'Net shortwave radiation flux',
-        'gee:units': 'W m-2',
+        'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'Tair_f_tavg',
