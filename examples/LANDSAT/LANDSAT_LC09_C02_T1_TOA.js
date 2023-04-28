@@ -6,4 +6,4 @@ var trueColor432Vis = {
   max: 0.4,
 };
 Map.setCenter(6.746, 46.529, 6);
-Map.addLayer(trueColor432, trueColor432Vis, 'True Color (432)')
+Map.addLayer(trueColor432, trueColor432Vis, 'True Color (432)');

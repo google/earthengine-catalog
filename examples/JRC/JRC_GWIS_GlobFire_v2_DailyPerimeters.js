@@ -10,22 +10,23 @@ ee.data.listAssets(folder, {}, printAssetList);
 // Define a table name (table id) identified from the list of available tables.
 var tableName = 'JRC/GWIS/GlobFire/v2/DailyPerimeters/2020';
 
-var computeArea = function (f) {
+var computeArea = function(f) {
   return f.set({'area': f.area()});
-}
+};
+
 // Import a selected table as a FeatureCollection.
 var features = ee.FeatureCollection(tableName).map(computeArea);
 
 // Visualization parameters for linear fire area gradient.
 var visParams = {
   palette: ['f5ff64', 'b5ffb4', 'beeaff', 'ffc0e8', '8e8dff', 'adadad'],
-  min: 0.0,
-  max: 600000000.0,
+  min: 0,
+  max: 600000000,
   opacity: 0.8,
 };
 
 // Paint fire perimeters to an image using computed fire area as the value property.
-var image = ee.Image().float().paint(features, 'area')
+var image = ee.Image().float().paint(features, 'area');
 
 // Display the image to the map (include features for exploring with Inspector).
 Map.addLayer(image, visParams, 'GlobFire 2020');
