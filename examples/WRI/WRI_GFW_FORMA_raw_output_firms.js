@@ -5,5 +5,5 @@ var visParams = {
   min: 0.0,
   max: 0.01,
 };
-Map.setCenter(25.73, -7.61, 2);
+Map.setCenter(26, -8, 3);
 Map.addLayer(percentageOfClearing, visParams, 'Percentage of clearing');
