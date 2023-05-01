@@ -46,9 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2012-01-29T00:00:00Z', '2012-01-29T00:00:00Z'),
   summaries: {
-    gsd: [
-      500.0,
-    ],
+    gsd: [500],
     'eo:bands': [
       {
         name: 'Mg',
@@ -56,61 +54,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.area_density_megagrams_per_hectare,
       },
     ],
+    Mg: {minimum: 0, maximum: 503, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
         display_name: 'Aboveground Live Woody Biomass',
-        lookat: {
-          lat: 0.35,
-          lon: -69.43,
-          zoom: 3,
-        },
+        lookat: {lat: 0.3, lon: -69.4, zoom: 3},
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              350.0,
-            ],
+            min: [0],
+            max: [350],
             palette: [
-              'ffffff',
-              'ce7e45',
-              'df923d',
-              'f1b555',
-              'fcd163',
-              '99b718',
-              '74a901',
-              '66a000',
-              '529400',
-              '3e8601',
-              '207401',
-              '056201',
-              '004c00',
-              '023b01',
-              '012e01',
-              '011d01',
-              '011301',
+              'ffffff', 'ce7e45', 'df923d', 'f1b555', 'fcd163', '99b718',
+              '74a901', '66a000', '529400', '3e8601', '207401', '056201',
+              '004c00', '023b01', '012e01', '011d01', '011301',
             ],
-            bands: [
-              'Mg',
-            ],
+            bands: ['Mg'],
           },
         },
       },
     ],
-    Mg: {
-      minimum: 0.0,
-      maximum: 503.0,
-      'gee:estimated_range': true,
-    },
   },
   'sci:citation': |||
     A. Baccini, S J. Goetz, W.S. Walker, N. T. Laporte, M. Sun, D.
-    Sulla-Menashe, J. Hackler, P.S.A. Beck, R. Dubayah, M.A. Friedl,
-    S. Samanta and R. A. Houghton. Estimated carbon dioxide emissions
-    from tropical deforestation improved by carbon-density maps. 2012
-    Nature Climate Change, [https://doi.org/10.1038/NCLIMATE1354]
-    (https://doi.org/10.1038/NCLIMATE1354)
+    Sulla-Menashe, J. Hackler, P.S.A. Beck, R. Dubayah, M.A. Friedl, S. Samanta
+    and R. A. Houghton. Estimated carbon dioxide emissions from tropical
+    deforestation improved by carbon-density maps. 2012 Nature Climate Change,
+    [doi:10.1038/NCLIMATE1354](https://doi.org/10.1038/NCLIMATE1354)
   |||,
   'gee:terms_of_use': |||
     - The national level dataset is freely available for use for
