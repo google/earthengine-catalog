@@ -56,6 +56,7 @@
 
   // https://en.wikipedia.org/wiki/Density
   density_si: 'kg/m^3',
+  density_mg_per_m_cubed: 'mg/m^3',
 
   // https://en.wikipedia.org/wiki/Hertz
   giga_hertz: 'GHz',

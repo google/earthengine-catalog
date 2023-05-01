@@ -221,8 +221,6 @@ UNITS = units.UNITS.union({
     'm^2/m^3',
     'meq/100g',
     'meter/year',
-    'mg m-3',
-    'mg/m^3',
     'min. into half hour',
     'minutes/meter',
     'mm, daily total',

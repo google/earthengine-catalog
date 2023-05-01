@@ -48,6 +48,7 @@ UNITS = frozenset({
     'm/s^2',
     'm^2',
     'mbar',
+    'mg/m^3',
     'min',
     'mm',
     'mm/d',

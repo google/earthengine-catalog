@@ -4,6 +4,7 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -226,12 +227,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'chlor_a',
         description: 'Chlorophyll a concentration',
-        'gee:units': 'mg m-3',
+        'gee:units': units.density_mg_per_m_cubed,
       },
       {
         name: 'poc',
         description: 'Particulate organic carbon',
-        'gee:units': 'mg m-3',
+        'gee:units': units.density_mg_per_m_cubed,
       },
       {
         name: 'Rrs_412',
