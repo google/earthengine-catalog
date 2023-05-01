@@ -22,6 +22,7 @@ UNITS = frozenset({
     'K',
     'M (nautical mile)',
     'MW',
+    'Mg/ha',
     'N/m^2',
     'Pa',
     'W/m^2',

@@ -23,6 +23,7 @@
 
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
+  area_density_megagrams_per_hectare: 'Mg/ha',
 
   // Unitless fraction of area covering an area.
   // Example: m^2 / m^2

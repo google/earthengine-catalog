@@ -4,6 +4,7 @@ local subdir = 'WHRC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -52,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Mg',
         description: 'Megagrams of aboveground live woody biomass per Hectare',
-        'gee:units': 'Mg/ha',
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
     ],
     'gee:visualizations': [

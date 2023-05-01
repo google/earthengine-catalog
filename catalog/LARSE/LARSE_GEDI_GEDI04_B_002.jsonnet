@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Mean aboveground biomass density (MU): Estimated mean AGBD for the
           1 km grid cell, including forest and non-forest.
         |||,
-        'gee:units': 'Mg ha^-1'
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
       {
         name: 'V1',
@@ -83,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Mean aboveground biomass density standard error (SE): Standard Error
           of the mean estimate, combining sampling and modeling uncertainty.
         |||,
-        'gee:units': 'Mg ha^-1'
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
       {
         name: 'PE',
