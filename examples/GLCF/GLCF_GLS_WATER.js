@@ -3,7 +3,7 @@ var water = dataset.select('water');
 var waterVis = {
   min: 1.0,
   max: 4.0,
-  palette: ['FAFAFA', '00C5FF', 'DF73FF', '828282', 'CCCCCC'],
+  palette: ['fafafa', '00c5ff', 'df73ff', '828282', 'cccccc'],
 };
 Map.setCenter(-79.3094, 44.5693, 8);
 Map.addLayer(water, waterVis, 'Water');

@@ -11,8 +11,8 @@ var visParams = {
       color: {
         property: 'WoodyHgt_Avg',
         mode: 'linear',
-        palette: ['00441B', '00682A', '37A055', '5DB96B',
-                  'AEDEA7', 'E7F6E2', 'F7FCF5'],
+        palette: ['00441b', '00682a', '37a055', '5db96b',
+                  'aedea7', 'e7f6e2', 'f7fcf5'],
         min: 0,
         max: 100
       }

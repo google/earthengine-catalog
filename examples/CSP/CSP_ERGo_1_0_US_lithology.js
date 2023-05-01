@@ -4,9 +4,9 @@ var lithologyVis = {
   min: 0.0,
   max: 20.0,
   palette: [
-    '356EFF', 'ACB6DA', 'D6B879', '313131', 'EDA800', '616161', 'D6D6D6',
-    'D0DDAE', 'B8D279', 'D5D378', '141414', '6DB155', '9B6D55', 'FEEEC9',
-    'D6B879', '00B7EC', 'FFDA90', 'F8B28C'
+    '356eff', 'acb6da', 'd6b879', '313131', 'eda800', '616161', 'd6d6d6',
+    'd0ddae', 'b8d279', 'd5d378', '141414', '6db155', '9b6d55', 'feeec9',
+    'd6b879', '00b7ec', 'ffda90', 'f8b28c'
   ],
 };
 Map.setCenter(-105.8636, 40.3439, 11);
