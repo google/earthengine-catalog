@@ -1,4 +1,6 @@
-var nidem = ee.ImageCollection('projects/ngis-cat/assets/DEA/NIDEM');
+var nidem = ee.Image('projects/ngis-cat/assets/DEA/NIDEM');
+
+print(nidem)
 
 var elevation = nidem.select('nidem');
 var elevationVis = {
