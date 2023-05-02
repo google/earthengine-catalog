@@ -49,6 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gridmet_derived',
     'landsat_derived',
     'monthly',
+    'openet',
     'water',
   ],
   providers: [
