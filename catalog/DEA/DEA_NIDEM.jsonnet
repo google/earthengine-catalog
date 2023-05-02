@@ -84,13 +84,18 @@ local self_url = catalog_subdir_url + base_filename;
         'gee:classes':[
           {
             color: '00ff00',
-            description: '25 m relative to Mean Sea Level',
+            description: 'above 25 m relative to Mean Sea Level',
             value: 1,
           },
           {
             color: 'ff0000',
-            description: '-25 m relative to Mean Sea Level',
+            description: 'below -25 m relative to Mean Sea Level',
             value: 2,
+          },
+          {
+            color: 'ffff00',
+            description: 'invalid elevation estimates',
+            value: 3,
           },
         ],
       },
