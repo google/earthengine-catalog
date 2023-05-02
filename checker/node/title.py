@@ -10,11 +10,8 @@ from typing import Iterator
 
 from checker import stac
 
-<<<<<<< HEAD
-CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP', 'planet-nicfi', 'ngis-cat'})
-=======
 CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP'})
->>>>>>> main
+
 COLLECTION_EXCEPTION_IDS = frozenset({
     'ISDASOIL/Africa/v1/aluminium_extractable',
     'ISDASOIL/Africa/v1/bedrock_depth',
