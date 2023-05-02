@@ -78,7 +78,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'nidem_mask',
         description: |||
-          Mask flag -25 m to 25 m relative to Mean Sea Level. 
+          Quality flag. 
           [Band details](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#details)
         |||,
         'gee:classes':[
