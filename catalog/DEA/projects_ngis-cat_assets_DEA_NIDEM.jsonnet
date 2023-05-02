@@ -1,5 +1,3 @@
-
-
 local id = 'DEA/NIDEM';
 local subdir = 'ngis-cat';
 
