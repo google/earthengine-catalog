@@ -11,7 +11,6 @@ from typing import Iterator
 from checker import stac
 
 CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP'})
-
 COLLECTION_EXCEPTION_IDS = frozenset({
     'ISDASOIL/Africa/v1/aluminium_extractable',
     'ISDASOIL/Africa/v1/bedrock_depth',
