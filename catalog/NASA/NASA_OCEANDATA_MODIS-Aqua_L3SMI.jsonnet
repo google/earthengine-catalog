@@ -326,7 +326,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'chlor_a',
         description: 'Chlorophyll a concentration',
-        'gee:units': 'mg m-3',
+        'gee:units': units.density_mg_per_m_cubed,
       },
       {
         name: 'nflh',
@@ -336,7 +336,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'poc',
         description: 'Particulate organic carbon',
-        'gee:units': 'mg m-3',
+        'gee:units': units.density_mg_per_m_cubed,
       },
       {
         name: 'Rrs_412',

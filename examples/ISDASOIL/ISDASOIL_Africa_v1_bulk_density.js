@@ -80,7 +80,7 @@ Map.addLayer(
     raw.select(3).sldStyle(stdev_20_50), {},
     "Bulk density, stdev visualization, 20-50 cm");
 
-var converted = raw.divide(100)
+var converted = raw.divide(100);
 
 var visualization = {min: 1, max: 1.5};
 

@@ -4,6 +4,7 @@ local subdir = 'JAXA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary {
   reference: 'https://gportal.jaxa.jp/gpr/index/eula?lang=en',
@@ -134,7 +135,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CHLA_AVE',
         description: 'Concentration of the green pigment (chlorophyll-a) in phytoplankton in sea surface layer.',
-        'gee:units': 'mg/m^3',
+        'gee:units': units.density_mg_per_m_cubed,
       },
       {
         name: 'CHLA_QA_flag',

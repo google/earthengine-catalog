@@ -18,7 +18,7 @@ var DQFVis = {
     'olive',           // Good quality fire free land
     'teal',            // Opaque cloud
                        // Bad surface type, sunglint, LZA threshold exceeded,
-    'darkslateblue',   // off earth, or missing input data
+    'darkslateblue',   // off Earth, or missing input data
     'lemonchiffon',    // Bad input data
     'burlywood'        // Algorithm failure
   ]};

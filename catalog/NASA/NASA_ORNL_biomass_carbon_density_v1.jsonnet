@@ -4,6 +4,7 @@ local subdir = 'NASA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -82,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           coarse woody debris that were once attached to living plants but have since been deposited
           and are no longer living.
         |||,
-        'gee:units': 'Mg C/ha',
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
       {
         name: 'agb_uncertainty',
@@ -91,7 +92,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           woody and herbaceous cover in 2010. Uncertainty represents the cumulative standard error
           that has been propagated through the harmonization process using summation in quadrature.
         |||,
-        'gee:units': 'Mg C/ha',
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
       {
         name: 'bgb',
@@ -101,7 +102,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           the earth's surface (roots). This does not include dead and/or dislocated root tissue, nor
           does it include soil organic matter.
         |||,
-        'gee:units': 'Mg C/ha',
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
       {
         name: 'bgb_uncertainty',
@@ -110,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           woody and herbaceous cover in 2010. Uncertainty represents the cumulative standard error
           that has been propagated through the harmonization process using summation in quadrature.
         |||,
-        'gee:units': 'Mg C/ha',
+        'gee:units': units.area_density_megagrams_per_hectare,
       },
     ],
     'gee:visualizations': [

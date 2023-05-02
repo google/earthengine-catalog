@@ -59,7 +59,7 @@ local units = import 'units.libsonnet';
     {
       name: 'agbd',
       description: 'Predicted aboveground biomass density',
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
@@ -67,7 +67,7 @@ local units = import 'units.libsonnet';
       description: |||
         Lower prediction interval (see "alpha" attribute for the level)
       |||,
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
@@ -75,7 +75,7 @@ local units = import 'units.libsonnet';
       description: |||
         Upper prediction interval (see "alpha" attribute for the level)
       |||,
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
@@ -83,7 +83,7 @@ local units = import 'units.libsonnet';
       description: |||
         Aboveground biomass density prediction standard error
       |||,
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
@@ -270,19 +270,19 @@ local units = import 'units.libsonnet';
       description: |||
         Above ground biomass density; Geolocation latitude lowestmode
       |||,
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
       name: 'agbd_pi_lower_aN',
       description: 'Above ground biomass density lower prediction interval',
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
       name: 'agbd_pi_upper_aN',
       description: 'Above ground biomass density upper prediction interval',
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
@@ -290,7 +290,7 @@ local units = import 'units.libsonnet';
       description: |||
         Aboveground biomass density prediction standard error
       |||,
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
@@ -298,19 +298,19 @@ local units = import 'units.libsonnet';
       description: |||
         Aboveground biomass density model prediction in transform space
       |||,
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
       name: 'agbd_t_pi_lower_aN',
       description: 'Lower prediction interval in transform space',
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {
       name: 'agbd_t_pi_upper_aN',
       description: 'Upper prediction interval in transform space',
-      'gee:units': 'Mg/ha',
+      'gee:units': units.area_density_megagrams_per_hectare,
       type:: ee_const.var_type.int,
     },
     {

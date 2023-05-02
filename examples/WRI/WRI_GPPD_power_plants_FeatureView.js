@@ -7,16 +7,16 @@ var visParams = {
     categories: [
       ['Coal', '000000'],
       ['Oil', '593704'],
-      ['Gas', 'BC80BD'],
-      ['Hydro', '0565A6'],
-      ['Nuclear', 'E31A1C'],
-      ['Solar', 'FF7F00'],
-      ['Waste', '6A3D9A'],
-      ['Wind', '5CA2D1'],
-      ['Geothermal', 'FDBF6F'],
-      ['Biomass', '229A00']
+      ['Gas', 'bc80bd'],
+      ['Hydro', '0565a6'],
+      ['Nuclear', 'e31a1c'],
+      ['Solar', 'ff7f00'],
+      ['Waste', '6a3d9a'],
+      ['Wind', '5ca2d1'],
+      ['Geothermal', 'fdbf6f'],
+      ['Biomass', '229a00']
     ],
-    defaultValue: 'FFFFFF'
+    defaultValue: 'ffffff'
   },
   rules: [
     {
