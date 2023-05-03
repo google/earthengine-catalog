@@ -11,14 +11,14 @@ var ic = ee.ImageCollection('TUBerlin/BigEarthNet/v1');
 
 var filtered = ic.filterBounds(geometry);
 
-var tiles = filtered.map(function(i) {
-  var labels = ee.List(i.get('labels'));
+var tiles = filtered.map(function(image) {
+  var labels = ee.List(image.get('labels'));
 
   var urban = labels.indexOf('Discontinuous urban fabric').gte(0);
   var highlight_urban = ee.Image(urban).toInt().multiply(1000);
 
-  return i.addBands(
-      {srcImg: i.select(['B4']).add(highlight_urban), overwrite: true});
+  return image.addBands(
+      {srcImg: image.select(['B4']).add(highlight_urban), overwrite: true});
 });
 
 var image = tiles.mosaic().clip(geometry);
