@@ -82,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Aerosols',
         center_wavelength: 0.4439,
         gsd: 60.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '443.9nm (S2A) / 442.3nm (S2B)',
       },
       {
@@ -90,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Blue',
         center_wavelength: 0.4966,
         gsd: 10.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '496.6nm (S2A) / 492.1nm (S2B)',
       },
       {
@@ -98,7 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Green',
         center_wavelength: 0.56,
         gsd: 10.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '560nm (S2A) / 559nm (S2B)',
       },
       {
@@ -106,7 +106,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Red',
         center_wavelength: 0.6645,
         gsd: 10.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '664.5nm (S2A) / 665nm (S2B)',
       },
       {
@@ -114,7 +114,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Red Edge 1',
         center_wavelength: 0.7039,
         gsd: 20.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '703.9nm (S2A) / 703.8nm (S2B)',
       },
       {
@@ -122,7 +122,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Red Edge 2',
         center_wavelength: 0.7402,
         gsd: 20.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '740.2nm (S2A) / 739.1nm (S2B)',
       },
       {
@@ -130,7 +130,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Red Edge 3',
         center_wavelength: 0.7825,
         gsd: 20.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '782.5nm (S2A) / 779.7nm (S2B)',
       },
       {
@@ -138,7 +138,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'NIR',
         center_wavelength: 0.8351,
         gsd: 10.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '835.1nm (S2A) / 833nm (S2B)',
       },
       {
@@ -146,7 +146,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Water vapor',
         center_wavelength: 0.945,
         gsd: 60.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '945nm (S2A) / 943.2nm (S2B)',
       },
       {
@@ -154,7 +154,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Cirrus',
         center_wavelength: 1.3735,
         gsd: 60.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '1373.5nm (S2A) / 1376.9nm (S2B)',
       },
       {
@@ -162,7 +162,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'SWIR 1',
         center_wavelength: 1.6137,
         gsd: 20.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '1613.7nm (S2A) / 1610.4nm (S2B)',
       },
       {
@@ -170,7 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'SWIR 2',
         center_wavelength: 2.2024,
         gsd: 20.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '2202.4nm (S2A) / 2185.7nm (S2B)',
       },
       {
@@ -178,7 +178,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Red Edge 4',
         center_wavelength: 0.8648,
         gsd: 20.0,
-        'gee:scale': 0.0001,
+        'gee:scale': 0.001,
         'gee:wavelength': '864.8nm (S2A) / 864nm (S2B)',
       },
     ],
