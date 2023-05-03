@@ -37,6 +37,10 @@ local license = spdx.cc_by_4_0;
     for this Version 1.9 update, as well as the associated journal article:
     Hansen, Potapov, Moore, Hancher et al. "High-resolution global maps of
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
+        
+    Note that updated versions of this data are available. The newest version,
+    Version 1.10 (produced with data through 2022), is available as
+    UMD/hansen/global_forest_change_2022_v1_10.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
