@@ -9,6 +9,6 @@ var lcms = dataset
 
 Map.addLayer(lcms.select('Land_Cover'), {}, 'Land Cover');
 Map.addLayer(lcms.select('Land_Use'), {}, 'Land Use');
-Map.addLayer(lcms.select('Change'), {}, 'Change');
+Map.addLayer(lcms.select('Change'), {}, 'Thematic Change');
 
 Map.setCenter(-98.58, 38.14, 4);

@@ -588,23 +588,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'dnb',
-        lookat: {
-          lat: 7.71,
-          lon: 17.93,
-          zoom: 2,
-        },
+        display_name: 'Day-Night Band (DNB) at sensor radiance 500m',
+        lookat: {lat: -79.4, lon: 43.1, zoom: 8},
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              100.0,
-            ],
-            bands: [
-              'DNB_At_Sensor_Radiance_500m',
-            ],
+            min: [0],
+            max: [100],
+            bands: ['DNB_At_Sensor_Radiance_500m'],
           },
         },
       },

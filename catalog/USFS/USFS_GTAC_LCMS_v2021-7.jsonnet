@@ -1,4 +1,5 @@
 local id = 'USFS/GTAC/LCMS/v2021-7';
+local version = '2021.7';
 local latest_id = id;
 local predecessor_id = 'USFS/GTAC/LCMS/v2020-5';
 local subdir = 'USFS';
@@ -25,32 +26,39 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Landscape Change Monitoring System v2021.7 (Conterminous United States and Southeastern Alaska)',
-  version: 'v2021.7',
+  title:
+    'USFS Landscape Change Monitoring System v' + version + ' ' +
+    '(Conterminous United States and Southeastern Alaska)',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product is part of the Landscape Change Monitoring System (LCMS) data suite.
-    It shows LCMS-modeled change, land cover, and/or land use classes for each year.
-
-    LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
-    United States. Its objective is to develop a consistent approach using the latest technology
-    and advancements in change detection to produce a "best available" map of landscape change.
-
-    Outputs include three annual products: change, land cover, and land use.
-    Change relates specifically to vegetation cover and includes slow loss, fast loss (which also
-    includes hydrologic changes such as inundation or desiccation), and gain. These values are
-    predicted for each year of the Landsat time series and serve as the foundational products for
-    LCMS. Land cover and land use maps depict life-form level land cover and broad-level land use
+    This product is part of the Landscape Change Monitoring System (LCMS) data
+    suite.  It shows LCMS-modeled change, land cover, and/or land use classes
     for each year.
 
-    Because no algorithm performs best in all situations, LCMS uses an ensemble of models as
-    predictors, which improves map accuracy across a range of ecosystems and change processes
-    (Healey et al., 2018). The resulting suite of LCMS change, land cover, and land use maps offer
-    a holistic depiction of landscape change across the United States over the past four decades.
+    LCMS is a remote sensing-based system for mapping and monitoring landscape
+    change across the United States. Its objective is to develop a consistent
+    approach using the latest technology and advancements in change detection to
+    produce a "best available" map of landscape change.
 
-    Predictor layers for the LCMS model include outputs
-    from the LandTrendr and CCDC change detection algorithms, and terrain information. These
-    components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
+    Outputs include three annual products: change, land cover, and land use.
+    Change relates specifically to vegetation cover and includes slow loss, fast
+    loss (which also includes hydrologic changes such as inundation or
+    desiccation), and gain. These values are predicted for each year of the
+    Landsat time series and serve as the foundational products for LCMS. Land
+    cover and land use maps depict life-form level land cover and broad-level
+    land use for each year.
+
+    Because no algorithm performs best in all situations, LCMS uses an ensemble
+    of models as predictors, which improves map accuracy across a range of
+    ecosystems and change processes (Healey et al., 2018). The resulting suite
+    of LCMS change, land cover, and land use maps offer a holistic depiction of
+    landscape change across the United States over the past four decades.
+
+    Predictor layers for the LCMS model include outputs from the LandTrendr and
+    CCDC change detection algorithms, and terrain information. These components
+    are all accessed and processed using Google Earth Engine (Gorelick et al.,
+    2017).
 
     Landsat Tier 1 and Sentinel 2A, 2B Level-1C top of atmosphere reflectance
     data are used directly in CCDC and to produce annual composites for
@@ -62,11 +70,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     2). For LandTrendr, the annual medoid is then computed to summarize cloud
     and cloud shadow-free values from each year into a single composite.
 
-    The composite time series is temporally segmented using LandTrendr
-    (Kennedy et al., 2010; Kennedy et al., 2018; Cohen et al., 2018).
+    The composite time series is temporally segmented using LandTrendr (Kennedy
+    et al., 2010; Kennedy et al., 2018; Cohen et al., 2018).
 
-    All cloud and cloud shadow free values are also temporally segmented using the CCDC algorithm
-    (Zhu and Woodcock, 2014).
+    All cloud and cloud shadow free values are also temporally segmented using
+    the CCDC algorithm (Zhu and Woodcock, 2014).
 
     The raw composite values, LandTrendr fitted values, pair-wise differences,
     segment duration, change magnitude, and slope, and CCDC September 1 sine and
@@ -78,14 +86,16 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     Forest (Breiman, 2001) model.
 
     Reference data are collected using TimeSync, a web-based tool that helps
-    analysts visualize and interpret the Landsat data record from 1984-present (Cohen et al., 2010).
+    analysts visualize and interpret the Landsat data record from 1984-present
+    (Cohen et al., 2010).
 
     **Additional Resources**
 
     * [A more detailed code example of using LCMS data](https://github.com/google/earthengine-community/blob/master/datasets/scripts/LCMS_Visualization.js).
 
-    * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
-      provides users the ability to view, analyze, summarize and download LCMS data.
+    * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a
+      web-based application that provides users the ability to view, analyze,
+      summarize and download LCMS data.
 
     * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2021-7_Methods.pdf)
       for more detailed information regarding methods and accuracy assessment, or the
@@ -199,7 +209,10 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'usfs',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/'),
+    ee.producer_provider(
+      'USDA Forest Service (USFS) Geospatial Technology and ' +
+      'Applications Center (GTAC)',
+      'https://apps.fs.usda.gov/lcms-viewer/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
@@ -223,13 +236,16 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'Change',
         description: |||
-          Final thematic LCMS change product. A total of three change classes (slow loss, fast loss,
-          and gain) are mapped for each year. Each class is predicted using a separate Random Forest
-          model, which outputs a probability (proportion of the trees within the Random Forest model)
-          that the pixel belongs to that class. Because of this, individual pixels have three different
-          model outputs for each year. Final classes are assigned to the change class with the highest
-          probability that is also above a specified threshold. Any pixel that does not have any value
-          above each class's respective threshold is assigned to the Stable class.
+          Final thematic LCMS change product. A total of three change classes
+          (slow loss, fast loss, and gain) are mapped for each year. Each class
+          is predicted using a separate Random Forest model, which outputs a
+          probability (proportion of the trees within the Random Forest model)
+          that the pixel belongs to that class. Because of this, individual
+          pixels have three different model outputs for each year. Final classes
+          are assigned to the change class with the highest probability that is
+          also above a specified threshold. Any pixel that does not have any
+          value above each class's respective threshold is assigned to the
+          Stable class.
         |||,
         'gee:classes': [
           {
@@ -262,16 +278,19 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'Land_Cover',
         description: |||
-          Final thematic LCMS land cover product. A total of 14 land cover classes are mapped on an
-          annual basis using TimeSync reference data and spectral information derived from Landsat
-          imagery. Each class is predicted using a separate Random Forest model, which outputs a
-          probability (proportion of the trees within the Random Forest model) that the pixel belongs
-          to that class. Because of this, individual pixels have 14 different model outputs for each
-          year, and final classes are assigned to the land cover with the highest probability. Seven of
-          the 14 land cover classes indicate a single land cover, where that land cover type covers
-          most of the pixel's area and no other class covers more than 10% of the pixel. There are also
-          seven mixed classes. These represent pixels in which an additional land cover class covers at
-          least 10% of the pixel.
+          Final thematic LCMS land cover product. A total of 14 land cover
+          classes are mapped on an annual basis using TimeSync reference data
+          and spectral information derived from Landsat imagery. Each class is
+          predicted using a separate Random Forest model, which outputs a
+          probability (proportion of the trees within the Random Forest model)
+          that the pixel belongs to that class. Because of this, individual
+          pixels have 14 different model outputs for each year, and final
+          classes are assigned to the land cover with the highest
+          probability. Seven of the 14 land cover classes indicate a single land
+          cover, where that land cover type covers most of the pixel's area and
+          no other class covers more than 10% of the pixel. There are also seven
+          mixed classes. These represent pixels in which an additional land
+          cover class covers at least 10% of the pixel.
         |||,
         'gee:classes': [
           {
@@ -354,12 +373,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'Land_Use',
         description: |||
-          Final thematic LCMS land use product. A total of 6 land use classes are mapped on an annual
-          basis using TimeSync reference data and spectral information derived from Landsat imagery.
-          Each class is predicted using a separate Random Forest model, which outputs a probability
-          (proportion of the trees within the Random Forest model) that the pixel belongs to that class.
-          Because of this, individual pixels have 6 different model outputs for each year, and final
-          classes are assigned to the land use with the highest probability.
+          Final thematic LCMS land use product. A total of 6 land use classes
+          are mapped on an annual basis using TimeSync reference data and
+          spectral information derived from Landsat imagery.  Each class is
+          predicted using a separate Random Forest model, which outputs a
+          probability (proportion of the trees within the Random Forest model)
+          that the pixel belongs to that class.  Because of this, individual
+          pixels have 6 different model outputs for each year, and final classes
+          are assigned to the land use with the highest probability.
         |||,
         'gee:classes': [
           {
@@ -402,260 +423,301 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'Change_Raw_Probability_Slow-Loss',
         description: |||
-          Raw LCMS modeled probability of Slow Loss. Defined as: Slow Loss includes the following
-          classes from the TimeSync change process interpretation-
+          Raw LCMS modeled probability of Slow Loss. Defined as: Slow Loss
+          includes the following classes from the TimeSync change process
+          interpretation-
 
-            * Structural Decline - Land where trees or other woody vegetation is physically altered by
-            unfavorable growing conditions brought on by non-anthropogenic or non-mechanical factors.
-            This type of loss should generally create a trend in the spectral signal(s) (e.g. NDVI
-            decreasing, Wetness decreasing; SWIR increasing; etc.) however the trend can be subtle.
-            Structural decline occurs in woody vegetation environments, most likely from insects,
-            disease, drought, acid rain, etc. Structural decline can include defoliation events that do
-            not result in mortality such as in Gypsy moth and spruce budworm infestations which may
-            recover within 1 or 2 years.
+          * Structural Decline - Land where trees or other woody vegetation is
+          physically altered by unfavorable growing conditions brought on by
+          non-anthropogenic or non-mechanical factors.  This type of loss should
+          generally create a trend in the spectral signal(s) (e.g. NDVI
+          decreasing, Wetness decreasing; SWIR increasing; etc.) however the
+          trend can be subtle.  Structural decline occurs in woody vegetation
+          environments, most likely from insects, disease, drought, acid rain,
+          etc. Structural decline can include defoliation events that do not
+          result in mortality such as in Gypsy moth and spruce budworm
+          infestations which may recover within 1 or 2 years.
 
-            * Spectral Decline - A plot where the spectral signal shows a
-            trend in one or more of the spectral bands or indices (e.g. NDVI decreasing, Wetness
-            decreasing; SWIR increasing; etc.). Examples include cases where: a) non-forest/non-woody
-            vegetation shows a trend suggestive of decline (e.g. NDVI decreasing, Wetness decreasing;
-            SWIR increasing; etc.), or b) where woody vegetation shows a decline trend which is not
-            related to the loss of woody vegetation, such as when mature tree canopies close resulting
-            in increased shadowing, when species composition changes from conifer to hardwood, or when
-            a dry period (as opposed to stronger, more acute drought) causes an apparent decline in
-            vigor, but no loss of woody material or leaf area.
+          * Spectral Decline - A plot where the spectral signal shows a trend in
+          one or more of the spectral bands or indices (e.g. NDVI decreasing,
+          Wetness decreasing; SWIR increasing; etc.). Examples include cases
+          where: a) non-forest/non-woody vegetation shows a trend suggestive of
+          decline (e.g. NDVI decreasing, Wetness decreasing; SWIR increasing;
+          etc.), or b) where woody vegetation shows a decline trend which is not
+          related to the loss of woody vegetation, such as when mature tree
+          canopies close resulting in increased shadowing, when species
+          composition changes from conifer to hardwood, or when a dry period (as
+          opposed to stronger, more acute drought) causes an apparent decline in
+          vigor, but no loss of woody material or leaf area.
         |||,
       },
       {
         name: 'Change_Raw_Probability_Fast-Loss',
         description: |||
-          Raw LCMS modeled probability of Fast Loss. Defined as: Fast Loss includes the following
-          classes from the TimeSync change process interpretation-
+          Raw LCMS modeled probability of Fast Loss. Defined as: Fast Loss
+          includes the following classes from the TimeSync change process
+          interpretation-
 
-          * Fire - Land altered by fire, regardless of the cause of the ignition (natural or
-          anthropogenic), severity, or land use.
+          * Fire - Land altered by fire, regardless of the cause of the ignition
+          (natural or anthropogenic), severity, or land use.
 
-          * Harvest - Forest land where trees, shrubs or other vegetation have been severed or removed
-          by anthropogenic means. Examples include clearcutting, salvage logging after fire or insect
-          outbreaks, thinning and other forest management prescriptions (e.g. shelterwood/seedtree
+          * Harvest - Forest land where trees, shrubs or other vegetation have
+          been severed or removed by anthropogenic means. Examples include
+          clearcutting, salvage logging after fire or insect outbreaks, thinning
+          and other forest management prescriptions (e.g. shelterwood/seedtree
           harvest).
 
-          * Mechanical - Non-forest land where trees, shrubs or other vegetation has been mechanically
-          severed or removed by chaining, scraping, brush sawing, bulldozing, or any other methods of
-          non-forest vegetation removal.
+          * Mechanical - Non-forest land where trees, shrubs or other vegetation
+          has been mechanically severed or removed by chaining, scraping, brush
+          sawing, bulldozing, or any other methods of non-forest vegetation
+          removal.
 
-          * Wind/ice - Land (regardless of use) where vegetation is altered by wind from hurricanes,
-          tornados, storms and other severe weather events including freezing rain from ice
-          storms.
+          * Wind/ice - Land (regardless of use) where vegetation is altered by
+          wind from hurricanes, tornados, storms and other severe weather events
+          including freezing rain from ice storms.
 
-          * Hydrology - Land where flooding has significantly altered woody cover or other Land cover
-          elements regardless of land use (e.g. new mixtures of gravel and vegetation in and around
-          streambeds after a flood).
+          * Hydrology - Land where flooding has significantly altered woody
+          cover or other Land cover elements regardless of land use (e.g. new
+          mixtures of gravel and vegetation in and around streambeds after a
+          flood).
 
-          * Debris - Land (regardless of use) altered by natural material movement associated with
-          landslides, avalanches, volcanos, debris flows, etc.
+          * Debris - Land (regardless of use) altered by natural material
+          movement associated with landslides, avalanches, volcanos, debris
+          flows, etc.
 
-          * Other - Land (regardless of use) where the spectral trend or other supporting evidence
-          suggests a disturbance or change event has occurred but the definitive cause cannot be
-          determined or the type of change fails to meet any of the change process categories defined
+          * Other - Land (regardless of use) where the spectral trend or other
+          supporting evidence suggests a disturbance or change event has
+          occurred but the definitive cause cannot be determined or the type of
+          change fails to meet any of the change process categories defined
           above.
         |||,
       },
       {
         name: 'Change_Raw_Probability_Gain',
         description: |||
-          Raw LCMS modeled probability of Gain. Defined as: Land exhibiting an increase in vegetation
-          cover due to growth and succession over one or more years. Applicable to any areas that may
-          express spectral change associated with vegetation regrowth. In developed areas, growth can
-          result from maturing vegetation and/or newly installed lawns and landscaping. In forests,
-          growth includes vegetation growth from bare ground, as well as the over topping of
-          intermediate and co-dominate trees and/or lower-lying grasses and shrubs. Growth/Recovery
-          segments recorded following forest harvest will likely transition through different land
-          cover classes as the forest regenerates. For these changes to be considered growth/recovery,
-          spectral values should closely adhere to an increasing trend line (e.g. a positive slope
-          that would, if extended to ~20 years, be on the order of .10 units of NDVI) which persists
-          for several years.
+          Raw LCMS modeled probability of Gain. Defined as: Land exhibiting an
+          increase in vegetation cover due to growth and succession over one or
+          more years. Applicable to any areas that may express spectral change
+          associated with vegetation regrowth. In developed areas, growth can
+          result from maturing vegetation and/or newly installed lawns and
+          landscaping. In forests, growth includes vegetation growth from bare
+          ground, as well as the over topping of intermediate and co-dominate
+          trees and/or lower-lying grasses and shrubs. Growth/Recovery segments
+          recorded following forest harvest will likely transition through
+          different land cover classes as the forest regenerates. For these
+          changes to be considered growth/recovery, spectral values should
+          closely adhere to an increasing trend line (e.g. a positive slope that
+          would, if extended to ~20 years, be on the order of .10 units of NDVI)
+          which persists for several years.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Trees',
         description: |||
-          Raw LCMS modeled probability of Trees. Defined as: The majority of the pixel is comprised
-          of live or standing dead trees.
+          Raw LCMS modeled probability of Trees. Defined as: The majority of the
+          pixel is comprised of live or standing dead trees.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Tall-Shrubs-and-Trees-Mix',
         description: |||
-          Raw LCMS modeled probability of Tall Shrubs and Trees Mix (SEAK Only). Defined
-          as: The majority of the pixel is comprised of shrubs greater than 1m in height and is also
-          comprised of at least 10% live or standing dead trees.
+          Raw LCMS modeled probability of Tall Shrubs and Trees Mix (SEAK
+          Only). Defined as: The majority of the pixel is comprised of shrubs
+          greater than 1m in height and is also comprised of at least 10% live
+          or standing dead trees.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Shrubs-and-Trees-Mix',
         description: |||
-          Raw LCMS modeled probability of Shrubs and Trees Mix. Defined as: The majority of the pixel
-          is comprised of shrubs and is also comprised of at least 10% live or standing dead trees.
+          Raw LCMS modeled probability of Shrubs and Trees Mix. Defined as: The
+          majority of the pixel is comprised of shrubs and is also comprised of
+          at least 10% live or standing dead trees.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Grass-Forb-Herb-and-Trees-Mix',
         description: |||
-          Raw LCMS modeled probability of Grass/Forb/Herb and Trees Mix. Defined as: The majority of
-          the pixel is comprised of perennial grasses, forbs, or other forms of herbaceous vegetation
-          and is also comprised of at least 10% live or standing dead trees.
+          Raw LCMS modeled probability of Grass/Forb/Herb and Trees Mix. Defined
+          as: The majority of the pixel is comprised of perennial grasses,
+          forbs, or other forms of herbaceous vegetation and is also comprised
+          of at least 10% live or standing dead trees.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-and-Trees-Mix',
         description: |||
-          Raw LCMS modeled probability of Barren and Trees Mix. Defined as: The majority of the pixel
-          is comprised of bare soil exposed by disturbance (e.g., soil uncovered by mechanical
-          clearing or forest harvest), as well as perennially barren areas such as deserts, playas,
-          rock outcroppings (including minerals and other geologic materials exposed by surface mining
-          activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
-          considered barren and is also comprised of at least 10% live or standing dead trees.
+          Raw LCMS modeled probability of Barren and Trees Mix. Defined as: The
+          majority of the pixel is comprised of bare soil exposed by disturbance
+          (e.g., soil uncovered by mechanical clearing or forest harvest), as
+          well as perennially barren areas such as deserts, playas, rock
+          outcroppings (including minerals and other geologic materials exposed
+          by surface mining activities), sand dunes, salt flats, and
+          beaches. Roads made of dirt and gravel are also considered barren and
+          is also comprised of at least 10% live or standing dead trees.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Tall-Shrubs',
         description: |||
-          Raw LCMS modeled probability of Tall Shrubs (SEAK Only). Defined as: The majority of the
-          pixel is comprised of shrubs greater than 1m in height.
+          Raw LCMS modeled probability of Tall Shrubs (SEAK Only). Defined as:
+          The majority of the pixel is comprised of shrubs greater than 1m in
+          height.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Shrubs',
         description: |||
-          Raw LCMS modeled probability of Shrubs. Defined as: The majority of the pixel is comprised
-          of shrubs.
+          Raw LCMS modeled probability of Shrubs. Defined as: The majority of
+          the pixel is comprised of shrubs.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Grass-Forb-Herb-and-Shrubs-Mix',
         description: |||
-          Raw LCMS modeled probability of Grass/Forb/Herb and Shrubs Mix. Defined as: The majority of
-          the pixel is comprised of perennial grasses, forbs, or other forms of herbaceous vegetation
-          and is also comprised of at least 10% shrubs.
+          Raw LCMS modeled probability of Grass/Forb/Herb and Shrubs
+          Mix. Defined as: The majority of the pixel is comprised of perennial
+          grasses, forbs, or other forms of herbaceous vegetation and is also
+          comprised of at least 10% shrubs.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-and-Shrubs-Mix',
         description: |||
-          Raw LCMS modeled probability of Barren and Shrubs Mix. Defined as: The majority of the pixel
-          is comprised of bare soil exposed by disturbance (e.g., soil uncovered by mechanical
-          clearing or forest harvest), as well as perennially barren areas such as deserts, playas,
-          rock outcroppings (including minerals and other geologic materials exposed by surface mining
-          activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
-          considered barren and is also comprised of at least 10% shrubs.
+          Raw LCMS modeled probability of Barren and Shrubs Mix. Defined as: The
+          majority of the pixel is comprised of bare soil exposed by disturbance
+          (e.g., soil uncovered by mechanical clearing or forest harvest), as
+          well as perennially barren areas such as deserts, playas, rock
+          outcroppings (including minerals and other geologic materials exposed
+          by surface mining activities), sand dunes, salt flats, and
+          beaches. Roads made of dirt and gravel are also considered barren and
+          is also comprised of at least 10% shrubs.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Grass-Forb-Herb',
         description: |||
-          Raw LCMS modeled probability of Grass/Forb/Herb. Defined as: The majority of the pixel is
-          comprised of perennial grasses, forbs, or other forms of herbaceous vegetation.
+          Raw LCMS modeled probability of Grass/Forb/Herb. Defined as: The
+          majority of the pixel is comprised of perennial grasses, forbs, or
+          other forms of herbaceous vegetation.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-and-Grass-Forb-Herb-Mix',
         description: |||
-          Raw LCMS modeled probability of Barren and Grass/Forb/Herb Mix. Defined as: The majority of
-          the pixel is comprised of bare soil exposed by disturbance (e.g., soil uncovered by
-          mechanical clearing or forest harvest), as well as perennially barren areas such as deserts,
-          playas, rock outcroppings (including minerals and other geologic materials exposed by
-          surface mining activities), sand dunes, salt flats, and beaches. Roads made of dirt and
-          gravel are also considered barren and is also comprised of at least 10% perennial grasses,
-          forbs, or other forms of herbaceous vegetation.
+          Raw LCMS modeled probability of Barren and Grass/Forb/Herb
+          Mix. Defined as: The majority of the pixel is comprised of bare soil
+          exposed by disturbance (e.g., soil uncovered by mechanical clearing or
+          forest harvest), as well as perennially barren areas such as deserts,
+          playas, rock outcroppings (including minerals and other geologic
+          materials exposed by surface mining activities), sand dunes, salt
+          flats, and beaches. Roads made of dirt and gravel are also considered
+          barren and is also comprised of at least 10% perennial grasses, forbs,
+          or other forms of herbaceous vegetation.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Barren-or-Impervious',
         description: |||
-          Raw LCMS modeled probability of Barren or Impervious. Defined as: The majority of the pixel
-          is comprised of 1) bare soil exposed by disturbance (e.g., soil uncovered by mechanical
-          clearing or forest harvest), as well as perennially barren areas such as deserts, playas,
-          rock outcroppings (including minerals and other geologic materials exposed by surface mining
-          activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
-          considered barren or 2) man-made materials that water cannot penetrate, such as paved roads,
-          rooftops, and parking lots.
+          Raw LCMS modeled probability of Barren or Impervious. Defined as: The
+          majority of the pixel is comprised of 1) bare soil exposed by
+          disturbance (e.g., soil uncovered by mechanical clearing or forest
+          harvest), as well as perennially barren areas such as deserts, playas,
+          rock outcroppings (including minerals and other geologic materials
+          exposed by surface mining activities), sand dunes, salt flats, and
+          beaches. Roads made of dirt and gravel are also considered barren or
+          2) man-made materials that water cannot penetrate, such as paved
+          roads, rooftops, and parking lots.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Snow-or-Ice',
         description: |||
-          Raw LCMS modeled probability of Snow or Ice. Defined as: The majority of the pixel is
-          comprised of snow or ice.
+          Raw LCMS modeled probability of Snow or Ice. Defined as: The majority
+          of the pixel is comprised of snow or ice.
         |||,
       },
       {
         name: 'Land_Cover_Raw_Probability_Water',
         description: |||
-          Raw LCMS modeled probability of Water. Defined as: The majority of
-          the pixel is comprised of water.
+          Raw LCMS modeled probability of Water. Defined as: The majority of the
+          pixel is comprised of water.
         |||,
       },
       {
         name: 'Land_Use_Raw_Probability_Agriculture',
         description: |||
-          Raw LCMS modeled probability of Agriculture. Defined as: Land used for the production of
-          food, fiber and fuels which is in either a vegetated or non-vegetated state. This includes
-          but is not limited to cultivated and uncultivated croplands, hay lands, orchards, vineyards,
-          confined livestock operations, and areas planted for production of fruits, nuts or berries.
-          Roads used primarily for agricultural use (i.e. not used for public transport from town to
-          town) are considered agriculture land use.
+          Raw LCMS modeled probability of Agriculture. Defined as: Land used for
+          the production of food, fiber and fuels which is in either a vegetated
+          or non-vegetated state. This includes but is not limited to cultivated
+          and uncultivated croplands, hay lands, orchards, vineyards, confined
+          livestock operations, and areas planted for production of fruits, nuts
+          or berries.  Roads used primarily for agricultural use (i.e. not used
+          for public transport from town to town) are considered agriculture
+          land use.
         |||,
       },
       {
         name: 'Land_Use_Raw_Probability_Developed',
         description: |||
-          Raw LCMS modeled probability of Developed. Defined as: Land covered by man-made structures
-          (e.g. high density residential, commercial, industrial, mining or transportation), or a
-          mixture of both vegetation (including trees) and structures (e.g., low density residential,
-          lawns, recreational facilities, cemeteries, transportation and utility corridors, etc.),
-          including any land functionally altered by human activity.
+          Raw LCMS modeled probability of Developed. Defined as: Land covered by
+          man-made structures (e.g. high density residential, commercial,
+          industrial, mining or transportation), or a mixture of both vegetation
+          (including trees) and structures (e.g., low density residential,
+          lawns, recreational facilities, cemeteries, transportation and utility
+          corridors, etc.), including any land functionally altered by human
+          activity.
         |||,
       },
       {
         name: 'Land_Use_Raw_Probability_Forest',
         description: |||
-          Raw LCMS modeled probability of Forest. Defined as: Land that is planted or naturally
-          vegetated and which contains (or is likely to contain) 10% or greater tree cover at some
-          time during a near-term successional sequence. This may include deciduous, evergreen and/or
-          mixed categories of natural forest, forest plantations, and woody wetlands.
+          Raw LCMS modeled probability of Forest. Defined as: Land that is
+          planted or naturally vegetated and which contains (or is likely to
+          contain) 10% or greater tree cover at some time during a near-term
+          successional sequence. This may include deciduous, evergreen and/or
+          mixed categories of natural forest, forest plantations, and woody
+          wetlands.
         |||,
       },
       {
         name: 'Land_Use_Raw_Probability_Non-Forest-Wetland',
         description: |||
-          Raw LCMS modeled probability of Non-Forest Wetland. Defined as: Lands adjacent to or within
-          a visible water table (either permanently or seasonally saturated) dominated by shrubs or
-          persistent emergents. These wetlands may be situated shoreward of lakes, river channels, or
-          estuaries; on river floodplains; in isolated catchments; or on slopes. They may also occur
-          as prairie potholes, drainage ditches and stock ponds in agricultural landscapes and may
-          also appear as islands in the middle of lakes or rivers. Other examples also include marshes,
-          bogs, swamps, quagmires, muskegs, sloughs, fens, and bayous.
+          Raw LCMS modeled probability of Non-Forest Wetland. Defined as: Lands
+          adjacent to or within a visible water table (either permanently or
+          seasonally saturated) dominated by shrubs or persistent
+          emergents. These wetlands may be situated shoreward of lakes, river
+          channels, or estuaries; on river floodplains; in isolated catchments;
+          or on slopes. They may also occur as prairie potholes, drainage
+          ditches and stock ponds in agricultural landscapes and may also appear
+          as islands in the middle of lakes or rivers. Other examples also
+          include marshes, bogs, swamps, quagmires, muskegs, sloughs, fens, and
+          bayous.
         |||,
       },
       {
         name: 'Land_Use_Raw_Probability_Other',
         description: |||
-          Raw LCMS modeled probability of Other. Defined as: Land (regardless of use) where the
-          spectral trend or other supporting evidence suggests a disturbance or change event has
-          occurred but the definitive cause cannot be determined or the type of change fails to meet
-          any of the change process categories defined above.
+          Raw LCMS modeled probability of Other. Defined as: Land (regardless of
+          use) where the spectral trend or other supporting evidence suggests a
+          disturbance or change event has occurred but the definitive cause
+          cannot be determined or the type of change fails to meet any of the
+          change process categories defined above.
         |||,
       },
       {
         name: 'Land_Use_Raw_Probability_Rangeland-or-Pasture',
         description: |||
-          Raw LCMS modeled probability of Rangeland or Pasture. Defined as: This class includes any
-          area that is either a.) Rangeland, where vegetation is a mix of native grasses, shrubs, forbs
-          and grass-like plants largely arising from natural factors and processes such as rainfall,
-          temperature, elevation and fire, although limited management may include prescribed burning
-          as well as grazing by domestic and wild herbivores; or b.) Pasture, where vegetation may
-          range from mixed, largely natural grasses, forbs and herbs to more managed vegetation
-          dominated by grass species that have been seeded and managed to maintain near monoculture.
+          Raw LCMS modeled probability of Rangeland or Pasture. Defined as: This
+          class includes any area that is either a.) Rangeland, where vegetation
+          is a mix of native grasses, shrubs, forbs and grass-like plants
+          largely arising from natural factors and processes such as rainfall,
+          temperature, elevation and fire, although limited management may
+          include prescribed burning as well as grazing by domestic and wild
+          herbivores; or b.) Pasture, where vegetation may range from mixed,
+          largely natural grasses, forbs and herbs to more managed vegetation
+          dominated by grass species that have been seeded and managed to
+          maintain near monoculture.
         |||,
       },
       {
@@ -700,97 +762,43 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ],
     'gee:visualizations': [
       {
-        display_name: 'ChangeViz',
-        lookat: {
-          lat: 37.09024,
-          lon: -95.712891,
-          zoom: 5,
-        },
+        display_name: 'Thematic Change',
+        lookat: {lon: -98.58, lat: 38.14, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-              1.0,
-            ],
-            max: [
-              5.0,
-            ],
+            min: [1],
+            max: [5],
             palette: [
-              '3d4551',
-              'f39268',
-              'd54309',
-              '00a398',
-              '1b1716',
-              'b30088',
-            ],
-            bands: [
-              'Change',
-            ],
+             '3d4551', 'f39268', 'd54309', '00a398', '1b1716', 'b30088'],
+            bands: ['Change'],
           },
         },
       },
       {
-        display_name: 'lcViz',
-        lookat: {
-          lat: 37.09024,
-          lon: -95.712891,
-          zoom: 5,
-        },
+        display_name: 'Land Cover',
+        lookat: {lon: -98.58, lat: 38.14, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-              1.0,
-            ],
-            max: [
-              15.0,
-            ],
+            min: [1],
+            max: [15],
             palette: [
-              '005e00',
-              '008000',
-              '00cc00',
-              'b3ff1a',
-              '99ff99',
-              'b30088',
-              'e68a00',
-              'ffad33',
-              'ffe0b3',
-              'ffff00',
-              'aa7700',
-              'd3bf9b',
-              'ffffff',
-              '4780f3',
-              '1b1716',
+              '005e00', '008000', '00cc00', 'b3ff1a', '99ff99', 'b30088',
+              'e68a00', 'ffad33', 'ffe0b3', 'ffff00', 'aa7700', 'd3bf9b',
+              'ffffff', '4780f3', '1b1716',
             ],
-            bands: [
-              'Land_Cover',
-            ],
+            bands: ['Land_Cover'],
           },
         },
       },
       {
-        display_name: 'luViz',
-        lookat: {
-          lat: 37.09024,
-          lon: -95.712891,
-          zoom: 5,
-        },
+        display_name: 'Land Sse',
+        lookat: {lon: -98.58, lat: 38.14, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-              1.0,
-            ],
-            max: [
-              7.0,
-            ],
-            palette: [
-              '3d4551',
-              'f39268',
-              'd54309',
-              '00a398',
-              '1b1716',
-            ],
-            bands: [
-              'Land_Use',
-            ],
+            min: [1],
+            max: [7],
+            palette: ['3d4551', 'f39268', 'd54309', '00a398', '1b1716'],
+            bands: ['Land_Use'],
           },
         },
       },
@@ -802,20 +810,24 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     Salt Lake City, Utah.
   |||,
   'gee:terms_of_use': |||
-    The USDA Forest Service makes no warranty, expressed or implied, including the warranties of
-    merchantability and fitness for a particular purpose, nor assumes any legal liability or
-    responsibility for the accuracy, reliability, completeness or utility of these geospatial data,
-    or for the improper or incorrect use of these geospatial data. These geospatial data and
-    related maps or graphics are not legal documents and are not intended to be used as such. The
-    data and maps may not be used to determine title, ownership, legal descriptions or boundaries,
-    legal jurisdiction, or restrictions that may be in place on either public or private land.
-    Natural hazards may or may not be depicted on the data and maps, and land users should exercise
-    due caution. The data are dynamic and may change over time. The user is responsible to verify
-    the limitations of the geospatial data and to use the data accordingly.
+    The USDA Forest Service makes no warranty, expressed or implied, including
+    the warranties of merchantability and fitness for a particular purpose, nor
+    assumes any legal liability or responsibility for the accuracy, reliability,
+    completeness or utility of these geospatial data, or for the improper or
+    incorrect use of these geospatial data. These geospatial data and related
+    maps or graphics are not legal documents and are not intended to be used as
+    such. The data and maps may not be used to determine title, ownership, legal
+    descriptions or boundaries, legal jurisdiction, or restrictions that may be
+    in place on either public or private land.  Natural hazards may or may not
+    be depicted on the data and maps, and land users should exercise due
+    caution. The data are dynamic and may change over time. The user is
+    responsible to verify the limitations of the geospatial data and to use the
+    data accordingly.
 
-    These data were collected using funding from the U.S. Government and can be used
-    without additional permissions or fees. If you use these data in a publication, presentation, or
-    other research product please use the following citation:
+    These data were collected using funding from the U.S. Government and can be
+    used without additional permissions or fees. If you use these data in a
+    publication, presentation, or other research product please use the
+    following citation:
 
     USDA Forest Service. 2022. USFS Landscape Change Monitoring System v2021.7
     (Conterminous United States and Southeastern Alaska). Salt Lake City, Utah.

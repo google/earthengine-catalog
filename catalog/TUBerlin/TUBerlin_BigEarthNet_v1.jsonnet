@@ -1,5 +1,6 @@
 local id = 'TUBerlin/BigEarthNet/v1';
 local subdir = 'TUBerlin';
+local version = '1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -17,21 +18,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
-  title: 'TUBerlin/BigEarthNet/v1',
+  title: 'TUBerlin/BigEarthNet/v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     BigEarthNet is a new large-scale Sentinel-2 benchmark archive, consisting of
-    590,326 Sentinel-2 image patches.
-    To construct BigEarthNet, 125 Sentinel-2 tiles acquired between June 2017 and
-    May 2018 over the 10 countries (Austria, Belgium, Finland, Ireland, Kosovo,
-    Lithuania, Luxembourg, Portugal, Serbia, Switzerland) of Europe were initially
-    selected. All the tiles were atmospherically corrected by the Sentinel-2 Level
-    2A product generation and formatting tool (sen2cor).
-    Then, they were divided into 590,326 non-overlapping image patches. Each image
-    patch was annotated by the multiple land-cover classes (i.e., multi-labels) that
-    were provided from the CORINE Land Cover database of the year 2018 (CLC 2018).
+    590,326 Sentinel-2 image patches.  To construct BigEarthNet, 125 Sentinel-2
+    tiles were acquired between June 2017 and May 2018 over the 10 countries
+    (Austria, Belgium, Finland, Ireland, Kosovo, Lithuania, Luxembourg,
+    Portugal, Serbia, Switzerland) of Europe. All the tiles were atmospherically
+    corrected by the Sentinel-2 Level 2A product generation and formatting tool
+    (sen2cor).  Then, they were divided into 590,326 non-overlapping image
+    patches. Each image patch was annotated by the multiple land-cover classes
+    (i.e., multi-labels) that were provided from the CORINE Land Cover database
+    of the year 2018 (CLC 2018).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -58,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string_list,
       },
       {
-        name: ee_const.rel.source,
+        name: 'source',
         description: 'Product ID of the corresponding Sentinel-2 1C image',
         type: ee_const.var_type.string,
       },
@@ -189,17 +192,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              3000.0,
-            ],
-            bands: [
-              'B4',
-              'B3',
-              'B2',
-            ],
+            min: [0],
+            max: [3000],
+            bands: ['B4', 'B3', 'B2'],
           },
         },
       },
