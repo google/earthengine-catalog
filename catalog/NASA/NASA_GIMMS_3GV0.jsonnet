@@ -44,7 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'vegetation',
   ],
   providers: [
-    // TODO(b/229788964): Broken link.
+    // TODO(b/229788964): Fix the broken link.
     ee.producer_provider('NASA/NOAA', 'https://nex.nasa.gov/nex/projects/1349/'),
     ee.host_provider(self_ee_catalog_url),
   ],
