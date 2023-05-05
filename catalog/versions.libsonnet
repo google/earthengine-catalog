@@ -8,23 +8,23 @@ local configs(subdir, version_table) = {
   last_index:: std.length(version_table) - 1,
   catalog_subdir_url:: ee_const.catalog_base + subdir + '/',
   versions: {
-    [$['version_objects'][x]]: {
+    [$['version_objects'][current_version]]: {
 
-      version: $['version_objects'][x],
+      version: $['version_objects'][current_version],
 
       id: version_table[self.version],
       basename: basename(self.id),
       ee_catalog_url: ee_const.ee_catalog_url + self.basename,
 
-      predecessor:: ee.orEmptyDict(x != 0, {
-          version: $['version_objects'][x - 1],
+      predecessor:: ee.orEmptyDict(current_version != 0, {
+          version: $['version_objects'][current_version - 1],
           id: version_table[self.version],
           basename: basename(self.id),
           url: $['catalog_subdir_url'] + self.basename + '.json'
       }),
 
-      successor:: ee.orEmptyDict(x != $['last_index'], {
-          version: $['version_objects'][x + 1],
+      successor:: ee.orEmptyDict(current_version != $['last_index'], {
+          version: $['version_objects'][current_version + 1],
           id: version_table[self.version],
           basename: basename(self.id),
           url: $['catalog_subdir_url'] + self.basename + '.json'
@@ -40,14 +40,14 @@ local configs(subdir, version_table) = {
       version_links: [
          ee.link.latest(self.latest.id, self.latest.url)
       ] + ee.orEmptyArray(
-          x != 0,
+          current_version != 0,
           [ee.link.predecessor(self.predecessor.id, self.predecessor.url)]
       ) + ee.orEmptyArray(
-          x != $['last_index'],
+          current_version != $['last_index'],
           [ee.link.successor(self.successor.id, self.successor.url)]
       )
     }
-    for x in std.range(0, $['last_index'])
+    for current_version in std.range(0, $['last_index'])
   }
 };
 
