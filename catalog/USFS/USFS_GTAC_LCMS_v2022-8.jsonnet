@@ -218,6 +218,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         |||,
         type: ee_const.var_type.string,
       },
+      {
+        name: 'year',
+        description: 'Year of the product',
+        type: ee_const.var_type.int,
+      },
     ],
     gsd: [30],
     'eo:bands': [
