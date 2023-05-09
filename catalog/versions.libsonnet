@@ -3,36 +3,41 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
 local basename(id) = std.strReplace(id, '/', '_');
-local configs(subdir, version_table) = {
-  version_objects:: std.objectFields(version_table),
-  last_index:: std.length(version_table) - 1,
+local configs(subdir, version_array) = {
+  keys:: [std.objectFields(o)[0] for o in version_array],
+  version_table:: {
+    [std.objectFields(o)[0]]: std.objectValues(o)[0] for o in version_array},
+  last_index:: std.length(self.keys) - 1,
   catalog_subdir_url:: ee_const.catalog_base + subdir + '/',
+
   versions: {
-    [$['version_objects'][current_index]]: {
+    [$['keys'][current_index]]: {
+      version: $['keys'][current_index],
 
-      version: $['version_objects'][current_index],
-
-      id: version_table[self.version],
+      id: $['version_table'][self.version],
       basename: basename(self.id),
       ee_catalog_url: ee_const.ee_catalog_url + self.basename,
 
       predecessor:: ee.orEmptyDict(current_index != 0, {
-        version: $['version_objects'][current_index - 1],
-        id: version_table[self.version],
+        version_index: current_index - 1,
+        version: $['keys'][self.version_index],
+        id: $['version_table'][self.version],
         basename: basename(self.id),
         url: $['catalog_subdir_url'] + self.basename + '.json',
       }),
 
       successor:: ee.orEmptyDict(current_index != $['last_index'], {
-        version: $['version_objects'][current_index + 1],
-        id: version_table[self.version],
+        version_index: current_index + 1,
+        version: $['keys'][self.version_index],
+        id: $['version_table'][self.version],
         basename: basename(self.id),
         url: $['catalog_subdir_url'] + self.basename + '.json',
       }),
 
       latest:: {
-        version: $['version_objects'][$['last_index']],
-        id: version_table[self.version],
+        version_index: $['last_index'],
+        version: $['keys'][self.version_index],
+        id: $['version_table'][self.version],
         basename: basename(self.id),
         url: $['catalog_subdir_url'] + self.basename + '.json',
       },
@@ -47,7 +52,7 @@ local configs(subdir, version_table) = {
           [ee.link.successor(self.successor.id, self.successor.url)]
       ),
     }
-    for current_index in std.range(0, $['last_index'])
+    for current_index in std.range(0, self.last_index)
   }
 };
 
