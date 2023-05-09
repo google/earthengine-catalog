@@ -81,6 +81,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     You may download and use photographs, imagery, or text
     from the NSIDC web site, unless limitations for its use are specifically
     stated. For more information on usage and citing NSIDC datasets,
-    please visit the [NSIDC 'Use and Copyright' page](https://nsidc.org/about/use_copyright.html).
+    please visit the [NSIDC 'Use and Copyright' page](https://nsidc.org/about/data-use-and-copyright).
   |||,
 }
