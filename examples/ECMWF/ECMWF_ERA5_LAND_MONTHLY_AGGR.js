@@ -1,5 +1,4 @@
-var dataset = ee.ImageCollection('ECMWF/ERA5_LAND/MONTHLY_AGGR')
-                .filter(ee.Filter.date('2020-02-01', '2020-07-10'));
+var dataset = ee.ImageCollection('ECMWF/ERA5_LAND/MONTHLY_AGGR').first();
 
 var visualization = {
   bands: ['temperature_2m'],
