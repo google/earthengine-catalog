@@ -254,7 +254,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'cloud_top_height',
         description: 'Retrieved altitude of the cloud top',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'cloud_base_pressure',
@@ -264,12 +264,12 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'cloud_base_height',
         description: 'Cloud base height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'cloud_optical_depth',
         description: 'Retrieved cloud optical depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'surface_albedo',

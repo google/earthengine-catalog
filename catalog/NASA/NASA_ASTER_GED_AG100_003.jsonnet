@@ -156,7 +156,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'elevation',
         description: 'ASTER Global Digital Elevation Model V002',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'land_water_map',

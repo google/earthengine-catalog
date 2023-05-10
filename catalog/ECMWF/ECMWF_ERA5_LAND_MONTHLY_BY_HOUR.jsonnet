@@ -157,7 +157,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           inland water bodies (lakes, reservoirs and rivers) and coastal water. A single ice layer is
           represented. This parameter is the thickness of that ice layer.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'lake_ice_temperature',
@@ -180,7 +180,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           near-surface) water is greater than that of the water below. Mixing can also occur through the
           action of wind on the surface of the lake.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'lake_mix_layer_temperature',
@@ -244,7 +244,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'snow_depth',
         description: 'Instantaneous grib-box average of the snow thickness on the ground (excluding snow on canopy).',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'snow_depth_water_equivalent',
@@ -469,7 +469,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           results in arid conditions due to too strong evaporation forced by dry air. This variable is
           accumulated from the beginning of the forecast time to the end of the forecast step.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'runoff',
@@ -487,7 +487,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           flood. More information about how runoff is calculated is given in the IFS Physical Processes
           documentation.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'snow_evaporation',
@@ -513,7 +513,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           soil, and can, for example, be used as an indicator of drought or flood. More information about
           how runoff is calculated is given in the IFS Physical Processes documentation.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'surface_runoff',
@@ -531,7 +531,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           flood. More information about how runoff is calculated is given in the IFS Physical Processes
           documentation.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'total_evaporation',
@@ -599,7 +599,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           variables with observations, because observations are often local to a particular point in
           space and time, rather than representing averages over a model grid box and model time step.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'leaf_area_index_high_vegetation',
@@ -692,12 +692,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'potential_evaporation_hourly',
         description: "Same as 'potential_evaporation' except not accumulated and only for the given forecast step.",
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'runoff_hourly',
         description: "Same as 'runoff' except not accumulated and only for the given forecast step.",
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'snow_evaporation_hourly',
@@ -707,12 +707,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'sub_surface_runoff_hourly',
         description: "Same as 'sub_surface_runoff' except not accumulated and only for the given forecast step.",
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'surface_runoff_hourly',
         description: "Same as 'surface_runoff' except not accumulated and only for the given forecast step.",
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'total_evaporation_hourly',
@@ -722,7 +722,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'total_precipitation_hourly',
         description: "Same as 'total_precipitation' except not accumulated and only for the given forecast step.",
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

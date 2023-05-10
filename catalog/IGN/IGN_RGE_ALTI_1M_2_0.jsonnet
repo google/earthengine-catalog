@@ -78,7 +78,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'MNT',
         description: 'Terrain elevation in meters.',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'SRC',
@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           The distance in meters between the node and the nearest point used to
           calculate its altitude.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

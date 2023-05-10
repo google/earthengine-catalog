@@ -139,7 +139,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'sensor_altitude',
         description: 'Altitude of the satellite with respect to the geodetic sub-satellite point\n(WGS84).',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ] + COPERNICUS_S5P.bands_common,
     'gee:visualizations': [

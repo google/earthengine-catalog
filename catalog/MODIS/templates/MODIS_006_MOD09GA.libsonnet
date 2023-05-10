@@ -251,7 +251,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Range',
         description: 'Distance to sensor',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
         gsd: 1000.0,
         'gee:scale': 25.0,
       },

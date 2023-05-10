@@ -246,7 +246,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'cloud_top_height',
         description: 'Retrieved altitude of the cloud top',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'cloud_base_pressure',
@@ -256,12 +256,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'cloud_base_height',
         description: 'Cloud base height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'cloud_optical_depth',
         description: 'Retrieved cloud optical depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'surface_albedo',

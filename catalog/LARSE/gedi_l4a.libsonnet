@@ -135,7 +135,7 @@ local units = import 'units.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to reference ellipsoid
       |||,
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.int,
     },
     {
@@ -366,7 +366,7 @@ local units = import 'units.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to the reference ellipsoid
       |||,
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.int,
     },
     {

@@ -97,7 +97,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
           appropriate temperature profile, i.e. the temperature profile used in the retrieval.
           The value is given relative to the geoid.
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'aerosol_pressure',

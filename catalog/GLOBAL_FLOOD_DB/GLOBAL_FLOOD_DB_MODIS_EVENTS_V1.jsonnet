@@ -207,7 +207,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           events which used an otsu and not the default threshold).
         |||,
         type: ee_const.var_type.double,
-        units: units.meters,
+        units: units.meter,
       },
       {
         name: 'slope_threshold',

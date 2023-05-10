@@ -528,32 +528,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DER_000_200_EV',
         description: 'The estimated value for the regolith depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DER_000_200_05',
         description: 'The 5th percentile confidence limit for the regolith depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DER_000_200_95',
         description: 'The 95th percentile confidence limit for the regolith depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DES_000_200_EV',
         description: 'The estimated value for the soil depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DES_000_200_05',
         description: 'The 5th percentile confidence limit for the soil depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DES_000_200_95',
         description: 'The 5th percentile confidence limit for the soil depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'ECE_000_005_EV',

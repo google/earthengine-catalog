@@ -218,7 +218,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SNODP',
         description: 'Snow depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'SNOMAS',

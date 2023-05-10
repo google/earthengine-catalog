@@ -75,7 +75,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'elevation',
         description: 'Elevation',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'matchtag',
