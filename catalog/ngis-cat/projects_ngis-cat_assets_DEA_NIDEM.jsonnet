@@ -8,7 +8,7 @@ local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-local version = '1.0.0'
+local version = '1.0.0';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
