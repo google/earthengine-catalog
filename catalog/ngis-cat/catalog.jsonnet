@@ -38,7 +38,6 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    // TODO(schwehr): Enable when dataset is ready
-    // ee.link.child_collection('DEA_NIDEM', base_url),
+    ee.link.child_collection('projects_ngis-cat_assets_DEA_NIDEM', base_url),
   ],
 }

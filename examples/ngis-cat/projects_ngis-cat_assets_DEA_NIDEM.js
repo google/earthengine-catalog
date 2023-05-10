@@ -1,4 +1,4 @@
-var nidem = ee.Image('DEA/NIDEM');
+var nidem = ee.Image('projects/ngis-cat/assets/DEA/NIDEM');
 
 print(nidem)
 
