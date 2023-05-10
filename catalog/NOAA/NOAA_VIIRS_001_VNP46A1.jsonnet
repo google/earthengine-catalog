@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title:
-    'VNP46A2: VIIRS Daily Gridded Day Night Band 500m Linear Lat Lon Grid Night',
+    'VNP46A1: VIIRS Daily Gridded Day Night Band 500m Linear Lat Lon Grid Night',
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
