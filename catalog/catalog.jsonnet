@@ -68,6 +68,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('NASA', base_url),
     ee.link.child_catalog('NASA_USDA', base_url),
     ee.link.child_catalog('NCEP_RE', base_url),
+    ee.link.child_catalog('NEON', base_url),
     ee.link.child_catalog('NOAA', base_url),
     ee.link.child_catalog('NRCan', base_url),
     ee.link.child_catalog('OREGONSTATE', base_url),
