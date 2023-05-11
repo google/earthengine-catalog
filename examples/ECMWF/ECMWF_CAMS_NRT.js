@@ -2,21 +2,12 @@ var dataset = ee.ImageCollection('ECMWF/CAMS/NRT')
                   .filter(ee.Filter.date('2019-01-01', '2019-01-31'));
 var aod = dataset.select('total_aerosol_optical_depth_at_550nm_surface');
 var visParams = {
-  min: 0.000096,
-  max: 3.582552,
+  min: 0.0,
+  max: 3.6,
   palette: [
-    '5E4FA2',
-    '3288BD',
-    '66C2A5',
-    'ABE0A4',
-    'E6F598',
-    'FFFFBF',
-    'FEE08B',
-    'FDAE61',
-    'F46D43',
-    'D53E4F',
-    '9E0142'
+    '5e4fa2', '3288bd', '66c2a5', 'abe0a4', 'e6f598', 'ffffbf',
+    'fee08b', 'fdae61', 'f46d43', 'd53e4f', '9e0142'
   ]
 };
-Map.setCenter(-94.18, 16.8, 1);
-Map.addLayer(aod, visParams, 'Total Aerosal Optical Depth');
+Map.setCenter(70, 45, 3);
+Map.addLayer(aod, visParams, 'Total Aerosal Optical Depth', true, 0.8);
