@@ -64,7 +64,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license(spdx.cc_by_4_0.reference),
+    ee.link.license(license.reference),
     ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
     ee.link.successor(
         successor_id, catalog_subdir_url + successor_basename + '.json'),
