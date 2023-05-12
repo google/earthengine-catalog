@@ -1,7 +1,5 @@
 var nidem = ee.Image('projects/ngis-cat/assets/DEA/NIDEM');
 
-print(nidem)
-
 var elevation = nidem.select('nidem');
 var elevationVis = {
   min: -2.5,
