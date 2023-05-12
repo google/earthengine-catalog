@@ -63,7 +63,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'surface_elevation',
         description: 'Sea surface elevation anomaly relative to the modeled elevation mean',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
         'gee:scale': 0.001,
       },
     ],

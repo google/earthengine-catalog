@@ -88,7 +88,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         Years: 2006, 2009, 2012, 2015
       |||,
       type: ee_const.var_type.double,
-      units: units.meters,
+      units: units.meter,
     }],
     'gee:visualizations': [
       {

@@ -711,12 +711,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ZL',
         description: 'Mid layer heights',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'ZPBL',
         description: 'Planetary boundary layer height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

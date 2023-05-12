@@ -156,7 +156,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'snow_depth',
         description: 'Snow depth within snow-covered land fraction of grid cell',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'land_evapotranspiration_flux',
@@ -258,7 +258,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       {
         name: 'height_lowatmmodlay',
         description: 'Center height of lowest atmospheric model layer',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'temp_lowatmmodlay',
@@ -313,7 +313,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
           Depth to water table from mean surface elevation in
           peatlands (positive above ground)
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'free_surface_water_on_peat_flux',

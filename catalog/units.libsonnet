@@ -102,7 +102,7 @@
   mole_fraction: '1 (mol fraction)',
 
   // https://en.wikipedia.org/wiki/Metre
-  meters: 'm',
+  meter: 'm',
   centimeter: 'cm',
   kilometer: 'km',
   micrometer: '&micro;m',

@@ -63,12 +63,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'bedrock',
         description: 'Elevation at ground level and at the base of the Antarctic and Greenland ice sheets',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'ice_surface',
         description: 'Elevation at ground level and at the top of the Antarctic and Greenland ice sheets',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

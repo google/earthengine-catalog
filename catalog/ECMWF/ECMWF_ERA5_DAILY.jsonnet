@@ -108,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'total_precipitation',
         description: 'Total precipitation (daily sums)',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'surface_pressure',

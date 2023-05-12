@@ -83,27 +83,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DISPH',
         description: 'Zero plane displacement height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'H1000',
         description: 'Height at 1000 mb',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'H250',
         description: 'Height at 250 hPa',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'H500',
         description: 'Height at 500 hPa',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'H850',
         description: 'Height at 850 hPa',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'OMEGA500',
@@ -305,7 +305,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ZLCL',
         description: 'Lifting condensation level',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

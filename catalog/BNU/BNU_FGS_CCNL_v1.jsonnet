@@ -1,5 +1,6 @@
 local id = 'BNU/FGS/CCNL/v1';
 local subdir = 'BNU';
+local version = '1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,8 +21,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CCNL: Consistent And Corrected Nighttime Light Dataset from DMSP-OLS (1992-2013)',
-  version: 'v1',
+  title:
+    'CCNL: Consistent And Corrected Nighttime Light Dataset from DMSP-OLS ' +
+    '(1992-2013) v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Consistent and Corrected Nighttime Lights (CCNL) dataset is
@@ -58,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (Version 1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6644980
   |||,
   'gee:user_uploaded': true,
-  'gee:terms_of_use':  ee.gee_terms_of_use(license),
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:interval': {
     type: 'cadence',
     unit: 'year',
@@ -69,23 +72,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Nighttime Lights',
-        lookat: {
-          lat: 31.4,
-          lon: 30,
-          zoom: 6,
-        },
+        lookat: {lon: 30.0, lat: 31.4, zoom: 6},
         image_visualization: {
-          band_vis: {
-            bands: ['b1'],
-          },
+          band_vis: {bands: ['b1']},
         },
       },
     ],
-    'eo:bands': [
-      {
+    'eo:bands': [{
         name: 'b1',
         description: 'Corrected nighttime light intensity.'
-      },
-    ],
+    }],
   },
 }

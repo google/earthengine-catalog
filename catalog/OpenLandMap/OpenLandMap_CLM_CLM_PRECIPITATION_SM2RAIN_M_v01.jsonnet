@@ -45,7 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://opendatacommons.org/licenses/odbl/1-0/'),
+    ee.link.license(license.reference),
+    // TODO(schwehr): Why is ODBL here?
+    ee.link.license(spdx.odbl_1_0.reference),
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.1435912',

@@ -245,7 +245,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Ice_thickness_surface',
         description: 'Ice thickness at ground or water surface for 00 and 03 forecast',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'Land_cover_0__sea_1__land_surface',
@@ -320,7 +320,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Planetary_Boundary_Layer_Height_surface',
         description: 'Planetary Boundary Layer Height at ground or water surface for 00 and 03 forecast',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'Potential_Evaporation_Rate_surface',
@@ -385,7 +385,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Snow_depth_surface',
         description: 'Snow depth at ground or water surface for 00 and 03 forecast',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'Snow_Phase_Change_Heat_Flux_surface_3_Hour_Average',
@@ -425,7 +425,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Surface_roughness_surface',
         description: 'Surface roughness at ground or water surface for 00 and 03 forecast',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'Surface_Slope_Type_surface',

@@ -134,7 +134,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'aerosol_height',
         description: 'Aerosol height parameter in the CH<sub>4</sub> retrieval',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'aerosol_optical_depth',

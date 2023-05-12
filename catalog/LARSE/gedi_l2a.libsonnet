@@ -85,13 +85,13 @@ local units = import 'units.libsonnet';
     {
       name: 'digital_elevation_model',
       description: 'TanDEM-X elevation at GEDI footprint location',
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.double,
     },
     {
       name: 'digital_elevation_model_srtm',
       description: 'STRM elevation at GEDI footprint location',
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.double,
     },
     {
@@ -100,7 +100,7 @@ local units = import 'units.libsonnet';
         Elevation of highest detected return relative
         to reference ellipsoid
       |||,
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.double,
     },
     {
@@ -108,7 +108,7 @@ local units = import 'units.libsonnet';
       description: |||
         Elevation of center of lowest mode relative to reference ellipsoid
       |||,
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.double,
     },
     {
@@ -332,7 +332,7 @@ local units = import 'units.libsonnet';
     {
       name: 'rh' + step,
       description: 'Relative height metrics at ' + step + units.percent,
-      'gee:units': units.meters,
+      'gee:units': units.meter,
       type:: ee_const.var_type.double,
     }
     for step in std.range(0, 100)
