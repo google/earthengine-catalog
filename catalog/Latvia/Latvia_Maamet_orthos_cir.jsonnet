@@ -112,9 +112,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': 'Latvijas Geospatial Information Agency',
   'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n' +
   |||
-    This dataset is licensed similar to Creative Commons Attribution
-    4.0 International License
-
     For more details please see the
     [Terms of use](https://www.lgia.gov.lv/sites/lgia/files/document/Atverto%20datu%20licence%20CC%20BY_0.pdf)
   |||
