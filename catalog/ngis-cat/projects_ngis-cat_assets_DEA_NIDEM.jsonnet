@@ -18,6 +18,8 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
+  // TODO(schwehr): Remove when the dataset is ready.
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -49,22 +51,36 @@ local self_url = catalog_subdir_url + base_filename;
     [DEA Intertidal Elevation](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+      ee.link.license(license.reference),
+      {
+        rel: ee_const.rel.cite_as,
+        href: 'https://doi.org/10.1016/j.ecss.2019.03.006',
+        type: ee_const.media_type.html,
+      },
+      {
+        rel: ee_const.rel.source,
+        href: 'https://dapds00.nci.org.au/thredds/catalog/fk4/datacube/002/NIDEM/geotiff/catalog.html',
+      },
+    ],
   keywords: [
     'australia',
-    'dea_australia',
+    // 'dea_australia',
     'dem',
-    'nidem',
+    // 'nidem',
   ],
   providers: [
-    ee.producer_provider('Digital Earth Australia', 'https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat'),
+    ee.producer_provider(
+      'Digital Earth Australia', 
+      'https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat'),
+    ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(108.81, -44.41, 157.82, -9.13, '1986-08-16T00:00:00Z', '2017-07-31T23:59:59Z'),
+  extent: ee.extent(
+    108.81, -44.41, 157.82, -9.13, 
+    '1986-08-16T00:00:00Z', '2017-07-31T23:59:59Z'),
   summaries: {
-    gsd: [
-      25,
-    ],
+    gsd: [25],
     'eo:bands': [
       {
         name: 'nidem',
@@ -73,7 +89,7 @@ local self_url = catalog_subdir_url + base_filename;
           Sea Level. 
           [Band details](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#details)
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'nidem_mask',
@@ -105,7 +121,7 @@ local self_url = catalog_subdir_url + base_filename;
           Uncertainty meters. 
           [Band details](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#details)
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'nidem_unfiltered',
@@ -113,7 +129,7 @@ local self_url = catalog_subdir_url + base_filename;
           Un-cleaned elevation in meters. 
           [Band details](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#details)
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     nidem: {minimum: -5.0, maximum: 3.9, 'gee:estimated_range': false},
@@ -121,45 +137,28 @@ local self_url = catalog_subdir_url + base_filename;
     nidem_unfiltered: {minimum: -5.0, maximum: 3.9, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
-        display_name: 'nidem',
-        lookat: {lat: -23.70, lon: 133.88, zoom: 5},
+        display_name: 'National Intertidal Digital Elevation Model (NIDEM)',
+        lookat: {lon: 133.88, lat: -23.70, zoom: 5},
         image_visualization: {
           band_vis: {
             min: [-5.0],
             max: [3.9],
             palette: [
-              '440154', 
-              '471365', 
-              '482475', 
-              '463480', 
-              '414487', 
-              '3b528b', 
-              '355f8d',
-              '2f6c8e', 
-              '2a788e', 
-              '25848e', 
-              '21918c', 
-              '1e9c89', 
-              '22a884', 
-              '2fb47c',
-              '44bf70', 
-              '5ec962', 
-              '7ad151', 
-              '9bd93c', 
-              'bddf26', 
-              'dfe318', 
-              'fde725',
+              '440154', '471365', '482475', '463480', '414487', '3b528b', 
+              '355f8d', '2f6c8e', '2a788e', '25848e', '21918c', '1e9c89', 
+              '22a884', '2fb47c', '44bf70', '5ec962', '7ad151', '9bd93c', 
+              'bddf26', 'dfe318', 'fde725',
             ],
-             bands: ['nidem']}},
+            bands: ['nidem']}},
       },
     ],
   },
   'sci:doi': '10.1016/j.ecss.2019.03.006',
   'sci:citation': |||
     Bishop-Taylor, R., Sagar, S., Lymburner, L., & Beaman, R. J. (2019).
-    Between the tides: Modelling the elevation of Australias exposed intertidal 
-    zone at continental scale. 
-    Estuarine, Coastal and Shelf Science, 223, 115 128. 
+    Between the tides: Modelling the elevation of Australia's exposed intertidal 
+    zone at continental scale.  Estuarine, Coastal and Shelf Science, 223,
+    115-128. 
     [doi:10.1016/j.ecss.2019.03.006](https://doi.org/10.1016/j.ecss.2019.03.006)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
