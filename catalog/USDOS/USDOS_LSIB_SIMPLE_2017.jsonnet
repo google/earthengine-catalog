@@ -56,7 +56,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usdos',
   ],
   providers: [
-    ee.producer_provider('United States Department of State, Office of the Geographer', 'https://geonode.state.gov/layers/catalog:geonode:LSIB'),
+    ee.producer_provider(
+      'United States Department of State, Office of the Geographer',
+      'https://geonode.state.gov/layers/catalog:geonode:LSIB'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2017-03-30T00:00:00Z', '2017-03-30T00:00:00Z'),
@@ -69,7 +71,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'country_co',
-        description: '[Two-letter FIPS country code](https://en.wikipedia.org/wiki/List_of_FIPS_country_codes)',
+        description:
+          '[Two-letter FIPS country code]' +
+          '(https://en.wikipedia.org/wiki/List_of_FIPS_country_codes)',
         type: ee_const.var_type.string,
       },
       {
@@ -86,14 +90,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Countries',
-        lookat: {
-          lat: 52.48,
-          lon: 71.72,
-          zoom: 1,
-        },
+        lookat: {lon: 71.72, lat: 52.48, zoom: 1},
         table_visualization: {
           color: '00909f',
-          width: 3.0,
+          width: 3,
           fill_color: 'b5ffb4',
         },
       },
@@ -107,5 +107,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       thinning_strategy: 'HIGHER_DENSITY',
     },
   },
-  'gee:terms_of_use': 'There are no restrictions on use of this US public domain data.',
+  'gee:terms_of_use':
+    'There are no restrictions on use of this US public domain data.',
 }
