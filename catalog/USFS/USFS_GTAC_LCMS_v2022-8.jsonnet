@@ -17,9 +17,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
-  // TODO(schwehr): Remove when the dataset is ready.
-  'gee:skip_indexing': true,
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -55,11 +52,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     from the LandTrendr and CCDC change detection algorithms, and terrain information. These
     components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
 
-    For CCDC, United States Geological Survey (USGS) Collection 2 Landsat Tier 1 surface reflectance 
-    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK. 
-    To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A, 
-    2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm 
-    (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012) 
+    For CCDC, United States Geological Survey (USGS) Collection 2 Landsat Tier 1 surface reflectance
+    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK.
+    To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
+    2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
+    (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), and s2cloudless
     (Sentinel-Hub, 2021) (Sentinel 2-only) are used to mask clouds, while TDOM
     (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
@@ -76,8 +73,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     segment duration, change magnitude, and slope, and CCDC September 1 sine and
     cosine coefficients (first 3 harmonics), fitted values, and pairwise
     differences, along with elevation, slope, sine of aspect, cosine of aspect,
-    and topographic position indices (Weiss, 2001) from the 10 m USGS 3D Elevation 
-    Program (3DEP) data (U.S. Geological Survey, 2019), are used as 
+    and topographic position indices (Weiss, 2001) from the 10 m USGS 3D Elevation
+    Program (3DEP) data (U.S. Geological Survey, 2019), are used as
     independent predictor variables in a Random Forest (Breiman, 2001) model.
 
     Reference data are collected using TimeSync, a web-based tool that helps
@@ -129,7 +126,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     products. In Remote Sensing of Environment.  *Science Direct*, 194: 379-390
     [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
 
-    * **U.S. Geological Survey, 2019.** USGS 3D Elevation Program Digital Elevation 
+    * **U.S. Geological Survey, 2019.** USGS 3D Elevation Program Digital Elevation
     Model, accessed August 2022 at https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
 
     * **Healey, S. P., Cohen, W. B., Yang, Z., Kenneth Brewer, C., Brooks, E. B.,

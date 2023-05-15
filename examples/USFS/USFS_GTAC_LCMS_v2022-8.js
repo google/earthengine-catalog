@@ -1,4 +1,4 @@
-var lcms = ee.ImageCollection('USFS/GTAC/LCMS/v2022-8')
+var dataset = ee.ImageCollection('USFS/GTAC/LCMS/v2022-8')
 
 var lcms = dataset
     .filter(ee.Filter.and(
