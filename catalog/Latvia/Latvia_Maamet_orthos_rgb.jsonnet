@@ -4,6 +4,8 @@ local subdir = 'Latvia';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
@@ -42,72 +44,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider(
-    'Latvia orthophotos',
-    'https://www.lgia.gov.lv/lv/ortofotokartes-1'
-    ),
+      'Latvia orthophotos', 'https://www.lgia.gov.lv/lv/ortofotokartes-1'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(55.5, 20.5, 58.5, 28.6,
                     '2007-01-01T00:00:00Z', '2018-01-01T00:00:00Z'),
-
   summaries: {
-    gsd: [
-      0.2,
-    ],
+    gsd: [0.2],
     'eo:bands': [
-      {
-        name: 'R',
-        description: 'Red',
-      },
-      {
-        name: 'G',
-        description: 'Green',
-      },
-      {
-        name: 'B',
-        description: 'Blue',
-      }
+      {name: 'R', description: 'Red', 'gee:units': units.dn},
+      {name: 'G', description: 'Green', 'gee:units': units.dn},
+      {name: 'B', description: 'Blue', 'gee:units': units.dn}
     ],
-    'gee:visualizations': [
-        {
-        display_name: 'RGB',
-        lookat: {
-          lat: 24.737,
-          lon: 56.861,
-          zoom: 18,
-        },
-        image_visualization: {
-          band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              255
-            ],
-            bands: [
-              'R',
-              'G',
-              'B',
-            ],
-          },
-        },
-      },
-    ],
-    R: {
-      minimum: 0,
-      maximum: 255,
-      'gee:estimated_range': false,
-    },
-    G: {
-      minimum: 0,
-      maximum: 255,
-      'gee:estimated_range': false,
-    },
-    B: {
-      minimum: 0,
-      maximum: 255,
-      'gee:estimated_range': false,
-    },
+    R: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    G: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    'gee:visualizations': [{
+      display_name: 'RGB',
+      lookat: {lon: 56.861, lat: 24.737, zoom: 18},
+      image_visualization: {
+        band_vis: {min: [0], max: [255], bands: ['R', 'G', 'B']}}}],
   },
   'sci:citation': 'Latvijas Geospatial Information Agency',
   'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n' +
