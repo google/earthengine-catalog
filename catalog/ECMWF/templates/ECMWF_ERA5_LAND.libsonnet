@@ -16,6 +16,7 @@ local flux = 'J/m^2';
     climate of the past. This dataset includes all 50 variables as available on
     CDS.
   |||,
+  min_max: {'min':'minimum', 'max':'maximum'},
   keywords: [
     'cds',
     'climate',
