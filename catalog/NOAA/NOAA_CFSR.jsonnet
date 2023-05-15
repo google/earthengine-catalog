@@ -470,7 +470,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Total_ozone_entire_atmosphere_single_layer',
         description: 'Total ozone at entire atmosphere layer for 00 and 03 forecast',
-        'gee:units': 'DU',
+        'gee:units': units.dobson,
       },
       {
         name: 'Total_precipitation_surface_3_Hour_Accumulation',
