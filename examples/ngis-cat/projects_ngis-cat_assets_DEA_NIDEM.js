@@ -11,4 +11,5 @@ var elevationVis = {
   ],
 };
 Map.setCenter(122.36, -18.10, 11);
-Map.addLayer(elevation, elevationVis, 'nidem');
+Map.addLayer(elevation, elevationVis,
+'National Intertidal Digital Elevation Model (NIDEM; m)');
