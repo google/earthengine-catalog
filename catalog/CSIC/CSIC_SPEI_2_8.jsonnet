@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'global_warming',
     'monthly',
     'palmer',
-    'penman-monteith',
+    'penman_monteith',
     'precipitation',
     'precipitation_anomaly',
     'spei',
