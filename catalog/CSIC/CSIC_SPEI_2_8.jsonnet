@@ -26,18 +26,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Global SPEI database, SPEIbase, offers long-time, robust information about drought 
-	conditions at the global scale, with a 0.5 degrees spatial resolution and a monthly time resolution.
-	It has a multi-scale character, providing SPEI time-scales between 1 and 48 months. 
-	Currently it covers the period between January 1901 and December 2020.
-	
-	The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses, as a standardized variate
-	(mean zero and unit variance), the deviations of the current climatic balance (precipitation minus evapotranspiration potential)
-	with respect to the long-term balance. The reference period for the calculation, in the SPEIbase,
-	corresponds to the whole study period. Being a standardized variate means that the SPEI condition can be compared across space and time.
-	
-	The SPEIbase is based on the FAO-56 Penman-Monteith estimation of potential evapotranspiration.
-	This is a major difference with respect to the SPEI Global Drought Monitor, that uses the Thornthwaite PET estimation.
-	The Penman-Montheith method is considered a superior method, so the SPEIbase is recommended for most uses including long-term climatological analysis.
+    conditions at the global scale, with a 0.5 degrees spatial resolution and a monthly time resolution.
+    It has a multi-scale character, providing SPEI time-scales between 1 and 48 months. 
+    Currently it covers the period between January 1901 and December 2020.
+    
+    The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses, as a standardized variate
+    (mean zero and unit variance), the deviations of the current climatic balance (precipitation minus evapotranspiration potential)
+    with respect to the long-term balance. The reference period for the calculation, in the SPEIbase,
+    corresponds to the whole study period. Being a standardized variate means that the SPEI condition can be compared across space and time.
+    
+    The SPEIbase is based on the FAO-56 Penman-Monteith estimation of potential evapotranspiration.
+    This is a major difference with respect to the SPEI Global Drought Monitor, that uses the Thornthwaite PET estimation.
+    The Penman-Montheith method is considered a superior method, so the SPEIbase is recommended for most uses including long-term climatological analysis.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -310,15 +310,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:doi': '10.20350/digitalCSIC/15121', 
   'sci:citation': |||
     Product: Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023; 
-	SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
+    SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
     [https://doi.org/10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121).
   |||,
   'sci:publications': [
     {
       citation: |||
         Related publication: Vicente-Serrano S.M., Beguería S., López-Moreno J.I. (2010): 
-		A Multi-scalar drought index sensitive to global warming: The Standardized Precipitation Evapotranspiration Index – SPEI. 
-		Journal of Climate 23(7), 1696-1718. [https://doi.org/10.1175/2009JCLI2909.1](https://doi.org/10.1175/2009JCLI2909.1)
+        A Multi-scalar drought index sensitive to global warming: The Standardized Precipitation Evapotranspiration Index – SPEI. 
+        Journal of Climate 23(7), 1696-1718. [https://doi.org/10.1175/2009JCLI2909.1](https://doi.org/10.1175/2009JCLI2909.1)
       |||,
       doi: '10.1175/2009JCLI2909.1',
     },
@@ -330,24 +330,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:terms_of_use': |||
     The SPEI database is available under the Open Database License.
-	All rights to the individual contents of the database are licensed under 
-	the [Database Contents License](https://opendatacommons.org/licenses/odbl/1-0/).
-	
-	The following is a summary of the ODbL 1.0 license. Please read the full text of the ODbL 1.0 license for the exact applicable terms.
-
-	Users of the dataset may:
-	- Share, copy, distribute and use the database, commercially or non-commercially.
-	- Create and produce derivative works from the database.
-	- Adapt, modify and transform the database.
-
-	Under the following conditions:
-	- Attribution: Any public use of the database, or works produced from it, must be attributed by referencing the following document: 
-	Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023; 
-	SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
+    All rights to the individual contents of the database are licensed under 
+    the [Database Contents License](https://opendatacommons.org/licenses/odbl/1-0/).
+    
+    The following is a summary of the ODbL 1.0 license. Please read the full text of the ODbL 1.0 license for the exact applicable terms.
+    
+    Users of the dataset may:
+    - Share, copy, distribute and use the database, commercially or non-commercially.
+    - Create and produce derivative works from the database.
+    - Adapt, modify and transform the database.
+    
+    Under the following conditions:
+    - Attribution: Any public use of the database, or works produced from it, must be attributed by referencing the following document: 
+    Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023; 
+    SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
     [https://doi.org/10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121).
-	For any use or redistribution of the database, or works produced from it, the original database license must be clearly stated.
-	- Share-Alike: If any adapted version of this database, in addition to possible works produced from the adapted database, 
-	is publicly offered, then such database must also be offered under ODbL.
+    For any use or redistribution of the database, or works produced from it, the original database license must be clearly stated.
+    - Share-Alike: If any adapted version of this database, in addition to possible works produced from the adapted database, 
+    is publicly offered, then such database must also be offered under ODbL.
   |||,
   'gee:user_uploaded': true,
 }
