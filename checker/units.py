@@ -33,6 +33,7 @@ UNITS = frozenset({
     'd',
     'dB',
     'deg',
+    'dn',
     'h',
     'h/km^2',
     'ha',

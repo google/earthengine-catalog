@@ -59,6 +59,12 @@
   density_si: 'kg/m^3',
   density_mg_per_m_cubed: 'mg/m^3',
 
+  // Digital Number (DN) is an uncalibrated pixel value.
+  // https://www.oxfordreference.com/display/10.1093/oi/authority.20110803095718218
+  // https://en.wikipedia.org/wiki/DN
+  // https://en.wikipedia.org/wiki/Analog-to-digital_converter
+  dn: 'dn',
+
   // https://en.wikipedia.org/wiki/Hertz
   giga_hertz: 'GHz',
 

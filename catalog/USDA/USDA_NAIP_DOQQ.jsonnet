@@ -4,6 +4,7 @@ local subdir = 'USDA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -66,22 +67,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'R',
         description: 'Red',
-        'gee:units': 'DN',
+        'gee:units': units.dn,
       },
       {
         name: 'G',
         description: 'Green',
-        'gee:units': 'DN',
+        'gee:units': units.dn,
       },
       {
         name: 'B',
         description: 'Blue',
-        'gee:units': 'DN',
+        'gee:units': units.dn,
       },
       {
         name: 'N',
         description: 'Near infrared',
-        'gee:units': 'DN',
+        'gee:units': units.dn,
       },
     ],
     'gee:visualizations': [
