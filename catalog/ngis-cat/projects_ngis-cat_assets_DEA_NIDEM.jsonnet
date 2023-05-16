@@ -47,22 +47,23 @@ local self_url = catalog_subdir_url + base_filename;
     of the three-dimensional topography of the intertidal zone, such as
     hydrodynamic modelling, coastal risk management and ecological habitat
     mapping.
+
     For more information, please see the
     [DEA Intertidal Elevation](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-      {
-        rel: ee_const.rel.cite_as,
-        href: 'https://doi.org/10.1016/j.ecss.2019.03.006',
-        type: ee_const.media_type.html,
-      },
-      {
-        rel: ee_const.rel.source,
-        href: 'https://dapds00.nci.org.au/thredds/catalog/fk4/datacube/002/NIDEM/geotiff/catalog.html',
-      },
-    ],
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://doi.org/10.1016/j.ecss.2019.03.006',
+      type: ee_const.media_type.html,
+    },
+    {
+      rel: ee_const.rel.source,
+      href: 'https://dapds00.nci.org.au/thredds/catalog/fk4/datacube/002/NIDEM/geotiff/catalog.html',
+    },
+  ],
   keywords: [
     'australia',
     // 'dea_australia',
