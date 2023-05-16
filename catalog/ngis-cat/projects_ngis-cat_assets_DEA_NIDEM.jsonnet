@@ -20,6 +20,7 @@ local self_url = catalog_subdir_url + base_filename;
 {
   // TODO(schwehr): Remove when the dataset is ready.
   'gee:skip_indexing': true,
+  'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
