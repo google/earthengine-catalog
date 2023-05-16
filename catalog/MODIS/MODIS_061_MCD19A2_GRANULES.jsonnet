@@ -30,7 +30,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (AOD) gridded Level 2 product produced daily at 1 km resolution. For more
     information see the [MAIAC user guide](https://lpdaac.usgs.gov/documents/1500/MCD19_User_Guide_V61.pdf).
 
-    NOTE: Data prior to 2022/01/01 is incomplete in Earth Engine.
+    NOTE: This product has been released with the caveat that the reprocessing
+    for the full mission is expected to continue through summer 2023.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -59,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:provider_ids': [
     'C1000000505-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2005-01-23T00:00:00Z', null),
+  extent: ee.extent_global('2000-02-24T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
       'Aqua',
