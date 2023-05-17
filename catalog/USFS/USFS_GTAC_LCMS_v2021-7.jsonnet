@@ -164,7 +164,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     * **Sentinel-Hub, 2021.**
     Sentinel 2 Cloud Detector. [Online].
     Available at: [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
-    (Accessed: 2021)
 
     * **Weiss, A.D., 2001.**
     Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
@@ -769,7 +768,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             min: [1],
             max: [5],
             palette: [
-             '3d4551', 'f39268', 'd54309', '00a398', '1b1716', 'b30088'],
+              '3d4551', 'f39268', 'd54309', '00a398', '1b1716', 'b30088'],
             bands: ['Change'],
           },
         },
@@ -791,7 +790,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
       },
       {
-        display_name: 'Land Sse',
+        display_name: 'Land Use',
         lookat: {lon: -98.58, lat: 38.14, zoom: 4},
         image_visualization: {
           band_vis: {
