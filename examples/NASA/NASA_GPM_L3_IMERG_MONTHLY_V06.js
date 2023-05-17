@@ -11,5 +11,5 @@ var palette = [
   'ffeb00', 'ffb300', 'ff6400', 'eb1e00', 'af0000'
 ];
 var precipitationVis = {min: 0.0, max: 1.5, palette: palette};
-Map.addLayer(precipitation, precipitationVis, 'Precipitation');
+Map.addLayer(precipitation, precipitationVis, 'Precipitation (mm/hr)');
 Map.setCenter(-76, 33, 3);

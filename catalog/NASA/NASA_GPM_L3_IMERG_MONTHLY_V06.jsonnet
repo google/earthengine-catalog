@@ -1,5 +1,6 @@
 local id = 'NASA/GPM_L3/IMERG_MONTHLY_V06';
 local subdir = 'NASA';
+local version = '6';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,8 +22,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GPM: Monthly Global Precipitation Measurement (GPM) v6',
-  version: 'V06',
+  title: 'GPM: Monthly Global Precipitation Measurement (GPM) v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     IMERG-Final version "06" stopped being produced in September, 2021.
@@ -120,23 +121,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Precipitation',
-        lookat: {
-          lat: 26.12,
-          lon: -90.7,
-          zoom: 2,
-        },
+        display_name: 'Precipitation (mm/hr)',
+        lookat: {lon: -76, lat: 33, zoom: 3},
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              1.0,
-            ],
-            bands: [
-              'precipitation',
-            ],
+            min: [0.0],
+            max: [1.5],
+            bands: ['precipitation'],
           },
         },
       },
@@ -154,5 +145,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'month',
     interval: 1,
   },
-  'gee:terms_of_use': 'All NASA-produced data from the GPM mission is made\nfreely available for the public to use.',
+  'gee:terms_of_use':
+    'All NASA-produced data from the GPM mission is made ' +
+    'freely available for the public to use.',
 }
