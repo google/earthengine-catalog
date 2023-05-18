@@ -77,15 +77,15 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       for band in era5_land.bands
     ] + [
       {
-        name: band.name + '_'+ name,
+        name: band.name + '_'+ item.key,
         description: std.join(
           ' ',
-          [era5_land.min_max[name], band.name, 'value each month']
+          [item.value, band.name, 'value each month']
         ),
         [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands
-      for name in std.objectFields(era5_land.min_max)
+      for item in era5_land.min_max
     ],
     'gee:visualizations': era5_land.visualizations + [
       {
