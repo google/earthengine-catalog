@@ -9,4 +9,5 @@
   {'v1.7': 'UMD/hansen/global_forest_change_2019_v1_7'},
   {'v1.8': 'UMD/hansen/global_forest_change_2020_v1_8'},
   {'v1.9': 'UMD/hansen/global_forest_change_2021_v1_9'},
+  {'v1.10': 'UMD/hansen/global_forest_change_2022_v1_10'},
 ]

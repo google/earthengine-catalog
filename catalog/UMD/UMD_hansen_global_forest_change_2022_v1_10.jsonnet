@@ -6,7 +6,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'UMD_hansen_global_forest_change.libsonnet';
 
 local subdir = 'UMD';
-local version = 'v1.9';
+local version = 'v1.10';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.cc_by_4_0;
@@ -20,27 +20,23 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'Hansen Global Forest Change v1.9 (2000-2021) [deprecated]',
+  title: 'Hansen Global Forest Change v1.10 (2000-2022)',
   version: version,
-  deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||
     Results from time-series analysis of Landsat images in characterizing
     global forest extent and change.
 
     The 'first' and 'last' bands are reference multispectral imagery from the
-    first and last available years for Landsat spectral bands 3, 4, 5, and 7.
-    Reference composite imagery represents median observations from a set of
-    quality-assessed growing-season observations for each of these bands.
+    first and last available years for Landsat spectral bands corresponding to
+    red, NIR, SWIR1, and SWIR2.  Reference composite imagery represents median
+    observations from a set of quality-assessed growing-season observations for
+    each of these bands.
 
-    Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2021-v1.9/download.html)
-    for this Version 1.9 update, as well as the associated journal article:
+    Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2022-v1.10/download.html)
+    for this Version 1.10 update, as well as the associated journal article:
     Hansen, Potapov, Moore, Hancher et al. "High-resolution global maps of
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
-
-    Note that updated versions of this data are available. The newest version,
-    Version 1.10 (produced with data through 2022), is available as
-    UMD/hansen/global_forest_change_2022_v1_10.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
@@ -57,7 +53,7 @@ local license = spdx.cc_by_4_0;
     ee.producer_provider('Hansen/UMD/Google/USGS/NASA', 'https://glad.earthengine.app/view/global-forest-change'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('2000-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       30.92,
@@ -236,8 +232,8 @@ local license = spdx.cc_by_4_0;
           Year of gross forest cover loss event. Forest loss during the study
           period, defined as a stand-replacement disturbance, or a change from a
           forest to non-forest state. Encoded as either 0 (no loss) or else a value
-          in the range 1-21, representing loss detected primarily in the year
-          2001-2021, respectively.
+          in the range 1-22, representing loss detected primarily in the year
+          2001-2022, respectively.
         |||,
       },
     ],
@@ -280,7 +276,7 @@ local license = spdx.cc_by_4_0;
     },
     lossyear: {
       minimum: 0.0,
-      maximum: 21.0,
+      maximum: 22.0,
       'gee:estimated_range': false,
     },
   },
