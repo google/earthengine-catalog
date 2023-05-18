@@ -67,6 +67,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands
+    ] + [
+      {
+        name: band.name + '_'+ name,
+        description: std.join(
+          ' ',
+          ['daily', era5_land.min_max[name], band.name, 'value']
+        ),
+        [if std.objectHas(band, 'units') then 'gee:units']: band.units
+      }
+      for band in era5_land.bands
+      for name in std.objectFields(era5_land.min_max)
     ],
     'gee:visualizations': era5_land.visualizations + [
       {
