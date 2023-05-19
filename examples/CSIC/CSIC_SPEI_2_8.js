@@ -17,5 +17,8 @@ var vis = {
   ]
 };
 
+// Set the map center to Spain's location
+Map.setCenter(-3.74922, 40.463667, 4);
+
 // Display the SPEI 24-month layer
 Map.addLayer(spei24, vis, 'SPEI 24 month');
