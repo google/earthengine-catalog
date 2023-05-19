@@ -26,9 +26,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Global SPEI database, SPEIbase, offers long-time, robust information about drought 
-    conditions at the global scale, with a 0.5 degrees spatial resolution and a monthly time resolution.
-    It has a multi-scale character, providing SPEI time-scales between 1 and 48 months. 
-    Currently it covers the period between January 1901 and December 2020.
+    conditions at the global scale, with a 0.5 degree pixel size and monthly cadence.
+    It provides SPEI time scales from 1 to 48 months.
     
     The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses, as a standardized variate
     (mean zero and unit variance), the deviations of the current climatic balance (precipitation minus evapotranspiration potential)
