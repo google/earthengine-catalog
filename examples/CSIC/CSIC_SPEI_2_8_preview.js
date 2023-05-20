@@ -20,7 +20,7 @@ var lat = 20;
 Map.setCenter(lon, lat, 2);
 
 var areaOfInterest = ee.Geometry.Rectangle(
-  [-90, lat - delta, 90, lat + delta], null, false);
+  [-130, lat - delta, 70, lat + delta], null, false);
 
 // Set the visualization ranges and color palette
 var vis = {
