@@ -8,6 +8,9 @@ local units = import 'units.libsonnet';
     extracts biophysical metrics from each GEDI waveform. These metrics
     are based on the directional gap probability profile derived from the L1B
     waveform.
+
+    The vertical step between foliage profile measurements
+    (known as dZ in GEDI documentation) is always 5 meters.
   |||,
   citation: |||
     GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global Footprint
