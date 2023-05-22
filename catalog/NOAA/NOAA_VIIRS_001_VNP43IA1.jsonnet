@@ -5,12 +5,14 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+
 local quality_bands = ['I1', 'I2', 'I3'];
 local layer_bands = [
   {key:'fiso', value:'Isotropic parameter'},
   {key:'fvol', value:'Volumetric parameter'},
   {key:'fgeo', value:'Geometric parameter'},
 ];
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -78,29 +80,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2012-01-17T00:00:00Z', null),
   summaries: {
-    gsd: [
-      500.0,
-    ],
-    platform: [
-      'Suomi NPP',
-    ],
-    instruments: [
-      'VIIRS',
-    ],
+    gsd: [500],
+    platform: ['Suomi NPP'],
+    instruments: ['VIIRS'],
     'eo:bands': [
       {
         name: 'BRDF_Albedo_Band_Mandatory_Quality_' + band,
         description: 'BRDF/Albedo mandatory quality for band ' + band,
         'gee:classes': [
-          {
-            description: |||
-              full BRDF inversions
-            |||,
-            value: 0,
-          },
-          {
-            value: 1,
-            description: 'magnitude BRDF inversions',
+          {value: 0, description: 'Full BRDF inversions'},
+          {value: 1, description: 'Magnitude BRDF inversions',
           },
         ],
       }
@@ -115,43 +104,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'isotropic parameter for band I1',
-        lookat: {
-          lat: 89,
-          lon: 58,
-          zoom: 3,
-        },
+        display_name: 'Isotropic parameter for band I1',
+        lookat: {lon: 89, lat: 58, zoom: 3},
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              255,
-            ],
+            min: [0],
+            max: [255],
             palette: [
-              '000080',
-              '0000d9',
-              '4000ff',
-              '8000ff',
-              '0080ff',
-              '00ffff',
-              '00ff80',
-              '80ff00',
-              'daff00',
-              'ffff00',
-              'fff500',
-              'ffda00',
-              'ffb000',
-              'ffa400',
-              'ff4f00',
-              'ff2500',
-              'ff0a00',
-              'ff00ff',
+              '000080', '0000d9', '4000ff', '8000ff', '0080ff', '00ffff',
+              '00ff80', '80ff00', 'daff00', 'ffff00', 'fff500', 'ffda00',
+              'ffb000', 'ffa400', 'ff4f00', 'ff2500', 'ff0a00', 'ff00ff',
             ],
-            bands: [
-              'BRDF_Albedo_Parameters_fiso_I1',
-            ],
+            bands: ['BRDF_Albedo_Parameters_fiso_I1'],
           },
         },
       },
@@ -159,7 +123,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5067/VIIRS/VNP43IA1.001',
   'sci:citation': |||
-    Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
+    Please visit
+    [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
   |||,
   'gee:interval': {

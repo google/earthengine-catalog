@@ -14,4 +14,4 @@ var visualization = {
 
 Map.setCenter(89, 58, 3);
 
-Map.addLayer(dataset, visualization, 'isotropic parameter for band I1');
+Map.addLayer(dataset, visualization, 'Isotropic parameter for band I1');
