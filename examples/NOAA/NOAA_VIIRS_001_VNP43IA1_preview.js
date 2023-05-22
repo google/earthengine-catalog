@@ -12,11 +12,6 @@ var delta = 3.5;
 // Width and Height of the thumbnail image.
 var pixels = 256;
 
- // cadetblue
-var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 1});
-
-// The visualisations are baked into the image properties.
-// Benthic habitat classification.
 var I1_isotropic = dataset.select('BRDF_Albedo_Parameters_fiso_I1');
 
 var areaOfInterest = ee.Geometry.Rectangle(
@@ -24,7 +19,7 @@ var areaOfInterest = ee.Geometry.Rectangle(
 
 var visParams = {
   dimensions: [pixels, pixels], region: areaOfInterest, crs: 'SR-ORG:6974',
-  format: 'png', min: 0, max:1,
+  format: 'png',
 };
 
 var palette = [
@@ -34,8 +29,7 @@ var palette = [
 ];
 
 var image = I1_isotropic.visualize({palette: palette, min: 0, max:1});
-var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
-Map.addLayer(imageWithBackground, null, 'isotropic parameter');
+Map.addLayer(image, null, 'isotropic parameter');
 
-print(ui.Thumbnail({image: imageWithBackground, params: visParams}));
+print(ui.Thumbnail({image: image, params: visParams}));
