@@ -9,10 +9,10 @@ Map.setOptions('SATELLITE');
 
 // Degrees in EPSG:3857
 var delta = 0.05;
-// Width and Height of the thumbnail image.
+// Width and height of the thumbnail image.
 var pixels = 256;
 
- // cadetblue
+// cadetblue
 var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 255});
 
 // The visualisations are baked into the image properties.
@@ -37,6 +37,6 @@ var palette = [
 var image = benthicHabitat.visualize({palette: palette, min: 11, max:18});
 var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
-Map.addLayer(imageWithBackground, null, 'Benthic habitat');
+Map.addLayer(imageWithBackground, {}, 'Benthic habitat');
 
 print(ui.Thumbnail({image: imageWithBackground, params: visParams}));
