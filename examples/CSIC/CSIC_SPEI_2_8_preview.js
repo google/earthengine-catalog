@@ -15,12 +15,12 @@ var delta = 60;
 var pixels = 256;
 
 var lon = 0;
-var lat = 20;
+var lat = 15;
 
 Map.setCenter(lon, lat, 2);
 
 var areaOfInterest = ee.Geometry.Rectangle(
-  [-130, lat - delta, 70, lat + delta], null, false);
+  [-120, lat - delta, 60, lat + delta], null, false);
 
 // Set the visualization ranges and color palette
 var vis = {
