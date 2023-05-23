@@ -23,7 +23,9 @@ var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
 var visParams = {
-  dimensions: [pixels, pixels], region: areaOfInterest, crs: 'EPSG:3857',
+  dimensions: [pixels, pixels],
+  region: areaOfInterest,
+  crs: 'EPSG:3857',
   format: 'png',
 };
 

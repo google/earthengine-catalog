@@ -34,7 +34,10 @@ var areaOfInterest = ee.Geometry.Rectangle(
 Map.addLayer(areaOfInterest, {}, 'Area of Interest', true, 0.3);
 
 var rgbParams = {
-  dimensions: [pixels, pixels], region: areaOfInterest,
-  crs: 'EPSG:3857', format: 'png'};
+  dimensions: [pixels, pixels],
+  region: areaOfInterest,
+  crs: 'EPSG:3857',
+  format: 'png',
+};
 
 print(ui.Thumbnail({image: rgbImage, params: rgbParams}));
