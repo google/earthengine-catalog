@@ -339,6 +339,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:doi': '10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018',
+  // TODO(b/284289780): Convert gee:extra_dois to sci:publications
   'gee:extra_dois': [
     '10.5067/ORBVIEW-2/SEAWIFS/L3M/POC/2018',
     '10.5067/ORBVIEW-2/SEAWIFS/L3M/RRS/2018',

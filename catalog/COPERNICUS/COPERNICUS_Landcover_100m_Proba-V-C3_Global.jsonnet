@@ -512,6 +512,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:doi': '10.5281/zenodo.3518026',
+  // TODO(b/284289780): Convert gee:extra_dois to sci:publications
   'gee:extra_dois': [
     '10.5281/zenodo.3518036',
     '10.5281/zenodo.3518038',

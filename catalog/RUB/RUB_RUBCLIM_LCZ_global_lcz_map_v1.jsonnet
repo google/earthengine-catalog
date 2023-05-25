@@ -334,9 +334,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:doi': '10.5281/zenodo.6364593',
-  'gee:extra_dois': [
-    '10.5194/essd-14-3835-2022',
-  ],
   'sci:citation': |||
     Demuzere M.; Kittner J.; Martilli A.; Mills, G.; Moede, C.; Stewart, I.D.; van Vliet, J.; Bechtel, B.
     A global map of local climate zones to support earth system modelling and urban-scale environmental science.

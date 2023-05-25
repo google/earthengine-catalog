@@ -511,6 +511,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:doi': '10.5067/AQUA/MODIS/L3M/CHL/2018',
+  // TODO(b/284289780): Convert gee:extra_dois to sci:publications
   'gee:extra_dois': [
     '10.5067/AQUA/MODIS/L3M/FLH/2018',
     '10.5067/AQUA/MODIS/L3M/POC/2018',

@@ -259,9 +259,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     randomError: {minimum: 0.24, maximum: 250.00, 'gee:estimated_range': true},
   },
   'sci:doi': '10.5067/GPM/IMERG/3B-HH-L/06',
-  'gee:extra_dois': [
-    '10.5067/GPM/IMERG/3B-HH/06',
-  ],
   'sci:citation': |||
     Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
     GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06,

@@ -14,6 +14,7 @@ CATALOG_ALLOWED_FIELDS = [
     'description', 'id', 'links', 'stac_version',
     'title', 'type']
 
+# TODO(b/284289780): Remove gee:extra_dois.
 COLLECTION_ALLOWED_FIELDS = [
     'deprecated', 'description', 'extent', 'gee:extra_dois', 'gee:interval',
     'gee:is_derived', 'gee:min_zoom_level', 'gee:provider_ids',

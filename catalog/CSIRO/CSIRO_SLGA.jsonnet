@@ -1197,6 +1197,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:doi': '10.4225/08/546ED604ADD8A',
+  // TODO(b/284289780): Convert gee:extra_dois to sci:publications
   'gee:extra_dois': [
     '10.4225/08/546EE212B0048',
     '10.4225/08/546EEE35164BF',

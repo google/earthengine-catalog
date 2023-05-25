@@ -13,7 +13,7 @@ Citations should be in APA Style format if possible. https://apastyle.apa.org/
 - sci:publications are extra citations with an optional DOI field
 - gee:extra_dois are replaced with the ability to have sci:publications and
   should no longer be added. The existing entries will likely be removed in
-  the future.
+  the future. See b/284289780.
 
 DOIs are defined in ANSI/NISO Z39.84-2000 and ISO 26324. A DOI starts with a
 'prefix' section. The prefix begins with '10.', which is the 'directory code'.
@@ -54,12 +54,13 @@ EXTENSION_VERSION = '1.0.0'
 SCI_DOI = 'sci:doi'
 SCI_CITATION = 'sci:citation'
 SCI_PUBLICATIONS = 'sci:publications'
-GEE_EXTRA_DOIS = 'gee:extra_dois'
 
 # Fields in SCI_PUBLICATIONS entries
 CITATION = 'citation'
 DOI = 'doi'
 
+# TODO(b/284289780): Remove gee:extra_dois.
+GEE_EXTRA_DOIS = 'gee:extra_dois'
 # Do not add more datasets to this set.
 EXTRA_DOIS_EXCEPTIONS = frozenset({
     'COPERNICUS/Landcover/100m/Proba-V-C3/Global',
@@ -115,6 +116,7 @@ class Check(stac.NodeCheck):
               node, f'Extension\'s version must be: "{EXTENSION_VERSION}"')
           return
 
+    # TODO(b/284289780): Remove gee:extra_dois.
     # gee:extra_dois is not a part of the scientific extension, so check first.
     if GEE_EXTRA_DOIS in node.stac:
       extra_dois = node.stac[GEE_EXTRA_DOIS]
