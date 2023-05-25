@@ -318,25 +318,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': |||
-    The SPEI database is available under the Open Database License.
-    All rights to the individual contents of the database are licensed under 
-    the [Database Contents License](https://opendatacommons.org/licenses/odbl/1-0/).
+    The SPEI database is available under the [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
     
-    The following is a summary of the ODbL 1.0 license. Please read the full text of the ODbL 1.0 license for the exact applicable terms.
-    
-    Users of the dataset may:
-    - Share, copy, distribute and use the database, commercially or non-commercially.
-    - Create and produce derivative works from the database.
-    - Adapt, modify and transform the database.
-    
-    Under the following conditions:
-    - Attribution: Any public use of the database, or works produced from it, must be attributed by referencing the following document: 
+    Any public use of the database or works derived from it must include proper attribution.
+    Attribution should be given by referencing the document titled:
     Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023; 
     SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
     [https://doi.org/10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121).
-    For any use or redistribution of the database, or works produced from it, the original database license must be clearly stated.
-    - Share-Alike: If any adapted version of this database, in addition to possible works produced from the adapted database, 
-    is publicly offered, then such database must also be offered under ODbL.
   |||,
   'gee:user_uploaded': true,
 }
