@@ -65,15 +65,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'uq',
   ],
   providers: [
-    ee.producer_provider('Murray/UQ/Google/USGS/NASA', 'https://intertidal.app'),
+    ee.producer_provider(
+      'Murray/UQ/Google/USGS/NASA', 'https://intertidal.app'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 60.0,
                     '1984-01-01T00:00:00Z', '2017-01-01T00:00:00Z'),
   summaries: {
-    gsd: [
-      30.0,
-    ],
+    gsd: [30],
     'eo:bands': [
       {
         name: 'classification',
@@ -85,14 +84,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               description: 'Intertidal area classification.',
               bit_count: 1,
               values: [
-                {
-                  description: 'Classified non-intertidal area',
-                  value: 0,
-                },
-                {
-                  value: 1,
-                  description: 'Classified intertidal area',
-                },
+                {value: 0, description: 'Classified non-intertidal area'},
+                {value: 1, description: 'Classified intertidal area'},
               ],
               first_bit: 0,
             },
@@ -104,25 +97,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Intertidal areas',
-        lookat: {
-          lat: 37.4394,
-          lon: 126.6339,
-          zoom: 10,
-        },
+        lookat: {lon: 126.6339, lat: 37.4394, zoom: 10},
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              1.0,
-            ],
-            palette: [
-              '0000ff',
-            ],
-            bands: [
-              'classification',
-            ],
+            min: [0],
+            max: [1],
+            palette: ['0000ff'],
+            bands: ['classification'],
           },
         },
       },
@@ -133,13 +114,25 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Murray, N.J., Phinn, S.R., DeWitt, M., Ferrari, R., Johnston, R., Lyons, M.B.,
     Clinton, N., Thau, D. & Fuller, R.A. (2019) The global distribution and
     trajectory of tidal flats. Nature, 565, 222-225.
+    [doi:10.1038/s41586-018-0805-8](https://doi.org/10.1038/s41586-018-0805-8),
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Murray, N. J., Phinn, S. P., Fuller, R. A., DeWitt, M., Ferrari, R.,
+        Johnston, R., Clinton, N., & Lyons, M. B. (2022). High-resolution global
+        maps of tidal flat ecosystems from 1984 to 2019. Scientific Data,
+        9(1).
+        [doi:10.1038/s41597-022-01635-5](https://doi.org/10.1038/s41597-022-01635-5),
+      |||
+    }
+  ],
   'gee:interval': {
     type: 'cadence',
     unit: 'year',
     interval: 3,
   },
-  'gee:terms_of_use': |||
+  'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
     This work is licensed under a Creative Commons Attribution 4.0
     International License.
 
