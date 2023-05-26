@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:scale': 0.0001,
       },
       {
-        name: 'NIR',
+        name: 'N',
         description: 'Near-infrared',
         'gee:scale': 0.0001,
       },
@@ -151,7 +151,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 10000.0,
       'gee:estimated_range': false,
     },
-    NIR: {
+    N: {
       minimum: 0.0,
       maximum: 10000.0,
       'gee:estimated_range': false,
