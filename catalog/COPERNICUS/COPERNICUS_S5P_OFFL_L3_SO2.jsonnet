@@ -139,7 +139,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
         name: 'absorbing_aerosol_index',
         description: |||
           A measure of the prevalence of aerosols in the atmosphere, calculated by
-          [this equation](https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/level-2/aerosol-index) using the 340/380 wavelength pair.
+          [this equation](https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-ultraviolet-aerosol-index) using the 340/380 wavelength pair.
         |||,
       },
       {
