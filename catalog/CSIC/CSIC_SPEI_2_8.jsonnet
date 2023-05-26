@@ -364,33 +364,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'SPEI',
-        lookat: {
-          lon: 0,
-          lat: 18,
-          zoom: 2,
-        },
+        lookat: {lon: -3.75, lat: 40.47, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-              -2.33,
-            ],
-            max: [
-              2.33,
-            ],
+            min: -2.33,
+            max:  2.33,
             palette: [
-              '8b1a1a',
-              'de2929',
-              'f3641d',
-              'fdc404',
-              '9afa94',
-              '03f2fd',
-              '12adf3',
-              '1771de',
-              '00008b',
+              '8b1a1a', 'de2929', 'f3641d',
+              'fdc404', '9afa94', '03f2fd',
+              '12adf3', '1771de', '00008b',
             ],
-            bands: [
-              'SPEI_24_month',
-            ],
+            bands: ['SPEI_24_month'],
           },
         },
       },
