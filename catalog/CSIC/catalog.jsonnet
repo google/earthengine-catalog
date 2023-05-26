@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('CSIC_SPEI_2_8', base_url),
+    // TODO(schwehr): Uncomment when the dataset is ready.
+    // ee.link.child_collection('CSIC_SPEI_2_8', base_url),
   ],
 }
