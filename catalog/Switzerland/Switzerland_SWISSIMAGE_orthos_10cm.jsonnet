@@ -1,5 +1,5 @@
-local id = 'ORTHO/Switzerland/SWISSIMAGE/10cm';
-local subdir = 'ORTHO';
+local id = 'Switzerland/SWISSIMAGE/orthos/10cm';
+local subdir = 'Switzerland';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';

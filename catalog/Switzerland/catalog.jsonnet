@@ -1,10 +1,10 @@
-local id = 'ORTHO';
+local id = 'Switzerland';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
 local basename = 'catalog';
 local base_filename = basename + '.json';
-local base_url = ee_const.catalog_base + 'ORTHO/';
+local base_url = ee_const.catalog_base + 'Switzerland/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
@@ -23,6 +23,6 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('ORTHO_Switzerland_SWISSIMAGE_10cm', base_url),
+    ee.link.child_collection('Switzerland_SWISSIMAGE_orthos_10cm', base_url),
   ],
 }
