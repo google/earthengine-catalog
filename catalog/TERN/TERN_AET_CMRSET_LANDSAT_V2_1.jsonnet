@@ -2,6 +2,7 @@ local id = 'TERN/AET/CMRSET_LANDSAT_V2_1';
 local successor_id = 'TERN/AET/CMRSET_LANDSAT_V2_2';
 local latest_id = successor_id;
 local subdir = 'TERN';
+local version = '2.1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -26,9 +27,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Actual Evapotranspiration for Australia (CMRSET Landsat V2.1) [deprecated]',
+  title:
+    'Actual Evapotranspiration for Australia (CMRSET Landsat V' + version +
+    ') [deprecated]',
   deprecated: true,
-  version: 'V2.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset provides accurate actual evapotranspiration (AET or ETa) for
@@ -67,7 +70,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.link.license(license.reference),
     ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
     ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
+      successor_id, catalog_subdir_url + successor_basename + '.json'),
   ],
   keywords: [
     'agriculture',
@@ -81,18 +84,18 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'viirs_derived',
   ],
   providers: [
-    ee.producer_provider('TERN Landscapes / CSIRO Land and Water', 'https://portal.tern.org.au/actual-evapotranspiration-australia-cmrset-algorithm/21915'),
+    ee.producer_provider(
+      'TERN Landscapes / CSIRO Land and Water',
+      'https://portal.tern.org.au/actual-evapotranspiration-australia-cmrset-algorithm/21915'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(110.0, -45.0, 155.0, -10.0, '2012-02-01T00:00:00Z', null),
   summaries: {
-    gsd: [
-      30.0,
-    ],
+    gsd: [30],
     'eo:bands': [
       {
         name: 'ETa',
-        description: 'Average daily evapotranspiration',
+        description: 'Average daily evapotranspiration (mm/day)',
         'gee:units': units.millimeter_per_day,
       },
       {
@@ -114,7 +117,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
                 },
                 {
                   value: 2,
-                  description: 'AET value was from CMRSET_VIIRS_LANDSAT_V2_0 blending.',
+                  description:
+                    'AET value was from CMRSET_VIIRS_LANDSAT_V2_0 blending.',
                 },
                 {
                   value: 3,
@@ -129,7 +133,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               bit_count: 1,
             },
             {
-              description: 'Number of Landsat observations used for this pixel (0-31).',
+              description:
+                'Number of Landsat observations used for this pixel (0-31).',
               first_bit: 3,
               bit_count: 5,
             },
@@ -141,39 +146,27 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gee:visualizations': [
       {
         display_name: 'Average daily evapotranspiration',
-        lookat: {
-          lat: -27.0,
-          lon: 132.0,
-          zoom: 4,
-        },
+        lookat: {lon: 132, lat: -27, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              7.0,
-            ],
-            palette: [
-              'd7191c',
-              'fdae61',
-              'ffffbf',
-              'abd9e9',
-              '2c7bb6',
-            ],
-            bands: [
-              'ETa',
-            ],
+            min: [0],
+            max: [7],
+            palette: ['d7191c', 'fdae61', 'ffffbf', 'abd9e9', '2c7bb6'],
+            bands: ['ETa'],
           },
         },
       },
     ],
   },
+  'sci:doi': '10.1016/j.jhydrol.2021.127318',
   'sci:citation': |||
-    Guerschman, J.P., McVicar, T.R., Vleeshouwer, Van Niel, T.G., Peña-Arancibia, J.L.,
-    and Chen, Y. (2021) Estimating actual evapotranspiration continentally at
-    field-to-landscape scales by calibrating the CMRSET algorithm with MODIS, VIIRS,
-    Landsat and Sentinel-2 reflective data. Journal of Hydrology (In Preparation)
+    Juan P. Guerschman, Tim R. McVicar, Jamie Vleeshower, Thomas G. Van Niel,
+    Jorge L. Peña-Arancibia, Yun Chen. Estimating actual evapotranspiration at
+    field-to-continent scales by calibrating the CMRSET algorithm with MODIS,
+    VIIRS, Landsat and Sentinel-2 data, Journal of Hydrology, Volume 605, 2022,
+    127318,
+    [doi:10.1016/j.jhydrol.2021.127318](
+      https://doi.org/10.1016/j.jhydrol.2021.127318).
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
