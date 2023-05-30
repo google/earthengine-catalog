@@ -1,20 +1,21 @@
 var dataset = ee.ImageCollection('OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0')
   .filterDate('2020-01-01', '2021-01-01');
 
-// Compute the annual ET as the sum of the monthly ET images for the year.
+// Compute the annual evapotranspiration (ET) as the sum of the monthly ET
+// images for the year.
 var et = dataset.select('et_ensemble_mad').sum();
 
-var visualization = {
+var visParams = {
   min: 0,
   max: 1400,
   palette: [
     '9e6212', 'ac7d1d', 'ba9829', 'c8b434', 'd6cf40', 'bed44b', '9fcb51',
     '80c256', '61b95c', '42b062', '45b677', '49bc8d', '4dc2a2', '51c8b8',
     '55cece', '4db4ba', '459aa7', '3d8094', '356681', '2d4c6e',
-  ]
+  ],
 };
 
-var rgbImage = et.visualize(visualization);
+var rgbImage = et.visualize(visParams);
 Map.addLayer(et, {}, 'OpenET eeMETRIC Annual ET', true, 0.3);
 
 var lon = -120.68758;
@@ -33,11 +34,11 @@ var areaOfInterest = ee.Geometry.Rectangle(
 
 Map.addLayer(areaOfInterest, {}, 'Area of Interest', true, 0.3);
 
-var rgbParams = {
+var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
   crs: 'EPSG:3857',
   format: 'png',
 };
 
-print(ui.Thumbnail({image: rgbImage, params: rgbParams}));
+print(ui.Thumbnail({image: rgbImage, params: imageParams}));

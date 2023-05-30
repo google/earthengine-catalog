@@ -1,7 +1,7 @@
 var nidem = ee.Image('projects/ngis-cat/assets/DEA/NIDEM');
 
 var elevation = nidem.select('nidem');
-var elevationVis = {
+var visParams = {
   min: -2.5,
   max: 1.5,
   palette: [
@@ -25,20 +25,20 @@ var delta = 0.13;
 var pixels = 256;
 
 Map.addLayer(
-    elevation, elevationVis,
+    elevation, visParams,
     'National Intertidal Digital Elevation Model (NIDEM; m)', false);
 
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
-var visParams = {
+var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
   crs: 'EPSG:3857',
   format: 'png',
 };
 
-var image = elevation.visualize(elevationVis);
+var image = elevation.visualize(visParams);
 var imageWithBackground = ee.ImageCollection([
   background, image]).mosaic();
 
@@ -46,4 +46,4 @@ Map.addLayer(
     imageWithBackground, {},
     'National Intertidal Digital Elevation Model (NIDEM; m)');
 
-print(ui.Thumbnail({image: imageWithBackground, params: visParams}));
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));

@@ -5,7 +5,7 @@ var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
 
 var percentCover = nlcd2019.select('rangeland_annual_herbaceous');
 
-// Map 0..100.
+// Map values in 0 to 100 colors from black to yellow to green.
 var palette = [
   '000000', 'f9e8b7', 'f7e3ac', 'f0dfa3', 'eedf9c', 'eada91', 'e8d687',
   'e0d281', 'ddd077', 'd6cc6d', 'd3c667', 'd0c55e', 'cfc555', 'c6bd4f',
@@ -22,7 +22,6 @@ var palette = [
   '0152d6', '0151d0', '014fcc', '014ac4', '0147bd', '0144b8', '0142b0',
   '0141ac', '013da7', '013aa0', '01399d', '013693', '013491', '012f8a',
   '012d85', '012c82', '01297a'];
-var vis = {'palette': palette};
 
 var lon = -114;
 var lat = 38;
@@ -42,11 +41,12 @@ var pixels = 256;
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
-var visParams = {
+var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
   crs: 'EPSG:3857',
-  format: 'png'};
+  format: 'png',
+};
 
 var image = percentCover.visualize({palette: palette});
 var imageWithBackground = ee.ImageCollection([
@@ -54,4 +54,4 @@ var imageWithBackground = ee.ImageCollection([
 
 Map.addLayer(imageWithBackground, null, 'Rangeland Annual Herbaceous %');
 
-print(ui.Thumbnail({image: imageWithBackground, params: visParams}));
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));

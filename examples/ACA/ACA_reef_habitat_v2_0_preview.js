@@ -7,7 +7,7 @@ var lat = -17.00872;
 Map.setCenter(lon, lat, 13);
 Map.setOptions('SATELLITE');
 
-// Degrees in EPSG:3857
+// Degrees in EPSG:3857.
 var delta = 0.05;
 // Width and height of the thumbnail image.
 var pixels = 256;
@@ -15,30 +15,34 @@ var pixels = 256;
 // cadetblue
 var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 255});
 
-// The visualisations are baked into the image properties.
+// The visualizations are baked into the image properties.
 // Benthic habitat classification.
 var benthicHabitat = dataset.select('benthic').selfMask();
 
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
-var visParams = {
-  dimensions: [pixels, pixels],
-  region: areaOfInterest,
-  crs: 'EPSG:3857',
-  format: 'png',
-};
+var imageParams = {
+    dimensions: [pixels, pixels],
+    region: areaOfInterest,
+    crs: 'EPSG:3857',
+    format: 'png',
+  };
 
 // TODO(b/267786257): Trouble here: This is just black and white.
-print(ui.Thumbnail({image: benthicHabitat, params: visParams}));
+print(ui.Thumbnail({image: benthicHabitat, params: imageParams}));
 
-var palette = [
-  'ffffbe', 'e0d05e', 'b19c3a', '668438',
-  'ff6161', '000000', '000000', '9bcc4f'];
+var visParams = {
+  min: 11,
+  max: 18,
+  palette: [
+    'ffffbe', 'e0d05e', 'b19c3a', '668438',
+    'ff6161', '000000', '000000', '9bcc4f'],
+};
 
-var image = benthicHabitat.visualize({palette: palette, min: 11, max:18});
+var image = benthicHabitat.visualize(visParams);
 var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
 Map.addLayer(imageWithBackground, {}, 'Benthic habitat');
 
-print(ui.Thumbnail({image: imageWithBackground, params: visParams}));
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
