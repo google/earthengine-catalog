@@ -14,9 +14,8 @@ CATALOG_ALLOWED_FIELDS = [
     'description', 'id', 'links', 'stac_version',
     'title', 'type']
 
-# TODO(b/284289780): Remove gee:extra_dois.
 COLLECTION_ALLOWED_FIELDS = [
-    'deprecated', 'description', 'extent', 'gee:extra_dois', 'gee:interval',
+    'deprecated', 'description', 'extent', 'gee:interval',
     'gee:is_derived', 'gee:min_zoom_level', 'gee:provider_ids',
     stac.SKIP_FEATUREVIEW_GENERATION, 'gee:skip_indexing', 'gee:terms_of_use',
     'gee:type', 'gee:unusual_terms_of_use', 'gee:user_owned',
