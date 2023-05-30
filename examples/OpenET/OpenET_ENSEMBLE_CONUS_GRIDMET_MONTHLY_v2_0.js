@@ -1,7 +1,8 @@
 var dataset = ee.ImageCollection('OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0')
   .filterDate('2020-01-01', '2021-01-01');
 
-// Compute the annual ET as the sum of the monthly ET images for the year.
+// Compute the annual evapotranspiration (ET) as the sum of the monthly ET
+// images for the year.
 var et = dataset.select('et_ensemble_mad').sum();
 
 var visualization = {

@@ -4,7 +4,7 @@ var dataset = ee.Image('ACA/reef_habitat/v1_0');
 Map.setCenter(-149.56194, -17.00872, 13);
 Map.setOptions('SATELLITE');
 
-// The visualisations are baked into the image properties.
+// The visualizations are baked into the image properties.
 
 // Example mask application.
 var reefExtent = dataset.select('reef_mask').selfMask();
