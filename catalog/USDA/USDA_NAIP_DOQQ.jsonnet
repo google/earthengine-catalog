@@ -54,69 +54,41 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usda',
   ],
   providers: [
-    ee.producer_provider('USDA Farm Production and Conservation - Business Center, Geospatial Enterprise Operations', 'https://naip-usdaonline.hub.arcgis.com/'),
+    ee.producer_provider(
+      'USDA Farm Production and Conservation - Business Center, ' +
+      'Geospatial Enterprise Operations',
+       'https://naip-usdaonline.hub.arcgis.com/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-124.84, 24.42, -64.82, 49.72,
                     '2002-06-15T00:00:00Z', null),
   summaries: {
-    gsd: [
-      0.6
-    ],
+    gsd: [0.6],
     'eo:bands': [
-      {
-        name: 'R',
-        description: 'Red',
-        'gee:units': units.dn,
-      },
-      {
-        name: 'G',
-        description: 'Green',
-        'gee:units': units.dn,
-      },
-      {
-        name: 'B',
-        description: 'Blue',
-        'gee:units': units.dn,
-      },
-      {
-        name: 'N',
-        description: 'Near infrared',
-        'gee:units': units.dn,
-      },
+      {name: 'R', description: 'Red', 'gee:units': units.dn},
+      {name: 'G', description: 'Green', 'gee:units': units.dn},
+      {name: 'B', description: 'Blue', 'gee:units': units.dn},
+      {name: 'N', description: 'Near infrared', 'gee:units': units.dn},
     ],
     'gee:visualizations': [
       {
         display_name: 'True Color',
-        lookat: {
-          lat: 40.7278,
-          lon: -73.9958,
-          zoom: 15,
-        },
+        lookat: {lon: -73.9958, lat: 40.7278, zoom: 15},
         image_visualization: {
-          band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              255.0,
-            ],
-            bands: [
-              'R',
-              'G',
-              'B',
-            ],
-          },
+          band_vis: {min: [0], max: [255], bands: ['R', 'G', 'B']},
         },
       },
     ],
   },
-  'sci:citation': 'USDA Farm Production and Conservation - Business Center, Geospatial Enterprise Operations',
+  'sci:citation':
+    'USDA Farm Production and Conservation - Business Center, ' +
+    'Geospatial Enterprise Operations',
   'gee:terms_of_use': |||
     Most information presented on the FSA Web site is considered public domain
     information. Public domain information may be freely distributed or copied,
     but use of appropriate byline/photo/image credits is requested. For more
-    information visit the [FSA Policies and Links](https://www.fsa.usda.gov/help/policies-and-links)
+    information visit the
+    [FSA Policies and Links](https://www.fsa.usda.gov/help/policies-and-links)
     website.
 
     Users should acknowledge USDA Farm Production and Conservation -
