@@ -1,5 +1,6 @@
 local id = 'GOOGLE/DYNAMICWORLD/V1';
 local subdir = 'GOOGLE';
+local version = '1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,8 +21,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Dynamic World V1',
-  version: 'V1',
+  title: 'Dynamic World V' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Dynamic World is a 10m near-real-time (NRT) Land Use/Land Cover (LULC)
@@ -64,7 +65,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-    ee.link.license('https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice'),
+    ee.link.license(
+      'https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice'),
   ],
   keywords: [
     'global',
@@ -84,12 +86,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       {
         name: 'dynamicworld_algorithm_version',
-        description: 'The version string uniquely identifying the Dynamic World model and inference process used to produce the image.',
+        description:
+          'The version string uniquely identifying the Dynamic World model ' +
+          'and inference process used to produce the image.',
         type: ee_const.var_type.string,
       },
       {
         name: 'qa_algorithm_version',
-        description: 'The version string uniquely identifying the cloud masking process used to produce the image.',
+        description:
+          'The version string uniquely identifying the cloud masking process ' +
+          'used to produce the image.',
         type: ee_const.var_type.string,
       }
     ],
@@ -111,7 +117,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'flooded_vegetation',
-        description: 'Estimated probability of complete coverage by flooded vegetation',
+        description:
+          'Estimated probability of complete coverage by flooded vegetation',
       },
       {
         name: 'crops',
@@ -119,7 +126,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'shrub_and_scrub',
-        description: 'Estimated probability of complete coverage by shrub and scrub',
+        description:
+          'Estimated probability of complete coverage by shrub and scrub',
       },
       {
         name: 'built',
@@ -131,151 +139,60 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'snow_and_ice',
-        description: 'Estimated probability of complete coverage by snow and ice',
+        description:
+          'Estimated probability of complete coverage by snow and ice',
       },
       {
         name: 'label',
         description: 'Index of the band with the highest estimated probability',
         'gee:classes': [
-          {
-            value: 0,
-            color: '419bdf',
-            description: 'water',
-          },
-          {
-            value: 1,
-            color: '397d49',
-            description: 'trees',
-          },
-          {
-            value: 2,
-            color: '88b053',
-            description: 'grass',
-          },
-          {
-            value: 3,
-            color: '7a87c6',
-            description: 'flooded_vegetation',
-          },
-          {
-            value: 4,
-            color: 'e49635',
-            description: 'crops',
-          },
-          {
-            value: 5,
-            color: 'dfc35a',
-            description: 'shrub_and_scrub',
-          },
-          {
-            value: 6,
-            color: 'c4281b',
-            description: 'built',
-          },
-          {
-            value: 7,
-            color: 'a59b8f',
-            description: 'bare',
-          },
-          {
-            value: 8,
-            color: 'b39fe1',
-            description: 'snow_and_ice',
-          },
+          {value: 0, color: '419bdf', description: 'water'},
+          {value: 1, color: '397d49', description: 'trees'},
+          {value: 2, color: '88b053', description: 'grass'},
+          {value: 3, color: '7a87c6', description: 'flooded_vegetation'},
+          {value: 4, color: 'e49635', description: 'crops'},
+          {value: 5, color: 'dfc35a', description: 'shrub_and_scrub'},
+          {value: 6, color: 'c4281b', description: 'built'},
+          {value: 7, color: 'a59b8f', description: 'bare'},
+          {value: 8, color: 'b39fe1', description: 'snow_and_ice'},
         ],
       },
     ],
+    water: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    trees: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    grass: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    flooded_vegetation: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    crops: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    shrub_and_scrub: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    built: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    bare: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    snow_and_ice: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    label: {minimum: 0, maximum: 8, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
-        display_name: 'Dynamic World V1',
-        lookat: {
-          lat: 52.4305,
-          lon: 20.6729,
-          zoom: 12,
-        },
+        display_name: 'Dynamic World V' + version + ' - label',
+        lookat: {lon: 20.6729, lat: 52.4305, zoom: 12},
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              8,
-            ],
+            min: [0],
+            max: [8],
             palette: [
-              '419bdf',
-              '397d49',
-              '88b053',
-              '7a87c6',
-              'e49635',
-              'dfc35a',
-              'c4281b',
-              'a59b8f',
-              'b39fe1',
+              '419bdf', '397d49', '88b053', '7a87c6', 'e49635',
+              'dfc35a', 'c4281b', 'a59b8f', 'b39fe1',
             ],
-            bands: [
-              'label',
-            ],
+            bands: ['label'],
           },
         },
       },
     ],
-    water: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    trees: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    grass: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    flooded_vegetation: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    crops: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    shrub_and_scrub: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    built: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    bare: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    snow_and_ice: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    label: {
-      minimum: 0,
-      maximum: 8,
-      'gee:estimated_range': false,
-    },
   },
+  'sci:doi': '10.1038/s41597-022-01307-4',
   'sci:citation': |||
     Brown, C.F., Brumby, S.P., Guzder-Williams, B. et al. Dynamic World, Near
     real-time global 10 m land use land cover mapping. Sci Data 9, 251 (2022).
     [doi:10.1038/s41597-022-01307-4](https://doi.org/10.1038/s41597-022-01307-4)
   |||,
-  'gee:terms_of_use': |||
+  'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
     This dataset is licensed under
     [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
     following attribution: "This dataset is produced for the Dynamic World
@@ -283,7 +200,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     World Resources Institute."
 
     Contains modified Copernicus Sentinel data [2015-present].
-    See the
-    [Sentinel Data Legal Notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice).
+    See the [Sentinel Data Legal Notice](
+      https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice).
   |||,
 }
