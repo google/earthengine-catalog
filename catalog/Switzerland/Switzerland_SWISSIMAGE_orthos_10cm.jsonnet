@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(45.8, 5.9, 47.8, 10.6,
-                    '2017-01-01T00:00:00Z', null),
+                    '2017-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
     gsd: [0.1],
     'eo:bands': [
