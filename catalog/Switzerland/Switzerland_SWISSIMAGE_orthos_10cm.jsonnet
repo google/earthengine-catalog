@@ -51,9 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(45.8, 5.9, 47.8, 10.6,
                     '2017-01-01T00:00:00Z', null),
   summaries: {
-    gsd: [
-      0.1,
-    ],
+    gsd: [0.1],
     'eo:bands': [
       {
         name: 'R',
@@ -74,46 +72,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:wavelength': '435-495nm',
       },
     ],
-    'gee:visualizations': [
-      {
-        display_name: 'RGB',
-        lookat: {
-          lat: 7.4,
-          lon: 46.3,
-          zoom: 19,
-        },
-        image_visualization: {
-          band_vis: {
-            min: [
-              11.0,
-            ],
-            max: [
-              190.0,
-            ],
-            bands: [
-              'R',
-              'G',
-              'B',
-            ],
-          },
+    'gee:visualizations': [{
+      display_name: 'Switzerland RGB (10 cm)',
+      lookat: {lon: 46.3, lat: 7.4, zoom: 19},
+      image_visualization: {
+        band_vis: {
+          min: [11],
+          max: [190],
+          bands: ['R', 'G', 'B'],
         },
       },
-    ],
-    R: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
-    G: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
-    B: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
+    }],
+    R: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    G: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
   },
   'sci:citation': 'Copyright Federal Office of Topography swisstopo',
   'gee:terms_of_use': |||
