@@ -367,8 +367,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         lookat: {lon: -3.75, lat: 40.47, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: -2.33,
-            max:  2.33,
+            min: [-2.33],
+            max: [2.33],
             palette: [
               '8b1a1a', 'de2929', 'f3641d',
               'fdc404', '9afa94', '03f2fd',
