@@ -267,7 +267,7 @@ class Check(stac.NodeCheck):
         if not isinstance(display_name, str):
           yield cls.new_issue(node, f'{DISPLAY_NAME} must be a str')
         # TODO(schwehr): Really, these should be less than 40 characters.
-        elif not re.fullmatch(r'[a-zA-Z][-_a-zA-Z0-9 .,:()%"/\[\]²<]{2,70}',
+        elif not re.fullmatch(r'[a-zA-Z][-_a-zA-Z0-9 .,:()%"/\[\]²<^]{2,70}',
                               display_name):
           yield cls.new_issue(node, f'Invalid {DISPLAY_NAME}: "{display_name}"')
 
