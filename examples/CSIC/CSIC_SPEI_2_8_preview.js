@@ -3,37 +3,48 @@ var dataset = ee.ImageCollection('CSIC/SPEI/2_8').
   filterDate('2021-12-01', '2022-01-01');
 
 // Select the 24-month analysis.
-var spei24 = dataset.select('SPEI_24_month').first();
+var et = dataset.select('SPEI_24_month').first();
 
-// Degrees in EPSG:3857.
-var delta = 60;
-// Width and Height of the thumbnail image.
-var pixels = 256;
-
-var lon = 0;
-var lat = 15;
-
-Map.setCenter(lon, lat, 2);
-
-var areaOfInterest = ee.Geometry.Rectangle(
-  [-120, lat - delta, 60, lat + delta], null, false);
-
-// Set the visualization ranges and color palette.
-var vis = {
+var visParams = {
   min: -2.33,
   max:  2.33,
   palette: [
-    '8B1A1A', 'DE2929', 'F3641D',
-    'FDC404', '9AFA94', '03F2FD',
-    '12ADF3', '1771DE', '00008B',
+    '8b1a1a', 'de2929', 'f3641d',
+    'fdc404', '9afa94', '03f2fd',
+    '12adf3', '1771de', '00008b',
   ],
-  region: areaOfInterest,
+};
+
+// cadetblue
+var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 255});
+Map.addLayer(background, {}, 'background', false, 0.7);
+
+var image = et.visualize(visParams);
+Map.addLayer(image, {}, 'SPEI 24 month', true, 0.3);
+
+var lon = 20;
+var lat = 4;
+Map.setCenter(lon, lat, 3);
+
+// Degrees in EPSG:3857.
+var lonDelta = 40;
+var latDelta = 40;
+// Width and height of the thumbnail image.
+var pixels = 256;
+
+var areaOfInterest = ee.Geometry.Rectangle(
+  [lon - lonDelta, lat - latDelta, lon + lonDelta, lat + latDelta],
+  null, false);
+
+Map.addLayer(areaOfInterest, {}, 'Area of Interest', true, 0.3);
+
+var imageParams = {
   dimensions: [pixels, pixels],
+  region: areaOfInterest,
   crs: 'EPSG:3857',
   format: 'png',
 };
 
-// Display the SPEI 24-month layer.
-Map.addLayer(spei24, vis, 'SPEI 24 month');
+var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
-print(ui.Thumbnail({image: spei24, params: vis}));
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
