@@ -14,6 +14,7 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  // TODO(schwehr): Remove skip_indexing when the dataset is ready.
   'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -24,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'SPEIbase: Standardised Precipitation-Evapotranspiration Index ' +
-		'database, Version ' + version,
+    'database, Version ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -69,7 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Spanish National Research Council (CSIC)', 
-    	'https://spei.csic.es/'),
+      'https://spei.csic.es/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1901-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
@@ -79,286 +80,286 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SPEI_01_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous month',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous month',
       },
       {
         name: 'SPEI_02_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 2 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 2 months',
       },
       {
         name: 'SPEI_03_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 3 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 3 months',
       },
       {
         name: 'SPEI_04_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 4 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 4 months',
       },
       {
         name: 'SPEI_05_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 5 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 5 months',
       },
       {
         name: 'SPEI_06_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 6 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 6 months',
       },
       {
         name: 'SPEI_07_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 7 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 7 months',
       },
       {
         name: 'SPEI_08_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 8 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 8 months',
       },{
         name: 'SPEI_09_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 9 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 9 months',
       },
       {
         name: 'SPEI_10_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 10 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 10 months',
       },
       {
         name: 'SPEI_11_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 11 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 11 months',
       },
       {
         name: 'SPEI_12_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 12 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 12 months',
       },{
         name: 'SPEI_13_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 13 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 13 months',
       },
       {
         name: 'SPEI_14_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 14 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 14 months',
       },
       {
         name: 'SPEI_15_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 15 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 15 months',
       },
       {
         name: 'SPEI_16_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 16 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 16 months',
       },
       {
         name: 'SPEI_17_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 17 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 17 months',
       },
       {
         name: 'SPEI_18_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 18 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 18 months',
       },
       {
         name: 'SPEI_19_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 19 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 19 months',
       },
       {
         name: 'SPEI_20_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 20 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 20 months',
       },
       {
         name: 'SPEI_21_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 21 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 21 months',
       },
       {
         name: 'SPEI_22_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 22 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 22 months',
       },
       {
         name: 'SPEI_23_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 23 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 23 months',
       },
       {
         name: 'SPEI_24_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 24 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 24 months',
       },
       {
         name: 'SPEI_25_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 25 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 25 months',
       },
       {
         name: 'SPEI_26_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 26 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 26 months',
       },
       {
         name: 'SPEI_27_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 27 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 27 months',
       },
       {
         name: 'SPEI_28_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 28 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 28 months',
       },
       {
         name: 'SPEI_29_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 29 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 29 months',
       },
       {
         name: 'SPEI_30_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 30 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 30 months',
       },
       {
         name: 'SPEI_31_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 31 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 31 months',
       },
       {
         name: 'SPEI_32_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 32 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 32 months',
       },
       {
         name: 'SPEI_33_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 33 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 33 months',
       },{
         name: 'SPEI_34_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 34 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 34 months',
       },
       {
         name: 'SPEI_35_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 35 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 35 months',
       },
       {
         name: 'SPEI_36_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 36 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 36 months',
       },
       {
         name: 'SPEI_37_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 37 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 37 months',
       },{
         name: 'SPEI_38_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 38 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 38 months',
       },
       {
         name: 'SPEI_39_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 39 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 39 months',
       },
       {
         name: 'SPEI_40_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 40 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 40 months',
       },
       {
         name: 'SPEI_41_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 41 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 41 months',
       },
       {
         name: 'SPEI_42_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 42 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 42 months',
       },
       {
         name: 'SPEI_43_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 43 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 43 months',
       },
       {
         name: 'SPEI_44_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 44 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 44 months',
       },
       {
         name: 'SPEI_45_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 45 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 45 months',
       },
       {
         name: 'SPEI_46_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 46 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 46 months',
       },
       {
         name: 'SPEI_47_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 47 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 47 months',
       },
       {
         name: 'SPEI_48_month',
         description: 'Standardized Precipitation-Evapotranspiration Index ' +
-	        '(SPEI) where precipitation and evapotranspiration data was  ' +
-	        'accumulated over the previous 48 months',
+          '(SPEI) where precipitation and evapotranspiration data was  ' +
+          'accumulated over the previous 48 months',
       },
     ],
     'gee:visualizations': [
