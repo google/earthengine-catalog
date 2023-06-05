@@ -32,6 +32,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('CIESIN', base_url),
     ee.link.child_catalog('COPERNICUS', base_url),
     ee.link.child_catalog('CPOM', base_url),
+    ee.link.child_catalog('CSIC', base_url),
     ee.link.child_catalog('CSIRO', base_url),
     ee.link.child_catalog('CSP', base_url),
     ee.link.child_catalog('DLR', base_url),
