@@ -10,9 +10,9 @@ var visParams = {
   min: -2.33,
   max:  2.33,
   palette: [
-    '8B1A1A', 'DE2929', 'F3641D',
-    'FDC404', '9AFA94', '03F2FD',
-    '12ADF3', '1771DE', '00008B',
+    '8b1a1a', 'de2929', 'f3641d',
+    'fdc404', '9afa94', '03f2fd',
+    '12adf3', '1771de', '00008b',
   ]
 };
 
