@@ -18,8 +18,8 @@
 //
 // See also:
 //
-// - checker/node/gee_unusual_terms_of_use.py
-// - checker/node/non_commercial.py
+// - https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_unusual_terms_of_use.py
+// - https://github.com/google/earthengine-catalog/blob/main/checker/node/non_commercial.py
 
 [
   'CSP/ERGo/1_0/Global/ALOS_CHILI',
