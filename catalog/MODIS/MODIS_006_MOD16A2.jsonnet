@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m',
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD16A2 Version 6 Evapotranspiration/Latent Heat Flux product is an

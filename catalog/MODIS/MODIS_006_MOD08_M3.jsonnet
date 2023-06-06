@@ -25,7 +25,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'MOD08_M3.006 Terra Aerosol Cloud Water Vapor Ozone Monthly Global Product 1Deg CMG [deprecated]',
-  version: 'V006',
+  version: '6',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

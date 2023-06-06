@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m',
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD17A2H V6 Gross Primary Productivity (GPP) product

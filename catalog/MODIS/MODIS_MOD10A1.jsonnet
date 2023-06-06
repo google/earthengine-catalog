@@ -24,7 +24,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'MOD10A1.005 Terra Snow Cover Daily Global 500m [deprecated]',
-  version: 'V005',
+  version: '5',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

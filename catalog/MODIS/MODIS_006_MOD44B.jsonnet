@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD44B.006 Terra Vegetation Continuous Fields Yearly Global 250m',
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Terra MODIS Vegetation Continuous Fields (VCF)

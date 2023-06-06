@@ -25,7 +25,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'MYD17A3H.006: Aqua Net Primary Production Yearly Global 500m [deprecated]',
-  version: 'V006',
+  version: '6',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MCD43A4.061 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD43A4 V6.1 Nadir Bidirectional Reflectance Distribution

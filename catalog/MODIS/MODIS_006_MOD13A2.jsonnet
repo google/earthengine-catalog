@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD13A2 V6 product provides two Vegetation Indices (VI): the Normalized

@@ -23,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD21A1N.061 Terra Land Surface Temperature and 3-Band Emissivity Daily Global 1km',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD21A1N dataset is produced daily from nighttime Level 2 Gridded (L2G)

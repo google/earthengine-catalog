@@ -25,7 +25,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'MOD17A3.055: Terra Net Primary Production Yearly Global 1km [deprecated]',
-  version: 'V055',
+  version: '5.5',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

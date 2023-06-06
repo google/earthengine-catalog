@@ -23,7 +23,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'MOD10A1.006 Terra Snow Cover Daily Global 500m',
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD10A1 V6 Snow Cover Daily Global 500m product

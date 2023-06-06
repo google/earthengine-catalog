@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MYD13A1.061 Aqua Vegetation Indices 16-Day Global 500m',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD13A1 V6.1 product provides a Vegetation Index (VI)

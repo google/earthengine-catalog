@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MCD43A2.006 MODIS BRDF-Albedo Quality Daily 500m [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD43A2 V6 Bidirectional Reflectance Distribution

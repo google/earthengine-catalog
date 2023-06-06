@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MOD13A2.061 Terra Vegetation Indices 16-Day Global 1km',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD13A2 V6.1 product provides two Vegetation Indices (VI): the Normalized

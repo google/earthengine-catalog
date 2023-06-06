@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MYD10A1.006 Aqua Snow Cover Daily Global 500m',
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD10A1 V6 Snow Cover Daily Global 500m product

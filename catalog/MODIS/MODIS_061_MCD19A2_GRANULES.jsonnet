@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MCD19A2.061: Terra & Aqua MAIAC Land Aerosol Optical Depth Daily 1km',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD19A2 V6.1 data product is a MODIS Terra and Aqua combined Multi-angle

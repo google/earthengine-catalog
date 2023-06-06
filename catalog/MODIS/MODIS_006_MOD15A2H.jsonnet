@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MOD15A2H.006: Terra Leaf Area Index/FPAR 8-Day Global 500m [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD15A2H V6 MODIS combined Leaf Area Index (LAI) and

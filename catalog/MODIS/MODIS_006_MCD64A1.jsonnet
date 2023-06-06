@@ -32,7 +32,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   id: id,
   title: 'MCD64A1.006 MODIS Burned Area Monthly Global 500m [deprecated]',
-  version: 'V006',
+  version: '6',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

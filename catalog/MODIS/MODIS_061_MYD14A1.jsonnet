@@ -32,7 +32,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MYD14A1.061: Aqua Thermal Anomalies & Fire Daily Global 1km',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD14A1 V6.1 dataset provides daily fire mask composites
