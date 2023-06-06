@@ -14,8 +14,6 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO(schwehr): Remove skip_indexing when the dataset is ready.
-  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -29,25 +27,25 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The Global SPEI database (SPEIbase) offers long-time robust information 
-    about drought conditions at the global scale, with a 0.5 degree pixel size 
+    The Global SPEI database (SPEIbase) offers long-time robust information
+    about drought conditions at the global scale, with a 0.5 degree pixel size
     and monthly cadence. It provides SPEI time scales from 1 to 48 months.
-    
-    The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses, 
-    as a standardized variate (mean zero and unit variance), the deviations of 
-    the current climatic balance (precipitation minus evapotranspiration 
-    potential) with respect to the long-term balance. The reference period for 
-    the calculation in the SPEIbase corresponds to the whole study period. 
-    Being a standardized variate means that the SPEI condition can be compared 
+
+    The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses,
+    as a standardized variate (mean zero and unit variance), the deviations of
+    the current climatic balance (precipitation minus evapotranspiration
+    potential) with respect to the long-term balance. The reference period for
+    the calculation in the SPEIbase corresponds to the whole study period.
+    Being a standardized variate means that the SPEI condition can be compared
     across space and time.
-    
-    The SPEIbase is based on the 
-    [FAO-56 Penman-Monteith estimation](https://www.fao.org/3/x0490e/x0490e06.htm) 
+
+    The SPEIbase is based on the
+    [FAO-56 Penman-Monteith estimation](https://www.fao.org/3/x0490e/x0490e06.htm)
     estimation of potential evapotranspiration.
-    This is a major difference with respect to the SPEI Global Drought Monitor, 
+    This is a major difference with respect to the SPEI Global Drought Monitor,
     that uses the Thornthwaite PET estimation.
-    The Penman-Montheith method is considered a superior method, so the 
-    SPEIbase is recommended for most uses including long-term climatological 
+    The Penman-Montheith method is considered a superior method, so the
+    SPEIbase is recommended for most uses including long-term climatological
     analysis.
   |||,
   license: license.id,
@@ -69,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'temperature',
   ],
   providers: [
-    ee.producer_provider('Spanish National Research Council (CSIC)', 
+    ee.producer_provider('Spanish National Research Council (CSIC)',
       'https://spei.csic.es/'),
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -429,20 +427,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     SPEI_47_month: {minimum: -2.33, maximum: 2.33, 'gee:estimated_range': false},
     SPEI_48_month: {minimum: -2.33, maximum: 2.33, 'gee:estimated_range': false},
   },
-  'sci:doi': '10.20350/digitalCSIC/15121', 
+  'sci:doi': '10.20350/digitalCSIC/15121',
   'sci:citation': |||
-    Product: Beguería, Santiago; Vicente Serrano, Sergio M.; 
-    Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023; 
+    Product: Beguería, Santiago; Vicente Serrano, Sergio M.;
+    Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023;
     SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
     [doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)
   |||,
   'sci:publications': [
     {
       citation: |||
-        Related publication: Vicente-Serrano S.M., Beguería S., 
-        López-Moreno J.I. (2010): 
-        A Multi-scalar drought index sensitive to global warming: 
-        The Standardized Precipitation Evapotranspiration Index – SPEI. 
+        Related publication: Vicente-Serrano S.M., Beguería S.,
+        López-Moreno J.I. (2010):
+        A Multi-scalar drought index sensitive to global warming:
+        The Standardized Precipitation Evapotranspiration Index - SPEI.
         Journal of Climate 23(7), 1696-1718.
         [doi:10.1175/2009JCLI2909.1](https://doi.org/10.1175/2009JCLI2909.1)
       |||,
@@ -455,14 +453,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
-    The SPEI database is available under the 
+    The SPEI database is available under the
     [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
-    
-    Any public use of the database or works derived from it must include 
+
+    Any public use of the database or works derived from it must include
     proper attribution.
     Attribution should be given by referencing the document titled:
-    Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus; 
-    Latorre Garcés, Borja; 2023; 
+    Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus;
+    Latorre Garcés, Borja; 2023;
     SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
     [doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)
   |||,
