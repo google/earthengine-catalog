@@ -44,7 +44,7 @@ local units = import 'units.libsonnet';
     https://data.neonscience.org/data-products/DP3.30015.001) for
     more details.
 
-    Documentation: [NEON DP3.30015.001 Quick StartGuide](
+    Documentation: [NEON Ecosystem structure (DP3.30015.001) Quick StartGuide](
     https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30015.001v1?inline=true&fallback=html)
   |||,
   license: license.id,
@@ -153,7 +153,7 @@ local units = import 'units.libsonnet';
       'gee:units': units.meter,
     }],
     // TODO(bhass-neon): Add the range values for CHM.
-    // CHM: {minimum: , maximum: , 'gee:estimated_range': false},
+    CHM: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
     'gee:visualizations': [{
       display_name: 'Canopy Height Model (CHM)',
       lookat: {lon: -119.25, lat: 37.06, zoom: 12},
