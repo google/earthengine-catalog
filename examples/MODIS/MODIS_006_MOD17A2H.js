@@ -3,8 +3,8 @@ var dataset = ee.ImageCollection('MODIS/006/MOD17A2H')
 
 var gpp = dataset.select('Gpp');
 var gppVis = {
-  min: 0.0,
-  max: 600.0,
+  min: 0,
+  max: 600,
   palette: ['bbe029', '0a9501', '074b03'],
 };
 Map.setCenter(6.746, 46.529, 2);

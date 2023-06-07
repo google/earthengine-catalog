@@ -2,8 +2,8 @@ var dataset = ee.ImageCollection('MODIS/006/MOD11A1')
                   .filter(ee.Filter.date('2018-01-01', '2018-05-01'));
 var landSurfaceTemperature = dataset.select('LST_Day_1km');
 var landSurfaceTemperatureVis = {
-  min: 13000.0,
-  max: 16500.0,
+  min: 13000,
+  max: 16500,
   palette: [
     '040274', '040281', '0502a3', '0502b8', '0502ce', '0502e6',
     '0602ff', '235cb1', '307ef3', '269db1', '30c8e2', '32d3ef',

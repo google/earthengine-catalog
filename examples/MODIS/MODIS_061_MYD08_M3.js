@@ -3,8 +3,8 @@ var dataset = ee.ImageCollection('MODIS/006/MYD08_M3')
 var aerosolOpticalDepth =
     dataset.select('Aerosol_Optical_Depth_Land_Ocean_Mean_Mean');
 var aerosolOpticalDepthVis = {
-  min: 0.0,
-  max: 3000.0,
+  min: 0,
+  max: 3000,
   palette: ['ffffff', '1303ff', '01ff09', 'ff2f00'],
 };
 Map.setCenter(6.746, 46.529, 2);
