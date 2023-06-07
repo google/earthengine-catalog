@@ -79,6 +79,18 @@ local units = import 'units.libsonnet';
         type: ee_const.var_type.string,
       },
       {
+        name: 'CITATION',
+        description: 'Data citation. See ' +
+        '[NEON Data Policies and Citation Guidelines]' +
+        '(https://www.neonscience.org/data-samples/data-policies-citation)',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'DOI',
+        description: 'Digital Object Identifier. NEON data that have been released are assigned a DOI.',
+        type: ee_const.var_type.string,
+      },      
+      {
         name: 'FLIGHT_YEAR',
         description: 'Year the data were collected',
         type: ee_const.var_type.string,
@@ -87,13 +99,14 @@ local units = import 'units.libsonnet';
         name: 'NEON_DOMAIN',
         description:
           'NEON eco-climatic domain code, "D01" to "D20". See ' +
-          '[https://www.neonscience.org/field-sites/about-field-sites]' +
+          '[NEON Field Sites and Domains]' +
           '(https://www.neonscience.org/field-sites/about-field-sites)',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_SITE',
-        description: 'NEON four-digit site code. See https://www.neonscience.org/field-sites',
+        description: 'NEON four-digit site code. See ' +
+        '[NEON Field Sites](https://www.neonscience.org/field-sites/)',
         type: ee_const.var_type.string,
       },
       {
@@ -103,7 +116,9 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'NEON_DATA_PROD_URL',
-        description: 'NEON data product url. Always set to: [https://data.neonscience.org/data-products/DP3.30015.001](https://data.neonscience.org/data-products/DP3.30015.001)',
+        description: 'NEON data product url. Always set to: ' +
+        '[https://data.neonscience.org/data-products/DP3.30015.001]' +
+        '(https://data.neonscience.org/data-products/DP3.30015.001)',
         type: ee_const.var_type.string,
       },
       {
@@ -123,7 +138,9 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'RELEASE_TAG',
-        description: 'NEON Release Tag. See [https://www.neonscience.org/data-samples/data-management/data-revisions-releases](https://www.neonscience.org/data-samples/data-management/data-revisions-releases)',
+        description: 'NEON Release Tag. See ' +
+        '[https://www.neonscience.org/data-samples/data-management/data-revisions-releases]' +
+        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases)',
         type: ee_const.var_type.string,
       },
     ],
