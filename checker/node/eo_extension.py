@@ -23,7 +23,8 @@ For each entry in the 'eo:band' list:
 - 'full_width_half_max' (FWHM) is the width of the band, as measured at half
   the maximum transmission, in micrometers (μm)
 - 'solar_illumination' is not allowed
-- 'gsd' is the ground separation distance of pixels in meters (m)
+- 'gsd' is the ground sample distance of pixels in meters (m)
+  - https://en.wikipedia.org/wiki/Ground_sample_distance
   - Commonly, but incorrectly called 'resolution'
   - There are two ways of gsd can be specified:
     1. gsd under summaries that is a list of 1 or 2 values
