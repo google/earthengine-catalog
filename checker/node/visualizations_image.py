@@ -68,6 +68,9 @@ image_visualization: {
     max: [60.0],
     palette: ['red', 'orange', 'green'],
     bands: ['rh98']}},
+
+See also:
+- https://developers.google.com/earth-engine/guides/image_visualization
 """
 
 import re
