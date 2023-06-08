@@ -323,11 +323,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             value: 18,
             color: '4c73a1',
             description: |||
-
               Water. Areas of open water, generally with less than 25 percent
               cover of non-water cover types. This class refers to areas that
               are consistently covered by water.
-
             |||,
           },
           {
