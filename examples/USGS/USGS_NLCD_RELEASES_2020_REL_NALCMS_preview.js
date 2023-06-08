@@ -1,5 +1,5 @@
 // Import the NALCMS collection.
-var image = ee.Image('USGS/NLCD_RELEASES/2020_REL/NALCMS/2020');
+var image = ee.Image('USGS/NLCD_RELEASES/2020_REL/NALCMS');
 var visParams = {
   palette: [
     '033e00',  // 1  Temperate or sub-polar needleleaf forest
