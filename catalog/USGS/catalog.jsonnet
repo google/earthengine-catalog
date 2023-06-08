@@ -50,7 +50,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection(
       'USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER', base_url),
     // TODO(schwehr): Uncomment the following when the dataset is ready. 
-    // ee.link.child_collection('USGS_NLCD_RELEASES_2020_REL_NALCMS_2020', base_url),  
+    // ee.link.child_collection('USGS_NLCD_RELEASES_2020_REL_NALCMS', base_url),  
 
     ee.link.child_collection('USGS_WBD_2017_HUC02', base_url),
     ee.link.child_collection('USGS_WBD_2017_HUC04', base_url),
