@@ -152,11 +152,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Aerosol Optical Depth',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: 6.746, lat: 46.529, zoom: 2},
         image_visualization: {
           band_vis: {
             min: [

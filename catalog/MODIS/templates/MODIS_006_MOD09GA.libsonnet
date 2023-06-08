@@ -976,11 +976,7 @@ local units = import 'units.libsonnet';
     'gee:visualizations': [
       {
         display_name: 'True color',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: -7.03, lat: 31.05, zoom: 2},
         image_visualization: {
           band_vis: {
             min: [

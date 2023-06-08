@@ -24,11 +24,7 @@ local units = import 'units.libsonnet';
     'gee:visualizations': [
       {
         display_name: 'NPP',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: 6.746, lat: 46.529, zoom: 3},
         image_visualization: {
           band_vis: {
             min: [

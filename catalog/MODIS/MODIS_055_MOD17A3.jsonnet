@@ -105,11 +105,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gee:visualizations': [
       {
         display_name: 'NPP',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: 6.746, lat: 46.529, zoom: 3},
         image_visualization: {
           band_vis: {
             min: [

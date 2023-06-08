@@ -269,8 +269,16 @@ class ErrorsVisualizationsTest(test_utils.NodeTest):
         {'summaries': {'gee:visualizations': [{
             'display_name': 'bcd',
             'image_visualization': {},
-            'lookat': {'lat': 3, 'lon': -4, 'zoom': -1}}]}},
-        'zoom must be in [0, 20]')
+            'lookat': {'lat': 3, 'lon': -4, 'zoom': 0}}]}},
+        'zoom must be in [1, 19]; found: 0')
+
+  def test_lookat_missing_zoom_too_large(self):
+    self.assert_collection(
+        {'summaries': {'gee:visualizations': [{
+            'display_name': 'bcd',
+            'image_visualization': {},
+            'lookat': {'lat': 3, 'lon': -4, 'zoom': 20}}]}},
+        'zoom must be in [1, 19]; found: 20')
 
   def test_lookat_bbox_zoom_outside_lat_below(self):
     self.assert_collection(
