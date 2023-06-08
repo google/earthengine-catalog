@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The general objective of NALCMS is to devise, through collective effort, a
     harmonized multi-scale land cover monitoring approach which ensures high
     accuracy and consistency in monitoring land cover changes at the North
-    American scale and which meets each country’s specific requirements.
+    American scale and which meets each country's specific requirements.
 
     This 30-meter dataset of North American Land Cover reflects land cover
     information for 2020 from Mexico and Canada, 2019 over the conterminous
