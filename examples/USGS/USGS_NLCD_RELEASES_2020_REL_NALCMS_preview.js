@@ -1,4 +1,4 @@
-// Import the NALCMS collection.
+// Import the NALCMS image.
 var image = ee.Image('USGS/NLCD_RELEASES/2020_REL/NALCMS');
 var visParams = {
   palette: [
@@ -47,7 +47,7 @@ var imageParams = {
     region: areaOfInterest,
     crs: 'EPSG:3857',
     format: 'png',
-  };
+};
 
 var imageRGB = image.visualize(visParams);
 var imageWithBackground = ee.ImageCollection([background, imageRGB]).mosaic();
