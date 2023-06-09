@@ -1,5 +1,5 @@
 // Import the NALCMS collection.
-var image = ee.Image('USGS/NLCD_RELEASES/2019_REL/NALCMS');
+var image = ee.Image('USGS/NLCD_RELEASES/2020_REL/NALCMS');
 
 Map.addLayer(
   image,

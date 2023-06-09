@@ -341,11 +341,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         ],
       }
     ],
-    landcover: {
-      minimum: 1,
-      maximum: 19,
-      'gee:estimated_range': false,
-    },
+    landcover: {minimum: 1, maximum: 19, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'NALCMS Land Cover',
