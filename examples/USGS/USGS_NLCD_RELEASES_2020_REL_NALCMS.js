@@ -17,7 +17,7 @@ Map.addLayer(image, {
     '3f8970',  // 13  Sub-polar or polar barren-lichen-moss
     '6ca289',  // 14  Wetland
     'e6ad6a',  // 15  Cropland
-    'a9abae',  // 16  Barren land 
+    'a9abae',  // 16  Barren land
     'db2126',  // 17  Urban and built-up
     '4c73a1',  // 18  Water
     'fff7fe',  // 19  Snow and ice

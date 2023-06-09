@@ -33,10 +33,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the North American Land Change Monitoring System (NALCMS), a trilateral
     effort between Natural Resources Canada, the United States Geological
     Survey, and three Mexican organizations including the National Institute of
-    Statistics and Geography (Instituto Nacional de Estadística y Geografía),
-    National Commission for the Knowledge and Use of the Biodiversity (Comisión
+    Statistics and Geography (Instituto Nacional de Estadistica y Geografia),
+    National Commission for the Knowledge and Use of the Biodiversity (Comision
     Nacional Para el Conocimiento y Uso de la Biodiversidad), and the National
-    Forestry Commission of Mexico (Comisión Nacional Forestal).  The
+    Forestry Commission of Mexico (Comision Nacional Forestal).  The
     collaboration is facilitated by the Commission for Environmental
     Cooperation, an international organization created by the Canada, Mexico,
     and United States governments under the North American Agreement on
