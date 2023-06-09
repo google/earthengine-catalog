@@ -84,7 +84,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * The National Commission for the Knowledge and Use of Biodiversity has
       North American Land Cover information available online at
-      [https://www.biodiversidad.gob.mx/monitoreo/cobertura-suelo](https://www.biodiversidad.gob.mx/monitoreo/cobertura-suelo)
+      [https://www.biodiversidad.gob.mx/monitoreo/cobertura-suelo](
+        https://www.biodiversidad.gob.mx/monitoreo/cobertura-suelo)
 
     * The U.S. Geological Survey has North American Land Cover information
       available online at [www.mrlc.gov](https://www.mrlc.gov)
@@ -123,8 +124,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'landcover',
         description: |||
-          Land cover classification grid cell value. Values are categorized into the following.
-          [Product Legend](https://www.mrlc.gov/sites/default/files/inline-images/2005_nalcms_large_0.jpg).
+          Land cover classification grid cell value. Values are categorized into
+          the following. [Product Legend](
+            https://www.mrlc.gov/sites/default/files/inline-images/2005_nalcms_large_0.jpg).
           The classes in the 2020 product legend are given below.
         |||,
         'gee:classes': [
@@ -346,126 +348,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
     'gee:visualizations': [
       {
-        display_name: 'landcover',
-        lookat: {
-          lat: 38,
-          lon: -114,
-          zoom: 6,
-        },
+        display_name: 'NALCMS Land Cover',
+        lookat: {lon: -114, lat: 38, zoom: 6},
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              100,
-            ],
+            min: [0],
+            max: [100],
             palette: [
-              '000000',
-              'f9e8b7',
-              'f7e3ac',
-              'f0dfa3',
-              'eedf9c',
-              'eada91',
-              'e8d687',
-              'e0d281',
-              'ddd077',
-              'd6cc6d',
-              'd3c667',
-              'd0c55e',
-              'cfc555',
-              'c6bd4f',
-              'c4ba46',
-              'bdb83a',
-              'bbb534',
-              'b7b02c',
-              'b0ad1f',
-              'adac17',
-              'aaaa0a',
-              'a3a700',
-              '9fa700',
-              '9aa700',
-              '92a700',
-              '8fa700',
-              '87a700',
-              '85a700',
-              '82aa00',
-              '7aaa00',
-              '77aa00',
-              '70aa00',
-              '6caa00',
-              '67aa00',
-              '5fa700',
-              '57a700',
-              '52a700',
-              '4fa700',
-              '4aa700',
-              '42a700',
-              '3ca700',
-              '37a700',
-              '37a300',
-              '36a000',
-              '369f00',
-              '349d00',
-              '339900',
-              '339900',
-              '2f9200',
-              '2d9100',
-              '2d8f00',
-              '2c8a00',
-              '2c8800',
-              '2c8500',
-              '2c8400',
-              '2b8200',
-              '297d00',
-              '297a00',
-              '297900',
-              '277700',
-              '247400',
-              '247000',
-              '29700f',
-              '2c6d1c',
-              '2d6d24',
-              '336d2d',
-              '366c39',
-              '376c44',
-              '396a4a',
-              '396a55',
-              '3a6a5f',
-              '3a696a',
-              '396774',
-              '3a6782',
-              '39668a',
-              '376292',
-              '34629f',
-              '2f62ac',
-              '2c5fb7',
-              '245ec4',
-              '1e5ed0',
-              '115cdd',
-              '005ae0',
-              '0057dd',
-              '0152d6',
-              '0151d0',
-              '014fcc',
-              '014ac4',
-              '0147bd',
-              '0144b8',
-              '0142b0',
-              '0141ac',
-              '013da7',
-              '013aa0',
-              '01399d',
-              '013693',
-              '013491',
-              '012f8a',
-              '012d85',
-              '012c82',
-              '01297a'
+              '000000', 'f9e8b7', 'f7e3ac', 'f0dfa3', 'eedf9c', 'eada91',
+              'e8d687', 'e0d281', 'ddd077', 'd6cc6d', 'd3c667', 'd0c55e',
+              'cfc555', 'c6bd4f', 'c4ba46', 'bdb83a', 'bbb534', 'b7b02c',
+              'b0ad1f', 'adac17', 'aaaa0a', 'a3a700', '9fa700', '9aa700',
+              '92a700', '8fa700', '87a700', '85a700', '82aa00', '7aaa00',
+              '77aa00', '70aa00', '6caa00', '67aa00', '5fa700', '57a700',
+              '52a700', '4fa700', '4aa700', '42a700', '3ca700', '37a700',
+              '37a300', '36a000', '369f00', '349d00', '339900', '339900',
+              '2f9200', '2d9100', '2d8f00', '2c8a00', '2c8800', '2c8500',
+              '2c8400', '2b8200', '297d00', '297a00', '297900', '277700',
+              '247400', '247000', '29700f', '2c6d1c', '2d6d24', '336d2d',
+              '366c39', '376c44', '396a4a', '396a55', '3a6a5f', '3a696a',
+              '396774', '3a6782', '39668a', '376292', '34629f', '2f62ac',
+              '2c5fb7', '245ec4', '1e5ed0', '115cdd', '005ae0', '0057dd',
+              '0152d6', '0151d0', '014fcc', '014ac4', '0147bd', '0144b8',
+              '0142b0', '0141ac', '013da7', '013aa0', '01399d', '013693',
+              '013491', '012f8a', '012d85', '012c82', '01297a'
             ],
-            bands: [
-              'landcover',
-            ],
+            bands: ['landcover'],
           },
         },
       },
@@ -473,17 +381,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:citation': |||
     North American Land Change Monitoring System download webpage.
-    [www.cec.org/north-american-land-change-monitoring-system](http://www.cec.org/north-american-land-change-monitoring-system/)
+    [www.cec.org/north-american-land-change-monitoring-system](
+      http://www.cec.org/north-american-land-change-monitoring-system/)
   |||,
-  'gee:terms_of_use': |||
+  'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
     United States Government. In accordance with 17 U.S.C. 105, no copyright
     protection is available for such works under U.S. Law. This is an Open
     Access article that has been identified as being free of known restrictions
     under copyright law, including all related and neighboring rights
-    (https://creativecommons.org/publicdomain/mark/1.0/). You can copy, modify,
-    distribute and perform the work, even for commercial purposes, all without
-    asking permission.
+    [https://creativecommons.org/publicdomain/mark/1.0/](
+      https://creativecommons.org/publicdomain/mark/1.0/).
+    You can copy, modify, distribute and perform the work, even for commercial
+    purposes, all without asking permission.
   |||,
 }
