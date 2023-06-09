@@ -2,8 +2,8 @@ var dataset = ee.Image('Tsinghua/FROM-GLC/GAIA/v10');
 
 var visualization = {
   bands: ['change_year_index'],
-  min: 0.0,
-  max: 34.0,
+  min: 0,
+  max: 34,
   palette: [
     '014352', '1a492c', '071ec4', 'b5ca36', '729eac', '8ea5de',
     '818991', '62a3c3', 'ccf4fe', '74f0b9', '32bc55', 'c72144',

@@ -1,7 +1,7 @@
 var dataset = ee.FeatureCollection('TIGER/2016/States');
 var visParams = {
   palette: ['purple', 'blue', 'green', 'yellow', 'orange', 'red'],
-  min: 500000000.0,
+  min: 500000000,
   max: 5e+11,
   opacity: 0.8,
 };

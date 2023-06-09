@@ -12,7 +12,7 @@ Map.addLayer(
   'Hurricane Isaac - Inundation Extent');
 
 // The duration (number of days a flood event lasted).
-var durationPalette = ['C3EFFE', '1341E8', '051CB0', '001133'];
+var durationPalette = ['c3effe', '1341e8', '051cb0', '001133'];
 Map.addLayer(
   hurricaneIsaacUsa.select('duration').selfMask(),
   {min: 0, max: 4, palette: durationPalette},

@@ -4,8 +4,9 @@ var visualization = {
   bands: ['dem'],
   min: -3,
   max: 18,
-  palette: ['000000', '478FCD', '86C58E', 'AFC35E', '8F7131',
-           'B78D4F', 'E2B8A6', 'FFFFFF']
+  palette: [
+    '000000', '478fcd', '86c58e', 'afc35e',
+    '8f7131', 'b78d4f', 'e2b8a6', 'ffffff']
 };
 
 Map.setCenter(90.301, 23.052, 10);
