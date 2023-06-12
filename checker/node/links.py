@@ -250,7 +250,7 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(node, f'link {rel} must have {TYPE} of {JSON}')
 
     if node.type == CATALOG:
-      if CHILD not in links_by_rel:
+      if CHILD not in links_by_rel and not node.id.startswith('TEMPLATE'):
         yield cls.new_issue(
             node, f'{CATALOG} must contain at least one {CHILD} link',
             stac.IssueLevel.WARNING)
