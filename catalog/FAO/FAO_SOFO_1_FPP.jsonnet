@@ -1,5 +1,6 @@
 local id = 'FAO/SOFO/1/FPP';
 local subdir = 'FAO';
+local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,8 +21,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Forest proximate people (FPP)',
-  version: '1.0',
+  title: 'Forest proximate people (FPP) ' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The "Forest Proximate People" (FPP) dataset is one of the data layers
@@ -32,7 +33,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     people living in or within 1 kilometer of forests
     (forest-proximate people) for the year 2019 with a pixel size of 100 meters
     at a global level.
-    [Find out more about the dataset.](https://data.apps.fao.org/catalog/dcat/forest-proximate-people)
+    [Find out more about the dataset.](
+      https://data.apps.fao.org/catalog/dcat/forest-proximate-people)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -53,14 +55,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://data.apps.fao.org/catalog/iso/8ed893bd-842a-4866-a655-a0a0c02b79b5'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2019-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2019-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
-    gsd: [
-      0.0009
-    ],
+    gsd: [0.0009],
     'eo:bands': [
       {
         name: 'FPP_1km',
+        // TODO(schwehr): Description is not an area.
+        // TODO(schwehr): Hectare is 100m x 100m
+        //   https://en.wikipedia.org/wiki/Hectare
         description: |||
           Number of people living in or within 1 kilometer of forests.
         |||,
@@ -71,49 +74,44 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Number of people living in or within 5 kilometer of forests.
         |||,
+        // TODO(schwehr): Description is not an area.
+        // TODO(schwehr): Hectare is 100m x 100m
+        //   https://en.wikipedia.org/wiki/Hectare
         'gee:units': 'Number of people/ha',
       },
     ],
     'gee:visualizations': [
       {
         display_name: 'Forest proximate people - 1km cutoff distance',
-        lookat: {
-          lat: -0.4,
-          lon: 108.0,
-          zoom: 4,
-        },
+        lookat: {lon: 108.0, lat: -0.4, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              12,
-            ],
-            palette: [
-              'blue',
-              'yellow',
-           'red',
-            ],
-            bands: [
-              'FPP_1km',
-            ],
+            min: [0],
+            max: [12],
+            palette: ['blue', 'yellow', 'red'],
+            bands: ['FPP_1km'],
           },
         },
       },
     ],
   },
   'sci:citation': |||
-    [FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for green recovery and building inclusive, resilient and sustainable economies. FAO, Rome.](https://www.fao.org/documents/card/en/c/cb9360en)
+    FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for
+    green recovery and building inclusive, resilient and sustainable
+    economies. FAO, Rome.
+    [https://www.fao.org/documents/card/en/c/cb9360en](
+      https://www.fao.org/documents/card/en/c/cb9360en)
   |||,
+  'sci:doi': '10.1016/j.oneear.2020.08.016',
   'sci:publications': [
     {
       citation: |||
         Newton, P., Castle, S.E., Kinzer, A.T., Miller, D.C., Oldekop, J.A.,
-        Linhares-Juvenal, T., Pina, L., Madrid, M., & de Lamo, J. 2022.
-        The number of forest- and tree-proximate people: a new methodology
-        and global estimates, One Earth, 2020
-        [10.1016/j.oneear.2020.08.016](https://doi.org/10.1016/j.oneear.2020.08.016),
+        Linhares-Juvenal, T., Pina, L., Madrid, M., & de Lamo, J. 2022.  The
+        number of forest- and tree-proximate people: a new methodology and
+        global estimates, One Earth, 2020
+        [doi:10.1016/j.oneear.2020.08.016](
+          https://doi.org/10.1016/j.oneear.2020.08.016),
       |||,
       doi: '10.1016/j.oneear.2020.08.016',
     },
