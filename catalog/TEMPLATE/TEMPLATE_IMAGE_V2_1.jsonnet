@@ -116,7 +116,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - The text will be processed as CommonMark (a.k.a. Markdown) with multiple
       different processors. Google's can handle tables, but STAC Browser does
       not support tables.
-    - Define all acronyms, e.g. Absolutely Amazing Sensor (AAS).
+    - Define all acronyms, e.g. evapotranspiration (ET).
     - Make links to additional resources or manuals when appropriate.
     - Bare links must be put in Markdown links, e.g.
         - https://earthengine.google.com/ is just text
