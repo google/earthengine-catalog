@@ -11,6 +11,9 @@ local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  'gee:skip_indexing': true,
+  'gee:user_uploaded': true,
+
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -93,7 +96,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     confidence: {minimum: 0.0, maximum: 100.0, 'gee:estimated_range': false},
     'gee:visualizations': [{
       display_name: 'Classification confidence',
-      lookat: {lon: -103.8881, lat: 53.0371, zoom: 10},
+      lookat: {lon: 5.02666, lat: 50.63096, zoom: 10},
       image_visualization: {
         band_vis: {
           min: [0],
