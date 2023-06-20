@@ -33,8 +33,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     from 2015-06-27 to present. The revisit frequency of Sentinel-2 is between
     2-5 days depending on latitude. Dynamic World predictions are generated for
     Sentinel-2 L1C images with CLOUDY_PIXEL_PERCENTAGE <= 35%.
-    Predictions are masked to remove clouds and cloud shadows using a
-    combination of S2 Cloud Probability, Cloud Displacement Index, and
+    Predictions are masked to remove clouds and cloud shadows using
+    a combination of S2 Cloud Probability, Cloud Displacement Index, and
     Directional Distance Transform.
 
     Images in the Dynamic World collection have names matching the individual

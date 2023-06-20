@@ -15,7 +15,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   id: id,
-  title: 'FAO GAUL 500m: Global Administrative Unit Layers 2015, Country Boundaries',
+  title:
+    'FAO GAUL 500m: Global Administrative Unit Layers 2015, Country Boundaries',
   'gee:type': ee_const.gee_type.table,
   description: |||
     This version of GAUL dataset is simplified at 500m.
@@ -48,7 +49,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'un',
   ],
   providers: [
-    ee.producer_provider('FAO UN', 'http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
+    ee.producer_provider(
+      'FAO UN',
+      'http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-12-19T16:45:00Z', '2014-12-19T16:45:00Z'),
@@ -78,11 +81,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'Shape_Area',
         description: 'Shape area',
         type: ee_const.var_type.double,
+        // TODO(schwehr): Units?
       },
       {
         name: 'Shape_Leng',
         description: 'Shape length',
         type: ee_const.var_type.double,
+        // TODO(schwehr): Units?
       },
       {
         name: 'EXP0_YEAR',
@@ -98,33 +103,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Country Boundaries',
-        lookat: {
-          lat: 49.1,
-          lon: 7.82,
-          zoom: 4,
-        },
+        lookat: {lon: 7.82, lat: 49.1, zoom: 4},
         polygon_visualization: {
           property_name: 'ADM0_CODE',
           property_vis: {
-            min: [
-              1.0,
-            ],
-            max: [
-              250.0,
-            ],
+            min: [1],
+            max: [250],
             palette: [
-              '00ff97',
-              'ddff6b',
-              'f0ff6b',
-              'ffe96b',
-              '7277ff',
-              'ffffb3',
-              'daffff',
-              'b0ffff',
-              '72ffff',
-              'a9ff6b',
-              '72d6ff',
-              '00ff72',
+              '00ff97', 'ddff6b', 'f0ff6b', 'ffe96b', '7277ff', 'ffffb3',
+              'daffff', 'b0ffff', '72ffff', 'a9ff6b', '72d6ff', '00ff72',
             ],
           },
         },
@@ -146,9 +133,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     use, download and print the materials contained in the GAUL dataset solely
     for non-commercial purposes and in accordance with the conditions specified
     in the data license.
-    [The full GAUL Data License document](https://developers.google.com/earth-engine/datasets/catalog/DataLicenseGAUL2015.pdf)
+    [The full GAUL Data License document](
+      https://developers.google.com/earth-engine/datasets/catalog/DataLicenseGAUL2015.pdf)
     is available for downloading. See also
-    [the disclaimer](https://developers.google.com/earth-engine/datasets/catalog/DisclaimerGAUL2015.pdf).
+    [the disclaimer](
+      https://developers.google.com/earth-engine/datasets/catalog/DisclaimerGAUL2015.pdf).
   |||,
   'gee:unusual_terms_of_use': true,
 }
