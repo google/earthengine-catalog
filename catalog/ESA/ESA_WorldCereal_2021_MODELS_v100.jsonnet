@@ -24,22 +24,37 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'ESA WorldCereal 10m v100',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Write enough here for most people to understand:
-    - what a dataset is for
-    - what it's limitations are
-    - how it was created
-    - and anything else essential to know when working with the data.
-
-    Things to consider when writing:
-    - The text will be processed as CommonMark (a.k.a. MarkDown)
-    - Define all acronyms.  e.g. Absolutely Amazing Sensor (AAS).
-    - Make links to additional resources or manuals when appropriate
-    - Bare links must be put in markdown links.  e.g.
-        - https://earthengine.google.com/ is just text
-        - [https://earthengine.google.com/](https://earthengine.google.com/)
-          is actually a link.
-    - The accordion operator (`|||`) allows for writing multiline strings.
-    - Indent 2 spaces under the |||.
+    The European Space Agency (ESA) WorldCereal 10 m 2021 product suite consists of global-scale annual and seasonal crop maps and their related confidence. They were generated as part of the [ESA-WorldCereal project](https://esa-worldcereal.org/). More information on the content of these products and the methodology used to generate them is described in [1].
+    
+    This collection contains up to 106 agro-ecological zone (AEZ) [2] images for each product which were all processed with respect to their own regional seasonality and should be considered as independent products. These seasons are described in Table 1 and were developed in [3] as part of the project. Note that cereals as described by WorldCereal include wheat, barley and rye, which belong to the *Triticeae* tribe.
+    
+    **Table 1: WorldCereal seasons description**
+    | Season |Description|
+    | :---------------------- | :---------------------------------------- |
+    | tc-annual        | A one-year cycle being defined in an AEZ by the end of the last considered growing season  |
+    | tc-wintercereals | The main cereals season defined in an AEZ
+    | tc-springcereals | Optional springcereals season, only defined in certain AEZ
+    | tc-maize-main | The main maize season defined in an AEZ
+    | tc-maize-second | Optional second maize season, only defined in certain AEZ
+     
+    The available products in this collection are:
+    - **temporarycrops**
+    - **maize**
+    - **wintercereals**
+    - **springcereals**
+    - **irrigation**
+     
+    Each product (image) has a binary classification (0|100) and a confidence (0-100) band. Note that AEZs for which no irrigation product is available were not processed because of the unavailability of thermal Landsat data.
+    
+    The collection should be filtered using one or more of the following image properties:
+    - **aez_id**, holding the ID of the AEZ to which the image belongs
+    - **product**, describing the WorldCereal product name of the image
+    - **season**, describing for which season the image is valid.
+    
+    **References:**
+    [1] [WorldCereal methodology and products paper](https://doi.org/10.5194/essd-2023-184)
+    [2] Need to reference the AEZ FeatureCollection here.
+    [3] [WorldCereal global seasonality paper](https://doi.org/10.1080/15481603.2022.2079273)
   |||,
   license: license.id,
 
