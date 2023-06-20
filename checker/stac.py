@@ -22,6 +22,8 @@ NON_COMMERCIAL_LIST = []
 
 SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 
+CHECKER_CODE_ROOT = 'https://github.com/google/earthengine-catalog/blob/main'
+
 
 class StacType(str, enum.Enum):
   CATALOG = 'Catalog'
@@ -107,7 +109,20 @@ class Check:
                 node: Node,
                 message: str,
                 level: IssueLevel = IssueLevel.ERROR) -> Issue:
-    return Issue(node.id, node.path, cls.name, message, level)
+    """Creates a new Issue for the given arguments."""
+
+    # Find the relative path to the checker that produced the error.
+    relative_path = []
+    for component in reversed(cls.__module__.split('.')):
+      if component == 'earthengine_catalog':
+        break
+      relative_path.insert(0, component)
+    module = '/'.join(relative_path)
+    link = f'{CHECKER_CODE_ROOT}/{module}.py'
+    # Changing the checker filename to have extension .jsonnet rather than .json
+    return Issue(
+        node.id, node.path.with_suffix('.jsonnet'), link, message, level
+    )
 
 
 class NodeCheck(Check):
