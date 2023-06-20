@@ -8,7 +8,7 @@ function mask_other(img) {
 }
 
 // Apply the mask_other function to the collection
-dataset = dataset.map(mask_other)
+dataset = dataset.map(mask_other);
 
 /*--------------------------------------------------
 Basic example for a global mosaic of temporary crops
@@ -17,7 +17,7 @@ Basic example for a global mosaic of temporary crops
 // Get a global mosaic for all AEZ of temporary crops
 var temporarycrops = dataset.filter(
   ee.Filter.eq('product', 'temporarycrops')
-  ).mosaic()
+  ).mosaic();
 
 // Visualization specifics
 var visualization_class = {
@@ -45,18 +45,34 @@ Advanced example for tc-maize-main season products
 in a specific AEZ
 --------------------------------------------------*/
 
-// Get a global mosaic for all AEZ of temporary crops
-var maize = dataset.filter(
+// Filter on AEZ and season
+var tc_maize_main_46172 = dataset.filter(
   ee.Filter.eq('season', 'tc-maize-main')
-  ).filter(ee.Filter.eq('product', 'maize')
-    ).filter(ee.Filter.eq('aez_id', 46172))
+  ).filter(ee.Filter.eq('aez_id', 46172));
+
+// Get the different products
+var maize = tc_maize_main_46172.filter(ee.Filter.eq('product', 'maize'))
+var irrigation = tc_maize_main_46172.filter(ee.Filter.eq('product', 'irrigation'))
+
 
 // Visualization specifics
-var visualization_class = {
+var visualization_maize = {
   bands: ["classification"],
   max: 100,
   palette: ["#ebc334"]
 };
 
+var visualization_irrigation = {
+  bands: ["classification"],
+  max: 100,
+  palette: ["#2d79eb"]
+};
+
+
 // Show maize classification
-Map.addLayer(maize, visualization_class, 'Maize');
+Map.addLayer(maize, visualization_maize, 'Maize');
+Map.addLayer(irrigation, visualization_irrigation, 'Active irrigation');
+
+// Uncomment the line below to zoom to a region
+// where maize, other crops and active irrigation are visible
+Map.setCenter(-0.9911, 43.5017, 12)
