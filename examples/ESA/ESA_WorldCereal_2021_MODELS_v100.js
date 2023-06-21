@@ -69,10 +69,10 @@ var visualization_irrigation = {
 };
 
 
-// Show maize classification
+// Show maize and irrigation classification
 Map.addLayer(maize, visualization_maize, 'Maize');
 Map.addLayer(irrigation, visualization_irrigation, 'Active irrigation');
 
 // Uncomment the line below to zoom to a region
 // where maize, other crops and active irrigation are visible
-Map.setCenter(-0.9911, 43.5017, 12)
+// Map.setCenter(-0.9911, 43.5017, 12)
