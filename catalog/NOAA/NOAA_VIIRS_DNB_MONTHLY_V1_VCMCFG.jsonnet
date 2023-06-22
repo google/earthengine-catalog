@@ -59,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'visible',
   ],
   providers: [
-    ee.producer_provider('Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines', 'https://eogdata.mines.edu/download_dnb_composites.html'),
+    ee.producer_provider('Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines', 'https://eogdata.mines.edu/products/vnl/#monthly'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -65.0, 180.0, 75.0, '2012-04-01T00:00:00Z', null),
