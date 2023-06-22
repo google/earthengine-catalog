@@ -1,5 +1,6 @@
 local id = 'USGS/2019_REL/RCMAP/V5/TRENDS';
 local subdir = 'USGS';
+local version = '5';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,9 +21,9 @@ local self_url = catalog_subdir_url + base_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'RCMAP Rangeland Component Timeseries V5 Trends (1985-2021)',
-  version: 'V5',
-  'gee:type': ee_const.gee_type.image_collection,
+  title: 'RCMAP Rangeland Component Timeseries V5 Trends (1985-2021)' + version,
+  version: 'version',
+  'gee:type': ee_const.gee_type.image,
   description: |||
     Currently available trends statistics are for the 1985-2021 time-series.
 
@@ -84,7 +85,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
-      -125.0683594, 28.45903302, -101.0742188, 49.32512199,
+      -125.068, 28.459, -101.074, 49.325,
       '1985-01-01T00:00:00Z',
       '2021-12-31T00:00:00Z'),
   'gee:interval': {
@@ -93,14 +94,12 @@ local self_url = catalog_subdir_url + base_filename;
     interval: 1,
   },
   summaries: {
-    gsd: [
-      30,
-    ],
+    gsd: [30],
     'eo:bands': [
       {
         name: 'Break Point Count',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': 'number',
+        'gee:units': units.count,
       },
       {
         name: 'P-Value of Linear Model',
@@ -110,22 +109,22 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'Slope of Linear Model',
         description: 'Slope of linear trends model, given in units of % change/year × 100',
-        'gee:units': 'units of percent change per year',
+        'gee:units': '% change/a',
       },
       {
         name: 'Year of Most Recent Break',
         description: 'Year of most recent break in the time-series for each component',
-        'gee:units': 'year',
+        'gee:units': units.year,
       },
       {
-        name: 'Total Change Intensity Index',
+        name: 'total_change_intensity_index',
         description: 'Total Change Intensity is a derivative index, designed to highlight the total amount of change across primary components (shrub, bare ground, litter, and herbaceous). Change is reflective of the slope values from the structural change analysis. Values are indexed so that the maximum observed change across all components and no change equaled 100 and 0, respectively',
-        'gee:units': 'index',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Break Point Presence/Absence in each year for each component area',
         description: 'Presence/absence of structural breaks in each component each year',
-        'gee:units': 'year',
+        'gee:units': units.year,
       },
       {
         name: 'P-Value of Segment in each year for each component area',
@@ -140,7 +139,7 @@ local self_url = catalog_subdir_url + base_filename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Break Point Count',
+        display_name: 'total_change_intensity_index',
         lookat: {
           lat: 38,
           lon: -114,
@@ -258,13 +257,13 @@ local self_url = catalog_subdir_url + base_filename;
               '01297a'
             ],
             bands: [
-              'Break Point Count',
+              'total_change_intensity_index',
             ],
           },
         },
       },
     ],
-    Break Point Count: {
+    annual_herbaceous_break_point: {
       minimum: 0,
       maximum: 3,
       'gee:estimated_range': false,
@@ -284,7 +283,7 @@ local self_url = catalog_subdir_url + base_filename;
       maximum: 2019,
       'gee:estimated_range': false,
     },
-    Total Change Intensity Index: {
+    total_change_intensity_index: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
