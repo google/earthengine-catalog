@@ -4,7 +4,7 @@ var dataset = ee.ImageCollection('projects/worldcereal/assets/2021_v100')
 Map.setOptions('SATELLITE');
 
 // Width and height of the thumbnail image.
-var pixels = 1024;
+var pixels = 256;
 
 function mask_other(img) {
   return img.updateMask(img.neq(0))
