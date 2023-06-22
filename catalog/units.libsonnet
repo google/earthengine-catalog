@@ -166,5 +166,5 @@
   watt_per_meter_squared: 'W/m^2',
 
   // https://en.wikipedia.org/wiki/Year
-  year: 'a',
+  year: 'y',
 }
