@@ -83,16 +83,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Season for which the product is valid.',
         type: ee_const.var_type.string,
       },
-      {
-        name: 'start_date',
-        description: 'Start date (yyyy-mm-dd) for which the product is valid.',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'end_date',
-        description: 'End date (yyyy-mm-dd) for which the product is valid.',
-        type: ee_const.var_type.string
-      },
     ],
     gsd: [10],
     'eo:bands': [
