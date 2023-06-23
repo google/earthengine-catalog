@@ -412,7 +412,9 @@ class Check(stac.NodeCheck):
       if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
         pass
       elif not feature_view_links:
-        if not feature_view_exception(node.id):
+        if not feature_view_exception(node.id) and not node.id.startswith(
+            'TEMPLATE'
+        ):
           yield cls.new_issue(
               node, f'Missing example {RELATED} FeatureView link')
       else:
