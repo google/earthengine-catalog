@@ -1,7 +1,12 @@
 // var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MODELS/v100')
 var dataset = ee.ImageCollection('projects/worldcereal/assets/2021_v100')
 
-Map.setOptions('SATELLITE');
+var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
+var backgroundPalette = ['cadetblue', 'lightgray'];
+var waterLandVis = {palette: backgroundPalette};
+var waterLandBackground = waterLand.visualize({palette: backgroundPalette});
+
+Map.addLayer(waterLandBackground)
 
 // Width and height of the thumbnail image.
 var pixels = 256;
@@ -41,11 +46,12 @@ var preview_image = ee.ImageCollection(
   [wintercereals, maize, temporarycrops]).mosaic(
     ).visualize(imageVisParam);
 
-Map.addLayer(preview_image, {}, 'WorldCereal products')
-
+var image_with_background = ee.ImageCollection(
+  [waterLandBackground, preview_image]).mosaic();
+Map.addLayer(image_with_background, {}, 'WorldCereal products')
 
 var areaOfInterest = ee.Geometry.Rectangle(
-  [-10, 30, 40, 60]);
+  [-10, 30, 30, 60]);
 
 print(preview_image)
 var imageParams = {
@@ -56,4 +62,4 @@ var imageParams = {
   };
 
 
-print(ui.Thumbnail({image: preview_image, params: imageParams}));
+print(ui.Thumbnail({image: image_with_background, params: imageParams}));
