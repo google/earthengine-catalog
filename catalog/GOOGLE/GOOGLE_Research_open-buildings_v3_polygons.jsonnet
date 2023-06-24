@@ -19,7 +19,7 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'Open Buildings V2 Polygons',
+  title: 'Open Buildings V3 Polygons',
   version: '3.0.0',
   'gee:type': ee_const.gee_type.table,
   description: |||
@@ -36,8 +36,9 @@ local license = spdx.cc_by_4_0;
 
     Building footprints are useful for a range of important applications: from
     population estimation, urban planning and humanitarian response to
-    environmental and climate science. The project being based in Ghana, the
-    current focus is on the continent of Africa.
+    environmental and climate science. The project is based in Ghana, with an
+    initial focus on the continent of Africa and new updates on South Asia,
+    South-East Asia, Latin America and the Caribbean.
 
     Inference was carried out during May 2023.
 
