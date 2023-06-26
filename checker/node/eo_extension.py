@@ -225,7 +225,6 @@ UNITS = units.UNITS.union({
     'mol/m^2',
     'molec cm-2 s-1',
     'ms',
-    'nanoWatts/cm2/sr',
     'occurrence',
     'ppm',
     'seconds',

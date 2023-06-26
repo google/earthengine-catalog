@@ -145,6 +145,11 @@
   // https://en.wikipedia.org/wiki/Radians
   radian: 'rad',
 
+  // https://en.wikipedia.org/wiki/Radiance
+  // https://en.wikipedia.org/wiki/Steradian
+  // radiance: 'Watts/sr/m^2',
+  radiance_nanowatts_cm2: 'nanoWatts/sr/cm^2',
+
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
 

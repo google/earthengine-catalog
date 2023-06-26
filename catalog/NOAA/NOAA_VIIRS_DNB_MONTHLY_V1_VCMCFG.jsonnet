@@ -4,6 +4,7 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -71,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'avg_rad',
         description: 'Average DNB radiance values.',
-        'gee:units': 'nanoWatts/cm2/sr',
+        'gee:units': units.radiance_nanowatts_cm2,
       },
       {
         name: 'cf_cvg',
