@@ -1,5 +1,5 @@
 // The asset id as referenced in Earth Engine:
-// ee.Image('projects/usgs-gee-audra-griebel/assets/eros/canopy/year')
+// ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/canopy/year')
 
 local id = 'USGS/NLCD_RELEASES/2021_REL/CANOPY/YEAR';
 local subdir = 'USGS';
@@ -27,55 +27,64 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Tree Canopy Cover (TCC) data (2011-2021)' + version,
-  version: 'version',
-
-  // TODO(schwehr): what if it is an image collection
-  'gee:type': ee_const.gee_type.imagecollection,
+  title: 'Tree Canopy Cover (TCC) data (2011-2021) ' + version,
+  version: version,
+  'gee:type': ee_const.gee_type.image_collection,
 
   description: |||
-    The USDA Forest Service (USFS) builds two versions of percent tree canopy cover data, 
-    in order to serve needs of multiple user communities. These datasets encompass conterminous 
-    United States (CONUS), Coastal Alaska, Hawaii, and Puerto Rico and U.S. Virgin Islands (PRUSVI).
-    
-    The two versions of data within the v2021-4 Tree Canopy Cover (TCC) product suite include: 
-    The initial model outputs referred to as the Science data; And a modified version built for 
-    the National Land Cover Database and referred to as NLCD data. The NLCD product suite includes 
-    data for years 2011, 2013, 2016, 2019, and 2021. 
-    
-    The NCLD data are processed to remove small interannual changes from the annual TCC timeseries, 
-    and to mask TCC pixels that are known to be 0 percent TCC, non-tree agriculture, and water. 
-    A small interannual change is defined as a TCC change less than an increase or decrease of 
-    10 percent compared to a TCC baseline value established in a prior year. The initial TCC 
-    baseline value is the mean of 2008-2010 TCC data. For each year following 2011, on a pixel-wise 
-    basis TCC values are updated to a new baseline value if an increase or decrease of 10 percent 
-    TCC occurs relative to the 2008-2010 TCC baseline value. If no increase or decrease greater 
-    than 10 percent TCC occurs relative to the 2008-2010 baseline, then the 2008-2010 TCC baseline 
-    value is caried through to the next year in the timeseries. Pixel values range from 0 to 100 percent. 
-    The non-processing area is represented by value 254, and the background is represented by the value 255. 
-    The Science and NLCD tree canopy cover data are accessible for multiple user communities, through 
-    multiple channels and platforms. 
+    The USDA Forest Service (USFS) builds two versions of percent tree canopy
+    cover data, in order to serve needs of multiple user communities. These
+    datasets encompass conterminous United States (CONUS), Coastal Alaska,
+    Hawaii, and Puerto Rico and U.S. Virgin Islands (PRUSVI).
 
-    For more information visit [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data)
-    or [The USFS Tree Canopy Cover Datasets page](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/).
+    The two versions of data within the v2021-4 Tree Canopy Cover (TCC) product
+    suite include: The initial model outputs referred to as the Science data;
+    And a modified version built for the National Land Cover Database and
+    referred to as NLCD data. The NLCD product suite includes data for years
+    2011, 2013, 2016, 2019, and 2021.
+
+    The NCLD data are processed to remove small interannual changes from the
+    annual TCC timeseries, and to mask TCC pixels that are known to be 0 percent
+    TCC, non-tree agriculture, and water.  A small interannual change is defined
+    as a TCC change less than an increase or decrease of 10 percent compared to
+    a TCC baseline value established in a prior year. The initial TCC baseline
+    value is the mean of 2008-2010 TCC data. For each year following 2011, on a
+    pixel-wise basis TCC values are updated to a new baseline value if an
+    increase or decrease of 10 percent TCC occurs relative to the 2008-2010 TCC
+    baseline value. If no increase or decrease greater than 10 percent TCC
+    occurs relative to the 2008-2010 baseline, then the 2008-2010 TCC baseline
+    value is caried through to the next year in the timeseries. Pixel values
+    range from 0 to 100 percent.  The non-processing area is represented by
+    value 254, and the background is represented by the value 255.  The Science
+    and NLCD tree canopy cover data are accessible for multiple user
+    communities, through multiple channels and platforms.
+
+    For more information visit
+    [Multi-Resolution Land Characteristics Consortium](
+    https://www.mrlc.gov/data) or
+    [The USFS Tree Canopy Cover Datasets page](
+      https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'landcover',
-    'tree-cover',
-    'usgs',
     'gtac',
-    'usfs',
-    'yearly',
-    'nlcd',
+    'landcover',
     'mrlc',
+    'nlcd',
+    'tree_cover',
+    'usfs',
+    'usgs',
+    'yearly',
   ],
   providers: [
     ee.producer_provider(
-      'The U.S. Forest Service (USFS) Geospatial Technology and 
-      Applications Center (GTAC)', 'https://www.fs.usda.gov/about-agency/gtac'),
-      ('Multi-Resolution Land Characteristics (MRLC) Consortium'), ('https://www.mrlc.gov/'),
+      'The U.S. Forest Service (USFS) Geospatial Technology and Applications ' +
+      'Center (GTAC)',
+      'https://www.fs.usda.gov/about-agency/gtac'),
+    ee.producer_provider(
+      'Multi-Resolution Land Characteristics (MRLC) Consortium',
+      'https://www.mrlc.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-130.24, 21.75, -63.66, 50,
@@ -87,136 +96,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   summaries: {
     gsd: [30],
-    'eo:bands': [
-      {
-        name: 'year_2011',
-        description: 'Tree Canopy Cover for 2011',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2012',
-        description: 'Tree Canopy Cover for 2012',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2013',
-        description: 'Tree Canopy Cover for 2013',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2014',
-        description: 'Tree Canopy Cover for 2014',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2015',
-        description: 'Tree Canopy Cover for 2015',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2016',
-        description: 'Tree Canopy Cover for 2016',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2017',
-        description: 'Tree Canopy Cover for 2017',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2018',
-        description: 'Tree Canopy Cover for 2018',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2019',
-        description: 'Tree Canopy Cover for 2019',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2020',
-        description: 'Tree Canopy Cover for 2020',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'year_2021',
-        description: 'Tree Canopy Cover for 2021',
-        'gee:units': units.percent,
-      },
-    ],
+    'eo:bands': [{
+      name: 'cover',
+      description: 'Tree Canopy Cover percent (254 for unprocessed)',
+      'gee:units': units.percent,
+    }],
     'gee:visualizations': [
       {
-        display_name: 'year_2021',
-        lookat: {
-            lon: -115.34, 
-            lat: 38.67, 
-            zoom: 6,
-        }
+        display_name: 'cover (%)',
+        lookat: {lon: -115.34, lat: 38.67, zoom: 6},
         image_visualization: {
           band_vis: {
             min: [0],
             max: [255],
             palette: ['000080', '000080', 'fafad2'],
-            bands: ['year_2021'],
+            bands: ['cover'],
           },
         },
       },
     ],
-    year_2011: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2012: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2013: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2014: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2015: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2016: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2017: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2018: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2019: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2020: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
-    year_2021: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': false,
-    },
+    cover: {minimum: 0, maximum: 254, 'gee:estimated_range': false}
   },
   'sci:citation': |||
     Yang, L.; Jin, S.; Danielson, P.; Homer, C.; Gass, L.; Bender, S.; 
@@ -226,7 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ISPRS Journal of Photogrammetry and Remote Sensing 146:108-123. 
     [doi:10.1016/j.isprsjprs.2018.09.006](https://doi.org/10.1016/j.isprsjprs.2018.09.006)
   |||,
-  'gee:terms_of_use': |||
+  'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
     United States Government. In accordance with 17 U.S.C. 105, no copyright
