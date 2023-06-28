@@ -7,7 +7,7 @@ local version_table = import 'GOOGLE_Research_open-buildings_polygons.libsonnet'
 
 local subdir = 'GOOGLE';
 
-local version = 'v2.0';
+local version = 'v3.0';
 local version_config = versions(subdir, version_table, version);
 
 local license = spdx.cc_by_4_0;
@@ -19,15 +19,14 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'Open Buildings V2 Polygons [deprecated]',
-  version: '2.0.0',
-  deprecated: true,
+  title: 'Open Buildings V3 Polygons',
+  version: '3.0.0',
   'gee:type': ee_const.gee_type.table,
   description: |||
     This large-scale open dataset consists of outlines of buildings derived
-    from high-resolution 50 cm satellite imagery. It contains 816M building
-    detections in Africa, South Asia and Southeast Asia. The inference spanned
-    an area of 39.1M km&#178;.
+    from high-resolution 50 cm satellite imagery. It contains 1.8B building
+    detections in Africa, Latin America, Caribbean, South Asia and Southeast
+    Asia. The inference spanned an area of 58M km&#178;.
 
     For each building in this dataset we include the polygon describing its
     footprint on the ground, a confidence score indicating how sure we are that
@@ -37,18 +36,15 @@ local license = spdx.cc_by_4_0;
 
     Building footprints are useful for a range of important applications: from
     population estimation, urban planning and humanitarian response to
-    environmental and climate science. The project being based in Ghana, the
-    current focus is on the continent of Africa.
+    environmental and climate science. The project is based in Ghana, with an
+    initial focus on the continent of Africa and new updates on South Asia,
+    South-East Asia, Latin America and the Caribbean.
 
-    Inference was carried out during Aug 2022.
+    Inference was carried out during May 2023.
 
     For more details see the official
     [website](https://sites.research.google/open-buildings/) of the Open
     Buildings dataset.
-
-    Note that updated versions of this data are available. The newest version,
-    Version 3.0 (with inference carried out on May 2023), is available as
-    [GOOGLE/Research/open-buildings/v3/polygons](GOOGLE_Research_open-buildings_v3_polygons).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
@@ -61,6 +57,8 @@ local license = spdx.cc_by_4_0;
     'asia',
     'building',
     'built_up',
+    // 'caribbean',
+    // 'latin_america',
     'open_buildings',
     'south_asia',
     'southeast_asia',
@@ -70,7 +68,7 @@ local license = spdx.cc_by_4_0;
     ee.producer_provider('Google Research - Open Buildings', 'https://sites.research.google/open-buildings/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2022-08-30T00:00:00Z', '2022-08-30T00:00:00Z'),
+  extent: ee.extent_global('2023-05-30T00:00:00Z', '2023-05-30T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -81,7 +79,7 @@ local license = spdx.cc_by_4_0;
       },
       {
         name: 'confidence',
-        description: 'Confidence score [0.5;1.0] assigned by the model.',
+        description: 'Confidence score [0.65;1.0] assigned by the model.',
         type: ee_const.var_type.double,
       },
       {
@@ -97,7 +95,7 @@ local license = spdx.cc_by_4_0;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Open Buildings V2',
+        display_name: 'Open Buildings V3',
         lookat: {
           lat: 6.492,
           lon: 3.389,
@@ -109,7 +107,7 @@ local license = spdx.cc_by_4_0;
         },
       },
       {
-        display_name: 'Open Buildings V2',
+        display_name: 'Open Buildings V3',
         visualize_as: 'FeatureView',
       },
     ],

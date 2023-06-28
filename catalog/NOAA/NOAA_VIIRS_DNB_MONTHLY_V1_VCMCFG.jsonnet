@@ -4,6 +4,7 @@ local subdir = 'NOAA';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -59,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'visible',
   ],
   providers: [
-    ee.producer_provider('Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines', 'https://eogdata.mines.edu/download_dnb_composites.html'),
+    ee.producer_provider('Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines', 'https://eogdata.mines.edu/products/vnl/#monthly'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -65.0, 180.0, 75.0, '2012-04-01T00:00:00Z', null),
@@ -71,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'avg_rad',
         description: 'Average DNB radiance values.',
-        'gee:units': 'nanoWatts/cm2/sr',
+        'gee:units': units.radiance_nanowatts_cm2,
       },
       {
         name: 'cf_cvg',

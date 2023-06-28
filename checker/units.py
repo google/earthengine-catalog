@@ -54,6 +54,7 @@ UNITS = frozenset({
     'min',
     'mm',
     'mm/d',
+    'nanoWatts/sr/cm^2',
     'pixel',
     'psu',
     'rad',
