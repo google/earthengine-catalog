@@ -134,26 +134,69 @@ class ErrorSchemaTest(test_utils.NodeTest):
   def test_bad_name_too_short(self):
     name = 'a'
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'description': 'A thing', 'name': name, 'type': 'INT'}]}},
-        f'Invalid name: "{name}"',
-        gee_type=IMAGE_COLLECTION)
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': 'A thing',
+                    'name': name,
+                    'type': 'INT',
+                }]
+            }
+        },
+        f'name "{name}" too short: 1 is below limit 2',
+        gee_type=IMAGE_COLLECTION,
+    )
 
   def test_bad_name_too_long(self):
     name = 'a' * 51
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'description': 'A thing', 'name': name, 'type': 'INT'}]}},
-        f'Invalid name: "{name}"',
-        gee_type=IMAGE_COLLECTION)
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': 'A thing',
+                    'name': name,
+                    'type': 'INT',
+                }]
+            }
+        },
+        f'name "{name}" too long: 51 exceeds limit 50',
+        gee_type=IMAGE_COLLECTION,
+    )
 
-  def test_bad_name_regex(self):
+  def test_bad_name_characters(self):
     name = 'Bad name*'
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'description': 'A thing', 'name': name, 'type': 'INT'}]}},
-        f'Invalid name: "{name}"',
-        gee_type=IMAGE_COLLECTION)
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': 'A thing',
+                    'name': name,
+                    'type': 'INT',
+                }]
+            }
+        },
+        [
+            f'name "{name}" contains character "{c}" not in [a-zA-Z0-9_]'
+            for c in ' *'
+        ],
+        gee_type=IMAGE_COLLECTION,
+    )
+
+  def test_bad_name_start_character(self):
+    name = '1BadName'
+    self.assert_collection(
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': 'A thing',
+                    'name': name,
+                    'type': 'INT',
+                }]
+            }
+        },
+        f'name "{name}" does not start with an ascii letter',
+        gee_type=IMAGE_COLLECTION,
+    )
 
   def test_bad_description_not_str(self):
     self.assert_collection(
@@ -165,18 +208,34 @@ class ErrorSchemaTest(test_utils.NodeTest):
   def test_bad_description_too_short(self):
     description = 'a'
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'description': description, 'name': 'ab', 'type': 'INT'}]}},
-        'description too short: 1',
-        gee_type=IMAGE_COLLECTION)
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': description,
+                    'name': 'ab',
+                    'type': 'INT',
+                }]
+            }
+        },
+        'description too short: 1 is below limit 3',
+        gee_type=IMAGE_COLLECTION,
+    )
 
   def test_bad_description_too_long(self):
     description = 'a' * 1801
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'description': description, 'name': 'ab', 'type': 'INT'}]}},
-        'description too long: 1801',
-        gee_type=IMAGE_COLLECTION)
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': description,
+                    'name': 'ab',
+                    'type': 'INT',
+                }]
+            }
+        },
+        'description too long: 1801 exceeds limit 1800',
+        gee_type=IMAGE_COLLECTION,
+    )
 
   def test_bad_units_not_str(self):
     self.assert_collection(
@@ -188,19 +247,38 @@ class ErrorSchemaTest(test_utils.NodeTest):
 
   def test_bad_units_too_short(self):
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'units': '', 'description': 'A thing',
-             'name': 'ab', 'type': 'INT'}]}},
-        ['units too short: 0', 'Schema units unknown: '])
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'units': '',
+                    'description': 'A thing',
+                    'name': 'ab',
+                    'type': 'INT',
+                }]
+            }
+        },
+        ['units "" too short: 0 is below limit 1', 'Schema units unknown: '],
+    )
 
   def test_bad_units_too_long(self):
     size = 21
     units = 'a' * size
     self.assert_collection(
-        {'summaries': {'gee:schema': [
-            {'units': units,
-             'description': 'A thing', 'name': 'ab', 'type': 'INT'}]}},
-        [f'units too long: {size}', 'Schema units unknown: ' + units])
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'units': units,
+                    'description': 'A thing',
+                    'name': 'ab',
+                    'type': 'INT',
+                }]
+            }
+        },
+        [
+            f'units "{units}" too long: 21 exceeds limit 20',
+            'Schema units unknown: ' + units,
+        ],
+    )
 
   def test_bad_units_unknown(self):
     self.assert_collection(

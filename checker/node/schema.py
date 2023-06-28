@@ -49,6 +49,12 @@ OPTIONAL_KEYS = frozenset({UNITS})
 ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
 MAX_SCHEMA_SIZE = 300
+MIN_NAME_SIZE = 2
+MAX_NAME_SIZE = 50
+MIN_DESCRIPTION_SIZE = 3
+MAX_DESCRIPTION_SIZE = 1800
+MIN_UNIT_SIZE = 1
+MAX_UNIT_SIZE = 20
 
 
 class SchemaType(str, enum.Enum):
@@ -124,8 +130,30 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(
                 node, f'Cannot be PROPERTY_TYPE_UNSPECIFIED: {name}')
 
-          if not re.fullmatch('[a-zA-Z][_a-zA-Z0-9]{1,49}', name):
-            yield cls.new_issue(node, f'Invalid name: "{name}"')
+          size = len(name)
+          if size < MIN_NAME_SIZE:
+            yield cls.new_issue(
+                node,
+                f'{NAME} "{name}" too short: {size} is below limit'
+                f' {MIN_NAME_SIZE}',
+            )
+          elif size > MAX_NAME_SIZE:
+            yield cls.new_issue(
+                node,
+                f'{NAME} "{name}" too long: {size} exceeds limit'
+                f' {MAX_NAME_SIZE}',
+            )
+          for i, c in enumerate(name):
+            if i == 0 and not (c.isascii() and c.isalpha()):
+              yield cls.new_issue(
+                  node, f'{NAME} "{name}" does not start with an ascii letter'
+              )
+            elif not (c.isascii() and (c.isalnum() or c == '_')):
+              yield cls.new_issue(
+                  node,
+                  f'{NAME} "{name}" contains character "{c}" not in'
+                  ' [a-zA-Z0-9_]',
+              )
 
       if DESCRIPTION in entry:
         description = entry[DESCRIPTION]
@@ -134,10 +162,18 @@ class Check(stac.NodeCheck):
         else:
           # TODO(schwehr): Do a better check of the description.
           size = len(description)
-          if size < 3:
-            yield cls.new_issue(node, f'{DESCRIPTION} too short: {size}')
-          elif size > 1800:
-            yield cls.new_issue(node, f'{DESCRIPTION} too long: {size}')
+          if size < MIN_DESCRIPTION_SIZE:
+            yield cls.new_issue(
+                node,
+                f'{DESCRIPTION} too short: {size} is below limit'
+                f' {MIN_DESCRIPTION_SIZE}',
+            )
+          elif size > MAX_DESCRIPTION_SIZE:
+            yield cls.new_issue(
+                node,
+                f'{DESCRIPTION} too long: {size} exceeds limit'
+                f' {MAX_DESCRIPTION_SIZE}',
+            )
 
       if UNITS in entry:
         schema_units = entry[UNITS]
@@ -145,10 +181,17 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(node, 'Units must be a str')
         else:
           size = len(schema_units)
-          if size < 1:
-            yield cls.new_issue(node, f'{UNITS} too short: {size}')
-          elif size > 20:
-            yield cls.new_issue(node, f'{UNITS} too long: {size}')
-
+          if size < MIN_UNIT_SIZE:
+            yield cls.new_issue(
+                node,
+                f'{UNITS} "{schema_units}" too short: {size} is below limit'
+                f' {MIN_UNIT_SIZE}',
+            )
+          elif size > MAX_UNIT_SIZE:
+            yield cls.new_issue(
+                node,
+                f'{UNITS} "{schema_units}" too long: {size} exceeds limit'
+                f' {MAX_UNIT_SIZE}',
+            )
           if schema_units not in units.UNITS:
             yield cls.new_issue(node, f'Schema units unknown: {schema_units}')
