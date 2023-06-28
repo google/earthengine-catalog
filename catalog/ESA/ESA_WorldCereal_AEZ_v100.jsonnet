@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://esa-worldcereal.org/en'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2020-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2020-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -71,70 +71,74 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-annual_sos',
+        name: 'tc_annual_sos',
         description: 'SOS of the tc-annual season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-annual_eos',
+        name: 'tc_annual_eos',
         description: 'EOS of the tc-annual season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-wintercereals_sos',
+        name: 'tc_wintercereals_sos',
         description: 'SOS of the tc-wintercereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-wintercereals_eos',
+        name: 'tc_wintercereals_eos',
         description: 'EOS of the tc-wintercereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-springcereals_sos',
+        name: 'tc_springcereals_sos',
         description: 'SOS of the tc-springcereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-springcereals_eos',
+        name: 'tc_springcereals_eos',
         description: 'EOS of the tc-springcereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-maize-main_sos',
+        name: 'tc_maize_main_sos',
         description: 'SOS of the tc-maize-main season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-maize-main_eos',
+        name: 'tc_maize_main_eos',
         description: 'EOS of the tc-maize-main season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-maize-second_sos',
+        name: 'tc_maize_second_sos',
         description: 'SOS of the tc-maize-second season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc-maize-second_eos',
+        name: 'tc_maize_second_eos',
         description: 'EOS of the tc-maize-second season (DOY).',
         type: ee_const.var_type.int
       },      
     ],
-    'gee:visualizations': [{
-      display_name: 'Classification confidence',
-      lookat: {lon: 5.02666, lat: 50.63096, zoom: 10},
-      image_visualization: {
-        band_vis: {
-          min: [0],
-          max: [100],
-          palette: [
-            'be0000','fff816','069711'
-          ],
-          bands: ['confidence'],
+    'gee:visualizations': [
+      {
+        display_name: 'WorldCereal AEZ',
+        lookat: {lon: 71.72, lat: 52.48, zoom: 1},
+        table_visualization: {
+        color: '000000',
+        width: 1
         },
       },
-    }],
+      {
+        display_name: 'WorldCereal AEZ',
+        visualize_as: 'FeatureView',
+      }
+    ],
+    'gee:feature_view_ingestion_params': {
+      max_features_per_tile: 150,
+      thinning_strategy: 'HIGHER_DENSITY',
+    },
   },
   'sci:doi': '10.5194/essd-2023-184',
   'sci:citation': |||
