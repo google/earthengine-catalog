@@ -1,5 +1,4 @@
-// var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MODELS/v100')
-var dataset = ee.ImageCollection('projects/worldcereal/assets/2021_v100')
+var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MODELS/v100')
 
 var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
 var backgroundPalette = ['cadetblue', 'lightgray'];

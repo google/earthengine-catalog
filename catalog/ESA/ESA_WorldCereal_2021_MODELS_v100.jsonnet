@@ -25,34 +25,38 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The European Space Agency (ESA) WorldCereal 10 m 2021 product suite consists of global-scale annual and seasonal crop maps and their related confidence. They were generated as part of the [ESA-WorldCereal project](https://esa-worldcereal.org/). More information on the content of these products and the methodology used to generate them is described in [1].
-    
+
     This collection contains up to 106 agro-ecological zone (AEZ) [2] images for each product which were all processed with respect to their own regional seasonality and should be considered as independent products. These seasons are described in the list below and were developed in [3] as part of the project. Note that cereals as described by WorldCereal include wheat, barley, and rye, which belong to the *Triticeae* tribe.
-    
-    **WorldCereal seasons description:**
-    - **tc-annual**: a one-year cycle being defined in an AEZ by the end of the last considered growing season
-    - **tc-wintercereals**: the main cereals season defined in an AEZ
-    - **tc-springcereals**: optional springcereals season, only defined in certain AEZ
-    - **tc-maize-main**: the main maize season defined in an AEZ
-    - **tc-maize-second**: optional second maize season, only defined in certain AEZ
-    
+
+    WorldCereal seasons description:
+
+    - tc-annual: a one-year cycle being defined in an AEZ by the end of the last considered growing season
+    - tc-wintercereals: the main cereals season defined in an AEZ
+    - tc-springcereals: optional springcereals season, only defined in certain AEZ
+    - tc-maize-main: the main maize season defined in an AEZ
+    - tc-maize-second: optional second maize season, only defined in certain AEZ
+
     The available products in this collection are:
-    - **temporarycrops**
-    - **maize**
-    - **wintercereals**
-    - **springcereals**
-    - **irrigation**
-    
+
+    - temporarycrops
+    - maize
+    - wintercereals
+    - springcereals
+    - irrigation
+
     Each product (image) has a binary classification (0 or 100) and a confidence (0-100) band. Note that AEZs for which no irrigation product is available were not processed because of the unavailability of thermal Landsat data.
-    
+
     The collection should be filtered using one or more of the following image properties:
-    - **aez_id**, holding the ID of the AEZ to which the image belongs
-    - **product**, describing the WorldCereal product name of the image
-    - **season**, describing the season for which the image is valid.
-    
-    **References:**
-    [1] [WorldCereal methodology and products paper](https://doi.org/10.5194/essd-2023-184)
-    [2] Need to reference the AEZ FeatureCollection here.
-    [3] [WorldCereal global seasonality paper](https://doi.org/10.1080/15481603.2022.2079273)
+
+    - aez_id, holding the ID of the AEZ to which the image belongs
+    - product, describing the WorldCereal product name of the image
+    - season, describing the season for which the image is valid.
+
+    References:
+
+    - [1] [WorldCereal methodology and products paper](https://doi.org/10.5194/essd-2023-184)
+    - [2] Need to reference the AEZ FeatureCollection here.
+    - [3] [WorldCereal global seasonality paper](https://doi.org/10.1080/15481603.2022.2079273)
   |||,
   license: license.id,
 
@@ -70,7 +74,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       {
         name: 'aez_id',
-        description: 'ID of the AEZ to which the product belongs.',
+        description: 'ID of the agro-ecological zone (AEZ) to which the product belongs.',
         type: ee_const.var_type.int
       },
       {
@@ -88,11 +92,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'classification',
-        description: 'Classification'
+        description: 'Classification: 0 or 100'
       },
       {
         name: 'confidence',
-        description: 'Confidence'
+        description: 'Confidence, 0 to 100'
       },
     ],
     classification: {minimum: 0.0, maximum: 100.0, 'gee:estimated_range': false},

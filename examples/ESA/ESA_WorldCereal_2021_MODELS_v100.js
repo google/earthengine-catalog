@@ -1,5 +1,4 @@
-// var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MODELS/v100')
-var dataset = ee.ImageCollection('projects/worldcereal/assets/2021_v100')
+var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MODELS/v100')
 
 // Set satellite background
 Map.setOptions('SATELLITE');
@@ -17,10 +16,8 @@ dataset = dataset.map(mask_other);
 Basic example for a global mosaic of temporary crops
 --------------------------------------------------*/
 
-// Get a global mosaic for all AEZ of temporary crops
-var temporarycrops = dataset.filter(
-  ee.Filter.eq('product', 'temporarycrops')
-  ).mosaic();
+// Get a global mosaic for all agro-ecological zone (AEZ) of temporary crops
+var temporarycrops = dataset.filter('product == "temporarycrops"').mosaic();
 
 // Visualization specifics
 var visualization_class = {
@@ -41,7 +38,8 @@ Map.centerObject(temporarycrops);
 Map.addLayer(temporarycrops, visualization_class, 'Temporary crops');
 
 // By default don't show confidence layer
-Map.addLayer(temporarycrops, visualization_conf, 'Temporary crops confidence', 0);
+Map.addLayer(
+    temporarycrops, visualization_conf, 'Temporary crops confidence', false);
 
 /*--------------------------------------------------
 Advanced example for tc-maize-main season products
@@ -54,9 +52,8 @@ var tc_maize_main_46172 = dataset.filter(
   ).filter(ee.Filter.eq('aez_id', 46172));
 
 // Get the different products
-var maize = tc_maize_main_46172.filter(ee.Filter.eq('product', 'maize'))
-var irrigation = tc_maize_main_46172.filter(ee.Filter.eq('product', 'irrigation'))
-
+var maize = tc_maize_main_46172.filter('product == "maize"');
+var irrigation = tc_maize_main_46172.filter('product == "irrigation"');
 
 // Visualization specifics
 var visualization_maize = {
@@ -70,7 +67,6 @@ var visualization_irrigation = {
   max: 100,
   palette: ["#2d79eb"]
 };
-
 
 // Show maize and irrigation classification
 Map.addLayer(maize, visualization_maize, 'Maize');
