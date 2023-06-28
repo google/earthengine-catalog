@@ -33,7 +33,7 @@ class ValidSchemaTest(test_utils.NodeTest):
   def test_valid_schema(self):
     self.assert_collection(
         {'summaries': {'gee:schema': [{
-            'description': 'A thing', 'name': 'ab',
+            'description': 'A thing', 'name': 'ab-_',
             'type': 'INT', 'units': 'm'}]}},
         gee_type=IMAGE_COLLECTION)
 
@@ -148,7 +148,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
     )
 
   def test_bad_name_too_long(self):
-    name = 'a' * 51
+    name = 'a' * 111
     self.assert_collection(
         {
             'summaries': {
@@ -159,7 +159,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
                 }]
             }
         },
-        f'name "{name}" too long: 51 exceeds limit 50',
+        f'name "{name}" too long: 111 exceeds limit 110',
         gee_type=IMAGE_COLLECTION,
     )
 
@@ -176,7 +176,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
             }
         },
         [
-            f'name "{name}" contains character "{c}" not in [a-zA-Z0-9_]'
+            f'name "{name}" contains character "{c}" not in [a-zA-Z0-9_-]'
             for c in ' *'
         ],
         gee_type=IMAGE_COLLECTION,
