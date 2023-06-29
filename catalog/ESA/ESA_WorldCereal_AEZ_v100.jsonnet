@@ -71,55 +71,55 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_annual_sos',
+        name: 'tc-annual_sos',
         description: 'SOS of the tc-annual season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_annual_eos',
+        name: 'tc-annual_eos',
         description: 'EOS of the tc-annual season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_wintercereals_sos',
+        name: 'tc-wintercereals_sos',
         description: 'SOS of the tc-wintercereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_wintercereals_eos',
+        name: 'tc-wintercereals_eos',
         description: 'EOS of the tc-wintercereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_springcereals_sos',
+        name: 'tc-springcereals_sos',
         description: 'SOS of the tc-springcereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_springcereals_eos',
+        name: 'tc-springcereals_eos',
         description: 'EOS of the tc-springcereals season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_maize_main_sos',
+        name: 'tc-maize-main_sos',
         description: 'SOS of the tc-maize-main season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_maize_main_eos',
+        name: 'tc-maize-main_eos',
         description: 'EOS of the tc-maize-main season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_maize_second_sos',
+        name: 'tc-maize-second_sos',
         description: 'SOS of the tc-maize-second season (DOY).',
         type: ee_const.var_type.int
       },
       {
-        name: 'tc_maize_second_eos',
+        name: 'tc-maize-second_eos',
         description: 'EOS of the tc-maize-second season (DOY).',
         type: ee_const.var_type.int
-      },      
+      },
     ],
     'gee:visualizations': [
       {
