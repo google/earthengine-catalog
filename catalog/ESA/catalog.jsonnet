@@ -23,5 +23,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('ESA_WorldCover_v100', base_url),
     ee.link.child_collection('ESA_WorldCover_v200', base_url),
     // ee.link.child_collection('ESA_WorldCereal_2021_MODELS_v100', base_url),
+    // ee.link.child_collection('ESA_WorldCereal_2021_MARKERS_v100', base_url),
   ],
 }
