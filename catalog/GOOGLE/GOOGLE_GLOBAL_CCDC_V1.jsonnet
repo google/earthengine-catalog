@@ -23,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Google Global Landsat-based CCDC Segments',
+  title: 'Google Global Landsat-based CCDC Segments (1999-2019)',
   version: 'V1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -76,6 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     It's therefore not recommended to use this dataset at resolutions less than
     240m/pixel.
 
+    There are no current plans to add post-2019 assets to this dataset.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
