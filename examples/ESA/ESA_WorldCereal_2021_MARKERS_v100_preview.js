@@ -1,5 +1,4 @@
-// var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MARKERS/v100')
-var dataset = ee.ImageCollection('projects/worldcereal/assets/2021_activecropland_v100')
+var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MARKERS/v100')
 
 var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
 var backgroundPalette = ['cadetblue', 'lightgray'];
@@ -19,10 +18,10 @@ var activemarker_summerseason = aez_46173.filter('season == "tc-maize-main"');
 
 // Visualization specifics
 var imageVisParam = {
-  "bands": ["classification"],
-  "min":0,
-  "max":100,
-  "palette":["eb0000","37e622"]
+  'bands': ['classification'],
+  'min': 0,
+  'max': 100,
+  'palette': ['eb0000', '37e622']
 };
 
 // For the preview

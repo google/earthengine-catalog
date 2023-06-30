@@ -1,8 +1,4 @@
-// var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MARKERS/v100')
-var dataset = ee.ImageCollection('projects/worldcereal/assets/2021_activecropland_v100')
-
-// Set satellite background
-Map.setOptions('SATELLITE');
+var dataset = ee.ImageCollection('ESA/WorldCereal/2021/MARKERS/v100')
 
 // Filter on AEZ
 var aez_46173 = dataset.filter('aez_id == 46173');
@@ -13,9 +9,9 @@ var activemarker_winterseason = aez_46173.filter('season == "tc-wintercereals"')
 
 // Visualization specifics: red is inactive, green is active cropland
 var visualization = {
-  bands: ["classification"],
+  bands: ['classification'],
   max: 100,
-  palette: ["eb0000","37e622"]
+  palette: ['eb0000', '37e622']
 };
 
 // Show active cropland in two major growing seasons in US.
