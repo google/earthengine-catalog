@@ -81,6 +81,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('RUB', base_url),
     ee.link.child_catalog('SKYSAT', base_url),
     ee.link.child_catalog('SNU', base_url),
+    ee.link.child_catalog('Slovakia', base_url),
     ee.link.child_catalog('Spain', base_url),
     ee.link.child_catalog('Switzerland', base_url),
     ee.link.child_catalog('TERN', base_url),
