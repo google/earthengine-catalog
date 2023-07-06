@@ -1,4 +1,4 @@
-local id = 'MODIS/006/MOD17A2H';
+local id = 'MODIS/061/MOD17A2H';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -21,11 +21,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500m',
-  version: '6',
+  title: 'MOD17A2H.061: Terra Gross Primary Productivity 8-Day Global 500m',
+  version: '61',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MOD17A2H V6 Gross Primary Productivity (GPP) product
+    The MOD17A2H V6.1 Gross Primary Productivity (GPP) product
     is a cumulative 8-day composite with a 500m pixel size. The product
     is based on the radiation-use efficiency concept and can be potentially
     used as inputs to data models to calculate terrestrial energy,
@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [User's Guide](https://lpdaac.usgs.gov/documents/495/MOD17_User_Guide_V6.pdf)
+    * [User's Guide](https://lpdaac.usgs.gov/documents/972/MOD17_User_Guide_V61.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/95/MOD17_ATBD.pdf)
 
@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/MODIS/MOD17A2H.006',
+      href: 'https://doi.org/10.5067/MODIS/MOD17A2H.061',
     },
   ],
   keywords: [
@@ -60,19 +60,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD17A2H.006'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD17A2H.061'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C203669722-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2000-02-18T00:00:00Z', null),
+  extent: ee.extent_global('2021-01-01T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
       'Terra',
     ],
   },
-  'sci:doi': '10.5067/MODIS/MOD17A2H.006',
+  'sci:doi': '10.5067/MODIS/MOD17A2H.061',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
