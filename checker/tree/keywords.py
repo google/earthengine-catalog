@@ -148,7 +148,6 @@ EXCEPTIONS = frozenset({
     'mod44b',
     'modocga',
     'multitemporal',
-    'myd17a2',
     'myd17a3gf',
     'mydocga',
     'naip',
