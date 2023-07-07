@@ -76,7 +76,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(114.09, -43.45, 153.64, -9.88,
                     '2015-12-01T00:00:00Z', '2015-12-01T00:00:00Z'),
   summaries: {
-    gsd: [5],
     'eo:bands': [
       {
         name: 'elevation',
