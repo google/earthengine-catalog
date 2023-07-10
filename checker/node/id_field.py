@@ -17,7 +17,6 @@ from checker import stac
 
 ID = 'id'
 UNKNOWN_ID = 'unknown'
-FIRMS = 'FIRMS'
 
 MIN_COLLECTION_LEN = 2
 MAX_COLLECTION_LEN = 7
@@ -42,7 +41,7 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'Empty {ID}')
       return
 
-    if id_field == FIRMS:
+    if id_field == stac.FIRMS:
       # FIRMS is the only dataset outside of the allowed structure.
       return
 

@@ -24,6 +24,9 @@ SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 
 CHECKER_CODE_ROOT = 'https://github.com/google/earthengine-catalog/blob/main'
 
+# Legacy id for a top-level dataset
+FIRMS = 'FIRMS'
+
 
 class StacType(str, enum.Enum):
   CATALOG = 'Catalog'
@@ -67,6 +70,12 @@ def previews_root() -> pathlib.Path:
 
   # blaze has Fileset support
   return data_root() / 'examples/javascript_previews'
+
+
+def url_id_for_dataset_id(dataset_id: str) -> str:
+  """Converts a dataset id into a string suitable for use in a URL."""
+  assert dataset_id
+  return dataset_id.replace('/', '_')
 
 
 @dataclasses.dataclass
