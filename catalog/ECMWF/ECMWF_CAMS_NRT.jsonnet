@@ -172,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'uv_biologically_effective_dose_surface',
-        description: 'Uv biologically effective dose surface',
+        description: 'UV biologically effective dose surface',
         'gee:units': units.watt_per_meter_squared,
       },
       {
