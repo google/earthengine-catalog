@@ -61,7 +61,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1950-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1950-02-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,
