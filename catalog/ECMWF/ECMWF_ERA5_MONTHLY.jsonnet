@@ -37,9 +37,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     data. Monthly total precipitation values are given as monthly sums.
     All other parameters are provided as monthly averages.
 
-    ERA5 data is available from 1979 to three months from real-time. More information
+    ERA5 data is available from 1940 to three months from real-time, but the version in the EE Data Catalog is available from 1979. More information
     and more ERA5 atmospheric parameters can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
+    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels).
 
     Provider's Note: Monthly aggregates have been calculated based on the ERA5 hourly values
     of each parameter.
