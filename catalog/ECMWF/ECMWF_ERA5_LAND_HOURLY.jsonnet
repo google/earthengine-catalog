@@ -35,15 +35,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     ERA5-Land data is available from 1981 to three months from real-time. More
     information can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
+    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: era5_land.keywords,
   providers: [
     ee.producer_provider(
-      'Climate Data Store',
-      'https://cds.climate.copernicus.eu/cdsapp'
+      'Copernicus Climate Data Store',
+      'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
