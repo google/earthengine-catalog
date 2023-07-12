@@ -50,6 +50,7 @@ local self_ee_catalog_url = worldcereal.link(id).href;
     were developed in [3] as part of the project.
 
     WorldCereal seasons description:
+
     - tc-wintercereals: the main cereals season defined in an AEZ
     - tc-springcereals: optional springcereals season, only defined in certain
     AEZ
@@ -62,6 +63,7 @@ local self_ee_catalog_url = worldcereal.link(id).href;
 
     The collection should be filtered using one or more of the following image
     properties:
+
     - aez_id, holding the ID of the AEZ to which the image belongs
     - season, describing the season for which the image is valid.
 
