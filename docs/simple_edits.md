@@ -5,7 +5,8 @@ Data Catalog via GitHub. These types of changes might include:
 * Updating a broken URL
 * Changing a description of a property or band
 
-Catalog entries are written in [Jsonnet](https://jsonnet.org/) that creates
+Catalog entries are written in [Jsonnet](https://jsonnet.org/),
+a JSON templating language that is used to generate
 [SpatioTemporal Asset Catalogs (STAC)](https://stacspec.org/) JSON files. You
 do not need to know the details of either to make simple changes. Changes are
 managed using GitHub. If you are unfamiliar with GitHub, refer to the
@@ -20,7 +21,7 @@ following resources for guidance.
 1. Fork the Earth Engine Catalog here:
    https://github.com/google/earthengine-catalog/fork
 1. Turn on continuous integration (CI) checks by going to your fork's "Actions"
-  tab and pressing "I understand my workflows, go ahead and enable them."
+   tab and pressing "I understand my workflows, go ahead and enable them."
 1. In your fork, navigate to the file you would like to edit.
 
 Before we can accept your pull requests you will need to sign a Contributor
@@ -38,37 +39,39 @@ we will be able to accept your pull requests.
 
 # Make a change
 
-1. Navigate to the file you want to modify. For example
- `catalog/NOAA/NOAA_GOES_16_FDCC.jsonnet`
+1. Navigate to the file you want to modify. For example,
+   `catalog/NOAA/NOAA_GOES_16_FDCC.jsonnet`.
 1. Under the pencil menu on the top right of the file, select "Edit in place" or
-  press `e`.
+   press `e`.
 1. Make your change.
 1. Press "Commit changes..."
 1. Edit the "Extended description" to describe the change.
 1. Press "Commit changes"
 1. Navigate to the top of your fork.
-1. Check next to the SHA for your most recent commit. If there is a problem,
-  follow the instructions in the next section.
-1. Create a pull request (PR).
+1. Check the validation icon next to the numeric hash (e.g., 'c99f46d')
+   for your most recent commit. In case of a problem, follow the instructions
+   in the next section.
+1. Create a pull request (PR) with your commit(s).
 
-The Earth Engine team will be notified of your pull request. It may take a few
-days before your change is reviewed. The reviewer may ask you to make additional
-changes if there are any issues with the edits. Make an additional commit
-to fix any review comments.
+The Earth Engine Data team will be notified of your pull request. It may take
+a few days before your change is reviewed. The reviewer may ask you to make
+additional changes if there are any issues with the edits. Make an additional
+commit to fix any review comments.
 
 Once the pull request has been approved, automated tools will take care of
 merging your pull request.
 
-# If the checker failed
+# Watching for checker errors
 
-The status of a commit or pull requests will be next to the commit SHA. There
-will be a `o` if the continuous integration checks are in progress. Once
-they are done, there will be a check mark for success or an `x` for failure.
-Click on the `x`.
+The status of a commit or pull requests will be next to the commit hash. There
+will be a dark red `o` symbol if the continuous integration checks are in
+progress. Once they are done, there will be a green check mark for success or
+ a red `x` for failure. Click on the `x`.
 
-For checker failures, look at the "Details." The "Checker" section will list
-any issues that it sees with the changes. Work through the list of issues from
-top to bottom editing the file to resolve the issues. Then commit the changes.
+For checker failures, look at the "Details" section. The "Checker" section will
+list any issues that it sees with the changes. Work through the list of issues
+from top to bottom editing the file to resolve the issues. Then commit
+the changes.
 
 An example issue:
 
@@ -81,6 +84,8 @@ third entry is URL of the STAC checker module that reported the error. The
 fourth entry is the error message. Here it is saying the Ground Sample Distance
 is not valid. Click on the URL of the STAC checker to see a detailed description
 of the requirements in the docstring comment at the top of the checker.
+You can also scroll down to the section with the error text to see the exact
+check being run.
 
 For notes about the structure of the file, see the STAC templates here:
 
