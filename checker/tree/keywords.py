@@ -55,7 +55,6 @@ EXCEPTIONS = frozenset({
     'cgiar',
     'china',
     'chip',
-    'ciesin_derived',
     'climatic_water_balance',
     'cloudtostreet',
     'coldest',
