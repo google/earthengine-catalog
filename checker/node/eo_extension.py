@@ -396,7 +396,6 @@ class Check(stac.NodeCheck):
       if not isinstance(description, str):
         yield cls.new_issue(node, f'{name} {DESCRIPTION} must be a str')
       else:
-        # TODO(schwehr): Be more strict about the contents of the description
         if len(description) < MIN_DESCRIPTION_LEN:
           yield cls.new_issue(
               node, f'{name} {DESCRIPTION} too short: {len(description)}')

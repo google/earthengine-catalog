@@ -32,7 +32,6 @@ Rules for STAC Catalogs:
   Collection that is a descendent of this catalog
   - All child href urls must be unique
   - The title should match the path.stem of the url
-  - TODO(schwehr): Links should be sorted by title
 - Extra rel links are not allowed
 
 - TODO(schwehr): Add Rules for STAC Collections:

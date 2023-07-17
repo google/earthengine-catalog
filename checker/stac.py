@@ -31,8 +31,6 @@ FIRMS = 'FIRMS'
 class StacType(str, enum.Enum):
   CATALOG = 'Catalog'
   COLLECTION = 'Collection'
-  # TODO(schwehr): We may eventually have STAC Items:
-  # ITEM = 'Item'
 
 
 class GeeType(str, enum.Enum):

@@ -11,11 +11,6 @@ Each dictionary consists of:
   description | string     | REQUIRED. What the class is.  1 to 1000 characters
   color       | string     | Optional color to render the class
 
-TODO(schwehr):
-- Make the hex color all lower or upper case.  Just pick one.
-- What makes a good description?
-- Should the description end in a period or not?
-
 The color can be a hex string with rrggbb or rrggbbaa, where r = red, g = green,
 b = blue, and a = alpha (1 - transparency).  Alternatively, the color can be
 the all lower case color string from web colors.  See `COLOR_NAMES` below for
