@@ -17,6 +17,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
