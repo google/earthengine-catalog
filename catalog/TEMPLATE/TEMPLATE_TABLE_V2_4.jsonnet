@@ -1,5 +1,5 @@
-// This is a generic template for an Earth Engine ee.Image dataset
-// STAC Collection entry. After replacing all the values, remove the
+// This is a generic template for an Earth Engine ee.FeatureCollection (table)
+// dataset STAC Collection entry. After replacing all the values, remove the
 // explanatory comments, but keep the "TODO" comment.
 //
 // This template covers the basic case with just one Jsonnet file defining
@@ -28,8 +28,8 @@
 //   <subdir>/<id_with_slashes_replaced_with_underbars>.jsonnet.
 
 // The asset id as used in Earth Engine:
-//   ee.Image('TEMPLATE/IMAGE_V2_1');
-local id = 'TEMPLATE/IMAGE_V2_1';
+//   ee.FeatureCollection('TEMPLATE/TABLE_V2_4');
+local id = 'TEMPLATE/TABLE_V2_4';
 
 // The directory under 'catalog' that contains the dataset.
 // For datasets under 'projects', leave off the 'projects' component.
@@ -44,7 +44,7 @@ local subdir = 'TEMPLATE';
 // one to three numeric fields separated by decimal points.
 // The version string might be different than the version portion of the `id`
 // field, as the `id` field cannot have `.` characters.
-local version = '2.1';
+local version = '2.4';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -145,100 +145,58 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // Name of instrument or sensor used (e.g., MODIS, ASTER, OLI, Canon F-1).
     instruments: ['My_Instrument'],
 
-    // Describe all of the bands in the order they appear in an ee.Image.
-    // For each band, only `name` and `description` are required.
-    // If the pixel size is the same for all bands, set it here.
-    // (In STAC, pixel size is called "gsd", or "ground sample distance".)
-    // https://en.wikipedia.org/wiki/Ground_sample_distance
-    // Value is in meters. If the pixel size is in degrees, multiply by 111,195.
-    // gsd: [15],
-    'eo:bands': [
+    // Descriptions of non-geometry table fields (the geometry field is assumed
+    // to always be present).
+    'gee:schema': [
       {
-        name: 'band_name_1',
-        description: 'Describe the band',
-        gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
-                  // If the pixel size is in degrees, multiply by 111,195.
-        center_wavelength: 0.56,  // in nm
-        // Note that gee:wavelength is more expressive than 'center_wavelength',
-        // as it allows value ranges and units.
-        'gee:wavelength': '0.520-0.600 &mu;m',
-        // See here for predefined units and prefer those over using a custom
-        // units string.
-        // https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
-        'gee:units': units.dn,
+        name: 'field1',
+        description: 'Field 1 description',
+        // Possible type values: int, double, string
+        type: ee_const.var_type.int,
       },
       {
-        name: 'band_name_2',
-        description: 'Describe the band',
-        gsd: 20,
-        // For units without dimensions.
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'band_name_3',
-        description: 'Describe the band',
-        gsd: 41,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'band_name_4',
-        description: 'Example of gee:classes',
-        gsd: 1.2,
-        // Only for bands with enumerated values.
-        'gee:classes': [
-          {value: 10, color: 'ff0000', description: 'Red thing'},
-          {value: 11, color: '00ff00', description: 'Green thing'},
-          {value: 20, color: '0000ff', description: 'Blue thing'},
-          {value: 99, color: 'ffffff', description: 'White thing'},
-        ],
+        name: 'field2',
+        description: 'Field 2 description',
+        type: ee_const.var_type.string,
       },
     ],
 
-    // Optional band statistics - one entry per band.
-    // If the exact statistics are known, then set gee:estimated_range to true.
-    band_name_1: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
-    band_name_2: {minimum: 0, maximum: 1e8, 'gee:estimated_range': false},
-    band_name_3: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
-    band_name_4: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    // For table datasets in the Earth Engine catalog, FeatureViews will be
+    // automatically created to provide fast visualization.
+    // FeatureView creation parameters are described at
+    // https://developers.google.com/earth-engine/guides/featureview_overview
+    'gee:feature_view_ingestion_params': {
+      max_features_per_tile: 1500,
+      thinning_strategy: 'HIGHER_DENSITY',
+    },
 
-    // One or more band visualizations.
+    // One or more visualizations.
     'gee:visualizations': [
-      // Example with three bands, but only one value for min and max.
       {
-        // Give units when possible.
-        display_name: 'Describe what is shown 1',
-        // Do not use too many significant digits.
-        lookat: {lon: -122.03, lat: 39.67, zoom: 11},
-        // See for details:
-        // https://developers.google.com/earth-engine/guides/image_visualization
-        image_visualization: {
-          band_vis: {
-            min: [0],
-            max: [255],
-            // Which bands to map to red, green, and blue rgb channels.
-            bands: ['band_name_1', 'band_name_2', 'band_name_3'],
-          }
+        display_name: 'My FeaureCollection',
+        lookat: {
+          lat: 37.0,
+          lon: -6.0,
+          zoom: 10,
         },
+        // For points:
+        table_visualization: {
+          color: '489734',
+          point_size: 3,
+        },
+        // For polygons:
+        // table_visualization: {
+        //   color: 'ffffff',
+        //   fill_color: 'ffffff88',
+        // },
       },
-      // Example with one band.
       {
-        display_name: 'Describe what is shown 2',
-        lookat: {lon: -122, lat: 39, zoom: 4},
-        image_visualization: {band_vis: {bands: ['band_name_4']}},
-      },
-      // Example with one band and a palette for the colors.
-      {
-        display_name: 'Describe what is shown 3',
-        lookat: {lon: -122, lat: 39, zoom: 14},
-        image_visualization: {
-          band_vis: {
-            min: [0],
-            max: [100],
-            // Use W3C color names or 6-character hex (e.g., green is 00ff00).
-            // https://www.w3.org/wiki/CSS/Properties/color/keywords
-            palette: ['blue', 'red'],
-            bands: ['band_name_3'],
-          },
+        display_name: 'My FeatureView',
+        visualize_as: 'FeatureView',
+        lookat: {
+          lat: 37.0,
+          lon: -6.0,
+          zoom: 10,
         },
       },
     ],
@@ -280,9 +238,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // TODO(simonf): Remove skip_indexing when the dataset is ready.
   'gee:skip_indexing': true,
 
-  // This says that the dataset is an ee.Image.
-  //   https://developers.google.com/earth-engine/apidocs/ee-image
-  'gee:type': ee_const.gee_type.image,
+ // This says that the dataset is an ee.FeatureCollection.
+  //   https://developers.google.com/earth-engine/apidocs/ee-featurecollection
+  'gee:type': ee_const.gee_type.table,
 
   'gee:user_uploaded': true,
 
@@ -307,10 +265,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [
-    // The EO extension is required for bands.
-    ee_const.ext_eo,
-    // For synthetic aperture radar (SAR)
-    // ee_const.ext_sar,
     ee_const.ext_sci,
     // Include the version extension if the dataset uses any of:
     // - the deprecated fields

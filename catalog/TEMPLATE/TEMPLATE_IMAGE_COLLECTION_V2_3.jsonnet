@@ -1,4 +1,4 @@
-// This is a generic template for an Earth Engine ee.Image dataset
+// This is a generic template for an Earth Engine ee.ImageCollection dataset
 // STAC Collection entry. After replacing all the values, remove the
 // explanatory comments, but keep the "TODO" comment.
 //
@@ -28,8 +28,8 @@
 //   <subdir>/<id_with_slashes_replaced_with_underbars>.jsonnet.
 
 // The asset id as used in Earth Engine:
-//   ee.Image('TEMPLATE/IMAGE_V2_1');
-local id = 'TEMPLATE/IMAGE_V2_1';
+//   ee.ImageCollection('TEMPLATE/IMAGE_COLLECTION_V2_3');
+local id = 'TEMPLATE/IMAGE_COLLECTION_V2_3';
 
 // The directory under 'catalog' that contains the dataset.
 // For datasets under 'projects', leave off the 'projects' component.
@@ -44,7 +44,7 @@ local subdir = 'TEMPLATE';
 // one to three numeric fields separated by decimal points.
 // The version string might be different than the version portion of the `id`
 // field, as the `id` field cannot have `.` characters.
-local version = '2.1';
+local version = '2.3';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -242,7 +242,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
     ],
+
+    // Describes values set on each image.
+    'gee:schema': [
+      {
+        name: 'Property_name',
+        description: 'Describe the property',
+        // Possible type values: int, double, string
+        type: ee_const.var_type.double,
+        'units': units.dimensionless,
+      },
+    ],
   },
+
+  // Observation repeat interval. For detail, see
+  // https://github.com/google/earthengine-catalog/blob/main/checker/node/interval.py
+  'gee:interval': {
+    // One of:
+    // - cadence: for daily, yearly, and other periodic collections.
+    // - revisit_interval: for Landsat/Sentinel-style collections.
+    // - climatological_interval: for climatological averages.
+    type: 'cadence',
+    // One of: second, minute, hour, day, week, month, year, custom_time_unit.
+    unit: 'year',
+    // How long the interval is (expressed in units above).
+    interval: 1,
+  },
+
   // The scientific extension.
   // The best DOI that describes the *data*.
   // Only use a research paper DOI if there is no dataset or data paper DOI.
@@ -280,9 +306,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // TODO(simonf): Remove skip_indexing when the dataset is ready.
   'gee:skip_indexing': true,
 
-  // This says that the dataset is an ee.Image.
-  //   https://developers.google.com/earth-engine/apidocs/ee-image
-  'gee:type': ee_const.gee_type.image,
+  // This says that the dataset is an ee.ImageCollection.
+  //   https://developers.google.com/earth-engine/apidocs/ee-image-collection
+  'gee:type': ee_const.gee_type.image_collection,
 
   'gee:user_uploaded': true,
 
