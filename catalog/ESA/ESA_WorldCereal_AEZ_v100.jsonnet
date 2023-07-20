@@ -14,7 +14,6 @@ local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = worldcereal.link(id).href;
 
 {
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
 
   stac_version: ee_const.stac_version,

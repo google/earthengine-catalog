@@ -13,7 +13,6 @@ local license = spdx.cc_by_4_0;
 local self_ee_catalog_url = worldcereal.link(id).href;
 
 {
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
 
   stac_version: ee_const.stac_version,
