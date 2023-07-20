@@ -27,12 +27,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: 'V1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The manuscript that describes the processing and validation of this dataset
-    is currently in review and only available to a limited set of testers.
-    If you would like early access to this dataset, you can email
-    earthengine@google.com, explaining your use case and how you would use
-    the data.
-
     This collection contains precomputed results from running the
     Continuous Change Detection and Classification (CCDC) algorithm on
     20 years of Landsat surface reflectance data. CCDC is a break-point
