@@ -1,4 +1,4 @@
-var dataset = ee.Image("JRC/GHSL/P2023A/GHS_POP");
+var dataset = ee.Image("JRC/GHSL/P2023A/GHS_POP/2030");
 
 var lon = 85;
 var lat = 25;

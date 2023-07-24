@@ -22,8 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_POP_GPW_GLOBE_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_SMOD_POP_GLOBE_V1', base_url),
-    // TODO(b/290600733): revert cl/548730228 when all years are ingested
-    // ee.link.child_collection('JRC_GHSL_P2023A_GHS_POP', base_url),
+    ee.link.child_collection('JRC_GHSL_P2023A_GHS_POP', base_url),
     ee.link.child_collection('JRC_GSW1_0_GlobalSurfaceWater', base_url),
     ee.link.child_collection('JRC_GSW1_0_Metadata', base_url),
     ee.link.child_collection('JRC_GSW1_0_MonthlyHistory', base_url),
