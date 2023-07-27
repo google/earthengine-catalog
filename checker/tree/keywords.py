@@ -194,7 +194,6 @@ EXCEPTIONS = frozenset({
     'silt',
     'slga',
     'slv',
-    'smod',
     'smos',
     'social',
     'soil_depth',
