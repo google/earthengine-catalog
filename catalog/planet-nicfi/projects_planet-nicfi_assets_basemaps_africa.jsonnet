@@ -74,7 +74,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-25.5, -30.4, 58.0, 25.6,
-                    '2015-12-01T00:00:00Z', '2021-06-29T00:00:00Z'),
+                    '2015-12-01T00:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
