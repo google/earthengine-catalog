@@ -1,4 +1,4 @@
-local id = 'NASA/GEOS-CF/v1/rpl/tavg1hr';
+local id = 'NASA/GEOS-CF/v1/fcst/tavg1hr';
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -23,13 +23,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   'gee:type': ee_const.gee_type.image_collection,
-  title: 'GEOS-CF rpl tavg1hr v1: Goddard Earth Observing System Composition Forecast',
+  title: 'GEOS-CF fcst tavg1hr v1: Goddard Earth Observing System Composition Forecast',
   version: 'v1',
   description: |||
-    This dataset contains meteorological replay (rpl) of time-average one hour
-    data (tavg1hr). It is built by merging the original GEOS-CF collections
-    chm_tavg_1hr_g1440x721_v1, met_tavg_1hr_g1440x721_x1, and
-    xgc_tavg_1hr_g1440x721_x1.
+    This dataset contains meteorological forecast (fcst) of time-averaged
+    frequency data (tavg1hr). Use the 'creation_time' and 'forecast_time' properties
+    to select data of interest.
   ||| + template.description,
   'sci:citation': template.sci_citation,
   'sci:doi': '10.1029/2020MS002413',
@@ -42,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  extent: ee.extent_global('2018-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2022-10-01T00:00:00Z', null),
   keywords: [
     'composition',
     'forecast',
@@ -52,6 +51,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'gee:terms_of_use': template.gee_terms_of_use,
   summaries: {
+    'gee:schema': [
+      {
+        name: 'creation_time',
+        description: 'Time of creation',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'forecast_time',
+        description: 'Forecast time',
+        type: ee_const.var_type.double,
+      },
+    ],
     gsd: [
       27750.0,
     ],
@@ -72,8 +83,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [
               320,
             ],
-            // We may want to use a more visually distinct palette. Here and in
-            // the JS example as well.
             palette: [
               'd7191c',
               'fdae61',
