@@ -107,47 +107,47 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'annual_herbaceous_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'bare_ground_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'herbaceous_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'litter_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'sagebrush_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'shrub_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'non_sagebrush_shrub_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'perennial_herbaceous_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'tree_break_point',
         description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units_counts,
+        'gee:units': units_count,
       },
       {
         name: 'annual_herbaceous_linear_model_pvalue',
