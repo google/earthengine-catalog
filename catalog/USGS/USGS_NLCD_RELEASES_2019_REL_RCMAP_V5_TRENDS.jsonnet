@@ -1,4 +1,4 @@
-local id = 'USGS/2019_REL/RCMAP/V5/TRENDS';
+local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
 local subdir = 'USGS';
 local version = '5';
 
