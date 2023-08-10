@@ -1,4 +1,4 @@
-local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
+local id = 'USGS/2019_REL/RCMAP/V5/TRENDS';
 local subdir = 'USGS';
 local version = '5';
 
@@ -207,55 +207,55 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'annual_herbaceous_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'bare_ground_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'herbaceous_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'litter_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'sagebrush_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'shrub_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'non_sagebrush_shrub_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'perennial_herbaceous_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'tree_linear_model_slope',
         description: 'Slope of linear trends model, given in units of % change/year',
         'gee:scale': 0.01,
-        'gee:units': '%/year',
+        'gee:units': '%/y',
       },
       {
         name: 'annual_herbaceous_most_recent_break_point',
