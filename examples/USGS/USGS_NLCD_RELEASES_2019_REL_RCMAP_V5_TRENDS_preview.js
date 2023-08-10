@@ -1,18 +1,9 @@
-// Import the NLCD RCMAP TRENDS collection.
-var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
+// Import the NLCD RCMAP TRENDS image.
+var dataset = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
+var trends = dataset.select('annual_herbaceous_break_point');
 
-// Filter the collection to the 2019 product.
-var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
-
-// Each product has multiple bands for different rangeland categories.
-print('Bands:', nlcd2019.bandNames());
-
-// Select the bp_count band.
-var percentCover = nlcd2019.select('annual_herbaceous_break_point');
-
-var vis = {
-  // Map 0..100.
-  'palette': [
+// Map values from 0 to 100.
+var palette = [
     '000000', 'f9e8b7', 'f7e3ac', 'f0dfa3', 'eedf9c', 'eada91', 'e8d687',
     'e0d281', 'ddd077', 'd6cc6d', 'd3c667', 'd0c55e', 'cfc555', 'c6bd4f',
     'c4ba46', 'bdb83a', 'bbb534', 'b7b02c', 'b0ad1f', 'adac17', 'aaaa0a',
@@ -54,11 +45,9 @@ var imageParams = {
   format: 'png',
 };
 
-var image = percentCover.visualize({palette: palette});
-var imageWithBackground = ee.ImageCollection([
-  waterLandBackground, image]).mosaic();
+var image = trends.visualize({palette: palette});
+var imageWithBackground = ee.Image([
+  waterLandBackground, image]);
 
-Map.addLayer(imageWithBackground, null, 'Rangeland Annual Herbaceous %');
-
+Map.addLayer(imageWithBackground, null, 'annual_herbaceous_break_point %');
 print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
-

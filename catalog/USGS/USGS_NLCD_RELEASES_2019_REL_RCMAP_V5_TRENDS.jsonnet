@@ -14,6 +14,7 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -96,11 +97,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       -125.07, 28.46, -101.07, 49.33,
       '1985-01-01T00:00:00Z',
       '2022-01-01T00:00:00Z'),
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
+    },
   summaries: {
     gsd: [30],
     'eo:bands': [
