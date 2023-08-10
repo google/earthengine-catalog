@@ -1,4 +1,6 @@
 local id = 'JRC/GHSL/P2016/POP_GPW_GLOBE_V1';
+local latest_id = 'JRC/GHSL/P2023A/GHS_POP';
+local successor_id = 'JRC/GHSL/P2023A/GHS_POP';
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -8,8 +10,15 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
 local base_filename = basename + '.json';
+local latest_filename = latest_basename + '.json';
+local successor_filename = successor_basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local latest_url = catalog_subdir_url + latest_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -20,7 +29,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GHSL: Global Human Settlement Layers, Population Grid 1975-1990-2000-2015 (P2016)',
+  title: 'GHSL: Global Human Settlement Layers, Population Grid 1975-1990-2000-2015 (P2016) [deprecated]',
+  deprecated: true,
   version: 'v1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -52,9 +62,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the planet.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.latest(latest_id, latest_url),
+    ee.link.successor(successor_id, successor_url),
+  ],
   keywords: [
     'ciesin_derived',
+    'ghsl',
     'jrc',
     'population',
   ],

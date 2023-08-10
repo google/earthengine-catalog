@@ -26,7 +26,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MOD16A2 Version 6 Evapotranspiration/Latent Heat Flux product is an
+    The MOD16A2 Version 6.1 Evapotranspiration/Latent Heat Flux product is an
     8-day composite product produced at 500 meter pixel resolution. The
     algorithm used for the MOD16 data product collection is based on the logic
     of the Penman-Monteith equation, which includes inputs of daily

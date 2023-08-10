@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://apps.ecmwf.int/datasets/data/cams-nrealtime'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2016-06-21T00:00:00Z', null),
+  extent: ee.extent_global('2016-06-22T12:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
@@ -172,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'uv_biologically_effective_dose_surface',
-        description: 'Uv biologically effective dose surface',
+        description: 'UV biologically effective dose surface',
         'gee:units': units.watt_per_meter_squared,
       },
       {

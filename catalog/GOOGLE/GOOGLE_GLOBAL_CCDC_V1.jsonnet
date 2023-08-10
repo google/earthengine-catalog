@@ -23,16 +23,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Google Global Landsat-based CCDC Segments',
+  title: 'Google Global Landsat-based CCDC Segments (1999-2019)',
   version: 'V1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The manuscript that describes the processing and validation of this dataset
-    is currently in review and only available to a limited set of testers.
-    If you would like early access to this dataset, you can email
-    earthengine@google.com, explaining your use case and how you would use
-    the data.
-
     This collection contains precomputed results from running the
     Continuous Change Detection and Classification (CCDC) algorithm on
     20 years of Landsat surface reflectance data. CCDC is a break-point
@@ -76,6 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     It's therefore not recommended to use this dataset at resolutions less than
     240m/pixel.
 
+    There are no current plans to add post-2019 assets to this dataset.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

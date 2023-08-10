@@ -19,9 +19,6 @@ See also:
 - eo_extension.py for ground sample distance (GSD) of pixels in meters (m)
 """
 
-# TODO(schwehr): Should have definitions for known platforms, instruments,
-# constellations, and missions.
-
 import collections
 import re
 from typing import Any, Iterator

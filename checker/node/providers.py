@@ -168,7 +168,6 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(node, f'{URL} must be a str')
           else:
             if not url.startswith('https://') and not url.startswith('http://'):
-              # TODO(schwehr): Warn on http://
               yield cls.new_issue(node, f'{URL} must start with https or http')
 
         if HOST in roles:

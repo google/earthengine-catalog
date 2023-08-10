@@ -74,7 +74,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-118.5, -30.4, -34.5, 30.4,
-                    '2015-12-01T00:00:00Z', '2021-06-29T00:00:00Z'),
+                    '2015-12-01T00:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
@@ -83,9 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
     ],
-    gsd: [
-      4.77,
-    ],
+    gsd: [4.77],
     'eo:bands': [
       {
         name: 'B',
@@ -118,20 +116,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
         image_visualization: {
           band_vis: {
-            min: [
-              64.0,
-            ],
-            max: [
-              5454.0,
-            ],
-            gamma: [
-              1.855,
-            ],
-            bands: [
-              'R',
-              'G',
-              'B',
-            ],
+            min: [64.0],
+            max: [5454.0],
+            gamma: [1.855],
+            bands: ['R', 'G', 'B'],
           },
         },
       },

@@ -44,11 +44,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     comparable.
 
     The time period covered by each asset is:
-    *   1990 asset: 1989 to 1998
-    *   2000 asset: 1999 to 2001
-    *   2006 asset: 2005 to 2007
-    *   2012 asset: 2011 to 2012
-    *   2018 asset: 2017 to 2018
+
+    * 1990 asset: 1989 to 1998
+    * 2000 asset: 1999 to 2001
+    * 2006 asset: 2005 to 2007
+    * 2012 asset: 2011 to 2012
+    * 2018 asset: 2017 to 2018
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

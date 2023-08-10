@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Daily aggregates have been pre-calculated to facilitate many applications
     requiring easy and fast access to the data.
 
-    ERA5-Land daily aggregated data is available from july 1963 to three months
+    ERA5-Land daily aggregated data is available from 1950 to three months
     from real-time. More information can be found at the
     [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
   |||,
@@ -53,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1963-07-11T00:00:00Z', null),
+  extent: ee.extent_global('1950-01-02T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,
