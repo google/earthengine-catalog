@@ -292,8 +292,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           (shrub, bare ground, litter, and herbaceous). Change is reflective 
           of the slope values from the structural change analysis. Values are 
           indexed so that the maximum observed change across all components 
-          and no change equaled 100 and 0, respectively.
-          |||,
+          and no change equaled 100 and 0, respectively
+        |||,
         'gee:units': units.dimensionless,
       },
     ],
