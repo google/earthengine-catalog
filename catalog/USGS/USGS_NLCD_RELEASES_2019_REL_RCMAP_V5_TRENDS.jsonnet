@@ -1,18 +1,20 @@
-local id = 'USGS/2019_REL/RCMAP/V5/TRENDS';
+local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
 local subdir = 'USGS';
 local version = '5';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.cc0_1_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local self_url = catalog_subdir_url + base_filename;
 
 {
+  'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -22,50 +24,56 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   title: 'RCMAP Rangeland Component Timeseries V5 Trends (1985-2021)' + version,
-  version: 'version',
+  version: version,
   'gee:type': ee_const.gee_type.image,
+
   description: |||
     Currently available trends statistics are for the 1985-2021 time-series.
 
-    The RCMAP product suite includes nine fractional components: annual herbaceous, 
-    bare ground, herbaceous, litter, non-sagebrush shrub, perennial herbaceous, sagebrush,
-    shrub, and tree, rule-based error maps, and the temporal trends of each component. Data 
-    characterize the percentage of each 30-meter pixel in the Western United States covered
-    by each component for each year from 1985-2021 - providing change information for 36 
-    years.
+    The RCMAP product suite includes nine fractional components: annual 
+    herbaceous, bare ground, herbaceous, litter, non-sagebrush shrub, 
+    perennial herbaceous, sagebrush, shrub, and tree, rule-based error maps, 
+    and the temporal trends of each component. Data characterize the percentage 
+    of each 30-meter pixel in the Western United States covered by each 
+    component for each year from 1985-2021 - providing change information 
+    for 36 years.
 
-    We assess the temporal patterns in each RCMAP component with two approaches, 1) linear trends
-    and 2) a breaks and stable states method with an 8-year temporal moving window based on structural
-    change at the pixel level. Linear trend products include slope and p-value calculated from 
-    least squares linear regression. The slope represents the average percent cover change per 
-    year over the times-series and the p-value reflects the confidence of change in each pixel.
-    The structural change method partitions the time-series into segments of similar slope values,
-    with statistically significant break-points indicating perturbations to the prior trajectory. 
-    The break point trends analysis suite relies on structural break methods, resulting in the 
-    identification of the number and timing of breaks in the time-series, and the significance of
-    each segment. We produce the following statistics: 1) for each component, each year, the 
-    presence/absence of breaks, 2) the slope, p-value, and standard error of the segment occurring
-    in each year, 3) the overall model R2 (quality of model fit to the temporal profile), and 
-    4) an index, Total Change Intensity. This index reflects the total amount of change occurring
-    across components in that pixel. The linear and structural change methods generally agreed on 
-    patterns of change, but the latter found breaks more often, with at least one break point in 
-    most pixels. The structural change model provides more robust statistics on the significant 
-    minority of pixels with non-monotonic trends, while detrending some interannual signal 
-    potentially superfluous from a long-term perspective. Trends products can be downloaded from the
+    We assess the temporal patterns in each RCMAP component with two approaches, 
+    1) linear trends and 2) a breaks and stable states method with an 8-year 
+    temporal moving window based on structural change at the pixel level. 
+    Linear trend products include slope and p-value calculated from least squares 
+    linear regression. The slope represents the average percent cover change per 
+    year over the times-series and the p-value reflects the confidence of change 
+    in each pixel. The structural change method partitions the time-series into 
+    segments of similar slope values, with statistically significant break-points 
+    indicating perturbations to the prior trajectory. The break point trends 
+    analysis suite relies on structural break methods, resulting in the 
+    identification of the number and timing of breaks in the time-series, and the 
+    significance of each segment. We produce the following statistics: 1) for each 
+    component, each year, the presence/absence of breaks, 2) the slope, p-value, 
+    and standard error of the segment occurring in each year, 3) the overall model 
+    R2 (quality of model fit to the temporal profile), and 4) an index, Total Change 
+    Intensity. This index reflects the total amount of change occurring across 
+    components in that pixel. The linear and structural change methods generally 
+    agreed on patterns of change, but the latter found breaks more often, with at 
+    least one break point in most pixels. The structural change model provides 
+    more robust statistics on the significant minority of pixels with non-monotonic 
+    trends, while detrending some interannual signal potentially superfluous from 
+    a long-term perspective. Trends products can be downloaded from the
     [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
 
     See also:
 
-    * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
-      S. Schell, and M. Bobo. 2020. Quantifying western U.S. rangelands as
-      fractional components with multi-resolution remote sensing and in situ
-      data. Remote Sensing 12.
+    * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, 
+      G. Xian, S. Schell, and M. Bobo. 2020. Quantifying western U.S. 
+      rangelands as fractional components with multi-resolution remote 
+      sensing and in situ data. Remote Sensing 12.
       [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
 
     * Rigge, M., C. Homer, H. Shi, D. Meyer, B.
-      Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
-      Rangeland Fractional Components Across the Western United States
-      from 1985 to 2018. Remote Sensing 13:813.
+      Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and 
+      G. Xian. 2021. Rangeland Fractional Components Across the 
+      Western United States from 1985 to 2018. Remote Sensing 13:813.
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
   license: license.id,
@@ -85,9 +93,9 @@ local self_url = catalog_subdir_url + base_filename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
-      -125.068, 28.459, -101.074, 49.325,
+      -125.07, 28.46, -101.07, 49.33,
       '1985-01-01T00:00:00Z',
-      '2021-12-31T00:00:00Z'),
+      '2022-01-01T00:00:00Z'),
   'gee:interval': {
     type: 'cadence',
     unit: 'year',
@@ -278,7 +286,14 @@ local self_url = catalog_subdir_url + base_filename;
       },
       {
         name: 'total_change_intensity_index',
-        description: 'Total Change Intensity is a derivative index, designed to highlight the total amount of change across primary components (shrub, bare ground, litter, and herbaceous). Change is reflective of the slope values from the structural change analysis. Values are indexed so that the maximum observed change across all components and no change equaled 100 and 0, respectively',
+        description: |||
+          Total Change Intensity is a derivative index, designed to highlight 
+          the total amount of change across primary components 
+          (shrub, bare ground, litter, and herbaceous). Change is reflective 
+          of the slope values from the structural change analysis. Values are 
+          indexed so that the maximum observed change across all components 
+          and no change equaled 100 and 0, respectively.
+          |||,
         'gee:units': units.dimensionless,
       },
     ],
@@ -601,7 +616,6 @@ local self_url = catalog_subdir_url + base_filename;
     release.
     [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
   |||,
-  'gee:user_uploaded': true,
   'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
