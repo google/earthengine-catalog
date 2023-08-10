@@ -46,8 +46,8 @@ var imageParams = {
 };
 
 var image = trends.visualize({palette: palette});
-var imageWithBackground = ee.Image([
-  waterLandBackground, image]);
+Map.addLayer(image)
 
+var imageWithBackground = ee.ImageCollection([waterLandBackground, image]).mosaic();
 Map.addLayer(imageWithBackground, null, 'annual_herbaceous_break_point %');
 print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
