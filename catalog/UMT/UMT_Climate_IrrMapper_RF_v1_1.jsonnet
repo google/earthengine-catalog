@@ -1,4 +1,4 @@
-local id = 'UMT/Climate/IrrMapper_RF/v1_0';
+local id = 'UMT/Climate/IrrMapper_RF/v1_1';
 local subdir = 'UMT';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -12,8 +12,6 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO(simonf): reenable when the data provider restores the asset
-  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -23,22 +21,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'IrrMapper Irrigated Lands',
-  version: '1.0',
+  version: '1.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     IrrMapper is an annual classification of irrigation status in the 11
     Western United States made at Landsat scale (i.e., 30 m) using the
     Random Forest algorithm, covering years 1986 - present.
+
     While the [IrrMapper paper](https://www.mdpi.com/2072-4292/12/14/2328)
     describes classification of four classes (i.e., irrigated, dryland,
     uncultivated, wetland), the dataset is converted to a binary
     classification of irrigated and non-irrigated.
+
     'Irrigated' refers to the detection of any irrigation during the year.
     The IrrMapper random forest model was trained using an extensive
     geospatial database of land cover from each of four irrigated- and
     non-irrigated classes, including over 50,000 human-verified irrigated
     fields, 38,000 dryland fields, and over 500,000 square kilometers of
     uncultivated lands.
+
+    For version 1.1, the original training data was re-run on Landsat
+    Collection 2 and brought up-to-date.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

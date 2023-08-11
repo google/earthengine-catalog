@@ -1097,7 +1097,7 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'UMN/UMN_PGC_REMA_V1_1_8m',
     'UMN/UMN_PGC_REMA_V1_2m',
     'UMN/UMN_PGC_REMA_V1_8m',
-    'UMT/UMT_Climate_IrrMapper_RF_v1_0',
+    'UMT/UMT_Climate_IrrMapper_RF_v1_1',
     'UMT/UMT_NTSG_v2_LANDSAT_GPP',
     'UMT/UMT_NTSG_v2_LANDSAT_NPP',
     'UMT/UMT_NTSG_v2_MODIS_GPP',
