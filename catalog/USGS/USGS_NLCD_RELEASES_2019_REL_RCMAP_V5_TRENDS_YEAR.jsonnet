@@ -28,8 +28,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Component Timeseries V5 Trends Year (1985-2021)' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
+  
   description: |||
-    Currently available yearly trends statistics for 1985-2021.
+    Currently available yearly trends statistics are 
+    for the 1985-2021 time-series.
 
     The RCMAP product suite includes nine fractional components: annual
     herbaceous, bare ground, herbaceous, litter, non-sagebrush shrub, 
@@ -64,8 +66,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     statistics on the significant minority of pixels with non-monotonic 
     trends, while detrending some interannual signal potentially 
     superfluous from a long-term perspective. Trends products can be 
-    downloaded from the [Multi-Resolution Land Characteristics 
-    Consortium](https://www.mrlc.gov/data).
+    downloaded from the 
+    [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
 
     See also:
 
