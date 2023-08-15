@@ -117,117 +117,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'eo:bands': [
       {
-      name: 'year_2011',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-    {
-      name: 'year_2012',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2013',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2014',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2015',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2016',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2017',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2018',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2019',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
-      name: 'year_2020',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
-      'gee:units': units.percent,
-    },
-     {
       name: 'year_2021',
-      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      description: 'Percent Tree Canopy Cover for years 2011-2021 (254 for unprocessed)',
       'gee:units': units.percent,
     },      
-   ],
-    year_2011: {
+    ],
+    year_2021: {
       minimum: 0, 
       maximum: 255, 
       'gee:estimated_range': false
-      },
-     year_2012: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2013: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2014: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2015: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2016: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2017: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2018: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2019: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2020: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      },
-      year_2021: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-      }, 
-  },
+     },
+   },
   'sci:citation': |||
     Yang, L.; Jin, S.; Danielson, P.; Homer, C.; Gass, L.; Bender, S.; 
     Case, A.; Costello, C.; Dewitz, J.; Fry, J.; Funk, M. 2018. 
