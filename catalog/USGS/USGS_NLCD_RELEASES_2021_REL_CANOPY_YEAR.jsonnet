@@ -1,7 +1,7 @@
 // The asset id as referenced in Earth Engine:
-// ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/canopy/year')
+// ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/canopy/nlcd_tcc_year')
 
-local id = 'USGS/NLCD_RELEASES/2021_REL/CANOPY/YEAR';
+local id = 'USGS/NLCD_RELEASES/2021_REL/CANOPY/NLCD_TCC_YEAR';
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -15,10 +15,9 @@ local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO(schwehr): Remove skip_indexing when the dataset is ready.
+  // TODO(simonff): Remove skip_indexing when the dataset is ready.
   'gee:skip_indexing': true,
   'gee:user_uploaded': true,
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -27,8 +26,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Tree Canopy Cover (TCC) data (2011-2021) ' + version,
-  version: version,
+  title: 'USGS National Land Cover Database (NLCD) Tree Canopy Cover (TCC) data (2011-2021)',
+  version: '2021',
   'gee:type': ee_const.gee_type.image_collection,
 
   description: |||
@@ -88,7 +87,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-130.24, 21.75, -63.66, 50,
-                    '2011-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
+                    '2011-01-01T00:00:00Z', 
+                    '2022-01-01T00:00:00Z'),
   'gee:interval': {
     type: 'cadence',
     unit: 'year',
@@ -96,26 +96,137 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   summaries: {
     gsd: [30],
-    'eo:bands': [{
-      name: 'cover',
-      description: 'Tree Canopy Cover percent (254 for unprocessed)',
-      'gee:units': units.percent,
-    }],
     'gee:visualizations': [
       {
-        display_name: 'cover (%)',
-        lookat: {lon: -115.34, lat: 38.67, zoom: 6},
+        display_name: 'year_2021 %',
+        lookat: {
+          lat: 38,
+          lon: -115,
+          zoom: 6,
+        },
         image_visualization: {
           band_vis: {
             min: [0],
             max: [255],
-            palette: ['000080', '000080', 'fafad2'],
-            bands: ['cover'],
-          },
+          palette: ['000080', '000080', 'fafad2'],
+          bands: ['year_2021',
+          ],
+         },
         },
       },
     ],
-    cover: {minimum: 0, maximum: 254, 'gee:estimated_range': false}
+    'eo:bands': [
+      {
+      name: 'year_2011',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+    {
+      name: 'year_2012',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2013',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2014',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2015',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2016',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2017',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2018',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2019',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2020',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },
+     {
+      name: 'year_2021',
+      description: 'Percent Tree Canopy Cover for the year (254 for unprocessed)',
+      'gee:units': units.percent,
+    },      
+   ],
+    year_2011: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+     year_2012: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2013: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2014: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2015: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2016: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2017: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2018: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2019: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2020: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      },
+      year_2021: {
+      minimum: 0, 
+      maximum: 255, 
+      'gee:estimated_range': false
+      }, 
   },
   'sci:citation': |||
     Yang, L.; Jin, S.; Danielson, P.; Homer, C.; Gass, L.; Bender, S.; 
@@ -125,7 +236,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ISPRS Journal of Photogrammetry and Remote Sensing 146:108-123. 
     [doi:10.1016/j.isprsjprs.2018.09.006](https://doi.org/10.1016/j.isprsjprs.2018.09.006)
   |||,
-  'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
+  'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an
     Employee of the United States Government and is therefore a work of the
     United States Government. In accordance with 17 U.S.C. 105, no copyright

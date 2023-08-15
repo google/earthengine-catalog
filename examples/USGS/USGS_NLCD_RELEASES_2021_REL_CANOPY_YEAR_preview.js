@@ -1,7 +1,9 @@
 // Import the Tree Canopy Cover image collection.
-var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/CANOPY/YEAR');
-var visParams = {
-  palette: [
+var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/CANOPY/NLCD/TCC/YEAR');
+var canopy = dataset.filter(ee.Filter.eq('system:year', '2021')).first();
+
+var visParams = { 
+   palette: [
     'ffffe0',  // light yellow - percent shrub
     '66cdaa',  // medium green - percent shrub
     ],
@@ -32,9 +34,9 @@ var imageParams = {
     format: 'png',
 };
 
-var imageRGB = image.visualize(visParams);
-var imageWithBackground = ee.ImageCollection([background, imageRGB]).mosaic();
+var image = canopy.visualize(visParams);
+Map.addLayer(image)
 
-Map.addLayer(imageWithBackground, {}, 'Percent Tree Canopy Cover');
-
+var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
+Map.addLayer(imageWithBackground, {}, 'year_2021 %');
 print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
