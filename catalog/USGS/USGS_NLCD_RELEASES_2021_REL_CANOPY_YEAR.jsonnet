@@ -15,33 +15,22 @@ local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO(simonff): Remove skip_indexing when the dataset is ready.
-  'gee:skip_indexing': true,
-  'gee:user_uploaded': true,
-  stac_version: ee_const.stac_version,
-  type: ee_const.stac_type.collection,
-  stac_extensions: [
-    ee_const.ext_eo,
-    ee_const.ext_sci,
-    ee_const.ext_ver,
-  ],
   id: id,
   title: 'USGS National Land Cover Database (NLCD) Tree Canopy Cover (TCC) data (2011-2021)',
   version: '2021',
-  'gee:type': ee_const.gee_type.image_collection,
 
   description: |||
     The USDA Forest Service (USFS) builds two versions of percent tree canopy
     cover data, in order to serve needs of multiple user communities. These
     datasets encompass conterminous United States (CONUS), Coastal Alaska,
     Hawaii, and Puerto Rico and U.S. Virgin Islands (PRUSVI).
-
+    
     The two versions of data within the v2021-4 Tree Canopy Cover (TCC) product
     suite include: The initial model outputs referred to as the Science data;
     And a modified version built for the National Land Cover Database and
     referred to as NLCD data. The NLCD product suite includes data for years
     2011, 2013, 2016, 2019, and 2021.
-
+       
     The NCLD data are processed to remove small interannual changes from the
     annual TCC timeseries, and to mask TCC pixels that are known to be 0 percent
     TCC, non-tree agriculture, and water.  A small interannual change is defined
@@ -57,15 +46,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     value 254, and the background is represented by the value 255.  The Science
     and NLCD tree canopy cover data are accessible for multiple user
     communities, through multiple channels and platforms.
-
+    
     For more information visit
     [Multi-Resolution Land Characteristics Consortium](
     https://www.mrlc.gov/data) or
     [The USFS Tree Canopy Cover Datasets page](
-      https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/).
+    https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/).
   |||,
-  license: license.id,
-  links: ee.standardLinks(subdir, id),
+
   keywords: [
     'gtac',
     'landcover',
@@ -89,21 +77,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(-130.24, 21.75, -63.66, 50,
                     '2011-01-01T00:00:00Z', 
                     '2022-01-01T00:00:00Z'),
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
   summaries: {
     gsd: [30],
     'gee:visualizations': [
       {
         display_name: 'year_2021 %',
-        lookat: {
-          lat: 38,
-          lon: -115,
-          zoom: 6,
-        },
+        lookat: {lat: 38, lon: -115, zoom: 6},
         image_visualization: {
           band_vis: {
             min: [0],
@@ -121,13 +100,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       description: 'Percent Tree Canopy Cover for years 2011-2021 (254 for unprocessed)',
       'gee:units': units.percent,
     },      
-    ],
-    year_2021: {
-      minimum: 0, 
-      maximum: 255, 
-      'gee:estimated_range': false
-     },
-   },
+   ],
+   year_2021: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+  },
+  'gee:interval': {
+    type: 'cadence',
+    unit: 'year',
+    interval: 1,
+  },
   'sci:citation': |||
     Yang, L.; Jin, S.; Danielson, P.; Homer, C.; Gass, L.; Bender, S.; 
     Case, A.; Costello, C.; Dewitz, J.; Fry, J.; Funk, M. 2018. 
@@ -147,4 +127,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     distribute and perform the work, even for commercial purposes, all without
     asking permission.
   |||,
+  // TODO(simonf): Remove skip_indexing when the dataset is ready.
+  'gee:skip_indexing': true,
+  'gee:type': ee_const.gee_type.image_collection,
+  'gee:user_uploaded': true,
+  license: license.id,
+  links: ee.standardLinks(subdir, id),
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.collection,
+  stac_extensions: [
+    ee_const.ext_eo,
+    ee_const.ext_sci,
+    ee_const.ext_ver,
+  ],
 }
