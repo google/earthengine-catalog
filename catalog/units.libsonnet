@@ -128,6 +128,7 @@
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',
+  percent_per_year: '%/y',
 
   // Number of pixels.
   // TODO(b/198646525): Should we distinguish between distance and area?
