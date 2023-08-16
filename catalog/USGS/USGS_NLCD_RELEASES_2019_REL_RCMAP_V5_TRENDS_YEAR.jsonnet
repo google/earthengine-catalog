@@ -403,9 +403,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     tree_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
   },
   'gee:interval': {
-   type: 'cadence',
-   unit: 'year',
-   interval: 1,
+    type: 'cadence',
+    unit: 'year',
+    interval: 1,
   },
   'sci:citation': |||
     Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition
