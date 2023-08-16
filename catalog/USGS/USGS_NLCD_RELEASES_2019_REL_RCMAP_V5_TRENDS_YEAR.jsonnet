@@ -32,7 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     covered by each component for each year from 
     1985-2021, providing change information for 
     36 years.
-  
+    
     We assess the temporal patterns in each RCMAP 
     component with two approaches, 1: linear trends 
     and 2: a breaks and stable states method with an 
@@ -66,16 +66,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     signal potentially superfluous from a long-term 
     perspective. Trends products can be downloaded from the 
     [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
-  
+    
     See also:
-  
+    
     *Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, 
     H. Shi, G. Xian, S. Schell, and M. Bobo. 2020. 
     Quantifying western U.S. rangelands as fractional 
     components with multi-resolution remote sensing and 
     in situ data. Remote Sensing 12.
     [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
-  
+    
     *Rigge, M., C. Homer, H. Shi, D. Meyer, 
     B. Bunde, B. Granneman, K. Postma, P. Danielson, 
     A. Case, and G. Xian. 2021. Rangeland Fractional 
