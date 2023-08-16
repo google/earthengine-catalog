@@ -44,8 +44,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     36 years.
 
     We assess the temporal patterns in each RCMAP 
-    component with two approaches, 1) linear trends 
-    and 2) a breaks and stable states method with an 
+    component with two approaches, 1: linear trends 
+    and 2: a breaks and stable states method with an 
     8-year temporal moving window based on structural 
     change at the pixel level. Linear trend products 
     include slope and p-value calculated from least 
@@ -60,11 +60,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     relies on structural break methods, resulting in the 
     identification of the number and timing of breaks in 
     the time-series, and the significance of each segment. 
-    We produce the following statistics: 1) for each 
+    We produce the following statistics: 1: for each 
     component, each year, the presence/absence of breaks, 
-    2) the slope, p-value, and standard error of the segment 
-    occurring in each year, 3) the overall model R2 (quality 
-    of model fit to the temporal profile), and 4) an index, 
+    2: the slope, p-value, and standard error of the segment 
+    occurring in each year, 3: the overall model R2 (quality 
+    of model fit to the temporal profile), and 4: an index, 
     Total Change Intensity. This index reflects the total 
     amount of change occurring across components in that 
     pixel. The linear and structural change methods generally 
@@ -79,21 +79,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     See also:
 
-    * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, 
-      H. Shi, G. Xian, S. Schell, and M. Bobo. 2020. 
-      Quantifying western U.S. rangelands as fractional 
-      components with multi-resolution remote sensing and 
-      in situ data. Remote Sensing 12.
-      [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
+    *Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, 
+    H. Shi, G. Xian, S. Schell, and M. Bobo. 2020. 
+    Quantifying western U.S. rangelands as fractional 
+    components with multi-resolution remote sensing and 
+    in situ data. Remote Sensing 12.
+    [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
 
-    * Rigge, M., C. Homer, H. Shi, D. Meyer, 
-      B. Bunde, B. Granneman, K. Postma, P. Danielson, 
-      A. Case, and G. Xian. 2021. Rangeland Fractional 
-      Components Across the Western United States from 
-      1985 to 2018. Remote Sensing 13:813.
-      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
+    *Rigge, M., C. Homer, H. Shi, D. Meyer, 
+    B. Bunde, B. Granneman, K. Postma, P. Danielson, 
+    A. Case, and G. Xian. 2021. Rangeland Fractional 
+    Components Across the Western United States from 
+    1985 to 2018. Remote Sensing 13:813.
+    [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
-
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
