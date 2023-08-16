@@ -322,6 +322,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'annual_herbaceous_segment_slope',
         description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        // TODO(dpencosk): Add units.percent_per_year.
         'gee:scale': 0.01,
         'gee:units': units.percent,
       },
