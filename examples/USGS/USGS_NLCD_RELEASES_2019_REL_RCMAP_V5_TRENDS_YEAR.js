@@ -1,6 +1,15 @@
 // Import the NLCD RCMAP TRENDS YEAR collection.
 var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS_YEAR');
+
+// Filter the collection to the 2019 product.
+var nlcd2019 = dataset.filter(ee.Filter.eq('system:index', '2019')).first();
+
+// Each product has multiple bands for different rangeland categories.
+print('Bands:', nlcd2019.bandNames());
+
+// Select the annual_herbaceous_break_point band.
 var trendsyear = dataset.select('annual_herbaceous_break_point');
+
 var vis = {
   // Map 0..100.
   'palette': [
@@ -21,6 +30,7 @@ var vis = {
     '012d85', '012c82', '01297a'
   ]
 };
+
 // Display the image on the map.
 Map.setCenter(-114, 38, 6);
-Map.addLayer(trendsyear, vis, 'annual_herbaceous_break_point int');
+Map.addLayer(trendsyear, vis, 'annual_herbaceous_break_point %');

@@ -3,6 +3,8 @@ var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS_YE
 
 // Filter the collection to the 2021 product. 
 var trendsyear2021 = dataset.filter(ee.Filter.eq('system:index', '2021')).first();
+
+// Select the annual_herbaceous_break_point band.
 var trendsyear = trendsyear2021.select('annual_herbaceous_break_point');
 
 // Map values from 0 to 100.

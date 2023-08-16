@@ -14,20 +14,10 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  //TODO(@simonff): Remove skip_indexing when the preview image is ready.
-  'gee:skip_indexing': true,
-  'gee:user_uploaded': true,
-  stac_version: ee_const.stac_version,
-  type: ee_const.stac_type.collection,
-  stac_extensions: [
-    ee_const.ext_eo,
-    ee_const.ext_sci,
-    ee_const.ext_ver,
-  ],
   id: id,
-  title: 'RCMAP Rangeland Component Timeseries V5 Trends Year (1985-2021)' + version,
+  title: 'RCMAP Rangeland Component Timeseries Trends Year (1985-2021) V' + version,
   version: version,
-  'gee:type': ee_const.gee_type.image_collection,
+  
   description: |||
     Currently available yearly trends statistics are for the 
     1985-2021 time-series.
@@ -42,7 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     covered by each component for each year from 
     1985-2021, providing change information for 
     36 years.
-
+  
     We assess the temporal patterns in each RCMAP 
     component with two approaches, 1: linear trends 
     and 2: a breaks and stable states method with an 
@@ -76,16 +66,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     signal potentially superfluous from a long-term 
     perspective. Trends products can be downloaded from the 
     [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
-
+  
     See also:
-
+  
     *Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, 
     H. Shi, G. Xian, S. Schell, and M. Bobo. 2020. 
     Quantifying western U.S. rangelands as fractional 
     components with multi-resolution remote sensing and 
     in situ data. Remote Sensing 12.
     [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
-
+  
     *Rigge, M., C. Homer, H. Shi, D. Meyer, 
     B. Bunde, B. Granneman, K. Postma, P. Danielson, 
     A. Case, and G. Xian. 2021. Rangeland Fractional 
@@ -93,8 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     1985 to 2018. Remote Sensing 13:813.
     [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
-  license: license.id,
-  links: ee.standardLinks(subdir, id),
+
   keywords: [
     'climate_change',
     'disturbance',
@@ -109,33 +98,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://www.mrlc.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(
-      -125.07, 28.46, -101.07, 49.33,
+  extent: ee.extent(-125.07, 28.46, -101.07, 49.33,
       '1985-01-01T00:00:00Z',
       '2022-01-01T00:00:00Z'),
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
   summaries: {
     gsd: [30],
     'gee:visualizations': [
       {
         display_name: 'annual_herbaceous_segment_pvalue %',
-        lookat: {
-          lat: 38,
-          lon: -114,
-          zoom: 6,
-        },
+        lookat: {lat: 38, lon: -114, zoom: 6,},
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              100,
-            ],
+            min: [0],
+            max: [100],
             palette: [
               '000000',
               'f9e8b7',
@@ -239,9 +214,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '012c82',
               '01297a'
             ],
-            bands: [
-              'annual_herbaceous_segment_pvalue',
-            ],
+            bands: ['annual_herbaceous_segment_pvalue'],
           },
         },
       },
@@ -401,141 +374,38 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.percent,
       },
     ],
-    annual_herbaceous_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    bare_ground_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    herbaceous_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    litter_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    sagebrush_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    shrub_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    non_sagebrush_shrub_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    perennial_herbaceous_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    tree_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
-    annual_herbaceous_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    bare_ground_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    herbaceous_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    litter_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    sagebrush_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    shrub_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    non_sagebrush_shrub_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    perennial_herbaceous_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    tree_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
-    annual_herbaceous_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    bare_ground_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    herbaceous_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    litter_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    sagebrush_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    shrub_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    non_sagebrush_shrub_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    perennial_herbaceous_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
-    tree_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
+    annual_herbaceous_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    bare_ground_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    herbaceous_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    litter_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    sagebrush_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    shrub_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    non_sagebrush_shrub_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    perennial_herbaceous_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    tree_break_point: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    annual_herbaceous_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    bare_ground_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    herbaceous_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    litter_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    sagebrush_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    shrub_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    non_sagebrush_shrub_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    perennial_herbaceous_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    tree_segment_pvalue: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    annual_herbaceous_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    bare_ground_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    herbaceous_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    litter_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    sagebrush_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    shrub_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    non_sagebrush_shrub_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    perennial_herbaceous_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+    tree_segment_slope: {minimum: -99999, maximum: 99999, 'gee:estimated_range': false},
+  },
+  'gee:interval': {
+   type: 'cadence',
+   unit: 'year',
+   interval: 1,
   },
   'sci:citation': |||
     Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition
@@ -555,4 +425,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     distribute and perform the work, even for commercial purposes, all without
     asking permission.
   |||,
+  // TODO(simonf): Remove skip_indexing when the preview image is ready.
+  'gee:skip_indexing': true,
+  'gee:type': ee_const.gee_type.image_collection,
+  'gee:user_uploaded': true,
+  license: license.id,
+  links: ee.standardLinks(subdir, id),
+  type: ee_const.stac_type.collection,
+  stac_version: ee_const.stac_version,
+  stac_extensions: [
+    ee_const.ext_eo,
+    ee_const.ext_sci,
+    ee_const.ext_ver,
+  ],
 }
