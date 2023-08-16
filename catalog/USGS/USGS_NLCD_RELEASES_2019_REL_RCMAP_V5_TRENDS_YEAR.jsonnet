@@ -121,164 +121,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   summaries: {
     gsd: [30],
-    'eo:bands': [
-      {
-        name: 'annual_herbaceous_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'bare_ground_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'herbaceous_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'litter_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'sagebrush_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'shrub_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'non_sagebrush_shrub_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'perennial_herbaceous_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'tree_break_point',
-        description: 'Presence or absence of structural breaks in each component for each year',
-        'gee:units': units.count,
-      },
-      {
-        name: 'annual_herbaceous_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'bare_ground_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'herbaceous_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'litter_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'sagebrush_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'shrub_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'non_sagebrush_shrub_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'perennial_herbaceous_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'tree_segment_pvalue',
-        description: 'P-value of structural breaks segment in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'annual_herbaceous_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'bare_ground_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'herbaceous_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'litter_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'sagebrush_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'shrub_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'non_sagebrush_shrub_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'perennial_herbaceous_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-      {
-        name: 'tree_segment_slope',
-        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year',
-        'gee:scale': 0.01
-        'gee:units': units.percent,
-      },
-    ],
     'gee:visualizations': [
       {
-        display_name: 'annual_herbaceous_segment_pvalue',
+        display_name: 'annual_herbaceous_segment_pvalue %',
         lookat: {
           lat: 38,
           lon: -114,
@@ -400,6 +245,161 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             ],
           },
         },
+      },
+    ],
+    'eo:bands': [
+      {
+        name: 'annual_herbaceous_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'bare_ground_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'herbaceous_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'litter_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'sagebrush_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'shrub_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'non_sagebrush_shrub_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'perennial_herbaceous_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'tree_break_point',
+        description: 'Presence or absence of structural breaks in each component for each year.',
+        'gee:units': units.count,
+      },
+      {
+        name: 'annual_herbaceous_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'bare_ground_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'herbaceous_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'litter_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'sagebrush_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'shrub_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'non_sagebrush_shrub_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'perennial_herbaceous_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'tree_segment_pvalue',
+        description: 'P-value of structural breaks segment in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'annual_herbaceous_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'bare_ground_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'herbaceous_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'litter_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'sagebrush_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'shrub_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'non_sagebrush_shrub_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'perennial_herbaceous_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
+      },
+      {
+        name: 'tree_segment_slope',
+        description: 'Slope of structural breaks segment, given in units of % change/year, in each component for each year.',
+        'gee:scale': 0.01,
+        'gee:units': units.percent,
       },
     ],
     annual_herbaceous_break_point: {
