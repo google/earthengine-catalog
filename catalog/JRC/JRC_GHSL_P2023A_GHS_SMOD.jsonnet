@@ -26,7 +26,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'GHS-SMOD R2023A - Global Human Settlement Layers (1975-2030)',
-  version: 'v1',
+  version: 'P2023A',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The GHS-SMOD dataset is the rural-urban Settlement classification MODel adopted by

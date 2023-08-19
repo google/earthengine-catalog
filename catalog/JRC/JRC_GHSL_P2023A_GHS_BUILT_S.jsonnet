@@ -44,7 +44,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'ghsl',
     'jrc',
     'landsat_derived',
-    'multitemporal',
   ],
   providers: [
     ee.producer_provider('EC JRC', 'https://ghsl.jrc.ec.europa.eu/ghs_buS2023.php'),
