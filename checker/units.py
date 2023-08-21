@@ -8,6 +8,7 @@ https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
 # TODO(schwehr): Load this from units.libsonnet
 UNITS = frozenset({
     '%',
+    '% change/y',
     'Area fraction',
     'Dimensionless',
     'Mass fraction',
@@ -25,11 +26,13 @@ UNITS = frozenset({
     'Mg/ha',
     'N/m^2',
     'Pa',
+    'P-value',
     'W/m^2',
     'y',
     'cm',
     'count',
     'count/d',
+    'c%/a',
     'd',
     'dB',
     'deg',
