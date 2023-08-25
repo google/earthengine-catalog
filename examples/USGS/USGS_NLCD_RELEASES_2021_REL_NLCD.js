@@ -36,13 +36,6 @@ var vis = {
    ]
 };
 
-var vis2 = {
-   // canopy values
-   min: 0,
-   max: 100,
-   palette: ['CDAA66','D7C29E','C2D096','B7D692','ADDD8E','78C679','5CB86B','41AB5D','39A156','329750','238443','11763D','006837','004529']
-};
-
 // Display land cover on the map.
 Map.setCenter(-95, 38, 5);
 Map.addLayer(landcover, vis, 'landcover');
