@@ -367,19 +367,19 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Landcover',
+        display_name: 'landcover',
         lookat: {
-          lat: 38.686,
-          lon: -115.356,
+          lat: 38.68,
+          lon: -115.36,
           zoom: 5,
         },
         image_visualization: {
           band_vis: {
             min: [
-              0.0,
+              0,
             ],
             max: [
-              95.0,
+              95,
             ],
             palette: [
               '466b9f',
@@ -411,18 +411,18 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       },
     ],
     landcover: {
-      minimum: 11.0,
-      maximum: 95.0,
+      minimum: 11,
+      maximum: 95,
       'gee:estimated_range': false,
     },
     impervious: {
-      minimum: 0.0,
-      maximum: 100.0,
+      minimum: 0,
+      maximum: 100,
       'gee:estimated_range': false,
     },
     impervious_descriptor: {
-      minimum: 1.0,
-      maximum: 12.0,
+      minimum: 1,
+      maximum: 12,
       'gee:estimated_range': false,
     },
   },
@@ -448,7 +448,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     distribute and perform the work, even for commercial purposes, all without
     asking permission.
   |||,
-  // TODO(simonf): Remove skip_indexing when the dataset is ready.
+  // TODO(simonf): Remove skip_indexing when the dataset is ready. Add a successor link to this dataset from USGS/NLCD_RELEASES/2019_REL.
   'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   'gee:type': ee_const.gee_type.image_collection,

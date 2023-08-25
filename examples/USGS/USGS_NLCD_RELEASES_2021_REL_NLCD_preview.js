@@ -25,7 +25,7 @@ var palette = [
     'dcd939', // 81: Pasture/hay
     'ab6c28', // 82: Cultivated crops
     'b8d9eb', // 90: Woody wetlands
-    '6c9fb8' // 95:	Emergent herbaceous wetlands
+    '6c9fb8'  // 95: Emergent herbaceous wetlands
     ];
 
 var lon = -114;
