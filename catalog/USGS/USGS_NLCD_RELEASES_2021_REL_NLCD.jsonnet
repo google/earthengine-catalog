@@ -1,5 +1,6 @@
 local id = 'USGS/NLCD_RELEASES/2021_REL/NLCD';
 local subdir = 'USGS';
+//TODO (dpencosk) Add successor link to this dataset from: local successor_id = 'USGS/NLCD_RELEASES/2019_REL';
 local predecessor_id = 'USGS/NLCD_RELEASES/2019_REL';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -116,7 +117,9 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       {
         name: 'landcover',
         description: |||
-          All images include the landcover classification scheme described in the [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). The legends are also available as metadata on each image. The classes in the product legend are given below.
+          All images include the landcover classification scheme described in the 
+          [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). 
+          The legends are also available as metadata on each image. The classes in the product legend are given below.
         |||,
         'gee:classes': [
           {
@@ -188,13 +191,6 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
             |||,
           },
           {
-            value: 51,
-            color: 'af963c',
-            description: |||
-              Dwarf scrub: Alaska only areas dominated by shrubs less than 20 centimeters tall with shrub canopy typically greater than 20% of total vegetation. This type is often co-associated with grasses, sedges, herbs, and non-vascular vegetation.
-            |||,
-          },
-          {
             value: 52,
             color: 'ccb879',
             description: |||
@@ -207,25 +203,6 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
             description: |||
               Grassland/herbaceous: areas dominated by gramanoid or herbaceous vegetation, generally greater than 80% of total vegetation. These areas are not subject to intensive management such as tilling, but can be utilized for grazing.
             |||,
-          },
-          {
-            value: 72,
-            color: 'd1d182',
-            description: |||
-              Sedge/herbaceous: Alaska only areas dominated by sedges and forbs, generally greater than 80% of total vegetation. This type can occur with significant other grasses or other grass like plants, and includes sedge tundra and sedge tussock tundra.
-            |||,
-          },
-          {
-            value: 73,
-            color: 'a3cc51',
-            description: |||
-              Lichens: Alaska only areas dominated by fruticose or foliose lichens generally greater than 80% of total vegetation.
-            |||,
-          },
-          {
-            value: 74,
-            color: '82ba9e',
-            description: 'Moss: Alaska only areas dominated by mosses, generally greater than 80% of total vegetation.',
           },
           {
             value: 81,
@@ -364,6 +341,565 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
           },
         ],
       },
+      { 
+        name: 'science_products_change_count',
+        description: |||
+          These products were developed as both intermediate steps to generate 
+          the base NLCD products, and as value added products that standalone 
+          to provide additional insights. This product was derived using the 
+          9-epoch NLCD land cover (2001, 2003, 2006, 2008, 2011, 2013, 2016, 
+          2019, and 2021) from the released NLCD 2021 product suite. Any 
+          change between two consecutive epochs is calculated and the total 
+          change frequency/time for each pixel is recorded. This product 
+          shows an integer count total of any recorded change for the time 
+          period 2001-2021. This product is meant to be used with the change 
+          index and individual dates of Land Cover to provide users with a 
+          more in depth look at where multiple change events in the same 
+          location are occurring on the landscape. All images include the 
+          Science Products classification scheme follow the Land Cover system 
+          and are described in the 
+          [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). 
+          The legends are also available as metadata on each image. The classes 
+          in the product legend are given below.
+        |||,
+        'gee:classes': [
+          {
+            value: 1,
+            color: '0000ff',
+            description: 'change once 2001-2019',
+          },
+          {
+            value: 2,
+            color: '00d0ff',
+            description: 'change twice 2001-2019',
+          },
+          {
+            value: 3,
+            color: '00fffa',
+            description: 'change three times 2001-2019',
+          },
+          {
+            value: 4,
+            color: '00ff7d',
+            description: 'change four times 2001-2019',
+          },
+          {
+            value: 5,
+            color: '79ff00',
+            description: 'change five times 2001-2019',
+          },
+          {
+            value: 6,
+            color: 'ffff00',
+            description: 'change six times 2001-2019',
+          },
+          {
+            value: 7,
+            color: 'ffd000',
+            description: 'change seven times 2001-2019',
+          },
+          {
+            value: 8,
+            color: 'ff0000',
+            description: 'change eight times 2001-2021',
+          },
+         ],
+      },
+      {
+        name: 'science_products_change_first_disturbance_date',
+        description: |||
+          These products were developed as both intermediate steps to generate 
+          the base NLCD products, and as value added products that standalone 
+          to provide additional insights. This product was derived using the 
+          nine release dates of NLCD land cover (2001, 2003, 2006, 2008, 2011, 
+          2013, 2016, 2019, 2021). This product shows the date of the first 
+          land cover change event from these 9 dates of landcover. All images 
+          include the Science Products classification scheme follow the 
+          Land Cover system and are described in the 
+          [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). 
+          The legends are also available as metadata on each image. The classes 
+          in the product legend are given below.
+        |||,
+        'gee:classes': [
+          {
+            value: 1,
+            color: '005f00',
+            description: 'land cover no change',
+          },
+          {
+            value: 2,
+            color: '0000ff',
+            description: 'land cover change 2001-2004',
+          },
+          {
+            value: 3,
+            color: '00d0ff',
+            description: 'land cover change 2004-2006',
+          },
+          {
+            value: 4,
+            color: '00fffa',
+            description: 'land cover change 2006-2008',
+          },
+          {
+            value: 5,
+            color: '00ff7d',
+            description: 'land cover change 2008-2011',
+          },
+          {
+            value: 6,
+            color: '79ff00',
+            description: 'land cover change 2011-2013',
+          },
+          {
+            value: 7,
+            color: 'ffff00',
+            description: 'land cover change 2013-2016',
+          },
+          {
+            value: 8,
+            color: 'ffd000',
+            description: 'land cover change 2016-2019',
+          },
+          {
+            value: 9,
+            color: 'ff0000',
+            description: 'land cover change 2019-2021',
+          },
+         ],
+      },
+      }
+        name: 'science_products_change_index',
+        description: |||
+          These products were developed as both intermediate steps to generate 
+          the base NLCD products, and as value added products that standalone 
+          to provide additional insights. The NLCD Land Cover change index 
+          combines information from all years of land cover change and 
+          provides a simple and comprehensive way to visualize change from all 
+          9 dates of land cover in a single layer. The change index was 
+          designed to assist NLCD users to understand complex land cover 
+          change with a single product. NLCD 2021 does not yet contain updated 
+          products for Alaska, Hawaii and Puerto Rico. All images include the 
+          Science Products classification scheme follow the Land Cover system 
+          and are described in the 
+          [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). 
+          The legends are also available as metadata on each image. The classes 
+          in the product legend are given below.
+        |||,
+        'gee:classes': [
+          {
+            value: 1,
+            color: '005f00',
+            description: 'no change',
+          },
+          {
+            value: 2,
+            color: '0000ff',
+            description: 'water change',
+          },
+          {
+            value: 3,
+            color: 'eb82eb',
+            description: 'urban change',
+          },
+          {
+            value: 4,
+            color: '79ffd2',
+            description: 'wetland within class change',
+          },
+          {
+            value: 5,
+            color: '009ede',
+            description: 'herbaceous wetland change',
+          },
+          {
+            value: 6,
+            color: 'ffd000',
+            description: 'agriculture within class change',
+          },
+          {
+            value: 7,
+            color: '9f2828',
+            description: 'cultivated crop change',
+          },
+          {
+            value: 8,
+            color: 'ffff00',
+            description: 'hay/pasture change',
+          },
+          {
+            value: 9,
+            color: 'dfdfc2',
+            description: 'rangeland herbaceous and shrub change',
+          },
+          {
+            value: 10,
+            color: 'b3ac9f',
+            description: 'barren change',
+          },
+          {
+            value: 11,
+            color: '79ff00',
+            description: 'forest change',
+          },
+          {
+            value: 12,
+            color: 'ff0000',
+            description: 'woody wetland change',
+          },
+          {
+            value: 13,
+            color: 'ffffff',
+            description: 'snow change',
+          },
+        ],
+      },
+      {
+        name: 'science_products_land_cover_science_product',
+        description: |||
+          These products were developed as both intermediate steps to generate 
+          the base NLCD products, and as value added products that standalone 
+          to provide additional insights. To better develop NLCD 2021 
+          landcover, spectrally stable grass and shrub areas were separated 
+          from the spectrally changing areas of shrub and grass represented by 
+          forest harvest, burns, regrowth, and other disturbances. 
+          Essentially, this separation usually identifies shrub and grass 
+          climax areas from shrub and grass areas in transition back to a 
+          forest. This difference is expressed with two extra classes of 
+          land cover, called Shrub-Forest and Herbaceous-Forest which are 
+          representing areas of current shrub and grass expected to transition 
+          back to a forest. Alternatively, the shrub and grass classes of 
+          Shrub/Scrub and Grassland/Herbaceous will likely not transition to 
+          a forest. However, be cautioned that no extensive ecological 
+          analysis went into these class delineations, they are primarily 
+          spectral based separations used to delineate broad classes of grass 
+          and shrub. All images include the Science Products classification 
+          scheme follow the Land Cover system and are described in the 
+          [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). 
+          The legends are also available as metadata on each image. The classes 
+          in the product legend are given below.
+        |||,
+        'gee:classes': [
+          {
+            value: 11,
+            color: '466b9f',
+            description: 'Open Water',
+          },
+          {
+            value: 12,
+            color: 'd1def8',
+            description: 'Perennial Snow/Ice',
+          },
+          {
+            value: 21,
+            color: 'dec5c5',
+            description: 'Developed, Open Space',
+          },
+          {
+            value: 22,
+            color: 'd99282',
+            description: 'Developed, Low Intensity',
+          },
+          {
+            value: 23,
+            color: 'eb0000',
+            description: 'Developed, Medium Intensity',
+          },
+          {
+            value: 24,
+            color: 'ab0000',
+            description: 'Developed, High Intensity',
+          },
+          {
+            value: 31,
+            color: 'b3ac9f',
+            description: 'Barren Land',
+          },
+          {
+            value: 41,
+            color: '68ab5f',
+            description: 'Deciduous Forest',
+          },
+          {
+            value: 42,
+            color: '1c5f2c',
+            description: 'Evergreen Forest',
+          },
+          {
+            value: 43,
+            color: 'b5c58f',
+            description: 'Mixed Forest',
+          },
+          {
+            value: 45,
+            color: '79ffd2',
+            description: 'Shrub-Forest',
+          },
+          {
+            value: 46,
+            color: '9f1feb',
+            description: 'Herbaceous-Forest',
+          },
+          {
+            value: 52,
+            color: 'ccb879',
+            description: 'Shrub/Scrub',
+          },
+          {
+            value: 71,
+            color: 'dfdfc2',
+            description: 'Herbaceous',
+          },
+          {
+            value: 81,
+            color: 'dcd939',
+            description: 'Hay/Pasture',
+          },
+          {
+            value: 82,
+            color: 'ab6c28',
+            description: 'Cultivated Crops',
+          },
+          {
+            value: 90,
+            color: 'b8d9eb',
+            description: 'Woody Wetlands',
+          },
+          {
+            value: 95,
+            color: '6c9fb8',
+            description: 'Emergent Herbaceous Wetlands',
+          },
+        ],
+      },
+      {
+        name: 'science_products_forest_disturbance_date',
+        description: |||
+          These products were developed as both intermediate steps to generate 
+          the base NLCD products, and as value added products that standalone 
+          to provide additional insights. This product shows the most recent 
+          forest disturbance date between the years 1986-2021 for every year. 
+          This product combines information from the NLCD 2021 change 
+          detection, land cover classification, and the LANDFIRE Vegetation 
+          Change Tracker (VCT) disturbance product from 1984-2010. For NLCD 
+          2021, this product was used to assess where disturbance occurred for 
+          forest areas. This product was originally intended only for forest 
+          areas, but it also can be useful for other landcover classes. 
+          For example, agricultural areas, which are typically disturbed 
+          yearly by tillage, are represented as being disturbed prior to 1986. 
+          This "prior to 86" disturbance call was used in some instances as a 
+          delineation between forested and non-forest areas. Other classes 
+          that are not forest may also be represented with a disturbance 
+          indication if the area was forest at some time point during 
+          1986-2021. All images include the Science Products classification 
+          scheme follow the Land Cover system and are described in the 
+          [Product Legend](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description). 
+          The legends are also available as metadata on each image. The classes 
+          in the product legend are given below.
+        |||,
+        'gee:classes': [
+          {
+            value: 83,
+            color: '0000ff',
+            description: 'non-forest or forest before 1983',
+          },
+          {
+            value: 84,
+            color: '0033ff',
+            description: 'forest disturbed before/at 1984',
+          },
+          {
+            value: 85,
+            color: '005fff',
+            description: 'forest disturbed before/at 1985',
+          },
+          {
+            value: 86,
+            color: '0087ff',
+            description: 'forest disturbed before/at 1986',
+          },
+          {
+            value: 87,
+            color: '00aaff',
+            description: 'forest disturbed before/at 1987',
+          },
+          {
+            value: 88,
+            color: '00c5ff',
+            description: 'forest disturbed before/at 1988',
+          },
+          {
+            value: 89,
+            color: '00dcff',
+            description: 'forest disturbed before/at 1989',
+          },
+          {
+            value: 90,
+            color: '00ecff',
+            description: 'forest disturbed before/at 1990',
+          },
+          {
+            value: 91,
+            color: '00f8ff',
+            description: 'forest disturbed before/at 1991',
+          },
+          {
+            value: 92,
+            color: '00fdff',
+            description: 'forest disturbed before/at 1992',
+          },
+          {
+            value: 93,
+            color: '00fffd',
+            description: 'forest disturbed before/at 1993',
+          },
+          {
+            value: 94,
+            color: '00fff8',
+            description: 'forest disturbed before/at 1994',
+          },
+          {
+            value: 95,
+            color: '00ffec',
+            description: 'forest disturbed before/at 1995',
+          },
+          {
+            value: 96,
+            color: '00ffdc',
+            description: 'forest disturbed before/at 1996',
+          },
+          {
+            value: 97,
+            color: '00ffc5',
+            description: 'forest disturbed before/at 1997',
+          },
+          {
+            value: 98,
+            color: '00ffaa',
+            description: 'forest disturbed before/at 1998',
+          },
+          {
+            value: 99,
+            color: '00ff87',
+            description: 'forest disturbed before/at 1999',
+          },
+          {
+            value: 100,
+            color: '00ff5f',
+            description: 'forest disturbed before/at 2000',
+          },
+          {
+            value: 101,
+            color: '00ff33',
+            description: 'forest disturbed before/at 2001',
+          },
+          {
+            value: 102,
+            color: '00ff00',
+            description: 'forest disturbed before/at 2002',
+          },
+          {
+            value: 103,
+            color: '33ff00',
+            description: 'forest disturbed before/at 2003',
+          },
+          {
+            value: 104,
+            color: '5fff00',
+            description: 'forest disturbed before/at 2004',
+          },
+          {
+            value: 105,
+            color: '87ff00',
+            description: 'forest disturbed before/at 2005',
+          },
+          {
+            value: 106,
+            color: 'aaff00',
+            description: 'forest disturbed before/at 2006',
+          },
+          {
+            value: 107,
+            color: 'c5ff00',
+            description: 'forest disturbed before/at 2007',
+          },
+          {
+            value: 108,
+            color: 'dcff00',
+            description: 'forest disturbed before/at 2008',
+          },
+          {
+            value: 109,
+            color: 'ecff00',
+            description: 'forest disturbed before/at 2009',
+          },
+          {
+            value: 110,
+            color: 'f8ff00',
+            description: 'forest disturbed before/at 2010',
+          },
+          {
+            value: 111,
+            color: 'fdff00',
+            description: 'forest disturbed before/at 2011',
+          },
+          {
+            value: 112,
+            color: 'fffd00',
+            description: 'forest disturbed before/at 2012',
+          },
+          {
+            value: 113,
+            color: 'fff800',
+            description: 'forest disturbed before/at 2013',
+          },
+          {
+            value: 114,
+            color: 'ffec00',
+            description: 'forest disturbed before/at 2014',
+          },
+          {
+            value: 115,
+            color: 'ffdc00',
+            description: 'forest disturbed before/at 2015',
+          },
+          {
+            value: 116,
+            color: 'ffc500',
+            description: 'forest disturbed before/at 2016',
+          },
+          {
+            value: 117,
+            color: 'ffaa00',
+            description: 'forest disturbed before/at 2017',
+          },
+          {
+            value: 118,
+            color: 'ff8700',
+            description: 'forest disturbed before/at 2018',
+          },
+          {
+            value: 119,
+            color: 'ff5f00',
+            description: 'forest disturbed before/at 2019',
+          },
+          {
+            value: 120,
+            color: 'ff3300',
+            description: 'forest disturbed before/at 2020',
+          },
+          {
+            value: 121,
+            color: 'ff0000',
+            description: 'forest disturbed before/at 2021',
+          },
+          {
+            value: 200,
+            color: 'ffffff',
+            description: 'forest no change',
+          },
+        ],
+      },
     ],
     'gee:visualizations': [
       {
@@ -392,12 +928,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
               '68ab5f',
               '1c5f2c',
               'b5c58f',
-              'af963c',
               'ccb879',
               'dfdfc2',
-              'd1d182',
-              'a3cc51',
-              '82ba9e',
               'dcd939',
               'ab6c28',
               'b8d9eb',
@@ -421,8 +953,33 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       'gee:estimated_range': false,
     },
     impervious_descriptor: {
+      minimum: 20,
+      maximum: 29,
+      'gee:estimated_range': false,
+    },
+    science_products_change_count: {
       minimum: 1,
-      maximum: 12,
+      maximum: 8,
+      'gee:estimated_range': false,
+    },
+    science_products_change_first_disturbance_date: {
+      minimum: 1,
+      maximum: 9,
+      'gee:estimated_range': false,
+    },
+    science_products_change_index: {
+      minimum: 1,
+      maximum: 13,
+      'gee:estimated_range': false,
+    },
+    science_products_land_cover_science_product: {
+      minimum: 11,
+      maximum: 95,
+      'gee:estimated_range': false,
+    },
+    science_products_forest_disturbance_date: {
+      minimum: 83,
+      maximum: 200,
       'gee:estimated_range': false,
     },
   },
@@ -448,7 +1005,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     distribute and perform the work, even for commercial purposes, all without
     asking permission.
   |||,
-  // TODO(simonf): Remove skip_indexing when the dataset is ready. Add a successor link to this dataset from USGS/NLCD_RELEASES/2019_REL.
+  // TODO(dpencosk): Remove skip_indexing when the dataset is ready.
   'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   'gee:type': ee_const.gee_type.image_collection,
