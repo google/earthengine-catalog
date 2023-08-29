@@ -1,5 +1,5 @@
-local id = 'CSIC/SPEI/2_8';
-local version = '2.8';
+local id = 'CSIC/SPEI/2_9';
+local version = '2.9';
 local subdir = 'CSIC';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -71,7 +71,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://spei.csic.es/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1901-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('1901-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
   summaries: {
     gsd: [55660],
     'eo:bands': [
@@ -431,8 +431,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     Product: Beguería, Santiago; Vicente Serrano, Sergio M.;
     Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023;
-    SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
-    [doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)
+    SPEIbase v.2.9 [Dataset]; DIGITAL.CSIC; Version 2.9.
+    [doi:10.20350/digitalCSIC/15470](https://doi.org/10.20350/digitalCSIC/15470)
   |||,
   'sci:publications': [
     {
@@ -461,8 +461,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Attribution should be given by referencing the document titled:
     Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus;
     Latorre Garcés, Borja; 2023;
-    SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
-    [doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)
+    SPEIbase v.2.9 [Dataset]; DIGITAL.CSIC; Version 2.9.
+    [doi:10.20350/digitalCSIC/15470](https://doi.org/10.20350/digitalCSIC/15470)
   |||,
   'gee:user_uploaded': true,
 }

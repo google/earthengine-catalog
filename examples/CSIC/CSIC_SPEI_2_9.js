@@ -1,6 +1,6 @@
 // Retrieve the last date from the SPEI dataset.
-var dataset = ee.ImageCollection("CSIC/SPEI/2_8").
-  filterDate('2021-12-01', '2022-01-01');
+var dataset = ee.ImageCollection('CSIC/SPEI/2_9').
+  filterDate('2022-12-01', '2023-01-01');
 
 // Select the 24-month analysis.
 var spei24 = dataset.select('SPEI_24_month');
