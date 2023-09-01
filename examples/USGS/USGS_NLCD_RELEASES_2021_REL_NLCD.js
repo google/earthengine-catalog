@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NLCD_2021/NLCD2021_Release');
+var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NLCD_2021/NLCD');
 // Import the NLCD collection.
 //var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/NLCD');
 
@@ -6,7 +6,7 @@ var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NL
 print('Products:', dataset.aggregate_array('system:index'));
 
 // Filter the collection to the 2021 product.
-var nlcd2021 = dataset.filter(ee.Filter.eq('system:index', 'landcover')).first();
+var nlcd2021 = dataset.filter(ee.Filter.eq('system:index', '2021')).first();
 
 // Each product has multiple bands for describing aspects of land cover.
 print('Bands:', nlcd2021.bandNames());
@@ -14,9 +14,9 @@ print('Bands:', nlcd2021.bandNames());
 // Select the land cover band.
 var landcover = nlcd2021.select('landcover');
 
-var vis = {
+var palette = [
   // landcover values
-  'palette': [
+   //'palette': [
     '466b9f', // 11: Open water
     'd1def8', // 12: Perennial ice/snow
     'dec5c5', // 21: Developed, open space
@@ -32,10 +32,21 @@ var vis = {
     'dcd939', // 81: Pasture/hay
     'ab6c28', // 82: Cultivated crops
     'b8d9eb', // 90: Woody wetlands
-    '6c9fb8'  // 95: Emergent herbaceous wetlands
-   ]
-};
+    '6c9fb8', // 95: Emergent herbaceous wetlands
+   ];
+//};
+
+// Map landcover pixel values onto palette indices.
+var landcover_values = ee.List([
+  11, 12, 21, 22, 23, 24, 31, 41, 42, 43, 52, 71, 81, 82, 90, 95
+]);
+var max = landcover_values.size().subtract(1);
+var landcover_indices = ee.List.sequence(0, max);
 
 // Display land cover on the map.
 Map.setCenter(-95, 38, 5);
-Map.addLayer(landcover, vis, 'landcover');
+//Map.addLayer(landcover, vis, 'Landcover');
+Map.addLayer(
+  landcover.remap(landcover_values, landcover_indices)
+    .visualize({min:0, max:max, palette:palette}),
+  null, 'landcover');

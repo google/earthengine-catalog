@@ -342,7 +342,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
         ],
       },
       { 
-        name: 'science_products_change_count',
+        name: 'science_products_land_cover_change_count',
         description: |||
           These products were developed as both intermediate steps to generate 
           the base NLCD products, and as value added products that standalone 
@@ -406,7 +406,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
          ],
       },
       {
-        name: 'science_products_change_first_disturbance_date',
+        name: 'science_products_land_cover_change_first_disturbance_date',
         description: |||
           These products were developed as both intermediate steps to generate 
           the base NLCD products, and as value added products that standalone 
@@ -469,7 +469,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
          ],
       },
       }
-        name: 'science_products_change_index',
+        name: 'science_products_land_cover_change_index',
         description: |||
           These products were developed as both intermediate steps to generate 
           the base NLCD products, and as value added products that standalone 
@@ -957,17 +957,17 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       maximum: 29,
       'gee:estimated_range': false,
     },
-    science_products_change_count: {
+    science_products_land_cover_change_count: {
       minimum: 1,
       maximum: 8,
       'gee:estimated_range': false,
     },
-    science_products_change_first_disturbance_date: {
+    science_products_land_cover_change_first_disturbance_date: {
       minimum: 1,
       maximum: 9,
       'gee:estimated_range': false,
     },
-    science_products_change_index: {
+    science_products_land_cover_change_index: {
       minimum: 1,
       maximum: 13,
       'gee:estimated_range': false,

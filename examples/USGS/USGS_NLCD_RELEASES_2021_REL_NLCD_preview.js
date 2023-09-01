@@ -1,15 +1,16 @@
-var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NLCD_2021/NLCD2021_Release');
+var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NLCD_2021/NLCD');
 // Import the NLCD RCMAP TRENDS image.
 //var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/NLCD');
 
 // Filter the collection to the 2021 product.
-var nlcd2021 = dataset.filter(ee.Filter.eq('system:index', 'landcover')).first();
+var nlcd2021 = dataset.filter(ee.Filter.eq('system:index', '2021')).first();
 
 // Select to the landcover band
 var landcover = nlcd2021.select('landcover');
 
-// landcover values
 var palette = [
+  // landcover values
+   //'palette': [
     '466b9f', // 11: Open water
     'd1def8', // 12: Perennial ice/snow
     'dec5c5', // 21: Developed, open space
@@ -25,13 +26,21 @@ var palette = [
     'dcd939', // 81: Pasture/hay
     'ab6c28', // 82: Cultivated crops
     'b8d9eb', // 90: Woody wetlands
-    '6c9fb8'  // 95: Emergent herbaceous wetlands
-    ];
+    '6c9fb8', // 95: Emergent herbaceous wetlands
+   ];
+//};
 
-var lon = -114;
-var lat = 38;
+// Map landcover pixel values onto palette indices.
+var landcover_values = ee.List([
+  11, 12, 21, 22, 23, 24, 31, 41, 42, 43, 52, 71, 81, 82, 90, 95
+]);
+var max = landcover_values.size().subtract(1);
+var landcover_indices = ee.List.sequence(0, max);
 
-Map.setCenter(lon, lat, 6);
+var lon = -95;
+var lat = 36;
+
+Map.setCenter(lon, lat, 5);
 
 var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
 var backgroundPalette = ['cadetblue', 'lightgray'];
