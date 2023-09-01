@@ -1,7 +1,7 @@
 local id = 'USGS/NLCD_RELEASES/2021_REL/NLCD';
 local subdir = 'USGS';
 //TODO (dpencosk) Add successor link to this dataset from: local successor_id = 'USGS/NLCD_RELEASES/2019_REL';
-//TODO (dpencosk) Use predecessor or successor here? local predecessor_id = 'USGS/NLCD_RELEASES/2019_REL';
+local predecessor_id = 'USGS/NLCD_RELEASES/2019_REL';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
