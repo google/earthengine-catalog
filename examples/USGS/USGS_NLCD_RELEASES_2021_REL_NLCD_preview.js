@@ -1,6 +1,5 @@
-var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NLCD_2021/NLCD');
 // Import the NLCD RCMAP TRENDS image.
-//var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/NLCD');
+var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/NLCD');
 
 // Filter the collection to the 2021 product.
 var nlcd2021 = dataset.filter(ee.Filter.eq('system:index', '2021')).first();
@@ -62,7 +61,7 @@ var imageParams = {
   format: 'png',
 };
 
-var image = landcover.visualize({palette: palette});
+var image = landcover.visualize();
 Map.addLayer(image)
 
 var imageWithBackground = ee.ImageCollection([waterLandBackground, image]).mosaic();

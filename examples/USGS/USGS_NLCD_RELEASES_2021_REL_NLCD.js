@@ -1,6 +1,5 @@
-var dataset = ee.ImageCollection('projects/usgs-gee-audra-griebel/assets/eros/NLCD_2021/NLCD');
 // Import the NLCD collection.
-//var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/NLCD');
+var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2021_REL/NLCD');
 
 // The collection contains images for the 2021 year release and the full suite of products.
 print('Products:', dataset.aggregate_array('system:index'));
@@ -46,6 +45,7 @@ var landcover_indices = ee.List.sequence(0, max);
 // Display land cover on the map.
 Map.setCenter(-95, 38, 5);
 //Map.addLayer(landcover, vis, 'Landcover');
+//TODO (dpencosk) fix the layer once the properties are available. Then delete almost everything other than Map.addLayer(landcover, null, 'landcover');
 Map.addLayer(
   landcover.remap(landcover_values, landcover_indices)
     .visualize({min:0, max:max, palette:palette}),
