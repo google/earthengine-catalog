@@ -468,7 +468,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
           },
          ],
       },
-      }
+      {
         name: 'science_products_land_cover_change_index',
         description: |||
           These products were developed as both intermediate steps to generate 
