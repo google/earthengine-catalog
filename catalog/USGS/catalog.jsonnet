@@ -51,6 +51,7 @@ local self_url = base_url + base_filename;
       'USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER', base_url),
     ee.link.child_collection('USGS_NLCD_RELEASES_2020_REL_NALCMS', base_url),
     ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_TRENDS', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_TRENDS_YEAR', base_url),
     //TODO (simonf) uncomment when ready to publish
     //ee.link.child_collection('USGS_NLCD_RELEASES_2021_REL_NLCD', base_url),
 
