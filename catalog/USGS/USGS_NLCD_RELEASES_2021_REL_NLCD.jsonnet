@@ -71,10 +71,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider(
-      'United States Geological Survey and the 
-      Multi-Resolution Land Characteristics (MRLC) Consortium', 
-      'https://www.mrlc.gov'),
+    ee.producer_provider('USGS', 'https://www.mrlc.gov'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-130.24, 21.75, -63.66, 50,
