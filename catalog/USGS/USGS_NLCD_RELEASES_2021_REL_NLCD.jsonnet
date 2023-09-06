@@ -1002,8 +1002,6 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     distribute and perform the work, even for commercial purposes, all without
     asking permission.
   |||,
-  // TODO(dpencosk): Remove skip_indexing when the dataset is ready.
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   'gee:type': ee_const.gee_type.image_collection,
   stac_version: ee_const.stac_version,
