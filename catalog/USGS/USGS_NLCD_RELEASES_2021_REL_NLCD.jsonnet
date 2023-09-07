@@ -61,7 +61,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(predecessor_id, predecessor_url)
+    // TODO(dpencosk): Uncomment this when the precdecessor has a successor link, too.
+    // ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
     'blm',
