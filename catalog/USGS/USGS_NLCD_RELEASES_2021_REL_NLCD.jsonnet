@@ -61,8 +61,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    // TODO(dpencosk): Uncomment this when the precdecessor has a successor link, too.
-    // ee.link.predecessor(predecessor_id, predecessor_url)
+    ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
     'blm',
@@ -1004,6 +1003,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     asking permission.
   |||,
   'gee:user_uploaded': true,
+  // TODO(dpencosk): Remove gee:skip_indexing when this is added to catalog.jsonnet.
+  'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
