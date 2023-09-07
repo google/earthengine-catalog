@@ -111,11 +111,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       -175, 14, -50, 84,
       '2019-01-01T00:00:00Z',
       '2021-12-31T00:00:00Z'),
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
   summaries: {
     gsd: [30],
     'eo:bands': [

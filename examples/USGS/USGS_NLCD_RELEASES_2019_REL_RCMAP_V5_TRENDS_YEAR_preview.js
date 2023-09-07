@@ -1,6 +1,7 @@
-// Import the RCMAP/V5/TRENDS image.
-var image = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS')
-              .select('annual_herbaceous_linear_model_pvalue');
+// Import the RCMAP/V5/TRENDS/YEAR image.
+var image = ee.ImageCollection(
+      'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS_YEAR'
+    ).first().select('tree_segment_pvalue');
 var visParams = {
   palette: [
     '000000', 'f9e8b7', 'f7e3ac', 'f0dfa3', 'eedf9c', 'eada91', 'e8d687',
@@ -20,7 +21,7 @@ var visParams = {
     '012d85', '012c82', '01297a'
     ],
   min: 1,
-  max: 60,
+  max: 100,
 };
 
 var lon = -116;
@@ -49,6 +50,6 @@ var imageParams = {
 var imageRGB = image.visualize(visParams);
 var imageWithBackground = ee.ImageCollection([background, imageRGB]).mosaic();
 
-Map.addLayer(imageWithBackground, {}, 'RCMAP V5 TRENDS image');
+Map.addLayer(imageWithBackground, {}, 'RCMAP V5 TRENDS YEAR image');
 
 print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));

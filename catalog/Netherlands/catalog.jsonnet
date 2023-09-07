@@ -1,10 +1,10 @@
-local id = 'UMT';
+local id = 'Netherlands';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
 local basename = 'catalog';
 local base_filename = basename + '.json';
-local base_url = ee_const.catalog_base + 'UMT/';
+local base_url = ee_const.catalog_base + 'Netherlands/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
@@ -13,15 +13,17 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: id,
-  description: importstr 'description.md',
+  description: |||
+    Orthophotos of Netherlands.
+    An orthophoto is an aerial photograph or satellite imagery geometrically
+    corrected such that the scale is uniform.
+
+    This catalog is dedicated to Netherlands Orthophotos from a variety of sources.
+  |||,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('UMT_Climate_IrrMapper_RF_v1_1', base_url),
-    ee.link.child_collection('UMT_NTSG_v2_LANDSAT_GPP', base_url),
-    ee.link.child_collection('UMT_NTSG_v2_LANDSAT_NPP', base_url),
-    ee.link.child_collection('UMT_NTSG_v2_MODIS_GPP', base_url),
-    ee.link.child_collection('UMT_NTSG_v2_MODIS_NPP', base_url),
+    ee.link.child_collection('Netherlands_Beeldmateriaal_LUCHTFOTO_RGB', base_url),
   ],
 }

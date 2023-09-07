@@ -149,6 +149,12 @@
 
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
+  // TODO(kumaraashutosh): Temporarily added, we need to double-check with the
+  // provider about unit for confidence and slope.
+  // https://en.wikipedia.org/wiki/P-value
+  p_value: 'P-value',
+  // % change/year × 100
+  percent_change_per_year: '% change/y',
 
   // https://en.wikipedia.org/wiki/Fraction
   unspecified_fraction: 'Fraction',

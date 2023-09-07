@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'GHSL: Global Human Settlement Layers, Built-Up Grid 1975-1990-2000-2015 (P2016)',
-  version: 'v1',
+  version: 'P2016',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The GHSL relies on the design and implementation of new spatial data mining
@@ -54,7 +54,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'builtup',
     'jrc',
     'landsat_derived',
-    'multitemporal',
   ],
   providers: [
     ee.producer_provider('EC JRC', 'https://ghsl.jrc.ec.europa.eu/index.php'),

@@ -1,13 +1,13 @@
-local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
+local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS_YEAR';
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local utils = import 'templates/RCMAP_rangeland_trends.libsonnet';
 local units = import 'units.libsonnet';
+local utils = import 'templates/RCMAP_rangeland_trends.libsonnet';
+
 local license = spdx.cc0_1_0;
-local model_type = ['_linear_model_pvalue', '_linear_model_slope'];
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -23,10 +23,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'RCMAP Rangeland Trends for Component Timeseries V5 (1985-2021)',
+  title: 'RCMAP Rangeland Trends Year for Component Timeseries V5 (1985-2021)',
   version: 'V5',
-  'gee:type': ee_const.gee_type.image,
-  description: utils.description,
+  'gee:type': ee_const.gee_type.image_collection,
+  description: |||
+    This collection includes RCMAP yearly products from 1985 through 2021.
+
+  ||| + utils.description,
   'sci:publications': utils.publication,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -47,48 +50,37 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
-    -125.07,
-    28.46,
-    -101.07,
-    49.33,
+    -125.068,
+    28.459,
+    -101.074,
+    49.325,
     '1985-01-01T00:00:00Z',
     '2022-01-01T00:00:00Z'
   ),
+  'gee:interval': {
+    type: 'cadence',
+    unit: 'year',
+    interval: 1,
+  },
   summaries: {
     gsd: [30],
     'eo:bands': [
       {
         name: name + desc,
-        description: std.join(
-          ' ',
-          [
-            utils.band_description[desc][0],
-            std.join(' ', std.split(name, '_')),
-            'time series',
-          ]
+        description: std.strReplace(
+          utils.band_description_yearly[desc][0], 'band_name', std.join(
+            ' ', std.split(name, '_')
+          )
         ),
-        'gee:units': utils.band_description[desc][1],
-        [if std.member(model_type, desc) then 'gee:scale']: 0.01,
+        'gee:units': utils.band_description_yearly[desc][1],
+        [if desc != '_break_point' then 'gee:scale']: 0.01,
       }
-      for desc in std.objectFields(utils.band_description)
+      for desc in std.objectFields(utils.band_description_yearly)
       for name in utils.bands_prefix
-    ] + [
-      {
-        name: 'total_change_intensity_index',
-        description: |||
-          Total Change Intensity is a derivative index designed to highlight
-          the total amount of change across primary components (shrub,
-          bare ground, litter, and herbaceous). Change indicates the slope
-          values from the structural change analysis. Values are constructed
-          so that 100 means the maximum observed change across all components
-          and 0 means no change.
-        |||,
-        'gee:units': units.dimensionless,
-      },
     ],
     'gee:visualizations': [
       {
-        display_name: 'annual herbaceous breakpoint in integer',
+        display_name: 'annual_herbaceous_segment_pvalue',
         lookat: {
           lat: 38,
           lon: -114,
@@ -100,7 +92,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              5,
+              100,
             ],
             palette: [
               '000000',
@@ -206,7 +198,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '01297a',
             ],
             bands: [
-              'annual_herbaceous_break_point',
+              'annual_herbaceous_segment_pvalue',
             ],
           },
         },
@@ -214,187 +206,137 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     annual_herbaceous_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     bare_ground_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     herbaceous_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     litter_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     sagebrush_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     shrub_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     non_sagebrush_shrub_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     perennial_herbaceous_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
     tree_break_point: {
       minimum: 0,
-      maximum: 3,
+      maximum: 1,
       'gee:estimated_range': false,
     },
-    annual_herbaceous_linear_model_pvalue: {
+    annual_herbaceous_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    bare_ground_linear_model_pvalue: {
+    bare_ground_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    herbaceous_linear_model_pvalue: {
+    herbaceous_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    litter_linear_model_pvalue: {
+    litter_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    sagebrush_linear_model_pvalue: {
+    sagebrush_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    shrub_linear_model_pvalue: {
+    shrub_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    non_sagebrush_shrub_linear_model_pvalue: {
+    non_sagebrush_shrub_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    perennial_herbaceous_linear_model_pvalue: {
+    perennial_herbaceous_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    tree_linear_model_pvalue: {
+    tree_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
-    annual_herbaceous_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    annual_herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    bare_ground_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    bare_ground_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    herbaceous_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    litter_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    litter_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    sagebrush_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    sagebrush_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    shrub_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    shrub_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    non_sagebrush_shrub_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    non_sagebrush_shrub_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    perennial_herbaceous_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
+    perennial_herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
-    tree_linear_model_slope: {
-      minimum: -383,
-      maximum: 351,
-      'gee:estimated_range': false,
-    },
-    annual_herbaceous_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    bare_ground_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    herbaceous_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    litter_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    sagebrush_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    shrub_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    non_sagebrush_shrub_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    perennial_herbaceous_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    tree_most_recent_break_point: {
-      minimum: 1986,
-      maximum: 2019,
-      'gee:estimated_range': false,
-    },
-    total_change_intensity_index: {
-      minimum: 0,
-      maximum: 100,
+    tree_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
       'gee:estimated_range': false,
     },
   },
