@@ -1,22 +1,21 @@
-local id = 'USGS/NLCD_RELEASES/2019_REL/NLCD';
-local subdir = 'USGS';
-local predecessor_id = 'USGS/NLCD_RELEASES/2016_REL';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
+local nlcd = import 'nlcd.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
+local id = nlcd.id(2019);
+local subdir = 'USGS';
+local predecessor_id = nlcd.id(2016);
+local successor_id = nlcd.id(2021);
+local latest_id = nlcd.id(nlcd.latest);
+
 local license = spdx.cc0_1_0;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local predecessor_filename = predecessor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local predecessor_url = catalog_subdir_url + predecessor_filename;
+local self_ee_catalog_url = nlcd.provider_url(id);
+local predecessor_url = nlcd.link_url(predecessor_id);
+local successor_url = nlcd.link_url(successor_id);
+local latest_url = nlcd.link_url(latest_id);
 
 {
   stac_version: ee_const.stac_version,
@@ -27,7 +26,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NLCD 2019: USGS National Land Cover Database, 2019 release',
+  title: 'NLCD 2019: USGS National Land Cover Database, 2019 release [deprecated]',
+  deprecated: true,
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -48,7 +48,9 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   'gee:user_uploaded': true,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(predecessor_id, predecessor_url)
+    ee.link.predecessor(predecessor_id, predecessor_url),
+    ee.link.successor(successor_id, successor_url),
+    ee.link.latest(latest_id, latest_url),
   ],
   keywords: [
     'blm',
