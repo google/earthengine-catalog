@@ -7,15 +7,11 @@ local units = import 'units.libsonnet';
 local id = nlcd.id(2019);
 local subdir = 'USGS';
 local predecessor_id = nlcd.id(2016);
-local successor_id = nlcd.id(2021);
-local latest_id = nlcd.id(nlcd.latest);
 
 local license = spdx.cc0_1_0;
 
 local self_ee_catalog_url = nlcd.provider_url(id);
 local predecessor_url = nlcd.link_url(predecessor_id);
-local successor_url = nlcd.link_url(successor_id);
-local latest_url = nlcd.link_url(latest_id);
 
 {
   stac_version: ee_const.stac_version,
@@ -26,16 +22,16 @@ local latest_url = nlcd.link_url(latest_id);
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NLCD 2019: USGS National Land Cover Database, 2019 release [deprecated]',
-  deprecated: true,
+  title: 'NLCD 2019: USGS National Land Cover Database, 2019 release',
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     NLCD (the National Land Cover Database) is a 30-m Landsat-based land cover
-    database spanning 8 epochs
-    (2001, 2004, 2006, 2008, 2011, 2013, 2016, and 2019).
-    The images rely on the imperviousness data layer for the
-    urban classes and on a decision-tree classification for the rest.
+    database spanning 8 epochs (2001, 2004, 2006, 2008, 2011, 2013, 2016, and
+    2019). A ninth epoch for 2021 is also available
+    [here](USGS_NLCD_RELEASES_2021_REL_NLCD). The images rely on the
+    imperviousness data layer for the urban classes and on a decision-tree
+    classification for the rest.
 
     This dataset has one image for the continental US for each epoch.
     Alaska, Hawaii, and Puerto Rico data can be found in the previous
@@ -49,8 +45,6 @@ local latest_url = nlcd.link_url(latest_id);
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.predecessor(predecessor_id, predecessor_url),
-    ee.link.successor(successor_id, successor_url),
-    ee.link.latest(latest_id, latest_url),
   ],
   keywords: [
     'blm',

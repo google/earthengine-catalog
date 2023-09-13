@@ -4,8 +4,6 @@ local subdir = 'USGS';
 local ee_const = import 'earthengine_const.libsonnet';
 
 {
-  latest: 2021,
-
   id(year)::
     local prefix = id_prefix + '/' + year + '_REL';
     if year == 2016 then prefix else prefix + '/NLCD',

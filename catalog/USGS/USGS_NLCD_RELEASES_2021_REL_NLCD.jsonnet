@@ -6,14 +6,10 @@ local units = import 'units.libsonnet';
 
 local id = nlcd.id(2021);
 local subdir = 'USGS';
-local predecessor_id = nlcd.id(2019);
-local latest_id = nlcd.id(nlcd.latest);
 
 local license = spdx.cc0_1_0;
 
 local self_ee_catalog_url = nlcd.provider_url(id);
-local predecessor_url = nlcd.link_url(predecessor_id);
-local latest_url = nlcd.link_url(latest_id);
 
 {
   id: id,
@@ -29,8 +25,10 @@ local latest_url = nlcd.link_url(latest_id);
     information on the Nation’s land cover and land cover change.
     NLCD continues to provide innovative, consistent, and robust
     methodologies for production of a multi-temporal land cover and
-    land cover change database. The NLCD 2021 release is update based,
-    so the Land Cover and Impervious Surface products released in 2019
+    land cover change database.
+    
+    The NLCD 2021 release is update based, so the Land Cover and Impervious
+    Surface products released in [2019](USGS_NLCD_RELEASES_2019_REL_NLCD)
     are unchanged and used directly with NLCD 2021 for change analysis
     though the NLCD timespan. Science products and the change index are
     updated and will need to be reacquired to contain the additional 2021
@@ -56,10 +54,7 @@ local latest_url = nlcd.link_url(latest_id);
     [NLCD Community Page](https://www.sciencebase.gov/catalog/item/6345b637d34e342aee0863aa).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(predecessor_id, predecessor_url),
-    ee.link.latest(latest_id, latest_url),
-  ],
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'blm',
     'landcover',

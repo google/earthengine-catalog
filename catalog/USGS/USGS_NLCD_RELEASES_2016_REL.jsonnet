@@ -5,17 +5,13 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
 local id = nlcd.id(2016);
-// TODO(b/195835158): uncomment successor lines once 2019 assets have the same
-// bands and non-CONUS regions.
-// local successor_id = nlcd.id(2019);
-local latest_id = nlcd.id(nlcd.latest);
+local successor_id = nlcd.id(2019);
 local subdir = 'USGS';
 
 local license = spdx.cc0_1_0;
 
 local self_ee_catalog_url = nlcd.provider_url(id);
-local latest_url = nlcd.link_url(latest_id);
-// local successor_url = nlcd.link_url(successor_id);
+local successor_url = nlcd.link_url(successor_id);
 
 {
   stac_version: ee_const.stac_version,
@@ -26,7 +22,8 @@ local latest_url = nlcd.link_url(latest_id);
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NLCD 2016: USGS National Land Cover Database, 2016 release',
+  title: 'NLCD 2016: USGS National Land Cover Database, 2016 release [deprecated]',
+  deprecated: true,
   version: '1.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -68,8 +65,7 @@ local latest_url = nlcd.link_url(latest_id);
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    // ee.link.successor(successor_id, successor_url),
+    ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
     'blm',
