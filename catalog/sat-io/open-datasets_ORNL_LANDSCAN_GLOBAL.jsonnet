@@ -12,6 +12,9 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  // TODO: remove 'gee:skip_indexing'
+  'gee:skip_indexing': true,
+  'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -28,8 +31,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'demography',
-    'population',
     'landscan',
+    'population',
   ],
   providers: [
     ee.producer_provider('Oak Ridge National Laboratory', 'https://www.ornl.gov/'),
@@ -75,14 +78,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               10.0,
             ],
             bands: [
-              'population',
+              'b1',
             ],
             palette:['lemonchiffon', 'khaki', 'orange','orangered', 'red', 'maroon'],
           },
         },
       },
     ],
-    population: {
+    b1: {
       minimum: 0.0,
       maximum: 21171.0,
       'gee:estimated_range': true,
