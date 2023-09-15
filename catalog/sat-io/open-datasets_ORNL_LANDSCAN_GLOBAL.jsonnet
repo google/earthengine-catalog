@@ -88,14 +88,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': true,
     },
   },
-  'sci:citation': [
-    {
-      |||
+  'sci:citation':|||
         Sims, K., Reith, A., Bright, E., Kaufman, J., Pyle, J., Epting, J., Gonzales, J., Adams, D., Powell, E., Urban, M., & Rose, A. (2023). LandScan Global 2022 [Data set]. Oak Ridge National Laboratory. https://doi.org/10.48690/1529167
-      |||,
-      doi: '10.48690/1529167',
-    }
-  ],
+        doi: '10.48690/1529167',
+  |||,
   'gee:terms_of_use': |||
     Landscan datasets are licensed under the Creative Commons Attribution 4.0
     International License. Users are free to use, copy, distribute, transmit,
