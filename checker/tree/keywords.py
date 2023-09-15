@@ -126,7 +126,6 @@ EXCEPTIONS = frozenset({
     'kntu',
     'label',
     'lance',
-    'landscan',
     'landscape',
     'lst_derived',
     'lt8',
