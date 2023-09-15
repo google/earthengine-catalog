@@ -1,5 +1,5 @@
-local id = 'projects/sat-io/open-datasets/ORNL/LANDSCAN_GLOBAL'
-local subdir = 'sat-io'
+local id = 'projects/sat-io/open-datasets/ORNL/LANDSCAN_GLOBAL';
+local subdir = 'sat-io';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
