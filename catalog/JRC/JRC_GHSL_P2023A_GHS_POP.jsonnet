@@ -59,7 +59,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   extent: ee.extent_global('1975-01-01T00:00:00Z', '2030-12-31T00:00:00Z'),
   summaries: {
     gsd: [
-      250.0,
+      100.0,
     ],
     'eo:bands': [
       {
