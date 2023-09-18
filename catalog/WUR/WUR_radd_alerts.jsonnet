@@ -36,7 +36,7 @@ local license = spdx.cc_by_4_0;
     'forest',
     'radar',
     'sentinel',
-    'wur',
+    //'wur',
     ],
   providers: [
     ee.producer_provider('Radar remote sensing group, Wageningen University and Research (WUR)', 'http://radd-alert.wur.nl/'),
