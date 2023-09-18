@@ -66,8 +66,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'USDM Drought Classes',
         lookat: {
-          lat: -100.576,
-          lon: 39.648,
+          lat: 39.648,
+          lon: -100.576,
           zoom: 5,
         },
         image_visualization: {
@@ -81,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             bands: [
               'b1',
             ],
-            palette:["#FFFF00","#FCD37F", "#FFAA00","#E60000", "#730000"],
+            palette:["FFFF00","FCD37F", "FFAA00","E60000", "730000"],
           },
         },
       },
