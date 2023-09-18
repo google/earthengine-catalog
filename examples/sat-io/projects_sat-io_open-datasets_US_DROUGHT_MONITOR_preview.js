@@ -21,7 +21,7 @@ var dict = {
     "D3 Extreme Drought", //4
     "D4 Exceptional Drought", //5
   ],
-  colors: ["#FFFF00", "#FCD37F", "#FFAA00", "#E60000", "#730000"],
+  colors: ["FFFF00", "FCD37F", "FFAA00", "E60000", "730000"],
 };
 
 // Create a panel to hold the legend widget
