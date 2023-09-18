@@ -1,5 +1,12 @@
 var radd = ee.ImageCollection('projects/radar-wur/raddalert/v1');
 var geography = 'sa' // 'ca' (central america), 'sa' (south america), 'africa' (africa), 'asia' (asia & pacific)
+
+
+// Add a white background image to the map.
+var background = ee.Image(1);
+Map.addLayer(background, {min: 0, max: 1});
+
+
 var forest_baseline = ee.Image(radd.filterMetadata('layer','contains','forest_baseline')
                             .filterMetadata('geography','equals',geography).first())
 Map.addLayer(forest_baseline, {palette:['black'], opacity: 0.3},'Forest baseline')
