@@ -89,7 +89,7 @@ class ValidVisualizationsImageTest(test_utils.NodeTest):
         'gee:visualizations': [{
             'display_name': 'Display name',
             'image_visualization': {'band_vis': {
-                'bands': ['B1'], 'palette': ['000088', 'ffffff']}}}]}})
+                'bands': ['B1'], 'palette': ['000088', 'FFFFFF']}}}]}})
 
   def test_palette_color_names(self):
     self.assert_collection({'summaries': {
