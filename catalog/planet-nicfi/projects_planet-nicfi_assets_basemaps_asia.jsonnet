@@ -11,7 +11,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 std.mergePatch(common, {
   id: id,
-  title: 'Planet & NICFI Basemaps for Tropical Forest Monitoring - Tropical Asia',
+  title: 'NICFI Satellite Data Program Basemaps for Tropical Forest Monitoring - Asia',
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.license,

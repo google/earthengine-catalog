@@ -21,26 +21,32 @@ local license = spdx.proprietary;
     To learn how to access the Basemaps, follow the
     [sign up instructions here](https://developers.planet.com/docs/integrations/gee/nicfi/).
 
-    NICFI mosaics contain both monthly and biannual collections.
-    (Biannual collections are generated every 6 months.)  The type of
-    the mosaic is stored in the image metadata field 'cadence'. Use that
-    field along with the start and end date for each mosaic to find
-    the desired imagery.
+    The NICFI Satellite Data Program mosaics (also referred to as Planet-NICFI
+    mosaics) contain both monthly and biannual collections generated every
+    6 months.  The type of the mosaic is stored in the image metadata field
+    'cadence'. Use that field along with the start and end date for each mosaic
+    to find the desired imagery.
 
     Full details about the Basemaps are available in
-    [Planet's NICFI Basemap spec](https://assets.planet.com/docs/NICFI_Basemap_Spec_Addendum.pdf).
+    [NICFI Satellite Data Program Basemap spec](https://assets.planet.com/docs/NICFI_Basemap_Spec_Addendum.pdf).
 
-    For more information about NICFI (Norway's International Climate
-    and Forest Initiative) and the NICFI Basemaps,
-    [see the FAQ](https://assets.planet.com/docs/NICFI_General_FAQs.pdf).
+    For more information about the NICFI (Norway's International Climate
+    and Forest Initiative) Satellite Data Program and the data offered,
+    please visit
+    [the Program's website](https://assets.planet.com/docs/NICFI_General_FAQs.pdf).
 
-    In support of NICFI's mission, you can use this data for a number of projects including, but not limited to:
+    In support of NICFI's mission, you can use this data for a number of projects
+    including, but not limited to:
 
-    * Advance scientific research about the world's tropical forests and the critical services they provide.
-    * Implement and improve policies for sustainable forest management and land use in developing tropical forest countries and jurisdictions.
+    * Advance scientific research about the world's tropical forests and the
+      critical services they provide.
+    * Implement and improve policies for sustainable forest management and land
+      use in developing tropical forest countries and jurisdictions.
     * Increase transparency and accountability in the tropics.
-    * Protect and improve the rights of indigenous peoples and local communities in tropical forest countries.
-    * Innovate solutions towards reducing pressure on forests from global commodities and financial markets.
+    * Protect and improve the rights of indigenous peoples and local communities
+      in tropical forest countries.
+    * Innovate solutions towards reducing pressure on forests from global
+      commodities and financial markets.
   |||,
   license: license.id,
   keywords: [
@@ -110,8 +116,13 @@ local license = spdx.proprietary;
   |||,
   'gee:terms_of_use': |||
     This data has usage, reproduction, and distribution restrictions in support
-    of the NICFI Forest Monitoring Purpose. The full licensing agreement is available
+    of the NICFI Satellite Data Program purpose. The full licensing agreement is available
     [here](https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf).
+
+    Copyright notice:
+
+    Image &copy; 20xx Planet Labs PBC (where xx denotes the year of the content
+    used)
   |||,
   'gee:unusual_terms_of_use': true,
   'gee:user_uploaded': true,
