@@ -32,7 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'biomass',
     'forest',
-    'ESA'
+    'esa'
   ],
   providers: [
     ee.producer_provider('ESA Climate Office', 'https://climate.esa.int/en/'),
