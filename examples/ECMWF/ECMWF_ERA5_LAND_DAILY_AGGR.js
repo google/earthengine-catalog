@@ -1,15 +1,15 @@
-var dataset = ee.ImageCollection("ECMWF/ERA5_LAND/DAILY_AGGR")
-                .filter(ee.Filter.date('2021-06-01', '2021-07-01'));
+var dataset = ee.ImageCollection('ECMWF/ERA5_LAND/DAILY_AGGR').first();
 
 var visualization = {
   bands: ['temperature_2m'],
-  min: 250.0,
-  max: 320.0,
+  min: 250,
+  max: 320,
   palette: [
-    "#000080","#0000D9","#4000FF","#8000FF","#0080FF","#00FFFF",
-    "#00FF80","#80FF00","#DAFF00","#FFFF00","#FFF500","#FFDA00",
-    "#FFB000","#FFA400","#FF4F00","#FF2500","#FF0A00","#FF00FF",
+    '000080', '0000d9', '4000ff', '8000ff', '0080ff', '00ffff',
+    '00ff80', '80ff00', 'daff00', 'ffff00', 'fff500', 'ffda00',
+    'ffb000', 'ffa400', 'ff4f00', 'ff2500', 'ff0a00', 'ff00ff',
   ]
 };
-Map.setCenter(-170.13, 45.62, 2);
-Map.addLayer(dataset, visualization, "Air temperature [K] at 2m height");
+Map.setCenter(70, 45, 3);
+Map.addLayer(
+    dataset, visualization, 'Air temperature (K) at 2m height', true, 0.8);

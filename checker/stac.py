@@ -7,6 +7,7 @@ import dataclasses
 import enum
 import json
 import pathlib
+import sys
 from typing import Iterator, Optional
 
 import os
@@ -22,15 +23,23 @@ NON_COMMERCIAL_LIST = []
 
 SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 
+CHECKER_CODE_ROOT = 'https://github.com/google/earthengine-catalog/blob/main'
 
-class StacType(str, enum.Enum):
+# Legacy id for a top-level dataset
+FIRMS = 'FIRMS'
+
+
+_StrEnum = (
+    (enum.StrEnum,) if sys.version_info[:2] >= (3, 11) else (str, enum.Enum)
+)
+
+
+class StacType(*_StrEnum):
   CATALOG = 'Catalog'
   COLLECTION = 'Collection'
-  # TODO(schwehr): We may eventually have STAC Items:
-  # ITEM = 'Item'
 
 
-class GeeType(str, enum.Enum):
+class GeeType(*_StrEnum):
   IMAGE = 'image'
   IMAGE_COLLECTION = 'image_collection'
   TABLE = 'table'
@@ -58,6 +67,21 @@ def examples_root() -> pathlib.Path:
   return data_root() / 'examples/javascript_examples'
 
 
+def previews_root() -> pathlib.Path:
+  # First try for a local path for bazel.
+  path = pathlib.Path('examples')
+  if path.is_dir(): return path
+
+  # blaze has Fileset support
+  return data_root() / 'examples/javascript_previews'
+
+
+def url_id_for_dataset_id(dataset_id: str) -> str:
+  """Converts a dataset id into a string suitable for use in a URL."""
+  assert dataset_id
+  return dataset_id.replace('/', '_')
+
+
 @dataclasses.dataclass
 class Node:
   """Container for one STAC Catalog or STAC Collection."""
@@ -68,7 +92,7 @@ class Node:
   stac: dict[str, object]  # The result of json.load
 
 
-class IssueLevel(str, enum.Enum):
+class IssueLevel(*_StrEnum):
   """How serious is an issue."""
   WARNING = 'warning'
   ERROR = 'error'
@@ -98,7 +122,20 @@ class Check:
                 node: Node,
                 message: str,
                 level: IssueLevel = IssueLevel.ERROR) -> Issue:
-    return Issue(node.id, node.path, cls.name, message, level)
+    """Creates a new Issue for the given arguments."""
+
+    # Find the relative path to the checker that produced the error.
+    relative_path = []
+    for component in reversed(cls.__module__.split('.')):
+      if component == 'earthengine_catalog':
+        break
+      relative_path.insert(0, component)
+    module = '/'.join(relative_path)
+    link = f'{CHECKER_CODE_ROOT}/{module}.py'
+    # Changing the checker filename to have extension .jsonnet rather than .json
+    return Issue(
+        node.id, node.path.with_suffix('.jsonnet'), link, message, level
+    )
 
 
 class NodeCheck(Check):

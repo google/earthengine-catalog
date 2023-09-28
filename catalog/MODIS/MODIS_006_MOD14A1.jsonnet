@@ -32,7 +32,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   id: id,
   title: 'MOD14A1.006: Terra Thermal Anomalies & Fire Daily Global 1km [deprecated]',
-  version: 'V006',
+  version: '6',
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

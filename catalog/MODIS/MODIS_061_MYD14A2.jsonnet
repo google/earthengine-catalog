@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MYD14A2.061: Aqua Thermal Anomalies & Fire 8-Day Global 1km',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD14A2 V6.1 dataset provides 8-day fire mask composites

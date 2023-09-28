@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'surface_elevation',
         description: 'Sea surface elevation anomaly relative to the modeled elevation mean',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
         'gee:scale': 0.001,
       },
     ],

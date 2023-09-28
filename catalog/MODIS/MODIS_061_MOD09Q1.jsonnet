@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MOD09Q1.061 Terra Surface Reflectance 8-Day Global 250m',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD09Q1 product provides an estimate of the surface

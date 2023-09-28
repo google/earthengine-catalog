@@ -1,6 +1,6 @@
 """Checks that the keywords field is valid.
 
-Keywords should be sorted and there should be no duplicates.
+Keyword list should have no duplicates.
 
 - Each keyword must:
   - Be 2 to 50 characters
@@ -59,9 +59,6 @@ class Check(stac.NodeCheck):
               f'keyword must contain only lowercase letters, digits, and '
               f'underscores and be at most 49 characters long: "{keyword}"'
           )
-
-    if keywords != sorted(keywords):
-      yield cls.new_issue(node, f'"{KEYWORDS}" must be sorted')
 
     if len(keywords) != len(set(keywords)):
       yield cls.new_issue(node, 'duplicate keyword found')

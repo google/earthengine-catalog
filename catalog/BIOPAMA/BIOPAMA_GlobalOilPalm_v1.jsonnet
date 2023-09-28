@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'classification',
         description: 'Oil Palm class description',
-        gsd: 10.0,
+        gsd: 10,
         'gee:classes': [
           {
             value: 1,

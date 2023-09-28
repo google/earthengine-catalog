@@ -4,7 +4,6 @@ from checker import test_utils
 from checker.node import sci_extension
 from absl.testing import absltest
 
-ID_FOR_EXTRA_DOI = 'CSIRO/SLGA'
 EXTENSION_URL = (
     'https://stac-extensions.github.io/scientific/v1.0.0/schema.json')
 
@@ -28,13 +27,7 @@ class ValidSciExtTest(test_utils.NodeTest):
          'sci:doi': '10.123456/an/example',
          'sci:publications': [{
              'citation': 'B cite', 'doi': '10.01234/doi/str'}],
-         'gee:extra_dois': ['10.4225/example/1', '10.4225/example/2']},
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_only_gee_extra_dois(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['10.4225/example/1', '10.4225/example/2']},
-        dataset_id=ID_FOR_EXTRA_DOI)
+        })
 
 
 class ErrorSciExtTest(test_utils.NodeTest):
@@ -50,9 +43,7 @@ class ErrorSciExtTest(test_utils.NodeTest):
 
   def test_extension_url_not_str(self):
     self.assert_collection(
-        {'stac_extensions': [414]},
-        'Extensions must be a url str',
-        dataset_id=ID_FOR_EXTRA_DOI)
+        {'stac_extensions': [414]}, 'Extensions must be a url str')
 
   def test_extension_version(self):
     self.assert_collection(
@@ -79,65 +70,6 @@ class ErrorSciExtTest(test_utils.NodeTest):
     self.assert_collection(
         {'sci:publications': []},
         'scientific extension not found, but has "sci:publications"')
-
-  def test_extra_doi_not_list(self):
-    self.assert_collection(
-        {'gee:extra_dois': 'not a list'},
-        'gee:extra_dois must be a list',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_empty_list(self):
-    self.assert_collection(
-        {'gee:extra_dois': []},
-        'Empty gee:extra_dois not allowed',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_not_str(self):
-    self.assert_collection(
-        {'gee:extra_dois': [123]},
-        'gee:extra_dois doi must be a str',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_not_in_new_ids(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['10.5065/D6513W89']},
-        'No new uses of gee:extra_dois allowed')
-
-  def test_extra_doi_starts_with_ftp(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['ftps://example.com']},
-        'gee:extra_dois doi not valid: ftps://example.com',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_starts_with_http(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['https://example.com']},
-        'gee:extra_dois doi not valid: https://example.com',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_ends_with_html(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['example.com/thing.html']},
-        'gee:extra_dois doi not valid: example.com/thing.html',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_ends_with_pdf(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['example.com/thing.pdf']},
-        'gee:extra_dois doi not valid: example.com/thing.pdf',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_duplicates(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['10.0000/a', '10.0000/a']},
-        'gee:extra_dois has duplicates',
-        dataset_id=ID_FOR_EXTRA_DOI)
-
-  def test_extra_doi_unsorted(self):
-    self.assert_collection(
-        {'gee:extra_dois': ['10.1016/b', '10.1016/a']},
-        'gee:extra_dois not sorted',
-        dataset_id=ID_FOR_EXTRA_DOI)
 
   def test_doi_not_str(self):
     self.assert_collection(

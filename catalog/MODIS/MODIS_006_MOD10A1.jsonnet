@@ -1,4 +1,6 @@
 local id = 'MODIS/006/MOD10A1';
+local latest_id = 'MODIS/061/MOD10A1';
+local successor_id = 'MODIS/061/MOD10A1';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -9,9 +11,16 @@ local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MOD10A1.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local latest_filename = latest_basename + '.json';
+local successor_filename = successor_basename + '.json';
 local base_filename = basename + '.json';
+
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local latest_url = catalog_subdir_url + latest_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,8 +31,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD10A1.006 Terra Snow Cover Daily Global 500m',
-  version: 'V006',
+  title: 'MOD10A1.006 Terra Snow Cover Daily Global 500m [deprecated]',
+  version: '6',
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD10A1 V6 Snow Cover Daily Global 500m product
@@ -40,6 +50,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD10A1.006',
     },
+    ee.link.latest(latest_id, latest_url),
+    ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
     'albedo',
@@ -82,6 +94,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     You may download and use photographs, imagery, or text
     from the NSIDC web site, unless limitations for its use are specifically
     stated. For more information on usage and citing NSIDC datasets,
-    please visit the [NSIDC 'Use and Copyright' page](https://nsidc.org/about/use_copyright.html).
+    please visit the [NSIDC 'Use and Copyright' page](https://nsidc.org/about/data-use-and-copyright).
   |||,
 }

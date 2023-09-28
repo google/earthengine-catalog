@@ -124,7 +124,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
         name: 'absorbing_aerosol_index',
         description: |||
           Aerosol index (at wavelengths 354/388, i.e. the OMI pair) from the AER_AI
-          level 2 product.  See [Level 2 Algorithms - Aerosol Index](https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/level-2/aerosol-index).
+          level 2 product.  See [Level 2 Algorithms - Ultraviolet Aerosol Index](https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-ultraviolet-aerosol-index).
         |||,
         'gee:units': units.dimensionless,
       },
@@ -139,7 +139,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'sensor_altitude',
         description: 'Altitude of the satellite with respect to the geodetic sub-satellite point\n(WGS84).',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ] + COPERNICUS_S5P.bands_common,
     'gee:visualizations': [

@@ -1,5 +1,6 @@
 local id = 'ECMWF/CAMS/NRT';
 local subdir = 'ECMWF';
+local version = '1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -22,14 +23,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'Copernicus Atmosphere Monitoring Service (CAMS) Global Near-Real-Time',
-  version: 'V1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The Copernicus Atmosphere Monitoring Service provides the capacity to continuously monitor
-    the composition of the Earth's atmosphere at global and regional scales. The main global
-    near-real-time production system is a data assimilation and forecasting suite providing two
-    5-day forecasts per day for aerosols and chemical compounds that are part of the chemical
-    scheme.
+    The Copernicus Atmosphere Monitoring Service provides the capacity to
+    continuously monitor the composition of the Earth's atmosphere at global and
+    regional scales. The main global near-real-time production system is a data
+    assimilation and forecasting suite providing two 5-day forecasts per day for
+    aerosols and chemical compounds that are part of the chemical scheme.
 
     Prior to 2021-07-01 only two parameters were available,
     1. Total Aerosol Optical Depth at 550 nm surface
@@ -54,10 +55,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'particulate_matter',
   ],
   providers: [
-    ee.producer_provider('European Centre for Medium-Range Weather Forecasts (ECMWF)', 'https://apps.ecmwf.int/datasets/data/cams-nrealtime'),
+    ee.producer_provider(
+      'European Centre for Medium-Range Weather Forecasts (ECMWF)',
+      'https://apps.ecmwf.int/datasets/data/cams-nrealtime'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2016-06-21T00:00:00Z', null),
+  extent: ee.extent_global('2016-06-22T12:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
@@ -169,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'uv_biologically_effective_dose_surface',
-        description: 'Uv biologically effective dose surface',
+        description: 'UV biologically effective dose surface',
         'gee:units': units.watt_per_meter_squared,
       },
       {
@@ -264,16 +267,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': true,
     },
   },
+  'sci:doi': '10.1029/2008JD011115',
   'sci:citation': |||
-    Benedetti, A., and Coauthors, 2009: Aerosol analysis and forecast in the ECMWF Integrated
-    Forecast System. Part II : Data assimilation, J. Geophys. Res., 114, D13205
+    Benedetti, A., and Coauthors, 2009: Aerosol analysis and forecast in the
+    ECMWF Integrated Forecast System. Part II : Data assimilation,
+    J. Geophys. Res., 114, D13205
     [doi:10.1029/2008JD011115](https://doi.org/10.1029/2008JD011115).
   |||,
   'sci:publications': [
     {
       citation: |||
-        Morcrette, and Coauthors, 2009: Aerosol analysis and forecast in the ECMWF Integrated
-        Forecast System. Part I: Forward modelling, J. Geophys. Res., 114, D06206.
+        Morcrette, and Coauthors, 2009: Aerosol analysis and forecast in the
+        ECMWF Integrated Forecast System. Part I: Forward modelling,
+        J. Geophys. Res., 114, D06206.
         [doi:10.1029/2008JD011235](https://doi.org/10.1029/2008JD011235)
       |||,
       doi: '10.1029/2008JD011235',
@@ -285,32 +291,38 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': |||
-    There is no restriction on use or reproduction and redistribution, with or without adaptation,
-    for commercial or non-commercial purposes. This data policy applies to the data and
-    information generated within the Copernicus programme, i.e., Sentinel mission data and
-    Copernicus service information.
+    There is no restriction on use or reproduction and redistribution, with or
+    without adaptation, for commercial or non-commercial purposes. This data
+    policy applies to the data and information generated within the Copernicus
+    programme, i.e., Sentinel mission data and Copernicus service information.
 
     See the
     [full COPERNICUS data license](https://ads.atmosphere.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf).
 
     The license clauses with attribution requirements are shown below:
 
-    5.1.1. Where the Licensee communicates or distributes Copernicus Products
-    to the public, the Licensee shall inform the recipients of the source by using
+    5.1.1. Where the Licensee communicates or distributes Copernicus Products to
+    the public, the Licensee shall inform the recipients of the source by using
     the following or any similar notice:
 
-    * 'Generated using Copernicus Climate Change Service information [Year]' and/or
-    * 'Generated using Copernicus Atmosphere Monitoring Service information [Year]'.
+    * 'Generated using Copernicus Climate Change Service information [Year]'
+      and/or
+    * 'Generated using Copernicus Atmosphere Monitoring Service information
+      [Year]'.
 
     5.1.2. Where the Licensee makes or contributes to a publication or
-    distribution containing adapted or modified Copernicus Products, the Licensee
-    shall provide the following or any similar notice:
+    distribution containing adapted or modified Copernicus Products, the
+    Licensee shall provide the following or any similar notice:
 
-    * 'Contains modified Copernicus Climate Change Service information [Year]'; and/or
-    * 'Contains modified Copernicus Atmosphere Monitoring Service information [Year]'
+    * 'Contains modified Copernicus Climate Change Service information [Year]';
+      and/or
+    * 'Contains modified Copernicus Atmosphere Monitoring Service information
+      [Year]'
 
     5.1.3. Any such publication or distribution covered by clauses 5.1.1 and
-    5.1.2 shall state that neither the European Commission nor ECMWF is responsible
-    for any use that may be made of the Copernicus information or data it contains.
+
+    5.1.2 shall state that neither the European Commission nor ECMWF is
+    responsible for any use that may be made of the Copernicus information or
+    data it contains.
   |||,
 }

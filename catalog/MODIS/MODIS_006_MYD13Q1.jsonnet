@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD13Q1 V6 product provides a Vegetation Index (VI)

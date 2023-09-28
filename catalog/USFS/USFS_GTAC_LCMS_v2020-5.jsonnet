@@ -377,7 +377,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         ],
       },
       {
-        name: 'Change_Raw_Probability_Slow-Loss',
+        name: 'Change_Raw_Probability_Slow_Loss',
         description: |||
           Raw LCMS modeled probability of Slow Loss. Defined as: Slow Loss includes the following
           classes from the TimeSync change process interpretation-

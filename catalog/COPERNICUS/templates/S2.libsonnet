@@ -53,7 +53,7 @@ local license = spdx.proprietary;
         [this tutorial](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless)
         explaining how to apply the cloud mask.
 
-        For more details on Sentinel-2 radiometric resolution, [see this page](https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
+        For more details on Sentinel-2 radiometric resolution, [see this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
       |||,
       license: license.id,
       links: [
@@ -73,7 +73,7 @@ local license = spdx.proprietary;
         'sentinel',
       ],
       providers: [
-        ee.producer_provider('European Union/ESA/Copernicus', 'https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/product-types/level-1c'),
+        ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1'),
         ee.host_provider(self_ee_catalog_url),
       ],
       extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2015-06-23T00:00:00Z', null),

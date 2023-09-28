@@ -59,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'HGT',
         description: 'Model terrain elevation',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'PRES',
@@ -109,7 +109,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'VIS',
         description: 'Visibility',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'TCDC',

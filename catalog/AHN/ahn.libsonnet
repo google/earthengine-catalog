@@ -48,7 +48,7 @@ local self_ee_catalog_url(id) =
         {
           name: 'elevation',
           description: 'Elevation',
-          'gee:units': units.meters,
+          'gee:units': units.meter,
         },
       ],
       'gee:visualizations': [

@@ -32,10 +32,10 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MCD64A1.061 MODIS Burned Area Monthly Global 500m',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The Terra and Aqua combined MCD64A1 Version 6 Burned Area data product is
+    The Terra and Aqua combined MCD64A1 Version 6.1 Burned Area data product is
     a monthly, global gridded 500m product containing per-pixel burned-area
     and quality information. The MCD64A1 burned-area mapping approach employs
     500m MODIS Surface Reflectance imagery coupled with 1km MODIS active

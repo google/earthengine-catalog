@@ -70,7 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           EGM96 geoid (whereas the floating-point heights in the SRTM-only DEM files are relative to
           the WGS84 ellipsoid).
         |||,
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         // TODO(b/198646525): Convert to use gee:classes

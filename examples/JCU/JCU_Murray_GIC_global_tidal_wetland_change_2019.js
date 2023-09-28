@@ -14,8 +14,8 @@ Map.addLayer(
     dataset.select('twprobabilityEnd'), {palette: plasma, min: 0, max: 100},
     'twprobabilityEnd', false, 1);
 
-var lossPalette = ['FE4A49'];
-var gainPalette = ['2AB7CA'];
+var lossPalette = ['fe4a49'];
+var gainPalette = ['2ab7ca'];
 Map.addLayer(
     dataset.select('loss'), {palette: lossPalette, min: 1, max: 1},
     'Tidal wetland loss', true, 1);
@@ -31,8 +31,8 @@ Map.addLayer(
     dataset.select('gainYear'), {palette: viridis, min: 4, max: 19},
     'Year of gain', false, 0.9);
 
-// ecosystem type
-var classPalette = ['9e9d9d', 'ededed', 'FF9900', '009966', '960000', '006699'];
+// Ecosystem type.
+var classPalette = ['9e9d9d', 'ededed', 'ff9900', '009966', '960000', '006699'];
 var classNames =
     ['null', 'null', 'Tidal flat', 'Mangrove', 'null', 'Tidal marsh'];
 Map.addLayer(

@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MOD14A2.006: Terra Thermal Anomalies & Fire 8-Day Global 1km [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD14A2 V6 dataset provides 8-day fire mask composites

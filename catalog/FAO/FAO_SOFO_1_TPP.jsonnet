@@ -1,11 +1,12 @@
 local id = 'FAO/SOFO/1/TPP';
 local subdir = 'FAO';
+local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -20,8 +21,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Tree proximate people (TPP)',
-  version: '1.0',
+  title: 'Tree proximate people (TPP) ' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The "Tree Proximate People" (TPP) is one of the datasets contributing to the
@@ -30,7 +31,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of forest-related indicators (GCS). The TPP dataset provides 4 different
     estimates of tree proximate people (trees outside forests), all of them for
     the year 2019 with a pixel size of 100 meters at a global level.
-    [Find out more about the dataset.](https://data.apps.fao.org/catalog/dcat/tree-proximate-people)
+    [Find out more about the dataset.](
+      https://data.apps.fao.org/catalog/dcat/tree-proximate-people)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -57,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://data.apps.fao.org/catalog/iso/8ed893bd-842a-4866-a655-a0a0c02b79b3'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2019-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2019-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       0.0009
@@ -69,6 +71,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Number of people living in or within 1 km from agricultural lands
           with at least 10% of tree cover
         |||,
+        // TODO(schwehr): Description is not an area.
+        // TODO(schwehr): Hectare is 100m x 100m
+        //   https://en.wikipedia.org/wiki/Hectare
         'gee:units': 'Number of people/ha',
       },
       {
@@ -77,6 +82,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Number of people living in or within 1 km from croplands with at
           least 10% of tree cover
         |||,
+        // TODO(schwehr): Description is not an area.
+        // TODO(schwehr): Hectare is 100m x 100m
+        //   https://en.wikipedia.org/wiki/Hectare
         'gee:units': 'Number of people/ha',
       },
       {
@@ -85,6 +93,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Number of people living in or within 500 m from agricultural lands
           with at least 10% of tree cover
         |||,
+        // TODO(schwehr): Description is not an area.
+        // TODO(schwehr): Hectare is 100m x 100m
+        //   https://en.wikipedia.org/wiki/Hectare
         'gee:units': 'Number of people/ha',
       },
       {
@@ -93,49 +104,44 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Number of people living in or within 500 m from croplands with at
           least 10% of tree cover
         |||,
+        // TODO(schwehr): Description is not an area.
+        // TODO(schwehr): Hectare is 100m x 100m
+        //   https://en.wikipedia.org/wiki/Hectare
         'gee:units': 'Number of people/ha',
       },
     ],
     'gee:visualizations': [
       {
         display_name: 'Tree proximate people - 1km cutoff distance',
-        lookat: {
-          lat: -0.4,
-          lon: 108.0,
-          zoom: 4,
-        },
+        lookat: {lon: 108.0, lat: -0.4, zoom: 4},
         image_visualization: {
           band_vis: {
-            min: [
-                0,
-            ],
-            max: [
-              12,
-            ],
-            palette: [
-              'blue',
-              'yellow',
-              'red',
-            ],
-             bands: [
-              'TPP_1km',
-            ],
+            min: [0],
+            max: [12],
+            palette: ['blue', 'yellow', 'red'],
+            bands: ['TPP_1km'],
           },
         },
       },
     ],
   },
+  'sci:doi': '10.1016/j.oneear.2020.08.016',
   'sci:citation': |||
-    [FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for green recovery and building inclusive, resilient and sustainable economies. FAO, Rome.](https://www.fao.org/documents/card/en/c/cb9360en)
+    FAO 2022. The State of the World's Forests (SOFO) - Forest pathways for
+    green recovery and building inclusive, resilient and sustainable
+    economies. FAO, Rome.
+    [https://www.fao.org/documents/card/en/c/cb9360en](
+      https://www.fao.org/documents/card/en/c/cb9360en)
   |||,
   'sci:publications': [
     {
       citation: |||
         Newton, P., Castle, S.E., Kinzer, A.T., Miller, D.C., Oldekop, J.A.,
-        Linhares-Juvenal, T., Pina, L., Madrid, M., & de Lamo, J. 2022.
-        The number of forest- and tree-proximate people: a new methodology
-        and global estimates, One Earth, 2020
-        [10.1016/j.oneear.2020.08.016](https://doi.org/10.1016/j.oneear.2020.08.016),
+        Linhares-Juvenal, T., Pina, L., Madrid, M., & de Lamo, J. 2022.  The
+        number of forest- and tree-proximate people: a new methodology and
+        global estimates, One Earth, 2020
+        [doi:10.1016/j.oneear.2020.08.016](
+          https://doi.org/10.1016/j.oneear.2020.08.016),
       |||,
       doi: '10.1016/j.oneear.2020.08.016',
     },

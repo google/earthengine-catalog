@@ -9,4 +9,5 @@ var visualization = {
 
 Map.setCenter(132, -27, 4);
 
-Map.addLayer(dataset, visualization, 'Average daily evapotranspiration');
+Map.addLayer(
+    dataset, visualization, 'Average daily evapotranspiration (mm/day)');

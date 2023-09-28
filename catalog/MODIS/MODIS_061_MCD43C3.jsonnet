@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MCD43C3.061 BRDF/Albedo Daily L3 0.05 Deg CMG',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD43C3 Version 6.1

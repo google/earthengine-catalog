@@ -93,5 +93,6 @@ class Check(stac.TreeCheck):
               f'{catalog_url} {a_self_url}')
           yield cls.new_issue(node, message)
       else:
-        if node.id != GEE_CATALOG and not node.stac.get(GEE_SKIP_INDEXING):
+        if (node.id != GEE_CATALOG and not node.stac.get(GEE_SKIP_INDEXING) and
+            not node.id.startswith('TEMPLATE')):
           yield cls.new_issue(node, 'Not in any catalog as a child link')

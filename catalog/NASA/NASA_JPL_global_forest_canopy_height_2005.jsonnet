@@ -53,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: '1',
         description: 'Tree heights',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

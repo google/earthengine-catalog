@@ -42,9 +42,9 @@ local successor_url = catalog_subdir_url + successor_filename;
     facilitate many applications requiring easy and fast access to the data,
     when sub-monthly fields are not required.
 
-    ERA5-Land data is available from 1981 to three months from real-time. More
+    ERA5-Land data is available from 1950 to three months from real-time. More
     information can be found at the [Copernicus Climate Data Store]
-    (https://cds.climate.copernicus.eu).
+    (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land-monthly-means?tab=overview).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -55,11 +55,11 @@ local successor_url = catalog_subdir_url + successor_filename;
   providers: [
     ee.producer_provider(
       'Copernicus Climate Data Store',
-      'https://cds.climate.copernicus.eu/cdsapp'
+      'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land-monthly-means?tab=overview'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1981-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1950-02-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,

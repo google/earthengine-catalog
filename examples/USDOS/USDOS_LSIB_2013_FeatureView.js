@@ -5,10 +5,10 @@ var visParams = {
     property: 'iso_num',
     mode: 'linear',
     palette: ['f5ff64', 'b5ffb4', 'beeaff', 'ffc0e8', '8e8dff', 'adadad'],
-    min: 0.0,
-    max: 894.0
+    min: 0,
+    max: 894
   },
-  opacity: 0.8
+  opacity: 0.8,
 };
 
 fvLayer.setVisParams(visParams);

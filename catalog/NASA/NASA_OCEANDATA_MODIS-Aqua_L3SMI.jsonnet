@@ -511,17 +511,46 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:doi': '10.5067/AQUA/MODIS/L3M/CHL/2018',
-  'gee:extra_dois': [
-    '10.5067/AQUA/MODIS/L3M/FLH/2018',
-    '10.5067/AQUA/MODIS/L3M/POC/2018',
-    '10.5067/AQUA/MODIS/L3M/RRS/2018',
-    '10.5067/GHMDA-2PJ19',
-  ],
   'sci:citation': |||
     NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology
     Processing Group. Moderate-resolution Imaging Spectroradiometer
     (MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2017). <i>MODIS-Aqua Level 3
+        Mapped Fluorescent Line Height Data Version R2018.0</i> [Data set]. NASA
+        Ocean Biology DAAC.
+      |||,
+      doi: '10.5067/AQUA/MODIS/L3M/FLH/2018',
+    },
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2017). <i>MODIS-Aqua Level 3
+        Mapped Particulate Organic Carbon Data Version R2018.0</i> [Data
+        set]. NASA Ocean Biology DAAC.
+      |||,
+      doi: '10.5067/AQUA/MODIS/L3M/POC/2018',
+    },
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2017). <i>MODIS-Aqua Level 3
+        Mapped Remote-Sensing Reflectance Data Version R2018.0</i> [Data
+        set]. NASA Ocean Biology DAAC.
+      |||,
+      doi: '10.5067/AQUA/MODIS/L3M/RRS/2018',
+    },
+    {
+      citation: |||
+        NASA/JPL. (2020). <i>GHRSST Level 2P Global Sea Surface Skin Temperature
+        from the Moderate Resolution Imaging Spectroradiometer (MODIS) on the
+        NASA Aqua satellite (GDS2)</i> [Data set]. NASA Physical Oceanography
+        DAAC.
+      |||,
+      doi: '10.5067/GHMDA-2PJ19',
+    },
+  ],
   'gee:interval': {
     type: 'cadence',
     unit: 'day',

@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MCD43A2.061 MODIS BRDF-Albedo Quality Daily 500m',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD43A2 V6.1 Bidirectional Reflectance Distribution

@@ -40,6 +40,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     - A novel approach to handling high elevation temperature measurement biases.
 
+    2020 and 2021 data are ingested from V4 R1 sources
+
     Documentation:
 
     * [ORNL DAAC Dataset Documentation](https://daac.ornl.gov/DAYMET/guides/Daymet_Daily_V4.html)
@@ -192,11 +194,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': true,
     },
   },
-  'sci:doi': '10.3334/ORNLDAAC/1840',
+  'sci:doi': '10.3334/ORNLDAAC/2129',
   'sci:citation': |||
-    Thornton, M.M., R. Shrestha, Y. Wei, P.E. Thornton, S. Kao, and B.E. Wilson. {YEAR}.
-    Daymet: Daily Surface Weather Data on a 1-km Grid for North America, Version 4. ORNL DAAC, Oak
-    Ridge, Tennessee, USA
+    Thornton, M.M., R. Shrestha, Y. Wei, P.E. Thornton, S-C. Kao, and B.E. Wilson. 2022.
+    Daymet: Daily Surface Weather Data on a 1-km Grid for North America, Version 4 R1.
+    ORNL DAAC, Oak Ridge, Tennessee, USA. https://doi.org/10.3334/ORNLDAAC/2129
   |||,
   'sci:publications': [
     {

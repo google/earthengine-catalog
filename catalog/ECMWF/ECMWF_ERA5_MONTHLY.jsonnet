@@ -37,9 +37,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     data. Monthly total precipitation values are given as monthly sums.
     All other parameters are provided as monthly averages.
 
-    ERA5 data is available from 1979 to three months from real-time. More information
+    ERA5 data is available from 1940 to three months from real-time, the version in the EE Data Catalog is available from 1979. More information
     and more ERA5 atmospheric parameters can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
+    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview).
 
     Provider's Note: Monthly aggregates have been calculated based on the ERA5 hourly values
     of each parameter.
@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wind',
   ],
   providers: [
-    ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels'),
+    ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1979-01-01T00:00:00Z', null),
@@ -104,7 +104,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'total_precipitation',
         description: 'Total precipitation (monthly sums)',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'surface_pressure',

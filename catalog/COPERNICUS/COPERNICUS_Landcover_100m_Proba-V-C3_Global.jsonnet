@@ -512,17 +512,49 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:doi': '10.5281/zenodo.3518026',
-  'gee:extra_dois': [
-    '10.5281/zenodo.3518036',
-    '10.5281/zenodo.3518038',
-    '10.5281/zenodo.3939038',
-    '10.5281/zenodo.3939050',
-  ],
   'sci:citation': |||
     Buchhorn, M. ; Lesiv, M. ; Tsendbazar, N. - E. ; Herold, M. ; Bertels, L. ; Smets, B.
     Copernicus Global Land Cover Layers-Collection 2. Remote Sensing 2020, 12Volume 108, 1044.
     [doi:10.3390/rs12061044](https://doi.org/10.3390/rs12061044)
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Buchhorn, M., Smets, B., Bertels, L., Roo, B. D., Lesiv, M., Tsendbazar,
+        N.-E., Herold, M., &amp; Fritz, S. (2020). <i>Copernicus Global Land
+        Service: Land Cover 100m: collection 3: epoch 2017: Globe</i> (Version
+        V3.0.1) [Data set]. Zenodo.
+      |||,
+      doi: '10.5281/ZENODO.3518036',
+    },
+    {
+      citation: |||
+        Buchhorn, M., Smets, B., Bertels, L., Roo, B. D., Lesiv, M., Tsendbazar,
+        N.-E., Herold, M., &amp; Fritz, S. (2020). <i>Copernicus Global Land
+        Service: Land Cover 100m: collection 3: epoch 2018: Globe</i> (Version
+        V3.0.1) [Data set]. Zenodo.
+      |||,
+      doi: '10.5281/ZENODO.3518038',
+    },
+    {
+      citation: |||
+        Buchhorn, M., Smets, B., Bertels, L., Roo, B. D., Lesiv, M., Tsendbazar,
+        N.-E., Herold, M., &amp; Fritz, S. (2020). <i>Copernicus Global Land
+        Service: Land Cover 100m: collection 3: epoch 2015: Globe</i> (Version
+        V3.0.1) [Data set]. Zenodo.
+      |||,
+      doi: '10.5281/ZENODO.3939038',
+    },
+    {
+      citation: |||
+        Buchhorn, M., Smets, B., Bertels, L., Roo, B. D., Lesiv, M., Tsendbazar,
+        N.-E., Herold, M., &amp; Fritz, S. (2020). <i>Copernicus Global Land
+        Service: Land Cover 100m: collection 3: epoch 2019: Globe</i> (Version
+        V3.0.1) [Data set]. Zenodo.
+      |||,
+      doi: '10.5281/ZENODO.3939050',
+    },
+  ],
   'gee:terms_of_use': |||
     As official product of the global component of the Copernicus Land Service,
     access to this land cover dataset is fully free and open to all users.

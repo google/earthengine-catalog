@@ -42,6 +42,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     selected from the year before or after, including from 2006.
     [Shimada et al. 2014](https://doi.org/10.1016/j.rse.2014.04.014)
 
+    There is no data for 2011-2014 due to the gap between ALOS and ALOS-2
+    temporal coverage.
+
     The SAR imagery was ortho-rectificatied and slope corrected
     using the 90m SRTM Digital Elevation Model.
     A destriping process (Shimada & Isoguchi, 2002, 2010) was applied

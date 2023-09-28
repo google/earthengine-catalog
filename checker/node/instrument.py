@@ -16,11 +16,8 @@ All instrument fields are a list of one or more strings.
 https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#instrument
 
 See also:
-- eo_extension.py for GSD ground separation distance of pixels in meters (m)
+- eo_extension.py for ground sample distance (GSD) of pixels in meters (m)
 """
-
-# TODO(schwehr): Should have definitions for known platforms, instruments,
-# constellations, and missions.
 
 import collections
 import re

@@ -4,9 +4,9 @@ var mean_evi_january_2018 = dataset
     .select('EVI')
     .mean();
 var evi_vis = {
-  min: 0.0,
-  max: 10000.0,
-  palette: ['000000', '004400', '008800', '00BB00', '00FF00'],
+  min: 0,
+  max: 10000,
+  palette: ['000000', '004400', '008800', '00bb00', '00ff00'],
 };
 Map.setCenter(95.571, 27.808, 8);
 Map.addLayer(mean_evi_january_2018, evi_vis, 'Mean EVI January 2018');

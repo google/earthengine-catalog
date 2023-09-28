@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MYD09A1.061 Aqua Surface Reflectance 8-Day Global 500m',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD09A1 V6.1 product provides an estimate of the surface

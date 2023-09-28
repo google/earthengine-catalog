@@ -96,12 +96,12 @@ local successor_url = catalog_subdir_url + successor_filename;
       {
         name: 'AVE',
         description: 'Elevation value calculated by average resampling a 5-meter mesh model.',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'MED',
         description: 'Elevation value calculated by median resampling a 5-meter mesh model.',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'AVE_STK',

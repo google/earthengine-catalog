@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MYD11A1.006 Aqua Land Surface Temperature and Emissivity Daily Global 1km [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD11A1 V6 product provides daily land surface temperature

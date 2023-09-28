@@ -4,7 +4,8 @@ var visualization = {
   bands: ['Severity'],
   min: 0,
   max: 6,
-  palette: ['000000', '006400', '7FFFD4', 'FFFF00', 'FF0000', '7FFF00', 'FFFFFF']
+  palette:
+      ['000000', '006400', '7fffd4', 'ffff00', 'ff0000', '7fff00', 'ffffff']
 };
 
 Map.setCenter(-95.712891, 37.09024, 5);

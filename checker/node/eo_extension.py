@@ -23,7 +23,8 @@ For each entry in the 'eo:band' list:
 - 'full_width_half_max' (FWHM) is the width of the band, as measured at half
   the maximum transmission, in micrometers (μm)
 - 'solar_illumination' is not allowed
-- 'gsd' is the ground separation distance of pixels in meters (m)
+- 'gsd' is the ground sample distance of pixels in meters (m)
+  - https://en.wikipedia.org/wiki/Ground_sample_distance
   - Commonly, but incorrectly called 'resolution'
   - There are two ways of gsd can be specified:
     1. gsd under summaries that is a list of 1 or 2 values
@@ -183,8 +184,6 @@ UNITS = units.UNITS.union({
     '(kg/m^3)/(m/s)',
     '1.0e15 molec cm-2',
     'Coefficient of Variation',
-    'DN',
-    'DU',
     'Equivalent gauges per 2.5 degree box',
     'J/m^2/day',
     'Julian Day',
@@ -226,7 +225,6 @@ UNITS = units.UNITS.union({
     'mol/m^2',
     'molec cm-2 s-1',
     'ms',
-    'nanoWatts/cm2/sr',
     'occurrence',
     'ppm',
     'seconds',
@@ -398,7 +396,6 @@ class Check(stac.NodeCheck):
       if not isinstance(description, str):
         yield cls.new_issue(node, f'{name} {DESCRIPTION} must be a str')
       else:
-        # TODO(schwehr): Be more strict about the contents of the description
         if len(description) < MIN_DESCRIPTION_LEN:
           yield cls.new_issue(
               node, f'{name} {DESCRIPTION} too short: {len(description)}')

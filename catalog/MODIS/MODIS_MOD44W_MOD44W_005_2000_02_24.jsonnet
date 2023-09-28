@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD44W.005 Land Water Mask Derived From MODIS and SRTM',
-  version: 'V005',
+  version: '5',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The Global Water Mask uses the SWBD (SRTM Water Body
@@ -125,11 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Water Mask',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: 6.746, lat: 46.529, zoom: 2},
         image_visualization: {
           band_vis: {
             min: [

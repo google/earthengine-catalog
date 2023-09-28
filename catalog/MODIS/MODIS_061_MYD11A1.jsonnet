@@ -28,7 +28,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MYD11A1.061 Aqua Land Surface Temperature and Emissivity Daily Global 1km',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD11A1 V6.1 product provides daily land surface temperature

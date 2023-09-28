@@ -4,6 +4,8 @@ local subdir = 'Spain';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -39,71 +41,35 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider(
-    'Spain orthophotos',
-    'https://pnoa.ign.es/web/portal/pnoa-imagen/productos-a-descarga'
-    ),
+      'Spain orthophotos',
+      'https://pnoa.ign.es/web/portal/pnoa-imagen/productos-a-descarga'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(36.11, -9.32, 43.48, 4.7,
                     '2007-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
-    gsd: [
-      0.1,
-    ],
+    gsd: [0.1],
     'eo:bands': [
-      {
-        name: 'R',
-        description: 'Red',
-      },
-      {
-        name: 'G',
-        description: 'Green',
-      },
-      {
-        name: 'B',
-        description: 'Blue',
-      }
+      {name: 'R', description: 'Red', 'gee:units': units.dn},
+      {name: 'G', description: 'Green', 'gee:units': units.dn},
+      {name: 'B', description: 'Blue', 'gee:units': units.dn}
     ],
     'gee:visualizations': [
-        {
-        display_name: 'RGB',
-        lookat: {
-          lat: -1.85,
-          lon: 38.98,
-          zoom: 19,
-        },
+      {
+        display_name: 'Spain RGB (10cm)',
+        lookat: {lon: 38.98, lat: -1.85, zoom: 19},
         image_visualization: {
           band_vis: {
-            min: [
-              0,
-            ],
-            max: [
-              255
-            ],
-            bands: [
-              'R',
-              'G',
-              'B',
-            ],
+            min: [0],
+            max: [255],
+            bands: ['R', 'G', 'B'],
           },
         },
       }
     ],
-    R: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
-    G: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
-    B: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
+    R: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    G: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
   },
   'sci:citation': 'National Geographic Institute Spain',
   'gee:terms_of_use': |||
@@ -112,6 +78,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     origin and ownership of the geographic information products and services
     licensed as National Geographic Institute.
 
-    For more details, see [Terms of use](http://www.ign.es/resources/licencia/Condiciones_licenciaUso_IGN.pdf)
+    For more details, see [Terms of use](
+      http://www.ign.es/resources/licencia/Condiciones_licenciaUso_IGN.pdf)
   |||
 }

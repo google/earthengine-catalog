@@ -3,9 +3,9 @@ var dataset = ee.ImageCollection('TRMM/3B42')
 var precipitation =
     dataset.select(['precipitation', 'HQprecipitation', 'IRprecipitation']);
 var precipitationVis = {
-  min: 0.0,
-  max: 12.0,
-  gamma: 5.0,
+  min: 0,
+  max: 12,
+  gamma: 5,
 };
 Map.setCenter(-79.98, 23.32, 4);
 Map.addLayer(precipitation, precipitationVis, 'Precipitation');

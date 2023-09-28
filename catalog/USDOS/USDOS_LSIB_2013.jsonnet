@@ -21,7 +21,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'LSIB 2013: Large Scale International Boundary Polygons, Detailed [deprecated]',
+  title:
+    'LSIB 2013: Large Scale International Boundary Polygons, Detailed'
+    + ' [deprecated]',
   version: '2013',
   deprecated: true,
   'gee:type': ee_const.gee_type.table,
@@ -55,7 +57,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'usdos',
   ],
   providers: [
-    ee.producer_provider('United States Department of State, Office of the Geographer', 'https://geonode.state.gov/'),
+    ee.producer_provider(
+      'United States Department of State, Office of the Geographer',
+      'https://geonode.state.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2013-03-08T00:00:00Z', '2013-03-08T00:00:00Z'),
@@ -63,7 +67,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gee:schema': [
       {
         name: 'cc',
-        description: '[Two-letter FIPS country code](https://en.wikipedia.org/wiki/List_of_FIPS_country_codes)',
+        description:
+         '[Two-letter FIPS country code]' +
+         '(https://en.wikipedia.org/wiki/List_of_FIPS_country_codes)',
         type: ee_const.var_type.string,
       },
       {
@@ -100,28 +106,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gee:visualizations': [
       {
         display_name: 'Countries',
-        lookat: {
-          lat: 52.48,
-          lon: 71.72,
-          zoom: 1,
-        },
+        lookat: {lon: 71.72, lat: 52.48, zoom: 4},
         polygon_visualization: {
           property_name: 'iso_num',
           property_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              894.0,
-            ],
+            min: [0],
+            max: [894],
             palette: [
-              'f5ff64',
-              'b5ffb4',
-              'beeaff',
-              'ffc0e8',
-              '8e8dff',
-              'adadad',
-            ],
+              'f5ff64', 'b5ffb4', 'beeaff', 'ffc0e8', '8e8dff', 'adadad'],
           },
         },
       },
@@ -135,5 +127,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       thinning_strategy: 'HIGHER_DENSITY',
     },
   },
-  'gee:terms_of_use': 'There are no restrictions on use of this US public domain data.',
+  'gee:terms_of_use':
+    'There are no restrictions on use of this US public domain data.',
 }

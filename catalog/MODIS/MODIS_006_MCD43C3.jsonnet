@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MCD43C3.006 BRDF/Albedo Daily L3 0.05 Deg CMG [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD43C3 Version 6

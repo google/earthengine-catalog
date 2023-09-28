@@ -228,11 +228,7 @@
     'gee:visualizations': [
       {
         display_name: 'True Color',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: -7.03, lat: 31.06, zoom: 2},
         image_visualization: {
           band_vis: {
             min: [

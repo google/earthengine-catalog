@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD09Q1 product provides an estimate of the surface

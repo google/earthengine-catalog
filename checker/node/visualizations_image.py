@@ -68,6 +68,9 @@ image_visualization: {
     max: [60.0],
     palette: ['red', 'orange', 'green'],
     bands: ['rh98']}},
+
+See also:
+- https://developers.google.com/earth-engine/guides/image_visualization
 """
 
 import re
@@ -304,7 +307,7 @@ class Check(stac.NodeCheck):
           for color in palette_list:
             if color in COLOR_NAMES:
               have_name = True
-            elif re.fullmatch(r'[0-9a-f]{6}', color):
+            elif re.fullmatch(r'[0-9a-fA-F]{6}', color):
               have_hex = True
             else:
               yield cls.new_issue(

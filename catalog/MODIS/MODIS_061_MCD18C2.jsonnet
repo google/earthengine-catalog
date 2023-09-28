@@ -23,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MCD18C2.061 Photosynthetically Active Radiation Daily 3-Hour',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD18C2 Version 6.1 is a Moderate Resolution Imaging Spectroradiometer

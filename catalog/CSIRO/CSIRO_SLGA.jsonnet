@@ -49,9 +49,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|------|------------|
     | Bulk Density (whole earth)             | Bulk density of the whole soil (including coarse fragments) in mass per unit volume by a method equivalent to the core method | BDW  | 18         |
     | Organic Carbon                         | Mass fraction of carbon by weight in the < 2mm soil material as determined by dry combustion at 900 Celsius                   | SOC  | 18         |
-    | Clay                                   | < 2&micro;m mass fraction of the <2mm soil material determined using the pipette method                                             | CLY  | 18         |
-    | Silt                                   | 2-20&micro;m mass fraction of the < 2mm soil material determined using the pipette method                                           | SLT  | 18         |
-    | Sand                                   | 20&micro;m - 2mm mass fraction of the < 2mm soil material determined using the pipette method                                       | SND  | 18         |
+    | Clay                                   | < 2&micro;m mass fraction of the <2mm soil material determined using the pipette method                                       | CLY  | 18         |
+    | Silt                                   | 2-20&micro;m mass fraction of the < 2mm soil material determined using the pipette method                                     | SLT  | 18         |
+    | Sand                                   | 20&micro;m - 2mm mass fraction of the < 2mm soil material determined using the pipette method                                 | SND  | 18         |
     | pH (CaCl2)                             | pH of 1:5 soil/0.01M calcium chloride extract                                                                                 | pHc  | 18         |
     | Available Water Capacity               | Available water capacity computed for each of the specified depth increments                                                  | AWC  | 18         |
     | Total Nitrogen                         | Mass fraction of total nitrogen in the soil by weight                                                                         | NTO  | 18         |
@@ -528,32 +528,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DER_000_200_EV',
         description: 'The estimated value for the regolith depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DER_000_200_05',
         description: 'The 5th percentile confidence limit for the regolith depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DER_000_200_95',
         description: 'The 95th percentile confidence limit for the regolith depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DES_000_200_EV',
         description: 'The estimated value for the soil depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DES_000_200_05',
         description: 'The 5th percentile confidence limit for the soil depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'DES_000_200_95',
         description: 'The 5th percentile confidence limit for the soil depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'ECE_000_005_EV',
@@ -1197,19 +1197,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:doi': '10.4225/08/546ED604ADD8A',
-  'gee:extra_dois': [
-    '10.4225/08/546EE212B0048',
-    '10.4225/08/546EEE35164BF',
-    '10.4225/08/546F091C11777',
-    '10.4225/08/546F17EC6AB6E',
-    '10.4225/08/546F29646877E',
-    '10.4225/08/546F48D6A6D48',
-    '10.4225/08/546F540FE10AA',
-    '10.4225/08/546F564AE11F9',
-    '10.4225/08/546F617719CAF',
-    '10.4225/08/547523BB0801A',
-    '10.4225/08/55C9472F05295',
-  ],
   'sci:citation': |||
     Viscarra Rossel, Raphael; Chen, Charlie; Grundy, Mike; Searle, Ross;
     Clifford, David; Odgers, Nathan; Holmes, Karen; Griffin, Ted; Liddicoat,
@@ -1217,6 +1204,108 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Maps - SOIL ATTRIBUTE Release 1. v2. CSIRO. Data Collection
     [doi:10.1071/SR14366](https://doi.org/10.1071/SR14366).
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+        Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Bulk Density - Whole Earth (3" resolution) - Release 1</i> [Data
+        set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546EE212B0048',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Odgers, N.,
+        Holmes, K., Griffin, T., Liddicoat, C., Kidd, D., &amp; Clifford,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Clay (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546EEE35164BF',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+        Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Effective Cation Exchange Capacity (3" resolution) - Release 1</i> [Data
+        set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F091C11777',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+        Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps - pH
+        - CaCl2 (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F17EC6AB6E',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Odgers, N.,
+        Holmes, K., Griffin, T., Liddicoat, C., Kidd, D., &amp; Clifford,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Sand (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F29646877E',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Odgers, N.,
+        Holmes, K., Griffin, T., Liddicoat, C., Kidd, D., &amp; Clifford,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Silt (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F48D6A6D48',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+        Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Soil Depth (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F540FE10AA',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+        Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Total Nitrogen (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F564AE11F9',
+    },
+    {
+      citation: |||
+        Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+        Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+        D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+        Total Phosphorus (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/546F617719CAF',
+    },
+    {
+      citation: |||
+         Viscarra Rossel, R., Chen, C., Grundy, M., Searle, R., Clifford, D.,
+         Odgers, N., Holmes, K., Griffin, T., Liddicoat, C., &amp; Kidd,
+         D. (2014). <i>Soil and Landscape Grid National Soil Attribute Maps -
+         Organic Carbon (3" resolution) - Release 1</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/547523BB0801A',
+    },
+    {
+      citation: |||
+        Wilford, J., Searle, R., Thomas, M., &amp; Grundy, M. (2015). <i>Soil
+        and Landscape Grid National Soil Attribute Maps - Depth of Regolith (3"
+        resolution) - Release 2</i> [Data set]. CSIRO.
+      |||,
+      doi: '10.4225/08/55C9472F05295',
+    },
+  ],
   'gee:terms_of_use': |||
     All products developed by the Soil and Landscape Grid of Australia are
     available at no cost under a

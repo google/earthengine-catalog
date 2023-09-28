@@ -11,9 +11,6 @@ Citations should be in APA Style format if possible. https://apastyle.apa.org/
 - sci:citation is the primary reference for the data
   - The citation section is in commonmark / markdown formatted text
 - sci:publications are extra citations with an optional DOI field
-- gee:extra_dois are replaced with the ability to have sci:publications and
-  should no longer be added. The existing entries will likely be removed in
-  the future.
 
 DOIs are defined in ANSI/NISO Z39.84-2000 and ISO 26324. A DOI starts with a
 'prefix' section. The prefix begins with '10.', which is the 'directory code'.
@@ -54,22 +51,10 @@ EXTENSION_VERSION = '1.0.0'
 SCI_DOI = 'sci:doi'
 SCI_CITATION = 'sci:citation'
 SCI_PUBLICATIONS = 'sci:publications'
-GEE_EXTRA_DOIS = 'gee:extra_dois'
 
 # Fields in SCI_PUBLICATIONS entries
 CITATION = 'citation'
 DOI = 'doi'
-
-# Do not add more datasets to this set.
-EXTRA_DOIS_EXCEPTIONS = frozenset({
-    'COPERNICUS/Landcover/100m/Proba-V-C3/Global',
-    'CSIRO/SLGA',
-    'NASA/GPM_L3/IMERG_V06',
-    'NASA/OCEANDATA/MODIS-Aqua/L3SMI',
-    'NASA/OCEANDATA/MODIS-Terra/L3SMI',
-    'NASA/OCEANDATA/SeaWiFS/L3SMI',
-    'RUB/RUBCLIM/LCZ/global_lcz_map/v1',
-})
 
 
 def doi_valid(doi: str) -> bool:
@@ -101,8 +86,7 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(
             node, 'Catalog must not have the scientific extension')
 
-      # TODO(schwehr): Make sure none of the sci or gee:extra_doi fields
-      # end up in catalogs
+      # TODO(schwehr): Make sure none of the sci fields end up in catalogs.
       return
 
     if has_scientific_extension:
@@ -114,28 +98,6 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(
               node, f'Extension\'s version must be: "{EXTENSION_VERSION}"')
           return
-
-    # gee:extra_dois is not a part of the scientific extension, so check first.
-    if GEE_EXTRA_DOIS in node.stac:
-      extra_dois = node.stac[GEE_EXTRA_DOIS]
-      if node.id not in EXTRA_DOIS_EXCEPTIONS:
-        # Use sci:publications and links
-        yield cls.new_issue(node, f'No new uses of {GEE_EXTRA_DOIS} allowed')
-      elif not isinstance(extra_dois, list):
-        yield cls.new_issue(node, f'{GEE_EXTRA_DOIS} must be a list')
-      else:
-        if not extra_dois:
-          # Delete it or add some dois
-          yield cls.new_issue(node, f'Empty {GEE_EXTRA_DOIS} not allowed')
-        for doi in extra_dois:
-          if not isinstance(doi, str):
-            yield cls.new_issue(node, f'{GEE_EXTRA_DOIS} doi must be a str')
-          elif not doi_valid(doi):
-            yield cls.new_issue(node, f'{GEE_EXTRA_DOIS} doi not valid: {doi}')
-        if len(extra_dois) != len(set(extra_dois)):
-          yield cls.new_issue(node, f'{GEE_EXTRA_DOIS} has duplicates')
-        if sorted(extra_dois) != extra_dois:
-          yield cls.new_issue(node, f'{GEE_EXTRA_DOIS} not sorted')
 
     if not has_scientific_extension:
       if SCI_DOI in node.stac:

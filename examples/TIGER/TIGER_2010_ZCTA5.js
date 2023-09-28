@@ -15,4 +15,4 @@ var image = ee.Image().float().paint(dataset, 'ALAND10');
 Map.setCenter(-93.8008, 40.7177, 6);
 Map.addLayer(image, visParams, 'TIGER/2010/ZCTA5');
 Map.addLayer(zctaOutlines, {}, 'borders');
-Map.addLayer(dataset, null, 'for Inspector', false);
+Map.addLayer(dataset, {}, 'for Inspector', false);

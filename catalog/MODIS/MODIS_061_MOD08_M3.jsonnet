@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD08_M3.061 Terra Atmosphere Monthly Global Product',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     MOD08_M3 V6.1 is an atmosphere global product that contains
@@ -151,11 +151,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Aerosol Optical Depth',
-        lookat: {
-          lon: 0,
-          lat: 0,
-          zoom: 0,
-        },
+        lookat: {lon: 6.746, lat: 46.529, zoom: 2},
         image_visualization: {
           band_vis: {
             min: [

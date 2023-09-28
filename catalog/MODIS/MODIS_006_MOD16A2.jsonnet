@@ -1,16 +1,25 @@
 local id = 'MODIS/006/MOD16A2';
+local latest_id = 'MODIS/061/MOD16A2';
+local successor_id = 'MODIS/061/MOD16A2';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
 local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MOD16A2.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local latest_filename = latest_basename + '.json';
+local successor_filename = successor_basename + '.json';
 local base_filename = basename + '.json';
+
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local latest_url = catalog_subdir_url + latest_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,8 +30,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m',
-  version: 'V006',
+  title: 'MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m [deprecated]',
+  version: '6',
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD16A2 Version 6 Evapotranspiration/Latent Heat Flux product is an
@@ -57,6 +67,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD16A2.006',
     },
+    ee.link.latest(latest_id, latest_url),
+    ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
     '8_day',

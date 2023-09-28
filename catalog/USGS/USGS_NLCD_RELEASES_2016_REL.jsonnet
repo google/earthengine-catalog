@@ -1,27 +1,17 @@
-local id = 'USGS/NLCD_RELEASES/2016_REL';
-local latest_id = 'USGS/NLCD_RELEASES/2019_REL/NLCD';
-// TODO(b/195835158): uncomment successor lines once 2019 assets have the same bands
-// and non-CONUS regions.
-// local successor_id = 'USGS/NLCD_RELEASES/2019_REL/NLCD';
-local subdir = 'USGS';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
+local nlcd = import 'nlcd.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
+local id = nlcd.id(2016);
+local successor_id = nlcd.id(2019);
+local subdir = 'USGS';
+
 local license = spdx.cc0_1_0;
 
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-// local successor_basename = std.strReplace(successor_id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-// local successor_filename = successor_basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-// local successor_url = catalog_subdir_url + successor_filename;
+local self_ee_catalog_url = nlcd.provider_url(id);
+local successor_url = nlcd.link_url(successor_id);
 
 {
   stac_version: ee_const.stac_version,
@@ -32,7 +22,8 @@ local latest_url = catalog_subdir_url + latest_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NLCD 2016: USGS National Land Cover Database, 2016 release',
+  title: 'NLCD 2016: USGS National Land Cover Database, 2016 release [deprecated]',
+  deprecated: true,
   version: '1.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -74,8 +65,7 @@ local latest_url = catalog_subdir_url + latest_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    // ee.link.successor(successor_id, successor_url),
+    ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
     'blm',

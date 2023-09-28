@@ -154,7 +154,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SnowDepth_inst',
         description: 'Snow depth',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'Snowf_tavg',

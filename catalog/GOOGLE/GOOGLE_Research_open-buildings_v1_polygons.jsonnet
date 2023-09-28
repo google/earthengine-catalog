@@ -46,8 +46,8 @@ local license = spdx.cc_by_4_0;
     Buildings dataset.
 
     Note that updated versions of this data are available. The newest version,
-    Version 2.0 (with inference carried out on Aug 2022), is available as
-    [GOOGLE/Research/open-buildings/v2/polygons](GOOGLE_Research_open-buildings_v2_polygons).
+    Version 3.0 (with inference carried out on May 2023), is available as
+    [GOOGLE/Research/open-buildings/v3/polygons](GOOGLE_Research_open-buildings_v3_polygons).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [

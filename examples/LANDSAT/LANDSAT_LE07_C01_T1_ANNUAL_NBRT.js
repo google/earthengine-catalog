@@ -4,7 +4,7 @@ var colorized = dataset.select('NBRT');
 var colorizedVis = {
   min: 0.9,
   max: 1.0,
-  palette: ['000000', 'FFFFFF'],
+  palette: ['000000', 'ffffff'],
 };
 Map.setCenter(6.746, 46.529, 6);
 Map.addLayer(colorized, colorizedVis, 'Colorized');

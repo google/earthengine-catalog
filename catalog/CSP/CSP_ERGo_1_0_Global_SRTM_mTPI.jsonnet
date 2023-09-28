@@ -71,7 +71,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'elevation',
         description: 'SRTM-derived mTPI ranging from negative (valleys) to positive (ridges) values',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

@@ -23,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD09CMG.061 Surface Reflectance Daily L3 Global 0.05 Deg CMG',
-  version: 'V061',
+  version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD09CMG Version 6.1 product provides an estimate of the surface

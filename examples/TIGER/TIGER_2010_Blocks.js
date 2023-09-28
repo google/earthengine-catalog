@@ -1,7 +1,7 @@
 var dataset = ee.FeatureCollection('TIGER/2010/Blocks');
 var visParams = {
-  min: 0.0,
-  max: 700.0,
+  min: 0,
+  max: 700,
   palette: ['black', 'brown', 'yellow', 'orange', 'red']
 };
 

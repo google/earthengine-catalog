@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MCD12Q1.006 MODIS Land Cover Type Yearly Global 500m [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD12Q1 V6 product provides global land cover types at yearly intervals

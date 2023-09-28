@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MODOCGA.006 Terra Ocean Reflectance Daily Global 1km',
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MODOCGA V6 ocean reflectance product consists of

@@ -101,7 +101,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'DISPH',
         description: 'Zero plane displacement height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'EFLUX',
@@ -142,7 +142,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'HLML',
         description: 'Surface layer height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'NIRDF',
@@ -157,7 +157,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PBLH',
         description: 'Planetary boundary layer height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'PGENTOT',
@@ -259,7 +259,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'TCZPBL',
         description: 'Transcom planetary boundary layer height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'TLML',
@@ -294,12 +294,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Z0H',
         description: 'Surface roughness for heat',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'Z0M',
         description: 'Surface roughness',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [

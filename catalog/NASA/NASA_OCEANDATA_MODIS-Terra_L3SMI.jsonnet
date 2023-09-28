@@ -506,17 +506,45 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:doi': '10.5067/GHMDT-2PJ19',
-  'gee:extra_dois': [
-    '10.5067/TERRA/MODIS/L3M/CHL/2018',
-    '10.5067/TERRA/MODIS/L3M/FLH/2018',
-    '10.5067/TERRA/MODIS/L3M/POC/2018',
-    '10.5067/TERRA/MODIS/L3M/RRS/2018',
-  ],
   'sci:citation': |||
     NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology
     Processing Group. Moderate-resolution Imaging Spectroradiometer
     (MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
+        Mapped Chlorophyll Data Version R2018.0</i> [Data set]. NASA Ocean
+        Biology DAAC.
+      |||,
+      doi: '10.5067/TERRA/MODIS/L3M/CHL/2018',
+    },
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
+        Mapped Fluorescent Line Height Data Version R2018.0</i> [Data set]. NASA
+        Ocean Biology DAAC.
+      |||,
+      doi: '10.5067/TERRA/MODIS/L3M/FLH/2018',
+    },
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
+        Mapped Particulate Organic Carbon Data Version R2018.0</i> [Data
+        set]. NASA Ocean Biology DAAC.
+      |||,
+      doi: '10.5067/TERRA/MODIS/L3M/POC/2018',
+    },
+    {
+      citation: |||
+        NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
+        Mapped Remote-Sensing Reflectance Data Version R2018.0</i> [Data
+        set]. NASA Ocean Biology DAAC.
+      |||,
+      doi: '10.5067/TERRA/MODIS/L3M/RRS/2018',
+    },
+  ],
   'gee:interval': {
     type: 'cadence',
     unit: 'day',

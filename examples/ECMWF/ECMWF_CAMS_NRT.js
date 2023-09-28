@@ -1,22 +1,24 @@
+// Get data generated from model hour 0 for January 1st, 2019.
 var dataset = ee.ImageCollection('ECMWF/CAMS/NRT')
-                  .filter(ee.Filter.date('2019-01-01', '2019-01-31'));
-var aod = dataset.select('total_aerosol_optical_depth_at_550nm_surface');
+                  .filterDate('2019-01-01', '2019-01-02')
+                  .filter('model_initialization_hour == 0');
+
+// Select first and last forecast hours.
+var hour00 = dataset.filter('model_forecast_hour == 0').first();
+var hour21 = dataset.filter('model_forecast_hour == 21').first();
+
+// Visualization parameters for specified aerosol band.
 var visParams = {
-  min: 0.000096,
-  max: 3.582552,
+  bands: ['total_aerosol_optical_depth_at_550nm_surface'],
+  min: 0.0,
+  max: 3.6,
   palette: [
-    '5E4FA2',
-    '3288BD',
-    '66C2A5',
-    'ABE0A4',
-    'E6F598',
-    'FFFFBF',
-    'FEE08B',
-    'FDAE61',
-    'F46D43',
-    'D53E4F',
-    '9E0142'
+    '5e4fa2', '3288bd', '66c2a5', 'abe0a4', 'e6f598', 'ffffbf',
+    'fee08b', 'fdae61', 'f46d43', 'd53e4f', '9e0142'
   ]
 };
-Map.setCenter(-94.18, 16.8, 1);
-Map.addLayer(aod, visParams, 'Total Aerosal Optical Depth');
+
+// Display forecasts on the map.
+Map.setCenter(70, 45, 3);
+Map.addLayer(hour00, visParams, 'Total Aerosal Optical Depth - H00', true, 0.8);
+Map.addLayer(hour21, visParams, 'Total Aerosal Optical Depth - H21', true, 0.8);

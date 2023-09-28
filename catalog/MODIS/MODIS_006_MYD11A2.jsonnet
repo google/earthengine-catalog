@@ -33,7 +33,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'MYD11A2.006 Aqua Land Surface Temperature and Emissivity 8-Day Global 1km [deprecated]',
   deprecated: true,
-  version: 'V006',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD11A2 V6 product provides an average 8-day land

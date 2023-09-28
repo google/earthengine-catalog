@@ -240,7 +240,7 @@ local units = import 'units.libsonnet';
       {
         name: 'Injection_Height',
         description: 'Smoke injection height',
-        'gee:units': units.meters,
+        'gee:units': units.meter,
       },
       {
         name: 'cosSZA',

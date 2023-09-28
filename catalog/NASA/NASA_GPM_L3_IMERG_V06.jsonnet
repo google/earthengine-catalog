@@ -1,5 +1,6 @@
 local id = 'NASA/GPM_L3/IMERG_V06';
 local subdir = 'NASA';
+local version = '6';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,8 +22,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GPM: Global Precipitation Measurement (GPM) v6',
-  version: 'V06',
+  title: 'GPM: Global Precipitation Measurement (GPM) v' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Global Precipitation Measurement (GPM) is an international
@@ -102,7 +103,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'weather',
   ],
   providers: [
-    ee.producer_provider('NASA GES DISC at NASA Goddard Space Flight Center', 'https://doi.org/10.5067/GPM/IMERG/3B-HH/06'),
+    ee.producer_provider(
+      'NASA GES DISC at NASA Goddard Space Flight Center',
+       'https://doi.org/10.5067/GPM/IMERG/3B-HH/06'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
@@ -233,72 +236,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Precipitation',
-        lookat: {
-          lat: 26.12,
-          lon: -90.7,
-          zoom: 2,
-        },
+        display_name: 'Precipitation (mm/hr)',
+        lookat: {lon: -76, lat: 33, zoom: 3},
         image_visualization: {
           band_vis: {
-            min: [
-              1.0,
-            ],
-            max: [
-              9.0,
-            ],
-            bands: [
-              'precipitationCal',
-            ],
+            min: [1],
+            max: [15],
+            bands: ['precipitationCal'],
           },
         },
       },
     ],
-    HQobservationTime: {
-      minimum: 0.0,
-      maximum: 29.0,
-      'gee:estimated_range': true,
-    },
-    HQprecipitation: {
-      minimum: 0.0,
-      maximum: 120.0,
-      'gee:estimated_range': true,
-    },
+    HQobservationTime: {minimum: 0, maximum: 29, 'gee:estimated_range': true},
+    HQprecipitation: {minimum: 0, maximum: 120, 'gee:estimated_range': true},
     IRkalmanFilterWeight: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': true,
-    },
-    IRprecipitation: {
-      minimum: 0.0,
-      maximum: 79.5,
-      'gee:estimated_range': true,
-    },
-    precipitationCal: {
-      minimum: 0.0,
-      maximum: 174.0,
-      'gee:estimated_range': true,
-    },
-    precipitationUncal: {
-      minimum: 0.0,
-      maximum: 120.0,
-      'gee:estimated_range': true,
-    },
+      minimum: 0, maximum: 100, 'gee:estimated_range': true},
+    IRprecipitation: {minimum: 0.0, maximum: 79.5, 'gee:estimated_range': true},
+    precipitationCal: {minimum: 0, maximum: 174, 'gee:estimated_range': true},
+    precipitationUncal: {minimum: 0, maximum: 120, 'gee:estimated_range': true},
     probabilityLiquidPrecipitation: {
-      minimum: 0.0,
-      maximum: 100.0,
-      'gee:estimated_range': true,
-    },
-    randomError: {
-      minimum: 0.24,
-      maximum: 250.0,
-      'gee:estimated_range': true,
-    },
+      minimum: 0, maximum: 100, 'gee:estimated_range': true},
+    randomError: {minimum: 0.24, maximum: 250.00, 'gee:estimated_range': true},
   },
   'sci:doi': '10.5067/GPM/IMERG/3B-HH-L/06',
-  'gee:extra_dois': [
-    '10.5067/GPM/IMERG/3B-HH/06',
-  ],
   'sci:citation': |||
     Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
     GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06,
@@ -311,5 +271,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'minute',
     interval: 30,
   },
-  'gee:terms_of_use': 'All NASA-produced data from the GPM mission is made\nfreely available for the public to use.',
+  'gee:terms_of_use':
+    'All NASA-produced data from the GPM mission is made ' +
+    'freely available for the public to use.',
 }
