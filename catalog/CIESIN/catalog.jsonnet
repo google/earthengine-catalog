@@ -18,7 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    // ee.link.child_collection('CIESIN_GPWv411_GPW_Basic_Demographic_Characteristics', base_url),
+    ee.link.child_collection('CIESIN_GPWv411_GPW_Basic_Demographic_Characteristics', base_url),
     // ee.link.child_collection('CIESIN_GPWv411_GPW_Data_Context', base_url),
     // ee.link.child_collection('CIESIN_GPWv411_GPW_Land_Area', base_url),
     // ee.link.child_collection('CIESIN_GPWv411_GPW_Mean_Administrative_Unit_Area', base_url),
