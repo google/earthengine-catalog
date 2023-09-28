@@ -32,8 +32,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'nighttime light',
     'calibration',
-    'VIIRS',
-    'DMSP
+    'viirs',
+    'dmsp',
   ],
   providers: [
     ee.producer_provider('Nature Scientific Data', 'https://www.nature.com'),
