@@ -31,8 +31,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'bathymetry',
-    'lake',
     'hydrology',
+    'lake',
   ],
   providers: [
     ee.producer_provider('Bahram Khazaei', 'https://springernature.figshare.com/articles/dataset/GLOBathy_Bathymetry_Rasters/13404635'),
