@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'b1',
         description: 'Maximum depth',
-        gee:units': units.meter,
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [
@@ -82,9 +82,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation':|||
-        Khazaei, Bahram; Read, Laura K; Casali, Matthew; Sampson, Kevin M; Yates, David N (2022): GLOBathy Bathymetry Rasters. figshare. Dataset. https://doi.org/10.6084/m9.figshare.13404635.v1
+        Khazaei, Bahram; Read, Laura K; Casali, Matthew; Sampson, Kevin M; Yates, David N (2022): GLOBathy Bathymetry Rasters. figshare. Dataset. https://doi.org/10.6084/10.6084/m9.figshare.c.5243309.v1
   |||,
-  'sci:doi': '10.6084/m9.figshare.13404635.v1',
+  'sci:doi': '10.6084/m9.figshare.c.5243309.v1',
   'gee:terms_of_use': |||
     The dataset is released under an assumed CC0 1.0 Universal (CC0 1.0) Public Domain Dedication. The organizations responsible for generating and funding this dataset make no representations of any kind including, but not limited to the warranties of merchantability or fitness for a particular use, nor are any such warranties to be implied with respect to the data.
   |||,
