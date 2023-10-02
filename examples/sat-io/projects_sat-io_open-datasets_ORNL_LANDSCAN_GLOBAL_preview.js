@@ -46,4 +46,3 @@ var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 Map.addLayer(imageWithBackground, {}, 'Population Count Estimate 2022');
 
 print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
-simonf@shaman [/google/src/cloud/simonf/gdal/google3/third_party/earthen
