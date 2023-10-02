@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('National Drought Mitigation Center', 'https://drought.unl.edu/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-04T00:00:00Z', '2023-09-17T00:00:00Z'),
+  extent: ee.extent_global('2000-01-04T00:00:00Z', null),
   summaries: {
     gsd: [
       250,
