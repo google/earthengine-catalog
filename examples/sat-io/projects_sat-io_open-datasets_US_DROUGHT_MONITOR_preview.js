@@ -1,100 +1,50 @@
-var usdm = ee.ImageCollection(
-  "projects/sat-io/open-datasets/us-drought-monitor"
+var usdm = ee.Image(
+  ee
+    .ImageCollection("projects/sat-io/open-datasets/us-drought-monitor")
+    .sort("system:time_start", false)
+    .first()
 );
-/*
-Category	Description
-DO	Abnormally Dry
-D1	Moderate Drought
-D2	Severe Drought
-D3	Extreme Drought
-D4	Exceptional Drought
-*/
 
-var usdm = ee.Image(usdm.toList(usdm.size()).get(-1));
+var lon = -98.19;
+var lat = 40;
 
-// Define a dictionary which will be used to make legend and visualize image on map
-var dict = {
-  names: [
-    "DO	Abnormally Dry", //1
-    "D1 Moderate Drought", //2
-    "D2 Severe Drought", //3
-    "D3 Extreme Drought", //4
-    "D4 Exceptional Drought", //5
-  ],
-  colors: ["FFFF00", "FCD37F", "FFAA00", "E60000", "730000"],
+Map.setCenter(lon, lat, 5);
+
+var gray = 150;
+var background = ee.Image.rgb(gray, gray, gray).visualize({ min: 0, max: 255 });
+
+// Degrees in EPSG:3857.
+var delta = 10;
+// Width and height of the thumbnail image.
+var pixels = 256;
+
+var image = usdm.visualize({
+  min: 0,
+  max: 4,
+  palette: ["FFFF00", "FCD37F", "FFAA00", "E60000", "730000"],
+});
+Map.addLayer(
+  image,
+  {},
+  "United States Drought Monitor (USDM; Drought Class)",
+  false
+);
+
+var areaOfInterest = ee.Geometry.Rectangle(
+  [lon - delta, lat - delta, lon + delta, lat + delta],
+  null,
+  false
+);
+
+var imageParams = {
+  dimensions: [pixels, pixels],
+  region: areaOfInterest,
+  crs: "EPSG:3857",
+  format: "png",
 };
 
-// Create a panel to hold the legend widget
-var legend = ui.Panel({
-  style: {
-    position: "bottom-left",
-    padding: "8px 15px",
-  },
-});
+var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
-// Function to generate the legend
-function addCategoricalLegend(panel, dict, title) {
-  // Create and add the legend title.
-  var legendTitle = ui.Label({
-    value: title,
-    style: {
-      fontWeight: "bold",
-      fontSize: "18px",
-      margin: "0 0 4px 0",
-      padding: "0",
-    },
-  });
-  panel.add(legendTitle);
+Map.addLayer(imageWithBackground, {}, "United States Drought Monitor");
 
-  var loading = ui.Label("Loading legend...", { margin: "2px 0 4px 0" });
-  panel.add(loading);
-
-  // Creates and styles 1 row of the legend.
-  var makeRow = function (color, name) {
-    // Create the label that is actually the colored box.
-    var colorBox = ui.Label({
-      style: {
-        backgroundColor: color,
-        // Use padding to give the box height and width.
-        padding: "8px",
-        margin: "0 0 4px 0",
-      },
-    });
-
-    // Create the label filled with the description text.
-    var description = ui.Label({
-      value: name,
-      style: { margin: "0 0 4px 6px" },
-    });
-
-    return ui.Panel({
-      widgets: [colorBox, description],
-      layout: ui.Panel.Layout.Flow("horizontal"),
-    });
-  };
-
-  // Get the list of palette colors and class names from the image.
-  var palette = dict["colors"];
-  var names = dict["names"];
-  loading.style().set("shown", false);
-
-  for (var i = 0; i < names.length; i++) {
-    panel.add(makeRow(palette[i], names[i]));
-  }
-
-  Map.add(panel);
-}
-
-/*
-  // Display map and legend ///////////////////////////////////////////////////////////////////////////////
-*/
-
-// Add the legend to the map
-addCategoricalLegend(legend, dict, "US Drought Monitor");
-
-// Add USDM Image image to the map
-Map.addLayer(
-  usdm,
-  { min: 0, max: 4, palette: dict["colors"] },
-  usdm.get("system:index").getInfo()
-);
+print(ui.Thumbnail({ image: imageWithBackground, params: imageParams }));

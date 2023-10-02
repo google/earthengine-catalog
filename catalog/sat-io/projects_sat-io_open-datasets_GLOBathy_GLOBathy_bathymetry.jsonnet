@@ -40,18 +40,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('null', 'null'),
   summaries: {
-    'gee:schema': [
-      {
-        name: 'country',
-        description: 'Country',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'year',
-        description: 'Year',
-        type: ee_const.var_type.double,
-      },
-    ],
     gsd: [
       30,
     ],

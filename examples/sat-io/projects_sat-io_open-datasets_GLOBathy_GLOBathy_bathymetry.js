@@ -8,5 +8,4 @@ var palettes = require("users/samapriya/utils:palettes");
 var visParams = { min: 1, max: 700, palette: palettes.extra.blkred };
 
 // Note that the visualization image doesn't require visualization parameters.
-Map.addLayer(globathy, visParams, "ASTER GDEM");
-Map.addLayer(globathy_param, {}, "GLOBathy Basic Param", false);
+Map.addLayer(globathy, visParams, "Globathy Bathymetry (m)");
