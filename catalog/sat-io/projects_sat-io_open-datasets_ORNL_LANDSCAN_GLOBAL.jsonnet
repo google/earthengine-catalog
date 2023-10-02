@@ -40,13 +40,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
   summaries: {
-    'gee:schema': [
-      {
-        name: 'year',
-        description: 'Year',
-        type: ee_const.var_type.double,
-      },
-    ],
     gsd: [
       1000,
     ],
