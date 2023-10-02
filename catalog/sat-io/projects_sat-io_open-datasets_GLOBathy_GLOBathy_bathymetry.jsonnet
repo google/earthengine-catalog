@@ -38,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Bahram Khazaei', 'https://springernature.figshare.com/articles/dataset/GLOBathy_Bathymetry_Rasters/13404635'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('null', 'null'),
+  extent: ee.extent_global('2022-01-26', '2022-01-26'),
   summaries: {
     gsd: [
       30,
