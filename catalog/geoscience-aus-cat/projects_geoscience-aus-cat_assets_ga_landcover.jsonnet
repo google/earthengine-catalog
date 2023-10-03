@@ -41,7 +41,12 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.license(license.reference),
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.3390/data4040143', 'https://doi.org/10.1080/20964471.2021.1948179',
+      href: 'https://doi.org/10.3390/data4040143',
+      type: ee_const.media_type.html,
+    },
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://doi.org/10.1080/20964471.2021.1948179',
       type: ee_const.media_type.html,
     },
     {

@@ -18,6 +18,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
+  "gee:skip_indexing": true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -41,7 +42,12 @@ local self_url = catalog_subdir_url + base_filename;
     ee.link.license(license.reference),
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.1109/TGRS.2017.2723896', 'https://doi.org/10.1109/IGARSS.2018.8518312',
+      href: 'https://doi.org/10.1109/TGRS.2017.2723896',
+      type: ee_const.media_type.html,
+    },
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://doi.org/10.1109/IGARSS.2018.8518312',
       type: ee_const.media_type.html,
     },
     {
@@ -162,7 +168,7 @@ local self_url = catalog_subdir_url + base_filename;
       },
     ],
   },
-  'sci:doi': '10.1109/TGRS.2017.2723896', '10.1109/IGARSS.2018.8518312'
+  'sci:doi': '10.1109/TGRS.2017.2723896'
   'sci:citation': |||
     Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.
     [doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).

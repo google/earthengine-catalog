@@ -15,7 +15,6 @@ local self_url = base_url + base_filename;
   title: id,
   description: |||
     Datasets for Australia from [Geoscience Australia](https://www.dea.ga.gov.au/). For more datasets and information, please see [GA products](https://www.dea.ga.gov.au/products).
-    Datasets for Australia from [Geoscience Australia](https://www.dea.ga.gov.au/). For more datasets and information, please see [GA products](https://www.dea.ga.gov.au/products).
   |||,
   links: [
     ee.link.root(),
