@@ -1,4 +1,4 @@
-local id = 'projects/geoscience-aus-cat/assets/nidem';
+local id = 'projects/geoscience-aus-cat/assets/NIDEM';
 local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
