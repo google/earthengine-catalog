@@ -13,8 +13,6 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO: remove 'gee:skip_indexing'
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -24,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'GLOBathy Global lakes bathymetry dataset',
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
   description: |||
     The GLObal Bathymetric (GLOBathy) dataset, comprising data on over 1.4 million waterbodies globally, has been meticulously developed to harmonize with the widely recognized HydroLAKES dataset. Utilizing a sophisticated Geographic Information System (GIS)-based framework, GLOBathy constructs detailed bathymetric maps by integrating maximum depth estimates and geometric/geophysical attributes sourced from HydroLAKES. Ensuring data accuracy and reliability, GLOBathy undergoes stringent validation procedures involving 1,503 waterbodies and a diverse range of observed data sources. Consequently, GLOBathy stands as a robust and comprehensive dataset for hydrography and aquatic sciences, offering invaluable resources for researchers and professionals in these fields.
   |||,

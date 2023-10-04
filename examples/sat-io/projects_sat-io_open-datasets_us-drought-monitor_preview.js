@@ -1,3 +1,4 @@
+var adminBounds = ee.FeatureCollection('FAO/GAUL_SIMPLIFIED_500m/2015/level1');
 var usdm = ee.Image(
   ee
     .ImageCollection("projects/sat-io/open-datasets/us-drought-monitor")
@@ -10,7 +11,7 @@ var lat = 40;
 
 Map.setCenter(lon, lat, 5);
 
-var gray = 150;
+var gray = 200;
 var background = ee.Image.rgb(gray, gray, gray).visualize({ min: 0, max: 255 });
 
 // Degrees in EPSG:3857.
@@ -43,8 +44,10 @@ var imageParams = {
   format: "png",
 };
 
-var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
-
+var land = adminBounds.style('FF000000', 0, 'CIRCLE', 0, '888888');
+var stateLines = adminBounds.style('black', 1, 'CIRCLE', 1, 'FF000000');
+var imageWithBackground =
+    ee.ImageCollection([background, land, image, stateLines]).mosaic();
 Map.addLayer(imageWithBackground, {}, "United States Drought Monitor");
 
 print(ui.Thumbnail({ image: imageWithBackground, params: imageParams }));

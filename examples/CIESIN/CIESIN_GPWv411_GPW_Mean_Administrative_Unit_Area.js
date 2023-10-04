@@ -1,4 +1,4 @@
-var dataset = ee.Image('CIESIN/GPWv411/GPW_Mean_Administrative_Unit_Area');
+var dataset = ee.ImageCollection('CIESIN/GPWv411/GPW_Mean_Administrative_Unit_Area');
 var raster = dataset.select('mean_administrative_unit_area');
 var raster_vis = {
   'min': 0.0,
