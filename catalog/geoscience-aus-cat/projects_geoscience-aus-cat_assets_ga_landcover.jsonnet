@@ -756,7 +756,7 @@ local self_url = catalog_subdir_url + base_filename;
       },
     ],
   },
-  'sci:doi': '10.3390/data4040143', '10.1080/20964471.2021.1948179',
+  'sci:doi': '10.3390/data4040143',
   'sci:citation': |||
     Lucas R, Mueller N, Siggins A, Owers C, Clewley D, Bunting P, Kooymans C, Tissott B, Lewis B, Lymburner L, Metternicht G. Land Cover Mapping using Digital Earth Australia. Data. 2019; 4(4):143.
     [doi:10.3390/data4040143](https://doi.org/10.3390/data4040143).
