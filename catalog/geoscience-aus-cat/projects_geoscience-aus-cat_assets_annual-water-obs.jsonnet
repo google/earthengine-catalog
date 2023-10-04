@@ -105,7 +105,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'Wet count',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['B02']}},
+        image_visualization: {band_vis: {bands: ['wet_count']}},
       },
     ],
   },

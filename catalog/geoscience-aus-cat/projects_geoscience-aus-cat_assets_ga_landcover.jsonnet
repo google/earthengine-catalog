@@ -622,7 +622,7 @@ local self_url = catalog_subdir_url + base_filename;
             value: 103,
           },
           {
-            color: 'fff3bb9fff00',
+            color: '3bb9ff',
             description: 'Water: (Water) Non-perennial (1 to 3 months)',
             value: 104,
           },
@@ -752,7 +752,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'GA Landcover Level 4 rgb',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['B07']}},
+        image_visualization: {band_vis: {bands: ['level4_rgb']}},
       },
     ],
   },
