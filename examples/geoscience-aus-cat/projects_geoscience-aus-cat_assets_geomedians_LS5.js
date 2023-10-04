@@ -20,8 +20,8 @@ var composite = geomedian_ls5.filterBounds(geometry)
 var visualization = {
   bands: ['red', 'green', 'blue'],
   min: 0,
-  max: 0.3
+  max: 3000
 };
 
 Map.centerObject(geometry);
-Map.addLayer(image, visualization, '1995 True Color Composite');
+Map.addLayer(composite, visualization, '1995 True Color Composite');

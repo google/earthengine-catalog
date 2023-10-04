@@ -1,4 +1,4 @@
-var geomedian_ls5 = ee.ImageCollection('projects/geoscience-aus-cat/assets/geomedians_LS7');
+var geomedian_ls7 = ee.ImageCollection('projects/geoscience-aus-cat/assets/geomedians_LS7');
 
 var geometry = 
     /* color: #98ff00 */
@@ -13,15 +13,15 @@ var geometry =
           [154.147709470624, -39.68235603413486],
           [154.147709470624, -10.110164065391384]]], null, false);
           
-var composite = geomedian_ls5.filterBounds(geometry)
+var composite = geomedian_ls7.filterBounds(geometry)
                              .filterDate('2008-01-01', '2009-01-01')
                              .mosaic();
                              
 var visualization = {
   bands: ['red', 'green', 'blue'],
   min: 0,
-  max: 0.3
+  max: 3000
 };
 
 Map.centerObject(geometry);
-Map.addLayer(image, visualization, '2008 True Color Composite');
+Map.addLayer(composite, visualization, '2008 True Color Composite');

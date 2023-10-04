@@ -1,4 +1,4 @@
-var nidem = ee.Image('projects/geoscience-aus-cat/assets/nidem');
+var nidem = ee.Image('projects/geoscience-aus-cat/assets/NIDEM');
 
 var elevation = nidem.select('nidem');
 var visParams = {
