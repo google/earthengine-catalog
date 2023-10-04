@@ -36,6 +36,8 @@ local self_url = catalog_subdir_url + base_filename;
 
     For more information, please see the
     [DEA Geometric Median and Median Absolute Deviation](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#basics)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

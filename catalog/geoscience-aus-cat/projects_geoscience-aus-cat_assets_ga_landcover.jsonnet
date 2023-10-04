@@ -35,6 +35,8 @@ local self_url = catalog_subdir_url + base_filename;
 
     For more information, please see the
     [DEA Land Cover](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

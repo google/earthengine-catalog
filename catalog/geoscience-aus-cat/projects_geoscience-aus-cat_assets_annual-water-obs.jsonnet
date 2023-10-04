@@ -32,10 +32,14 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'DEA Water Observations Statistics ' + version,
   'gee:type': ee_const.gee_type.image,
   description: |||
-    Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry' or 'invalid'. Combining the classified pixels into summaries, covering a year, season, or all of time (since 1987) gives the information on where water is usually, and where it is rarely.
+    Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry' or 'invalid'. Combining the classified pixels into summaries, covering each year gives the information on where water is usually, and where it is rarely.
+    These are the statistics generated from the DEA Water Observations (Water Observations from Space) suite of products, which gives summaries of how often surface water was observed by the Landsat satellites per calendar year.
+    Water Observations Statistics provides information on how many times the Landsat satellites were able to clearly see an area, how many times those observations were wet, and what that means for the percentage of time that water was observed in the landscape.
 
     For more information, please see the
     [DEA Water Observations Statistics](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
