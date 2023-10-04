@@ -110,6 +110,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('WWF', base_url),
     ee.link.child_catalog('WorldPop', base_url),
     ee.link.child_catalog('YALE', base_url),
+    ee.link.child_catalog('geoscience-aus-cat', base_url),
     ee.link.child_catalog('ngis-cat', base_url),
     ee.link.child_catalog('planet-nicfi', base_url),
     ee.link.child_catalog('sat-io', base_url),
