@@ -11,7 +11,7 @@ var level3palette = [
   ];
 
 var visualization = {
-  bands: ['remapped'],
+  bands: ['level3'],
   min: 0,
   max: 6,
   palette: level3palette
@@ -31,7 +31,7 @@ var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
 var image = landcover.filterDate('1995-01-01', '1996-01-01')
-                     .select('B04')
+                     .select('level3')
                      .map(function(img){
                        return img.remap(
                         [0, 111, 112, 124, 215, 216, 220],

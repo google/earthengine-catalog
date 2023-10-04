@@ -1,7 +1,7 @@
 var water_obs = ee.ImageCollection('projects/geoscience-aus-cat/assets/annual-water-obs');
 
 var visualization_frequency = {
-  bands: ['B03'],
+  bands: ['water_frequency'],
   min: 0.0,
   max: 1.0,
   palette: ['ffffff', 'ffbbbb', '0000ff']

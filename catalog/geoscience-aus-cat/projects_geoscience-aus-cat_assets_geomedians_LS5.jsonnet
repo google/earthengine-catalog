@@ -18,7 +18,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  "gee:skip_indexing": true,
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -36,6 +36,8 @@ local self_url = catalog_subdir_url + base_filename;
 
     For more information, please see the
     [DEA Geometric Median and Median Absolute Deviation](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#basics)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -58,7 +60,7 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'australia',
     'ga',
-    'landsat-derived',
+    'landsat_derived',
   ],
   providers: [
     ee.producer_provider(
@@ -150,10 +152,10 @@ local self_url = catalog_subdir_url + base_filename;
     near_infrared: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     shortwave_infrared_1: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     shortwave_infrared_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    shortwave_infrared_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     Euclidean_distance_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     spectral_distance_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     Bray_Curtis_dissimilarity_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    count: {minimum: 0, maximum: 400, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
         display_name: 'Geomedians',
@@ -162,13 +164,13 @@ local self_url = catalog_subdir_url + base_filename;
           band_vis: {
             min: [0],
             max: [255],
-            bands: ['B03', 'B02', 'B01'],
+            bands: ['red', 'green', 'blue'],
           }
         },
       },
     ],
   },
-  'sci:doi': '10.1109/TGRS.2017.2723896'
+  'sci:doi': '10.1109/TGRS.2017.2723896',
   'sci:citation': |||
     Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.
     [doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).

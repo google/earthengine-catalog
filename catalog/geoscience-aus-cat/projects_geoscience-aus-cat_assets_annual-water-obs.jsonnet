@@ -18,7 +18,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  "gee:skip_indexing": true,
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -32,10 +32,14 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'DEA Water Observations Statistics ' + version,
   'gee:type': ee_const.gee_type.image,
   description: |||
-    Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry' or 'invalid'. Combining the classified pixels into summaries, covering a year, season, or all of time (since 1987) gives the information on where water is usually, and where it is rarely.
+    Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry' or 'invalid'. Combining the classified pixels into summaries, covering each year gives the information on where water is usually, and where it is rarely.
+    These are the statistics generated from the DEA Water Observations (Water Observations from Space) suite of products, which gives summaries of how often surface water was observed by the Landsat satellites per calendar year.
+    Water Observations Statistics provides information on how many times the Landsat satellites were able to clearly see an area, how many times those observations were wet, and what that means for the percentage of time that water was observed in the landscape.
 
     For more information, please see the
     [DEA Water Observations Statistics](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -53,7 +57,7 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'australia',
     'ga',
-    'landsat-derived',
+    'landsat_derived',
     'water',
   ],
   providers: [
@@ -101,7 +105,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'Wet count',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['B02']}},
+        image_visualization: {band_vis: {bands: ['wet_count']}},
       },
     ],
   },

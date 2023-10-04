@@ -18,6 +18,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -35,6 +36,8 @@ local self_url = catalog_subdir_url + base_filename;
 
     For more information, please see the
     [DEA Land Cover](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -57,7 +60,7 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'australia',
     'ga',
-    'landsat-derived',
+    'landsat_derived',
     'landcover'
   ],
   providers: [
@@ -620,7 +623,7 @@ local self_url = catalog_subdir_url + base_filename;
             value: 103,
           },
           {
-            color: 'fff3bb9fff00',
+            color: '3bb9ff',
             description: 'Water: (Water) Non-perennial (1 to 3 months)',
             value: 104,
           },
@@ -750,11 +753,11 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'GA Landcover Level 4 rgb',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['B07']}},
+        image_visualization: {band_vis: {bands: ['level4_rgb']}},
       },
     ],
   },
-  'sci:doi': '10.3390/data4040143', '10.1080/20964471.2021.1948179',
+  'sci:doi': '10.3390/data4040143',
   'sci:citation': |||
     Lucas R, Mueller N, Siggins A, Owers C, Clewley D, Bunting P, Kooymans C, Tissott B, Lewis B, Lymburner L, Metternicht G. Land Cover Mapping using Digital Earth Australia. Data. 2019; 4(4):143.
     [doi:10.3390/data4040143](https://doi.org/10.3390/data4040143).
