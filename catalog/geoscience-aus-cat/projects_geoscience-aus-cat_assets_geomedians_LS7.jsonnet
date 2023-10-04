@@ -152,10 +152,10 @@ local self_url = catalog_subdir_url + base_filename;
     near_infrared: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     shortwave_infrared_1: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     shortwave_infrared_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    shortwave_infrared_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     Euclidean_distance_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     spectral_distance_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     Bray_Curtis_dissimilarity_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    count: {minimum: 0, maximum: 400, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
         display_name: 'Geomedians',
