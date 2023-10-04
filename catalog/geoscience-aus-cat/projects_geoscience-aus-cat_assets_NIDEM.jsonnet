@@ -1,5 +1,5 @@
-local id = 'projects/ngis-cat/assets/DEA/NIDEM';
-local subdir = 'ngis-cat';
+local id = 'projects/geoscience-aus-cat/assets/NIDEM';
+local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -18,6 +18,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -28,7 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Preview National Intertidal Digital Elevation Model 25m ' + version,
+  title: 'National Intertidal Digital Elevation Model 25m ' + version,
   'gee:type': ee_const.gee_type.image,
   description: |||
     The National Intertidal Digital Elevation Model (NIDEM; Bishop-Taylor et
@@ -48,6 +49,8 @@ local self_url = catalog_subdir_url + base_filename;
 
     For more information, please see the
     [DEA Intertidal Elevation](https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat#basics)
+
+    This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
