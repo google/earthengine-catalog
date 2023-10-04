@@ -164,13 +164,13 @@ local self_url = catalog_subdir_url + base_filename;
           band_vis: {
             min: [0],
             max: [255],
-            bands: ['B03', 'B02', 'B01'],
+            bands: ['red', 'green', 'blue'],
           }
         },
       },
     ],
   },
-  'sci:doi': '10.1109/TGRS.2017.2723896'
+  'sci:doi': '10.1109/TGRS.2017.2723896',
   'sci:citation': |||
     Roberts, D., Mueller, N., & Mcintyre, A. (2017). High-dimensional pixel composites from earth observation time series. IEEE Transactions on Geoscience and Remote Sensing, 55(11), 6254-6264.
     [doi:10.1109/TGRS.2017.2723896](https://doi.org/10.1109/TGRS.2017.2723896).
