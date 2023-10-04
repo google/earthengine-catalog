@@ -7,7 +7,7 @@ var image = water_obs.filterBounds(point)
                      .first();
                      
 var visualization_frequency = {
-  bands: ['B03'],
+  bands: ['water_frequency'],
   min: 0.0,
   max: 1.0,
   palette: ['ffffff', 'ffbbbb', '0000ff']

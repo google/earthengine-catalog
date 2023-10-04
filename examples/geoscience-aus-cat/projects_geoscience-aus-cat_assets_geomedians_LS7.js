@@ -18,7 +18,7 @@ var composite = geomedian_ls5.filterBounds(geometry)
                              .mosaic();
                              
 var visualization = {
-  bands: ['B03', 'B02', 'B01'],
+  bands: ['red', 'green', 'blue'],
   min: 0,
   max: 0.3
 };

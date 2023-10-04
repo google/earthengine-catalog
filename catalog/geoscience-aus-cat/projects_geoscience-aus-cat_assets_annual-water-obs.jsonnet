@@ -57,7 +57,7 @@ local self_url = catalog_subdir_url + base_filename;
   keywords: [
     'australia',
     'ga',
-    'landsat-derived',
+    'landsat_derived',
     'water',
   ],
   providers: [
