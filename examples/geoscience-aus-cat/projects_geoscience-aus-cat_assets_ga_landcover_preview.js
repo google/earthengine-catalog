@@ -18,7 +18,8 @@ var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
 var image = landcover.filterDate('1995-01-01', '1996-01-01')
-                     .filterBounds(areaOfInterest);
+                     .filterBounds(areaOfInterest)
+                     .mosaic();
                   
 Map.addLayer(image, visualization, 'Land Cover');
 
