@@ -8,10 +8,10 @@ var geometry =
       }
     ] */
     ee.Geometry.Polygon(
-        [[[112.48755322062398, -10.110164065391384],
-          [112.48755322062398, -39.68235603413486],
-          [154.147709470624, -39.68235603413486],
-          [154.147709470624, -10.110164065391384]]], null, false);
+      [[[121.15880998755823, -15.010654451073695],
+        [121.15880998755823, -18.377531570740548],
+        [125.81701311255823, -18.377531570740548],
+        [125.81701311255823, -15.010654451073695]]], null, false);
 
 // Width and height of the thumbnail image.
 var pixels = 256;
@@ -26,7 +26,7 @@ var visualization = {
   max: 3000
 };
 
-Map.centerObject(geometry);
+Map.centerObject(geometry, 10);
 Map.addLayer(composite, visualization, '2008 True Color Composite');
 
 var imageParams = {
