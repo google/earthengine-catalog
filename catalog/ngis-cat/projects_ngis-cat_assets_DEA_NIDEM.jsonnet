@@ -29,6 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'Preview National Intertidal Digital Elevation Model 25m ' + version,
+  // TODO(simonf): mark as superseded by the geoscience-aus-cat dataset
   'gee:type': ee_const.gee_type.image,
   description: |||
     The National Intertidal Digital Elevation Model (NIDEM; Bishop-Taylor et
