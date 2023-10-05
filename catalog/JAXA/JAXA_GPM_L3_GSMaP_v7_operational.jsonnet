@@ -1,4 +1,4 @@
-local id = 'JAXA/GPM_L3/GSMaP/v6/operational';
+local id = 'JAXA/GPM_L3/GSMaP/v7/operational';
 local subdir = 'JAXA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -18,11 +18,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GSMaP Operational: Global Satellite Mapping of Precipitation - V6',
-  version: 'v6',
+  title: 'GSMaP Operational: Global Satellite Mapping of Precipitation - V7',
+  version: 'v7',
   'gee:type': ee_const.gee_type.image_collection,
   description: gsmap.description_header + |||
-    This dataset is processed by GSMaP algorithm version 6 (product version 3).
+    This dataset is processed by GSMaP algorithm version 7 (product version 4).
     See [GSMaP Technical Documentation](https://www.eorc.jaxa.jp/GPM/doc/product/format/en/07.GPM_GSMaP_Product_Format_V5_E.pdf)
     for more details.
   ||| + gsmap.description_footer,
@@ -32,7 +32,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: gsmap.providers + [ee.host_provider(self_ee_catalog_url)],
   extent: gsmap.extent,
   summaries: {
-    'gee:schema': gsmap.schema,
+    // StartGranuleDateTime and StopGranuleDateTime are excluded from v7
+    'gee:schema': gsmap.schema[0:4:1] + [gsmap.schema[6]],
     gsd: gsmap.gsd,
     'eo:bands': gsmap.bands,
     'gee:visualizations': gsmap.visualizations,
