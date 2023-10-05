@@ -208,9 +208,25 @@ local self_url = catalog_subdir_url + base_filename;
         ],
       },
       {
-        name: 'level3_rgb',
+        name: 'level3_R',
         description: |||
-          RGB composite for level 3 data.
+          R band of RGB composite for level 3 data.
+          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+        |||,
+        'gee:units': units.meter,
+      },
+      {
+        name: 'level3_G',
+        description: |||
+          G band of RGB composite for level 3 data.
+          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+        |||,
+        'gee:units': units.meter,
+      },
+      {
+        name: 'level3_B',
+        description: |||
+          B band of RGB composite for level 3 data.
           [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
         'gee:units': units.meter,
@@ -630,9 +646,23 @@ local self_url = catalog_subdir_url + base_filename;
         ],
       },
       {
-        name: 'level4_rgb',
+        name: 'level4_R',
         description: |||
-          RGB composite for level 4 data.
+          R band of RGB composite for level 4 data.
+          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+        |||,
+      },
+      {
+        name: 'level4_G',
+        description: |||
+          G band of RGB composite for level 4 data.
+          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+        |||,
+      },
+      {
+        name: 'level4_B',
+        description: |||
+          B  band of RGB composite for level 4 data.
           [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
       },
@@ -742,18 +772,22 @@ local self_url = catalog_subdir_url + base_filename;
     canopyco_veg_cat_l4d: {minimum: 0, maximum: 16, 'gee:estimated_range': false},
     inttidal_wat_cat_l4a: {minimum: 0, maximum: 3, 'gee:estimated_range': false},
     level3: {minimum: 0, maximum: 220, 'gee:estimated_range': false},
-    level3_rgb: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    level3_R: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    level3_G: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    level3_B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
     level4: {minimum: 0, maximum: 104, 'gee:estimated_range': false},
-    level4_rgb: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    level4_R: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    level4_G: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    level4_B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
     lifeform_veg_cat_l4a: {minimum: 0, maximum: 2, 'gee:estimated_range': false},
     waterper_wat_cat_l4d: {minimum: 0, maximum: 9, 'gee:estimated_range': false},
     watersea_veg_cat_l4a: {minimum: 0, maximum: 7, 'gee:estimated_range': false},
     waterstt_wat_cat_l4a: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
-        display_name: 'GA Landcover Level 4 rgb',
+        display_name: 'GA Landcover Level 4 RGB',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['level4_rgb']}},
+        image_visualization: {band_vis: {bands: ['level4_R', 'level4_G', 'level4_B']}},
       },
     ],
   },

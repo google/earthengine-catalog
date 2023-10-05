@@ -74,38 +74,38 @@ local self_url = catalog_subdir_url + base_filename;
     gsd: [25],
     'eo:bands': [
       {
-        name: 'clear_count',
+        name: 'B01',
         description: |||
-          How many times an area could be clearly seen.
+          Clear count: how many times an area could be clearly seen.
           [Band details](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
         |||,
         'gee:units': units.count,
       },
       {
-        name: 'wet_count',
+        name: 'B02',
         description: |||
-          How many times water was detected in observations that were clear.
+          Wet count: how many times water was detected in observations that were clear.
           [Band details](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
         |||,
         'gee:units': units.count,
       },
       {
-        name: 'water_frequency',
+        name: 'B03',
         description: |||
-          What percentage of clear observations were detected as wet.
+          Water frequency: what percentage of clear observations were detected as wet.
           [Band details](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
         |||,
         'gee:units': units.percent,
       },
     ],
-    clear_count: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
-    wet_count: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
-    water_frequency: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    B01: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
+    B02: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
+    B03: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Wet count',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['wet_count']}},
+        image_visualization: {band_vis: {bands: ['B02']}},
       },
     ],
   },
