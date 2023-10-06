@@ -22,8 +22,8 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection(
         'projects_geoscience-aus-cat_assets_NIDEM', base_url),
-    ee.link.child_collection(
-        'projects_geoscience-aus-cat_assets_annual-water-obs', base_url),
+    // ee.link.child_collection(
+    //    'projects_geoscience-aus-cat_assets_annual-water-obs', base_url),
     ee.link.child_collection(
         'projects_geoscience-aus-cat_assets_ga_landcover', base_url),
     ee.link.child_collection(
