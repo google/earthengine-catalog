@@ -18,7 +18,6 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -30,7 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version,
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product provides statistical tools to exploit the time series of Earth observation data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
 

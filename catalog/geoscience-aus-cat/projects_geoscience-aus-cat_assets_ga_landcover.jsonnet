@@ -18,7 +18,6 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -30,7 +29,7 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Land Cover ' + version,
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Digital Earth Australia (DEA) Land Cover translates over 30 years of satellite imagery into evidence of how Australia's land, vegetation and waterbodies have changed over time.
 
