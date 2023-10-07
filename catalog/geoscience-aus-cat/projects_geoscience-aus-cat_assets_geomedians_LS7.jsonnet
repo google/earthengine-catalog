@@ -33,8 +33,15 @@ local self_url = catalog_subdir_url + base_filename;
   description: |||
     This product provides statistical tools to exploit the time series of Earth observation data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
 
-    For more information, please see the
-    [DEA Geometric Median and Median Absolute Deviation](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#basics)
+    The geomedian part of the product provides an "average" cloud-free image over the given year. The geomedian image is calculated with a multi-dimensional median, using all the spectral measurements from the satellite imagery at the same time in order to maintain the relationships among the measurements.
+
+    The median absolute deviation part of the product uses three measures of variance, each of which provides a "second order" high dimensional statistical composite for the given year. The three variance measures show how much an area varies from the "average" in terms of "distance" based on factors such as brightness and spectra:
+
+    * Euclidean distance (EMAD)
+    * Cosine (spectral) distance (SMAD)
+    * Bray Curtis dissimilarity (BCMAD)
+
+    Together, they provide information on variance in the landscape over the given year and are useful for change detection applications.
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -64,7 +71,7 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://www.ga.gov.au/'),
+      'https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#basics'),
     // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -120,28 +127,24 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'Euclidean_distance_median_absolute_deviation',
         description: |||
           The Median Absolute Deviation using Euclidean distance (EMAD). EMAD is more sensitive to changes in target brightness.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#details)
         |||,
       },
       {
         name: 'spectral_distance_median_absolute_deviation',
         description: |||
           The Median Absolute Deviation using Cosine (spectral) distance (SMAD). SMAD is more sensitive to change in target spectral response.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#details)
         |||,
       },
       {
         name: 'Bray_Curtis_dissimilarity_median_absolute_deviation',
         description: |||
           The Median Absolute Deviation using Bray Curtis dissimilarity (BCMAD). BCMAD is more sensitive to the distribution of the observation values through time.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#details)
         |||,
       },
       {
         name: 'count',
         description: |||
           The number of the available pixels used for calculation per calendar year.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#details)
         |||,
       },
     ],

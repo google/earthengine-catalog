@@ -31,10 +31,7 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'DEA Land Cover ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Digital Earth Australia (DEA) Land Cover translates over 30 years of satellite imagery into evidence of how Australia's land, vegetation and waterbodies have changed over time.
-
-    For more information, please see the
-    [DEA Land Cover](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics)
+    DEA Land Cover provides annual land cover classifications for Australia using the FAO (Food and Agriculture Organisation)'s Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -65,7 +62,7 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://www.ga.gov.au/'),
+      'https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics'),
     // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -78,15 +75,9 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'baregrad_phy_cat_l4d',
         description: |||
-          Describes the percentage of bare in naturally bare areas.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Bare gradation. Describes the percentage of bare in naturally bare areas.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (not a naturally bare area)',
-            value: 0,
-          },
           {
             color: '622f22',
             description: 'Sparsely vegetated (< 20 % bare)',
@@ -107,15 +98,9 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'canopyco_veg_cat_l4d',
         description: |||
-          The measured cover of vegetated areas.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Vegetation Cover. The measured cover of vegetated areas.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (such as in bare areas)',
-            value: 0,
-          },
           {
             color: '8fb31d',
             description: 'Closed (>65 %)',
@@ -146,15 +131,9 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'inttidal_wat_cat_l4a',
         description: |||
-          Delineates the intertidal zone.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Intertidal. Delineates the intertidal zone.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (not intertidal)',
-            value: 0,
-          },
           {
             color: '151b54',
             description: 'Intertidal zone',
@@ -166,14 +145,8 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'level3',
         description: |||
           The base Level 3 land cover classification.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'No data',
-            value: 0,
-          },
           {
             color: '4aa02c',
             description: 'Cultivated Terrestrial Vegetation (CTV)',
@@ -210,7 +183,6 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'level3_R',
         description: |||
           R band of RGB composite for level 3 data.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
         'gee:units': units.meter,
       },
@@ -218,7 +190,6 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'level3_G',
         description: |||
           G band of RGB composite for level 3 data.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
         'gee:units': units.meter,
       },
@@ -226,7 +197,6 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'level3_B',
         description: |||
           B band of RGB composite for level 3 data.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
         'gee:units': units.meter,
       },
@@ -234,14 +204,8 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'level4',
         description: |||
           All level 3 and level 4 classes for a given pixel are combined to give a single classification value.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'No data',
-            value: 0,
-          },
           {
             color: '347c17',
             description: 'Cultivated Terrestrial Vegetated',
@@ -648,35 +612,26 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'level4_R',
         description: |||
           R band of RGB composite for level 4 data.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
       },
       {
         name: 'level4_G',
         description: |||
           G band of RGB composite for level 4 data.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
       },
       {
         name: 'level4_B',
         description: |||
           B  band of RGB composite for level 4 data.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
         |||,
       },
       {
         name: 'lifeform_veg_cat_l4a',
         description: |||
-          Describes the detail of vegetated classes, separating woody from herbaceous.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Lifeform. Describes the detail of vegetated classes, separating woody from herbaceous.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (such as in water areas)',
-            value: 0,
-          },
           {
             color: '808000',
             description: 'Woody (trees, shrubs)',
@@ -692,15 +647,9 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'waterper_wat_cat_l4d',
         description: |||
-          Describes the number of months a water body contains water.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Water Persistence. Describes the number of months a water body contains water.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (not an aquatic environment)',
-            value: 0,
-          },
           {
             color: '357ec7',
             description: '> 9 months',
@@ -726,15 +675,9 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'watersea_veg_cat_l4a',
         description: |||
-          The length of time an aquatic vegetated area was measured as being inundated.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Water Seasonality. The length of time an aquatic vegetated area was measured as being inundated.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (not an aquatic environment)',
-            value: 0,
-          },
           {
             color: '357ec7',
             description: 'Semi-permanent or permanent (> 3 months)',
@@ -750,15 +693,9 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'waterstt_wat_cat_l4a',
         description: |||
-          Describes whether the detected water is snow, ice or liquid water. Only liquid water is described in this release.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#details)
+          Water State. Describes whether the detected water is snow, ice or liquid water. Only liquid water is described in this release.
         |||,
         'gee:classes':[
-          {
-            color: 'ffffff',
-            description: 'Not applicable (not water)',
-            value: 0,
-          },
           {
             color: '357ec7',
             description: 'Water',

@@ -32,12 +32,8 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'DEA Water Observations Statistics ' + version,
   'gee:type': ee_const.gee_type.image,
   description: |||
-    Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry' or 'invalid'. Combining the classified pixels into summaries, covering each year gives the information on where water is usually, and where it is rarely.
     These are the statistics generated from the DEA Water Observations (Water Observations from Space) suite of products, which gives summaries of how often surface water was observed by the Landsat satellites per calendar year.
     Water Observations Statistics provides information on how many times the Landsat satellites were able to clearly see an area, how many times those observations were wet, and what that means for the percentage of time that water was observed in the landscape.
-
-    For more information, please see the
-    [DEA Water Observations Statistics](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -63,7 +59,7 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://www.ga.gov.au/'),
+      'https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat'),
     // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -76,8 +72,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'B01',
         description: |||
-          Clear count: how many times an area could be clearly seen.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
+          Clear count: how many times an area could be clearly seen, i.e., not affected by clouds, shadows, or other satellite observation problems.
         |||,
         'gee:units': units.count,
       },
@@ -85,7 +80,6 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'B02',
         description: |||
           Wet count: how many times water was detected in observations that were clear.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
         |||,
         'gee:units': units.count,
       },
@@ -93,7 +87,6 @@ local self_url = catalog_subdir_url + base_filename;
         name: 'B03',
         description: |||
           Water frequency: what percentage of clear observations were detected as wet.
-          [Band details](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
         |||,
         'gee:units': units.percent,
       },
