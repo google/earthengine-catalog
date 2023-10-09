@@ -55,6 +55,12 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
 
     See the [SMAP L4 Soil Moisture User Guide](https://nsidc.org/sites/default/files/documents/user-guide/multi_spl4smau-v007-userguide.pdf)
     and references therein for additional documentation and algorithm details.
+
+    See
+    [basic](https://developers.google.com/earth-engine/tutorials/community/smap-soil-moisture)
+    and
+    [advanced](https://developers.google.com/earth-engine/tutorials/community/anomalies-analysis-smo-and-pre)
+    tutorials to learn how to use SMAP data in Earth Engine.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
