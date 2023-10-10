@@ -10,5 +10,5 @@ precipitation_vis = {
 
 m = geemap.Map()
 m.set_center(17.93, 7.71, 2)
-m.add_ee_layer(precipitation, precipitation_vis, 'Precipitation')
+m.add_layer(precipitation, precipitation_vis, 'Precipitation')
 m

@@ -33,6 +33,6 @@ asc_change = ee.Image.cat(
 
 m = geemap.Map()
 m.set_center(5.2013, 47.3277, 12)
-m.add_ee_layer(asc_change, {'min': -25, 'max': 5}, 'Multi-T Mean ASC', True)
-m.add_ee_layer(desc_change, {'min': -25, 'max': 5}, 'Multi-T Mean DESC', True)
+m.add_layer(asc_change, {'min': -25, 'max': 5}, 'Multi-T Mean ASC', True)
+m.add_layer(desc_change, {'min': -25, 'max': 5}, 'Multi-T Mean DESC', True)
 m
