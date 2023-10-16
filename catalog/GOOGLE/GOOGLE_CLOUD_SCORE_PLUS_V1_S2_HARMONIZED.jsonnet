@@ -79,14 +79,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'cs',
-        description: 'Pixel quality score based on spectral distance from a
-        (theoretical) clear reference',
+        description: |||
+            Pixel quality score based on spectral distance from a
+            (theoretical) clear reference
+        |||,
         'gee:units': units.dimensionless,
       },
       {
         name: 'cs_cdf',
-        description: 'Value of the cumulative distribution function of possible
-        `cs` values for the estimated `cs` value',
+        description: |||
+          Value of the cumulative distribution function of possible
+          `cs` values for the estimated `cs` value
+        |||,
         'gee:units': units.dimensionless,
       },
     ],
