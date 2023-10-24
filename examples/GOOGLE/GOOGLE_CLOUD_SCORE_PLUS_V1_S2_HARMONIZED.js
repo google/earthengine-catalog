@@ -13,7 +13,7 @@ var linkedCollection = s2.linkCollection(csPlus, ['cs', 'cs_cdf']);
 
 // Date range for median composite.
 var dateStart = '2023-06-01';
-var dateEnd = '2023-09-01';
+var dateEnd = '2023-07-01';
 
 // Masks pixels with low CS+ QA scores.
 function maskLowQA(image) {
