@@ -113,7 +113,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'total_precipitation_surface',
-        description: 'Precipitation at surface at the forecasted time.',
+        description: |||
+          Cumulative precipitation at surface for the previous 1-6 hours,
+          depending on the value of the "forecast_hours" property according to
+          the formula ((F - 1) % 6) + 1.
+
+          As a consequence, to calculate the total precipitation by hour X,
+          double-counting should be avoid by only summing the values for
+          forecast_hours that are multiples of 6 plus any remainder to reach
+          X. It also means that to determine the precipitation for just hour
+          X, one must subtract the value for the preceding hour unless X is the
+          first hour in a 6-hour window.
+        |||,
         'gee:units': units.area_density,
       },
       {
