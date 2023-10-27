@@ -36,7 +36,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     accurate picture of weather conditions. Note that this model may change;
     see [history of recent modifications to the global forecast/analysis system](https://www.emc.ncep.noaa.gov/gmb/STATS/html/model_changes.html)
     and the [documentation](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php)
-    for more information.
+    for more information. There may be significant hour-to-hour and day-to-day
+    fluctuations that require noise-reduction techniques to be applied to bands
+    before analysis.
+
+    Note that the available forecast hours and intervals have also changed:
+
+    * From 2015/04/01-2017/07/09: 36-hour forecasts, excluding hour 0, at
+    3-hour intervals.
+    * From 2017/07/09-2021/06/11: 384-hour forecasts, at 1-hour intervals from
+    hours 0-120, at 3-hour intervals from hours 120-240, and 12-hour intervals
+    from hours 240-384.
+    * From 2021/06/12: 384-hour forecasts, at 1-hour intervals from hours 0-120
+    and 3-hour intervals from hours 120-384.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
