@@ -21,7 +21,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'USFS Landscape Change Monitoring System v2020.5',
+  title: 'USFS Landscape Change Monitoring System v2020.5' v' + version + ' ' +
+    '(Conterminous United States and Southeastern Alaska)',
   version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,

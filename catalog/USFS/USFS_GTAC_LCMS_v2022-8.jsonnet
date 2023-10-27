@@ -207,7 +207,7 @@ local license = spdx.proprietary;
           Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
           conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, and Hawaii.
           Possible values: 'CONUS, SEAK, PRUSVI, HI'
-        |||
+        |||,
         type: ee_const.var_type.string,
       },
       {
