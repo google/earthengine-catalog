@@ -1,4 +1,4 @@
-var dataset = ee.Image('CIESIN/GPWv411/GPW_National_Identifier_Grid');
+var dataset = ee.ImageCollection('CIESIN/GPWv411/GPW_National_Identifier_Grid');
 var raster = dataset.select('national_identifier_grid');
 var raster_vis = {
   'min': 4.0,

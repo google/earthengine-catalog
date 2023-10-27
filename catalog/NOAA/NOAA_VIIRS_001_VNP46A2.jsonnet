@@ -89,7 +89,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'BRDF corrected DNB NTL',
       },
       {
-        name: 'Gap_Filled_DNB_BRDFCorrected_NTL',
+        name: 'Gap_Filled_DNB_BRDF_Corrected_NTL',
         description: 'Gap Filled BRDF corrected DNB NTL',
       },
       {
@@ -310,7 +310,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 6553.4,
       'gee:estimated_range': false,
     },
-    Gap_Filled_DNB_BRDFCorrected_NTL: {
+    Gap_Filled_DNB_BRDF_Corrected_NTL: {
       minimum: 0.0,
       maximum: 6553.4,
       'gee:estimated_range': false,
