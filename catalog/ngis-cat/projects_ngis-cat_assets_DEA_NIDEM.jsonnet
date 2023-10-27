@@ -65,13 +65,13 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   keywords: [
     'australia',
-    // 'dea_australia',
+    'ga',
     'dem',
     // 'nidem',
   ],
   providers: [
     ee.producer_provider(
-      'Digital Earth Australia',
+      'Geoscience Australia',
       'https://cmi.ga.gov.au/data-products/dea/325/dea-intertidal-elevation-landsat'),
     ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),

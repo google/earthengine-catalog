@@ -39,5 +39,5 @@ rgb_vis = {
 
 m = geemap.Map()
 m.set_center(-9.1695, 38.6917, 12)
-m.add_ee_layer(dataset.median(), rgb_vis, 'RGB')
+m.add_layer(dataset.median(), rgb_vis, 'RGB')
 m

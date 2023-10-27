@@ -6,5 +6,5 @@ visualization = {
 
 m = geemap.Map()
 m.center_object(dataset)
-m.add_ee_layer(dataset, visualization, 'Landcover')
+m.add_layer(dataset, visualization, 'Landcover')
 m

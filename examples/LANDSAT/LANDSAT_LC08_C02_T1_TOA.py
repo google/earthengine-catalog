@@ -8,5 +8,5 @@ true_color_432_vis = {
 }
 m = geemap.Map()
 m.set_center(6.746, 46.529, 6)
-m.add_ee_layer(true_color_432, true_color_432_vis, 'True Color (432)')
+m.add_layer(true_color_432, true_color_432_vis, 'True Color (432)')
 m

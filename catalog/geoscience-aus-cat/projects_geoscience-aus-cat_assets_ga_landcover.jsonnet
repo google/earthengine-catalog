@@ -18,6 +18,7 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -63,7 +64,7 @@ local self_url = catalog_subdir_url + base_filename;
     ee.producer_provider(
       'Geoscience Australia',
       'https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics'),
-    // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
+    ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(

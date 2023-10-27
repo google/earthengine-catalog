@@ -122,27 +122,27 @@ vis_pressure = {
 
 # Add layer to map
 m = geemap.Map()
-m.add_ee_layer(
+m.add_layer(
     era5_tp.filter(ee.Filter.date('2019-07-15')),
     vis_tp,
     'Daily total precipitation sums',
 )
-m.add_ee_layer(
+m.add_layer(
     era5_2d.filter(ee.Filter.date('2019-07-15')),
     vis_2mt,
     'Daily mean 2m dewpoint temperature',
 )
-m.add_ee_layer(
+m.add_layer(
     era5_2mt.filter(ee.Filter.date('2019-07-15')),
     vis_2mt,
     'Daily mean 2m air temperature',
 )
-m.add_ee_layer(
+m.add_layer(
     era5_u_wind_10m.filter(ee.Filter.date('2019-07-15')),
     vis_wind,
     'Daily mean 10m u-component of wind',
 )
-m.add_ee_layer(
+m.add_layer(
     era5_sp.filter(ee.Filter.date('2019-07-15')),
     vis_pressure,
     'Daily mean surface pressure',

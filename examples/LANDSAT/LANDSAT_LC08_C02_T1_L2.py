@@ -22,5 +22,5 @@ visualization = {
 
 m = geemap.Map()
 m.set_center(-114.2579, 38.9275, 8)
-m.add_ee_layer(dataset, visualization, 'True Color (432)')
+m.add_layer(dataset, visualization, 'True Color (432)')
 m

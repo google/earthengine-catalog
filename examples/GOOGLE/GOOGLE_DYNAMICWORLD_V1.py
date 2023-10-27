@@ -67,12 +67,12 @@ dw_rgb_hillshade = dw_rgb.multiply(top1_prob_hillshade)
 # Display the Dynamic World visualization with the source Sentinel-2 image.
 m = geemap.Map()
 m.set_center(20.6729, 52.4305, 12)
-m.add_ee_layer(
+m.add_layer(
     s2_image,
     {'min': 0, 'max': 3000, 'bands': ['B4', 'B3', 'B2']},
     'Sentinel-2 L1C',
 )
-m.add_ee_layer(
+m.add_layer(
     dw_rgb_hillshade,
     {'min': 0, 'max': 0.65},
     'Dynamic World V1 - label hillshade',

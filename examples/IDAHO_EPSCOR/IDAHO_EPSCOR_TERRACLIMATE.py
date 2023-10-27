@@ -26,7 +26,7 @@ maximum_temperature_vis = {
 
 m = geemap.Map()
 m.set_center(71.72, 52.48, 3)
-m.add_ee_layer(
+m.add_layer(
     maximum_temperature, maximum_temperature_vis, 'Maximum Temperature'
 )
 m

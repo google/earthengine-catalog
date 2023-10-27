@@ -39,5 +39,5 @@ visualization = {
 
 m = geemap.Map()
 m.set_center(83.277, 17.7009, 12)
-m.add_ee_layer(dataset.mean(), visualization, 'RGB')
+m.add_layer(dataset.mean(), visualization, 'RGB')
 m
