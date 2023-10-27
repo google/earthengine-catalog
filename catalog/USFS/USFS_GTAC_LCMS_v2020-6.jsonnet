@@ -7,7 +7,7 @@ local version_table = import 'USFS_GTAC_LCMS_PRUSVI.libsonnet';
 local subdir = 'USFS';
 local version = 'v2020.6';
 local version_config = versions(subdir, version_table, version);
-local basename = std.strReplace(id, '/', '_');
+local basename = std.strReplace(version_config.id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
