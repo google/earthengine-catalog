@@ -1,19 +1,16 @@
-local id = 'USFS/GTAC/LCMS/v2020-6';
-local latest_id = id;
-local subdir = 'USFS';
-local version = '2020.6';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USFS_GTAC_LCMS_PRUSVI.libsonnet';
+
+local subdir = 'USFS';
+local version = 'v2020.6';
+local version_config = versions(subdir, version_table, version);
+local basename = std.strReplace(id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -23,11 +20,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
+  id: version_config.id,
   title:
     'USFS Landscape Change Monitoring System v' + version + ' ' +
     '(Puerto Rico - US Virgin Islands only)',
   version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data
@@ -177,15 +175,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.license(
-        'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php'),
-    {
-      rel: ee_const.rel.source,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS',
-    },
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, version_config.id) + [
+    ee.link.license(license.reference)
+  ] + version_config.version_links,This dataset has been superseded by
   keywords: [
     'change',
     'change_detection',

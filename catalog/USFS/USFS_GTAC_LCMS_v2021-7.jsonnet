@@ -1,21 +1,16 @@
-local id = 'USFS/GTAC/LCMS/v2021-7';
-local version = '2021.7';
-local latest_id = id;
-local predecessor_id = 'USFS/GTAC/LCMS/v2020-5';
-local subdir = 'USFS';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USFS_GTAC_LCMS.libsonnet';
+
+local subdir = 'USFS';
+local version = 'v2021.7';
+local version_config = versions(subdir, version_table, version);
+local basename = std.strReplace(id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -25,16 +20,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title:
-    'USFS Landscape Change Monitoring System v' + version + ' ' +
+  id: version_config.id,
+  title: 'USFS Landscape Change Monitoring System v' + version + ' ' +
     '(Conterminous United States and Southeastern Alaska)',
   version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data
-    suite.  It shows LCMS-modeled change, land cover, and/or land use classes
-    for each year.
+    suite. It shows LCMS-modeled change, land cover, and/or land use classes
+    for each year. This LCMS version covers the conterminous United States (CONUS) 
+    and Southeastern Alaska (SEAK).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape
     change across the United States. Its objective is to develop a consistent
@@ -180,17 +176,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.license(
-        'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php'),
-    {
-      rel: ee_const.rel.source,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS',
-    },
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-    ee.link.predecessor(
-        predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, version_config.id) + [
+    ee.link.license(license.reference)
+  ] + version_config.version_links,This dataset has been superseded by
   keywords: [
     'change',
     'change_detection',
@@ -221,10 +209,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'study_area',
         description: |||
-          LCMS currently covers CONUS, Southeastern Alaska, and Puerto Rico-US
-          Virgin Islands. This version contains outputs across CONUS and
-          Southeastern Alaska.
-
+          LCMS currently covers conterminous United States, Southeastern Alaska, 
+          and Puerto Rico-US Virgin Islands. This version contains outputs across 
+          conterminous United States and Southeastern Alaska.
           Possible values: 'CONUS, SEAK'
         |||,
         type: ee_const.var_type.string,
