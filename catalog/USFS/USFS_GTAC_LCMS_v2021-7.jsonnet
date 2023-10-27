@@ -178,7 +178,7 @@ local license = spdx.proprietary;
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
     ee.link.license(license.reference)
-  ] + version_config.version_links,This dataset has been superseded by
+  ] + version_config.version_links,
   keywords: [
     'change',
     'change_detection',
