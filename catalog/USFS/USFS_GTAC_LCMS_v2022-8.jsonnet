@@ -22,8 +22,7 @@ local license = spdx.proprietary;
   ],
   id: version_config.id,
   title: 'USFS Landscape Change Monitoring System v' + version + ' ' +
-    '(Conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, 
-    and Hawaii)',
+    '(Conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, and Hawaii)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
