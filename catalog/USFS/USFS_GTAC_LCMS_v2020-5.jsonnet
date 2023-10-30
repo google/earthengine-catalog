@@ -147,7 +147,7 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
-    ee.link.license(license.reference)
+    ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
   ] + version_config.version_links,
   keywords: [
     'change',
