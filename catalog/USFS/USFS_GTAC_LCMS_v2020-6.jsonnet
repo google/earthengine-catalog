@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: version_config.id,
   title:
     'USFS Landscape Change Monitoring System v' + version + ' ' +
-    '(Puerto Rico - US Virgin Islands only)',
+    '(Puerto Rico - US Virgin Islands only) [deprecated]',
   version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,

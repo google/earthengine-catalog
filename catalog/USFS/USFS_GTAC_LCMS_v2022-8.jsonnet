@@ -28,8 +28,8 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year. This 
-    LCMS version covers the conterminous United States (CONUS), Southeastern Alaska (SEAK), 
-    Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI).
+    LCMS version covers the CONUS, Southeastern Alaska (SEAK), Puerto Rico-US Virgin Islands 
+    (PRUSVI), and Hawaii (HI).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
