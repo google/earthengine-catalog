@@ -1,0 +1,4 @@
+[
+  {'v2020.6': 'USFS/GTAC/LCMS/v2020-6'},
+  {'v2022.8': 'USFS/GTAC/LCMS/v2022-8'},
+]

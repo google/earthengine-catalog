@@ -80,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation':|||
-        Khazaei, Bahram; Read, Laura K; Casali, Matthew; Sampson, Kevin M; Yates, David N (2022): GLOBathy Bathymetry Rasters. figshare. Dataset. https://doi.org/10.6084/10.6084/m9.figshare.c.5243309.v1
+        Khazaei, Bahram; Read, Laura K; Casali, Matthew; Sampson, Kevin M; Yates, David N (2022): GLOBathy Bathymetry Rasters. figshare. Dataset. https://doi.org/10.6084/m9.figshare.c.5243309.v1
   |||,
   'sci:doi': '10.6084/m9.figshare.c.5243309.v1',
   'gee:terms_of_use': |||
