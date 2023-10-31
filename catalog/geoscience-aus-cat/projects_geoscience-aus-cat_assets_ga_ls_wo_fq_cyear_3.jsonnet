@@ -94,14 +94,14 @@ local self_url = catalog_subdir_url + base_filename;
         'gee:units': units.percent,
       },
     ],
-    B01: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
-    B02: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
-    B03: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    count_clear: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
+    count_wet: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
+    frequency: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Wet count',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['B02']}},
+        image_visualization: {band_vis: {bands: ['count_wet']}},
       },
     ],
   },
