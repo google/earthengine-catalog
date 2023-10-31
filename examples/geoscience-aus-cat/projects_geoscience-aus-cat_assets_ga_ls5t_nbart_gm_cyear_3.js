@@ -1,4 +1,4 @@
-var geomedian_ls5 = ee.ImageCollection('projects/geoscience-aus-cat/assets/geomedians_LS5');
+var geomedian_ls5 = ee.ImageCollection('projects/geoscience-aus-cat/assets/ga_ls5t_nbart_gm_cyear_3');
 
 var geometry = 
     /* color: #98ff00 */

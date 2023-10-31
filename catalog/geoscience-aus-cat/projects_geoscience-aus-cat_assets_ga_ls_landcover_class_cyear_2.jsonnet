@@ -1,4 +1,4 @@
-local id = 'projects/geoscience-aus-cat/assets/ga_landcover';
+local id = 'projects/geoscience-aus-cat/assets/ga_ls_landcover_class_cyear_2';
 local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -30,9 +30,15 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Land Cover ' + version,
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
   description: |||
-    DEA Land Cover provides annual land cover classifications for Australia using the FAO (Food and Agriculture Organisation)'s Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
+    Digital Earth Australia (DEA) Land Cover translates over 30 years of satellite imagery into evidence of how Australia's land, vegetation and waterbodies have changed over time.
+    
+    Land cover is the observed physical cover on the Earth's surface including trees, shrubs, grasses, soils, exposed rocks, water bodies, plantations, crops and built structures. A consistent, Australia-wide land cover product helps understanding of how the different parts of the environment change and inter-relate. Earth observation data recorded over a period of time firstly allows the observation of the state of land cover at a specific time and secondly the way that land cover changes by comparison between times.
+    
+    DEA Land Cover provides annual land cover classifications for Australia using the Food and Agriculture Organisation Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
+
+    For more information, please see the [DEA Landcover Landsat](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics)
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -63,8 +69,8 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics'),
-    ee.processor_provider('NGIS', 'https://ngis.com.au/'),
+      'https://www.ga.gov.au/'),
+    // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
@@ -72,6 +78,8 @@ local self_url = catalog_subdir_url + base_filename;
     '1988-01-01T00:00:00Z', null),
   summaries: {
     gsd: [25],
+    // TODO (Shirui) - remove the comments before PR
+    // James, this is the descriptions for each band. Google strongly hopes to keep this part as concise as it can. The current version is revised by them, it would be great if we don't change this part too much.
     'eo:bands': [
       {
         name: 'baregrad_phy_cat_l4d',
@@ -79,6 +87,11 @@ local self_url = catalog_subdir_url + base_filename;
           Bare gradation. Describes the percentage of bare in naturally bare areas.
         |||,
         'gee:classes':[
+          {
+            color: 'ffffff',
+            description: 'Not applicable (not a naturally bare area)',
+            value: 0,
+          },
           {
             color: '622f22',
             description: 'Sparsely vegetated (< 20 % bare)',
@@ -99,9 +112,14 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'canopyco_veg_cat_l4d',
         description: |||
-          Vegetation Cover. The measured cover of vegetated areas.
+          Vegetation Cover. The measured cover of vegetated areas.
         |||,
         'gee:classes':[
+          {
+            color: 'ffffff',
+            description: 'Not applicable (such as in bare areas)',
+            value: 0,
+          },
           {
             color: '8fb31d',
             description: 'Closed (>65 %)',
@@ -136,6 +154,11 @@ local self_url = catalog_subdir_url + base_filename;
         |||,
         'gee:classes':[
           {
+            color: 'ffffff',
+            description: 'Not applicable (not intertidal)',
+            value: 0,
+          },
+          {
             color: '151b54',
             description: 'Intertidal zone',
             value: 3,
@@ -148,6 +171,11 @@ local self_url = catalog_subdir_url + base_filename;
           The base Level 3 land cover classification.
         |||,
         'gee:classes':[
+          {
+            color: 'ffffff',
+            description: 'No data',
+            value: 0,
+          },
           {
             color: '4aa02c',
             description: 'Cultivated Terrestrial Vegetation (CTV)',
@@ -207,6 +235,11 @@ local self_url = catalog_subdir_url + base_filename;
           All level 3 and level 4 classes for a given pixel are combined to give a single classification value.
         |||,
         'gee:classes':[
+          {
+            color: 'ffffff',
+            description: 'No data',
+            value: 0,
+          },
           {
             color: '347c17',
             description: 'Cultivated Terrestrial Vegetated',
@@ -634,6 +667,11 @@ local self_url = catalog_subdir_url + base_filename;
         |||,
         'gee:classes':[
           {
+            color: 'ffffff',
+            description: 'Not applicable (such as in water areas)',
+            value: 0,
+          },
+          {
             color: '808000',
             description: 'Woody (trees, shrubs)',
             value: 1,
@@ -648,9 +686,14 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'waterper_wat_cat_l4d',
         description: |||
-          Water Persistence. Describes the number of months a water body contains water.
+          Water Persistence. Describes the number of months a water body contains water.
         |||,
         'gee:classes':[
+          {
+            color: 'ffffff',
+            description: 'Not applicable (not an aquatic environment)',
+            value: 0,
+          },
           {
             color: '357ec7',
             description: '> 9 months',
@@ -680,6 +723,11 @@ local self_url = catalog_subdir_url + base_filename;
         |||,
         'gee:classes':[
           {
+            color: 'ffffff',
+            description: 'Not applicable (not an aquatic environment)',
+            value: 0,
+          },
+          {
             color: '357ec7',
             description: 'Semi-permanent or permanent (> 3 months)',
             value: 1,
@@ -697,6 +745,11 @@ local self_url = catalog_subdir_url + base_filename;
           Water State. Describes whether the detected water is snow, ice or liquid water. Only liquid water is described in this release.
         |||,
         'gee:classes':[
+          {
+            color: 'ffffff',
+            description: 'Not applicable (not water)',
+            value: 0,
+          },
           {
             color: '357ec7',
             description: 'Water',
