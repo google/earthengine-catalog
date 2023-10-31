@@ -30,7 +30,7 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 5 ' + version,
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product provides statistical tools to exploit the time series of Landsat 5 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
 
@@ -38,9 +38,9 @@ local self_url = catalog_subdir_url + base_filename;
     
     The median absolute deviation part of the product uses three measures of variance, each of which provides a "second order" high dimensional statistical composite for the given year. The three variance measures show how much an area varies from the "average" in terms of "distance" based on factors such as brightness and spectra:
 
-    - Euclidean distance (EMAD)
-    - Cosine (spectral) distance (SMAD)
-    - Bray Curtis dissimilarity (BCMAD)
+    * Euclidean distance (EMAD)
+    * Cosine (spectral) distance (SMAD)
+    * Bray Curtis dissimilarity (BCMAD)
 
     Together, they provide information on variance in the landscape over the given year and are useful for change detection applications.
     
@@ -74,8 +74,8 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://www.ga.gov.au/'),
-    // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
+      'https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#basics'),
+    ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(

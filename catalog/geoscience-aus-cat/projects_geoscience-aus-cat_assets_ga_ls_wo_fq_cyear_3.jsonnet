@@ -30,7 +30,7 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Water Observations Statistics ' + version,
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry', or 'invalid'. Water Observations Statistics provides information on how many times each year the Landsat satellites were able to clearly see an area, how many times those observations were wet, and what that means for the percentage of time that water was observed in the landscape.
 
@@ -62,8 +62,8 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://www.ga.gov.au/'),
-    // ee.processor_provider('NGIS', 'https://ngis.com.au/'),
+      'https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat'),
+    ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
