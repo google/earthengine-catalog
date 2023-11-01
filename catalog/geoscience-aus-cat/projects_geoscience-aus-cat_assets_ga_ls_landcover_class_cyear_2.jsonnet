@@ -32,11 +32,11 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'DEA Land Cover ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Digital Earth Australia (DEA) Land Cover translates over 30 years of satellite imagery into evidence of how Australia's land, vegetation and waterbodies have changed over time.
+    Digital Earth Australia (DEA) Land Cover provides annual land cover classifications for Australia using the Food and Agriculture Organisation Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
+
+    DEA Land Cover translates over 30 years of satellite imagery into evidence of how Australia's land, vegetation and waterbodies have changed over time.
     
     Land cover is the observed physical cover on the Earth's surface including trees, shrubs, grasses, soils, exposed rocks, water bodies, plantations, crops and built structures. A consistent, Australia-wide land cover product helps understanding of how the different parts of the environment change and inter-relate. Earth observation data recorded over a period of time firstly allows the observation of the state of land cover at a specific time and secondly the way that land cover changes by comparison between times.
-    
-    DEA Land Cover provides annual land cover classifications for Australia using the Food and Agriculture Organisation Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
 
     For more information, please see the [DEA Landcover Landsat](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics)
 
