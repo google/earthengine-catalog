@@ -22,15 +22,15 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection(
         'projects_geoscience-aus-cat_assets_NIDEM', base_url),
-    // ee.link.child_collection(
-    //    'projects_geoscience-aus-cat_assets_annual-water-obs', base_url),
-    // ee.link.child_collection(
-    //     'projects_geoscience-aus-cat_assets_ga_landcover', base_url),
-    // ee.link.child_collection(
-    //     'projects_geoscience-aus-cat_assets_geomedians_LS5', base_url),
-    // ee.link.child_collection(
-    //     'projects_geoscience-aus-cat_assets_geomedians_LS7', base_url),
-    // ee.link.child_collection(
-    //     'projects_geoscience-aus-cat_assets_geomedians_LS8', base_url),
+    ee.link.child_collection(
+        'projects_geoscience-aus-cat_assets_ga_ls_landcover_class_cyear_2', base_url),
+    ee.link.child_collection(
+        'projects_geoscience-aus-cat_assets_ga_ls5t_nbart_gm_cyear_3', base_url),
+    ee.link.child_collection(
+        'projects_geoscience-aus-cat_assets_ga_ls7e_nbart_gm_cyear_3', base_url),
+    ee.link.child_collection(
+        'projects_geoscience-aus-cat_assets_ga_ls8c_nbart_gm_cyear_3', base_url),
+    ee.link.child_collection(
+       'projects_geoscience-aus-cat_assets_ga_ls_wo_fq_cyear_3', base_url),
   ],
 }
