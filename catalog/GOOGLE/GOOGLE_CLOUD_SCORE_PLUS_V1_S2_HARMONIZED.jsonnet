@@ -20,31 +20,41 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   description: |||
     Cloud Score+ is a quality assessment (QA) processor for medium-to-high
-    resolution optical satellite imagery. Cloud Score+ outputs do not explicitly
-    provide labels, e.g., "cloud" and "cloud shadow". Instead, QA artifacts are
-    defined on a continuous scale based on ground occlusion with respect to
-    solar radiation or the imaging sensor: if a ray incident to or reflected
-    from a ground pixel is absorbed or reflected by the atmosphere, the QA score
-    is lower. Functionally, Cloud Score+ provides a holistic per-pixel
-    "usability" score that can be thresholded to mask or even weight
-    observations used for downstream tasks such as time series analysis or
-    classification.
+    resolution optical satellite imagery. The Cloud Score+ S2_HARMONIZED
+    dataset is being operationally produced from the
+    [harmonized Sentinel-2 L1C collection](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED).
 
-    The Cloud Score+ S2_HARMONIZED dataset is being operationally produced in
-    parallel with the [harmonized Sentinel-2 L1C collection](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED).
-    This dataset includes two QA bands that grade the usability of
-    individual pixels with respect to surface visibility on a scale of [0, 1]
-    where 0 represents "not clear" (occluded) while 1 represents "clear"
-    (unoccluded) observations. The `cs` band scores QA based on a spectral
-    distance between the observed pixel and a (theoretical) clear reference
-    observation, while the `cs_cdf` band represents the likelihood an observed
-    pixel is clear based on an estimated cumulative distribution of scores for a
-    given location through time.
+    Cloud Score+ outputs do not explicitly provide labels, e.g., "cloud" and
+    "cloud shadow". Instead, QA artifacts are defined on a continuous scale
+    based on ground occlusion with respect to solar radiation or the imaging
+    sensor: if a ray incident to or reflected from a ground pixel is absorbed
+    or reflected by the atmosphere, the QA score is lower. Functionally, Cloud
+    Score+ provides a holistic per-pixel "usability" score that can be
+    thresholded to mask or even weight observations used for downstream tasks
+    such as time series analysis or classification.
+
+    The Cloud Score+ S2_HARMONIZED dataset includes two QA bands, `cs` and
+    `cs_cdf`, that both grade the usability of individual pixels with respect to
+    surface visibility on a scale of [0, 1] where 0 represents "not clear"
+    (occluded) while 1 represents "clear" (unoccluded) observations. The `cs`
+    band scores QA based on a spectral distance between the observed pixel and a
+    (theoretical) clear reference observation, while the `cs_cdf` band
+    represents the likelihood an observed pixel is clear based on an estimated
+    cumulative distribution of scores for a given location through time. In
+    other words, `cs` can be thought of as a more instantaneous atmospheric
+    similarity score (i.e., how similar is this pixel to what'd we'd expect to
+    see in a perfectly a clear reference), while `cs_cdf` captures an expectation
+    of the estimated score through time (i.e., if we had all the scores for this
+    pixel through time, how would this score rank?).
 
     Images in the Cloud Score+ S2_HARMONIZED collection have the same id and
     system:index properties as the individual Sentinel-2 L1C assets from which
     they were produced such that Cloud Score+ bands can be linked to source
     images based on their shared system:index.
+
+    Cloud Score+ backfill for the entire Sentinel-2 archive is currently in
+    progress and Dataset Availability dates will be updated periodically as new
+    results are added to the Cloud Score+ collection.
 
   |||,
 
@@ -80,8 +90,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'cs',
         description: |||
-            Pixel quality score based on spectral distance from a
-            (theoretical) clear reference
+          Pixel quality score based on spectral distance from a
+          (theoretical) clear reference
         |||,
         'gee:units': units.dimensionless,
       },
@@ -95,14 +105,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
 
-    cs: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
-    cs_cdf: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    cs: { minimum: 0, maximum: 1, 'gee:estimated_range': false },
+    cs_cdf: { minimum: 0, maximum: 1, 'gee:estimated_range': false },
 
     // One or more band visualizations.
     'gee:visualizations': [
       {
         display_name: 'Cloud Score Plus (cs_cdf)',
-        lookat: {lon: 31.2196, lat: -16.1377, zoom: 11},
+        lookat: { lon: 31.2196, lat: -16.1377, zoom: 11 },
         image_visualization: {
           band_vis: {
             min: [0],
