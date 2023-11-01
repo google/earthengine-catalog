@@ -1,4 +1,4 @@
-local id = 'projects/geoscience-aus-cat/assets/ga_landcover';
+local id = 'projects/geoscience-aus-cat/assets/ga_ls_landcover_class_cyear_2';
 local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -32,7 +32,13 @@ local self_url = catalog_subdir_url + base_filename;
   title: 'DEA Land Cover ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    DEA Land Cover provides annual land cover classifications for Australia using the FAO (Food and Agriculture Organisation)'s Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
+    Digital Earth Australia (DEA) Land Cover provides annual land cover classifications for Australia using the Food and Agriculture Organisation Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).
+
+    DEA Land Cover translates over 30 years of satellite imagery into evidence of how Australia's land, vegetation and waterbodies have changed over time.
+    
+    Land cover is the observed physical cover on the Earth's surface including trees, shrubs, grasses, soils, exposed rocks, water bodies, plantations, crops and built structures. A consistent, Australia-wide land cover product helps understanding of how the different parts of the environment change and inter-relate. Earth observation data recorded over a period of time firstly allows the observation of the state of land cover at a specific time and secondly the way that land cover changes by comparison between times.
+
+    For more information, please see the [DEA Landcover Landsat](https://cmi.ga.gov.au/data-products/dea/607/dea-land-cover-landsat#basics)
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -99,7 +105,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'canopyco_veg_cat_l4d',
         description: |||
-          Vegetation Cover. The measured cover of vegetated areas.
+          Vegetation Cover. The measured cover of vegetated areas.
         |||,
         'gee:classes':[
           {
@@ -648,7 +654,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'waterper_wat_cat_l4d',
         description: |||
-          Water Persistence. Describes the number of months a water body contains water.
+          Water Persistence. Describes the number of months a water body contains water.
         |||,
         'gee:classes':[
           {
