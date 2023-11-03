@@ -125,7 +125,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'random forests',
     'tree list',
     'CONUS',
-    'conterminous United States'
+    'conterminous United States',
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/treemap.html'),
@@ -254,704 +254,704 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         |||,
         'gee:classes': [
           {
-          value: 101
-          color: '6E26EC'
-          description: 'Jack pine'
+          value: 101,
+          color: '6E26EC',
+          description: 'Jack pine',
           },
           {
-          value: 102
-          color: 'C765EC'
-          description: 'Red pine'
+          value: 102,
+          color: 'C765EC',
+          description: 'Red pine',
           },
           {
-          value: 103
-          color: 'EFDBCC'
-          description: 'Eastern white pine'
+          value: 103,
+          color: 'EFDBCC',
+          description: 'Eastern white pine',
           },
           {
-          value: 104
-          color: 'A8A9F2'
-          description: 'Eastern white pine / eastern hemlock'
+          value: 104,
+          color: 'A8A9F2',
+          description: 'Eastern white pine / eastern hemlock',
           },
           {
-          value: 105
-          color: 'D0CE83'
-          description: 'Eastern hemlock'
+          value: 105,
+          color: 'D0CE83',
+          description: 'Eastern hemlock',
           },
           {
-          value: 121
-          color: '47D0B6'
-          description: 'Balsam fir'
+          value: 121,
+          color: '47D0B6',
+          description: 'Balsam fir',
           },
           {
-          value: 122
-          color: '9D86A6'
-          description: 'White spruce'
+          value: 122,
+          color: '9D86A6',
+          description: 'White spruce',
           },
           {
-          value: 123
-          color: 'A5F77A'
-          description: 'Red spruce'
+          value: 123,
+          color: 'A5F77A',
+          description: 'Red spruce',
           },
           {
-          value: 124
-          color: 'DCF4D9'
-          description: 'Red spruce / balsam fir'
+          value: 124,
+          color: 'DCF4D9',
+          description: 'Red spruce / balsam fir',
           },
           {
-          value: 125
-          color: '64E1F7'
-          description: 'Black spruce'
+          value: 125,
+          color: '64E1F7',
+          description: 'Black spruce',
           },
           {
-          value: 126
-          color: 'AFA9B0'
-          description: 'Tamarack'
+          value: 126,
+          color: 'AFA9B0',
+          description: 'Tamarack',
           },
           {
-          value: 127
-          color: 'F2C531'
-          description: 'Northern white-cedar'
+          value: 127,
+          color: 'F2C531',
+          description: 'Northern white-cedar',
           },
           {
-          value: 128
-          color: '87CC75'
-          description: 'Fraser fir'
+          value: 128,
+          color: '87CC75',
+          description: 'Fraser fir',
           },
           {
-          value: 141
-          color: '84D7EB'
-          description: 'Longleaf pine'
+          value: 141,
+          color: '84D7EB',
+          description: 'Longleaf pine',
           },
           {
-          value: 142
-          color: 'EF4677'
-          description: 'Slash pine'
+          value: 142,
+          color: 'EF4677',
+          description: 'Slash pine',
           },
           {
-          value: 161
-          color: '97F2AD'
-          description: 'Loblolly pine'
+          value: 161,
+          color: '97F2AD',
+          description: 'Loblolly pine',
           },
           {
-          value: 162
-          color: 'D45549'
-          description: 'Shortleaf pine'
+          value: 162,
+          color: 'D45549',
+          description: 'Shortleaf pine',
           },
           {
-          value: 163
-          color: '63F3AC'
-          description: 'Virginia pine'
+          value: 163,
+          color: '63F3AC',
+          description: 'Virginia pine',
           },
           {
-          value: 164
-          color: 'F58DE4'
-          description: 'Sand pine'
+          value: 164,
+          color: 'F58DE4',
+          description: 'Sand pine',
           },
           {
-          value: 165
-          color: 'E9C991'
-          description: 'Table Mountain pine'
+          value: 165,
+          color: 'E9C991',
+          description: 'Table Mountain pine',
           },
           {
-          value: 166
-          color: 'DDBEF2'
-          description: 'Pond pine'
+          value: 166,
+          color: 'DDBEF2',
+          description: 'Pond pine',
           },
           {
-          value: 167
-          color: 'BBA847'
-          description: 'Pitch pine'
+          value: 167,
+          color: 'BBA847',
+          description: 'Pitch pine',
           },
           {
-          value: 171
-          color: '95EACD'
-          description: 'Eastern redcedar'
+          value: 171,
+          color: '95EACD',
+          description: 'Eastern redcedar',
           },
           {
-          value: 182
-          color: 'A6827B'
-          description: 'Rocky Mountain juniper'
+          value: 182,
+          color: 'A6827B',
+          description: 'Rocky Mountain juniper',
           },
           {
-          value: 184
-          color: 'BCA28A'
-          description: 'Juniper woodland'
+          value: 184,
+          color: 'BCA28A',
+          description: 'Juniper woodland',
           },
           {
-          value: 185
-          color: 'CFF3F4'
-          description: 'Pinyon / juniper woodland'
+          value: 185,
+          color: 'CFF3F4',
+          description: 'Pinyon / juniper woodland',
           },
           {
-          value: 201
-          color: 'C1DED5'
-          description: 'Douglas-fir'
+          value: 201,
+          color: 'C1DED5',
+          description: 'Douglas-fir',
           },
           {
-          value: 202
-          color: '948EE9'
-          description: 'Port-Orford-cedar'
+          value: 202,
+          color: '948EE9',
+          description: 'Port-Orford-cedar',
           },
           {
-          value: 221
-          color: 'D0EF5B'
-          description: 'Ponderosa pine'
+          value: 221,
+          color: 'D0EF5B',
+          description: 'Ponderosa pine',
           },
           {
-          value: 222
-          color: 'E29AF0'
-          description: 'Incense-cedar'
+          value: 222,
+          color: 'E29AF0',
+          description: 'Incense-cedar',
           },
           {
-          value: 224
-          color: 'C34BC3'
-          description: 'Sugar pine'
+          value: 224,
+          color: 'C34BC3',
+          description: 'Sugar pine',
           },
           {
-          value: 225
-          color: 'E6ACB8'
-          description: 'Jeffrey pine'
+          value: 225,
+          color: 'E6ACB8',
+          description: 'Jeffrey pine',
           },
           {
-          value: 226
-          color: 'EA3B34'
-          description: 'Coulter pine'
+          value: 226,
+          color: 'EA3B34',
+          description: 'Coulter pine',
           },
           {
-          value: 241
-          color: '724353'
-          description: 'Western white pine'
+          value: 241,
+          color: '724353',
+          description: 'Western white pine',
           },
           {
-          value: 261
-          color: 'F2C7A0'
-          description: 'White fir'
+          value: 261,
+          color: 'F2C7A0',
+          description: 'White fir',
           },
           {
-          value: 262
-          color: '6AB27F'
-          description: 'Red fir'
+          value: 262,
+          color: '6AB27F',
+          description: 'Red fir',
           },
           {
-          value: 263
-          color: 'F1F3D3'
-          description: 'Noble fir'
+          value: 263,
+          color: 'F1F3D3',
+          description: 'Noble fir',
           },
           {
-          value: 264
-          color: 'EA5ABA'
-          description: 'Pacific silver fir'
+          value: 264,
+          color: 'EA5ABA',
+          description: 'Pacific silver fir',
           },
           {
-          value: 265
-          color: 'EDC7E1'
-          description: 'Engelmann spruce'
+          value: 265,
+          color: 'EDC7E1',
+          description: 'Engelmann spruce',
           },
           {
-          value: 266
-          color: '4965E2'
-          description: 'Engelmann spruce / subalpine fir'
+          value: 266,
+          color: '4965E2',
+          description: 'Engelmann spruce / subalpine fir',
           },
           {
-          value: 267
-          color: 'A0F4C4'
-          description: 'Grand fir'
+          value: 267,
+          color: 'A0F4C4',
+          description: 'Grand fir',
           },
           {
-          value: 268
-          color: '5697DE'
-          description: 'Subalpine fir'
+          value: 268,
+          color: '5697DE',
+          description: 'Subalpine fir',
           },
           {
-          value: 269
-          color: '5DEFC4'
-          description: 'Blue spruce'
+          value: 269,
+          color: '5DEFC4',
+          description: 'Blue spruce',
           },
           {
-          value: 270
-          color: 'E8F384'
-          description: 'Mountain hemlock'
+          value: 270,
+          color: 'E8F384',
+          description: 'Mountain hemlock',
           },
           {
-          value: 271
-          color: 'CC63BD'
-          description: 'Alaska-yellow-cedar'
+          value: 271,
+          color: 'CC63BD',
+          description: 'Alaska-yellow-cedar',
           },
           {
-          value: 281
-          color: 'E16F3D'
-          description: 'Lodgepole pine'
+          value: 281,
+          color: 'E16F3D',
+          description: 'Lodgepole pine',
           },
           {
-          value: 301
-          color: 'F5DA68'
-          description: 'Western hemlock'
+          value: 301,
+          color: 'F5DA68',
+          description: 'Western hemlock',
           },
           {
-          value: 304
-          color: 'A63BCF'
-          description: 'Western redcedar'
+          value: 304,
+          color: 'A63BCF',
+          description: 'Western redcedar',
           },
           {
-          value: 305
-          color: '51D0DD'
-          description: 'Sitka spruce'
+          value: 305,
+          color: '51D0DD',
+          description: 'Sitka spruce',
           },
           {
-          value: 321
-          color: '6BC5B6'
-          description: 'Western larch'
+          value: 321,
+          color: '6BC5B6',
+          description: 'Western larch',
           },
           {
-          value: 341
-          color: 'F2F4A5'
-          description: 'Redwood'
+          value: 341,
+          color: 'F2F4A5',
+          description: 'Redwood',
           },
           {
-          value: 361
-          color: '576ABE'
-          description: 'Knobcone pine'
+          value: 361,
+          color: '576ABE',
+          description: 'Knobcone pine',
           },
           {
-          value: 362
-          color: 'B56F7C'
-          description: 'Southwestern white pine'
+          value: 362,
+          color: 'B56F7C',
+          description: 'Southwestern white pine',
           },
           {
-          value: 365
-          color: 'DCA5CA'
-          description: 'Foxtail pine / bristlecone pine'
+          value: 365,
+          color: 'DCA5CA',
+          description: 'Foxtail pine / bristlecone pine',
           },
           {
-          value: 366
-          color: '67EFF4'
-          description: 'Limber pine'
+          value: 366,
+          color: '67EFF4',
+          description: 'Limber pine',
           },
           {
-          value: 367
-          color: 'CA5483'
-          description: 'Whitebark pine'
+          value: 367,
+          color: 'CA5483',
+          description: 'Whitebark pine',
           },
           {
-          value: 368
-          color: 'A8BF86'
-          description: 'Miscellaneous western softwoods'
+          value: 368,
+          color: 'A8BF86',
+          description: 'Miscellaneous western softwoods',
           },
           {
-          value: 369
-          color: 'AFF6E9'
-          description: 'Western juniper'
+          value: 369,
+          color: 'AFF6E9',
+          description: 'Western juniper',
           },
           {
-          value: 371
-          color: 'A53394'
-          description: 'California mixed conifer'
+          value: 371,
+          color: 'A53394',
+          description: 'California mixed conifer',
           },
           {
-          value: 381
-          color: 'E9E2EB'
-          description: 'Scotch pine'
+          value: 381,
+          color: 'E9E2EB',
+          description: 'Scotch pine',
           },
           {
-          value: 383
-          color: 'D0CFAD'
-          description: 'Other exotic softwoods'
+          value: 383,
+          color: 'D0CFAD',
+          description: 'Other exotic softwoods',
           },
           {
-          value: 384
-          color: 'EEE1B3'
-          description: 'Norway spruce'
+          value: 384,
+          color: 'EEE1B3',
+          description: 'Norway spruce',
           },
           {
-          value: 385
-          color: 'E4DB79'
-          description: 'Introduced larch'
+          value: 385,
+          color: 'E4DB79',
+          description: 'Introduced larch',
           },
           {
-          value: 401
-          color: 'EC42F6'
-          description: 'Eastern white pine / northern red oak / white ash'
+          value: 401,
+          color: 'EC42F6',
+          description: 'Eastern white pine / northern red oak / white ash',
           },
           {
-          value: 402
-          color: '7E9F81'
-          description: 'Eastern redcedar / hardwood'
+          value: 402,
+          color: '7E9F81',
+          description: 'Eastern redcedar / hardwood',
           },
           {
-          value: 403
-          color: '4A7196'
-          description: 'Longleaf pine / oak'
+          value: 403,
+          color: '4A7196',
+          description: 'Longleaf pine / oak',
           },
           {
-          value: 404
-          color: '5CD76E'
-          description: 'Shortleaf pine / oak'
+          value: 404,
+          color: '5CD76E',
+          description: 'Shortleaf pine / oak',
           },
           {
-          value: 405
-          color: '37999A'
-          description: 'Virginia pine / southern red oak'
+          value: 405,
+          color: '37999A',
+          description: 'Virginia pine / southern red oak',
           },
           {
-          value: 406
-          color: 'ED54DD'
-          description: 'Loblolly pine / hardwood'
+          value: 406,
+          color: 'ED54DD',
+          description: 'Loblolly pine / hardwood',
           },
           {
-          value: 407
-          color: '6792F0'
-          description: 'Slash pine / hardwood'
+          value: 407,
+          color: '6792F0',
+          description: 'Slash pine / hardwood',
           },
           {
-          value: 409
-          color: '82EB3E'
-          description: 'Other pine / hardwood'
+          value: 409,
+          color: '82EB3E',
+          description: 'Other pine / hardwood',
           },
           {
-          value: 501
-          color: 'B8DB98'
-          description: 'Post oak / blackjack oak'
+          value: 501,
+          color: 'B8DB98',
+          description: 'Post oak / blackjack oak',
           },
           {
-          value: 502
-          color: 'BCCC4B'
-          description: 'Chestnut oak'
+          value: 502,
+          color: 'BCCC4B',
+          description: 'Chestnut oak',
           },
           {
-          value: 503
-          color: 'F22AB1'
-          description: 'White oak / red oak / hickory'
+          value: 503,
+          color: 'F22AB1',
+          description: 'White oak / red oak / hickory',
           },
           {
-          value: 504
-          color: 'F6E095'
-          description: 'White oak'
+          value: 504,
+          color: 'F6E095',
+          description: 'White oak',
           },
           {
-          value: 505
-          color: '77989D'
-          description: 'Northern red oak'
+          value: 505,
+          color: '77989D',
+          description: 'Northern red oak',
           },
           {
-          value: 506
-          color: '718640'
-          description: 'Yellow-poplar / white oak / northern red oak'
+          value: 506,
+          color: '718640',
+          description: 'Yellow-poplar / white oak / northern red oak',
           },
           {
-          value: 507
-          color: '9D4F8D'
-          description: 'Sassafras / persimmon'
+          value: 507,
+          color: '9D4F8D',
+          description: 'Sassafras / persimmon',
           },
           {
-          value: 508
-          color: 'C376E4'
-          description: 'Sweetgum / yellow-poplar'
+          value: 508,
+          color: 'C376E4',
+          description: 'Sweetgum / yellow-poplar',
           },
           {
-          value: 509
-          color: '7CB133'
-          description: 'Bur oak'
+          value: 509,
+          color: '7CB133',
+          description: 'Bur oak',
           },
           {
-          value: 510
-          color: '5FA7CC'
-          description: 'Scarlet oak'
+          value: 510,
+          color: '5FA7CC',
+          description: 'Scarlet oak',
           },
           {
-          value: 511
-          color: '9AE6E8'
-          description: 'Yellow-poplar'
+          value: 511,
+          color: '9AE6E8',
+          description: 'Yellow-poplar',
           },
           {
-          value: 512
-          color: 'DEF3B1'
-          description: 'Black walnut'
+          value: 512,
+          color: 'DEF3B1',
+          description: 'Black walnut',
           },
           {
-          value: 513
-          color: 'B88BF2'
-          description: 'Black locust'
+          value: 513,
+          color: 'B88BF2',
+          description: 'Black locust',
           },
           {
-          value: 514
-          color: 'A5F031'
-          description: 'Southern scrub oak'
+          value: 514,
+          color: 'A5F031',
+          description: 'Southern scrub oak',
           },
           {
-          value: 515
-          color: 'EEAFA3'
-          description: 'Chestnut oak / black oak / scarlet oak'
+          value: 515,
+          color: 'EEAFA3',
+          description: 'Chestnut oak / black oak / scarlet oak',
           },
           {
-          value: 516
-          color: '9BD763'
-          description: 'Cherry / white ash / yellow-poplar'
+          value: 516,
+          color: '9BD763',
+          description: 'Cherry / white ash / yellow-poplar',
           },
           {
-          value: 517
-          color: 'B838EE'
-          description: 'Elm / ash / black locust'
+          value: 517,
+          color: 'B838EE',
+          description: 'Elm / ash / black locust',
           },
           {
-          value: 519
-          color: 'E88FBB'
-          description: 'Red maple / oak'
+          value: 519,
+          color: 'E88FBB',
+          description: 'Red maple / oak',
           },
           {
-          value: 520
-          color: 'CCE5B9'
-          description: 'Mixed upland hardwoods'
+          value: 520,
+          color: 'CCE5B9',
+          description: 'Mixed upland hardwoods',
           },
           {
-          value: 601
-          color: 'ED8A9C'
-          description: 'Swamp chestnut oak / cherrybark oak'
+          value: 601,
+          color: 'ED8A9C',
+          description: 'Swamp chestnut oak / cherrybark oak',
           },
           {
-          value: 602
-          color: 'C8ED2D'
-          description: 'Sweetgum / Nuttall oak / willow oak'
+          value: 602,
+          color: 'C8ED2D',
+          description: 'Sweetgum / Nuttall oak / willow oak',
           },
           {
-          value: 605
-          color: 'F0BD53'
-          description: 'Overcup oak / water hickory'
+          value: 605,
+          color: 'F0BD53',
+          description: 'Overcup oak / water hickory',
           },
           {
-          value: 606
-          color: '60DAD1'
-          description: 'Atlantic white-cedar'
+          value: 606,
+          color: '60DAD1',
+          description: 'Atlantic white-cedar',
           },
           {
-          value: 607
-          color: 'C790C1'
-          description: 'Baldcypress / water tupelo'
+          value: 607,
+          color: 'C790C1',
+          description: 'Baldcypress / water tupelo',
           },
           {
-          value: 608
-          color: '54C7EF'
-          description: 'Sweetbay / swamp tupelo / red maple'
+          value: 608,
+          color: '54C7EF',
+          description: 'Sweetbay / swamp tupelo / red maple',
           },
           {
-          value: 609
-          color: '8E6A31'
-          description: 'Baldcypress / pondcypress'
+          value: 609,
+          color: '8E6A31',
+          description: 'Baldcypress / pondcypress',
           },
           {
-          value: 701
-          color: 'CECCEB'
-          description: 'Black ash / American elm / red maple'
+          value: 701,
+          color: 'CECCEB',
+          description: 'Black ash / American elm / red maple',
           },
           {
-          value: 702
-          color: 'B1BEF2'
-          description: 'River birch / sycamore'
+          value: 702,
+          color: 'B1BEF2',
+          description: 'River birch / sycamore',
           },
           {
-          value: 703
-          color: 'F077EF'
-          description: 'Cottonwood'
+          value: 703,
+          color: 'F077EF',
+          description: 'Cottonwood',
           },
           {
-          value: 704
-          color: '969ACA'
-          description: 'Willow'
+          value: 704,
+          color: '969ACA',
+          description: 'Willow',
           },
           {
-          value: 705
-          color: 'C4EC84'
-          description: 'Sycamore / pecan / American elm'
+          value: 705,
+          color: 'C4EC84',
+          description: 'Sycamore / pecan / American elm',
           },
           {
-          value: 706
-          color: 'EFADEC'
-          description: 'Sugarberry / hackberry / elm / green ash'
+          value: 706,
+          color: 'EFADEC',
+          description: 'Sugarberry / hackberry / elm / green ash',
           },
           {
-          value: 707
-          color: 'DA23CF'
-          description: 'Silver maple / American elm'
+          value: 707,
+          color: 'DA23CF',
+          description: 'Silver maple / American elm',
           },
           {
-          value: 708
-          color: 'E4C3C0'
-          description: 'Red maple / lowland'
+          value: 708,
+          color: 'E4C3C0',
+          description: 'Red maple / lowland',
           },
           {
-          value: 709
-          color: 'BF90E1'
-          description: 'Cottonwood / willow'
+          value: 709,
+          color: 'BF90E1',
+          description: 'Cottonwood / willow',
           },
           {
-          value: 722
-          color: '52F3EB'
-          description: 'Oregon ash'
+          value: 722,
+          color: '52F3EB',
+          description: 'Oregon ash',
           },
           {
-          value: 801
-          color: 'A2C9EB'
-          description: 'Sugar maple / beech / yellow birch'
+          value: 801,
+          color: 'A2C9EB',
+          description: 'Sugar maple / beech / yellow birch',
           },
           {
-          value: 802
-          color: '3FF451'
-          description: 'Black cherry'
+          value: 802,
+          color: '3FF451',
+          description: 'Black cherry',
           },
           {
-          value: 805
-          color: '6AB7F2'
-          description: 'Hard maple / basswood'
+          value: 805,
+          color: '6AB7F2',
+          description: 'Hard maple / basswood',
           },
           {
-          value: 809
-          color: 'B3714C'
-          description: 'Red maple / upland'
+          value: 809,
+          color: 'B3714C',
+          description: 'Red maple / upland',
           },
           {
-          value: 901
-          color: 'D28F25'
-          description: 'Aspen'
+          value: 901,
+          color: 'D28F25',
+          description: 'Aspen',
           },
           {
-          value: 902
-          color: 'F59550'
-          description: 'Paper birch'
+          value: 902,
+          color: 'F59550',
+          description: 'Paper birch',
           },
           {
-          value: 903
-          color: 'DD82C7'
-          description: 'Gray birch'
+          value: 903,
+          color: 'DD82C7',
+          description: 'Gray birch',
           },
           {
-          value: 904
-          color: 'C5F2A0'
-          description: 'Balsam poplar'
+          value: 904,
+          color: 'C5F2A0',
+          description: 'Balsam poplar',
           },
           {
-          value: 905
-          color: 'E3F2E7'
-          description: 'Pin cherry'
+          value: 905,
+          color: 'E3F2E7',
+          description: 'Pin cherry',
           },
           {
-          value: 911
-          color: 'B2C2B1'
-          description: 'Red alder'
+          value: 911,
+          color: 'B2C2B1',
+          description: 'Red alder',
           },
           {
-          value: 912
-          color: '4FF389'
-          description: 'Bigleaf maple'
+          value: 912,
+          color: '4FF389',
+          description: 'Bigleaf maple',
           },
           {
-          value: 921
-          color: '8772E8'
-          description: 'Gray pine'
+          value: 921,
+          color: '8772E8',
+          description: 'Gray pine',
           },
           {
-          value: 922
-          color: 'BB24A1'
-          description: 'California black oak'
+          value: 922,
+          color: 'BB24A1',
+          description: 'California black oak',
           },
           {
-          value: 923
-          color: 'C7F7CD'
-          description: 'Oregon white oak'
+          value: 923,
+          color: 'C7F7CD',
+          description: 'Oregon white oak',
           },
           {
-          value: 924
-          color: '8FC3C6'
-          description: 'Blue oak'
+          value: 924,
+          color: '8FC3C6',
+          description: 'Blue oak',
           },
           {
-          value: 931
-          color: 'F13896'
-          description: 'Coast live oak'
+          value: 931,
+          color: 'F13896',
+          description: 'Coast live oak',
           },
           {
-          value: 933
-          color: 'EFE92F'
-          description: 'Canyon live oak'
+          value: 933,
+          color: 'EFE92F',
+          description: 'Canyon live oak',
           },
           {
-          value: 934
-          color: '6C48AE'
-          description: 'Interior live oak'
+          value: 934,
+          color: '6C48AE',
+          description: 'Interior live oak',
           },
           {
-          value: 935
-          color: 'B3E8CD'
-          description: 'California white oak (valley oak)'
+          value: 935,
+          color: 'B3E8CD',
+          description: 'California white oak (valley oak)',
           },
           {
-          value: 941
-          color: 'E8A882'
-          description: 'Tanoak'
+          value: 941,
+          color: 'E8A882',
+          description: 'Tanoak',
           },
           {
-          value: 942
-          color: 'B3E0F0'
-          description: 'California laurel'
+          value: 942,
+          color: 'B3E0F0',
+          description: 'California laurel',
           },
           {
-          value: 943
-          color: '6A48DE'
-          description: 'Giant chinkapin'
+          value: 943,
+          color: '6A48DE',
+          description: 'Giant chinkapin',
           },
           {
-          value: 961
-          color: 'C3AB6E'
-          description: 'Pacific madrone'
+          value: 961,
+          color: 'C3AB6E',
+          description: 'Pacific madrone',
           },
           {
-          value: 962
-          color: 'F5F169'
-          description: 'Other hardwoods'
+          value: 962,
+          color: 'F5F169',
+          description: 'Other hardwoods',
           },
           {
-          value: 971
-          color: 'F3C66F'
-          description: 'Deciduous oak woodland'
+          value: 971,
+          color: 'F3C66F',
+          description: 'Deciduous oak woodland',
           },
           {
-          value: 972
-          color: '4ECB89'
-          description: 'Evergreen oak woodland'
+          value: 972,
+          color: '4ECB89',
+          description: 'Evergreen oak woodland',
           },
           {
-          value: 973
-          color: '60B0C2'
-          description: 'Mesquite woodland'
+          value: 973,
+          color: '60B0C2',
+          description: 'Mesquite woodland',
           },
           {
-          value: 974
-          color: '76E45F'
-          description: 'Cercocarpus (mountain brush) woodland'
+          value: 974,
+          color: '76E45F',
+          description: 'Cercocarpus (mountain brush) woodland',
           },
           {
-          value: 975
-          color: 'B3C5CE'
-          description: 'Intermountain maple woodland'
+          value: 975,
+          color: 'B3C5CE',
+          description: 'Intermountain maple woodland',
           },
           {
-          value: 976
-          color: 'EE73AF'
-          description: 'Miscellaneous woodland hardwoods'
+          value: 976,
+          color: 'EE73AF',
+          description: 'Miscellaneous woodland hardwoods',
           },
           {
-          value: 982
-          color: '9473B4'
-          description: 'Mangrove'
+          value: 982,
+          color: '9473B4',
+          description: 'Mangrove',
           },
           {
-          value: 983
-          color: '80D9A8'
-          description: 'Palms'
+          value: 983,
+          color: '80D9A8',
+          description: 'Palms',
           },
           {
-          value: 995
-          color: 'E67774'
-          description: 'Other exotic hardwoods'
+          value: 995,
+          color: 'E67774',
+          description: 'Other exotic hardwoods',
           },
         ],
       },
@@ -962,714 +962,714 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         |||,
         'gee:classes': [
           {
-          value: 101
-          color: '6E26EC'
-          description: 'Jack pine'
+          value: 101,
+          color: '6E26EC',
+          description: 'Jack pine',
           },
           {
-          value: 102
-          color: 'C765EC'
-          description: 'Red pine'
+          value: 102,
+          color: 'C765EC',
+          description: 'Red pine',
           },
           {
-          value: 103
-          color: 'EFDBCC'
-          description: 'Eastern white pine'
+          value: 103,
+          color: 'EFDBCC',
+          description: 'Eastern white pine',
           },
           {
-          value: 104
-          color: 'A8A9F2'
-          description: 'Eastern white pine / eastern hemlock'
+          value: 104,
+          color: 'A8A9F2',
+          description: 'Eastern white pine / eastern hemlock',
           },
           {
-          value: 105
-          color: 'D0CE83'
-          description: 'Eastern hemlock'
+          value: 105,
+          color: 'D0CE83',
+          description: 'Eastern hemlock',
           },
           {
-          value: 121
-          color: '47D0B6'
-          description: 'Balsam fir'
+          value: 121,
+          color: '47D0B6',
+          description: 'Balsam fir',
           },
           {
-          value: 122
-          color: '9D86A6'
-          description: 'White spruce'
+          value: 122,
+          color: '9D86A6',
+          description: 'White spruce',
           },
           {
-          value: 123
-          color: 'A5F77A'
-          description: 'Red spruce'
+          value: 123,
+          color: 'A5F77A',
+          description: 'Red spruce',
           },
           {
-          value: 124
-          color: 'DCF4D9'
-          description: 'Red spruce / balsam fir'
+          value: 124,
+          color: 'DCF4D9',
+          description: 'Red spruce / balsam fir',
           },
           {
-          value: 125
-          color: '64E1F7'
-          description: 'Black spruce'
+          value: 125,
+          color: '64E1F7',
+          description: 'Black spruce',
           },
           {
-          value: 126
-          color: 'AFA9B0'
-          description: 'Tamarack'
+          value: 126,
+          color: 'AFA9B0',
+          description: 'Tamarack',
           },
           {
-          value: 127
-          color: 'F2C531'
-          description: 'Northern white-cedar'
+          value: 127,
+          color: 'F2C531',
+          description: 'Northern white-cedar',
           },
           {
-          value: 141
-          color: '84D7EB'
-          description: 'Longleaf pine'
+          value: 141,
+          color: '84D7EB',
+          description: 'Longleaf pine',
           },
           {
-          value: 142
-          color: 'EF4677'
-          description: 'Slash pine'
+          value: 142,
+          color: 'EF4677',
+          description: 'Slash pine',
           },
           {
-          value: 161
-          color: '97F2AD'
-          description: 'Loblolly pine'
+          value: 161,
+          color: '97F2AD',
+          description: 'Loblolly pine',
           },
           {
-          value: 162
-          color: 'D45549'
-          description: 'Shortleaf pine'
+          value: 162,
+          color: 'D45549',
+          description: 'Shortleaf pine',
           },
           {
-          value: 163
-          color: '63F3AC'
-          description: 'Virginia pine'
+          value: 163,
+          color: '63F3AC',
+          description: 'Virginia pine',
           },
           {
-          value: 164
-          color: 'F58DE4'
-          description: 'Sand pine'
+          value: 164,
+          color: 'F58DE4',
+          description: 'Sand pine',
           },
           {
-          value: 165
-          color: 'E9C991'
-          description: 'Table Mountain pine'
+          value: 165,
+          color: 'E9C991',
+          description: 'Table Mountain pine',
           },
           {
-          value: 166
-          color: 'DDBEF2'
-          description: 'Pond pine'
+          value: 166,
+          color: 'DDBEF2',
+          description: 'Pond pine',
           },
           {
-          value: 167
-          color: 'BBA847'
-          description: 'Pitch pine'
+          value: 167,
+          color: 'BBA847',
+          description: 'Pitch pine',
           },
           {
-          value: 171
-          color: '95EACD'
-          description: 'Eastern redcedar'
+          value: 171,
+          color: '95EACD',
+          description: 'Eastern redcedar',
           },
           {
-          value: 182
-          color: 'A6827B'
-          description: 'Rocky Mountain juniper'
+          value: 182,
+          color: 'A6827B',
+          description: 'Rocky Mountain juniper',
           },
           {
-          value: 184
-          color: 'BCA28A'
-          description: 'Juniper woodland'
+          value: 184,
+          color: 'BCA28A',
+          description: 'Juniper woodland',
           },
           {
-          value: 185
-          color: 'CFF3F4'
-          description: 'Pinyon / juniper woodland'
+          value: 185,
+          color: 'CFF3F4',
+          description: 'Pinyon / juniper woodland',
           },
           {
-          value: 201
-          color: 'C1DED5'
-          description: 'Douglas-fir'
+          value: 201,
+          color: 'C1DED5',
+          description: 'Douglas-fir',
           },
           {
-          value: 202
-          color: '948EE9'
-          description: 'Port-Orford-cedar'
+          value: 202,
+          color: '948EE9',
+          description: 'Port-Orford-cedar',
           },
           {
-          value: 221
-          color: 'D0EF5B'
-          description: 'Ponderosa pine'
+          value: 221,
+          color: 'D0EF5B',
+          description: 'Ponderosa pine',
           },
           {
-          value: 222
-          color: 'E29AF0'
-          description: 'Incense-cedar'
+          value: 222,
+          color: 'E29AF0',
+          description: 'Incense-cedar',
           },
           {
-          value: 224
-          color: 'C34BC3'
-          description: 'Sugar pine'
+          value: 224,
+          color: 'C34BC3',
+          description: 'Sugar pine',
           },
           {
-          value: 225
-          color: 'E6ACB8'
-          description: 'Jeffrey pine'
+          value: 225,
+          color: 'E6ACB8',
+          description: 'Jeffrey pine',
           },
           {
-          value: 226
-          color: 'EA3B34'
-          description: 'Coulter pine'
+          value: 226,
+          color: 'EA3B34',
+          description: 'Coulter pine',
           },
           {
-          value: 241
-          color: '724353'
-          description: 'Western white pine'
+          value: 241,
+          color: '724353',
+          description: 'Western white pine',
           },
           {
-          value: 261
-          color: 'F2C7A0'
-          description: 'White fir'
+          value: 261,
+          color: 'F2C7A0',
+          description: 'White fir',
           },
           {
-          value: 262
-          color: '6AB27F'
-          description: 'Red fir'
+          value: 262,
+          color: '6AB27F',
+          description: 'Red fir',
           },
           {
-          value: 263
-          color: 'F1F3D3'
-          description: 'Noble fir'
+          value: 263,
+          color: 'F1F3D3',
+          description: 'Noble fir',
           },
           {
-          value: 264
-          color: 'EA5ABA'
-          description: 'Pacific silver fir'
+          value: 264,
+          color: 'EA5ABA',
+          description: 'Pacific silver fir',
           },
           {
-          value: 265
-          color: 'EDC7E1'
-          description: 'Engelmann spruce'
+          value: 265,
+          color: 'EDC7E1',
+          description: 'Engelmann spruce',
           },
           {
-          value: 266
-          color: '4965E2'
-          description: 'Engelmann spruce / subalpine fir'
+          value: 266,
+          color: '4965E2',
+          description: 'Engelmann spruce / subalpine fir',
           },
           {
-          value: 267
-          color: 'A0F4C4'
-          description: 'Grand fir'
+          value: 267,
+          color: 'A0F4C4',
+          description: 'Grand fir',
           },
           {
-          value: 268
-          color: '5697DE'
-          description: 'Subalpine fir'
+          value: 268,
+          color: '5697DE',
+          description: 'Subalpine fir',
           },
           {
-          value: 269
-          color: '5DEFC4'
-          description: 'Blue spruce'
+          value: 269,
+          color: '5DEFC4',
+          description: 'Blue spruce',
           },
           {
-          value: 270
-          color: 'E8F384'
-          description: 'Mountain hemlock'
+          value: 270,
+          color: 'E8F384',
+          description: 'Mountain hemlock',
           },
           {
-          value: 271
-          color: 'CC63BD'
-          description: 'Alaska-yellow-cedar'
+          value: 271,
+          color: 'CC63BD',
+          description: 'Alaska-yellow-cedar',
           },
           {
-          value: 281
-          color: 'E16F3D'
-          description: 'Lodgepole pine'
+          value: 281,
+          color: 'E16F3D',
+          description: 'Lodgepole pine',
           },
           {
-          value: 301
-          color: 'F5DA68'
-          description: 'Western hemlock'
+          value: 301,
+          color: 'F5DA68',
+          description: 'Western hemlock',
           },
           {
-          value: 304
-          color: 'A63BCF'
-          description: 'Western redcedar'
+          value: 304,
+          color: 'A63BCF',
+          description: 'Western redcedar',
           },
           {
-          value: 305
-          color: '51D0DD'
-          description: 'Sitka spruce'
+          value: 305,
+          color: '51D0DD',
+          description: 'Sitka spruce',
           },
           {
-          value: 321
-          color: '6BC5B6'
-          description: 'Western larch'
+          value: 321,
+          color: '6BC5B6',
+          description: 'Western larch',
           },
           {
-          value: 341
-          color: 'F2F4A5'
-          description: 'Redwood'
+          value: 341,
+          color: 'F2F4A5',
+          description: 'Redwood',
           },
           {
-          value: 361
-          color: '576ABE'
-          description: 'Knobcone pine'
+          value: 361,
+          color: '576ABE',
+          description: 'Knobcone pine',
           },
           {
-          value: 362
-          color: 'B56F7C'
-          description: 'Southwestern white pine'
+          value: 362,
+          color: 'B56F7C',
+          description: 'Southwestern white pine',
           },
           {
-          value: 365
-          color: 'DCA5CA'
-          description: 'Foxtail pine / bristlecone pine'
+          value: 365,
+          color: 'DCA5CA',
+          description: 'Foxtail pine / bristlecone pine',
           },
           {
-          value: 366
-          color: '67EFF4'
-          description: 'Limber pine'
+          value: 366,
+          color: '67EFF4',
+          description: 'Limber pine',
           },
           {
-          value: 367
-          color: 'CA5483'
-          description: 'Whitebark pine'
+          value: 367,
+          color: 'CA5483',
+          description: 'Whitebark pine',
           },
           {
-          value: 368
-          color: 'A8BF86'
-          description: 'Miscellaneous western softwoods'
+          value: 368,
+          color: 'A8BF86',
+          description: 'Miscellaneous western softwoods',
           },
           {
-          value: 369
-          color: 'AFF6E9'
-          description: 'Western juniper'
+          value: 369,
+          color: 'AFF6E9',
+          description: 'Western juniper',
           },
           {
-          value: 371
-          color: 'A53394'
-          description: 'California mixed conifer'
+          value: 371,
+          color: 'A53394',
+          description: 'California mixed conifer',
           },
           {
-          value: 381
-          color: 'E9E2EB'
-          description: 'Scotch pine'
+          value: 381,
+          color: 'E9E2EB',
+          description: 'Scotch pine',
           },
           {
-          value: 383
-          color: 'D0CFAD'
-          description: 'Other exotic softwoods'
+          value: 383,
+          color: 'D0CFAD',
+          description: 'Other exotic softwoods',
           },
           {
-          value: 384
-          color: 'EEE1B3'
-          description: 'Norway spruce'
+          value: 384,
+          color: 'EEE1B3',
+          description: 'Norway spruce',
           },
           {
-          value: 385
-          color: 'E4DB79'
-          description: 'Introduced larch'
+          value: 385,
+          color: 'E4DB79',
+          description: 'Introduced larch',
           },
           {
-          value: 401
-          color: 'EC42F6'
-          description: 'Eastern white pine / northern red oak / white ash'
+          value: 401,
+          color: 'EC42F6',
+          description: 'Eastern white pine / northern red oak / white ash',
           },
           {
-          value: 402
-          color: '7E9F81'
-          description: 'Eastern redcedar / hardwood'
+          value: 402,
+          color: '7E9F81',
+          description: 'Eastern redcedar / hardwood',
           },
           {
-          value: 403
-          color: '4A7196'
-          description: 'Longleaf pine / oak'
+          value: 403,
+          color: '4A7196',
+          description: 'Longleaf pine / oak',
           },
           {
-          value: 404
-          color: '5CD76E'
-          description: 'Shortleaf pine / oak'
+          value: 404,
+          color: '5CD76E',
+          description: 'Shortleaf pine / oak',
           },
           {
-          value: 405
-          color: '37999A'
-          description: 'Virginia pine / southern red oak'
+          value: 405,
+          color: '37999A',
+          description: 'Virginia pine / southern red oak',
           },
           {
-          value: 406
-          color: 'ED54DD'
-          description: 'Loblolly pine / hardwood'
+          value: 406,
+          color: 'ED54DD',
+          description: 'Loblolly pine / hardwood',
           },
           {
-          value: 407
-          color: '6792F0'
-          description: 'Slash pine / hardwood'
+          value: 407,
+          color: '6792F0',
+          description: 'Slash pine / hardwood',
           },
           {
-          value: 409
-          color: '82EB3E'
-          description: 'Other pine / hardwood'
+          value: 409,
+          color: '82EB3E',
+          description: 'Other pine / hardwood',
           },
           {
-          value: 501
-          color: 'B8DB98'
-          description: 'Post oak / blackjack oak'
+          value: 501,
+          color: 'B8DB98',
+          description: 'Post oak / blackjack oak',
           },
           {
-          value: 502
-          color: 'BCCC4B'
-          description: 'Chestnut oak'
+          value: 502,
+          color: 'BCCC4B',
+          description: 'Chestnut oak',
           },
           {
-          value: 503
-          color: 'F22AB1'
-          description: 'White oak / red oak / hickory'
+          value: 503,
+          color: 'F22AB1',
+          description: 'White oak / red oak / hickory',
           },
           {
-          value: 504
-          color: 'F6E095'
-          description: 'White oak'
+          value: 504,
+          color: 'F6E095',
+          description: 'White oak',
           },
           {
-          value: 505
-          color: '77989D'
-          description: 'Northern red oak'
+          value: 505,
+          color: '77989D',
+          description: 'Northern red oak',
           },
           {
-          value: 506
-          color: '718640'
-          description: 'Yellow-poplar / white oak / northern red oak'
+          value: 506,
+          color: '718640',
+          description: 'Yellow-poplar / white oak / northern red oak',
           },
           {
-          value: 507
-          color: '9D4F8D'
-          description: 'Sassafras / persimmon'
+          value: 507,
+          color: '9D4F8D',
+          description: 'Sassafras / persimmon',
           },
           {
-          value: 508
-          color: 'C376E4'
-          description: 'Sweetgum / yellow-poplar'
+          value: 508,
+          color: 'C376E4',
+          description: 'Sweetgum / yellow-poplar',
           },
           {
-          value: 509
-          color: '7CB133'
-          description: 'Bur oak'
+          value: 509,
+          color: '7CB133',
+          description: 'Bur oak',
           },
           {
-          value: 510
-          color: '5FA7CC'
-          description: 'Scarlet oak'
+          value: 510,
+          color: '5FA7CC',
+          description: 'Scarlet oak',
           },
           {
-          value: 511
-          color: '9AE6E8'
-          description: 'Yellow-poplar'
+          value: 511,
+          color: '9AE6E8',
+          description: 'Yellow-poplar',
           },
           {
-          value: 512
-          color: 'DEF3B1'
-          description: 'Black walnut'
+          value: 512,
+          color: 'DEF3B1',
+          description: 'Black walnut',
           },
           {
-          value: 513
-          color: 'B88BF2'
-          description: 'Black locust'
+          value: 513,
+          color: 'B88BF2',
+          description: 'Black locust',
           },
           {
-          value: 514
-          color: 'A5F031'
-          description: 'Southern scrub oak'
+          value: 514,
+          color: 'A5F031',
+          description: 'Southern scrub oak',
           },
           {
-          value: 515
-          color: 'EEAFA3'
-          description: 'Chestnut oak / black oak / scarlet oak'
+          value: 515,
+          color: 'EEAFA3',
+          description: 'Chestnut oak / black oak / scarlet oak',
           },
           {
-          value: 516
-          color: '9BD763'
-          description: 'Cherry / white ash / yellow-poplar'
+          value: 516,
+          color: '9BD763',
+          description: 'Cherry / white ash / yellow-poplar',
           },
           {
-          value: 517
-          color: 'B838EE'
-          description: 'Elm / ash / black locust'
+          value: 517,
+          color: 'B838EE',
+          description: 'Elm / ash / black locust',
           },
           {
-          value: 519
-          color: 'E88FBB'
-          description: 'Red maple / oak'
+          value: 519,
+          color: 'E88FBB',
+          description: 'Red maple / oak',
           },
           {
-          value: 520
-          color: 'CCE5B9'
-          description: 'Mixed upland hardwoods'
+          value: 520,
+          color: 'CCE5B9',
+          description: 'Mixed upland hardwoods',
           },
           {
-          value: 601
-          color: 'ED8A9C'
-          description: 'Swamp chestnut oak / cherrybark oak'
+          value: 601,
+          color: 'ED8A9C',
+          description: 'Swamp chestnut oak / cherrybark oak',
           },
           {
-          value: 602
-          color: 'C8ED2D'
-          description: 'Sweetgum / Nuttall oak / willow oak'
+          value: 602,
+          color: 'C8ED2D',
+          description: 'Sweetgum / Nuttall oak / willow oak',
           },
           {
-          value: 605
-          color: 'F0BD53'
-          description: 'Overcup oak / water hickory'
+          value: 605,
+          color: 'F0BD53',
+          description: 'Overcup oak / water hickory',
           },
           {
-          value: 606
-          color: '60DAD1'
-          description: 'Atlantic white-cedar'
+          value: 606,
+          color: '60DAD1',
+          description: 'Atlantic white-cedar',
           },
           {
-          value: 607
-          color: 'C790C1'
-          description: 'Baldcypress / water tupelo'
+          value: 607,
+          color: 'C790C1',
+          description: 'Baldcypress / water tupelo',
           },
           {
-          value: 608
-          color: '54C7EF'
-          description: 'Sweetbay / swamp tupelo / red maple'
+          value: 608,
+          color: '54C7EF',
+          description: 'Sweetbay / swamp tupelo / red maple',
           },
           {
-          value: 609
-          color: '8E6A31'
-          description: 'Baldcypress / pondcypress'
+          value: 609,
+          color: '8E6A31',
+          description: 'Baldcypress / pondcypress',
           },
           {
-          value: 701
-          color: 'CECCEB'
-          description: 'Black ash / American elm / red maple'
+          value: 701,
+          color: 'CECCEB',
+          description: 'Black ash / American elm / red maple',
           },
           {
-          value: 702
-          color: 'B1BEF2'
-          description: 'River birch / sycamore'
+          value: 702,
+          color: 'B1BEF2',
+          description: 'River birch / sycamore',
           },
           {
-          value: 703
-          color: 'F077EF'
-          description: 'Cottonwood'
+          value: 703,
+          color: 'F077EF',
+          description: 'Cottonwood',
           },
           {
-          value: 704
-          color: '969ACA'
-          description: 'Willow'
+          value: 704,
+          color: '969ACA',
+          description: 'Willow',
           },
           {
-          value: 705
-          color: 'C4EC84'
-          description: 'Sycamore / pecan / American elm'
+          value: 705,
+          color: 'C4EC84',
+          description: 'Sycamore / pecan / American elm',
           },
           {
-          value: 706
-          color: 'EFADEC'
-          description: 'Sugarberry / hackberry / elm / green ash'
+          value: 706,
+          color: 'EFADEC',
+          description: 'Sugarberry / hackberry / elm / green ash',
           },
           {
-          value: 707
-          color: 'DA23CF'
-          description: 'Silver maple / American elm'
+          value: 707,
+          color: 'DA23CF',
+          description: 'Silver maple / American elm',
           },
           {
-          value: 708
-          color: 'E4C3C0'
-          description: 'Red maple / lowland'
+          value: 708,
+          color: 'E4C3C0',
+          description: 'Red maple / lowland',
           },
           {
-          value: 709
-          color: 'BF90E1'
-          description: 'Cottonwood / willow'
+          value: 709,
+          color: 'BF90E1',
+          description: 'Cottonwood / willow',
           },
           {
-          value: 722
-          color: '52F3EB'
-          description: 'Oregon ash'
+          value: 722,
+          color: '52F3EB',
+          description: 'Oregon ash',
           },
           {
-          value: 801
-          color: 'A2C9EB'
-          description: 'Sugar maple / beech / yellow birch'
+          value: 801,
+          color: 'A2C9EB',
+          description: 'Sugar maple / beech / yellow birch',
           },
           {
-          value: 802
-          color: '3FF451'
-          description: 'Black cherry'
+          value: 802,
+          color: '3FF451',
+          description: 'Black cherry',
           },
           {
-          value: 805
-          color: '6AB7F2'
-          description: 'Hard maple / basswood'
+          value: 805,
+          color: '6AB7F2',
+          description: 'Hard maple / basswood',
           },
           {
-          value: 809
-          color: 'B3714C'
-          description: 'Red maple / upland'
+          value: 809,
+          color: 'B3714C',
+          description: 'Red maple / upland',
           },
           {
-          value: 901
-          color: 'D28F25'
-          description: 'Aspen'
+          value: 901,
+          color: 'D28F25',
+          description: 'Aspen',
           },
           {
-          value: 902
-          color: 'F59550'
-          description: 'Paper birch'
+          value: 902,
+          color: 'F59550',
+          description: 'Paper birch',
           },
           {
-          value: 903
-          color: 'DD82C7'
-          description: 'Gray birch'
+          value: 903,
+          color: 'DD82C7',
+          description: 'Gray birch',
           },
           {
-          value: 904
-          color: 'C5F2A0'
-          description: 'Balsam poplar'
+          value: 904,
+          color: 'C5F2A0',
+          description: 'Balsam poplar',
           },
           {
-          value: 905
-          color: 'E3F2E7'
-          description: 'Pin cherry'
+          value: 905,
+          color: 'E3F2E7',
+          description: 'Pin cherry',
           },
           {
-          value: 911
-          color: 'B2C2B1'
-          description: 'Red alder'
+          value: 911,
+          color: 'B2C2B1',
+          description: 'Red alder',
           },
           {
-          value: 912
-          color: '4FF389'
-          description: 'Bigleaf maple'
+          value: 912,
+          color: '4FF389',
+          description: 'Bigleaf maple',
           },
           {
-          value: 921
-          color: '8772E8'
-          description: 'Gray pine'
+          value: 921,
+          color: '8772E8',
+          description: 'Gray pine',
           },
           {
-          value: 922
-          color: 'BB24A1'
-          description: 'California black oak'
+          value: 922,
+          color: 'BB24A1',
+          description: 'California black oak',
           },
           {
-          value: 923
-          color: 'C7F7CD'
-          description: 'Oregon white oak'
+          value: 923,
+          color: 'C7F7CD',
+          description: 'Oregon white oak',
           },
           {
-          value: 924
-          color: '8FC3C6'
-          description: 'Blue oak'
+          value: 924,
+          color: '8FC3C6',
+          description: 'Blue oak',
           },
           {
-          value: 931
-          color: 'F13896'
-          description: 'Coast live oak'
+          value: 931,
+          color: 'F13896',
+          description: 'Coast live oak',
           },
           {
-          value: 933
-          color: 'EFE92F'
-          description: 'Canyon live oak'
+          value: 933,
+          color: 'EFE92F',
+          description: 'Canyon live oak',
           },
           {
-          value: 934
-          color: '6C48AE'
-          description: 'Interior live oak'
+          value: 934,
+          color: '6C48AE',
+          description: 'Interior live oak',
           },
           {
-          value: 935
-          color: 'B3E8CD'
-          description: 'California white oak (valley oak)'
+          value: 935,
+          color: 'B3E8CD',
+          description: 'California white oak (valley oak)',
           },
           {
-          value: 941
-          color: 'E8A882'
-          description: 'Tanoak'
+          value: 941,
+          color: 'E8A882',
+          description: 'Tanoak',
           },
           {
-          value: 942
-          color: 'B3E0F0'
-          description: 'California laurel'
+          value: 942,
+          color: 'B3E0F0',
+          description: 'California laurel',
           },
           {
-          value: 943
-          color: '6A48DE'
-          description: 'Giant chinkapin'
+          value: 943,
+          color: '6A48DE',
+          description: 'Giant chinkapin',
           },
           {
-          value: 961
-          color: 'C3AB6E'
-          description: 'Pacific madrone'
+          value: 961,
+          color: 'C3AB6E',
+          description: 'Pacific madrone',
           },
           {
-          value: 962
-          color: 'F5F169'
-          description: 'Other hardwoods'
+          value: 962,
+          color: 'F5F169',
+          description: 'Other hardwoods',
           },
           {
-          value: 971
-          color: 'F3C66F'
-          description: 'Deciduous oak woodland'
+          value: 971,
+          color: 'F3C66F',
+          description: 'Deciduous oak woodland',
           },
           {
-          value: 972
-          color: '4ECB89'
-          description: 'Evergreen oak woodland'
+          value: 972,
+          color: '4ECB89',
+          description: 'Evergreen oak woodland',
           },
           {
-          value: 973
-          color: '60B0C2'
-          description: 'Mesquite woodland'
+          value: 973,
+          color: '60B0C2',
+          description: 'Mesquite woodland',
           },
           {
-          value: 974
-          color: '76E45F'
-          description: 'Cercocarpus (mountain brush) woodland'
+          value: 974,
+          color: '76E45F',
+          description: 'Cercocarpus (mountain brush) woodland',
           },
           {
-          value: 975
-          color: 'B3C5CE'
-          description: 'Intermountain maple woodland'
+          value: 975,
+          color: 'B3C5CE',
+          description: 'Intermountain maple woodland',
           },
           {
-          value: 976
-          color: 'EE73AF'
-          description: 'Miscellaneous woodland hardwoods'
+          value: 976,
+          color: 'EE73AF',
+          description: 'Miscellaneous woodland hardwoods',
           },
           {
-          value: 982
-          color: '9473B4'
-          description: 'Mangrove'
+          value: 982,
+          color: '9473B4',
+          description: 'Mangrove',
           },
           {
-          value: 983
-          color: '80D9A8'
-          description: 'Palms'
+          value: 983,
+          color: '80D9A8',
+          description: 'Palms',
           },
           {
-          value: 991
-          color: 'E6A25E'
-          description: 'Paulownia'
+          value: 991,
+          color: 'E6A25E',
+          description: 'Paulownia',
           },
           {
-          value: 992
-          color: 'F8F3B7'
-          description: 'Melaleuca'
+          value: 992,
+          color: 'F8F3B7',
+          description: 'Melaleuca',
           },
           {
-          value: 995
-          color: 'E67774'
-          description: 'Other exotic hardwoods'
+          value: 995,
+          color: 'E67774',
+          description: 'Other exotic hardwoods',
           },
           {
-          value: 999
-          color: 'D5CC36'
-          description: 'Nonstocked'
+          value: 999,
+          color: 'D5CC36',
+          description: 'Nonstocked',
           },
         ],
       },
@@ -1788,7 +1788,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'ALSTK',
@@ -1821,7 +1821,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'BALIVE',
@@ -1854,7 +1854,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'CANOPYPCT',
@@ -1887,7 +1887,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             'A54742',
             '73382F',
             '422818',
-            '1A1A01'
+            '1A1A01',
             ],
             bands: [
               'CARBON_D',
@@ -1920,7 +1920,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             'A54742',
             '73382F',
             '422818',
-            '1A1A01'
+            '1A1A01',
             ],
             bands: [
               'CARBON_DWN',
@@ -1953,7 +1953,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             'ECA855',
             'F4CC68',
             'FBEC9A',
-            'FFFFCC'
+            'FFFFCC',
             ],
             bands: [
               'CARBON_L',
@@ -1986,7 +1986,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             'A54742',
             '73382F',
             '422818',
-            '1A1A01'
+            '1A1A01',
             ],
             bands: [
               'DRYBIO_D',
@@ -2019,7 +2019,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             'ECA855',
             'F4CC68',
             'FBEC9A',
-            'FFFFCC'
+            'FFFFCC',
             ],
             bands: [
               'DRYBIO_L',
@@ -2052,7 +2052,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'GSSTK',
@@ -2085,7 +2085,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'QMD_RMRS',
@@ -2118,7 +2118,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'SDIPCT_RMR',
@@ -2151,7 +2151,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'STANDHT',
@@ -2184,7 +2184,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             '969206',
             'C5AE32',
             'E7CD68',
-            'FFE599'
+            'FFE599',
             ],
             bands: [
               'TPA_DEAD',
@@ -2217,7 +2217,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '3A652A',
               '265737',
               '134B42',
-              '00404D'
+              '00404D',
             ],
             bands: [
               'TPA_LIVE',
@@ -2250,7 +2250,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             '396B94',
             '2E599F',
             '2446A9',
-            '1A33B3'
+            '1A33B3',
             ],
             bands: [
               'VOLBFNET_L',
@@ -2283,7 +2283,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             '396B94',
             '2E599F',
             '2446A9',
-            '1A33B3'
+            '1A33B3',
             ],
             bands: [
               'VOLCFNET_D',
@@ -2316,7 +2316,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             '396B94',
             '2E599F',
             '2446A9',
-            '1A33B3'
+            '1A33B3',
             ],
             bands: [
               'VOLCFNET_L',
@@ -2325,7 +2325,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
       },
     ],
-  },
   },
   'sci:citation': |||
     Riley, Karin L.; Grenfell, Isaac C.; Finney, Mark A.; Shaw, John D. 2021. TreeMap 2016: A tree-level model of the forests of the conterminous United States circa 2016. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2021-0074.
