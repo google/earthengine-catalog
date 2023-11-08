@@ -21,7 +21,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'USFS Landscape Change Monitoring System v' + version + ' ' +
+  title: 'USFS Landscape Change Monitoring System ' + version + ' ' +
     '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
@@ -158,7 +158,7 @@ local license = spdx.proprietary;
     Object-based cloud and cloud shadow detection in Landsat imagery. 
     118: 83-94
 
-        * **Zhu, Z., and Woodcock, C. E., 2012.**. 
+    * **Zhu, Z., and Woodcock, C. E., 2012.**. 
     Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
     Environment. *Science Direct*,
     118: 83-94
