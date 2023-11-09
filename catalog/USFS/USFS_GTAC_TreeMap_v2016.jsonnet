@@ -130,12 +130,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'gtac',
     'landcover',
     'landfire',
+    'usfs',
     'treemap',
     'redcastle-resources',
     'tree-cover',
     'vegetation',
     'forest-inventory-and-analysis',
-    'fia',
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/treemap.html'),
@@ -188,35 +188,35 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: |||
           Carbon, Standing Dead. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1)) 
         |||,
-        'gee:units': units.tons_per_acre
+        'gee:units': units.tons_per_acre,
       },
       {
         name: 'CARBON_DWN',
         description: |||
           Carbon, Down Dead. Carbon (tons per acre) of woody material >3 inches in diameter on the ground, and stumps and their roots >3 inches in diameter. Estimated from models based on geographic area, forest type, and live tree carbon density (Smith and Heath 2008).
         |||,
-        'gee:units': units.tons_per_acre
+        'gee:units': units.tons_per_acre,
       },
       {
         name: 'CARBON_L',
         description: |||
           Carbon, Live Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1)) 
         |||,
-        'gee:units': units.tons_per_acre
+        'gee:units': units.tons_per_acre,
       },
       {
         name: 'DRYBIO_D',
         description: |||
           Dry Standing Dead Tree Biomass, Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1)) 
         |||,
-        'gee:units': units.tons_per_acre
+        'gee:units': units.tons_per_acre,
       },
       {
         name: 'DRYBIO_L',
         description: |||
           Dry Live Tree Biomass, Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1)) 
         |||,
-        'gee:units': units.tons_per_acre
+        'gee:units': units.tons_per_acre,
       },
       {
         name: 'FLDSZCD',
