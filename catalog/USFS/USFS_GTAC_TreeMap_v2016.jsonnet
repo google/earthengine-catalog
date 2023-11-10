@@ -1777,8 +1777,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: |||
           Volume, Live. Calculated via the following FIA query: Sum VOLCFNET*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
+        'gee:units': units.cubic_ft_per_acre,
       },
-      'gee:units': units.cubic_ft_per_acre,
     ],
     'gee:visualizations': [
       {
