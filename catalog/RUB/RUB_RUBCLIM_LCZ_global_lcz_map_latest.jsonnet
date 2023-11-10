@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global map of Local Climate Zones',
+  title: 'Global map of Local Climate Zones, latest version',
   version: 'latest',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
