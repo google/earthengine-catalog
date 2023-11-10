@@ -1,4 +1,4 @@
-local id = 'projects/geoscience-aus-cat/assets/annual-water-obs';
+local id = 'projects/geoscience-aus-cat/assets/ga_ls_wo_fq_cyear_3';
 local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -18,7 +18,6 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -30,10 +29,13 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Water Observations Statistics ' + version,
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    These are the statistics generated from the DEA Water Observations (Water Observations from Space) suite of products, which gives summaries of how often surface water was observed by the Landsat satellites per calendar year.
-    Water Observations Statistics provides information on how many times the Landsat satellites were able to clearly see an area, how many times those observations were wet, and what that means for the percentage of time that water was observed in the landscape.
+    Digital Earth Australia (DEA) Water Observations uses an algorithm to classify each pixel from Landsat satellite imagery as 'wet', 'dry', or 'invalid'. Water Observations Statistics provides information on how many times each year the Landsat satellites were able to clearly see an area, how many times those observations were wet, and what that means for the percentage of time that water was observed in the landscape.
+
+    Combining the classified pixels into summaries covering each year gives the information on where water is usually, and where it is rarely. As no confidence filtering is applied to this product, it is affected by noise where misclassifications have occurred in the input water classifications, and can be difficult to interpret on its own. 
+
+    For more information, please see the [DEA Water Observations Statistics Landsat](https://cmi.ga.gov.au/data-products/dea/686/dea-water-observations-statistics-landsat)
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -70,35 +72,35 @@ local self_url = catalog_subdir_url + base_filename;
     gsd: [25],
     'eo:bands': [
       {
-        name: 'B01',
+        name: 'count_clear',
         description: |||
-          Clear count: how many times an area could be clearly seen, i.e., not affected by clouds, shadows, or other satellite observation problems.
+          Clear count: how many times an area could be clearly seen.
         |||,
         'gee:units': units.count,
       },
       {
-        name: 'B02',
+        name: 'count_wet',
         description: |||
           Wet count: how many times water was detected in observations that were clear.
         |||,
         'gee:units': units.count,
       },
       {
-        name: 'B03',
+        name: 'frequency',
         description: |||
           Water frequency: what percentage of clear observations were detected as wet.
         |||,
         'gee:units': units.percent,
       },
     ],
-    B01: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
-    B02: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
-    B03: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
+    count_clear: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
+    count_wet: {minimum: -32768, maximum: 32767, 'gee:estimated_range': true},
+    frequency: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Wet count',
         lookat: {lon: 133.88, lat: -23.70, zoom: 5},
-        image_visualization: {band_vis: {bands: ['B02']}},
+        image_visualization: {band_vis: {bands: ['count_wet']}},
       },
     ],
   },

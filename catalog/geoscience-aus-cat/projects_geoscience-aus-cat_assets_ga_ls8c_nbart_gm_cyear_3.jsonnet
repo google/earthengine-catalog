@@ -1,4 +1,4 @@
-local id = 'projects/geoscience-aus-cat/assets/geomedians_LS7';
+local id = 'projects/geoscience-aus-cat/assets/ga_ls8c_nbart_gm_cyear_3';
 local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -18,7 +18,6 @@ local parent_url = catalog_subdir_url + 'catalog.json';
 local self_url = catalog_subdir_url + base_filename;
 
 {
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -29,13 +28,13 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 7 ' + version,
+  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product provides statistical tools to exploit the time series of Earth observation data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
+    This product provides statistical tools to exploit the time series of Landsat 8 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
 
     The geomedian part of the product provides an "average" cloud-free image over the given year. The geomedian image is calculated with a multi-dimensional median, using all the spectral measurements from the satellite imagery at the same time in order to maintain the relationships among the measurements.
-
+    
     The median absolute deviation part of the product uses three measures of variance, each of which provides a "second order" high dimensional statistical composite for the given year. The three variance measures show how much an area varies from the "average" in terms of "distance" based on factors such as brightness and spectra:
 
     * Euclidean distance (EMAD)
@@ -43,6 +42,8 @@ local self_url = catalog_subdir_url + base_filename;
     * Bray Curtis dissimilarity (BCMAD)
 
     Together, they provide information on variance in the landscape over the given year and are useful for change detection applications.
+    
+    For more information, please see the [DEA Geometric Median and Median Absolute Deviation Landsat](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat)
 
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
@@ -61,7 +62,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
     {
       rel: ee_const.rel.source,
-      href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls7e_nbart_gm_cyear_3/',
+      href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls5t_nbart_gm_cyear_3/',
     },
   ],
   keywords: [
@@ -78,7 +79,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   extent: ee.extent(
     108.81, -44.41, 157.82, -9.13,
-    '2000-01-01T00:00:00Z', null),
+    '2013-01-01T00:00:00Z', null),
   summaries: {
     gsd: [25],
     'eo:bands': [
@@ -87,42 +88,42 @@ local self_url = catalog_subdir_url + base_filename;
         description: |||
           Band blue surface reflectance geometric median.
         |||,
-        'gee:wavelength': '0.450-0.520 &mu;m',
+        'gee:wavelength': '0.452-0.512 &mu;m',
       },
       {
         name: 'green',
         description: |||
           Band green surface reflectance geometric median.
         |||,
-        'gee:wavelength': '0.520-0.600 &mu;m',
+        'gee:wavelength': '0.533-0.590 &mu;m',
       },
       {
         name: 'red',
         description: |||
           Band red surface reflectance geometric median.
         |||,
-        'gee:wavelength': '0.630-0.690 &mu;m',
+        'gee:wavelength': '0.636-0.673 &mu;m',
       },
       {
         name: 'near_infrared',
         description: |||
           Band near infrared surface reflectance geometric median.
         |||,
-        'gee:wavelength': '0.760-0.900 &mu;m',
+        'gee:wavelength': '0.851-0.879 &mu;m',
       },
       {
         name: 'shortwave_infrared_1',
         description: |||
           Band shortwave infrared 1 surface reflectance geometric median.
         |||,
-        'gee:wavelength': '1.550-1.750 &mu;m',
+        'gee:wavelength': '1.566-1.651 &mu;m',
       },
       {
         name: 'shortwave_infrared_2',
         description: |||
           Band shortwave infrared 2 surface reflectance geometric median.
         |||,
-        'gee:wavelength': '2.080-2.350 &mu;m',
+        'gee:wavelength': '2.107-2.294 &mu;m',
       },
       {
         name: 'Euclidean_distance_median_absolute_deviation',

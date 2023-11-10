@@ -1,4 +1,4 @@
-var landcover = ee.ImageCollection('projects/geoscience-aus-cat/assets/ga_landcover');
+var landcover = ee.ImageCollection('projects/geoscience-aus-cat/assets/ga_ls_landcover_class_cyear_2');
 
 var visualization = {
   bands: ['level4_R', 'level4_G', 'level4_B']
