@@ -342,4 +342,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
+  'gee:skip_indexing': true
 }
