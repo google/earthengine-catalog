@@ -35,11 +35,11 @@
   // A number of items.
   count: 'count',
   count_per_day: 'count/d',
-  count_per_acre: 'count/acre'
+  count_per_acre: 'count/acre',
 
   // https://en.wikipedia.org/wiki/Cubic_foot
   // https://en.wikipedia.org/wiki/Acre
-  cubic_ft_per_acre: 'ft^3/acre'
+  cubic_ft_per_acre: 'ft^3/acre',
 
   // http://www.iau.org/science/publications/proceedings_rules/units/
   day: 'd',
@@ -82,7 +82,7 @@
   hour_per_square_km: 'h/km^2',
 
   // https://en.wikipedia.org/wiki/Inch
-  inch: 'in'
+  inch: 'in',
 
   // https://en.wikipedia.org/wiki/Joule
   // https://en.wikipedia.org/wiki/Flux
