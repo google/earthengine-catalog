@@ -24,14 +24,14 @@ sudo apt-get install python3-absl
 ```
 
 ```shell
-bazel build //...
+bazel build --define jsonnet_port=cpp //...
 ```
 
 If that doesn't work, you might need to specify the Java JDK path. This example
 is using bash:
 
 ```shell
-PATH=/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH bazel build //...
+PATH=/usr/lib/jvm/java-11-openjdk-amd64/bin:$PATH bazel build --define jsonnet_port=cpp //...
 ```
 
 Finding the results:
@@ -43,7 +43,7 @@ ls bazel-bin/catalog/
 Running the unittests:
 
 ```shell
-bazel test //...
+bazel test --define jsonnet_port=cpp //...
 ```
 
 Running the Earth Engine Catalog Checker:

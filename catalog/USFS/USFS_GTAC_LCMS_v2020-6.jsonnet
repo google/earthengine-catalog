@@ -22,7 +22,7 @@ local license = spdx.proprietary;
   ],
   id: version_config.id,
   title:
-    'USFS Landscape Change Monitoring System v' + version + ' ' +
+    'USFS Landscape Change Monitoring System ' + version + ' ' +
     '(Puerto Rico - US Virgin Islands only) [deprecated]',
   version: version,
   deprecated: true,
