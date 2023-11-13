@@ -153,7 +153,9 @@ class ParentChildTest(absltest.TestCase):
 
     issues = list(Check.run(nodes))
     message = (
-        'Child link when gee:skip_indexing is true: AAFC/catalog AAFC/AAFC_ACI')
+        "Please don't reference in catalog.jsonnet datasets that have "
+        'gee:skip_indexing set to true: AAFC/catalog AAFC/AAFC_ACI'
+    )
     expect = [Check.new_issue(a_collection_node, message)]
     self.assertEqual(expect, issues)
 
