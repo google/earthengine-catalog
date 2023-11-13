@@ -116,7 +116,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treemap/',
     },
-    ee.link.latest(id, catalog_subdir_url + basename + '.json'),
   ],
   keywords: [
     'biomass',
