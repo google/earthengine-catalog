@@ -1,5 +1,4 @@
 local id = 'USFS/GTAC/TreeMap/v2016';
-local latest_id = id;
 local subdir = 'USFS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -10,7 +9,6 @@ local units = import 'units.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
@@ -118,7 +116,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treemap/',
     },
-    ee.link(id, catalog_subdir_url + basename + '.json'),
+    ee.link.lastest(id, catalog_subdir_url + basename + '.json'),
   ],
   keywords: [
     'biomass',
