@@ -1752,7 +1752,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'Value',
         description: |||
-          Raw TreeMap record number.
+          Raw TreeMap identifier dataset values. This dataset is useful to see spatial groupings of individual modeled plot values.
         |||,
       },
       {
