@@ -253,7 +253,7 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{VISUALIZATIONS} must have at least 1 entry')
       return
 
-    if len(visualizations) > 4:
+    if len(visualizations) > 50:
       yield cls.new_issue(
           node, f'{VISUALIZATIONS} has too many entries: {len(visualizations)}')
 

@@ -121,8 +121,9 @@ class ErrorsVisualizationsTest(test_utils.NodeTest):
         'image_visualization': {},
         'lookat': {'lat': 1, 'lon': 2, 'zoom': 3}}
     self.assert_collection(
-        {'summaries': {'gee:visualizations': [vis, vis, vis, vis, vis]}},
-        'gee:visualizations has too many entries: 5')
+        {'summaries': {'gee:visualizations': [vis] * 51}},
+        'gee:visualizations has too many entries: 51',
+    )
 
   def test_visualization_not_dict(self):
     self.assert_collection(
