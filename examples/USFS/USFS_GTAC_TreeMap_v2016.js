@@ -51,12 +51,17 @@ Map.addLayer(fortypcd, {}, 'FORTYPCD: Algorithm Forest Type Code', false);
 Map.addLayer(gsstk, {'min': 0, 'max': 100, 'palette': bamako_r}, 'GSSTK: Growing-Stock Stocking (percent)', false);
 Map.addLayer(qmd_rmrs, {'min': 2, 'max': 25, 'palette': bamako_r}, 'QMD_RMRS: Stand Quadratic Mean Diameter (in)', false);
 Map.addLayer(sdipct_rmrs, {'min': 6, 'max': 99, 'palette': bamako_r}, 'SDIPCT_RMRS: Stand Density Index (percent of maximum)', false);
+Map.addLayer(standht, {'min': 23, 'max': 194, 'palette': bamako_r}, 'STANDHT: Height of Dominant Trees (ft)', false);
+Map.addLayer(stdszcd, {}, 'STDSZCD: Algorithm Stand-Size Class Code', false);
 Map.addLayer(tpa_dead, {'min': 38, 'max': 126, 'palette': bamako}, 'TPA_DEAD: Dead Trees Per Acre', false);
 Map.addLayer(tpa_live, {'min': 252, 'max': 1666, 'palette': bamako_r}, 'TPA_LIVE: Live Trees Per Acre', false);
 Map.addLayer(value.randomVisualizer(), {}, 'Value: TreeMap ID', false);
 Map.addLayer(volbfnet_l, {'min': 441, 'max': 36522, 'palette': imola_r}, 'VOLBFNET_L: Volume, Live (sawlog-board-ft/acre)', false);
 Map.addLayer(volcfnet_d, {'min': 5, 'max': 1326, 'palette': imola_r}, 'VOLCFNET_D: Volume, Standing Dead (ft³/acre)', false);
 Map.addLayer(volcfnet_l, {'min': 137, 'max': 5790, 'palette': imola_r}, 'VOLCFNET_L: Volume, Live (ft³/acre)', false);
+
+// Set basemap
+Map.setOptions('TERRAIN');
 
 // Center map on CONUS
 Map.setCenter(-95.712891, 38, 5);
