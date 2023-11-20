@@ -35,27 +35,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The Cloud Score+ S2_HARMONIZED dataset includes two QA bands, `cs` and
     `cs_cdf`, that both grade the usability of individual pixels with respect to
-    surface visibility on a scale of [0, 1] where 0 represents "not clear"
-    (occluded) while 1 represents "clear" (unoccluded) observations. The `cs`
-    band scores QA based on a spectral distance between the observed pixel and a
-    (theoretical) clear reference observation, while the `cs_cdf` band
+    surface visibility on a continuous scale between 0 and 1, where 0 represents
+    "not clear" (occluded), while 1 represents "clear" (unoccluded) observations.
+    The `cs` band scores QA based on a spectral distance between the observed
+    pixel and a (theoretical) clear reference observation, while the `cs_cdf` band
     represents the likelihood an observed pixel is clear based on an estimated
     cumulative distribution of scores for a given location through time. In
     other words, `cs` can be thought of as a more instantaneous atmospheric
-    similarity score (i.e., how similar is this pixel to what'd we'd expect to
+    similarity score (i.e., how similar is this pixel to what we'd expect to
     see in a perfectly a clear reference), while `cs_cdf` captures an expectation
     of the estimated score through time (i.e., if we had all the scores for this
     pixel through time, how would this score rank?).
 
     Images in the Cloud Score+ S2_HARMONIZED collection have the same id and
-    system:index properties as the individual Sentinel-2 L1C assets from which
+    `system:index` properties as the individual Sentinel-2 L1C assets from which
     they were produced such that Cloud Score+ bands can be linked to source
-    images based on their shared system:index.
+    images based on their shared `system:index`.
 
     Cloud Score+ backfill for the entire Sentinel-2 archive is currently in
     progress and Dataset Availability dates will be updated periodically as new
     results are added to the Cloud Score+ collection.
 
+    For more information about the Cloud Score+ dataset and modelling
+    approach, see
+    [this Medium post](https://medium.com/google-earth/all-clear-with-cloud-score-bd6ee2e2235e).
   |||,
 
 

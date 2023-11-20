@@ -416,7 +416,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     use by the public. Once obtained, they may be put to any lawful use. The
     forgoing data is in the public domain and is being provided without
     restriction on use and distribution. For more information see the
-    'constraints' section in [https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3]
-    (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3).
+    'constraints' section in
+    [https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3).
   |||,
 }
