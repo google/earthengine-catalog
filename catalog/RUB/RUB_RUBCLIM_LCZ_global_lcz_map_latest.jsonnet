@@ -1,16 +1,17 @@
-local id = 'RUB/RUBCLIM/LCZ/global_lcz_map/latest';
+local id = 'RUB/RUBCLIM/LCZ/global_lcz_map/v1';
 local subdir = 'RUB';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'RUB_RUBCLIM_LCZ_global_lcz_map.libsonnet';
 
 local license = spdx.proprietary;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local version = 'latest';
+local version_config = versions(subdir, version_table, version);
 
 {
   stac_version: ee_const.stac_version,
@@ -20,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
+  id: version_config.id,
   title: 'Global map of Local Climate Zones, latest version',
   version: 'latest',
   'gee:type': ee_const.gee_type.image_collection,
@@ -63,7 +64,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * [LCZ Gaussian filtering](https://doi.org/10.1038/s41597-020-00605-z)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, version_config.id) +
+   version_config.version_links + [
     {
       rel: ee_const.rel.source,
       href: 'https://doi.org/10.5194/essd-14-3835-2022',
@@ -85,7 +87,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider(
         'Bochum Urban Climate Lab',
         'https://lcz-generator.rub.de/global-lcz-map'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2018-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
@@ -342,5 +344,4 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
-  'gee:skip_indexing': true
 }

@@ -1050,7 +1050,6 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'Oxford/Oxford_MAP_friction_surface_2015_v1_0',
     'Oxford/Oxford_MAP_friction_surface_2019',
     'RESOLVE/RESOLVE_ECOREGIONS_2017',
-    'RUB/RUB_RUBCLIM_LCZ_global_lcz_map_v1',
     'SKYSAT/SKYSAT_GEN-A_PUBLIC_ORTHO_MULTISPECTRAL',
     'SKYSAT/SKYSAT_GEN-A_PUBLIC_ORTHO_RGB',
     'SNU/SNU_ESL_BESS_Rad_v1',
