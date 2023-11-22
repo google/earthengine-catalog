@@ -128,10 +128,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Cumulative precipitation at surface for the previous 1-6 hours,
           depending on the value of the "forecast_hours" property according to
-          the formula ((F - 1) % 6) + 1.
+          the formula ((F - 1) % 6) + 1 (and only for assets with
+          forecast_hours > 0).
 
           As a consequence, to calculate the total precipitation by hour X,
-          double-counting should be avoid by only summing the values for
+          double-counting should be avoided by only summing the values for
           forecast_hours that are multiples of 6 plus any remainder to reach
           X. It also means that to determine the precipitation for just hour
           X, one must subtract the value for the preceding hour unless X is the
