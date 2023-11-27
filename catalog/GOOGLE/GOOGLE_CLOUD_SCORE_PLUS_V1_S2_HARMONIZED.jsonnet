@@ -22,16 +22,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Cloud Score+ is a quality assessment (QA) processor for medium-to-high
     resolution optical satellite imagery. The Cloud Score+ S2_HARMONIZED
     dataset is being operationally produced from the
-    [harmonized Sentinel-2 L1C collection](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED).
-
-    Cloud Score+ outputs do not explicitly provide labels, e.g., "cloud" and
-    "cloud shadow". Instead, QA artifacts are defined on a continuous scale
-    based on ground occlusion with respect to solar radiation or the imaging
-    sensor: if a ray incident to or reflected from a ground pixel is absorbed
-    or reflected by the atmosphere, the QA score is lower. Functionally, Cloud
-    Score+ provides a holistic per-pixel "usability" score that can be
-    thresholded to mask or even weight observations used for downstream tasks
-    such as time series analysis or classification.
+    [harmonized Sentinel-2 L1C collection](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED),
+    and Cloud Score+ outputs can be used to identify relatively clear pixels and
+    effectively remove clouds and cloud shadows from [L1C (Top-of-Atmosphere)](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED)
+    or [L2A (Surface Reflectance)](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED)
+    imagery.
 
     The Cloud Score+ S2_HARMONIZED dataset includes two QA bands, `cs` and
     `cs_cdf`, that both grade the usability of individual pixels with respect to
@@ -48,9 +43,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     pixel through time, how would this score rank?).
 
     Images in the Cloud Score+ S2_HARMONIZED collection have the same id and
-    `system:index` properties as the individual Sentinel-2 L1C assets from which
-    they were produced such that Cloud Score+ bands can be linked to source
-    images based on their shared `system:index`.
+    `system:index` properties as the individual [Sentinel-2 L1C](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED)
+    assets from which they were produced such that Cloud Score+ bands can be
+    linked to source images based on their shared `system:index`.
 
     Cloud Score+ backfill for the entire Sentinel-2 archive is currently in
     progress and Dataset Availability dates will be updated periodically as new
