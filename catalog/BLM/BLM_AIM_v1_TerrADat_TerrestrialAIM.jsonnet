@@ -65,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     partner organizations. They followed the BLM core terrestrial data
     [collection protocols](https://www.ntc.blm.gov/krc/viewresource.php?courseID=281&programAreaId=148).
     Data were captured electronically using the [Database for Inventory,
-    Monitoring, and Assessment](https://jornada.nmsu.edu/monit-assess/dima).
+    Monitoring, and Assessment](https://jornada.nmsu.edu/tools/dima).
     They were managed by the
     data collectors, with oversight from BLM field offices, state
     offices, and the National Operations Center. This dataset has
