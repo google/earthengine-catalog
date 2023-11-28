@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Dataset Documentation](https://daac.ornl.gov/daacdata/daymet/Daymet_Daily_V4/comp/Daymet_Daily_V4.pdf)
 
-    * [The THREDDS location for this Collection](https://thredds.daac.ornl.gov/thredds/catalog/ornldaac/1840/catalog.html)
+    * [The THREDDS location for this Collection](https://thredds.daac.ornl.gov/thredds/catalogs/ornldaac/Regional_and_Global_Data/DAYMET_COLLECTIONS/DAYMET_COLLECTIONS.html)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
