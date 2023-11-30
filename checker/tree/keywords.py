@@ -20,7 +20,6 @@ KEYWORDS = 'keywords'
 # Do not add more keywords to this list.
 EXCEPTIONS = frozenset({
     'aafc',
-    'aer',
     'aerial',
     'aim',
     'air_temperature',
@@ -70,7 +69,6 @@ EXCEPTIONS = frozenset({
     'digital_soil_mapping',
     'diurnal',
     'driest',
-    'dust',
     'ecosystem',
     'eddi',
     'emc',
