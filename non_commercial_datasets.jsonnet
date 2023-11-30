@@ -38,6 +38,7 @@
   'CSP/ERGo/1_0/US/physiography',
   'CSP/ERGo/1_0/US/topoDiversity',
   'CSP/HM/GlobalHumanModification',
+  'FAO/GAUL',
   'GLOBAL_FLOOD_DB/MODIS_EVENTS/V1',
   'Oxford/MAP/EVI_5km_Monthly',
   'Oxford/MAP/IGBP_Fractional_Landcover_5km_Annual',
@@ -45,4 +46,5 @@
   'Oxford/MAP/LST_Night_5km_Monthly',
   'Oxford/MAP/TCB_5km_Monthly',
   'Oxford/MAP/TCW_5km_Monthly',
+  'WCMC/WDPA'
 ]
