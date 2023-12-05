@@ -35,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     AVHRR retrieval channels, this dataset only includes retrieval over
     non-glint water surface (specifically at the anti-solar side of the orbit
     with viewing angle more than 40 degree away from the specular ray). For
-    more details, see the [Algorithm Description](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/Aerosol_Optical_Thickness/AlgorithmDescription.pdf).
+    more details, see the [Algorithm Description](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Aerosol_Optical_Thickness/AlgorithmDescription_01B-04.pdf).
 
     Image and data processing by NOAA's National Climatic Data Center.
   |||,
