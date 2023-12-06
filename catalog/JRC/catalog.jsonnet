@@ -19,6 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('JRC_D5_EUCROPMAP_V1', base_url),
+    ee.link.child_collection('JRC_GFC2020_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_POP_GPW_GLOBE_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_SMOD_POP_GLOBE_V1', base_url),
