@@ -1,18 +1,16 @@
 #!/usr/bin/python3
 """This is a script for an ad hoc comparison of NASA and EE data.
 
-The script reads the same GPM IMERG data at NASA
-(https://gpm1.gesdisc.eosdis.nasa.gov/dods/GPM_3IMERGHH_06)
-and its copy in Google Earth Engine
-(https://developers.google.com/earth-engine/datasets/catalog/NASA_GPM_L3_IMERG_V06).
-This dataset has global 3600x1800 images (i.e., with the scale of 0.1 degree).
+TODO(simonf): rename to compare_nasa_ee.py after AGU
+
+The script compares data from NASA read via OpenDAP
+and their replicas in Google Earth Engine.
 
 Prerequsites:
 * Earth Engine client
 * xee (https://github.com/google/Xee) to use Xarray with the EE client.
 * pydap
 * numpy
-* osgeo.gdal
 
 Accounts needed:
 * NASA EarthData account (change 'username' and 'password' below to yours)
@@ -21,129 +19,222 @@ Accounts needed:
 This script will run for about a minute.
 """
 
+import json
+import traceback
+
 import ee
 import numpy as np
 from osgeo import gdal
 from pydap.cas.urs import setup_session
-from pydap.client import open_url
+import requests
 import xarray
 
-# See
-# https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/GPM_3IMERGHH.06/2000/153/3B-HHR.MS.MRG.3IMERG.20000601-S000000-E002959.0000.V06B.HDF5
 
-ee.Initialize()
+SIN = """PROJCS["MODIS Sinusoidal",
+    GEOGCS["WGS 84",
+        DATUM["WGS_1984",
+            SPHEROID["WGS 84",6378137,298.257223563,
+                AUTHORITY["EPSG","7030"]],
+            AUTHORITY["EPSG","6326"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.01745329251994328,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4326"]],
+    PROJECTION["Sinusoidal"],
+    PARAMETER["false_easting",0.0],
+    PARAMETER["false_northing",0.0],
+    PARAMETER["central_meridian",0.0],
+    PARAMETER["semi_major",6371007.181],
+    PARAMETER["semi_minor",6371007.181],
+    UNIT["m",1.0],
+    AUTHORITY["SR-ORG","6974"]]"""
 
-# Define the Earth Engine collection and filter it by 'permanent' status
-collection = ee.ImageCollection('NASA/GPM_L3/IMERG_V06').filterMetadata(
-    'status', 'equals', 'permanent'
-).select('precipitationCal')
+# Example code to optionally read a local file as a third point of reference.
+"""filename = 'HDF4_EOS:EOS_GRID:"/tmp/MCD43A4.A2000055.h22v10.061.2020038135111.hdf":MOD_Grid_BRDF:Nadir_Reflectance_Band1'
+gdal_data = gdal.Open(filename).ReadAsArray()
+gdal_data1 = gdal_data.astype(np.float32)
+gdal_data1[gdal_data1==32767] = np.nan
 
-# Open the Earth Engine dataset using native scale of 0.1 degrees
-# and access the 'precipitationCal' band.
-ee_precip = xarray.open_dataset(
-    collection, engine='ee', scale=0.1, ee_mask_value=2.1474836e+09
-).precipitationCal
-first_ee_precip = ee_precip[0]
+filename2 = '/tmp/modis_test4.tif'
+gdal_data2 = gdal.Open(filename2).ReadAsArray()
+gdal_data3 = gdal_data2.astype(np.float32)
+gdal_data3[gdal_data3==0] = np.nan
 
-opendap_url = 'https://gpm1.gesdisc.eosdis.nasa.gov/dods/GPM_3IMERGHH_06'
-opendap_session = setup_session('username', 'password', check_url=opendap_url)
-# Access the dataset from the OpenDAP URL
-nasa_dataset = open_url(opendap_url, session=opendap_session)
+print(np.isclose(gdal_data1, gdal_data3, equal_nan=True).all())"""
 
-# Count the number of time slices in the Earth Engine dataset
-num_slices_ee = len(ee_precip.time)
-# Count the number of time slices in the OpenDAP dataset
-num_slices_nasa = len(nasa_dataset['time'])
 
-# Print the number of time slices from both datasets
-print(f'NASA num_slices: {num_slices_nasa}')
-print(f'EE num_slices: {num_slices_ee}')
-# Both print 374016
+def compare(
+    concept_id: str,
+    nasa_band: str,
+    collection_id: str,
+    ee_fill_value: float,
+    ee_band: str,
+    ee_scale: float,
+):
+  """Compares data read from NASA and from EE."""
+  cmr_url = (
+      'https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=%s&sort_key[]=start_date&page_size=1'
+      % concept_id
+  )
+  if collection_id == 'TOMS/MERGED':
+    cmr_url += '&temporal[]=2006-01-01T10:00:00Z,2006-01-02T00:00:00Z'
+  cmr_data = requests.get(cmr_url).json()
+  opendap_url = None
+  print(json.dumps(cmr_data['feed']['entry'], sort_keys=True, indent=2))
+  for entry in cmr_data['feed']['entry']:
+    for link in entry['links']:
+      if link.get('title', '').startswith(
+          'The OPENDAP location for the granule'
+      ):
+        opendap_url = link['href']
+        break
+      if 'opendap' in link['href']:
+        # MODIS URLs returned by CMR like
+        # https://opendap.cr.usgs.gov/opendap/hyrax/DP130/MOTA/MCD43A1.061/contents.html
+        # are top level and don't point at endpoints we can use directly.
+        # Use one of these formats instead:
+        # opendap_url = (
+        #  'https://opendap.cr.usgs.gov/opendap/hyrax/DP130/MOTA/MCD43A1.061/2000.02.24/MCD43A1.A2000055.h00v08.061.2020038135030.hdf'
+        # )
+        opendap_url = (
+            'https://opendap.cr.usgs.gov/opendap/hyrax/MCD43A4.061/h22v10.ncml'
+        )
+    if opendap_url:
+      break
+  if not opendap_url:
+    raise ValueError('No OpenDAP links for %s' % concept_id)
+  print(opendap_url)
 
-# Access the 'precipc' variable from the NASA dataset
-nasa_precip = nasa_dataset['precipc']
-# Get the first time slice, creating a local copy
-# to avoid constantly refetching the bytes.
-first_nasa_precip = np.copy(nasa_precip[0, :, :])
+  try:
+    opendap_session = setup_session('username', 'password')
+    # Despite this session setup, reading the data from an opendap dataset
+    # doesn't work unless we hardcode the token auth header at the
+    # low level in webob/client.py, in SendRequest.__call__ just before
+    # the request is made:
+    # "Authorization": f"Bearer {token}"
+    nasa_dataset = xarray.open_dataset(
+        opendap_url, engine='pydap', session=opendap_session
+    )
+  except Exception as e:  # pylint:disable=broad-exception-caught
+    traceback.print_exception(e)
 
-# Print the shape of the first time slice of data from Earth Engine
-print(first_ee_precip.shape)
-# Print the shape of the rotated first time slice of data from OpenDAP
-print(np.rot90(first_nasa_precip[0]).shape)
-# All print (3600, 1800)
+  # Define the Earth Engine collection.
+  collection = ee.ImageCollection(collection_id)
+  if collection_id == 'NASA/GPM_L3/IMERG_V06':
+    collection = collection.filterMetadata('status', 'equals', 'permanent')
+  elif collection_id == 'TOMS/MERGED':
+    collection = collection.filterDate('2006-01-01', '2006-01-02')
+  collection = collection.select(ee_band)
 
-# Take the first element of the EE ImageCollection
-ee_data = ee_precip[0].data
-# Rotate the first time slice of data from OpenDAP
-# Also, flip verically so that north is up
-nasa_data = np.flip(np.rot90(first_nasa_precip[0]))
+  kwargs = {'engine': 'ee', 'ee_mask_value': ee_fill_value}
+  if ee_scale:
+    kwargs['scale'] = ee_scale
+  if collection_id == 'MODIS/061/MCD43A4':
+    # This should work, but doesn't. See
+    # https://github.com/google/Xee/issues/112
+    kwargs['geometry'] = ee.Geometry.Rectangle(
+        [4447800, -2223901, 4448801, -2222900],
+        ee.Projection(SIN),
+        False,
+        True,
+    )
 
-ee_data[ee_data > 2.14748e9] = np.nan
-# Mask NASA nodata value
-nasa_data[nasa_data == -9999.900391] = np.nan
+    kwargs['crs'] = SIN
+    kwargs['projection'] = ee.Projection(SIN)
 
-ee_subset = ee_data[500][1200:1300]
-nasa_subset = nasa_data[500][1200:1300]
+  # Open the Earth Engine dataset
+  image = ee.ImageCollection(collection.first())
+  ds = xarray.open_dataset(image, **kwargs)
+  ee_image = getattr(ds, ee_band)
+  # Take the first element of the EE ImageCollection
+  ee_data = ee_image[0].data
+  if collection_id == 'TRMM/3B43V7':
+    # Strip out nodata areas above 50N and below 50S
+    # TODO(simonf): we should use the proper rectangle with xee instead.
+    ee_data = ee_data[:, 160:560]
 
-np.set_printoptions(precision=6, floatmode='fixed')
+  # Access the variable from the NASA dataset
+  nasa_image = nasa_dataset[nasa_band]
+  # Get the first time slice, creating a local copy
+  # to avoid constantly refetching the bytes.
+  if collection_id in ['NASA/GPM_L3/IMERG_V06', 'MODIS/061/MCD43A4']:
+    first_nasa_image = np.copy(nasa_image[0, :, :])
+  else:
+    first_nasa_image = np.copy(nasa_image[:, :])
 
-print('Earth Engine data subset')
-print(ee_subset)
-print('NASA data subset')
-print(nasa_subset)
+  if collection_id == 'TOMS/MERGED':
+    nasa_data = np.rot90(first_nasa_image)
+    nasa_data = np.flip(nasa_data, axis=0)
+  else:
+    nasa_data = first_nasa_image
+  # Flip verically so that north is up
+  nasa_data = np.flip(nasa_data, axis=1)
 
-# Compare a specific range of data values from all datasets
-print('NASA vs EE')
-# Use the np.isclose() comparison instead of the == comparison
-# to ignore np.nan values that are never equal to each other.
-print(np.isclose(ee_data, nasa_data, equal_nan=True).all())
+  # Print the shape of the first time slice of data from Earth Engine
+  print(ee_data.shape)
+  # Print the shape of the rotated first time slice of data from OpenDAP
+  print(nasa_data.shape)
 
-# pylint:disable=pointless-string-statement
-"""
-Full output
+  if ee_data.shape != nasa_data.shape:
+    raise ValueError(
+        'Shape mismatch: EE %s vs NASA %s'
+        % (ee_data.shape, first_nasa_image.shape)
+    )
 
-Earth Engine data subset
-[0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
- 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
- 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
- 3.669067e-03 2.751800e-03 5.503601e-03 1.375900e-03 0.000000e+00
- 1.639845e-02 8.796404e-02 2.309320e-01 4.704733e-01 3.158820e-01
- 1.845790e+00 3.801518e+00 3.703153e+00 6.971351e+00 7.371814e+00
- 7.146841e+00 7.114139e+00 3.520790e+00 2.941954e+00 2.829440e+00
- 2.817868e+00 1.288270e+00 1.017063e+00 1.310689e+00 2.737879e-01
- 9.560879e-02 3.467628e-01 1.717419e-01 2.595865e-01 2.073023e-01
- 1.935433e-01 8.622308e-02 5.962234e-02 9.631301e-02 1.275001e-01
- 1.829947e-01 1.586872e-01 1.495145e-01 2.831617e-01 2.993204e-01
- 1.503622e-01 1.109893e-01 8.071948e-02 1.367663e-01 2.101814e-01
- 2.357342e-01 3.077800e-01 1.467795e-01 1.215097e-01 3.529568e-01
- 5.207559e-01 5.612592e-01 8.158509e-01 8.910712e-01 8.852851e-01
- 4.686803e-01 5.908247e-01 3.008812e-01 3.008812e-01 1.446544e-01
- 2.198747e-01 2.314471e-02 1.011517e-02 2.739871e-02 4.311154e-02
- 5.188262e-02 5.411874e-02 5.320147e-02 1.651080e-02 2.751800e-02
- 1.926260e-02 2.072763e-02 1.968062e-02 1.926260e-02 2.390757e-02
- 2.550633e-02 2.282893e-02 1.742807e-02 1.742807e-02 8.255401e-03
- 1.834534e-03 1.834534e-03 1.375900e-02 1.284174e-02 1.284174e-02]
-NASA data subset
-[0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
- 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
- 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
- 3.669067e-03 2.751800e-03 5.503601e-03 1.375900e-03 0.000000e+00
- 1.639845e-02 8.796404e-02 2.309320e-01 4.704733e-01 3.158820e-01
- 1.845790e+00 3.801518e+00 3.703153e+00 6.971351e+00 7.371814e+00
- 7.146841e+00 7.114139e+00 3.520790e+00 2.941954e+00 2.829440e+00
- 2.817868e+00 1.288270e+00 1.017063e+00 1.310689e+00 2.737879e-01
- 9.560879e-02 3.467628e-01 1.717419e-01 2.595865e-01 2.073023e-01
- 1.935433e-01 8.622308e-02 5.962234e-02 9.631301e-02 1.275001e-01
- 1.829947e-01 1.586872e-01 1.495145e-01 2.831617e-01 2.993204e-01
- 1.503622e-01 1.109893e-01 8.071948e-02 1.367663e-01 2.101814e-01
- 2.357342e-01 3.077800e-01 1.467795e-01 1.215097e-01 3.529568e-01
- 5.207559e-01 5.612592e-01 8.158509e-01 8.910712e-01 8.852851e-01
- 4.686803e-01 5.908247e-01 3.008812e-01 3.008812e-01 1.446544e-01
- 2.198747e-01 2.314471e-02 1.011517e-02 2.739871e-02 4.311154e-02
- 5.188262e-02 5.411874e-02 5.320147e-02 1.651080e-02 2.751800e-02
- 1.926260e-02 2.072763e-02 1.968062e-02 1.926260e-02 2.390757e-02
- 2.550633e-02 2.282893e-02 1.742807e-02 1.742807e-02 8.255401e-03
- 1.834534e-03 1.834534e-03 1.375900e-02 1.284174e-02 1.284174e-02]
-NASA vs EE
-True
-"""
+  # Optionally print a subset for visual inspection.
+  # ee_subset = ee_data[500][1200:1300]
+  # nasa_subset = nasa_data[500][1200:1300]
+
+  # np.set_printoptions(precision=6, floatmode='fixed')
+
+  # print('Earth Engine data subset')
+  # print(ee_subset)
+  # print('NASA data subset')
+  # print(nasa_subset)
+
+  # Compare a specific range of data values from all datasets
+  print('NASA vs EE')
+  # Use the np.isclose() comparison instead of the == comparison
+  # to ignore np.nan values that are never equal to each other.
+  print(np.isclose(ee_data, nasa_data, equal_nan=True).all())
+
+
+def main(unused_argv):
+  ee.Initialize()
+  compare(
+      'C1598621093-GES_DISC',
+      'precipitationCal',
+      'NASA/GPM_L3/IMERG_V06',
+      2.1474836e09,
+      'precipitationCal',
+      0.1,
+  )
+  compare(
+      'C1282032631-GES_DISC',
+      'precipitation',
+      'TRMM/3B43V7',
+      2.1474836e09,
+      'precipitation',
+      0.25,
+  )
+  compare(
+      'C1266136070-GES_DISC',
+      'ColumnAmountO3',
+      'TOMS/MERGED',
+      2.1474836e09,
+      'ozone',
+      1,
+  )
+  compare(
+      'C2218719731-LPCLOUD',
+      'Nadir_Reflectance_Band1',
+      'MODIS/061/MCD43A4',
+      2.1474836e09,
+      'Nadir_Reflectance_Band1',
+      463.3127165279165,
+  )
+
+
+if __name__ == '__main__':
+  main([])
