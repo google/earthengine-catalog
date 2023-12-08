@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
   ],
   providers: [
-    ee.producer_provider('University of Montana / Montana Climate Office', 'https://climate.umt.edu/progress/irrmapper/default.php'),
+    ee.producer_provider('University of Montana / Montana Climate Office', 'https://climate.umt.edu/research/irrmapper/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-124.5, 31.3, -99.0, 49.0, '1986-01-01T00:00:00Z', null),
