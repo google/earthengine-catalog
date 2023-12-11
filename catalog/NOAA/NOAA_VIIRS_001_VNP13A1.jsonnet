@@ -53,13 +53,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     For additional information, visit the VIIRS [Land Product Quality
     Assessment website](https://landweb.modaps.eosdis.nasa.gov/NPP_QA/) and see
-    the [User Guide](https://lpdaac.usgs.gov/documents/184/VNP13_User_Guide_ATBD_V2.1.2.pdf).
+    the [User Guide](https://lpdaac.usgs.gov/documents/1372/VNP13_User_Guide_ATBD_V2.1.2.pdf).
 
     Documentation:
-
-    * [User's Guide](https://lpdaac.usgs.gov/documents/184/VNP13_User_Guide_ATBD_V2.1.2.pdf)
-
-    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/184/VNP13_User_Guide_ATBD_V2.1.2.pdf)
 
     * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/VIIRS/1/VNP13A1)
   |||,
