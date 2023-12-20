@@ -14,9 +14,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
-  // TODO(schwehr): Remove when the dataset is ready.
-  'gee:skip_indexing': true,
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -29,57 +26,57 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   version: '2016',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product is part of the TreeMap data suite. It provides detailed spatial 
-    information on forest characteristics including number of live and dead trees, 
-    biomass, and carbon across the entire forested extent of the continental United 
+    This product is part of the TreeMap data suite. It provides detailed spatial
+    information on forest characteristics including number of live and dead trees,
+    biomass, and carbon across the entire forested extent of the continental United
     States in 2016.
 
-    TreeMap v2016 contains one image, a 22-band 30 x 30m resolution gridded map 
-    of the forests of the continental United States circa 2016, with each band 
-    representing an attribute derived from select FIA data (and one band 
-    representing the TreeMap ID). Examples of attributes include forest type, 
-    canopy cover percent, live tree stocking, live/dead tree biomass, and carbon 
+    TreeMap v2016 contains one image, a 22-band 30 x 30m resolution gridded map
+    of the forests of the continental United States circa 2016, with each band
+    representing an attribute derived from select FIA data (and one band
+    representing the TreeMap ID). Examples of attributes include forest type,
+    canopy cover percent, live tree stocking, live/dead tree biomass, and carbon
     in live/dead trees.
 
-    TreeMap products are the output of a random forest machine learning algorithm 
-    that assigns the most similar Forest Inventory Analysis (FIA) plot to each 
-    pixel of gridded LANDFIRE input data. The objective is to combine the 
-    complimentary strengths of detailed-but-spatially-sparse FIA data with 
-    less-detailed-but-spatially-comprehensive LANDFIRE data to produce better 
-    estimations of forest characteristics at a variety of scales. TreeMap is being 
-    used in both the private and public sectors for projects including fuel 
-    treatment planning, snag hazard mapping, and estimation of terrestrial 
+    TreeMap products are the output of a random forest machine learning algorithm
+    that assigns the most similar Forest Inventory Analysis (FIA) plot to each
+    pixel of gridded LANDFIRE input data. The objective is to combine the
+    complimentary strengths of detailed-but-spatially-sparse FIA data with
+    less-detailed-but-spatially-comprehensive LANDFIRE data to produce better
+    estimations of forest characteristics at a variety of scales. TreeMap is being
+    used in both the private and public sectors for projects including fuel
+    treatment planning, snag hazard mapping, and estimation of terrestrial
     carbon resources.
 
-    TreeMap is distinct from other imputed forest vegetation products in that it 
-    provides an FIA plot identifier to each pixel whereas other datasets provide 
-    forest characteristics such as live basal area (e.g., Ohmann and Gregory 2002; 
-    Pierce Jr et al. 2009; Wilson, Lister, and Riemann 2012). The FIA plot 
-    identifier can be linked to the hundreds of variables and attributes recorded 
-    for each tree and plot in the FIA DataMart, FIA's public repository of plot 
+    TreeMap is distinct from other imputed forest vegetation products in that it
+    provides an FIA plot identifier to each pixel whereas other datasets provide
+    forest characteristics such as live basal area (e.g., Ohmann and Gregory 2002;
+    Pierce Jr et al. 2009; Wilson, Lister, and Riemann 2012). The FIA plot
+    identifier can be linked to the hundreds of variables and attributes recorded
+    for each tree and plot in the FIA DataMart, FIA's public repository of plot
     information (Forest Inventory Analysis 2022a).
-    
-    The 2016 methodology includes disturbance as a response variable, resulting in 
-    increased accuracy in mapping disturbed areas. Within-class accuracy was over 
-    90% for forest cover, height, vegetation group, and disturbance code when 
-    compared to LANDFIRE maps. At least one pixel within the radius of validation 
-    plots matched the class of predicted values in 57.5% of cases for forest cover, 
-    80.0% for height, 80.0% for tree species with highest basal area, and 87.4% 
+
+    The 2016 methodology includes disturbance as a response variable, resulting in
+    increased accuracy in mapping disturbed areas. Within-class accuracy was over
+    90% for forest cover, height, vegetation group, and disturbance code when
+    compared to LANDFIRE maps. At least one pixel within the radius of validation
+    plots matched the class of predicted values in 57.5% of cases for forest cover,
+    80.0% for height, 80.0% for tree species with highest basal area, and 87.4%
     for disturbance.
 
     **Additional Resources**
 
-    * Please see the [TreeMap 2016 Publication](https://www.fs.usda.gov/research/treesearch/65597) 
+    * Please see the [TreeMap 2016 Publication](https://www.fs.usda.gov/research/treesearch/65597)
       for more detailed information regarding methods and accuracy assessment.
 
-    * The [TreeMap 2016 Data Explorer](https://apps.fs.usda.gov/lcms-viewer/treemap.html) 
-      is a web-based application that provides users the ability to view and 
+    * The [TreeMap 2016 Data Explorer](https://apps.fs.usda.gov/lcms-viewer/treemap.html)
+      is a web-based application that provides users the ability to view and
       download TreeMap attribute data.
 
-    * The [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/Catalog/RDS-2021-0074) 
+    * The [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/Catalog/RDS-2021-0074)
       for the full dataset download, metadata, and support documents.
 
-    * [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/) 
+    * [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/)
       for TreeMap attribute data downloads, metadata, and support documents.
 
     * [FIA Database Manual version 8](https://www.fia.fs.usda.gov/library/database-documentation/current/ver80/FIADB%20User%20Guide%20P2_8-0.pdf)
@@ -93,18 +90,18 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     Forest Inventory Analysis DataMart FIADB_1.9.0. 2022. [https://apps.fs.usda.gov/fia/datamart/datamart.html](https://apps.fs.usda.gov/fia/datamart/datamart.html).
 
     * **Ohmann, Janet L and Matthew J Gregory. 2002.**
-    Predictive Mapping of Forest Composition and Structure with Direct Gradient 
-    Analysis and Nearest- Neighbor Imputation in Coastal Oregon, USA. 
+    Predictive Mapping of Forest Composition and Structure with Direct Gradient
+    Analysis and Nearest- Neighbor Imputation in Coastal Oregon, USA.
     Can. J. For. Res. 32:725-741. [doi: 10.1139/X02-011](https://doi.org/10.1139/X02-011).
 
-    * **Pierce, Kenneth B Jr, Janet L Ohmann, Michael C Wimberly, 
+    * **Pierce, Kenneth B Jr, Janet L Ohmann, Michael C Wimberly,
     Matthew J Gregory, and Jeremy S Fried. 2009.**
-    Mapping Wildland Fuels and Forest Structure for Land Management: A Comparison 
+    Mapping Wildland Fuels and Forest Structure for Land Management: A Comparison
     of Nearest Neighbor Imputation and Other Methods.
     Can. J. For. Res. 39: 1901-1916. [doi:10.1139/X09-102](https://doi.org/10.1139/X09-102).
 
     * **Wilson, B Tyler, Andrew J Lister, and Rachel I Riemann. 2012.**
-    A Nearest-Neighbor Imputation Approach to Mapping Tree Species over Large 
+    A Nearest-Neighbor Imputation Approach to Mapping Tree Species over Large
     Areas Using Forest Inventory Plots and Moderate Resolution Raster Data.
     Forest Ecol. Manag. 271:182-198. [doi: 10.1016/j. foreco.2012.02.002](https://doi.org/10.1016/j.foreco.2012.02.002).
   |||,
@@ -135,7 +132,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'forest_inventory_and_analysis',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/treemap.html'),
+    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://data.fs.usda.gov/geodata/rastergateway/treemap/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-128.97722, 22.76862, -65.25445, 51.64968,
@@ -183,7 +180,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'CARBON_D',
         description: |||
-          Carbon, Standing Dead. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1)) 
+          Carbon, Standing Dead. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.tons_per_acre,
       },
@@ -197,21 +194,21 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'CARBON_L',
         description: |||
-          Carbon, Live Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1)) 
+          Carbon, Live Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.tons_per_acre,
       },
       {
         name: 'DRYBIO_D',
         description: |||
-          Dry Standing Dead Tree Biomass, Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1)) 
+          Dry Standing Dead Tree Biomass, Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.tons_per_acre,
       },
       {
         name: 'DRYBIO_L',
         description: |||
-          Dry Live Tree Biomass, Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1)) 
+          Dry Live Tree Biomass, Above Ground. Calculated via the following FIA query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.tons_per_acre,
       },
@@ -1738,14 +1735,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'TPA_DEAD',
         description: |||
-          Dead Trees Per Acre. Number of dead standing trees per acre (DIA >= 5”). Calculated via the following FIA query: Sum TREE.TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1)) 
+          Dead Trees Per Acre. Number of dead standing trees per acre (DIA >= 5”). Calculated via the following FIA query: Sum TREE.TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.count_per_acre,
-      }, 
+      },
       {
         name: 'TPA_LIVE',
         description: |||
-          Live Trees Per Acre. Number of live trees per acre (DIA > 1"). Calculated via the following FIA query: Sum TREE.TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1) AND ((TREE.DIA)>=1)) 
+          Live Trees Per Acre. Number of live trees per acre (DIA > 1"). Calculated via the following FIA query: Sum TREE.TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1) AND ((TREE.DIA)>=1))
         |||,
         'gee:units': units.count_per_acre,
       },
@@ -1758,7 +1755,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'VOLBFNET_L',
         description: |||
-          Volume, Live (log rule: Int’l ¼ inch). Calculated via the following FIA query: Sum VOLBFNET * TPA_UNADJ WHERE (((TREE.TREECLCD)=2) AND ((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1)) 
+          Volume, Live (log rule: Int’l ¼ inch). Calculated via the following FIA query: Sum VOLBFNET * TPA_UNADJ WHERE (((TREE.TREECLCD)=2) AND ((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.sawlog_board_ft_per_acre,
       },
@@ -1768,7 +1765,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           Volume, Standing Dead. Calculated via the following FIA query: Sum VOLCFNET*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.cubic_ft_per_acre,
-      },   
+      },
       {
         name: 'VOLCFNET_L',
         description: |||

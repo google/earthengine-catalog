@@ -30,7 +30,7 @@ the consistency of the data products which would be impossible without the
 historic Landsat archive, the largest in the world.
 
 You can visit the [MTBS Project Website](https://www.mtbs.gov) for more
-information.
+information. 
 
 You can also visit the
 [MTBS Data Explorer](https://apps.fs.usda.gov/lcms-viewer/mtbs.html)
