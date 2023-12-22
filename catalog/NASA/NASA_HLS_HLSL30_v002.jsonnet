@@ -36,11 +36,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     cloud-shadow masking, spatial co-registration and common gridding,
     illumination and view angle normalization, and spectral bandpass adjustment.
 
-    The HLSL30 product provides 30m Nadir Bidirectional Reflectance Distribution
-    Function (BRDF), Adjusted Reflectance (NBAR) and is derived from Landsat 8/9
-    OLI data products.
-
-    NOTE: Full ingestion into Earth Engine is expected to continue until 2023.
+    The HLS project distributes data as two separate products: HLSL30
+    (Landsat 8/9) and HLSS30 (Sentinel-2 A/B). They both provide 30m Nadir
+    Bidirectional Reflectance Distribution Function (BRDF), Adjusted Reflectance
+    (NBAR). **This is only the HLSL30 product (the Landsat component). Earth
+    Engine does not currently offer the HLSS30 product (the Sentinel-2
+    component).** Therefore, observation frequency of the HLS products offered
+    by Earth Engine is determined solely by the Landsat 8 and 9 acquisition
+    plan.
 
     Documentation:
 
