@@ -357,7 +357,7 @@ local units = import 'units.libsonnet';
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
     Earth Science Data & Information Policy]
-    (https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    (https://www.earthdata.nasa.gov/learn/use-data/data-use-policy)
     for additional information.
   |||,
 }
