@@ -33,8 +33,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The SMAP mission is an orbiting observatory that measures the amount of
     water in the surface soil everywhere on Earth. A detailed description can be
-    found in the [SMAP Handbook]
-    (https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf).
+    found in the
+    [SMAP Handbook](https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf).
     It was launched in January 2015 and started operation in April 2015. The
     radar instrument, ceasing operation in early 2015 due to failure of radar
     power supply, collected close to 3 months of science data. The prime mission

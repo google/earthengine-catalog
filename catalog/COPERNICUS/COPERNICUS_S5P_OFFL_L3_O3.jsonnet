@@ -45,7 +45,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     being used for generating the operational total ozone products from GOME,
     SCIAMACHY and GOME-2; while GODFIT is being used in the ESA CCI and the
     Copernicus C3S projects.
-    [More information](http://www.tropomi.eu/data-products/total-ozone-column).
+    [More information.](http://www.tropomi.eu/data-products/total-ozone-column)
     [Product user manual](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Total-Column)
 
     ### OFFL L3 Product

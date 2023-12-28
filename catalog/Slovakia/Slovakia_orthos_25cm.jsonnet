@@ -27,8 +27,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     without overlaps, gaps and visible brightness and color differences along
     the connecting lines.
 
-    For more information, please see the [Slovakia orthophotos documentation]
-    (https://www.geoportal.sk/files/zbgis/orto/technicka_sprava_ortofotomozaika_sr_2017-2019.pdf)
+    For more information, please see the
+    [Slovakia orthophotos documentation](https://www.geoportal.sk/files/zbgis/orto/technicka_sprava_ortofotomozaika_sr_2017-2019.pdf)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

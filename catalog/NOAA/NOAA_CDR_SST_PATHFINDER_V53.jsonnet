@@ -38,11 +38,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     not included into EE assets. PFV53 data were collected through the
     operational periods of the NOAA-7 through NOAA-19 Polar Operational
     Environmental Satellites (POES), and are available from 1981 to 2014.
-    Additional information is available at the [NOAA Pathfinder site]
-    (https://www.nodc.noaa.gov/satellitedata/pathfinder4km53/).
+    Additional information is available at the
+    [NOAA Pathfinder site](https://www.nodc.noaa.gov/satellitedata/pathfinder4km53/).
 
-    Additional band details can be found in the [Tech Specs]
-    (https://data.nodc.noaa.gov/pathfinder/Version5.2/GDS_TechSpecs_v2.0.pdf) page.
+    Additional band details can be found in the
+    [Tech Specs](https://data.nodc.noaa.gov/pathfinder/Version5.2/GDS_TechSpecs_v2.0.pdf) page.
 
     These data were provided by GHRSST and the US NOAA National
     Centers for Environmental Information (NCEI). This project was

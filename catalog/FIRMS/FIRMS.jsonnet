@@ -146,16 +146,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     NASA promotes the full and open sharing of all data with the research and
     applications communities, private industry, academia, and the general
-    public. Read the [NASA Data and Information Policy]
-    (https://science.nasa.gov/earth-science/earth-science-data/data-information-policy/).
+    public. Read the
+    [NASA Data and Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy/).
 
-    If you provide the [Land, Atmosphere Near real-time Capability for EOS
-    (LANCE) / Fire Information for Resource Management System (FIRMS)]
-    (https://earthdata.nasa.gov/earth-observation-data/near-real-time)
-    data to a third party, follow the guidelines in the [LANCE Citation,
-    Acknowledgements, and Disclaimer]
-    (https://earthdata.nasa.gov/earth-observation-data/near-real-time/citation#ed-lance-disclaimer)
-    site and replicate or provide a link to the [disclaimer]
-    (https://earthdata.nasa.gov/earth-observation-data/near-real-time/citation#ed-lance-disclaimer).
+    If you provide the
+    [Land, Atmosphere Near real-time Capability for EOS (LANCE) / Fire Information for Resource Management System (FIRMS)](https://earthdata.nasa.gov/earth-observation-data/near-real-time)
+    data to a third party, follow the guidelines in the
+    [LANCE Citation, Acknowledgements, and Disclaimer](https://earthdata.nasa.gov/earth-observation-data/near-real-time/citation#ed-lance-disclaimer)
+    site and replicate or provide a link to the
+    [disclaimer](https://earthdata.nasa.gov/earth-observation-data/near-real-time/citation#ed-lance-disclaimer).
   |||,
 }

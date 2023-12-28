@@ -31,8 +31,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of aerosol mixing ratio parameters at 72 model layers, such as dust, sulphur
     dioxide, sea salt, black carbon, and organic carbon. The data field is
     available every three hour starting from 00:00 UTC, e.g.: 00:00, 03:00,...
-    ,21:00 UTC. Section 4.2 of the [MERRA-2 File Specification document]
-    (https://gmao.gsfc.nasa.gov/pubs/docs/Bosilovich785.pdf) provides
+    ,21:00 UTC. Section 4.2 of the
+    [MERRA-2 File Specification document](https://gmao.gsfc.nasa.gov/pubs/docs/Bosilovich785.pdf)
+    provides
     pressure values nominal for a 1000 hPa surface pressure and refers to the
     top edge of the layer. The lev=1 is for the top layer, and lev=72 is for
     the bottom (or surface) model layer.

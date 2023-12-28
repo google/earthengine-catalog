@@ -224,7 +224,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         Improved prediction of quasi-global vegetation conditions using remotely sensed surface soil
         moisture, *Geophysical Research Letters*,
         39: (L19406).
-        [doi:10.1029/2012GL053470][https://doi.org/10.1029/2012GL053470]
+        [doi:10.1029/2012GL053470][https://doi.org/10.1029/2012GL053470)
         [Google Scholar](https://scholar.google.com/scholar?as_sdt=0%2C21&q=Improved+prediction+of+quasi-global+vegetation+conditions+using+remotely-sensed+surface+soil+moisture%2C+&btnG=)
       |||,
       doi: '10.1029/2012GL053470',

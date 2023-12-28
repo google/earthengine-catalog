@@ -31,8 +31,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     (In Dataset id, V stands for "v&auml;ri", which means "color" as opposed to
     "false color")
-    For more information, please see the [NLS orthophotos documentation]
-    (https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
+    For more information, please see the
+    [NLS orthophotos documentation](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

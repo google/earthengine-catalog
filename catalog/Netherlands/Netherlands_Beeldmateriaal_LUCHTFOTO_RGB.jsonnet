@@ -28,8 +28,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     resolution in the spring and one with leaves on trees at 25 cm resolution
     in the summer.
 
-    For more information, please see the [Netherlands orthophotos documentation]
-    (https://opendata.beeldmateriaal.nl/)
+    For more information, please see the
+    [Netherlands orthophotos documentation](https://opendata.beeldmateriaal.nl/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

@@ -84,7 +84,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     You may download and use photographs, imagery, or text
     from the NSIDC web site, unless limitations for its use are specifically
     stated. For more information on usage and citing NSIDC datasets,
-    please visit the [NSIDC 'Use and Copyright' page]
-    (https://nsidc.org/about/data-use-and-copyright).
+    please visit the
+    [NSIDC 'Use and Copyright' page](https://nsidc.org/about/data-use-and-copyright).
   |||,
 }

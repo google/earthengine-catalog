@@ -30,11 +30,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Each image's asset ID contains the acquisition date and time, for
     example, image s01_20150304T080608Z was acquired on March 4, 2015 at
-    08:06 Zulu (UTC). For more information, please see the [Planet Imagery
-    Product Specifications]
-    (https://www.planet.com/products/satellite-imagery/files/Planet_Combined_Imagery_Product_Specs_December2017.pdf)
-    and visit the [Planet Imagery and Archive]
-    (https://www.planet.com/products/planet-imagery/) site.
+    08:06 Zulu (UTC). For more information, please see the
+    [Planet Imagery Product Specifications](https://www.planet.com/products/satellite-imagery/files/Planet_Combined_Imagery_Product_Specs_December2017.pdf)
+    and visit the
+    [Planet Imagery and Archive](https://www.planet.com/products/planet-imagery/) site.
 
     This Multispectral/Pan collection contains images with five 16-bit bands
     shifted up from the original 12-bit data. The B, G, R, and Near-IR bands

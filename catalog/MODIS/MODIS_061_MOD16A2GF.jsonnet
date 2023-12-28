@@ -41,14 +41,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [User's Guide]
-      (https://lpdaac.usgs.gov/documents/931/MOD16_User_Guide_V61.pdf)
+    * [User's Guide](https://lpdaac.usgs.gov/documents/931/MOD16_User_Guide_V61.pdf)
 
-    * [Algorithm Theoretical Basis Document (ATBD)]
-      (https://lpdaac.usgs.gov/documents/93/MOD16_ATBD.pdf)
+    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/93/MOD16_ATBD.pdf)
 
-    * [General Documentation]
-      (https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MOD16A2GF)
+    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MOD16A2GF)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -80,8 +77,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5067/MODIS/MOD16A2GF.061',
   'sci:citation': |||
-    Please visit [LP DAAC 'Citing Our Data' page]
-    (https://lpdaac.usgs.gov/citing_our_data)
+    Please visit
+    [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
   |||,
   'gee:interval': {
