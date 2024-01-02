@@ -148,7 +148,7 @@ local license = spdx.proprietary;
     'landsat_derived',
     'redcastle_resources',
     'sentinel2_derived',
-    'tree-canopy cover,
+    'tree-canopy cover',
     'tcc',
     'time_series',
     'usda',
@@ -165,11 +165,10 @@ local license = spdx.proprietary;
       {
         name: 'study_area',
         description: |||
-          TCC currently covers CONUS, Southeastern Alaska, and Puerto Rico-US
-          Virgin Islands. This version contains outputs across CONUS and
-          Southeastern Alaska.
+          TCC currently covers CONUS, Southeastern Alaska, Puerto Rico-US
+          Virgin Islands and Hawaii. This version contains all study areas.
 
-          Possible values: 'CONUS, SEAK'
+          Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
       },
