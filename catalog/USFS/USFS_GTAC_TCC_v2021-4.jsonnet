@@ -128,7 +128,6 @@ local license = spdx.proprietary;
     Environment. *Science Direct*, 
     118: 83-94
     [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
-
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -167,7 +166,6 @@ local license = spdx.proprietary;
         description: |||
           TCC currently covers CONUS, Southeastern Alaska, Puerto Rico-US
           Virgin Islands and Hawaii. This version contains all study areas.
-
           Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
