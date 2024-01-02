@@ -195,8 +195,7 @@ local license = spdx.proprietary;
         To produce NLCD tree-canopy cover, a post-processing workflow is applied to the direct 
         model output that identifies and sets non-treed pixel values to zero percent 
         tree-canopy cover.
-        . 
-        |||
+        |||,
       },
     ],
     'gee:visualizations': [
