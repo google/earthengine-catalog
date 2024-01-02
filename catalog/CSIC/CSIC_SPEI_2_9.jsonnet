@@ -6,7 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local version = '2.8';
+local version = '2.9';
 local subdir = 'CSIC';
 local version_config = versions(subdir, version_table, version);
 
@@ -22,9 +22,8 @@ local license = spdx.cc_by_4_0;
   ],
   id: version_config.id,
   title: 'SPEIbase: Standardised Precipitation-Evapotranspiration Index ' +
-    'database, Version ' + version + ' [deprecated]',
+    'database, Version ' + version,
   version: version,
-  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Global SPEI database (SPEIbase) offers long-time robust information
@@ -71,7 +70,7 @@ local license = spdx.cc_by_4_0;
       'https://spei.csic.es/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('1901-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('1901-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
   summaries: {
     gsd: [55660],
     'eo:bands': [
@@ -431,8 +430,8 @@ local license = spdx.cc_by_4_0;
   'sci:citation': |||
     Product: Beguería, Santiago; Vicente Serrano, Sergio M.;
     Reig-Gracia, Fergus; Latorre Garcés, Borja; 2023;
-    SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
-    [doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)
+    SPEIbase v.2.9 [Dataset]; DIGITAL.CSIC; Version 2.9.
+    [doi:10.20350/digitalCSIC/15470](https://doi.org/10.20350/digitalCSIC/15470)
   |||,
   'sci:publications': [
     {
@@ -461,8 +460,8 @@ local license = spdx.cc_by_4_0;
     Attribution should be given by referencing the document titled:
     Beguería, Santiago; Vicente Serrano, Sergio M.; Reig-Gracia, Fergus;
     Latorre Garcés, Borja; 2023;
-    SPEIbase v.2.8 [Dataset]; DIGITAL.CSIC; Version 2.8.
-    [doi:10.20350/digitalCSIC/15121](https://doi.org/10.20350/digitalCSIC/15121)
+    SPEIbase v.2.9 [Dataset]; DIGITAL.CSIC; Version 2.9.
+    [doi:10.20350/digitalCSIC/15470](https://doi.org/10.20350/digitalCSIC/15470)
   |||,
   'gee:user_uploaded': true,
 }
