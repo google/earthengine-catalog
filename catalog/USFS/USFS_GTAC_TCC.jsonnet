@@ -12,7 +12,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
 
-
 {
 
   stac_version: ee_const.stac_version,
@@ -23,7 +22,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Tree Canopy Cover ' + version + ' + ' ' + '(CONUS and OCONUS)',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
   'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
