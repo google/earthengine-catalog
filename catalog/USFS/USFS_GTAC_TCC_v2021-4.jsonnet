@@ -183,16 +183,16 @@ local license = spdx.proprietary;
       {
         name: 'Science_Percent_Tree_Canopy_Cover_Standard_Error',
         description: |||
-        The standard deviation of the predicted values from all regression trees we refer 
-        to as standard error. Each pixel has a standard error for each year.
+          The standard deviation of the predicted values from all regression trees we refer 
+          to as standard error. Each pixel has a standard error for each year.
         |||,
       },
       {
         name: 'NLCD_Percent_Tree_Canopy_Cover',
         description: |||
-        To produce NLCD tree-canopy cover, a post-processing workflow is applied to the direct 
-        model output that identifies and sets non-treed pixel values to zero percent 
-        tree-canopy cover.
+          To produce NLCD tree-canopy cover, a post-processing workflow is applied to the direct 
+          model output that identifies and sets non-treed pixel values to zero percent 
+          tree-canopy cover.
         |||,
       },
     ],
