@@ -13,7 +13,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local license = spdx.proprietary;
 
 {
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -130,7 +129,7 @@ local license = spdx.proprietary;
     [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, version_config.id) + [
     ee.link.license(
         'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/'),
     {
