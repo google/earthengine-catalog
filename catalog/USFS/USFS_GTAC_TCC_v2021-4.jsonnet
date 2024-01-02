@@ -130,16 +130,8 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
-    ee.link.license(
-        'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/'),
-    {
-      rel: ee_const.rel.source,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/',
-    },
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-    ee.link.predecessor(
-        predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
-  ],
+    ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
+  ] + version_config.version_links,
   keywords: [
     'forest',
     'gtac',
