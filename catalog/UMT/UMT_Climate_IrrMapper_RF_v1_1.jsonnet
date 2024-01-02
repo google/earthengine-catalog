@@ -40,8 +40,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     fields, 38,000 dryland fields, and over 500,000 square kilometers of
     uncultivated lands.
 
-    For version 1.1, the original training data was re-run on Landsat
-    Collection 2 and brought up-to-date.
+    For version 1.2, the original training data was greatly expanded, 
+    a RF model built for each state, and a more thorough validation and uncertainty 
+    analysis undertaken. See the [supplement](https://static-content.springer.com/esm/art%3A10.1038%2Fs43247-023-01152-2/MediaObjects/43247_2023_1152_MOESM3_ESM.docx) 
+    to our [paper](https://www.nature.com/articles/s43247-023-01152-2) on the impacts of irrigation on streamflow.
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -98,6 +101,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     IrrMapper: A Machine Learning Approach for High Resolution Mapping of
     Irrigated Agriculture Across the Western U.S.,
     Remote Sens. 2020, 12, 2328. [doi:10.3390/rs12142328](https://doi.org/10.3390/rs12142328)
+
+    Ketchum, D., Hoylman, Z.H., Huntington, J. et al. Irrigation intensification impacts sustainability
+    of streamflow in the Western United States. Commun Earth Environ 4, 479 (2023). [doi:10.1038/s43247-023-01152-2](https://doi.org/10.1038/s43247-023-01152-2)
+    
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
