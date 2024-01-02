@@ -12,7 +12,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
 
-gee:skip_indexing: true;
 
 {
 
@@ -26,6 +25,7 @@ gee:skip_indexing: true;
   id: id,
   title: 'USFS Tree Canopy Cover ' + version + ' + ' ' + '(CONUS and OCONUS)',
   version: version,
+  'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Tree Canopy Cover (TCC) data suite.
