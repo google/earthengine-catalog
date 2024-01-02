@@ -4,7 +4,7 @@ local spdx = import 'spdx.libsonnet';
 local versions = import 'versions.libsonnet';
 local version_table = import 'USFS_GTAC_TCC.libsonnet';
 
-local subdir = 'USFS';
+local subdir = 'USGS';
 local version = 'v2021.4';
 local version_config = versions(subdir, version_table, version);
 local basename = std.strReplace(version_config.id, '/', '_');
