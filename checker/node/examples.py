@@ -1236,8 +1236,11 @@ class Check(stac.NodeCheck):
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     if node.type == stac.StacType.CATALOG: return
-    if _GEE_SKIP_INDEXING in node.stac: return
     if node.id.startswith('TEMPLATE'): return
+
+    # CCDC is not planned to be made public so far, so it has
+    # no examples.
+    if node.id == 'GOOGLE/GLOBAL_CCDC/V1': return
 
     if not cls.scripts:
       cls.scripts = load(stac.examples_root())
