@@ -26,13 +26,15 @@ local license = spdx.proprietary;
   'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product is part of the Tree Canopy Cover (TCC) data suite.
-    It includes modeled TCC, standard error (SE), and National Land Cover Database’s (NLCD) TCC data for each year.
+    This product is part of the Tree Canopy Cover (TCC) data suite. It includes modeled TCC, standard error (SE), and 
+    National Land Cover Database’s (NLCD) TCC data for each year. TCC data produced by the the United States Department 
+    of Agriculture, Forest Service (USFS) are included in the Multi-Resolution Land Characteristics (MRLC) consortium 
+    that is part of the National Land Cover Database (NLCD) project managed by the United States (US) Geological Survey (USGS).
 
-    The Science TCC product and NLCD TCC are remote sensing-based map output produced by the United States 
-    Department of Agriculture, Forest Service (USFS). The objecive of TCC Science and NLCD TCC are to develop 
-    a consistent approach using the latest technology and advancements in TCC mapping to produce a "best available" map 
-    of TCC across the Conterminous United States (CONUS) and southeast Alaska, Hawaii and Puerto Rico-US Virgin Islands (OCONUS).
+    The Science TCC product and NLCD TCC are remote sensing-based map output produced by the USFS. The objecive of TCC Science 
+    and NLCD TCC are to develop a consistent approach using the latest technology and advancements in TCC mapping to produce a 
+    "best available" map of TCC across the Conterminous United States (CONUS) and southeast Alaska, Hawaii and 
+    Puerto Rico-US Virgin Islands (OCONUS).
 
     Model outputs include Science TCC, Science SE and NLCD TCC. Science TCC include data 
     from 2008 through 2021. Science TCC is the raw direct model outputs. Science SE is the model standard deviation 
