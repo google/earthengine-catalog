@@ -1,13 +1,10 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local versions = import 'versions.libsonnet';
-local version_table = import 'USGS_GTAC_TCC.libsonnet';
 
 local subdir = 'USGS';
 local version = 'v2021.4';
-local version_config = versions(subdir, version_table, version);
-local basename = std.strReplace(version_config.id, '/', '_');
+local basename = std.strReplace('USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4', '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
@@ -20,7 +17,7 @@ local license = spdx.proprietary;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: version,
   title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
   'gee:skip_indexing': true,
@@ -131,9 +128,9 @@ local license = spdx.proprietary;
     [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, version) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
-  ] + version_config.version_links,
+  ],
   keywords: [
     'forest',
     'gtac',
