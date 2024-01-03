@@ -2,9 +2,10 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
+local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
+local version = 'v2021-4';
 local subdir = 'USGS';
-local version = 'v2021.4';
-local basename = std.strReplace('USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4', '/', '_');
+local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
@@ -17,9 +18,8 @@ local license = spdx.proprietary;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version,
+  id: id,
   title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
-  version: version,
   'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -128,7 +128,7 @@ local license = spdx.proprietary;
     [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
   ],
   keywords: [
