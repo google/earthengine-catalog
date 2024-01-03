@@ -137,7 +137,6 @@ local license = spdx.proprietary;
     'landsat_derived',
     'redcastle_resources',
     'sentinel2_derived',
-    'tree_canopy',
     'time_series',
     'usda',
     'usfs',
