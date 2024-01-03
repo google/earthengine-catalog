@@ -22,7 +22,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'IrrMapper Irrigated Lands',
   version: '1.1',
-  'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     IrrMapper is an annual classification of irrigation status in the 11
