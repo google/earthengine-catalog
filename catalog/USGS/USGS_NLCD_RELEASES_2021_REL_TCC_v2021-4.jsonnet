@@ -3,7 +3,6 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
-local version = 'v2021-4';
 local subdir = 'USGS';
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -19,7 +18,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
+  title: 'USFS Tree Canopy Cover v2021-4 (CONUS and OCONUS)',
   'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
