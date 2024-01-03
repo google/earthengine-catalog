@@ -2,7 +2,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'USFS_GTAC_TCC.libsonnet';
+local version_table = import 'USGS_GTAC_TCC.libsonnet';
 
 local subdir = 'USGS';
 local version = 'v2021.4';
@@ -143,6 +143,7 @@ local license = spdx.proprietary;
     'time_series',
     'usda',
     'usfs',
+    'usgs',
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)'),
