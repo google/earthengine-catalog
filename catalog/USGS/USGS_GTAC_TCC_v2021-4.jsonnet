@@ -2,7 +2,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local id = 'USGS/NLCD_RELEASES/2021_REL/NLCD/TCC/v2021-4';
+local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
 local version = 'v2021-4';
 local subdir = 'USGS';
 local basename = std.strReplace(id, '/', '_');
@@ -145,7 +145,8 @@ local license = spdx.proprietary;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)'),
+    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 
+    'https://www.fs.usda.gov/about-agency/gtac'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
