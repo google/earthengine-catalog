@@ -1,5 +1,5 @@
-var dataset = ee.ImageCollection('UMT/Climate/IrrMapper_RF/v1_1');
-var irr = dataset.filterDate('2018-01-01', '2018-12-31').mosaic();
+var dataset = ee.ImageCollection('UMT/Climate/IrrMapper_RF/v1_2');
+var irr = dataset.filterDate('2023-01-01', '2023-12-31').mosaic();
 var irr = irr.mask(irr.eq(1));
 
 var visualization = {
@@ -7,5 +7,5 @@ var visualization = {
   max: 1.0,
   palette: ['blue']
 };
-Map.addLayer(irr, visualization, 'IrrMapper 2018');
+Map.addLayer(irr, visualization, 'IrrMapper 2023');
 Map.setCenter(-112.516, 45.262, 10);
