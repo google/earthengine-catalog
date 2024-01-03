@@ -64,6 +64,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('USGS_WBD_2017_HUC10', base_url),
     ee.link.child_collection('USGS_WBD_2017_HUC12', base_url),
 
-    ee.link.child_collection('USGS_GTAC_TCC_v2021-4', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2021_REL_TCC_v2021-4', base_url),
   ],
 }

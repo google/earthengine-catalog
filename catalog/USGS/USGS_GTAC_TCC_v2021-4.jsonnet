@@ -137,7 +137,7 @@ local license = spdx.proprietary;
     'landsat_derived',
     'redcastle_resources',
     'sentinel2_derived',
-    'tree-canopy cover',
+    'tree canopy cover',
     'tcc',
     'time_series',
     'usda',
@@ -168,7 +168,7 @@ local license = spdx.proprietary;
       {
         name: 'Science_Percent_Tree_Canopy_Cover',
         description: |||
-          The raw direct model outputs. Each pixel has a mean predicted tree-canopy 
+          The raw direct model outputs. Each pixel has a mean predicted tree canopy 
           cover value for each year.
         |||,
       },
@@ -182,9 +182,9 @@ local license = spdx.proprietary;
       {
         name: 'NLCD_Percent_Tree_Canopy_Cover',
         description: |||
-          To produce NLCD tree-canopy cover, a post-processing workflow is applied to the direct 
+          To produce NLCD tree canopy cover, a post-processing workflow is applied to the direct 
           model output that identifies and sets non-treed pixel values to zero percent 
-          tree-canopy cover.
+          tree canopy cover.
         |||,
       },
     ],
