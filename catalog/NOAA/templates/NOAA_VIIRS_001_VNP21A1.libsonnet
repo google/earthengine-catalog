@@ -17,7 +17,6 @@ local units = import 'units.libsonnet';
         description: |||
           Daily 1 km Land Surface Temperature.
         |||,
-        'gee:scale': 0.02,
         'gee:units': units.kelvin,
       },
       {
@@ -222,31 +221,23 @@ local units = import 'units.libsonnet';
       {
         name: 'Emis_14',
         description: 'Daily M14 emissivity',
-        'gee:scale': 0.002,
-        'gee:offset': 0.49,
       },
       {
         name: 'Emis_15',
         description: 'Daily M15 emissivity',
-        'gee:scale': 0.002,
-        'gee:offset': 0.49,
       },
       {
         name: 'Emis_16',
         description: 'Daily M16 emissivity',
-        'gee:scale': 0.002,
-        'gee:offset': 0.49,
       },
       {
         name: 'View_Angle',
         description: 'View zenith angle of LST',
-        'gee:offset': -65,
         'gee:units': units.degree,
       },
       {
         name: 'View_Time',
         description: 'Time of LST observation',
-        'gee:scale': 0.1,
         'gee:units': units.hour,
       },
     ],
