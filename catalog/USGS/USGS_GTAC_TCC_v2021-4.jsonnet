@@ -2,7 +2,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
+local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4/USGS_GTAC_TCC_v2021-4';
 local version = 'v2021-4';
 local subdir = 'USGS';
 local basename = std.strReplace(id, '/', '_');
