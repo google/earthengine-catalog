@@ -21,7 +21,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   'gee:skip_indexing': true,
-  version: version
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Tree Canopy Cover (TCC) data suite. It includes modeled TCC, standard error (SE), and 
