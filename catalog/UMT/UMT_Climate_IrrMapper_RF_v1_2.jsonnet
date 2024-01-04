@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'IrrMapper Irrigated Lands',
+  title: 'IrrMapper Irrigated Lands 1.2',
   version: '1.2',
   'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
