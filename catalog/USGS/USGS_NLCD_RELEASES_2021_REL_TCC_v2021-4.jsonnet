@@ -1,4 +1,4 @@
-local ee_const = import 'earthengine_const.libsonnet';
+local ee_const = import 'earthengine_const.libsonnet'; 
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
@@ -25,7 +25,7 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Tree Canopy Cover (TCC) data suite. It includes modeled TCC, standard error (SE), and 
-    National Land Cover Database’s (NLCD) TCC data for each year. TCC data produced by the the United States Department 
+    National Land Cover Database's (NLCD) TCC data for each year. TCC data produced by the the United States Department 
     of Agriculture, Forest Service (USFS) are included in the Multi-Resolution Land Characteristics (MRLC) consortium 
     that is part of the National Land Cover Database (NLCD) project managed by the United States (US) Geological Survey (USGS).
 
@@ -66,15 +66,15 @@ local license = spdx.proprietary;
     (U.S. Geological Survey, 2019), are used as independent predictor variables in a Random 
     Forest (Breiman, 2001) model.
 
-    Reference data are collected from USFS Forest Inventory and Analysis (FIA) photo-interpreted TCC data, and
-    used to make wall-to wall TCC predictions on a pixel-wise basis. 
+    Reference data are collected from USFS Forest Inventory and Analysis (FIA) photo-interpreted 
+    TCC data, and used to make wall-to wall TCC predictions on a pixel-wise basis. 
 
     **Additional Resources**
 
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2022-8_Methods.pdf)
-      for more detailed information regarding methods and accuracy assessment, or the
-      [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
-      for data downloads, metadata, and support documents.
+    Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2022-8_Methods.pdf)
+    for more detailed information regarding methods and accuracy assessment, or the
+    [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
+    for data downloads, metadata, and support documents.
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
@@ -161,6 +161,35 @@ local license = spdx.proprietary;
         |||,
         type: ee_const.var_type.string,
       },
+      {
+        name: 'version',
+        description: |||
+          This is the fourth version of the TCC product released in the MRLC consortium 
+          that is part of the National Land Cover Database (NLCD)'
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'startYear',
+        description: |||
+          'Start year of the product'
+        |||,
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'endYear',
+        description: |||
+          'End year of the product'
+        |||,
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'year',
+        description: |||
+          'Year of the product'
+        |||,
+        type: ee_const.var_type.int,
+      },
     ],
     gsd: [30],
     'eo:bands': [
@@ -170,6 +199,7 @@ local license = spdx.proprietary;
           The raw direct model outputs. Each pixel has a mean predicted tree canopy 
           cover value for each year.
         |||,
+        'gee:units': units.percent,
       },
       {
         name: 'Science_Percent_Tree_Canopy_Cover_Standard_Error',
@@ -177,14 +207,16 @@ local license = spdx.proprietary;
           The standard deviation of the predicted values from all regression trees we refer 
           to as standard error. Each pixel has a standard error for each year.
         |||,
+        'gee:units': units.percent,
       },
       {
         name: 'NLCD_Percent_Tree_Canopy_Cover',
         description: |||
           To produce NLCD tree canopy cover, a post-processing workflow is applied to the direct 
           model output that identifies and sets non-treed pixel values to zero percent 
-          tree canopy cover.
+          tree canopy cover. NLCD tree canopy cover data are fully masked in 2008, 2009 and 2010. 
         |||,
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [
