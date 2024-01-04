@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'water_mask',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod44w'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2000-02-24T00:00:00Z', '2000-02-24T00:00:00Z'),
