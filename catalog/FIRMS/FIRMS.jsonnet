@@ -146,8 +146,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     NASA promotes the full and open sharing of all data with the research and
     applications communities, private industry, academia, and the general
-    public. Read the
-    [NASA Data and Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy/).
+    public. Read the [NASA Data and Information Policy]
+    (https://science.nasa.gov/earth-science/earth-science-data/data-information-policy/).
 
     If you provide the
     [Land, Atmosphere Near real-time Capability for EOS (LANCE) / Fire Information for Resource Management System (FIRMS)](https://earthdata.nasa.gov/earth-observation-data/near-real-time)
