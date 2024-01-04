@@ -39,11 +39,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     image from nadir observations every 5 days. These images are later
     composited to produce this daily synthesis dataset. The description of
     the compositing and atmospheric correction procedures can be found in
-    the [user manual](https://proba-v.vgt.vito.be/sites/proba-v.vgt.vito.be/files/products_user_manual.pdf).
+    the [user manual](https://publications.vito.be/2017-1333-probav-products-user-manual.pdf).
 
     The reflectances provided in this dataset are presented as Digital Count
     Numbers (DN) and must be converted according to the guidelines in
-    Section 4.6.1 of the [user manual](https://proba-v.vgt.vito.be/sites/proba-v.vgt.vito.be/files/products_user_manual.pdf).
+    Section 4.6.1 of the [user manual](https://publications.vito.be/2017-1333-probav-products-user-manual.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
