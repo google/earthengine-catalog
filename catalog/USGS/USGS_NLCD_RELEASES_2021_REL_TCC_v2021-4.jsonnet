@@ -40,13 +40,20 @@ local license = spdx.proprietary;
     of the predicted values from all regression trees. The NLCD TCC have they have a high level of cartographic 
     post-processing rather than simply representing spatial model predictions. 
 
+    For Science SE data, the initial SE estimates that ranged from 0 to approximately 45 were multiplied by 100 
+    to maintain data precision (e.g., 45 = 4500). Therefore, SE estimates pixel values range from 0 to approximately 4500. 
+    The value 65534 represents the non-processing area mask where no cloud or cloud shadow-free data are available to produce an output.
+    For the Science TCC and NLCD TCC the value 254 represents the non-processing area mask. A data mask band is provided with each image 
+    that includes areas of no data, mapped tree canopy cover, and non-processing area. Users can use the data mask band to mask areas of 
+    no data and non-processing area when performing operations in GEE.  
+
     Due to CONUS size and wide variety of ecotones, CONUS modeling was broken up into 54 480x480 km tiles. For each tile, 
     a unique random forest model was built using 2011 fitted LandTrendr, 2011 CDL, and terrain data. All reference data 
     that were part of the 70% available for model calibration that intersected tiles within a 5x5 window around the center 
-    tile were used to train the random forest model. That model was then applied to the center tile. 
+    tile were used to train the random forest model. That model was then applied to the center tile. For OCONUS, one model 
+    was applied to each study area, and no tiles were used. 
 
-    Predictor layers for the TCC model include outputs
-    from the LandTrendr and terrain information. These
+    Predictor layers for the TCC model include outputs from the LandTrendr and terrain information. These
     components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
 
     To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A, 
@@ -218,6 +225,36 @@ local license = spdx.proprietary;
           tree canopy cover. NLCD tree canopy cover data are fully masked in 2008, 2009 and 2010. 
         |||,
         'gee:units': units.percent,
+      },
+      {
+        name: 'data_mask',
+        description: |||
+          Three values representing areas of no data, mapped tree canopy cover, and non-processing area.
+        |||,
+        'gee:bitmask': {
+          bitmask_parts: [
+            {
+              description: 'Three values representing areas of no data, mapped tree canopy cover, and non-processing area.',
+              bit_count: 2,
+              values: [
+                {
+                  description: 'No data',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Mapped tree canopy cover',
+                },
+                {
+                  value: 2,
+                  description: 'Non-processing area',
+                },
+              ],
+              first_bit: 0,
+            },
+          ],
+          total_bit_count: 2,
+        },
       },
     ],
     'gee:visualizations': [
