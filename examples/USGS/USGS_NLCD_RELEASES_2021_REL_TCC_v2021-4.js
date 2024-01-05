@@ -32,7 +32,7 @@ var se_palette = [
 
               
 // Display images on map 
-Map.addLayer(tcc.select('data_mask'), {min:0,max:2}, 'Data Mask');
+Map.addLayer(tcc.select('data_mask'), {min:0,max:2}, 'Data Mask',false);
 Map.addLayer(tcc.select('Science_Percent_Tree_Canopy_Cover'), {min:0,max:60,palette:tcc_palette}, 'Science Percent Tree Canopy Cover');
 Map.addLayer(tcc.select('Science_Percent_Tree_Canopy_Cover_Standard_Error'), {min:0,max:4000,palette:se_palette}, 'Science Percent Tree Canopy Cover Standard Error');
 Map.addLayer(tcc.select('NLCD_Percent_Tree_Canopy_Cover'), {min:0,max:60,palette:tcc_palette}, 'NLCD Percent Tree Canopy Cover');
