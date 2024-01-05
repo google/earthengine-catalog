@@ -71,7 +71,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [
       {
-        display_name: 'IrrMapper Irrigated Lands (1986 - 2023)',
+        display_name: 'IrrMapper Irrigated Lands (1986 - present)',
         lookat: {
           lat: 45.262,
           lon: -112.516,
