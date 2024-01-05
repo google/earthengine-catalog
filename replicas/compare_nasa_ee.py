@@ -129,15 +129,7 @@ def compare(
   if ee_scale:
     kwargs['scale'] = ee_scale
   if collection_id == 'MODIS/061/MCD43A4':
-    # This should work, but doesn't. See
-    # https://github.com/google/Xee/issues/112
-    kwargs['geometry'] = ee.Geometry.Rectangle(
-        [4447800, -2223901, 4448801, -2222900],
-        ee.Projection(SIN),
-        False,
-        True,
-    )
-
+    kwargs['geometry'] = ee.Geometry.Point(4447800, -2223901)
     kwargs['crs'] = SIN
     kwargs['projection'] = ee.Projection(SIN)
 
