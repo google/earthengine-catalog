@@ -38,11 +38,11 @@ local license = spdx.proprietary;
     Model outputs include Science TCC, Science SE and NLCD TCC. Science TCC and SE include data from 2008 through 2021. 
     NLCD TCC include data from 2011 through 2021, with data fully masked in 2008, 2009 and 2010. 
 
-    *Science TCC is the raw direct model outputs.
+    * Science TCC is the raw direct model outputs.
 
-    *Science SE is the model standard deviation of the predicted values from all regression trees. 
+    * Science SE is the model standard deviation of the predicted values from all regression trees. 
     
-    *The NLCD TCC product undergoes further post processing applied to the annual Science TCC images, 
+    * The NLCD TCC product undergoes further post processing applied to the annual Science TCC images, 
     which includes several masking (water and non-tree agriculture), filtering, and minimum-mapping unit (MMU) routines, 
     as well as processes that reduce interannual noise and return longer duration trends.  
 
