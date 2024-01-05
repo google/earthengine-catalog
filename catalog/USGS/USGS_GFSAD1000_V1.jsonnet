@@ -148,6 +148,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Most U.S. Geological Survey (USGS) information resides
     in the public domain and may be used without restriction. Additional
     information on [Acknowledging or Crediting USGS as Information
-    Source](https://www2.usgs.gov/visual-id/credit_usgs.html) is available.
+    Source](https://www.usgs.gov/information-policies-and-instructions/acknowledging-or-crediting-usgs)
+    is available.
   |||,
 }
