@@ -35,18 +35,20 @@ local license = spdx.proprietary;
     "best available" map of TCC across the Conterminous United States (CONUS) and southeast Alaska, Hawaii and 
     Puerto Rico-US Virgin Islands (OCONUS).
 
-    Model outputs include Science TCC, Science SE and NLCD TCC. Science TCC include data 
-    from 2008 through 2021. Science TCC is the raw direct model outputs. Science SE is the model standard deviation 
-    of the predicted values from all regression trees. The NLCD TCC product undergoes further post processing applied 
-    to the annual Science TCC images, which includes several masking (water and non-tree agriculture), filtering, and 
-    minimum-mapping unit (MMU) routines, as well as processes that reduce interannual noise and return longer duration trends. 
+    Model outputs include Science TCC, Science SE and NLCD TCC. Science TCC and SE include data from 2008 through 2021. 
+    NLCD TCC include data from 2011 through 2021, with data fully masked in 2008, 2009 and 2010. 
 
-    For Science SE data, the initial SE estimates that ranged from 0 to approximately 45 were multiplied by 100 
-    to maintain data precision (e.g., 45 = 4500). Therefore, SE estimates pixel values range from 0 to approximately 4500. 
-    In initial model output the TCC value 254 and SE value 65534 represent the non-processing area mask where pixels within 
-    the study area have no cloud or cloud shadow-free data available to produce an output. We mask out the non-processing area
-    values and provide a data mask band with each image that includes areas of no data, mapped tree canopy cover, and non-processing 
-    area. Users can use the data mask band to identify areas of no data and non-processing area when using the data in GEE.  
+    *Science TCC is the raw direct model outputs.
+
+    *Science SE is the model standard deviation of the predicted values from all regression trees. 
+    
+    *The NLCD TCC product undergoes further post processing applied to the annual Science TCC images, 
+    which includes several masking (water and non-tree agriculture), filtering, and minimum-mapping unit (MMU) routines, 
+    as well as processes that reduce interannual noise and return longer duration trends.  
+
+    Each image includes a data mask band that has three values representing areas of no data (0), mapped tree canopy cover(1), 
+    and non-processing area (2). The non-processing areas are pixels in the study area with no cloud or cloud shadow-free data. No data
+    and non-processing area pixels are masked in TCC and SE images.
 
     Due to CONUS size and wide variety of ecotones, CONUS modeling was broken up into 54 480x480 km tiles. For each tile, 
     a unique random forest model was built using 2011 fitted LandTrendr, 2011 CDL, and terrain data. All reference data 
