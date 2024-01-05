@@ -46,9 +46,11 @@ You can use these external services to browse the EE STAC catalog:
 - [gee.stac.cloud](https://gee.stac.cloud/)
 
 
-# Install / Build instructions
+# Local Install Instructions
 
-See [install](docs/install.md)
+If you'd like to run validity checks locally (not via GitHub actions), see
+[the local installation instructions](docs/install.md). Most people won't
+need this.
 
 # Non-commercial datasets
 
