@@ -52,7 +52,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.license(license.reference),
   ],
   keywords: [
-    'irrigated_land',
     'landsat_derived',
   ],
   providers: [

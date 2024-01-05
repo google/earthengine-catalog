@@ -1,4 +1,4 @@
-var dataset = ee.Image('projects/ee-dgketchum/assets/IrrMapper/version1_2/ID_2021');
+var dataset = ee.Image('UMT/Climate/IrrMapper_RF/v1_2/ID_2021');
 
 var lon = -112.381;
 var lat = 44.0;

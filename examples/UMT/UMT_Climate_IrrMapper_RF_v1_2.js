@@ -1,6 +1,5 @@
 var dataset = ee.ImageCollection('UMT/Climate/IrrMapper_RF/v1_2');
 var irr = dataset.filterDate('2023-01-01', '2023-12-31').mosaic();
-var irr = irr.mask(irr.eq(1));
 
 var visualization = {
   min: 0.0,
