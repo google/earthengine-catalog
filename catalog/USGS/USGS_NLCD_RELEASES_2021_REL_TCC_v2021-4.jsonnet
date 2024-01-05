@@ -43,10 +43,10 @@ local license = spdx.proprietary;
 
     For Science SE data, the initial SE estimates that ranged from 0 to approximately 45 were multiplied by 100 
     to maintain data precision (e.g., 45 = 4500). Therefore, SE estimates pixel values range from 0 to approximately 4500. 
-    The TCC value 254 and SE value 65534 represent the non-processing area mask where pixels within the study area have no cloud or 
-    cloud shadow-free data available to produce an output. For the Science TCC and NLCD TCC the value 254 represents the non-processing 
-    area mask. A data mask band is provided with each image that includes areas of no data, mapped tree canopy cover, and non-processing area. 
-    Users can use the data mask band to mask areas of no data and non-processing area when performing operations in GEE.  
+    In initial model output the TCC value 254 and SE value 65534 represent the non-processing area mask where pixels within 
+    the study area have no cloud or cloud shadow-free data available to produce an output. We mask out the non-processing area
+    values and provide a data mask band with each image that includes areas of no data, mapped tree canopy cover, and non-processing 
+    area. Users can use the data mask band to identify areas of no data and non-processing area when using the data in GEE.  
 
     Due to CONUS size and wide variety of ecotones, CONUS modeling was broken up into 54 480x480 km tiles. For each tile, 
     a unique random forest model was built using 2011 fitted LandTrendr, 2011 CDL, and terrain data. All reference data 
@@ -231,8 +231,8 @@ local license = spdx.proprietary;
         name: 'data_mask',
         description: |||
           Three values representing areas of no data, mapped tree canopy cover, and non-processing area. 
-          The TCC value 254 and SE value 65534 represent the non-processing area mask where pixels within 
-          the study area have no cloud or cloud shadow-free data available to produce an output.
+          The non-processing area is where pixels within the study area have no cloud or cloud shadow-free 
+          data available to produce an output.
         |||,
         'gee:bitmask': {
           bitmask_parts: [

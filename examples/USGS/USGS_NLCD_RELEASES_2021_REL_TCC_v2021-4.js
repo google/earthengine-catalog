@@ -30,16 +30,11 @@ var se_palette = [
     'FFFFFF',
     ]
 
-// Data mask: three values representing areas of no data (0), mapped tree canopy cover (1), and non-processing area (2)
-// The non-processing area is where no cloud or cloud shadow-free data are available to produce an output
-var data_mask = tcc.select('data_mask')
-// A binary mask of mapped tree canopy cover (1) and areas where tree canopy cover was not mapped (0) 
-data_mask = data_mask.eq(1)
               
 // Display images on map 
 Map.addLayer(tcc.select('data_mask'), {min:0,max:2}, 'Data Mask');
-Map.addLayer(tcc.select('Science_Percent_Tree_Canopy_Cover').updateMask(data_mask), {min:0,max:60,palette:tcc_palette}, 'Science Percent Tree Canopy Cover');
-Map.addLayer(tcc.select('Science_Percent_Tree_Canopy_Cover_Standard_Error').updateMask(data_mask), {min:0,max:4000,palette:se_palette}, 'Science Percent Tree Canopy Cover Standard Error');
-Map.addLayer(tcc.select('NLCD_Percent_Tree_Canopy_Cover').updateMask(data_mask), {min:0,max:60,palette:tcc_palette}, 'NLCD Percent Tree Canopy Cover');
+Map.addLayer(tcc.select('Science_Percent_Tree_Canopy_Cover'), {min:0,max:60,palette:tcc_palette}, 'Science Percent Tree Canopy Cover');
+Map.addLayer(tcc.select('Science_Percent_Tree_Canopy_Cover_Standard_Error'), {min:0,max:4000,palette:se_palette}, 'Science Percent Tree Canopy Cover Standard Error');
+Map.addLayer(tcc.select('NLCD_Percent_Tree_Canopy_Cover'), {min:0,max:60,palette:tcc_palette}, 'NLCD Percent Tree Canopy Cover');
 
 Map.setCenter(-98.58, 38.14, 4);
