@@ -37,15 +37,16 @@ local license = spdx.proprietary;
 
     Model outputs include Science TCC, Science SE and NLCD TCC. Science TCC include data 
     from 2008 through 2021. Science TCC is the raw direct model outputs. Science SE is the model standard deviation 
-    of the predicted values from all regression trees. The NLCD TCC have they have a high level of cartographic 
-    post-processing rather than simply representing spatial model predictions. 
+    of the predicted values from all regression trees. The NLCD TCC product undergoes further post processing applied 
+    to the annual Science TCC images, which includes several masking (water and non-tree agriculture), filtering, and 
+    minimum-mapping unit (MMU) routines, as well as processes that reduce interannual noise and return longer duration trends. 
 
     For Science SE data, the initial SE estimates that ranged from 0 to approximately 45 were multiplied by 100 
     to maintain data precision (e.g., 45 = 4500). Therefore, SE estimates pixel values range from 0 to approximately 4500. 
-    The value 65534 represents the non-processing area mask where no cloud or cloud shadow-free data are available to produce an output.
-    For the Science TCC and NLCD TCC the value 254 represents the non-processing area mask. A data mask band is provided with each image 
-    that includes areas of no data, mapped tree canopy cover, and non-processing area. Users can use the data mask band to mask areas of 
-    no data and non-processing area when performing operations in GEE.  
+    The TCC value 254 and SE value 65534 represent the non-processing area mask where pixels within the study area have no cloud or 
+    cloud shadow-free data available to produce an output. For the Science TCC and NLCD TCC the value 254 represents the non-processing 
+    area mask. A data mask band is provided with each image that includes areas of no data, mapped tree canopy cover, and non-processing area. 
+    Users can use the data mask band to mask areas of no data and non-processing area when performing operations in GEE.  
 
     Due to CONUS size and wide variety of ecotones, CONUS modeling was broken up into 54 480x480 km tiles. For each tile, 
     a unique random forest model was built using 2011 fitted LandTrendr, 2011 CDL, and terrain data. All reference data 
@@ -79,12 +80,12 @@ local license = spdx.proprietary;
 
     **Additional Resources**
 
-    Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2022-8_Methods.pdf)
+    Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2021-4_Methods.pdf)
     for more detailed information regarding methods and accuracy assessment, or the
-    [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
+    [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
 
-    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    Contact [sm.fs.tcc@usda.gov](mail to:sm.fs.tcc@usda.gov) with any
     questions or specific data requests.
 
     * **Breiman, L., 2001.**
@@ -229,7 +230,9 @@ local license = spdx.proprietary;
       {
         name: 'data_mask',
         description: |||
-          Three values representing areas of no data, mapped tree canopy cover, and non-processing area.
+          Three values representing areas of no data, mapped tree canopy cover, and non-processing area. 
+          The TCC value 254 and SE value 65534 represent the non-processing area mask where pixels within 
+          the study area have no cloud or cloud shadow-free data available to produce an output.
         |||,
         'gee:bitmask': {
           bitmask_parts: [
