@@ -42,7 +42,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [NOAA Pathfinder site](https://www.nodc.noaa.gov/satellitedata/pathfinder4km53/).
 
     Additional band details can be found in the
-    [Tech Specs](https://data.nodc.noaa.gov/pathfinder/Version5.2/GDS_TechSpecs_v2.0.pdf) page.
+    [Tech Specs](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Sea_Surface_Temperature_Pathfinder/AlgorithmDescription_01B-08.pdf)
+    page.
 
     These data were provided by GHRSST and the US NOAA National
     Centers for Environmental Information (NCEI). This project was
