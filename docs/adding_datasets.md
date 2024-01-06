@@ -43,6 +43,14 @@ your real PRs later.
 as a starting point. See also [template files with field
 annotations](../catalog/TEMPLATE).
 
+1. The text fields support
+[markdown syntax](https://www.markdownguide.org/cheat-sheet/).
+If editing markdown in jsonnet fields becomes too cumbersome, you can use
+'importstr' to import text from a separate .md file
+([see example](https://github.com/google/earthengine-catalog/blob/main/catalog/JRC/catalog.jsonnet#L16)).
+Use tools like [markdownlivepreview.com](https://markdownlivepreview.com/)
+to preview your markdown content.
+
 1. Make sure the `gee:terms_of_use` field describes the data license and the
 `links` fields contains `ee.link.license()` pointing at the URL with the
 licensing terms.
