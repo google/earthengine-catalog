@@ -45,4 +45,7 @@
   'Oxford/MAP/LST_Night_5km_Monthly',
   'Oxford/MAP/TCB_5km_Monthly',
   'Oxford/MAP/TCW_5km_Monthly',
+] + [
+  // Not yet a dataset
+  'JAXA/ALOS/PALSAR-2/Level2_1/StripMap_202401'
 ]
