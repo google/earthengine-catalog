@@ -21,7 +21,6 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
-  'gee:skip_indexing': true,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
