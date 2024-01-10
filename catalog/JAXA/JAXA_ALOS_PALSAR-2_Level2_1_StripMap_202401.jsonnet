@@ -26,13 +26,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'ALOS-2 PALSAR-2 StripMap Level 2.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Starting from the night of January 1st 2024, based on the request from
-    Japanese ministries and related organization, JAXA implemented emergency
-    observation of ALOS-2 PALSAR-2 since JAXA considered these emergency
-    observation data are very useful for public and research usage.
+    Starting from the night of January 1st, 2024, based on the request from
+    Japanese ministries and related organization, JAXA implemented ALOS-2
+    PALSAR-2 emergency observation. Since JAXA expects these emergency
+    observation data to be extremely useful for disaster
+    management, JAXA decided to open these data on Google Earth Engine for
+    public and research usage.
 
     JAXA released PALSAR-2 Level 2.1 strip map mode observation data with 3m
-    single polarization during January 1 and 3, 2024, together with some archive
+    single polarization during January 1-3, 2024, together with some archive
     data. PALSAR-2 Level 2.1 data is orthorectified from level 1.1 data by using
     digital elevation model. The DN values can be converted to gamma naught
     values in decibel unit (dB) using the following equation:
