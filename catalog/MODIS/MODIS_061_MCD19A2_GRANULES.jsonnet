@@ -37,7 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://lpdaac.usgs.gov/products/mcd19a2v061/',
+      href: 'https://doi.org/10.5067/MODIS/MCD19A2.061',
     },
   ],
   keywords: [
@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/products/mcd19a2v061/'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD19A2.061'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
@@ -67,6 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'Terra',
     ],
   },
+  'sci:doi': '10.5067/MODIS/MCD19A2.061',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
