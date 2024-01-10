@@ -36,10 +36,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     JAXA released PALSAR-2 Level 2.1 strip map mode observation data with 3m
     single polarization during January 1-3, 2024, together with some archive
     data. PALSAR-2 Level 2.1 data is orthorectified from level 1.1 data by using
-    digital elevation model. The DN values can be converted to gamma naught
+    digital elevation model. The DN values can be converted to sigma naught
     values in decibel unit (dB) using the following equation:
 
-    * &gamma;<sub>0</sub> = 10*log<sub>10</sub>(DN<sup>2</sup>) - 83.0 dB
+    * &sigma;<sub>0</sub> = 10*log<sub>10</sub>(DN<sup>2</sup>) - 83.0 dB
 
   ||| + date_table,
   license: license.id,
