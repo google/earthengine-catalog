@@ -81,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Google', 'https://research.google.com/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2015-06-23T00:00:00Z', null),
+  extent: ee.extent_global('2015-06-27T00:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
