@@ -1,5 +1,5 @@
-local id = 'UMT/Climate/IrrMapper_RF/v1_1';
-local subdir = 'UMT';
+local versions = import 'versions.libsonnet';
+local version_table = import 'UMT_Climate_IrrMapper_RF_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -7,9 +7,9 @@ local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local version = '1.1';
+local subdir = 'UMT';
+local version_config = versions(subdir, version_table, version);
 
 {
   stac_version: ee_const.stac_version,
@@ -19,9 +19,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title: 'IrrMapper Irrigated Lands',
-  version: '1.1',
+  id: version_config.id,
+  title: 'IrrMapper Irrigated Lands, Version ' + version + ' [deprecated]',
+  version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     IrrMapper is an annual classification of irrigation status in the 11
@@ -44,16 +45,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Collection 2 and brought up-to-date.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, version_config.id) + [
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'irrigated_land',
     'landsat_derived',
   ],
   providers: [
     ee.producer_provider('University of Montana / Montana Climate Office', 'https://climate.umt.edu/research/irrmapper/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-124.5, 31.3, -99.0, 49.0, '1986-01-01T00:00:00Z', null),
   summaries: {

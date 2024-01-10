@@ -19,6 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('UMT_Climate_IrrMapper_RF_v1_1', base_url),
+    ee.link.child_collection('UMT_Climate_IrrMapper_RF_v1_2', base_url),
     ee.link.child_collection('UMT_NTSG_v2_LANDSAT_GPP', base_url),
     ee.link.child_collection('UMT_NTSG_v2_LANDSAT_NPP', base_url),
     ee.link.child_collection('UMT_NTSG_v2_MODIS_GPP', base_url),
