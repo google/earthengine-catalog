@@ -34,7 +34,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     public and research usage.
 
     JAXA released PALSAR-2 Level 2.1 strip map mode observation data with 3m
-    single polarization during January 1-3, 2024, together with some archive
+    single polarization for January 1-3 and January 8 2024, together with
+    some archive
     data. PALSAR-2 Level 2.1 data is orthorectified from level 1.1 data by using
     digital elevation model. The DN values can be converted to sigma naught
     values in decibel unit (dB) using the following equation:
@@ -58,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'https://www.eorc.jaxa.jp/ALOS/en/dataset/palsar2_l22_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2022-09-26T00:00:00Z', '2024-01-03T00:00:00Z'),
+  extent: ee.extent_global('2022-09-26T00:00:00Z', '2024-01-08T00:00:00Z'),
   summaries: {
     gsd: [
       3.0,
@@ -72,7 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar:resolution_azimuth': [3],
     'eo:bands': [
       {
-        name: 'HH',
+        name: 'b1',
         description: |||
             HH polarization Terrain-flattened Gamma-Nought backscatter
             coefficient.
@@ -96,7 +97,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               8000.0,
             ],
             bands: [
-              'HH',
+              'b1',
             ],
           },
         },
