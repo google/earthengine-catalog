@@ -43,6 +43,7 @@ local self_url = base_url + base_filename;
 
     ee.link.child_collection('USGS_LIMA_MOSAIC', base_url),
     ee.link.child_collection('USGS_LIMA_SR', base_url),
+    ee.link.child_collection('USGS_LIMA_SR_METADATA', base_url),
 
     ee.link.child_collection('USGS_NLCD_RELEASES_2016_REL', base_url),
     ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_NLCD', base_url),

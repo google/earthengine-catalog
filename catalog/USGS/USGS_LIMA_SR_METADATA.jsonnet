@@ -1,4 +1,4 @@
-local id = 'USGS/LIMA/SR';
+local id = 'USGS/LIMA/SR_METADATA';
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -15,12 +15,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
-    ee_const.ext_eo,
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Landsat Image Mosaic of Antarctica (LIMA) - Processed Landsat Scenes (16 bit)',
-  'gee:type': ee_const.gee_type.image_collection,
+  title: 'Landsat Image Mosaic of Antarctica (LIMA) - Processed Landsat Scenes (16 bit) Metadata',
+  'gee:type': ee_const.gee_type.table,
   description: |||
     The Landsat Image Mosaic of Antarctica (LIMA) is a seamless
     and virtually cloudless mosaic created from processed
@@ -43,8 +42,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     a patchwork of scenes since each scene would have a brighter
     and a darker side.
 
-    Users can find individual image metadata available as a table at:
-    [USGS/LIMA/SR_METADATA](USGS_LIMA_SR_METADATA)
+    This is a table which contains metadata for the Image Collection
+    [USGS/LIMA/SR](USGS_LIMA_SR)
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -65,83 +65,59 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(-180.0, -90.0, 180.0, -55.0,
                     '1999-06-30T00:00:00Z', '2002-09-04T00:00:00Z'),
   summaries: {
-    'eo:bands': [
+    'gee:schema': [
       {
-        name: 'B1',
-        description: 'Blue',
-        center_wavelength: 0.485,
-        gsd: 30.0,
-        'gee:wavelength': '0.45 - 0.52 &mu;m',
+        name: 'ACQ_DATE',
+        description: 'Acquisition date in YYYY-MM-DD format',
+        type: ee_const.var_type.string,
       },
       {
-        name: 'B2',
-        description: 'Green',
-        center_wavelength: 0.56,
-        gsd: 30.0,
-        'gee:wavelength': '0.52 - 0.60 &mu;m',
+        name: 'PATH',
+        description: 'WRS path',
+        type: ee_const.var_type.int,
       },
       {
-        name: 'B3',
-        description: 'Red',
-        center_wavelength: 0.66,
-        gsd: 30.0,
-        'gee:wavelength': '0.63 - 0.69 &mu;m',
+        name: 'POLY_ID',
+        description: 'Unique ID assigned to a polygon',
+        type: ee_const.var_type.int,
       },
       {
-        name: 'B4',
-        description: 'Near infrared',
-        center_wavelength: 0.835,
-        gsd: 30.0,
-        'gee:wavelength': '0.77 - 0.90 &mu;m',
+        name: 'ROW',
+        description: 'WRS row',
+        type: ee_const.var_type.int,
       },
       {
-        name: 'B5',
-        description: 'Shortwave infrared 1',
-        center_wavelength: 1.65,
-        gsd: 30.0,
-        'gee:wavelength': '1.55 - 1.75 &mu;m',
+        name: 'SCENE_ID',
+        description: 'Scene ID',
+        type: ee_const.var_type.string,
       },
       {
-        name: 'B7',
-        description: 'Shortwave infrared 2',
-        center_wavelength: 2.215,
-        gsd: 30.0,
-        'gee:wavelength': '2.08 - 2.35 &mu;m',
+        name: 'SENSOR',
+        description: 'Sensor',
+        type: ee_const.var_type.string,
       },
       {
-        name: 'B8',
-        description: 'Panchromatic',
-        center_wavelength: 0.71,
-        gsd: 15.0,
-        'gee:wavelength': '0.52 - 0.90 &mu;m',
+        name: 'SPACE',
+        description: 'Name of the satellite used to gather data',
+        type: ee_const.var_type.string,
       },
     ],
     'gee:visualizations': [
       {
         display_name: 'Antarctica',
-        lookat: {
-          lat: -77.99,
-          lon: 164.619,
-          zoom: 7,
-        },
-        image_visualization: {
-          band_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              10000.0,
-            ],
-            bands: [
-              'B3',
-              'B2',
-              'B1',
-            ],
-          },
-        },
+        table_visualization: {
+        color: 'black',
+        point_size: 1,
+      },
+      lookat: {
+        lon: 4.1,
+        lat: -76.8,
+        zoom: 2,
+      },
       },
     ],
   },
+  'gee:skip_featureview_generation': true,
   'sci:citation': |||
     Bindschadler, R., Vornberger, P., Fleming, A., Fox, A., Mullins, J.,
     Binnie, D., Paulson, S., Granneman, B., and Gorodetzky, D., 2008,
