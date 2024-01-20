@@ -57,7 +57,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'built_surface',
-        description: 'Multitemporal Built-up Surface',
+        description: 'Built-up surface per grid cell in square metres',
+      },
+      {
+        name: 'built_surface_nres',
+        description: 'Non-residential built-up surface per grid cell in square metres',
       },
     ],
     'gee:visualizations': [
