@@ -28,6 +28,7 @@ local gsm_description = importstr 'general_satellite_messages_description.md';
 
     ee.link.child_collection('NOAA_CDR_ATMOS_NEAR_SURFACE_V2', base_url),
     ee.link.child_collection('NOAA_CDR_AVHRR_AOT_V3', base_url),
+    ee.link.child_collection('NOAA_CDR_AVHRR_AOT_V4', base_url),
     ee.link.child_collection('NOAA_CDR_AVHRR_LAI_FAPAR_V4', base_url),
     ee.link.child_collection('NOAA_CDR_AVHRR_LAI_FAPAR_V5', base_url),
     ee.link.child_collection('NOAA_CDR_AVHRR_NDVI_V4', base_url),

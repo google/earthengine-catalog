@@ -1,7 +1,7 @@
 local versions = import 'versions.libsonnet';
 local version_table = import 'NOAA_CDR_AVHRR_AOT_versions.libsonnet';
 
-local version = 'v03';
+local version = 'v04';
 local subdir = 'NOAA';
 local version_config = versions(subdir, version_table, version);
 
@@ -20,9 +20,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'NOAA CDR AVHRR AOT: Daily Aerosol Optical Thickness Over Global Oceans, ' + version + ' [deprecated]',
+  title: 'NOAA CDR AVHRR AOT: Daily Aerosol Optical Thickness Over Global Oceans, ' + version,
   version: version,
-  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA Climate Data Record (CDR) of Aerosol Optical Thickness (AOT) is a
@@ -44,7 +43,7 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, version_config.id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.7289/V5BZ642P',
+      href: 'https://doi.org/10.25921/w3zj-4y48'
     },
   ] + version_config.version_links,
   keywords: [
@@ -59,7 +58,7 @@ local license = spdx.proprietary;
     'pollution',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/atmospheric/avhrr-aerosol-optical-thickness'),
+    ee.producer_provider('NOAA', 'https://doi.org/10.25921/w3zj-4y48'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1981-01-01T00:00:00Z', null),
@@ -116,12 +115,12 @@ local license = spdx.proprietary;
       'gee:estimated_range': true,
     },
   },
-  'sci:doi': '10.7289/V5BZ642P',
+  'sci:doi': '10.25921/w3zj-4y48',
   'sci:citation': |||
-    Zhao, Xuepeng; and NOAA CDR Program (2017): NOAA Climate Data Record (CDR)
+    Zhao, Xuepeng; and NOAA CDR Program: NOAA Climate Data Record (CDR)
     of AVHRR Daily and Monthly Aerosol Optical Thickness (AOT) over Global
-    Oceans, Version 3.0. [indicate subset used]. NOAA National Centers for
-    Environmental Information. [doi:10.7289/V5BZ642P](https://doi.org/10.7289/V5BZ642P)
+    Oceans, Version 4.0. [indicate subset used]. NOAA National Centers for
+    Environmental Information. [doi:10.25921/w3zj-4y48](https://doi.org/10.25921/w3zj-4y48)
     [date accessed].
   |||,
   'gee:interval': {
