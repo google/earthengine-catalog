@@ -67,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wind',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/oceanic/sea-surface-temperature-pathfinder'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/avhrr-pathfinder-sst'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1981-08-24T00:00:00Z', null),
