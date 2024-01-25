@@ -105,6 +105,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('WCMC', base_url),
     ee.link.child_catalog('WHBU', base_url),
     ee.link.child_catalog('WHRC', base_url),
+    ee.link.child_catalog('WM', base_url),
     ee.link.child_catalog('WORLDCLIM', base_url),
     ee.link.child_catalog('WRI', base_url),
     ee.link.child_catalog('WWF', base_url),
