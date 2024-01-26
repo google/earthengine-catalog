@@ -3,7 +3,7 @@ local subdir = 'WM';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
-local spdx = import 'spdx.libsonnet';
+
 local geoBoundaries = import 'WM_geoLab_geoBoundaries.libsonnet';
 
 local basename = std.strReplace(id, '/', '_');
@@ -15,13 +15,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   id: id,
-  title: 'WM: Political administrative boundaries at Municipality level (ADM2).',
+  title: 'geoBoundaries: Political administrative boundaries at Municipality level (ADM2)',
   'gee:type': ee_const.gee_type.table,
   description: geoBoundaries.description + |||
       ADM2 is part of CGAZ and it has municipality-level boundaries.
-
-      (see [Dataset description of WM global administation boundaries](
-        https://www.geoboundaries.org/index.html).
     |||,
   license: geoBoundaries.license,
   links: ee.standardLinks(subdir, id) + [
@@ -53,5 +50,4 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'gee:terms_of_use': geoBoundaries.terms_of_use,
-  'gee:unusual_terms_of_use': true,
 }
