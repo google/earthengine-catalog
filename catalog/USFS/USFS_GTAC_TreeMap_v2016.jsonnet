@@ -82,7 +82,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     * [FIA Database Manual version 8](https://www.fia.fs.usda.gov/library/database-documentation/current/ver80/FIADB%20User%20Guide%20P2_8-0.pdf)
       for more detailed information on the attributes included in TreeMap 2016.
 
-    Contact [sm.fs.gtactreemap@usda.gov](mailto:sm.fs.gtactreemap@usda.gov) with any
+    Contact [sm.fs.treemaphelp@usda.gov](mailto:sm.fs.treemaphelp@usda.gov) with any
     questions or specific data requests.
 
     * **Forest Inventory Analysis. 2022a.**
