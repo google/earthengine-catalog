@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of the Intergovernmental Panel on Climate Change (IPCC AR6). This dataset
     includes downscaled projections from ScenarioMIP model runs for which daily
     scenarios were produced and distributed through the Earth System Grid
-    Federation.
+    Federation (ESGF).
 
     See also
     [the provider tech note](https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf).
