@@ -1,6 +1,6 @@
-local id = 'USGS/GMTED2010';
+local id = 'USGS/GMTED2010_FULL';
 local latest_id = 'USGS/GMTED2010_FULL';
-local successor_id = 'USGS/GMTED2010_FULL';
+local predecessor_id = 'USGS/GMTED2010';
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -12,15 +12,15 @@ local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local base_filename = basename + '.json';
 local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
+local predecessor_filename = predecessor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
+local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -31,20 +31,14 @@ local successor_url = catalog_subdir_url + successor_filename;
     ee_const.ext_ver
   ],
   id: id,
-  title: 'GMTED2010: Global Multi-resolution Terrain Elevation Data 2010, Breakline Emphasis [deprecated]',
-  version: '1.0',
-  deprecated: true,
+  title: 'GMTED2010: Global Multi-resolution Terrain Elevation Data 2010',
+  version: '1.1',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The Global Multi-resolution Terrain Elevation Data
     2010 (GMTED2010) dataset contains elevation data for the globe
-    collected from various sources. The version of the dataset available
-    here is Breakline Emphasis, 7.5 arc-seconds resolution. Breakline
-    emphasis maintains the critical topographic features (streams or
-    ridges) within the landscape by maintaining any minimum elevation
-    or maximum elevation value on a breakline that passes within the
-    specified analysis window. More details are available in the dataset
-    [report](https://pubs.usgs.gov/of/2011/1073/pdf/of2011-1073.pdf).
+    collected from various sources at 7.5 arc-seconds resolution. More details
+    are available in the dataset [report](https://pubs.usgs.gov/of/2011/1073/pdf/of2011-1073.pdf).
 
     The primary source dataset for GMTED2010 is NGA''s SRTM Digital
     Terrain Elevation Data (DTED&reg;, [https://www2.jpl.nasa.gov/srtm/](https://www2.jpl.nasa.gov/srtm/))
@@ -63,7 +57,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
+    ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
     'dem',
@@ -85,14 +79,49 @@ local successor_url = catalog_subdir_url + successor_filename;
     ],
     'eo:bands': [
       {
+        name: 'std',
+        description: 'Standard Deviation',
+        'gee:units': units.meter,
+      },
+      {
+        name: 'min',
+        description: 'Minimum',
+        'gee:units': units.meter,
+      },
+      {
+        name: 'med',
+        description: 'Median',
+        'gee:units': units.meter,
+      },
+      {
+        name: 'mea',
+        description: 'Mean',
+        'gee:units': units.meter,
+      },
+      {
+        name: 'max',
+        description: 'Maximum',
+        'gee:units': units.meter,
+      },
+      {
+        name: 'dsc',
+        description: 'Sample',
+        'gee:units': units.meter,
+      },
+      {
         name: 'be75',
-        description: 'Elevation',
+        description: |||
+          Breakline emphasis maintains the critical topographic features
+          (streams or ridges) within the landscape by maintaining any minimum
+          elevation or maximum elevation value on a breakline that passes within
+          the specified analysis window.
+        |||,
         'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Elevation',
+        display_name: 'Minimum Elevation',
         lookat: {
           lat: 7.71,
           lon: 17.93,
@@ -110,17 +139,12 @@ local successor_url = catalog_subdir_url + successor_filename;
               3.5,
             ],
             bands: [
-              'be75',
+              'min',
             ],
           },
         },
       },
     ],
-    be75: {
-      minimum: -457.0,
-      maximum: 8746.0,
-      'gee:estimated_range': true,
-    },
   },
   'sci:citation': 'Global Multi-resolution Terrain Elevation Data 2010 courtesy of\nthe U.S. Geological Survey',
   'gee:terms_of_use': |||

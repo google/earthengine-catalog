@@ -20,6 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
 
     ee.link.child_collection('USGS_GMTED2010', base_url),
+    ee.link.child_collection('USGS_GMTED2010_FULL', base_url),
     ee.link.child_collection('USGS_GTOPO30', base_url),
     ee.link.child_collection('USGS_NED', base_url),
     ee.link.child_collection('USGS_NLCD', base_url),
