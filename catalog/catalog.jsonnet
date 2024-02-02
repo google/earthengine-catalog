@@ -92,6 +92,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('TUBerlin', base_url),
     ee.link.child_catalog('Tsinghua', base_url),
     ee.link.child_catalog('UCSB-CHG', base_url),
+    ee.link.child_catalog('UK', base_url),
     ee.link.child_catalog('UMD', base_url),
     ee.link.child_catalog('UMN', base_url),
     ee.link.child_catalog('UMT', base_url),
