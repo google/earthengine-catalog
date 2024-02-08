@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - Longitude values are not correctly associated with the center of
       the grid cell, error is < 0.02 degrees
 
-    See [technical note from the data provider](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR%20Surface%20Reflectance/TechNote.pdf).
+    See [technical note from the data provider](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Surface_Reflectance/AVHRR/AlgorithmDescriptionAVHRR_01B-20a.pdf).
 
     Provider's note: the orbital drift of N-19 (the last NOAA satellite
     carrying the AVHRR sensor) began to severely degrade the retrieved
