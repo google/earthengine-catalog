@@ -294,8 +294,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'rangeland_shrub_height',
-        description: 'Percent of the pixel covered by shrub height.',
-        'gee:units': units.percent,
+        description: 'Average height of shrubs in centimeters.',
+        'gee:units': units.centimeters,
       },
       {
         name: 'rangeland_perennial_herbaceous',
@@ -346,7 +346,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
     rangeland_shrub_height: {
       minimum: 0,
-      maximum: 100,
+      maximum: 500,
       'gee:estimated_range': false,
     },
     rangeland_perennial_herbaceous: {
