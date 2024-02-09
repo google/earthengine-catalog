@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('RUB_RUBCLIM_LCZ_global_lcz_map_latest', base_url),
     ee.link.child_collection('RUB_RUBCLIM_LCZ_global_lcz_map_v1', base_url),
   ],
 }

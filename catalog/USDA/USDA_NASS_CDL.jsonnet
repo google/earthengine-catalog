@@ -34,8 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     To explore details about the classification accuracies and utility of
     the data, see
-    [state-level omission and commission errors by crop type and year]
-    (https://www.nass.usda.gov/Research_and_Science/Cropland/metadata/meta.php).
+    [state-level omission and commission errors by crop type and year](https://www.nass.usda.gov/Research_and_Science/Cropland/metadata/meta.php).
 
     The asset date is aligned with the calendar year of harvest. For most crops
     the planted and harvest year are the same. Some exceptions: winter wheat is

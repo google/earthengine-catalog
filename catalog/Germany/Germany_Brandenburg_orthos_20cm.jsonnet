@@ -30,8 +30,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     perspective. They have a high density of information on ecological,
     phenological, geographical and other topics.
 
-    For more information, please see the [Brandenburg orthophotos documentation]
-    (https://geobasis-bb.de/lgb/de/geodaten/luftbilder/luftbilder-aktuell/)
+    For more information, please see the
+    [Brandenburg orthophotos documentation](https://geobasis-bb.de/lgb/de/geodaten/luftbilder/luftbilder-aktuell/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

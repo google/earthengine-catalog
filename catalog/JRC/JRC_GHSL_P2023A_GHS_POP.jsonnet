@@ -26,7 +26,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'GHS-POP R2023A - GHS population grid multitemporal (1975-2030)',
-  version: 'v1',
+  version: 'P2023A',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The GHS-POP R2023A dataset depicts the distribution of residential
@@ -59,7 +59,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   extent: ee.extent_global('1975-01-01T00:00:00Z', '2030-12-31T00:00:00Z'),
   summaries: {
     gsd: [
-      250.0,
+      100.0,
     ],
     'eo:bands': [
       {

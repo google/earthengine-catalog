@@ -1,22 +1,17 @@
-local id = 'USGS/NLCD_RELEASES/2019_REL/NLCD';
-local subdir = 'USGS';
-local predecessor_id = 'USGS/NLCD_RELEASES/2016_REL';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
+local nlcd = import 'nlcd.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
+local id = nlcd.id(2019);
+local subdir = 'USGS';
+local predecessor_id = nlcd.id(2016);
+
 local license = spdx.cc0_1_0;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local predecessor_filename = predecessor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local predecessor_url = catalog_subdir_url + predecessor_filename;
+local self_ee_catalog_url = nlcd.provider_url(id);
+local predecessor_url = nlcd.link_url(predecessor_id);
 
 {
   stac_version: ee_const.stac_version,
@@ -32,10 +27,11 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     NLCD (the National Land Cover Database) is a 30-m Landsat-based land cover
-    database spanning 8 epochs
-    (2001, 2004, 2006, 2008, 2011, 2013, 2016, and 2019).
-    The images rely on the imperviousness data layer for the
-    urban classes and on a decision-tree classification for the rest.
+    database spanning 8 epochs (2001, 2004, 2006, 2008, 2011, 2013, 2016, and
+    2019). A ninth epoch for 2021 is also available
+    [here](USGS_NLCD_RELEASES_2021_REL_NLCD). The images rely on the
+    imperviousness data layer for the urban classes and on a decision-tree
+    classification for the rest.
 
     This dataset has one image for the continental US for each epoch.
     Alaska, Hawaii, and Puerto Rico data can be found in the previous
@@ -48,7 +44,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   'gee:user_uploaded': true,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(predecessor_id, predecessor_url)
+    ee.link.predecessor(predecessor_id, predecessor_url),
   ],
   keywords: [
     'blm',

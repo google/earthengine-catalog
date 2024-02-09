@@ -25,8 +25,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     This dataset represents global tree heights based on a fusion of
     spaceborne-lidar data (2005) from the Geoscience Laser Altimeter
-    System (GLAS) and ancillary geospatial data. See [Simard et al. (2011)]
-    (https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2011JG001708)
+    System (GLAS) and ancillary geospatial data. See
+    [Simard et al. (2011)](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2011JG001708)
     for details.
   |||,
   license: license.id,
@@ -99,8 +99,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     Simard, M., Pinto, N., Fisher, J., Baccini, A. 2011. Mapping forest
     canopy height globally with spaceborne lidar. Journal of Geophysical
-    Research. 116: G04021. [doi:10.1029/2011JG001708]
-    (https://doi.org/10.1029/2011JG001708)
+    Research. 116: G04021.
+    [doi:10.1029/2011JG001708](https://doi.org/10.1029/2011JG001708)
   |||,
   'gee:terms_of_use': |||
     Most materials published on the Earth Observatory, including images, are

@@ -1,5 +1,5 @@
 local id = 'NASA_USDA/HSL/soil_moisture';
-local successor_id = 'NASA_USDA/HSL/SMAP10KM_soil_moisture';
+local successor_id = 'NASA/SMAP/SPL4SMGP/007';
 local subdir = 'NASA_USDA';
 local units = import 'units.libsonnet';
 
@@ -15,6 +15,7 @@ local successor_basename = std.strReplace(successor_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local successor_url =  ee_const.catalog_base + 'NASA/' + successor_basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -59,8 +60,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
+    ee.link.successor(successor_id, successor_url)
   ],
   keywords: [
     'geophysical',
@@ -215,9 +215,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
-    Earth Science Data & Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    Earth Science Data & Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
   'gee:user_uploaded': true,
-  version: ee_const.version_unknown,
+   version: ee_const.version_unknown,
 }

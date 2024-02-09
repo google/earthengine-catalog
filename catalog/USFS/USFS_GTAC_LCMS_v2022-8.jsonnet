@@ -1,20 +1,16 @@
-local id = 'USFS/GTAC/LCMS/v2022-8';
-local latest_id = id;
-local predecessor_id = 'USFS/GTAC/LCMS/v2021-7';
-local subdir = 'USFS';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USFS_GTAC_LCMS.libsonnet';
+
+local subdir = 'USFS';
+local version = 'v2022.8';
+local version_config = versions(subdir, version_table, version);
+local basename = std.strReplace(version_config.id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -24,13 +20,15 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title: 'USFS Landscape Change Monitoring System v2022.8 (Conterminous United States and Southeastern Alaska)',
-  version: '2022.8',
+  id: version_config.id,
+  title: 'USFS Landscape Change Monitoring System ' + version + ' ' +
+    '(CONUS and OCONUS)',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
-    It shows LCMS-modeled change, land cover, and/or land use classes for each year.
+    It shows LCMS-modeled change, land cover, and/or land use classes for each year that
+    covers the CONUS and OCONUS.
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -53,8 +51,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
 
     For CCDC, United States Geological Survey (USGS) Collection 2 Landsat Tier 1 surface reflectance
-    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK.
-    To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
+    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK, PRUSVI 
+    and HI. To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), and s2cloudless
@@ -157,6 +155,10 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     * **Weiss, A.D., 2001.**
     Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
     San Diego, CAZhu, Z., and Woodcock, C. E. (2012).
+    Object-based cloud and cloud shadow detection in Landsat imagery. 
+    118: 83-94
+
+    * **Zhu, Z., and Woodcock, C. E., 2012.**. 
     Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
     Environment. *Science Direct*,
     118: 83-94
@@ -169,17 +171,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.license(
-        'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php'),
-    {
-      rel: ee_const.rel.source,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS',
-    },
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-    ee.link.predecessor(
-        predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, version_config.id) + [
+    ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
+  ] + version_config.version_links,
   keywords: [
     'change',
     'change_detection',
@@ -201,17 +195,16 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
-                    '1985-06-01T00:00:00Z', '2021-09-30T00:00:00Z'),
+                    '1985-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
-      {
+      { 
         name: 'study_area',
         description: |||
-          LCMS currently covers CONUS, Southeastern Alaska, and Puerto Rico-US
-          Virgin Islands. This version contains outputs across CONUS and
-          Southeastern Alaska.
-
-          Possible values: 'CONUS, SEAK'
+          LCMS currently covers the conterminous United States, Southeastern Alaska, 
+          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
+          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, and Hawaii.
+          Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
       },

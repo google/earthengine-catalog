@@ -35,6 +35,11 @@
   // A number of items.
   count: 'count',
   count_per_day: 'count/d',
+  count_per_acre: 'count/acre',
+
+  // https://en.wikipedia.org/wiki/Cubic_foot
+  // https://en.wikipedia.org/wiki/Acre
+  cubic_ft_per_acre: 'ft^3/acre',
 
   // http://www.iau.org/science/publications/proceedings_rules/units/
   day: 'd',
@@ -76,6 +81,9 @@
   // Time spent in an area.
   hour_per_square_km: 'h/km^2',
 
+  // https://en.wikipedia.org/wiki/Inch
+  inch: 'in',
+
   // https://en.wikipedia.org/wiki/Joule
   // https://en.wikipedia.org/wiki/Flux
   // https://en.wikipedia.org/wiki/Radiant_exposure
@@ -84,6 +92,9 @@
 
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
+
+  // https://en.wikipedia.org/wiki/Foot_(unit)
+  foot: 'ft',
 
   // https://en.wikipedia.org/wiki/Kilogram
   // Unused: kilogram: 'kg',
@@ -149,6 +160,28 @@
 
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
+  // TODO(kumaraashutosh): Temporarily added, we need to double-check with the
+  // provider about unit for confidence and slope.
+  // https://en.wikipedia.org/wiki/P-value
+  p_value: 'P-value',
+  // % change/year × 100
+  percent_change_per_year: '% change/y',
+
+  // https://en.wikipedia.org/wiki/Board_foot
+  // https://catalesawmill.com/log-board-foot-calculator/
+  // https://dqydj.com/log-rule-board-feet-calculator/
+  sawlog_board_ft_per_acre: 'sawlog-board-ft/acre',
+
+  // https://en.wikipedia.org/wiki/Square_foot
+  square_ft: 'ft^2',
+
+  // https://en.wikipedia.org/wiki/Square_foot
+  // https://en.wikipedia.org/wiki/Acre
+  square_ft_per_acre: 'ft^2/acre',
+
+  // https://en.wikipedia.org/wiki/Short_ton
+  // https://en.wikipedia.org/wiki/Acre
+  tons_per_acre: 'tons/acre',
 
   // https://en.wikipedia.org/wiki/Fraction
   unspecified_fraction: 'Fraction',

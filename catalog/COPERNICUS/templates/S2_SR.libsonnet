@@ -50,11 +50,8 @@ local license = spdx.proprietary;
         time, and the final 6-character string is a unique granule identifier
         indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Military_Grid_Reference_System)).
 
-        Clouds can be removed by using
-        [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY).
-        See
-        [this tutorial](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless)
-        explaining how to apply the cloud mask.
+        For datasets to assist with cloud and/or cloud shadow detection, see [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY)
+        and [GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED](GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED).
 
         For more details on Sentinel-2 radiometric resolution, [see this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
       |||,

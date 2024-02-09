@@ -35,8 +35,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The mono dataset has a single grayscale band.
 
-    For more information, please see the [Estonia orthophotos documentation]
-    (https://geoportaal.maaamet.ee/eng/Spatial-Data/Orthophotos-p309.html)
+    For more information, please see the
+    [Estonia orthophotos documentation](https://geoportaal.maaamet.ee/eng/Spatial-Data/Orthophotos-p309.html)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

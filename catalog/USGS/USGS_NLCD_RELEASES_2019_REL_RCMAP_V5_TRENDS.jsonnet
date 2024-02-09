@@ -1,21 +1,19 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
 local subdir = 'USGS';
-local version = '5';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local utils = import 'templates/RCMAP_rangeland_trends.libsonnet';
 local units = import 'units.libsonnet';
-
 local license = spdx.cc0_1_0;
+local model_type = ['_linear_model_pvalue', '_linear_model_slope'];
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO(AG): Remove skip_indexing when the preview image is ready.
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -25,59 +23,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'RCMAP Rangeland Component Timeseries V5 Trends (1985-2021)' + version,
-  version: version,
+  title: 'RCMAP Rangeland Trends for Component Timeseries V5 (1985-2021)',
+  version: 'V5',
   'gee:type': ee_const.gee_type.image,
-
-  description: |||
-    Currently available trends statistics are for the 1985-2021 time-series.
-
-    The RCMAP product suite includes nine fractional components: annual 
-    herbaceous, bare ground, herbaceous, litter, non-sagebrush shrub, 
-    perennial herbaceous, sagebrush, shrub, and tree, rule-based error maps, 
-    and the temporal trends of each component. Data characterize the percentage 
-    of each 30-meter pixel in the Western United States covered by each 
-    component for each year from 1985-2021 - providing change information 
-    for 36 years.
-
-    We assess the temporal patterns in each RCMAP component with two approaches, 
-    1) linear trends and 2) a breaks and stable states method with an 8-year 
-    temporal moving window based on structural change at the pixel level. 
-    Linear trend products include slope and p-value calculated from least squares 
-    linear regression. The slope represents the average percent cover change per 
-    year over the times-series and the p-value reflects the confidence of change 
-    in each pixel. The structural change method partitions the time-series into 
-    segments of similar slope values, with statistically significant break-points 
-    indicating perturbations to the prior trajectory. The break point trends 
-    analysis suite relies on structural break methods, resulting in the 
-    identification of the number and timing of breaks in the time-series, and the 
-    significance of each segment. We produce the following statistics: 1) for each 
-    component, each year, the presence/absence of breaks, 2) the slope, p-value, 
-    and standard error of the segment occurring in each year, 3) the overall model 
-    R2 (quality of model fit to the temporal profile), and 4) an index, Total Change 
-    Intensity. This index reflects the total amount of change occurring across 
-    components in that pixel. The linear and structural change methods generally 
-    agreed on patterns of change, but the latter found breaks more often, with at 
-    least one break point in most pixels. The structural change model provides 
-    more robust statistics on the significant minority of pixels with non-monotonic 
-    trends, while detrending some interannual signal potentially superfluous from 
-    a long-term perspective. Trends products can be downloaded from the
-    [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
-
-    See also:
-
-    * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, 
-      G. Xian, S. Schell, and M. Bobo. 2020. Quantifying western U.S. 
-      rangelands as fractional components with multi-resolution remote 
-      sensing and in situ data. Remote Sensing 12.
-      [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
-
-    * Rigge, M., C. Homer, H. Shi, D. Meyer, B.
-      Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and 
-      G. Xian. 2021. Rangeland Fractional Components Across the 
-      Western United States from 1985 to 2018. Remote Sensing 13:813.
-      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
-  |||,
+  description: utils.description,
+  'sci:publications': utils.publication,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
@@ -87,234 +37,58 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'nlcd',
     'rangeland',
     'trends',
+    'usgs',
   ],
   providers: [
     ee.producer_provider(
       'United States Geological Survey and Bureau of Land Management',
-      'https://www.mrlc.gov/'),
+      'https://www.mrlc.gov/'
+    ),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(
-      -125.07, 28.46, -101.07, 49.33,
-      '1985-01-01T00:00:00Z',
-      '2022-01-01T00:00:00Z'),
+    -125.07,
+    28.46,
+    -101.07,
+    49.33,
+    '1985-01-01T00:00:00Z',
+    '2022-01-01T00:00:00Z'
+  ),
   summaries: {
     gsd: [30],
     'eo:bands': [
       {
-        name: 'annual_herbaceous_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'bare_ground_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'herbaceous_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'litter_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'sagebrush_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'shrub_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'non_sagebrush_shrub_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'perennial_herbaceous_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'tree_break_point',
-        description: 'Number of structural breaks observed in the time-series',
-        'gee:units': units.count,
-      },
-      {
-        name: 'annual_herbaceous_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'bare_ground_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'herbaceous_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'litter_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'sagebrush_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'shrub_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'non_sagebrush_shrub_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'perennial_herbaceous_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'tree_linear_model_pvalue',
-        description: 'P-value of linear trends model',
-        'gee:scale': 0.01,
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'annual_herbaceous_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'bare_ground_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'herbaceous_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'litter_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'sagebrush_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'shrub_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'non_sagebrush_shrub_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'perennial_herbaceous_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'tree_linear_model_slope',
-        description: 'Slope of linear trends model, given in units of % change/year',
-        'gee:scale': 0.01,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'annual_herbaceous_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'bare_ground_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'herbaceous_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'litter_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'sagebrush_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'shrub_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'non_sagebrush_shrub_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'perennial_herbaceous_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
-      {
-        name: 'tree_most_recent_break_point',
-        description: 'Year of most recent break in the time-series for each component',
-        'gee:units': units.year,
-      },
+        name: name + desc,
+        description: std.join(
+          ' ',
+          [
+            utils.band_description[desc][0],
+            std.join(' ', std.split(name, '_')),
+            'time series',
+          ]
+        ),
+        'gee:units': utils.band_description[desc][1],
+        [if std.member(model_type, desc) then 'gee:scale']: 0.01,
+      }
+      for desc in std.objectFields(utils.band_description)
+      for name in utils.bands_prefix
+    ] + [
       {
         name: 'total_change_intensity_index',
         description: |||
-          Total Change Intensity is a derivative index, designed to highlight 
-          the total amount of change across primary components 
-          (shrub, bare ground, litter, and herbaceous). Change is reflective 
-          of the slope values from the structural change analysis. Values are 
-          indexed so that the maximum observed change across all components 
-          and no change equaled 100 and 0, respectively
+          Total Change Intensity is a derivative index designed to highlight
+          the total amount of change across primary components (shrub,
+          bare ground, litter, and herbaceous). Change indicates the slope
+          values from the structural change analysis. Values are constructed
+          so that 100 means the maximum observed change across all components
+          and 0 means no change.
         |||,
         'gee:units': units.dimensionless,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'total_change_intensity_index',
+        display_name: 'annual herbaceous breakpoint in integer',
         lookat: {
           lat: 38,
           lon: -114,
@@ -326,7 +100,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              100,
+              5,
             ],
             palette: [
               '000000',
@@ -429,10 +203,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '012f8a',
               '012d85',
               '012c82',
-              '01297a'
+              '01297a',
             ],
             bands: [
-              'total_change_intensity_index',
+              'annual_herbaceous_break_point',
             ],
           },
         },
@@ -624,22 +398,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     },
   },
-   'sci:citation': |||
-    Rigge, M.B., Bunde, B., Postma, K., Shi, H., 2022, Rangeland Condition
-    Monitoring Assessment and Projection (RCMAP) Fractional Component
-    Time-Series Across the Western U.S. 1985-2021: U.S. Geological Survey data
-    release.
-    [doi:10.5066/P9ODAZHC](https://doi.org/10.5066/P9ODAZHC)
-  |||,
-  'gee:terms_of_use': |||
-    This work was authored as part of the Contributor's official duties as an
-    Employee of the United States Government and is therefore a work of the
-    United States Government. In accordance with 17 U.S.C. 105, no copyright
-    protection is available for such works under U.S. Law. This is an Open
-    Access article that has been identified as being free of known restrictions
-    under copyright law, including all related and neighboring rights
-    (https://creativecommons.org/publicdomain/mark/1.0/). You can copy, modify,
-    distribute and perform the work, even for commercial purposes, all without
-    asking permission.
-  |||,
+  'sci:citation': utils.citation,
+  'gee:terms_of_use': utils.terms_of_use,
 }

@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     NLS Orthophotos are an aerial photo dataset covering the whole of Finland.
-    This data is provided by Mavi([Agency for Rural Affairs](https://www.maaseutu.fi/en)).
+    This data is provided by [Mavi(Agency for Rural Affairs)](https://maaseutuverkosto.fi/en/).
     An orthophoto is a combination of several individual aerial photos. The
     aerial photo dataset in orthophoto format is available as the most recent
     dataset consisting of the most recent aerial photos available. The most
@@ -32,8 +32,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     In these images, the bands are near-infrared, red, and green.
 
     (In Dataset id, VV stands for "v&auml;&auml;r&auml;v&auml;ri", false color)
-    For more information, please see the [NLS orthophotos documentation]
-    (https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
+    For more information, please see the
+    [NLS orthophotos documentation](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

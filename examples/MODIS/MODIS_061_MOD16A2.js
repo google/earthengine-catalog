@@ -1,5 +1,5 @@
 var dataset = ee.ImageCollection('MODIS/061/MOD16A2')
-                  .filter(ee.Filter.date('2018-01-01', '2018-05-01'));
+                  .filter(ee.Filter.date('2022-01-01', '2022-05-01'));
 var evapotranspiration = dataset.select('ET');
 var evapotranspirationVis = {
   min: 0,

@@ -73,8 +73,10 @@ class ValidExamplesTest(test_utils.NodeTest):
   def test_exists_projects(self):
     self.assert_collection({}, dataset_id=PROJECTS_IMAGE_ID)
 
-  def test_skip_indexing(self):
-    self.assert_collection({'gee:skip_indexing': True})
+  def test_exists_ccdc(self):
+    # There are scripts for CCDC in the mock output above, yet
+    # the test passes.
+    self.assert_collection({}, dataset_id='GOOGLE/GLOBAL_CCDC/V1')
 
   def test_exists_table(self):
     self.assert_collection({}, dataset_id=TABLE_ID, gee_type=TABLE)

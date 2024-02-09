@@ -31,15 +31,19 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MOD11A2 V6.1 product provides an average 8-day land
-    surface temperature (LST)  in a 1200 x 1200 kilometer grid.  Each
-    pixel value in MOD11A2 is a simple average of all the corresponding
-    MOD11A1 LST pixels collected within that 8 day period.  The 8 day
-    compositing period was chosen because twice that period is the
-    exact ground track repeat period of the Terra and Aqua platforms.
-    In this product, along with both the day- and night-time surface
-    temperature bands and their quality indicator (QC) layers, are
-    also MODIS bands 31 and 32 and eight observation layers.
+    The MOD11A2 V6.1 product provides an average 8-day land surface temperature
+    (LST)  in a 1200 x 1200 kilometer grid. Each pixel value in MOD11A2 is a
+    simple average of all the corresponding MOD11A1 LST pixels collected within
+    that 8 day period. The MOD11A2 does a simple averaging of all daily LST
+    values, without any filtering for specific QA bits. Each of the MOD11A2 QA
+    values are set based on what majority of input daily QA values are for any
+    given pixel.
+
+    The 8 day compositing period was chosen because twice that period is the
+    exact ground track repeat period of the Terra and Aqua platforms. In this
+    product, along with both the day- and night-time surface temperature bands
+    and their quality indicator (QC) layers, are also MODIS bands 31 and 32 and
+    eight observation layers.
 
     Documentation:
 

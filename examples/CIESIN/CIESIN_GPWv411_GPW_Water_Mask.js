@@ -1,4 +1,4 @@
-var dataset = ee.Image('CIESIN/GPWv411/GPW_Water_Mask');
+var dataset = ee.ImageCollection('CIESIN/GPWv411/GPW_Water_Mask');
 var raster = dataset.select('water_mask');
 var raster_vis = {
   'min': 0.0,

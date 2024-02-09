@@ -95,7 +95,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'resolve',
   ],
   providers: [
-    ee.producer_provider('RESOLVE Biodiversity and Wildlife Solutions', 'https://ecoregions2017.appspot.com/'),
+    ee.producer_provider('RESOLVE Biodiversity and Wildlife Solutions', 'https://ecoregions.appspot.com/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2017-04-05T00:00:00Z', '2017-04-05T00:00:00Z'),

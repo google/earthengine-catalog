@@ -33,8 +33,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The SMAP mission is an orbiting observatory that measures the amount of
     water in the surface soil everywhere on Earth. A detailed description can be
-    found in the [SMAP Handbook]
-    (https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf).
+    found in the
+    [SMAP Handbook](https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf).
     It was launched in January 2015 and started operation in April 2015. The
     radar instrument, ceasing operation in early 2015 due to failure of radar
     power supply, collected close to 3 months of science data. The prime mission
@@ -55,6 +55,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     See the
     [SMAP L3 Soil Moisture User Guide](https://nsidc.org/sites/default/files/spl3smp_e-v005-userguide.pdf)
     and references therein for additional documentation and algorithm details.
+
+    See
+    [basic](https://developers.google.com/earth-engine/tutorials/community/smap-soil-moisture)
+    and
+    [advanced](https://developers.google.com/earth-engine/tutorials/community/anomalies-analysis-smo-and-pre)
+    tutorials to learn how to use SMAP data in Earth Engine.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -394,7 +400,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
-    Earth Science Data & Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    Earth Science Data & Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

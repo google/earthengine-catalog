@@ -7,6 +7,7 @@ import dataclasses
 import enum
 import json
 import pathlib
+import sys
 from typing import Iterator, Optional
 
 import os
@@ -28,12 +29,17 @@ CHECKER_CODE_ROOT = 'https://github.com/google/earthengine-catalog/blob/main'
 FIRMS = 'FIRMS'
 
 
-class StacType(str, enum.Enum):
+_StrEnum = (
+    (enum.StrEnum,) if sys.version_info[:2] >= (3, 11) else (str, enum.Enum)
+)
+
+
+class StacType(*_StrEnum):
   CATALOG = 'Catalog'
   COLLECTION = 'Collection'
 
 
-class GeeType(str, enum.Enum):
+class GeeType(*_StrEnum):
   IMAGE = 'image'
   IMAGE_COLLECTION = 'image_collection'
   TABLE = 'table'
@@ -86,7 +92,7 @@ class Node:
   stac: dict[str, object]  # The result of json.load
 
 
-class IssueLevel(str, enum.Enum):
+class IssueLevel(*_StrEnum):
   """How serious is an issue."""
   WARNING = 'warning'
   ERROR = 'error'

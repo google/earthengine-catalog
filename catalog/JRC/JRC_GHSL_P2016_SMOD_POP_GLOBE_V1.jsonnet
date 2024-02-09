@@ -31,7 +31,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'GHSL: Global Human Settlement Layers, Settlement Grid 1975-1990-2000-2014 (P2016) [deprecated]',
   deprecated: true,
-  version: 'v1',
+  version: 'P2016',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The GHSL relies on the design and implementation of new spatial data mining
