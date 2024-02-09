@@ -1,5 +1,10 @@
 local id = 'USGS/NLCD_RELEASES/2023_REL/RCMAP/V6/COVER';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USGS_NLCD_RCMAP_versions.libsonnet';
+
+local version = 'v06';
 local subdir = 'USGS';
+local version_config = versions(subdir, version_table, version);
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,9 +25,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title: 'RCMAP Rangeland Component Timeseries v6 (1985-2023)',
-  version: 'v6',
+  id: version_config.id,
+  title: 'RCMAP Rangeland Component Timeseries (1985-2023), ' + version,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
@@ -91,6 +96,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'United States Geological Survey and Bureau of Land Management',
       'https://www.mrlc.gov/'),
     ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(
       -128.0026, 26.5157, -99.6758, 51.5761,
