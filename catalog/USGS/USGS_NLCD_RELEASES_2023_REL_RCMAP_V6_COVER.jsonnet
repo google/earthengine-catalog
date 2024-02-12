@@ -104,7 +104,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       '1985-01-01T00:00:00Z',
       '2023-12-31T00:00:00Z'),
   'sci:citation': |||
-
     Rigge, M.B., Bunde, B., Postma, K., and Shi, H., 2024, 
     Rangeland Condition Monitoring Assessment and Projection (RCMAP) 
     Fractional Component Time-Series Across the Western U.S. 1985-2023: 
