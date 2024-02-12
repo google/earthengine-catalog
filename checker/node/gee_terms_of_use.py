@@ -45,7 +45,7 @@ class Check(stac.NodeCheck):
     size = len(terms)
     if size < 10:
       yield cls.new_issue(node, f'{GEE_TERMS_OF_USE} is too short: {size}')
-    if size > 2400:
+    if size > 20000:
       yield cls.new_issue(node, f'{GEE_TERMS_OF_USE} is too long: {size}')
 
     # TODO(schwehr): if license is not proprietary, then check this text to

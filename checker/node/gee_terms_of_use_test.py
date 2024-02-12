@@ -31,7 +31,8 @@ class GeeTermsOfUseTest(test_utils.NodeTest):
 
   def test_too_long(self):
     self.assert_collection(
-        {'gee:terms_of_use': 'a' * 2401}, 'gee:terms_of_use is too long: 2401')
+        {'gee:terms_of_use': 'a' * 20001},
+        'gee:terms_of_use is too long: 20001')
 
 
 if __name__ == '__main__':

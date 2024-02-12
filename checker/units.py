@@ -47,6 +47,8 @@ UNITS = frozenset({
     'ha',
     'hPa',
     'in',
+    'kg/h',
+    'kg/h/km^2',
     'kg/m^2',
     'kg/m^2/s',
     'kg/m^3',

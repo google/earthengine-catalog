@@ -159,7 +159,6 @@ EXCEPTIONS = frozenset({
     'mcd43a1',
     'mcd43a3',
     'mcd43c3',
-    'methane',
     'metop',
     'ml',
     'mod08',
