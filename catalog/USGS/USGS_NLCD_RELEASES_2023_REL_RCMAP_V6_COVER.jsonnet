@@ -29,8 +29,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Component Timeseries (1985-2023), ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
-    The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
+  //description: |||
+  description:
+    'The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
     dataset quantifies the percent cover of rangeland components across 
     western North America using Landsat imagery from 1985-2023. The RCMAP 
     product suite consists of ten fractional components: annual herbaceous, 
@@ -72,8 +73,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
       Rangeland Fractional Components Across the Western United States
       from 1985 to 2018. Remote Sensing 13:813.
-      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
-  |||,
+      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)',
+  //|||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
@@ -301,7 +302,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'rangeland_shrub_height',
         description: 'Average height of shrubs in centimeters.',
-        'gee:units': units.centimeters,
+        'gee:units': units.centimeter,
       },
       {
         name: 'rangeland_perennial_herbaceous',
