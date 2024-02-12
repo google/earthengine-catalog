@@ -85,12 +85,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'rangeland',
     'trends',
     'shrublands',
-    'time series',
-    'back-in-time',
-    'grassland change',
-    'shrubland change',
-    'vegetation change',
-    'rangeland management',
+    'time_series',
+    'back_in_time',
+    'grassland_change',
+    'shrubland_change',
+    'vegetation_change',
+    'rangeland_management',
   ],
   providers: [
     ee.producer_provider(
