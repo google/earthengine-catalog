@@ -1,6 +1,10 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USGS_NLCD_RCMAP_versions.libsonnet';
+
+local version = 'v05';
 local subdir = 'USGS';
-local version = '5';
+local version_config = versions(subdir, version_table, version);
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -14,8 +18,6 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  // TODO(AG): Remove skip_indexing when the preview image is ready.
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -24,8 +26,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title: 'RCMAP Rangeland Component Timeseries V5 Trends (1985-2021)' + version,
+  id: version_config.id,
+  title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version, [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image,
 
