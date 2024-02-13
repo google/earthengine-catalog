@@ -29,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Component Timeseries (1985-2023), ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
+  'description': |||
     The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
     dataset quantifies the percent cover of rangeland components across 
     western North America using Landsat imagery from 1985-2023. The RCMAP 
