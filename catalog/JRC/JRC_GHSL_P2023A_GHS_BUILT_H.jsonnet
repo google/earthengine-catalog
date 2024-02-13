@@ -20,23 +20,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GHSL: Global Human Settlement Layers, Built-Up Height 2018 (P2023A)',
+  title: 'GHSL: Global building height 2018 (P2023A)',
   version: 'P2023A',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The GHS-BUILT-H spatial raster dataset contains building heights as
-    extracted from the filtering of a composite of global digital elevation
-    models (DEM) and the filtering of satellite imagery using linear regression
-    techniques.
+    This spatial raster dataset depicts the global distribution of building
+    heights at a resolution of 100 m, referred to the year 2018. The input data
+    used to predict building heights are the ALOS Global Digital Surface Model
+    (30 m), the NASA Shuttle Radar Topographic Mission data (30 m), and a global
+    Sentinel-2 image composite from L1C data for the period 2017-2018.
 
-    The used input DEMs are the ALOS World 3D - 30m (AW3D30, 2006-2011) and the
-    Shuttle Radar Topography Mission 30m (SRTM30, 2000). The building heights
-    extracted from these sources are updated using the support of the shadow
-    markers extracted from the Sentinel2 image data composite of the year 2018
-    (GHS-composite-S2 R2020A).
+    More information about the GHSL data products can be found in the
+    [GHSL Data Package 2023 report]
+    (https://ghsl.jrc.ec.europa.eu/documents/GHSL_Data_Package_2023.pdf?t=1683540422),
+    where the building height layer is referred to as the Average Net Building
+    Height (ANBH).
 
     The Global Human Settlement Layer (GHSL) project is supported by the
-    European Commission, Joint Research Center, and Directorate-General for
+    European Commission, Joint Research Centre, and Directorate-General for
     Regional and Urban Policy.
   |||,
   license: license.id,
@@ -46,7 +47,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'builtup',
     'ghsl',
     'jrc',
-    'landsat_derived',
+    'dem',
+    'alos',
+    'srtm',
+    'sentinel2_derived',
+    'copernicus',
+    'building',
+    'sdg',
+    'urban',
+    'height',
+    'built_environment'
   ],
   providers: [
     ee.producer_provider('EC JRC', 'https://ghsl.jrc.ec.europa.eu/ghs_buH2023.php'),
@@ -94,17 +104,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'sci:citation': |||
-    Pesaresi, Martino; Politis, Panagiotis (2023):
-    GHS-BUILT-H R2023A - GHS building height, derived from AW3D30, SRTM30, and
-    Sentinel2 composite (2018). European Commission, Joint Research Centre (JRC)
-    PID: http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe
+    Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-H R2023A - GHS
+    building height, derived from AW3D30, SRTM30, and Sentinel2 composite
+    (2018). European Commission, Joint Research Centre (JRC)
+    [PID: http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe](http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe)
     [doi:10.2905/85005901-3A49-48DD-9D19-6261354F56FE](https://doi.org/10.2905/85005901-3A49-48DD-9D19-6261354F56FE)
+    
   |||,
   'sci:doi': '10.2905/85005901-3A49-48DD-9D19-6261354F56FE',
   'gee:terms_of_use': |||
-    The GHSL has been produced by the EC JRC as open and free data. Reuse is
-    authorised, provided the source is acknowledged. For more information,
-    please read the use conditions ([European Commission Reuse and Copyright
-    Notice](https://ec.europa.eu/info/legal-notice_en)).
+    The GHSL has been produced by the European Commission Joint Research Centre
+    as open and free data. Reuse is authorised, provided the source is
+    acknowledged. For more information, please read the use conditions ([European
+    Commission Reuse and Copyright Notice](https://ec.europa.eu/info/legal-notice_en)).
   |||,
 }

@@ -20,9 +20,8 @@ var visParams = {
   format: 'png',
 };
 
-var palette = ['000000', '200000', '70daa4', 'ffffff'];
 
-var image = smod_code.visualize({palette: palette, min: 0, max:30});
+var image = smod_code.visualize({});
 
 Map.addLayer(image, {}, 'Smod code');
 
