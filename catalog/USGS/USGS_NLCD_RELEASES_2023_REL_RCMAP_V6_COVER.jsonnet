@@ -57,22 +57,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     See also:
 
-      Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019. 
+    * Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019. 
       Long-term trajectories of fractional component change in the Northern 
       Great Basin, USA. Ecosphere 10(6):e02762. 
       [doi:10.1002/ecs2.2762](https://doi.org/10.1002/ecs2.2762)
 
-      Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
+    * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
       S. Schell, and M. Bobo. 2020. Quantifying western U.S. rangelands as
       fractional components with multi-resolution remote sensing and in situ
       data. Remote Sensing 12.
       [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
 
-      Rigge, M., C. Homer, H. Shi, D. Meyer, B.
+    * Rigge, M., C. Homer, H. Shi, D. Meyer, B.
       Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
       Rangeland Fractional Components Across the Western United States
       from 1985 to 2018. Remote Sensing 13:813.
-      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
+      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
