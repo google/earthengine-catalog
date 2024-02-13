@@ -11,10 +11,11 @@ local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local successor_basename = std.strReplace(successor_id, '/', '_');
+local successor_filename = successor_basename + '.json';
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local successor_url = ee_const.catalog_base + 'NASA/' + successor_basename;
+local successor_url = ee_const.catalog_base + 'NASA/' + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
