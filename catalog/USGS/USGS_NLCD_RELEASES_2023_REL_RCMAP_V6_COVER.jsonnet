@@ -29,18 +29,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Component Timeseries (1985-2023), ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  //description: |||
-  description:
-    'The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
+  description: |||
+    The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
     dataset quantifies the percent cover of rangeland components across 
     western North America using Landsat imagery from 1985-2023. The RCMAP 
     product suite consists of ten fractional components: annual herbaceous, 
     bare ground, herbaceous, litter, non-sagebrush shrub, perennial herbaceous,
-     sagebrush, shrub, tree, and shrub height in addition to the temporal 
+    sagebrush, shrub, tree, and shrub height in addition to the temporal 
     trends of each component. Several enhancements were made to the RCMAP 
     process relative to prior generations. First, high-resolution training 
     was revised using an improved neural-net classifier and modelling approach.
-     These data serve as foundation to the RCMAP approach. The training 
+    These data serve as foundation to the RCMAP approach. The training 
     database was further improved by incorporating additional datasets. Next, 
     the Landsat compositing approach was improved to better capture the range 
     of conditions from across each year and through time. These composites are 
@@ -73,8 +72,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
       Rangeland Fractional Components Across the Western United States
       from 1985 to 2018. Remote Sensing 13:813.
-      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)',
-  //|||,
+      [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
+  |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
@@ -82,6 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'disturbance',
     'landsat_derived',
     'nlcd',
+    'usgs',
     'rangeland',
     'trends',
     'shrublands',
