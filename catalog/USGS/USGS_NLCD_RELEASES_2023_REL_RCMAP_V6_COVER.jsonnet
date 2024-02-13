@@ -29,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Component Timeseries (1985-2023), ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'description': |||
+  description: |||
     The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
     dataset quantifies the percent cover of rangeland components across 
     western North America using Landsat imagery from 1985-2023. The RCMAP 
@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of conditions from across each year and through time. These composites are 
     based on Collection 2 Landsat data with improved geolocation accuracy and 
     dynamic range. Finally, the Canadian portion of the sagebrush biome was 
-    included, which expanded the study area by 29,199 km2. 
+    included, which expanded the study area by 29,199 km2.
 
     Processing efficiency has been increased using open-source software and 
     USGS High-Performance Computing (HPC) resources. The mapping area included 
@@ -57,18 +57,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     See also:
 
-    * Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019. 
+      Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019. 
       Long-term trajectories of fractional component change in the Northern 
       Great Basin, USA. Ecosphere 10(6):e02762. 
       [doi:10.1002/ecs2.2762](https://doi.org/10.1002/ecs2.2762)
 
-    * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
+      Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
       S. Schell, and M. Bobo. 2020. Quantifying western U.S. rangelands as
       fractional components with multi-resolution remote sensing and in situ
       data. Remote Sensing 12.
       [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
 
-    * Rigge, M., C. Homer, H. Shi, D. Meyer, B.
+      Rigge, M., C. Homer, H. Shi, D. Meyer, B.
       Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
       Rangeland Fractional Components Across the Western United States
       from 1985 to 2018. Remote Sensing 13:813.
