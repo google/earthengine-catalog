@@ -1,4 +1,4 @@
-local id = 'NASA/SMAP/SPL3SMP_E/005';
+local id = 'NASA/SMAP/SPL3SMP_E/006';
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -12,8 +12,6 @@ local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
-// TODO(simonf): mark as superseded by NASA/SMAP/SPL3SMP_E/006
-// once v6 goes back to the beginning of the time series.
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -23,13 +21,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver
   ],
   id: id,
-  title: 'SPL3SMP_E.005 SMAP L3 Radiometer Global Daily 9 km Soil Moisture',
+  title: 'SPL3SMP_E.006 SMAP L3 Radiometer Global Daily 9 km Soil Moisture',
 
-  version: '5',
+  version: '6',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Data starting from 2023-12-04 are available in the
-    [NASA/SMAP/SPL3SMP_E/006](NASA_SMAP_SPL3SMP_E_006) collection.
+    Data prior from 2023-12-04 are available in the older
+    [NASA/SMAP/SPL3SMP_E/005](NASA_SMAP_SPL3SMP_E_005) collection.
+    They will eventually be reprocessed and added to this collection.
 
     This Level-3 (L3) soil moisture product provides a daily composite of global
     land surface conditions retrieved by the Soil Moisture Active Passive (SMAP)
@@ -84,9 +83,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Google and NSIDC', 'https://nsidc.org/data/spl3smp_e/versions/5'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(
-      -180.0, -84, 180.0, 84,
-      '2015-03-31T12:00:00Z', '2023-12-03T12:00:00Z'),
+  // TODO(simonf): this should eventually go back to 2015-03-31T12:00:00Z
+  // once the older data are reprocessed.
+  // Check the dates at https://n5eil01u.ecs.nsidc.org/SMAP/SPL3SMP_E.006/
+  extent: ee.extent(-180.0, -84, 180.0, 84, '2023-12-04T12:00:00Z', null),
   summaries: {
     gsd: [
       9000.0,
