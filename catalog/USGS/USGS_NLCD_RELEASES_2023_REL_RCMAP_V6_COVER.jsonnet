@@ -82,16 +82,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'disturbance',
     'landsat_derived',
     'nlcd',
-    'usgs',
     'rangeland',
     'trends',
-    'shrublands',
-    'time_series',
-    'back_in_time',
-    'grassland_change',
-    'shrubland_change',
-    'vegetation_change',
-    'rangeland_management',
   ],
   providers: [
     ee.producer_provider(
