@@ -18,6 +18,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
+    **The area emissions model is still in development and not representative of
+    a final product.**
+
     This dataset provides high-resolution, spatially disaggregated methane
     emission fluxes (kg/hr) of the Permian Delaware sub-basin in southern New
     Mexico and western Texas as well as for the Uinta basin in Utah.
