@@ -1,4 +1,4 @@
-local id = 'NOAA/VIIRS/DNB/ANNUAL_V21';
+local id = 'NOAA/VIIRS/DNB/ANNUAL_V22';
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -21,14 +21,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VIIRS Nighttime Day/Night Annual Band Composites V2.1',
-  version: 'V2.1',
+  title: 'VIIRS Nighttime Day/Night Annual Band Composites V2.2',
+  version: 'V2.2',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Annual global VIIRS nighttime lights dataset is a time series produced from
-    monthly cloud-free average radiance grids spanning 2013 to 2021.
-    Data for 2022 are available in the
-    [NOAA/VIIRS/DNB/ANNUAL_V22](NOAA_VIIRS_DNB_ANNUAL_V22) dataset.
+    monthly cloud-free average radiance grids for 2022. Data for earlier
+    years are available in the
+    [NOAA/VIIRS/DNB/ANNUAL_V21](NOAA_VIIRS_DNB_ANNUAL_V21) dataset.
 
     An initial filtering step removed sunlit, moonlit and cloudy pixels,
     leading to rough composites that contains lights, fires, aurora and
@@ -41,11 +41,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     calculated from 3x3 grid cells. The DR threshold for background is indexed
     to cloud-cover levels, with higher DR thresholds in areas having low numbers
     of cloud-free coverages.
-
-    Note: 2012 data are not yet included because of differences in processing.
-    (A) 201204-201212, and (B) 201204-201303. Only set (B) has masked median
-    and average bands which doesn't follow the pattern there in other year
-    datasets.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
