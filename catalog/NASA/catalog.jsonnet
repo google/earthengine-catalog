@@ -55,7 +55,8 @@ local self_url = base_url + base_filename;
 
     ee.link.child_collection(
       'NASA_JPL_global_forest_canopy_height_2005', base_url),
-
+    ee.link.child_collection('NASA_LANCE_NOAA20_VIIRS_C2', base_url),
+    ee.link.child_collection('NASA_LANCE_SNPP_VIIRS_C2', base_url),
     ee.link.child_collection('NASA_MEASURES_GFCC_TC_v3', base_url),
 
     ee.link.child_collection('NASA_NASADEM_HGT_001', base_url),

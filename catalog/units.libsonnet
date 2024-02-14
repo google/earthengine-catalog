@@ -176,6 +176,8 @@
   // https://dqydj.com/log-rule-board-feet-calculator/
   sawlog_board_ft_per_acre: 'sawlog-board-ft/acre',
 
+  seconds:'seconds',
+
   // https://en.wikipedia.org/wiki/Square_foot
   square_ft: 'ft^2',
 
