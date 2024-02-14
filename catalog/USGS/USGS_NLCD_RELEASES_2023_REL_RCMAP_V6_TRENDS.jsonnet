@@ -9,8 +9,8 @@ local version_config = versions(subdir, version_table, version);
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local utils = import 'templates/RCMAP_rangeland_trends.libsonnet';
 local units = import 'units.libsonnet';
+local utils = import 'templates/RCMAP_rangeland_trends.libsonnet';
 local license = spdx.cc0_1_0;
 local model_type = ['_linear_model_pvalue', '_linear_model_slope'];
 
