@@ -1,5 +1,5 @@
-local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
+local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local subdir = 'COPERNICUS';
@@ -47,11 +47,8 @@ local license = spdx.proprietary;
         The Level-2 data produced by ESA can be found in the collection
         [COPERNICUS/S2_SR](COPERNICUS_S2_SR).
 
-        Clouds can be mostly removed by using
-        [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY).
-        See
-        [this tutorial](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless)
-        explaining how to apply the cloud mask.
+        For datasets to assist with cloud and/or cloud shadow detection, see [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY)
+        and [GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED](GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED).
 
         For more details on Sentinel-2 radiometric resolution, [see this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
       |||,
@@ -76,7 +73,7 @@ local license = spdx.proprietary;
         ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1'),
         ee.host_provider(self_ee_catalog_url),
       ],
-      extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2015-06-23T00:00:00Z', null),
+      extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2015-06-27T00:00:00Z', null),
       summaries: {
         'gee:schema': [
           {
@@ -607,5 +604,5 @@ local license = spdx.proprietary;
         The use of Sentinel data is governed by the [Copernicus
         Sentinel Data Terms and Conditions.](https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf)
       |||,
-    }
-  }
+    },
+}

@@ -1,6 +1,6 @@
 var dataset = ee.ImageCollection('MODIS/061/MOD16A2')
-                  .filter(ee.Filter.date('2018-01-01', '2018-05-01'));
-var evapotranspiration = dataset.select('ET').sum();
+                  .filter(ee.Filter.date('2022-01-01', '2022-05-01'));
+var evapotranspiration = dataset.select('ET').mosaic();
 var evapotranspirationVis = {
   min: 0,
   max: 300,
@@ -9,14 +9,13 @@ var evapotranspirationVis = {
     '004c00', '011301'
   ],
 };
-var lon = 6.746;
-var lat = 46.529;
+var lon = -120;
+var lat = 40;
 
 var gray = 150;
 var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
 
-// Degrees in EPSG:3857.
-var delta = 0.13;
+var delta = 5;
 // Width and height of the thumbnail image.
 var pixels = 256;
 
@@ -24,7 +23,7 @@ var image = evapotranspiration.visualize(evapotranspirationVis);
 var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
 Map.setCenter(lon, lat, 2);
-Map.addLayer(evapotranspiration, evapotranspirationVis, 'Evapotranspiration');
+Map.addLayer(imageWithBackground, {}, 'Evapotranspiration');
 
 var areaOfInterest = ee.Geometry.Rectangle(
     [lon - delta, lat - delta, lon + delta, lat + delta], null, false);

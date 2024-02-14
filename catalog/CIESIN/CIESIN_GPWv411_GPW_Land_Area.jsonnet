@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GPWv411: Land Area (Gridded Population of the World Version 4.11)',
   version: 'v4.11',
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Gridded Population of World Version 4 (GPWv4), Revision 11 models the distribution
     of global human population for the years 2000, 2005, 2010, 2015, and 2020

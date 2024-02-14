@@ -94,15 +94,16 @@ local units = import 'units.libsonnet';
     {
       name: 'agbd_t_se',
       description: |||
-        The L4A algorithm is run if this flag is set to 1. This flag selects
-        data that have sufficient waveform fidelity for AGBD estimation.
+        Model prediction standard error in fit units (needed for calculation of
+        custom prediction intervals)
       |||,
       type:: ee_const.var_type.int,
     },
     {
       name: 'algorithm_run_flag',
       description: |||
-        Aboveground biomass density prediction standard error
+        The L4A algorithm is run if this flag is set to 1. This flag selects
+        data that have sufficient waveform fidelity for AGBD estimation.
       |||,
       type:: ee_const.var_type.int,
     },
@@ -498,7 +499,7 @@ local units = import 'units.libsonnet';
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
     Earth Science Data & Information Policy]
-    (https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    (https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

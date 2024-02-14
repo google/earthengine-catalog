@@ -135,8 +135,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         Forrest R. Stevens, Andrea E. Gaughan, Catherine Linard, Andrew J. Tatem,
         2015, High-resolution gridded population datasets for Latin America and the
         Caribbean in 2010, 2015, and 2020, Scientific Data,
-        [doi:10.1038/sdata.2015.45]
-        (https://doi.org/10.1038/sdata.2015.45)
+        [doi:10.1038/sdata.2015.45](https://doi.org/10.1038/sdata.2015.45)
       |||,
       doi: '10.1038/sdata.2015.45',
     },

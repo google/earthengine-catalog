@@ -538,14 +538,14 @@ local successor_url = catalog_subdir_url + successor_filename;
     Yang, L., Jin, S., Danielson, P., Homer, C., Gass, L., Case, A.,
     Costello, C., Dewitz, J., Fry, J., Funk, M., Grannemann, B., Rigge,
     M. and G. Xian. 2018,
-    [A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies]
-    (https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108-123.
+    [A New Generation of the United States National Land Cover Database: Requirements, Research Priorities, Design, and Implementation Strategies](https://www.sciencedirect.com/science/article/abs/pii/S092427161830251X), p. 108-123.
   |||,
   'gee:terms_of_use': |||
     Most U.S. Geological Survey (USGS) information resides
     in the public domain and may be used without restriction. Additional
-    information on [Acknowledging or Crediting USGS as Information
-    Source](https://www.usgs.gov/information-policies-and-instructions/crediting-usgs) is available.
+    information on
+    [Acknowledging or Crediting USGS as Information Source](https://www.usgs.gov/information-policies-and-instructions/crediting-usgs)
+    is available.
   |||,
   version: ee_const.version_unknown,
 }

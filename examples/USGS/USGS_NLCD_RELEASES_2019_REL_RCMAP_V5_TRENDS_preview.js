@@ -1,9 +1,8 @@
-// Import the NLCD RCMAP TRENDS image.
-var dataset = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
-var trends = dataset.select('annual_herbaceous_break_point');
-
-// Map values from 0 to 100.
-var palette = [
+// Import the RCMAP/V5/TRENDS image.
+var image = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS')
+              .select('annual_herbaceous_linear_model_pvalue');
+var visParams = {
+  palette: [
     '000000', 'f9e8b7', 'f7e3ac', 'f0dfa3', 'eedf9c', 'eada91', 'e8d687',
     'e0d281', 'ddd077', 'd6cc6d', 'd3c667', 'd0c55e', 'cfc555', 'c6bd4f',
     'c4ba46', 'bdb83a', 'bbb534', 'b7b02c', 'b0ad1f', 'adac17', 'aaaa0a',
@@ -18,36 +17,38 @@ var palette = [
     '2f62ac', '2c5fb7', '245ec4', '1e5ed0', '115cdd', '005ae0', '0057dd',
     '0152d6', '0151d0', '014fcc', '014ac4', '0147bd', '0144b8', '0142b0',
     '0141ac', '013da7', '013aa0', '01399d', '013693', '013491', '012f8a',
-    '012d85', '012c82', '01297a'];
+    '012d85', '012c82', '01297a'
+    ],
+  min: 1,
+  max: 60,
+};
 
-var lon = -114;
-var lat = 38;
+var lon = -116;
+var lat = 43;
 
 Map.setCenter(lon, lat, 6);
 
-var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
-var backgroundPalette = ['cadetblue', 'lightgray'];
-var waterLandVis = {palette: backgroundPalette};
-var waterLandBackground = waterLand.visualize({palette: backgroundPalette});
-
 // Degrees in EPSG:3857.
-var delta = 14.5;
+var delta = 6;
 // Width and height of the thumbnail image.
 var pixels = 256;
+
+// cadetblue
+var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 255});
 
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
 var imageParams = {
-  dimensions: [pixels, pixels],
-  region: areaOfInterest,
-  crs: 'EPSG:3857',
-  format: 'png',
+    dimensions: [pixels, pixels],
+    region: areaOfInterest,
+    crs: 'EPSG:3857',
+    format: 'png',
 };
 
-var image = trends.visualize({palette: palette});
-Map.addLayer(image)
+var imageRGB = image.visualize(visParams);
+var imageWithBackground = ee.ImageCollection([background, imageRGB]).mosaic();
 
-var imageWithBackground = ee.ImageCollection([waterLandBackground, image]).mosaic();
-Map.addLayer(imageWithBackground, null, 'annual_herbaceous_break_point %');
+Map.addLayer(imageWithBackground, {}, 'RCMAP V5 TRENDS image');
+
 print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));

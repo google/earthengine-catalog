@@ -105,6 +105,9 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, f'Catalog must not have "{DEPRECATED}"')
       return
 
+    # TODO(simonf): do we need to require 'version' for 'deprecated' and
+    # 'version_links'? It's possible to be superseded by something
+    # with no common version history across datasets: see cl/605516724
     if not has_version_extension:
       if version_field:
         yield cls.new_issue(

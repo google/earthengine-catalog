@@ -32,8 +32,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     In these images, the bands are near-infrared, red, and green.
 
     (In Dataset id, VV stands for "v&auml;&auml;r&auml;v&auml;ri", false color)
-    For more information, please see the [NLS orthophotos documentation]
-    (https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
+
+    For more information, please see the
+    [NLS orthophotos documentation](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/orthophotos)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

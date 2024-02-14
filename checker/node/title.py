@@ -12,27 +12,6 @@ from checker import stac
 
 CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP'})
 COLLECTION_EXCEPTION_IDS = frozenset({
-    'ISDASOIL/Africa/v1/aluminium_extractable',
-    'ISDASOIL/Africa/v1/bedrock_depth',
-    'ISDASOIL/Africa/v1/bulk_density',
-    'ISDASOIL/Africa/v1/calcium_extractable',
-    'ISDASOIL/Africa/v1/carbon_organic',
-    'ISDASOIL/Africa/v1/carbon_total',
-    'ISDASOIL/Africa/v1/cation_exchange_capacity',
-    'ISDASOIL/Africa/v1/clay_content',
-    'ISDASOIL/Africa/v1/fcc',
-    'ISDASOIL/Africa/v1/iron_extractable',
-    'ISDASOIL/Africa/v1/magnesium_extractable',
-    'ISDASOIL/Africa/v1/nitrogen_total',
-    'ISDASOIL/Africa/v1/ph',
-    'ISDASOIL/Africa/v1/phosphorus_extractable',
-    'ISDASOIL/Africa/v1/potassium_extractable',
-    'ISDASOIL/Africa/v1/sand_content',
-    'ISDASOIL/Africa/v1/silt_content',
-    'ISDASOIL/Africa/v1/stone_content',
-    'ISDASOIL/Africa/v1/sulphur_extractable',
-    'ISDASOIL/Africa/v1/texture_class',
-    'ISDASOIL/Africa/v1/zinc_extractable',
     'OSU/GIMP/2000_IMAGERY_MOSAIC',
 })
 
@@ -70,13 +49,31 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, message, stac.IssueLevel.WARNING)
 
       if node.id not in CATALOG_EXCEPTIONS_IDS:
-        if not re.fullmatch('[a-zA-Z][-_a-zA-Z0-9]{1,30}', title):
-          yield cls.new_issue(node, f'Catalog {TITLE} not valid: "{title}"')
+        if len(title) < 2:
+          yield cls.new_issue(node, f'Catalog {TITLE} is too short: "{title}"')
+          return
+        if len(title) > 30:
+          yield cls.new_issue(node, f'Catalog {TITLE} is too long: "{title}"')
+          return
+        if not re.fullmatch('[a-zA-Z][-_a-zA-Z0-9]*', title):
+          yield cls.new_issue(
+              node, f'Catalog {TITLE} has invalid characters: "{title}"'
+          )
       return
 
     title = title.removesuffix(DEPRECATED)
 
     if node.id in COLLECTION_EXCEPTION_IDS:
       return
-    if not re.fullmatch('[A-Z][-+ .,_:/&<()a-zA-Z0-9]{1,140}', title):
-      yield cls.new_issue(node, f'Collection {TITLE} not valid: "{title}"')
+
+    if len(title) < 2:
+      yield cls.new_issue(node, f'Collection {TITLE} is too short: "{title}"')
+      return
+    if len(title) > 140:
+      yield cls.new_issue(node, f'Collection {TITLE} is too long: "{title}"')
+      return
+
+    if not re.fullmatch('[a-zA-Z][-+ .,_:/&<()a-zA-Z0-9]*', title):
+      yield cls.new_issue(
+          node, f'Collection {TITLE} has invalid characters: "{title}"'
+      )

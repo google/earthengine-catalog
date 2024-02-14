@@ -27,19 +27,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the National Centers for Environmental Prediction (NCEP). The GFS dataset
     consists of selected model outputs (described below) as gridded forecast
     variables. The 384-hour forecasts, with 1-hour (up to 120 hours)
-    and 3-hour (after 120 hours) forecast intervals,
-    are made at 6-hour temporal resolution (i.e. updated four times daily).
-    Use the 'creation_time' and 'forecast_time' properties to select data of
-    interest.
+    and 3-hour (after 120 hours) forecast intervals, are made at 6-hour temporal
+    resolution (i.e. updated four times daily). Use the 'creation_time' and
+    'forecast_time' properties to select data of interest.
 
     The GFS is a coupled model, composed of an atmosphere model, an ocean model,
     a land/soil model, and a sea ice model which work together to provide an
-    accurate picture of weather conditions. See
-    [history of recent modifications to the global forecast/analysis system
-    ](https://www.emc.ncep.noaa.gov/gmb/STATS/html/model_changes.html)
-    and the
-    [documentation](https://nomads.ncep.noaa.gov/txt_descriptions/GFS_doc.shtml)
-    for more information.
+    accurate picture of weather conditions. Note that this model may change;
+    see [history of recent modifications to the global forecast/analysis system](https://www.emc.ncep.noaa.gov/gmb/STATS/html/model_changes.html)
+    and the [documentation](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php)
+    for more information. There may be significant hour-to-hour and day-to-day
+    fluctuations that require noise-reduction techniques to be applied to bands
+    before analysis.
+
+    Note that the available forecast hours and intervals have also changed:
+
+    * From 2015/04/01-2017/07/09: 36-hour forecasts, excluding hour 0, at
+    3-hour intervals.
+    * From 2017/07/09-2021/06/11: 384-hour forecasts, at 1-hour intervals from
+    hours 0-120, at 3-hour intervals from hours 120-240, and 12-hour intervals
+    from hours 240-384.
+    * From 2021/06/12: 384-hour forecasts, at 1-hour intervals from hours 0-120
+    and 3-hour intervals from hours 120-384.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -117,10 +126,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'total_precipitation_surface',
         description: |||
-          Until 2019-11-07 06:00:00, this field represents the precipitation at surface at the
-          forecasted time. After that date, this field holds the cumulative precipitation at surface
-          added together from all forecasts starting from hour 0 (only for assets with
-          forecast_hours > 0)
+          Cumulative precipitation at surface for the previous 1-6 hours,
+          depending on the value of the "forecast_hours" property according to
+          the formula ((F - 1) % 6) + 1 (and only for assets with
+          forecast_hours > 0).
+
+          As a consequence, to calculate the total precipitation by hour X,
+          double-counting should be avoided by only summing the values for
+          forecast_hours that are multiples of 6 plus any remainder to reach
+          X. It also means that to determine the precipitation for just hour
+          X, one must subtract the value for the preceding hour unless X is the
+          first hour in a 6-hour window.
         |||,
         'gee:units': units.area_density,
       },

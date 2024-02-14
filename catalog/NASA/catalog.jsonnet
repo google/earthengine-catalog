@@ -46,14 +46,17 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_GRACE_MASS_GRIDS_OCEAN_EOFR', base_url),
 
     ee.link.child_collection('NASA_GSFC_MERRA_aer_2', base_url),
+    ee.link.child_collection('NASA_GSFC_MERRA_aer_nv_2', base_url),
     ee.link.child_collection('NASA_GSFC_MERRA_flx_2', base_url),
     ee.link.child_collection('NASA_GSFC_MERRA_lnd_2', base_url),
     ee.link.child_collection('NASA_GSFC_MERRA_rad_2', base_url),
     ee.link.child_collection('NASA_GSFC_MERRA_slv_2', base_url),
+    ee.link.child_collection('NASA_HLS_HLSL30_v002', base_url),
 
     ee.link.child_collection(
       'NASA_JPL_global_forest_canopy_height_2005', base_url),
-
+    ee.link.child_collection('NASA_LANCE_NOAA20_VIIRS_C2', base_url),
+    ee.link.child_collection('NASA_LANCE_SNPP_VIIRS_C2', base_url),
     ee.link.child_collection('NASA_MEASURES_GFCC_TC_v3', base_url),
 
     ee.link.child_collection('NASA_NASADEM_HGT_001', base_url),
@@ -73,6 +76,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_ORNL_biomass_carbon_density_v1', base_url),
 
     ee.link.child_collection('NASA_SMAP_SPL4SMGP_007', base_url),
-    ee.link.child_collection('NASA_SMAP_SPL3SMP_E_005', base_url)
+    ee.link.child_collection('NASA_SMAP_SPL3SMP_E_005', base_url),
+    ee.link.child_collection('NASA_SMAP_SPL3SMP_E_006', base_url)
   ],
 }

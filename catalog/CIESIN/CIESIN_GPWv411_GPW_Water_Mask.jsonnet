@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GPWv411: Water Mask (Gridded Population of the World Version 4.11)',
   version: 'v4.11',
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Gridded Population of World Version 4 (GPWv4), Revision 11 models the distribution
     of global human population for the years 2000, 2005, 2010, 2015, and 2020
@@ -71,7 +71,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           bitmask_parts: [
             {
               description: 'Identifies water pixels; non-water pixels are masked',
-              bit_count: 1,
+              bit_count: 2,
               values: [
                 {
                   description: 'Total water pixels that are completely water and/or permanent ice.',
@@ -81,11 +81,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                   value: 1,
                   description: 'Partial water pixels that also contain land.',
                 },
+                {
+                  description: 'Total land pixels.',
+                  value: 2,
+                },
+                {
+                  value: 3,
+                  description: 'Ocean pixels.',
+                },
               ],
               first_bit: 0,
             },
           ],
-          total_bit_count: 1,
+          total_bit_count: 2,
         },
       },
     ],

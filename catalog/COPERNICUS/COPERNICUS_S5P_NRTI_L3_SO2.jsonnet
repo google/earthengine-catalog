@@ -40,7 +40,8 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     threat to aviation, along with volcanic ash. S5P/TROPOMI samples the Earth's
     surface with a revisit time of one day with unprecedented spatial resolution
     of 3.5 x 7 km which allows the resolution of fine details including the
-    detection of much smaller SO<sub>2</sub> plumes. [[More information](http://www.tropomi.eu/data-products/sulphur-dioxide)]
+    detection of much smaller SO<sub>2</sub> plumes.
+    [More information.](http://www.tropomi.eu/data-products/sulphur-dioxide)
 
     ### NRTI L3 Product
 

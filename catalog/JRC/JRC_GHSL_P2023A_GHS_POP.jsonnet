@@ -25,18 +25,21 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GHS-POP R2023A - GHS population grid multitemporal (1975-2030)',
-  version: 'v1',
+  title: 'GHSL: Global population surfaces 1975-2030 (P2023A)',
+  version: 'P2023A',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The GHS-POP R2023A dataset depicts the distribution of residential
-    population, expressed as the number of people per cell.
+    This raster dataset depicts the spatial distribution of residential
+    population, expressed as the absolute number of inhabitants of the cell.
     Residential population estimates between 1975 and 2020 in 5-year intervals
     and projections to 2025 and 2030 derived from CIESIN GPWv4.11 were
     disaggregated from census or administrative units to grid cells, informed by
-    the distribution, volume and classification of built-up as mapped in the
-    Global Human Settlement Layer (GHSL) global layer per corresponding epoch.
+    the distribution, volume, and classification of built-up area as mapped in
+    the global GHSL built-up surface layers per epoch.
 
+    More information about the GHSL main products can be found in the
+    [GHSL Data Package 2023 report]
+    (https://ghsl.jrc.ec.europa.eu/documents/GHSL_Data_Package_2023.pdf?t=1683540422)
 
     The Global Human Settlement Layer (GHSL) project is supported by the
     European Commission, Joint Research Center, and Directorate-General for
@@ -47,10 +50,11 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee.link.predecessor(predecessor_id, predecessor_url)
   ],
   keywords: [
-    'ciesin_derived',
     'ghsl',
     'jrc',
     'population',
+    'ciesin_derived',
+    'sdg',
   ],
   providers: [
     ee.producer_provider('EC JRC', 'https://ghsl.jrc.ec.europa.eu/ghs_pop2023.php'),
@@ -59,7 +63,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   extent: ee.extent_global('1975-01-01T00:00:00Z', '2030-12-31T00:00:00Z'),
   summaries: {
     gsd: [
-      250.0,
+      100.0,
     ],
     'eo:bands': [
       {
@@ -103,17 +107,17 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     },
   },
   'sci:citation': |||
-    Schiavina M., Freire S., Carioli A., MacManus K. (2023):
-    GHS-POP R2023A - GHS population grid multitemporal (1975-2030).
-    European Commission, Joint Research Centre (JRC)
-    PID: http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe,
-    [doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE](https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE)
+   Schiavina, Marcello; Freire, Sergio; Alessandra Carioli; MacManus, Kytt (2023):
+   GHS-POP R2023A - GHS population grid multitemporal (1975-2030). European
+   Commission, Joint Research Centre (JRC)
+   [PID: http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe](http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe)
+   [doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE](https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE)
   |||,
   'sci:doi': '10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE',
   'gee:terms_of_use': |||
-    The GHSL has been produced by the EC JRC as open and free data. Reuse is
-    authorised, provided the source is acknowledged. For more information,
-    please read the use conditions ([European Commission Reuse and Copyright
-    Notice](https://ec.europa.eu/info/legal-notice_en)).
+    The GHSL has been produced by the European Commission Joint Research Centre
+    as open and free data. Reuse is authorised, provided the source is
+    acknowledged. For more information, please read the use conditions ([European
+    Commission Reuse and Copyright Notice](https://ec.europa.eu/info/legal-notice_en)).
   |||,
 }

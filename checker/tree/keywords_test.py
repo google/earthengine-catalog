@@ -1,11 +1,12 @@
 """Tests for keywords."""
 
+import copy
 import pathlib
 from unittest import mock
 
+from absl.testing import absltest
 from checker import stac
 from checker.tree import keywords
-from absl.testing import absltest
 
 Check = keywords.Check
 
@@ -59,6 +60,22 @@ class KeywordsTest(absltest.TestCase):
     expect = [Check.new_issue(
         node, '"vnp09ga" should be removed from exceptions')]
     self.assertEqual(expect, issues)
+
+  def test_effectively_single_use(self):
+    single_use_keyword = 'a_keyword'
+    node = stac.Node(
+        '> UNKNOWN ID: ',
+        pathlib.Path('> UNKNOWN PATH'),
+        COLLECTION,
+        IMAGE,
+        {'keywords': [single_use_keyword]},
+    )
+    node2 = copy.deepcopy(node)
+    node2.stac['deprecated'] = True
+    issues = list(Check.run([node, node2]))
+    expect = [Check.new_issue(node, 'Only one instance of "a_keyword"')]
+    self.assertEqual(expect, issues)
+
 
 if __name__ == '__main__':
   absltest.main()

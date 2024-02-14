@@ -79,7 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'stressors',
   ],
   providers: [
-    ee.producer_provider('European Space Agency (ESA) Climate Change Initiative (CCI) Programme, Fire ECV', 'https://climate.esa.int/en/projects/fire/'),
+    ee.producer_provider('European Space Agency (ESA) Climate Change Initiative (CCI) Programme, Fire ECV', 'https://climate.esa.int/es/odp/#/project/fire'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2001-01-01T00:00:00Z', null),
@@ -113,9 +113,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         |||,
         'gee:classes': [
           {
+            color: '000000',
+            description: 'No Data',
+            value: 0,
+          },
+          {
             color: 'ffff64',
             description: 'Cropland, rainfed',
-            value: 0,
+            value: 10,
           },
           {
             value: 20,

@@ -39,6 +39,7 @@
   'CSP/ERGo/1_0/US/topoDiversity',
   'CSP/HM/GlobalHumanModification',
   'GLOBAL_FLOOD_DB/MODIS_EVENTS/V1',
+  'JAXA/ALOS/PALSAR-2/Level2_1/StripMap_202401',
   'Oxford/MAP/EVI_5km_Monthly',
   'Oxford/MAP/IGBP_Fractional_Landcover_5km_Annual',
   'Oxford/MAP/LST_Day_5km_Monthly',
