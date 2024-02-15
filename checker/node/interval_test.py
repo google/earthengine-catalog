@@ -14,6 +14,19 @@ class IntervalTest(test_utils.NodeTest):
   def test_no_interval(self):
     self.assert_collection({})
 
+  def test_no_interval_for_image_table(self):
+    self.assert_collection(
+        {
+            'gee:type': 'image',
+            'gee:interval': {
+                'type': 'revisit_interval',
+                'unit': 'day',
+                'interval': 16,
+            },
+        },
+        'Image/Table datasets cannot have "gee:interval"',
+    )
+
   def test_valid_cadence(self):
     self.assert_collection(
         {'gee:interval': {'type': 'cadence', 'unit': 'year', 'interval': 1}})

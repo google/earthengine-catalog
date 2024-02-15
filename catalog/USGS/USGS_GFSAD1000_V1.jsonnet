@@ -142,13 +142,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     derived from Remote Sensing in Support of Food Security in the Twenty-first
     Century: Current Achievements and Future Possibilities. Chapter 7, Vol. II.
     Land Resources: Monitoring, Modelling, and Mapping, Remote Sensing Handbook
-    edited by Prasad S. Thenkabail. In Press.]
-    (https://lpdaac.usgs.gov/documents/173/GFSAD1K_ATBD.pdf)
+    edited by Prasad S. Thenkabail. In Press.](https://lpdaac.usgs.gov/documents/173/GFSAD1K_ATBD.pdf)
   |||,
   'gee:terms_of_use': |||
     Most U.S. Geological Survey (USGS) information resides
     in the public domain and may be used without restriction. Additional
     information on [Acknowledging or Crediting USGS as Information
-    Source](https://www2.usgs.gov/visual-id/credit_usgs.html) is available.
+    Source](https://www.usgs.gov/information-policies-and-instructions/acknowledging-or-crediting-usgs)
+    is available.
   |||,
 }

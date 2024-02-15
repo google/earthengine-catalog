@@ -97,6 +97,7 @@ TABLES_WITHOUT_FEATUREVIEW = frozenset({
     'WWF/HydroATLAS/v1/Basins/level10',
     'WWF/HydroATLAS/v1/Basins/level11',
     'WWF/HydroATLAS/v1/Basins/level12',
+    'USGS/LIMA/SR_METADATA'
 })
 
 

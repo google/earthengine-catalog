@@ -1,4 +1,6 @@
 local id = 'USGS/GMTED2010';
+local latest_id = 'USGS/GMTED2010_FULL';
+local successor_id = 'USGS/GMTED2010_FULL';
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -9,8 +11,16 @@ local units = import 'units.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
 local base_filename = basename + '.json';
+local latest_filename = latest_basename + '.json';
+local successor_filename = successor_basename + '.json';
+
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local latest_url = catalog_subdir_url + latest_filename;
+local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -18,9 +28,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver
   ],
   id: id,
-  title: 'GMTED2010: Global Multi-resolution Terrain Elevation Data 2010',
+  title: 'GMTED2010: Global Multi-resolution Terrain Elevation Data 2010, Breakline Emphasis [deprecated]',
+  version: '1.0',
+  deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||
     The Global Multi-resolution Terrain Elevation Data
@@ -49,6 +62,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
+    ee.link.latest(latest_id, latest_url),
+    ee.link.successor(successor_id, successor_url),
   ],
   keywords: [
     'dem',

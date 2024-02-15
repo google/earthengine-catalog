@@ -50,7 +50,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   keywords: [
     'borders',
-    'boundaries',
     'countries',
     'dos',
     'political',

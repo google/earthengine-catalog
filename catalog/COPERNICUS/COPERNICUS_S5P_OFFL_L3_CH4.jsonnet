@@ -39,7 +39,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     accuracy to facilitate inverse modeling of sources and sinks. TROPOMI uses
     absorption information from the Oxygen-A Band (760nm) and the SWIR spectral
     range to monitor CH<sub>4</sub> abundances in the Earth's atmosphere.
-    [[More information](http://www.tropomi.eu/data-products/methane)]
+    [More information.](http://www.tropomi.eu/data-products/methane)
 
     Currently, the following data quality issues are known, are not covered by
     the quality flags, and should be kept in mind when looking at the methane

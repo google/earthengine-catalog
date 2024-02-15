@@ -2,7 +2,8 @@
 var dataset = ee.Image('USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS');
 var trends = dataset.select('annual_herbaceous_break_point');
 var vis = {
-  // Map 0..100.
+  min: [0],
+  max: [5],
   'palette': [
     '000000', 'f9e8b7', 'f7e3ac', 'f0dfa3', 'eedf9c', 'eada91', 'e8d687',
     'e0d281', 'ddd077', 'd6cc6d', 'd3c667', 'd0c55e', 'cfc555', 'c6bd4f',
@@ -23,4 +24,4 @@ var vis = {
 };
 // Display the image on the map.
 Map.setCenter(-114, 38, 6);
-Map.addLayer(trends, vis, 'annual_herbaceous_break_point int');
+Map.addLayer(trends, vis, 'annual herbaceous breakpoint in integer');

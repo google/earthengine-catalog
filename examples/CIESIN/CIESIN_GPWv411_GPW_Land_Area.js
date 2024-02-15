@@ -1,4 +1,4 @@
-var dataset = ee.Image('CIESIN/GPWv411/GPW_Land_Area');
+var dataset = ee.ImageCollection('CIESIN/GPWv411/GPW_Land_Area');
 var raster = dataset.select('land_area');
 var raster_vis = {
   'min': 0.0,

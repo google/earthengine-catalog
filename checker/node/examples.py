@@ -953,6 +953,7 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'NASA/NASA_ORNL_DAYMET_V4',
     'NASA/NASA_ORNL_biomass_carbon_density_v1',
     'NASA/NASA_SMAP_SPL3SMP_E_005',
+    'NASA/NASA_SMAP_SPL3SMP_E_006',
     'NASA/NASA_SMAP_SPL4SMGP_007',
     'NASA_USDA/NASA_USDA_HSL_SMAP10KM_soil_moisture',
     'NASA_USDA/NASA_USDA_HSL_SMAP_soil_moisture',
@@ -962,6 +963,7 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'NCEP_RE/NCEP_RE_surface_wv',
     'NOAA/NOAA_CDR_ATMOS_NEAR_SURFACE_V2',
     'NOAA/NOAA_CDR_AVHRR_AOT_V3',
+    'NOAA/NOAA_CDR_AVHRR_AOT_V4',
     'NOAA/NOAA_CDR_AVHRR_LAI_FAPAR_V4',
     'NOAA/NOAA_CDR_AVHRR_LAI_FAPAR_V5',
     'NOAA/NOAA_CDR_AVHRR_NDVI_V4',
@@ -1050,7 +1052,6 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'Oxford/Oxford_MAP_friction_surface_2015_v1_0',
     'Oxford/Oxford_MAP_friction_surface_2019',
     'RESOLVE/RESOLVE_ECOREGIONS_2017',
-    'RUB/RUB_RUBCLIM_LCZ_global_lcz_map_v1',
     'SKYSAT/SKYSAT_GEN-A_PUBLIC_ORTHO_MULTISPECTRAL',
     'SKYSAT/SKYSAT_GEN-A_PUBLIC_ORTHO_RGB',
     'SNU/SNU_ESL_BESS_Rad_v1',
@@ -1097,7 +1098,7 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'UMN/UMN_PGC_REMA_V1_1_8m',
     'UMN/UMN_PGC_REMA_V1_2m',
     'UMN/UMN_PGC_REMA_V1_8m',
-    'UMT/UMT_Climate_IrrMapper_RF_v1_0',
+    'UMT/UMT_Climate_IrrMapper_RF_v1_1',
     'UMT/UMT_NTSG_v2_LANDSAT_GPP',
     'UMT/UMT_NTSG_v2_LANDSAT_NPP',
     'UMT/UMT_NTSG_v2_MODIS_GPP',
@@ -1237,8 +1238,11 @@ class Check(stac.NodeCheck):
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     if node.type == stac.StacType.CATALOG: return
-    if _GEE_SKIP_INDEXING in node.stac: return
     if node.id.startswith('TEMPLATE'): return
+
+    # CCDC is not planned to be made public so far, so it has
+    # no examples.
+    if node.id == 'GOOGLE/GLOBAL_CCDC/V1': return
 
     if not cls.scripts:
       cls.scripts = load(stac.examples_root())

@@ -21,6 +21,7 @@ from checker import stac
 CUSTOM_TIME_UNIT = 'custom_time_unit'
 DESCRIPTION = 'description'
 GEE_INTERVAL = 'gee:interval'
+GEE_TYPE = 'gee:type'
 INTERVAL = 'interval'
 NAME = 'name'
 TYPE = 'type'
@@ -45,6 +46,15 @@ class Check(stac.NodeCheck):
 
     if node.type == stac.StacType.CATALOG:
       yield cls.new_issue(node, f'Catalogs cannot have "{GEE_INTERVAL}"')
+      return
+
+    if GEE_TYPE in node.stac.keys() and node.gee_type in (
+        stac.GeeType.IMAGE,
+        stac.GeeType.TABLE,
+    ):
+      yield cls.new_issue(
+          node, f'Image/Table datasets cannot have "{GEE_INTERVAL}"'
+      )
       return
 
     gee_interval = node.stac[GEE_INTERVAL]

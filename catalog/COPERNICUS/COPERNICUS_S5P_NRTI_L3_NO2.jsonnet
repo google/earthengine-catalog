@@ -41,7 +41,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     reprocessed dataset for OMI, and has been adapted for TROPOMI. This
     retrieval-assimilation-modelling system uses the 3-dimensional global TM5-MP
     chemistry transport model at a resolution of 1x1 degree as an essential element.
-    [[More information](http://www.tropomi.eu/data-products/nitrogen-dioxide)]
+    [More information.](http://www.tropomi.eu/data-products/nitrogen-dioxide)
 
     ### NRTI L3 Product
 

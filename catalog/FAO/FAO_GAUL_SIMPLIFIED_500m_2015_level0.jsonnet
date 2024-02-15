@@ -16,7 +16,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   id: id,
   title:
-    'FAO GAUL 500m: Global Administrative Unit Layers 2015, Country Boundaries',
+    'FAO GAUL 500m Simplified: Global Administrative Unit Layers 2015, Country Boundaries',
   'gee:type': ee_const.gee_type.table,
   description: |||
     This version of GAUL dataset is simplified at 500m.

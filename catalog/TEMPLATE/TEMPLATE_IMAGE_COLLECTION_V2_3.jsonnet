@@ -126,14 +126,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Spatial and temporal extent.
   // What area and what time interval does the dataset cover?
   // Date/times must be in UTC, using the form 'YYYY-MM-DDTHH:MM:SSZ'.
-  // End time may be `None` for ongoing datasets that are updated regularly.
+  // End time may be `null` for ongoing datasets that are updated regularly.
   // End date is exclusive. For example, if the dataset covers the whole of
   // year 2021, the end date should be "2022-01-01T00:00:00Z"
   // Global spatial extents should use ee.extent_global.
   extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-13T00:00:00Z'),
   // Alternatively, non-global extents use min_x, min_y, max_x, max_y:
   // extent: ee.extent(-171.0, -15.0, 164.0, 70.0,
-  //                   '2012-02-07T00:00:00Z', None),
+  //                   '2006-01-24T00:00:00Z', null),
 
   // Summaries contain additional information specific to the dataset type.
   summaries: {

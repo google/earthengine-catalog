@@ -21,12 +21,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VIIRS Nighttime Day/Night Annual Band Composites',
-  version: 'Version 1',
+  title: 'VIIRS Nighttime Day/Night Annual Band Composites V2.1',
+  version: 'V2.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Annual global VIIRS nighttime lights dataset is a time series produced from
-    monthly cloud-free average radiance grids spanning 2013 to 2020.
+    monthly cloud-free average radiance grids spanning 2013 to 2021.
+    Data for 2022 are available in the
+    [NOAA/VIIRS/DNB/ANNUAL_V22](NOAA_VIIRS_DNB_ANNUAL_V22) dataset.
 
     An initial filtering step removed sunlit, moonlit and cloudy pixels,
     leading to rough composites that contains lights, fires, aurora and

@@ -40,7 +40,8 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     spectral range of the shortwave infrared (SWIR) part of the solar spectrum.
     TROPOMI clear sky observations provide CO total columns with sensitivity to the
     tropospheric boundary layer. For cloudy atmospheres, the column sensitivity
-    changes according to the light path. [[More information](http://www.tropomi.eu/data-products/carbon-monoxide)]
+    changes according to the light path.
+    [More information.](http://www.tropomi.eu/data-products/carbon-monoxide)
 
     ### OFFL L3 Product
 

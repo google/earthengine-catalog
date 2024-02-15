@@ -44,7 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and a darker side.
 
     Users can find individual image metadata available as a table at:
-    [USGS/LIMA/SR_METADATA](https://code.earthengine.google.com/?asset=USGS/LIMA/SR_METADATA)
+    [USGS/LIMA/SR_METADATA](USGS_LIMA_SR_METADATA)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

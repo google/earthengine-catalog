@@ -36,6 +36,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and hence no gap-filling using data from previous years in case of gaps
     in the annual global coverage.
 
+    There is no data for 2011-2014 due to the gap between ALOS and ALOS-2
+    temporal coverage.
+
     The SAR imagery was ortho-rectificatied and slope corrected using the
     digital surface model ALOS World 3D - 30m (AW3D30).
 
@@ -74,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2015-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
+  extent: ee.extent_global('2015-01-01T00:00:00Z',null),
   summaries: {
     gsd: [
       25.0,
