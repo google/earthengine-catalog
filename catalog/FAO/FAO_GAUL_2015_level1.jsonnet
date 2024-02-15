@@ -140,6 +140,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 4000,
+      min_vertices_per_tile: 50000,
       thinning_strategy: 'HIGHER_DENSITY',
       thinning_ranking: ['Shape_Area DESC'],
       prerender_tiles: true,
