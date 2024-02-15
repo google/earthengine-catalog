@@ -16,7 +16,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   id: id,
   title:
-    'FAO GAUL 500m: Global Administrative Unit Layers 2015, ' +
+    'FAO GAUL 500m Simplified: Global Administrative Unit Layers 2015, ' +
     'First-Level Administrative Units',
   'gee:type': ee_const.gee_type.table,
   description: |||
