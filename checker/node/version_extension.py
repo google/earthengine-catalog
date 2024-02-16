@@ -64,6 +64,7 @@ DEPRECATED = 'deprecated'
 DEPRECATED_TITLE = ' [deprecated]'
 TITLE = 'title'
 TYPE = 'type'
+HREF = 'href'
 
 JSON = 'application/json'
 
@@ -170,6 +171,20 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(node, f'Link must be of type "{JSON}"')
         if TITLE not in link:
           yield cls.new_issue(node, f'Link must have a "{TITLE}"')
+        rel = link['rel']
+        if HREF in link:
+          if not link[HREF].endswith('.json'):
+            yield cls.new_issue(
+                node,
+                f'The {rel} link\'s "{HREF}" property must end with ".json",'
+                ' found "'
+                + link[HREF]
+                + '"',
+            )
+        else:
+          yield cls.new_issue(
+              node, f'The {rel} link must have an "{HREF}" property'
+          )
 
         if deprecated and not latest and not successor:
           yield cls.new_issue(
