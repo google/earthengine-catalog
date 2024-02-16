@@ -41,6 +41,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     quality.
 
     Additional information can be found [here](https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms/about-firms).
+
+    NOTE: VIIRS FIRMS datasets from NOAA20 and SUOMI are also available:
+
+    * [NASA/LANCE/NOAA20_VIIRS/C2](NASA_LANCE_NOAA20_VIIRS_C2)
+    * [NASA/LANCE/SNPP_VIIRS/C2](NASA_LANCE_SNPP_VIIRS_C2)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
