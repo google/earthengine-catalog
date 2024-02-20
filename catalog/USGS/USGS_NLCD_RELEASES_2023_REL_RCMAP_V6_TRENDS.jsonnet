@@ -246,7 +246,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 3,
       'gee:estimated_range': false,
     },
-    },
     shrub_height_break_point: {
       minimum: 0,
       maximum: 3,
@@ -421,8 +420,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
-    }
-  }
+    },
+  },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
 }
