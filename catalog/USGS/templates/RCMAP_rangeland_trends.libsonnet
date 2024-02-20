@@ -18,7 +18,7 @@ local units = import 'units.libsonnet';
     based on Collection 2 Landsat data with improved geolocation accuracy and 
     dynamic range. Finally, the Canadian portion of the sagebrush biome was 
     included, which expanded the study area by 29,199 km2. 
-
+    
     Processing efficiency has been increased using open-source software and 
     USGS High-Performance Computing (HPC) resources. The mapping area included 
     eight regions which were subsequently mosaicked. These data can be used to 
@@ -26,7 +26,7 @@ local units = import 'units.libsonnet';
     the suitability of management practices. Component products can be 
     downloaded at 
     [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
-
+    
     The temporal patterns were assessed in each RCMAP component with two 
     approaches, 1) linear trends and 2) a breaks and stable states method 
     with an 8-year temporal moving window based on structural change at the 
@@ -62,7 +62,7 @@ local units = import 'units.libsonnet';
     'shrub_height',
     'non_sagebrush_shrub',
     'perennial_herbaceous',
-    'tree',
+    'tree'
   ],
   band_description: {
     _break_point: [
