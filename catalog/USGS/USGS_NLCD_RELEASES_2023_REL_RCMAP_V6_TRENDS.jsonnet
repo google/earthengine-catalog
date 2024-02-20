@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'nlcd',
     'rangeland',
-    'trends',
+    'trends'
   ],
   providers: [
     ee.producer_provider(
@@ -207,7 +207,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '012f8a',
               '012d85',
               '012c82',
-              '01297a',
+              '01297a'
             ],
             bands: [
               'annual_herbaceous_break_point',
@@ -420,7 +420,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
-    },
+    }
   },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
