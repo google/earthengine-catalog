@@ -3,7 +3,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'GOOGLE_Research_open-buildings_polygons.libsonnet';
+local version_table = import 'GOOGLE_Research_open-buildings_polygons_versions.libsonnet';
 
 local subdir = 'GOOGLE';
 
