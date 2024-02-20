@@ -33,10 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Trends Year for Component Timeseries  (1985-2023), ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
-    This collection includes RCMAP yearly products from 1985 through 2023.
-
-  ||| + utils.description,
+  description: 'This collection includes RCMAP yearly products from 1985 through 2023. ' + utils.description,
   'sci:publications': utils.publication,
   license: license.id,
   links: ee.standardLinks(subdir, id),
