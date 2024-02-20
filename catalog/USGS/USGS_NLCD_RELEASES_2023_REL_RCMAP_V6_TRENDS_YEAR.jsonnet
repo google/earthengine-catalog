@@ -355,7 +355,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 99999,
       'gee:estimated_range': false,
     }
-  }
+  },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
 }
