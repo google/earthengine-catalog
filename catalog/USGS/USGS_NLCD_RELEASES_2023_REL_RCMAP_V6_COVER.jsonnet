@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     based on Collection 2 Landsat data with improved geolocation accuracy and 
     dynamic range. Finally, the Canadian portion of the sagebrush biome was 
     included, which expanded the study area by 29,199 km2.
-
+    
     Processing efficiency has been increased using open-source software and 
     USGS High-Performance Computing (HPC) resources. The mapping area included 
     eight regions which were subsequently mosaicked. These data can be used to 
@@ -55,26 +55,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the suitability of management practices. Component products can be 
     downloaded at 
     [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
-
+    
     See also:
-
+    
     * Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019. 
       Long-term trajectories of fractional component change in the Northern 
       Great Basin, USA. Ecosphere 10(6):e02762. 
       [doi:10.1002/ecs2.2762](https://doi.org/10.1002/ecs2.2762)
-
+    
     * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
       S. Schell, and M. Bobo. 2020. Quantifying western U.S. rangelands as
       fractional components with multi-resolution remote sensing and in situ
       data. Remote Sensing 12.
       [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
-
+    
     * Rigge, M., C. Homer, H. Shi, D. Meyer, B.
       Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
       Rangeland Fractional Components Across the Western United States
       from 1985 to 2018. Remote Sensing 13:813.
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813).',
-  // |||,
+  //|||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
@@ -83,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'nlcd',
     'rangeland',
-    'trends',
+    'trends'
   ],
   providers: [
     ee.producer_provider(
@@ -306,7 +306,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'rangeland_tree',
         description: 'Percent of the pixel covered by tree.',
         'gee:units': units.percent,
-      },
+      }
     ],
     rangeland_annual_herbaceous: {
       minimum: 0,
@@ -357,6 +357,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
-    },
-  },
+    }
+  }
 }
