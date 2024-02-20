@@ -5,6 +5,8 @@ local version_table = import 'USGS_NLCD_RCMAP_versions.libsonnet';
 local version = 'v05';
 local subdir = 'USGS';
 local version_config = versions(subdir, version_table, version);
+
+{
   id: version_config.id,
   title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version, [deprecated]',
   version: version,
@@ -186,7 +188,7 @@ local version_config = versions(subdir, version_table, version);
               '012f8a',
               '012d85',
               '012c82',
-              '01297a',
+              '01297a'
             ],
             bands: [
               'annual_herbaceous_break_point',
@@ -379,7 +381,7 @@ local version_config = versions(subdir, version_table, version);
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
-    },
+    }
   },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
