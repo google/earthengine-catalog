@@ -1,21 +1,13 @@
-local id = 'GLIMS/current';
-local subdir = 'GLIMS';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local configs = import 'GLIMS_versions.libsonnet';
+local subdir = 'GLIMS';
 
 local license = spdx.proprietary;
 
 local version = '20230607';
 local config = configs[version];
-
-local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -24,8 +16,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title: 'GLIMS Current: Global Land Ice Measurements From Space',
+  id: config.id,
+  basename:: std.strReplace(config.id, '/', '_'),
+
+  title: 'GLIMS 2023: Global Land Ice Measurements From Space',
   version: version,
   'gee:type': ee_const.gee_type.table,
   description: |||
@@ -50,8 +44,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     June 7, 2023, providing over 1,100,000 rows.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, subdir, basename + '_FeatureView'),
+  links: ee.standardLinks(subdir, config.id) + [
+    ee.link.example(config.id, subdir, self.basename + '_FeatureView'),
     ee.link.latest(config.latest_id, config.latest_url),
     ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {
@@ -74,7 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('National Snow and Ice Data Center (NSDIC)', 'https://www.glims.org'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(config.self_ee_catalog_url),
   ],
   extent: ee.extent_global('1750-01-01T00:00:00Z', '2023-06-07T00:00:00Z'),
   summaries: {

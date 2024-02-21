@@ -15,6 +15,7 @@ local version_table = {
   // '20191217': 'GLIMS/20191217',
   // '20200630': 'GLIMS/20200630',
   '20210914': 'GLIMS/20210914',
+  '20230607': 'GLIMS/20230607'
 };
 # Does not include GLIMS/current which is the same as the most recent.
 
