@@ -8,7 +8,7 @@ local version_config = versions(subdir, version_table, version);
 
 {
   id: version_config.id,
-  title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version, [deprecated]',
+  title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version, + ' [deprecated]',
   version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image,
