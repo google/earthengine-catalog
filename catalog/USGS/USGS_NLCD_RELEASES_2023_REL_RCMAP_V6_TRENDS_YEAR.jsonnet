@@ -235,17 +235,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 1,
       'gee:estimated_range': false,
     },
-    shrub_height_break_point: {
-      minimum: 0,
-      maximum: 1,
-      'gee:estimated_range': false,
-    },
     non_sagebrush_shrub_break_point: {
       minimum: 0,
       maximum: 1,
       'gee:estimated_range': false,
     },
     perennial_herbaceous_break_point: {
+      minimum: 0,
+      maximum: 1,
+      'gee:estimated_range': false,
+    },
+    shrub_height_break_point: {
       minimum: 0,
       maximum: 1,
       'gee:estimated_range': false,
@@ -285,17 +285,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 100,
       'gee:estimated_range': false,
     },
-    shrub_height_segment_pvalue: {
-      minimum: 0,
-      maximum: 100,
-      'gee:estimated_range': false,
-    },
     non_sagebrush_shrub_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
     },
     perennial_herbaceous_segment_pvalue: {
+      minimum: 0,
+      maximum: 100,
+      'gee:estimated_range': false,
+    },
+    shrub_height_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
@@ -335,17 +335,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 99999,
       'gee:estimated_range': false,
     },
-    shrub_height_segment_slope: {
-      minimum: -99999,
-      maximum: 99999,
-      'gee:estimated_range': false,
-    },
     non_sagebrush_shrub_segment_slope: {
       minimum: -99999,
       maximum: 99999,
       'gee:estimated_range': false,
     },
     perennial_herbaceous_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
+      'gee:estimated_range': false,
+    },
+    shrub_height_segment_slope: {
       minimum: -99999,
       maximum: 99999,
       'gee:estimated_range': false,
