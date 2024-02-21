@@ -19,6 +19,14 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  'gee:user_uploaded': true,
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.collection,
+  stac_extensions: [
+    ee_const.ext_eo,
+    ee_const.ext_sci,
+    ee_const.ext_ver,
+  ],
   id: version_config.id,
   title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version + ' [deprecated]',
   version: version,
