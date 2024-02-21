@@ -51,6 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://www.mrlc.gov/'
     ),
     ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(
     -125.068,
