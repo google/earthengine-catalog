@@ -199,7 +199,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '012f8a',
               '012d85',
               '012c82',
-              '01297a',
+              '01297a'
             ],
             bands: [
               'annual_herbaceous_segment_pvalue',
@@ -342,7 +342,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       minimum: -99999,
       maximum: 99999,
       'gee:estimated_range': false,
-    },
+    }
   },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
