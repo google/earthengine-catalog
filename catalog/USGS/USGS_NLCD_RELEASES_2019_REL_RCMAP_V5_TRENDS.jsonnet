@@ -1,6 +1,6 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
 local versions = import 'versions.libsonnet';
-local version_table = import 'USGS_NLCD_RCMAP_versions.libsonnet';
+local version_table = import 'USGS_NLCD_RCMAP_Trends_versions.libsonnet';
 
 local version = 'v05';
 local subdir = 'USGS';
