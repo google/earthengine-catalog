@@ -101,7 +101,11 @@ local units = import 'units.libsonnet';
     },
     {
       name: 'sensitivity',
-      description: 'Maxmimum canopy cover that can be penetrated',
+      description: |||
+          Maxmimum canopy cover that can be penetrated. Valid range is [0, 1].
+          Values outside of this range may be present but must be ignored.
+          They represent noise and non-land surface waveforms.
+      |||,
       type:: ee_const.var_type.int,
     },
     {

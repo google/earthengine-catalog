@@ -1,5 +1,5 @@
 local versions = import 'versions.libsonnet';
-local version_table = import 'CSIC_SPEI.libsonnet';
+local version_table = import 'CSIC_SPEI_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';

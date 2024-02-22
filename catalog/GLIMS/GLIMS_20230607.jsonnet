@@ -6,7 +6,7 @@ local subdir = 'GLIMS';
 
 local license = spdx.proprietary;
 
-local version = '2016';
+local version = '20230607';
 local config = configs[version];
 
 {
@@ -17,8 +17,9 @@ local config = configs[version];
     ee_const.ext_ver,
   ],
   id: config.id,
-  title: 'GLIMS 2016: Global Land Ice Measurements From Space [deprecated]',
-  deprecated: true,
+  basename:: std.strReplace(config.id, '/', '_'),
+
+  title: 'GLIMS 2023: Global Land Ice Measurements From Space',
   version: version,
   'gee:type': ee_const.gee_type.table,
   description: |||
@@ -40,16 +41,16 @@ local config = configs[version];
     time.
 
     This dataset is a snapshot of the inventory of glacier boundaries as of
-    June 15, 2016, providing over 307,000 rows.
+    June 7, 2023, providing over 1,100,000 rows.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, config.id) + [
-    ee.link.example(config.id, subdir, config.basename + '_FeatureView'),
+    ee.link.example(config.id, subdir, self.basename + '_FeatureView'),
     ee.link.latest(config.latest_id, config.latest_url),
-    ee.link.successor(config.successor_id, config.successor_url),
+    ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {
       rel: ee_const.rel.source,
-      href: 'https://www.glims.org/download/glims_db_20150728.tar.gz',
+      href: 'https://daacdata.apps.nsidc.org/pub/DATASETS/nsidc0272_GLIMS_v1/',
     },
     {
       rel: ee_const.rel.cite_as,
@@ -69,7 +70,7 @@ local config = configs[version];
     ee.producer_provider('National Snow and Ice Data Center (NSDIC)', 'https://www.glims.org'),
     ee.host_provider(config.self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1870-01-01T00:00:00Z', '2011-11-09T00:00:00Z'),
+  extent: ee.extent_global('1750-01-01T00:00:00Z', '2023-06-07T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {

@@ -2,7 +2,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'USFS_GTAC_LCMS_PRUSVI.libsonnet';
+local version_table = import 'USFS_GTAC_LCMS_PRUSVI_versions.libsonnet';
 
 local subdir = 'USFS';
 local version = 'v2020.6';

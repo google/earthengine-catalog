@@ -3,7 +3,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'UMD_hansen_global_forest_change.libsonnet';
+local version_table = import 'UMD_hansen_global_forest_change_versions.libsonnet';
 
 local subdir = 'UMD';
 local version = 'v1.7';

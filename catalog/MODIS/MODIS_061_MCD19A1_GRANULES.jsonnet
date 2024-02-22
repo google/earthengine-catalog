@@ -30,9 +30,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Reflectance Factor (BRF) gridded Level 2 product produced daily at 500 meter
     and 1 kilometer resolution. For more information see the
     [MAIAC user guide](https://lpdaac.usgs.gov/documents/1500/MCD19_User_Guide_V61.pdf).
-
-    NOTE: Full ingestion into Earth Engine is expected to continue through
-    winter 2023.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
