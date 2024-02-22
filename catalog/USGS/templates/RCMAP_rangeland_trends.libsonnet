@@ -41,6 +41,7 @@ local units = import 'units.libsonnet';
     'litter',
     'sagebrush',
     'shrub',
+    'shrub_height',
     'non_sagebrush_shrub',
     'perennial_herbaceous',
     'tree',
