@@ -1,8 +1,8 @@
-local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS_YEAR';
+local id = 'USGS/NLCD_RELEASES/2023_REL/RCMAP/V6/TRENDS_YEAR';
 local versions = import 'versions.libsonnet';
 local version_table = import 'USGS_NLCD_RCMAP_Trends_year_versions.libsonnet';
 
-local version = 'v05';
+local version = 'v06';
 local subdir = 'USGS';
 local version_config = versions(subdir, version_table, version);
 
@@ -19,6 +19,8 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  // TODO(simonf): Remove skip_indexing when the dataset is ready.
+  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -28,11 +30,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: version_config.id,
-  title: 'RCMAP Rangeland Trends Year for Component Timeseries (1985-2021), ' + version + ' [deprecated]',
+  title: 'RCMAP Rangeland Trends Year for Component Timeseries  (1985-2023), ' + version,
   version: version,
-  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
-  description: 'This collection includes RCMAP yearly products from 1985 through 2021. ' + utils.description,
+  description: 'This collection includes RCMAP yearly products from 1985 through 2023. ' + utils.description,
   'sci:publications': utils.publication,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -42,8 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landsat_derived',
     'nlcd',
     'rangeland',
-    'trends',
-    'usgs',
+    'trends'
   ],
   providers: [
     ee.producer_provider(
@@ -54,12 +54,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(
-    -125.068,
-    28.459,
-    -101.074,
-    49.325,
+    -128.0026, 26.5157, -99.6758, 51.5761,
     '1985-01-01T00:00:00Z',
-    '2022-01-01T00:00:00Z'
+    '2023-12-31T00:00:00Z'
   ),
   'gee:interval': {
     type: 'cadence',
@@ -248,6 +245,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 1,
       'gee:estimated_range': false,
     },
+    shrub_height_break_point: {
+      minimum: 0,
+      maximum: 1,
+      'gee:estimated_range': false,
+    },
     tree_break_point: {
       minimum: 0,
       maximum: 1,
@@ -289,6 +291,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     },
     perennial_herbaceous_segment_pvalue: {
+      minimum: 0,
+      maximum: 100,
+      'gee:estimated_range': false,
+    },
+    shrub_height_segment_pvalue: {
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
@@ -338,11 +345,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 99999,
       'gee:estimated_range': false,
     },
+    shrub_height_segment_slope: {
+      minimum: -99999,
+      maximum: 99999,
+      'gee:estimated_range': false,
+    },
     tree_segment_slope: {
       minimum: -99999,
       maximum: 99999,
       'gee:estimated_range': false,
-    }
+    },
   },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
