@@ -1,5 +1,10 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/TRENDS';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USGS_NLCD_RCMAP_Trends_versions.libsonnet';
+
+local version = 'v05';
 local subdir = 'USGS';
+local version_config = versions(subdir, version_table, version);
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -22,9 +27,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: id,
-  title: 'RCMAP Rangeland Trends for Component Timeseries V5 (1985-2021)',
-  version: 'V5',
+  id: version_config.id,
+  title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version + ' [deprecated]',
+  version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: utils.description,
   'sci:publications': utils.publication,
@@ -45,6 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://www.mrlc.gov/'
     ),
     ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(
     -125.07,
@@ -203,7 +210,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '012f8a',
               '012d85',
               '012c82',
-              '01297a',
+              '01297a'
             ],
             bands: [
               'annual_herbaceous_break_point',
@@ -396,7 +403,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       minimum: 0,
       maximum: 100,
       'gee:estimated_range': false,
-    },
+    }
   },
   'sci:citation': utils.citation,
   'gee:terms_of_use': utils.terms_of_use,
