@@ -6,7 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'RUB_RUBCLIM_LCZ_global_lcz_map.libsonnet';
+local version_table = import 'RUB_RUBCLIM_LCZ_global_lcz_map_versions.libsonnet';
 
 local license = spdx.proprietary;
 

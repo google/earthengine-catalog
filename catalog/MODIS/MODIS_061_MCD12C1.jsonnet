@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MCD12Q1.061 MODIS Land Cover Type Yearly Global 0.05 Deg CMG',
+  title: 'MCD12C1.061 MODIS Land Cover Type Yearly Global 0.05 Deg CMG',
   version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

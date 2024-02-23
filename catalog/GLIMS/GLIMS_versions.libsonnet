@@ -1,5 +1,11 @@
 local ee_const = import 'earthengine_const.libsonnet';
 
+# TODO(heidichen): Transition this file to the modern versions structure, e.g.
+# [
+#   {'2.8': 'CSIC/SPEI/2_8'},
+#   {'2.9': 'CSIC/SPEI/2_9'},
+# ]
+
 # Not all versions are surfaced in the catalog.
 local version_table = {
   '2016': 'GLIMS/2016',
@@ -9,6 +15,7 @@ local version_table = {
   // '20191217': 'GLIMS/20191217',
   // '20200630': 'GLIMS/20200630',
   '20210914': 'GLIMS/20210914',
+  '20230607': 'GLIMS/20230607'
 };
 # Does not include GLIMS/current which is the same as the most recent.
 
