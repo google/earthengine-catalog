@@ -116,4 +116,8 @@ class Check(stac.NodeCheck):
     extra_keys = sorted(keys.difference(all_keys))
     if extra_keys:
       message = ', '.join(extra_keys)
-      yield cls.new_issue(node, f'{SUMMARIES} has unexpected keys: {message}')
+      yield cls.new_issue(
+          node,
+          f'{SUMMARIES} has unexpected keys: {message}. Each key must be a band'
+          ' name.',
+      )
