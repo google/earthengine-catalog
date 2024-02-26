@@ -1,6 +1,6 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V4/COVER';
 local versions = import 'versions.libsonnet';
-local version_table = import 'USGS_NLCD_RCMAP_versions.libsonnet';
+local version_table = import 'USGS_NLCD_RCMAP_Cover_versions.libsonnet';
 
 local version = 'v04';
 local subdir = 'USGS';
@@ -84,7 +84,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'climate_change',
     'disturbance',

@@ -36,7 +36,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: 'This collection includes RCMAP yearly products from 1985 through 2023. ' + utils.description,
   'sci:publications': utils.publication,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'climate_change',
     'disturbance',
