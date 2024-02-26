@@ -29,52 +29,51 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'RCMAP Rangeland Component Timeseries (1985-2023), ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  // description: |||
-  description: 
-    'The RCMAP (Rangeland Condition Monitoring Assessment and Projection) 
-    dataset quantifies the percent cover of rangeland components across 
-    western North America using Landsat imagery from 1985-2023. The RCMAP 
-    product suite consists of ten fractional components: annual herbaceous, 
+  description: |||
+    'The RCMAP (Rangeland Condition Monitoring Assessment and Projection)
+    dataset quantifies the percent cover of rangeland components across
+    western North America using Landsat imagery from 1985-2023. The RCMAP
+    product suite consists of ten fractional components: annual herbaceous,
     bare ground, herbaceous, litter, non-sagebrush shrub, perennial herbaceous,
-    sagebrush, shrub, tree, and shrub height in addition to the temporal 
-    trends of each component. Several enhancements were made to the RCMAP 
-    process relative to prior generations. First, high-resolution training 
+    sagebrush, shrub, tree, and shrub height in addition to the temporal
+    trends of each component. Several enhancements were made to the RCMAP
+    process relative to prior generations. First, high-resolution training
     was revised using an improved neural-net classifier and modelling approach.
-    These data serve as foundation to the RCMAP approach. The training 
-    database was further improved by incorporating additional datasets. Next, 
-    the Landsat compositing approach was improved to better capture the range 
-    of conditions from across each year and through time. These composites are 
-    based on Collection 2 Landsat data with improved geolocation accuracy and 
-    dynamic range. Finally, the Canadian portion of the sagebrush biome was 
+    These data serve as foundation to the RCMAP approach. The training
+    database was further improved by incorporating additional datasets. Next,
+    the Landsat compositing approach was improved to better capture the range
+    of conditions from across each year and through time. These composites are
+    based on Collection 2 Landsat data with improved geolocation accuracy and
+    dynamic range. Finally, the Canadian portion of the sagebrush biome was
     included, which expanded the study area by 29,199 km2.
-    
-    Processing efficiency has been increased using open-source software and 
-    USGS High-Performance Computing (HPC) resources. The mapping area included 
-    eight regions which were subsequently mosaicked. These data can be used to 
-    answer critical questions regarding the influence of climate change and 
-    the suitability of management practices. Component products can be 
-    downloaded at 
+
+    Processing efficiency has been increased using open-source software and
+    USGS High-Performance Computing (HPC) resources. The mapping area included
+    eight regions which were subsequently mosaicked. These data can be used to
+    answer critical questions regarding the influence of climate change and
+    the suitability of management practices. Component products can be
+    downloaded at
     [Multi-Resolution Land Characteristics Consortium](https://www.mrlc.gov/data).
-    
+
     See also:
-    
-    * Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019. 
-      Long-term trajectories of fractional component change in the Northern 
-      Great Basin, USA. Ecosphere 10(6):e02762. 
+
+    * Rigge, M., H. Shi, C. Homer, P. Danielson, and B. Granneman. 2019.
+      Long-term trajectories of fractional component change in the Northern
+      Great Basin, USA. Ecosphere 10(6):e02762.
       [doi:10.1002/ecs2.2762](https://doi.org/10.1002/ecs2.2762)
-    
+
     * Rigge, M., C. Homer, L. Cleeves, D. K. Meyer, B. Bunde, H. Shi, G. Xian,
       S. Schell, and M. Bobo. 2020. Quantifying western U.S. rangelands as
       fractional components with multi-resolution remote sensing and in situ
       data. Remote Sensing 12.
       [doi:10.3390/rs12030412](https://doi.org/10.3390/rs12030412)
-    
+
     * Rigge, M., C. Homer, H. Shi, D. Meyer, B.
       Bunde, B. Granneman, K. Postma, P. Danielson, A. Case, and G. Xian. 2021.
       Rangeland Fractional Components Across the Western United States
       from 1985 to 2018. Remote Sensing 13:813.
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813).',
-  //|||,
+  |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
@@ -97,10 +96,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       '1985-01-01T00:00:00Z',
       '2023-12-31T00:00:00Z'),
   'sci:citation': |||
-    Rigge, M.B., Bunde, B., Postma, K., and Shi, H., 2024, 
-    Rangeland Condition Monitoring Assessment and Projection (RCMAP) 
-    Fractional Component Time-Series Across the Western U.S. 1985-2023: 
-    U.S. Geological Survey data release, 
+    Rigge, M.B., Bunde, B., Postma, K., and Shi, H., 2024,
+    Rangeland Condition Monitoring Assessment and Projection (RCMAP)
+    Fractional Component Time-Series Across the Western U.S. 1985-2023:
+    U.S. Geological Survey data release,
     [doi:10.5066/P9SJXUI1](https://doi.org/10.5066/P9SJXUI1).
   |||,
   // TODO(simonf): Remove skip_indexing when the dataset is ready.
