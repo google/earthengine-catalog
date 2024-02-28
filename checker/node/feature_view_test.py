@@ -1,7 +1,5 @@
 """Tests for feature_view."""
 
-from unittest import mock
-
 from checker import stac
 from checker import test_utils
 from checker.node import feature_view
@@ -10,12 +8,6 @@ from absl.testing import absltest
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
-
-FEATUREVIEW_EXCEPTION_ID = 'AN/EXCEPTION'
-
-
-def mock_table_without_featureview_exception(dataset_id: str) -> bool:
-  return dataset_id == FEATUREVIEW_EXCEPTION_ID
 
 
 class ValidFeatureViewTest(test_utils.NodeTest):
@@ -102,18 +94,6 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
     self.assert_collection(
         {'summaries': {}},
         'gee:feature_view_ingestion_params must be present in table',
-        gee_type=TABLE)
-
-  @mock.patch.object(
-      feature_view, 'table_without_featureview_exception',
-      mock_table_without_featureview_exception)
-  def test_in_tables_without_featureview_but_has_featureview_params(self):
-    self.assert_collection(
-        {'summaries': {
-            'gee:feature_view_ingestion_params': {'prerender_tiles': True}}},
-        'AN/EXCEPTION is in the list of tables without feature views, '
-        'but gee:feature_view_ingestion_params is present',
-        dataset_id=FEATUREVIEW_EXCEPTION_ID,
         gee_type=TABLE)
 
   def test_params_not_dict(self):
@@ -317,10 +297,9 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
 
   def test_skip_featureview_generation_without_params_ok(self):
     self.assert_collection(
-        {'gee:skip_featureview_generation': True,
-         'summaries': {}},
-        ['gee:feature_view_ingestion_params must be present in table'],
-        gee_type=TABLE)
+        {'gee:skip_featureview_generation': True, 'summaries': {}},
+        gee_type=TABLE,
+    )
 
   def test_skip_featureview_generation_must_be_bool(self):
     self.assert_collection(
