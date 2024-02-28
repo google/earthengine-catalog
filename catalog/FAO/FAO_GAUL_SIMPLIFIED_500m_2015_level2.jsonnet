@@ -19,6 +19,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'FAO GAUL 500m Simplified: Global Administrative Unit Layers 2015, ' +
     'Second-Level Administrative Units',
   'gee:type': ee_const.gee_type.table,
+  // FeatureView looks confusing due to too much simplification.
+  'gee:skip_featureview_generation': true,
   description: |||
     This version of GAUL dataset is simplified at 500m.
 
@@ -149,11 +151,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         visualize_as: 'FeatureView',
       },
     ],
-    'gee:feature_view_ingestion_params': {
-      max_features_per_tile: 2000,
-      thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: ['Shape_Area DESC'],
-    },
   },
   'gee:terms_of_use': |||
     The GAUL dataset is distributed to the United Nations and other authorized
