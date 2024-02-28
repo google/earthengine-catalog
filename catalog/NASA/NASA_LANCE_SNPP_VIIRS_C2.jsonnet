@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     NRT VIIRS 375 m Active Fire product VNP14IMGT distributed from NASA FIRMS.
     Available on-line https://earthdata.nasa.gov/firms.
-    [doi:10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002](https://doi:10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002)
+    [doi:10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002](https://doi.org/10.5067/FIRMS/VIIRS/VNP14IMGT_NRT.002)
   |||,
   'gee:interval': viirs_firms.interval,
   'gee:terms_of_use': viirs_firms.terms_of_use,
