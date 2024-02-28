@@ -57,6 +57,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     particles found in soil everywhere in the world (SMAP measures liquid water
     in the top layer of ground but is not able to measure the ice.)
 
+    SPL3SMP_E data are transformed to
+    [geographic coordinates using GDAL libraries](https://github.com/google/earthengine-catalog/blob/main/pipelines/smap_convert_l3.py)
+    before the data are ingested into Google Earth Engine.
+
     See the
     [SMAP L3 Soil Moisture User Guide](https://nsidc.org/sites/default/files/spl3smp_e-v005-userguide.pdf)
     and references therein for additional documentation and algorithm details.
