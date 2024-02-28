@@ -17,7 +17,8 @@
 {
   // https://en.wikipedia.org/wiki/Acceleration
   acceleration_si: 'm/s^2',
-
+  // https://en.wikipedia.org/wiki/Air_pollutant_concentrations
+  mg_per_sq_m: '&mu;g/m&sup3',
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
   area_density_megagrams_per_hectare: 'Mg/ha',
@@ -131,7 +132,8 @@
 
   // http://www.iau.org/science/publications/proceedings_rules/units/
   minute: 'min',
-
+  mumeter: '&mu;m',
+  nanometers: 'nm',
   // https://usma.org/detailed-list-of-metric-system-units-and-symbols
   nautical_mile: 'nmi',
 
@@ -170,6 +172,9 @@
   p_value: 'P-value',
   // % change/year × 100
   percent_change_per_year: '% change/y',
+  // https://en.wikipedia.org/wiki/Parts-per_notation
+  ppb: 'ppb',
+  ppm: 'ppm',
 
   // https://en.wikipedia.org/wiki/Board_foot
   // https://catalesawmill.com/log-board-foot-calculator/
