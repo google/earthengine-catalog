@@ -1,4 +1,4 @@
-var dataset = ee.FeatureCollection('WM/geoLab/geoBoundaries/500/ADM0');
+var dataset = ee.FeatureCollection('WM/geoLab/geoBoundaries/600/ADM0');
 
 Map.setCenter(-100.0, 38.5, 4);
 

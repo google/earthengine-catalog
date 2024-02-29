@@ -1,4 +1,4 @@
-var fvLayer = ui.Map.FeatureViewLayer('WM/geoLab/geoBoundaries/500/ADM2_FeatureView');
+var fvLayer = ui.Map.FeatureViewLayer('WM/geoLab/geoBoundaries/600/ADM2_FeatureView');
 
 var visParams = {
   color: '00909F',

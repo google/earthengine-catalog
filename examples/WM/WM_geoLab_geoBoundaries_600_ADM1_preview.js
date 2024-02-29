@@ -1,4 +1,4 @@
-var dataset = ee.FeatureCollection('WM/geoLab/geoBoundaries/500/ADM2');
+var dataset = ee.FeatureCollection('WM/geoLab/geoBoundaries/600/ADM1');
 
 
 var empty_image = ee.Image().byte();
@@ -15,8 +15,8 @@ var boundary_vis = {
   palette: ['000000'],
 };
 
-var lon = -81.0;
-var lat = 42.0;
+var lon = -90.0;
+var lat = 27.0;
 var gray = 150;
 var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
 
@@ -27,8 +27,8 @@ Map.addLayer(
   'Country Boundaries');
 
 // Degrees in EPSG:4326.
-var lat_delta = 2;
-var lon_delta = 3;
+var lat_delta = 10;
+var lon_delta = 15;
 // Width and height of the thumbnail image.
 var pixels = 256;
 
