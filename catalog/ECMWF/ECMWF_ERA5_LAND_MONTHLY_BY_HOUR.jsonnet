@@ -875,11 +875,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Please acknowledge the use of ERA5-Land as stated in the
     [Copernicus C3S/CAMS License agreement](https://apps.ecmwf.int/datasets/licences/copernicus/):
 
-    - 5.1.2 Where the Licensee communicates or distributes Copernicus Products to the public, the
+    - 5.1.1 Where the Licensee communicates or distributes Copernicus Products to the public, the
     Licensee shall inform the recipients of the source by using the following or any similar notice:
     'Generated using Copernicus Climate Change Service Information [Year]'.
 
-    - 5.1.3 Where the Licensee makes or contributes to a publication or distribution containing
+    - 5.1.2 Where the Licensee makes or contributes to a publication or distribution containing
     adapted or modified Copernicus Products, the Licensee shall provide the following or any similar
     notice: 'Contains modified Copernicus Climate Change Service Information [Year]';
 
