@@ -7,9 +7,10 @@ local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-local version = '1.2';
+local id = 'UMT/Climate/IrrMapper_RF/v1_2';
 local subdir = 'UMT';
-local version_config = versions(subdir, version_table, version);
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
@@ -19,7 +20,7 @@ local version_config = versions(subdir, version_table, version);
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'IrrMapper Irrigated Lands, Version ' + version,
   version: '1.2',
   'gee:type': ee_const.gee_type.image_collection,
@@ -47,7 +48,7 @@ local version_config = versions(subdir, version_table, version);
 
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ] + version_config.version_links,
   keywords: [

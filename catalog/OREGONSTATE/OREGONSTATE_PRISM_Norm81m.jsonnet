@@ -8,8 +8,8 @@ local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local prism = import 'OREGONSTATE_PRISM_Norm.libsonnet';
 
-local version = '81m';
-local version_config = versions(subdir, prism.versions, version);
+local version_config = versions(subdir, prism.versions, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   version: version,
   title: 'PRISM Long-Term Average Climate Dataset Norm81m [deprecated]',
   deprecated: true,
@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Spatial Climate Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.license(prism.license_link)
   ] + version_config.version_links,
   keywords: [

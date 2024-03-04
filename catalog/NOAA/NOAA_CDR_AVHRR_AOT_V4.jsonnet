@@ -1,9 +1,10 @@
 local versions = import 'versions.libsonnet';
 local version_table = import 'NOAA_CDR_AVHRR_AOT_versions.libsonnet';
 
-local version = 'v04';
+local id = 'NOAA/CDR/AVHRR/AOT/V4';
 local subdir = 'NOAA';
-local version_config = versions(subdir, version_table, version);
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -19,7 +20,7 @@ local license = spdx.proprietary;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'NOAA CDR AVHRR AOT: Daily Aerosol Optical Thickness Over Global Oceans, ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
@@ -40,7 +41,7 @@ local license = spdx.proprietary;
     Image and data processing by NOAA's National Climatic Data Center.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.25921/w3zj-4y48'

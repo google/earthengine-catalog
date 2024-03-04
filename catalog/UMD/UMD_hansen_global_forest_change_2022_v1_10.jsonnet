@@ -6,8 +6,9 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'UMD_hansen_global_forest_change_versions.libsonnet';
 
 local subdir = 'UMD';
-local version = 'v1.10';
-local version_config = versions(subdir, version_table, version);
+local id = 'UMD/hansen/global_forest_change_2022_v1_10';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
 
@@ -19,7 +20,7 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'Hansen Global Forest Change v1.10 (2000-2022)',
   version: version,
   'gee:type': ee_const.gee_type.image,
@@ -39,7 +40,7 @@ local license = spdx.cc_by_4_0;
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference)
   ] + version_config.version_links,
   keywords: [

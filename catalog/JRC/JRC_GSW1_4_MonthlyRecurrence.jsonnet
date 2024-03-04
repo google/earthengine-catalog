@@ -7,8 +7,9 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'JRC_GSW_MonthlyRecurrence_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.4';
-local version_config = versions(subdir, version_table, version);
+local id = 'JRC/GSW1_4/MonthlyRecurrence';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -20,7 +21,7 @@ local license = spdx.proprietary;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'JRC Monthly Water Recurrence, v1.4',
   version: '1.4',
   'gee:type': ee_const.gee_type.image_collection,
@@ -30,7 +31,7 @@ local license = spdx.proprietary;
     month over all years.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) +
+  links: ee.standardLinks(subdir, id) +
   version_config.version_links,
   keywords: [
     'geophysical',

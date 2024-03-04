@@ -2,9 +2,9 @@ local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V5/COVER';
 local versions = import 'versions.libsonnet';
 local version_table = import 'USGS_NLCD_RCMAP_Cover_versions.libsonnet';
 
-local version = 'v05';
 local subdir = 'USGS';
-local version_config = versions(subdir, version_table, version);
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'RCMAP Rangeland Component Timeseries (1985-2021), ' + version,
   version: version,
   // deprecated: true,

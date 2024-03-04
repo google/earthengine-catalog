@@ -7,8 +7,9 @@ local version_table = import 'GOOGLE_Research_open-buildings_polygons_versions.l
 
 local subdir = 'GOOGLE';
 
-local version = 'v2.0';
-local version_config = versions(subdir, version_table, version);
+local id = 'GOOGLE/Research/open-buildings/v2/polygons';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
 {
@@ -18,7 +19,7 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'Open Buildings V2 Polygons [deprecated]',
   version: '2.0.0',
   deprecated: true,
@@ -51,9 +52,9 @@ local license = spdx.cc_by_4_0;
     [GOOGLE/Research/open-buildings/v3/polygons](GOOGLE_Research_open-buildings_v3_polygons).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.example(
-      version_config.id, subdir, version_config.basename + '_FeatureView'),
+      id, subdir, version_config.basename + '_FeatureView'),
     ee.link.license(license.reference)
   ] + version_config.version_links,
   keywords: [

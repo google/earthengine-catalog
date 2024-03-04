@@ -1,4 +1,4 @@
-local id = 'RUB/RUBCLIM/LCZ/global_lcz_map/v1';
+local id = 'RUB/RUBCLIM/LCZ/global_lcz_map/latest';
 local subdir = 'RUB';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -10,8 +10,8 @@ local version_table = import 'RUB_RUBCLIM_LCZ_global_lcz_map_versions.libsonnet'
 
 local license = spdx.proprietary;
 
-local version = 'latest';
-local version_config = versions(subdir, version_table, version);
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,7 +21,7 @@ local version_config = versions(subdir, version_table, version);
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'Global map of Local Climate Zones, latest version',
   version: 'latest',
   'gee:type': ee_const.gee_type.image_collection,
@@ -64,7 +64,7 @@ local version_config = versions(subdir, version_table, version);
     * [LCZ Gaussian filtering](https://doi.org/10.1038/s41597-020-00605-z)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) +
+  links: ee.standardLinks(subdir, id) +
    version_config.version_links + [
     {
       rel: ee_const.rel.source,

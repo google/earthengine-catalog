@@ -5,9 +5,10 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'USFS_GTAC_LCMS_versions.libsonnet';
 
 local subdir = 'USFS';
-local version = 'v2020.5';
-local version_config = versions(subdir, version_table, version);
-local basename = std.strReplace(version_config.id, '/', '_');
+local id = 'USFS/GTAC/LCMS/v2020-5';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
+local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.proprietary;
@@ -20,7 +21,7 @@ local license = spdx.proprietary;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title:
     'USFS Landscape Change Monitoring System ' + version + ' ' +
     '(Conterminous United States and Southeastern Alaska) [deprecated]',
@@ -146,7 +147,7 @@ local license = spdx.proprietary;
     [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
   ] + version_config.version_links,
   keywords: [
