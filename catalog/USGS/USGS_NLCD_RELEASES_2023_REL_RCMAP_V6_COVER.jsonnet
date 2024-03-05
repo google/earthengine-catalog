@@ -102,8 +102,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     U.S. Geological Survey data release,
     [doi:10.5066/P9SJXUI1](https://doi.org/10.5066/P9SJXUI1).
   |||,
-  // TODO(simonf): Remove skip_indexing when the dataset is ready.
-  'gee:skip_indexing': true,
   'gee:user_uploaded': true,
   'gee:terms_of_use': |||
     This work was authored as part of the Contributor's official duties as an
