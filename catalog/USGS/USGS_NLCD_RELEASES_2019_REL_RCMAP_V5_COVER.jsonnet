@@ -26,9 +26,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'RCMAP Rangeland Component Timeseries (1985-2021), ' + version,
+  title: 'RCMAP Rangeland Component Timeseries (1985-2021), ' + version + ' [deprecated]',
   version: version,
-  // deprecated: true,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The RCMAP (Rangeland Condition Monitoring Assessment and Projection) dataset
@@ -105,7 +105,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id), // + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'climate_change',
     'disturbance',
