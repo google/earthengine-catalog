@@ -11,18 +11,20 @@ local license = spdx.proprietary {
   reference: 'https://www.usgs.gov/centers/eros/data-citation',
 };
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local versions = import 'versions.libsonnet';
+local version_table = import 'LE7_T2_L2_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'USGS Landsat 7 Level 2, Collection 2, Tier 2',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -75,7 +77,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'cfmask',
     'cloud',
@@ -92,7 +94,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-2-level-2-science-products'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1999-05-28T01:06:16Z', null),
   summaries: {
