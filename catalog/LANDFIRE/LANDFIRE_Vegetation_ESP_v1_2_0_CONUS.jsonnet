@@ -92798,12 +92798,10 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
     - U.S. Department of the Interior; U.S. Geological Survey; Arlington, VA
     - The Nature Conservancy (Producers). Available- URL. Access date.
 
-    Example Citation: LANDFIRE Biophysical Settings. 2018. Biophysical setting 14420:
-    South Texas sand sheet grassland. In: LANDFIRE Biophysical Setting Model: Map zone 36,
-    [Online]. In: BpS Models and Descriptions. In: LANDFIRE. Washington, DC:
-    U.S. Department of Agriculture, Forest Service; U.S. Department of the Interior;
-    U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).
-    Available: https://www.landfire.gov/national_veg_models_op2.php [2018, June 27].
+    Example Citation: LANDFIRE, 2016, Existing Vegetation Type Layer,
+    LANDFIRE 2.0.0, U.S. Department of the Interior, Geological Survey, and
+    U.S. Department of Agriculture.
+    Accessed 28 October 2021 at https://earthengine.google.com.
     Additional guidance on citation of LANDFIRE products can be found
     [here](https://www.landfire.gov/landfire_citation.php)
   |||,
