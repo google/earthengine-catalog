@@ -1,0 +1,4 @@
+[
+  {'C01': 'LANDSAT/LT04/C01/T2'},
+  {'C02': 'LANDSAT/LT04/C02/T2'},
+]

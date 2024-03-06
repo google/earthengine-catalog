@@ -1,0 +1,4 @@
+[
+  {'PRE': 'LANDSAT/LT5_L1T'},
+  {'C02': 'LANDSAT/LT05/C02/T1'},
+]
