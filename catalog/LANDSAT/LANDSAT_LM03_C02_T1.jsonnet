@@ -19,7 +19,7 @@ local version = version_config.version;
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
-    ee_const.ext_ver
+    ee_const.ext_ver,
   ],
   id: id,
   version: version,

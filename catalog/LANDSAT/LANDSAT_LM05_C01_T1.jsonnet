@@ -1,6 +1,4 @@
 local id = 'LANDSAT/LM05/C01/T1';
-local latest_id = 'LANDSAT/LM05/C02/T1';
-local successor_id = 'LANDSAT/LM05/C02/T1';
 local subdir = 'LANDSAT';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -11,15 +9,10 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.pddl_1_0;
 local template = import 'templates/LM05_C01.libsonnet';
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = basename + '.json';
-local successor_basename = std.strReplace(successor_id, '/',  '_');
-local successor_filename = successor_basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
+local versions = import 'versions.libsonnet';
+local version_table = import 'LM5_T1_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
@@ -30,18 +23,14 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   id: id,
   title: 'USGS Landsat 5 MSS Collection 1 Tier 1 Raw Scenes [deprecated]',
-  version: 'C1',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Landsat 5 MSS Collection 1 Tier 1 DN values, representing scaled, calibrated at-sensor radiance.
   ||| + landsat.tier1,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(
-      successor_id, catalog_subdir_url + successor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'c1',
     'global',
@@ -56,7 +45,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.usgs.gov/core-science-systems/nli/landsat/landsat-1-5-multispectral-scanner-collection-1'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1984-04-07T10:04:11Z', '2013-01-01T16:51:58Z'),
   summaries: template.summaries,

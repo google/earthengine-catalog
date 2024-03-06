@@ -1,5 +1,4 @@
 local id = 'LANDSAT/LM3_L1T';
-local successor_id = 'LANDSAT/LM03/C01/T1';
 local subdir = 'LANDSAT';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -31,7 +30,7 @@ local version = version_config.version;
     As of May 1, 2017, the USGS is no longer producing Pre-Collection Landsat, and therefore this collection is complete. Please switch to a Collection 1-based dataset. See [this documentation page](https://developers.google.com/earth-engine/landsat) for more information.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id)  + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'global',
     'l3',
