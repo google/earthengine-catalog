@@ -4,6 +4,8 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local notes = import 'templates/LANDSAT_L2.libsonnet';
+
 local license = spdx.proprietary {
   reference: 'https://www.usgs.gov/centers/eros/data-citation',
 };
@@ -48,19 +50,7 @@ local version = version_config.version;
 
     [Additional documentation and usage examples.](/earth-engine/guides/landsat)
 
-    Data provider notes:
-
-    * Data products must contain both optical and thermal data to be
-      successfully processed to surface temperature, as ASTER NDVI is
-      required to temporally adjust the ASTER GED product to the target Landsat
-      scene. Therefore, night time acquisitions cannot be processed to
-      surface temperature.
-
-    * A known error exists in the surface temperature retrievals relative
-      to clouds and possibly cloud shadows. The characterization of these
-      issues has been documented by
-      [Cook et al., (2014)](https://doi.org/10.3390/rs61111244).
-  |||,
+  ||| + notes.description,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.license(license.reference),

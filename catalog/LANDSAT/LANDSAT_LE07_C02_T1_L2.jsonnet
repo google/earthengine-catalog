@@ -6,6 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local landsat = import 'landsat.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local notes = import 'templates/LANDSAT_L2.libsonnet';
 
 local license = spdx.proprietary {
   reference: 'https://www.usgs.gov/centers/eros/data-citation',
@@ -53,27 +54,7 @@ local version = version_config.version;
 
     [Additional documentation and usage examples.](/earth-engine/guides/landsat)
 
-    Data provider notes:
-
-    * Data products must contain both optical and thermal data to be
-      successfully processed to surface temperature, as ASTER NDVI is
-      required to temporally adjust the ASTER GED product to the target Landsat
-      scene. Therefore, night time acquisitions cannot be processed to
-      surface temperature.
-
-    * A known error exists in the surface temperature retrievals relative
-      to clouds and possibly cloud shadows. The characterization of these
-      issues has been documented by
-      [Cook et al., (2014)](https://doi.org/10.3390/rs61111244).
-
-    * For Landsat 7 ETM+ products, Band 6 TOA BT and ST data are generated from
-      ETM+ Band 6 High (6H) and 6 Low (6L) merged together. The merged band
-      contains unsaturated pixels from Band 6H. If Band 6H pixels have a BT
-      outside of the 6H dynamic range (240 to 322 Kelvin) then 6L band pixels
-      are used. Pixels that are saturated in Band 6L remain saturated in the
-      merged Band 6 product. The merged thermal radiance is then used in the
-      creation of the TOA BT and ST data.
-  ||| + landsat.l7_drift,
+  ||| + notes.description + landsat.l7_drift,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
