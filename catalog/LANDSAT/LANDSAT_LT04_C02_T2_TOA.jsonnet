@@ -5,20 +5,22 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local template = import 'templates/LT05_C02.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'LT4_T2_TOA_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.pddl_1_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'USGS Landsat 4 TM Collection 2 Tier 2 TOA Reflectance',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -29,7 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       for details on the TOA computation.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'global',
     'landsat',
@@ -38,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('USGS/Google', 'https://landsat.usgs.gov/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1982-08-22T14:18:20Z', '1993-11-18T14:54:14Z'),
   summaries: template.summaries,
