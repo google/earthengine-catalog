@@ -1,8 +1,8 @@
 var image = ee.Image("JRC/GHSL/P2023A/GHS_BUILT_H/2018");
-var lon = 74;
-var lat = 31;
-Map.setCenter(lon, lat, 8);
-var delta = 3.5;
+var lon = 2.349014;
+var lat = 48.864716;
+Map.setCenter(lon, lat, 10);
+var delta = 0.5;
 // Width and height of the thumbnail image.
 var pixels = 256;
 var built = image.select('built_height');
@@ -13,7 +13,7 @@ var visParams = {
   region: areaOfInterest,
   format: 'png',
 };
-var palette = ['000000', '400000', 'a00000', '00ffff'];
-var image = built.visualize({palette: palette, min: 0, max:0.5});
+var palette = ['000000', '0d0887', '7e03a8', 'cc4778', 'f89540', 'f0f921'];
+var image = built.visualize({palette: palette, min: 0, max: 12});
 Map.addLayer(image, {}, 'Multitemporal Built-up Height');
 print(ui.Thumbnail({image: image, params: visParams}));

@@ -1,11 +1,11 @@
 var dataset = ee.Image("JRC/GHSL/P2023A/GHS_BUILT_S/2030");
 
-var lon = 75;
-var lat = 28;
+var lon = 77.156;
+var lat = 28.6532;
 
-Map.setCenter(lon, lat, 8);
+Map.setCenter(lon, lat, 10);
 
-var delta = 3.5;
+var delta = 0.2;
 // Width and height of the thumbnail image.
 var pixels = 256;
 
@@ -20,12 +20,10 @@ var visParams = {
   format: 'png',
 };
 
-var palette = ['000000', '400000', 'a00000', '00ffff'];
+var palette = ['000000', 'FFFFFF'];
 
-var image = built.visualize({palette: palette, min: 0, max:100});
+var image = built.visualize({palette: palette, min: 0, max: 8000});
 
 Map.addLayer(image, {}, 'Multitemporal built-up Surface');
-
-var image = built.visualize({palette: palette, min: 0, max:100});
 
 print(ui.Thumbnail({image: image, params: visParams}));

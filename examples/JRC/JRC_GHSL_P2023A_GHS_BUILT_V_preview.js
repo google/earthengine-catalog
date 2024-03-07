@@ -13,7 +13,7 @@ var visParams = {
   region: areaOfInterest,
   format: 'png',
 };
-var palette = ['000000', '400000', 'a00000', '00ffff'];
+var palette = ['000004', '51127c', 'b73779', 'fc8961', 'fcfdbf'];
 var image = built.visualize({palette: palette, min: 0, max: 80000});
 Map.addLayer(
     image, {}, 'Total (Residential and Non-Residential) Built-up Volume');

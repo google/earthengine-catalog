@@ -1,9 +1,9 @@
-var image = ee.Image("JRC/GHSL/P2023A/GHS_BUILT_S/2030");
-var built = image.select('built_surface');
-var visParams = {
-  min: 0.0,
-  max: 30.0,
-  palette: ['000000', '400000', 'a00000', '00ffff'],
-};
-Map.setCenter(75, 28, 8);
-Map.addLayer(built, visParams, 'Multitemporal built-up Surface');
+var image_1975 = ee.Image('JRC/GHSL/P2023A/GHS_BUILT_S/1975');
+var built_1975 = image_1975.select('built_surface');
+var image_2020 = ee.Image('JRC/GHSL/P2023A/GHS_BUILT_S/2020');
+var built_2020 = image_2020.select('built_surface');
+var visParams = {min: 0.0, max: 8000.0, palette: ['000000', 'FFFFFF']};
+
+Map.setCenter(77.156, 28.6532, 10);
+Map.addLayer(built_1975, visParams, 'Built-up surface [m2], 1975');
+Map.addLayer(built_2020, visParams, 'Built-up surface [m2], 2020');
