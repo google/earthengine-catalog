@@ -176,6 +176,9 @@
   ppb: 'ppb',
   ppm: 'ppm',
 
+  // https://www.bridgerphotonics.com/blog/understanding-ppm-and-ppm-m-gas-concentration-units
+  ppmm: 'ppm m',
+
   // https://en.wikipedia.org/wiki/Board_foot
   // https://catalesawmill.com/log-board-foot-calculator/
   // https://dqydj.com/log-rule-board-feet-calculator/

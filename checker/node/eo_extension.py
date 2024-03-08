@@ -227,6 +227,7 @@ UNITS = units.UNITS.union({
     'ms',
     'occurrence',
     'ppm',
+    'ppm m',
     'seconds',
     'sr-1',
     'ug m-3',
