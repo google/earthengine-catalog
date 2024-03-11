@@ -67,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('USGS', 'https://lpdaac.usgs.gov/products/hlsl30v002/'),
+    ee.producer_provider('NASA LP DAAC', 'https://lpdaac.usgs.gov/products/hlsl30v002/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
