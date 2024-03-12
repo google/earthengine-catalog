@@ -31,9 +31,10 @@ local license = spdx.proprietary;
 
         The Sentinel-2 data contain 13 UINT16 spectral bands representing
         TOA reflectance scaled by 10000. See the [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
-        for details. In addition, three QA bands are present where one
-        (QA60) is a bitmask band with cloud mask information. For more
-        details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
+        for details. QA60 is a bitmask band that contained rasterized cloud mask
+        polygons until Feb 2022, when these polygons stopped being produced.
+        For more details,
+        [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks).
 
         Each Sentinel-2 product (zip archive) may contain multiple
         granules. Each granule becomes a separate Earth Engine asset.
@@ -525,7 +526,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'QA60',
-            description: 'Cloud mask',
+            description: 'Cloud mask from polygons. Empty after Feb 2022.',
             gsd: 60.0,
             'gee:bitmask': {
               bitmask_parts: [
