@@ -603,7 +603,7 @@ local license = spdx.proprietary;
       },
       'gee:terms_of_use': |||
         The use of Sentinel data is governed by the [Copernicus
-        Sentinel Data Terms and Conditions.](https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf)
+        Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
       |||,
     },
 }

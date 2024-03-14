@@ -41,7 +41,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     are available in the dataset [report](https://pubs.usgs.gov/of/2011/1073/pdf/of2011-1073.pdf).
 
     The primary source dataset for GMTED2010 is NGA''s SRTM Digital
-    Terrain Elevation Data (DTED&reg;, [https://www2.jpl.nasa.gov/srtm/](https://www2.jpl.nasa.gov/srtm/))
+    Terrain Elevation Data (DTED&reg;, [https://www2.jpl.nasa.gov/srtm/](https://science.jpl.nasa.gov/projects/srtm/))
     (void-filled) 1-arc-second data. For the geographic areas outside
     the SRTM coverage area and to fill in remaining holes in the SRTM
     data, the following sources were used: non-SRTM DTED&reg;, Canadian
