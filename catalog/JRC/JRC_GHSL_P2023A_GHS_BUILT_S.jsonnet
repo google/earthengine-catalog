@@ -30,7 +30,9 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     These raster datasets depict the distribution of built-up surfaces,
-    expressed in square metres per 100 m grid cell. The datasets measure:
+    expressed in square metres per 100 m grid cell (except 2018 dataset which is
+    in square metres per 10 m grid cell).
+    The datasets measure:
     a) the total built-up surface, and b) the built-up surface allocated to grid
     cells of predominant non-residential (NRES) use. Data are
     spatially-temporally interpolated or extrapolated from 1975 to 2030 in 5
