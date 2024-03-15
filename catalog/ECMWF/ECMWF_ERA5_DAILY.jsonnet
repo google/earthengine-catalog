@@ -1,6 +1,7 @@
 local id = 'ECMWF/ERA5/DAILY';
 local subdir = 'ECMWF';
 
+local cds_notice = import 'templates/cds_notice.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -22,7 +23,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'ERA5 Daily Aggregates - Latest Climate Reanalysis Produced by ECMWF / Copernicus Climate Change Service',
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
+  description: cds_notice.body + |||
+
     ERA5 is the fifth generation ECMWF atmospheric reanalysis of the global climate.
     Reanalysis combines model data with observations from across the world into
     a globally complete and consistent dataset. ERA5 replaces its predecessor,

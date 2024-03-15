@@ -2,6 +2,7 @@ local id = 'ECMWF/CAMS/NRT';
 local subdir = 'ECMWF';
 local version = '1';
 
+local cds_notice = import 'templates/cds_notice.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -25,7 +26,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Copernicus Atmosphere Monitoring Service (CAMS) Global Near-Real-Time',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
+  description: cds_notice.body + |||
+
     The Copernicus Atmosphere Monitoring Service provides the capacity to
     continuously monitor the composition of the Earth's atmosphere at global and
     regional scales. The main global near-real-time production system is a data
