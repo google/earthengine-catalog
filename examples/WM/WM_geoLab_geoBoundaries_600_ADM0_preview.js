@@ -24,7 +24,7 @@ Map.setCenter(lon, lat, 3);
 Map.addLayer(
   boundary,
   boundary_vis,
-  'Country Boundaries');
+  'ADM0 Boundaries');
 
 // Degrees in EPSG:4326.
 var lat_delta = 30;

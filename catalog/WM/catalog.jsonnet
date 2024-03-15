@@ -18,8 +18,8 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    // ee.link.child_collection('WM_geoLab_geoBoundaries_600_ADM0', base_url),
-    // ee.link.child_collection('WM_geoLab_geoBoundaries_600_ADM1', base_url),
-    // ee.link.child_collection('WM_geoLab_geoBoundaries_600_ADM2', base_url),
+    ee.link.child_collection('WM_geoLab_geoBoundaries_600_ADM0', base_url),
+    ee.link.child_collection('WM_geoLab_geoBoundaries_600_ADM1', base_url),
+    ee.link.child_collection('WM_geoLab_geoBoundaries_600_ADM2', base_url),
   ],
 }

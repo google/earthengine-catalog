@@ -12,7 +12,6 @@ local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
-  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   stac_extensions: [
     ee_const.ext_ver,
@@ -23,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'geoBoundaries: Political administrative boundaries at Country level (ADM0), v' + version,
   'gee:type': ee_const.gee_type.table,
   description: geoBoundaries.description + |||
-      ADM0 is part of CGAZ and it has country-level boundaries.
+      ADM0 (country-level boundaries).
     |||,
   license: geoBoundaries.license,
   links: ee.standardLinks(subdir, id) + [

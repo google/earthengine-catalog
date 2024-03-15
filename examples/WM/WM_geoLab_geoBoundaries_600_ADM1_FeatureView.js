@@ -9,7 +9,7 @@ var visParams = {
 };
 
 fvLayer.setVisParams(visParams);
-fvLayer.setName('Country Boundaries');
+fvLayer.setName('ADM1 Boundaries');
 
 Map.setCenter(-100.0, 38.5, 4);
 Map.add(fvLayer);

@@ -10,4 +10,4 @@ var styleParams = {
 
 dataset = dataset.style(styleParams);
 
-Map.addLayer(dataset, {}, 'Country Boundaries');
+Map.addLayer(dataset, {}, 'ADM0 Boundaries');

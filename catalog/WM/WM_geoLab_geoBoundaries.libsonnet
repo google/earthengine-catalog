@@ -5,7 +5,6 @@ local license = spdx.cc_by_4_0;
 
 local units = import 'units.libsonnet';
 
-
 {
   description: |||
     The geoBoundaries Global Database of Political Administrative Boundaries
@@ -20,7 +19,10 @@ local units = import 'units.libsonnet';
     three boundary levels ADM0, ADM1, and ADM2, clipped to international
     boundaries (US Department of State), with gaps filled between borders.
 
-    This dataset is ingested from Global Composite Files.
+    This dataset is part of CGAZ. It was ingested from
+    [version 6.0.0](https://github.com/wmgeolab/geoBoundaries/tree/1289e40e366c7b320550be1ee0614a9472d572d4)
+    of Global Composite Files with DBF_DATE_LAST_UPDATE=2023-09-13.
+    It shows boundaries at level 
   |||,
   keywords: [
     'borders',
