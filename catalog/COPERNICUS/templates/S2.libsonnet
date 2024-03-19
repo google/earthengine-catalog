@@ -6,10 +6,9 @@ local subdir = 'COPERNICUS';
 local license = spdx.proprietary;
 
 {
-  s2_dataset(id)::
+  s2_dataset(id, version, version_config)::
     local basename = std.strReplace(id, '/', '_');
     local base_filename = basename + '.json';
-    local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     local parent_url = catalog_subdir_url + 'catalog.json';
     local self_url = catalog_subdir_url + base_filename;
@@ -19,8 +18,10 @@ local license = spdx.proprietary;
       type: 'Collection',
       stac_extensions: [
         ee_const.ext_eo,
+        ee_const.ext_ver,
       ],
       id: id,
+      version: version,
       title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-1C',
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
@@ -54,14 +55,7 @@ local license = spdx.proprietary;
         For more details on Sentinel-2 radiometric resolution, [see this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
       |||,
       license: license.id,
-      links: [
-        ee.link.self_link(self_url),
-        ee.link.parent(parent_url),
-        ee.link.root(),
-        ee.link.example(id, subdir, basename),
-        ee.link.preview(subdir, basename),
-        ee.link.terms_of_use(self_ee_catalog_url),
-      ],
+      links: ee.standardLinks(subdir, id) + version_config.version_links,
       keywords: [
         'copernicus',
         'esa',
@@ -72,7 +66,7 @@ local license = spdx.proprietary;
       ],
       providers: [
         ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1'),
-        ee.host_provider(self_ee_catalog_url),
+        ee.host_provider(version_config.ee_catalog_url),
       ],
       extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2015-06-27T00:00:00Z', null),
       summaries: {
