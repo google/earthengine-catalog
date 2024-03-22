@@ -30,5 +30,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('UMD_hansen_global_forest_change_2020_v1_8', base_url),
     ee.link.child_collection('UMD_hansen_global_forest_change_2021_v1_9', base_url),
     ee.link.child_collection('UMD_hansen_global_forest_change_2022_v1_10', base_url),
+    ee.link.child_collection('UMD_hansen_global_forest_change_2023_v1_11', base_url),
   ],
 }
