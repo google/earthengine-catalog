@@ -6,7 +6,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'UMD_hansen_global_forest_change_versions.libsonnet';
 
 local subdir = 'UMD';
-local id = 'UMD/hansen/global_forest_change_2022_v1_10';
+local id = 'UMD/hansen/global_forest_change_2023_v1_11';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
@@ -21,9 +21,8 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Hansen Global Forest Change v1.10 (2000-2022) [deprecated]',
+  title: 'Hansen Global Forest Change v1.11 (2000-2023)',
   version: version,
-  deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||
     Results from time-series analysis of Landsat images in characterizing
@@ -35,8 +34,8 @@ local license = spdx.cc_by_4_0;
     observations from a set of quality-assessed growing-season observations for
     each of these bands.
 
-    Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2022-v1.10/download.html)
-    for this Version 1.10 update, as well as the associated journal article:
+    Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2023-v1.11/download.html)
+    for this Version 1.11 update, as well as the associated journal article:
     Hansen, Potapov, Moore, Hancher et al. "High-resolution global maps of
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
   |||,
@@ -55,7 +54,7 @@ local license = spdx.cc_by_4_0;
     ee.producer_provider('Hansen/UMD/Google/USGS/NASA', 'https://glad.earthengine.app/view/global-forest-change'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
+  extent: ee.extent_global('2000-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     gsd: [
       30.92,
@@ -127,8 +126,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'first_b30',
         description: |||
-          Landsat 7 band 3 (red) cloud-free image composite. Reference
-          multispectral imagery from the first available year, typically 2000.
+          Landsat Red cloud-free image composite (corresponding to Landsat 5/7
+          band 3 and Landsat 8/9 band 4). Reference multispectral imagery from
+          the first available year, typically 2000.
         |||,
         center_wavelength: 0.66,
         'gee:wavelength': '0.63-0.69&micro;m',
@@ -136,8 +136,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'first_b40',
         description: |||
-          Landsat 7 band 4 (NIR) cloud-free image composite. Reference
-          multispectral imagery from the first available year, typically 2000.
+          Landsat NIR cloud-free image composite (corresponding to Landsat 5/7
+          band 4 and Landsat 8/9 band 5). Reference multispectral imagery from
+          the first available year, typically 2000.
         |||,
         center_wavelength: 0.835,
         'gee:wavelength': '0.77-0.90&micro;m',
@@ -145,8 +146,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'first_b50',
         description: |||
-          Landsat 7 band 5 (SWIR) cloud-free image composite. Reference
-          multispectral imagery from the first available year, typically 2000.
+          Landsat SWIR1 cloud-free image composite (corresponding to Landsat 5/7
+          band 5 and Landsat 8/9 band 6). Reference multispectral imagery from
+          the first available year, typically 2000.
         |||,
         center_wavelength: 1.65,
         'gee:wavelength': '1.55-1.75&micro;m',
@@ -154,8 +156,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'first_b70',
         description: |||
-          Landsat 7 band 7 (SWIR) cloud-free image composite. Reference
-          multispectral imagery from the first available year, typically 2000.
+          Landsat SWIR2 cloud-free image composite (corresponding to Landsat 5/7
+          band 7 and Landsat 8/9 band 7). Reference multispectral imagery from
+          the first available year, typically 2000.
         |||,
         center_wavelength: 2.22,
         'gee:wavelength': '2.09-2.35&micro;m',
@@ -163,9 +166,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'last_b30',
         description: |||
-          Landsat 7 band 3 (red) cloud-free image composite. Reference
-          multispectral imagery from the last available year, typically the last
-          year of the study period.
+          Landsat Red cloud-free image composite (corresponding to Landsat 5/7
+          band 3 and Landsat 8/9 band 4). Reference multispectral imagery from
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 0.66,
         'gee:wavelength': '0.63-0.69&micro;m',
@@ -173,9 +176,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'last_b40',
         description: |||
-          Landsat 7 band 4 (NIR) cloud-free image composite. Reference
-          multispectral imagery from the last available year, typically the last
-          year of the study period.
+          Landsat NIR cloud-free image composite (corresponding to Landsat 5/7
+          band 4 and Landsat 8/9 band 5). Reference multispectral imagery from
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 0.835,
         'gee:wavelength': '0.77-0.90&micro;m',
@@ -183,9 +186,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'last_b50',
         description: |||
-          Landsat 7 band 5 (SWIR) cloud-free image composite. Reference
-          multispectral imagery from the last available year, typically the last
-          year of the study period.
+          Landsat SWIR1 cloud-free image composite (corresponding to Landsat 5/7
+          band 5 and Landsat 8/9 band 6). Reference multispectral imagery from
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 1.65,
         'gee:wavelength': '1.55-1.75&micro;m',
@@ -193,9 +196,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'last_b70',
         description: |||
-          Landsat 7 band 7 (SWIR) cloud-free image composite. Reference
-          multispectral imagery from the last available year, typically the last
-          year of the study period.
+          Landsat SWIR2 cloud-free image composite (corresponding to Landsat 5/7
+          band 7 and Landsat 8/9 band 7). Reference multispectral imagery from
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 2.22,
         'gee:wavelength': '2.09-2.35&micro;m',
@@ -234,8 +237,8 @@ local license = spdx.cc_by_4_0;
           Year of gross forest cover loss event. Forest loss during the study
           period, defined as a stand-replacement disturbance, or a change from a
           forest to non-forest state. Encoded as either 0 (no loss) or else a value
-          in the range 1-22, representing loss detected primarily in the year
-          2001-2022, respectively.
+          in the range 1-23, representing loss detected primarily in the year
+          2001-2023, respectively.
         |||,
       },
     ],
@@ -278,7 +281,7 @@ local license = spdx.cc_by_4_0;
     },
     lossyear: {
       minimum: 0.0,
-      maximum: 22.0,
+      maximum: 23.0,
       'gee:estimated_range': false,
     },
   },
