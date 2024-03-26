@@ -93,7 +93,6 @@ EXCEPTIONS = frozenset({
     'firecci',
     'firecci51',
     'fldas',
-    'flood',
     'flow_regulation',
     'forest_inventory_and_analysis',
     'forest_type',

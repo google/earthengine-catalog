@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('WRI_Aqueduct_Flood', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_alerts', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_raw_output_firms', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_raw_output_ndvi', base_url),
