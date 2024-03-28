@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import datetime
+import itertools
 from typing import Any
 
 from absl import app
@@ -20,15 +21,6 @@ from absl import app
 import ee
 from google3.third_party.earthengine_catalog.pipelines import gedi_extract_l4a
 import gedi_lib
-
-# From https://lpdaac.usgs.gov/products/gedi02_av002/
-# We list all known property names for safety, even though we might not
-# be currently using all of them during rasterization.
-INTEGER_PROPS = (
-    gedi_extract_l4a.numeric_variables +
-    gedi_extract_l4a.group_var_dict['agbd_prediction'] +
-    gedi_extract_l4a.group_var_dict['geolocation'] +
-    gedi_extract_l4a.group_var_dict['land_cover_data'])
 
 
 def export_wrapper(table_asset_ids: list[str], raster_asset_id: str,
@@ -46,14 +38,23 @@ def export_wrapper(table_asset_ids: list[str], raster_asset_id: str,
   Returns:
     an ExportParameters object containing arguments for an export job.
   """
+  numeric_vars = []
+  int_vars = []
+  for gedi_vars in [gedi_extract_l4a.gedi_vars] + list(
+      gedi_extract_l4a.group_vars.values()
+  ):
+    numeric_vars.extend(gedi_vars.numeric_vars())
+    int_vars.extend(gedi_vars.integer_variables)
+
   return gedi_lib.create_export(
       table_asset_ids=table_asset_ids,
       raster_asset_id=raster_asset_id,
-      raster_bands=list(INTEGER_PROPS),
-      int_bands=list(INTEGER_PROPS),
+      raster_bands=numeric_vars,
+      int_bands=int_vars,
       grid_cell_feature=grid_cell_feature,
       grill_month=grill_month,
-      overwrite=overwrite)
+      overwrite=overwrite,
+  )
 
 
 def main(argv):
