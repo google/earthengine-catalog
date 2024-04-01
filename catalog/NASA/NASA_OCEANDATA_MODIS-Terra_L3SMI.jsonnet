@@ -59,22 +59,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/GHMDT-2PJ19',
     },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/TERRA/MODIS/L3M/CHL/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/TERRA/MODIS/L3M/FLH/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/TERRA/MODIS/L3M/POC/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/TERRA/MODIS/L3M/RRS/2018',
-    },
   ],
   keywords: [
     'biology',
@@ -517,32 +501,36 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
         Mapped Chlorophyll Data Version R2018.0</i> [Data set]. NASA Ocean
         Biology DAAC.
+
+        *   DOI: 10.5067/TERRA/MODIS/L3M/CHL/2018 [unrecoverable]
       |||,
-      doi: '10.5067/TERRA/MODIS/L3M/CHL/2018',
     },
     {
       citation: |||
         NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
         Mapped Fluorescent Line Height Data Version R2018.0</i> [Data set]. NASA
         Ocean Biology DAAC.
+
+        *   DOI: 10.5067/TERRA/MODIS/L3M/FLH/2018 [unrecoverable]
       |||,
-      doi: '10.5067/TERRA/MODIS/L3M/FLH/2018',
     },
     {
       citation: |||
         NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
         Mapped Particulate Organic Carbon Data Version R2018.0</i> [Data
         set]. NASA Ocean Biology DAAC.
+
+        *   DOI: 10.5067/TERRA/MODIS/L3M/POC/2018 [unrecoverable]
       |||,
-      doi: '10.5067/TERRA/MODIS/L3M/POC/2018',
     },
     {
       citation: |||
         NASA Ocean Biology Processing Group. (2018). <i>MODIS-TERRA Level 3
         Mapped Remote-Sensing Reflectance Data Version R2018.0</i> [Data
         set]. NASA Ocean Biology DAAC.
+
+        *   DOI:  10.5067/TERRA/MODIS/L3M/RRS/2018  [unrecoverable]
       |||,
-      doi: '10.5067/TERRA/MODIS/L3M/RRS/2018',
     },
   ],
   'gee:interval': {
