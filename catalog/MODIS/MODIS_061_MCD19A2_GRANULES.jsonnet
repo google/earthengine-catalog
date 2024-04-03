@@ -1,16 +1,16 @@
 local id = 'MODIS/061/MCD19A2_GRANULES';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MCD19A2_GRANULES_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
 local template = import 'templates/MODIS_061_MCD19A2_GRANULES.libsonnet';
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MCD19A2.061: Terra & Aqua MAIAC Land Aerosol Optical Depth Daily 1km',
-  version: '6.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD19A2 V6.1 data product is a MODIS Terra and Aqua combined Multi-angle
@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MCD19A2.061',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'aerosol',
     'aod',
@@ -55,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD19A2.061'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1000000505-LPDAAC_ECS',
