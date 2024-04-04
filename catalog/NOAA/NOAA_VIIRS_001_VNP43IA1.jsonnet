@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [User's Guide](https://www.umb.edu/spectralmass/viirs_user_guide/vnp43ia1_and_vnp43ma1_brdf_albedo_model_parameters_product)
+    * [User's Guide](https://www.umb.edu/spectralmass/viirs-user-guide/vnp43ia1-and-vnp43ma1-brdf-albedo-model-parameters)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/194/VNP43_ATBD_V1.pdf)
 
