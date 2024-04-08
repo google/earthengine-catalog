@@ -66,7 +66,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     cover loss, JRC Tropical Moist Forest, IIASA Global Forest Management),
     built-up (JRC Global Human Settlement), and water (JRC Global Surface Water).
 
-    The detailed mapping approach will be described in a separate technical report expected to be released by March 2024. The accuracy of this map has not been yet assessed but will be reported as soon as available.
+    The global input layers, mapping approach, and a preliminary accuracy
+    assessment are described in a [JRC science for policy report](https://op.europa.eu/en/publication-detail/-/publication/f9baaa45-e73f-11ee-9ea8-01aa75ed71a1).
+    The JRC will undertake a formal statistically and thematically robust
+    accuracy assessment in 2024.
 
     Please also refer to the [list of known issues](https://forobs.jrc.ec.europa.eu/GFC) and to the [JRC Data Catalogue entry](https://data.jrc.ec.europa.eu/dataset/10d1b337-b7d1-4938-a048-686c8185b290).
   |||,
@@ -91,6 +94,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     version 1. European Commission, Joint Research Centre (JRC) [Dataset] PID:
     [http://data.europa.eu/89h/10d1b337-b7d1-4938-a048-686c8185b290](http://data.europa.eu/89h/10d1b337-b7d1-4938-a048-686c8185b290).
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Bourgoin, C., Ameztoy, I., Verhegghen, A., Desclée, B., Carboni, S.,
+        Bastin, J., Beuchle, R., Brink, A., Defourny, P., Delhez, B., Fritz, S.,
+        Gond, V., Herold, M., Lamarche, C., Mansuy, N., Mollicone, D., Oom, D.,
+        Peedell, S., San-Miguel, J., Colditz, R. and Achard, F., Mapping Global
+        Forest Cover of the Year 2020 to Support the EU Regulation on
+        Deforestation-free Supply Chains, Publications Office of the European
+        Union, Luxembourg, 2024, [doi:10.2760/262532](https://doi.org/10.2760/262532), JRC136960.
+      |||,
+      doi: '10.2760/262532',
+    },
+  ],
   'gee:user_uploaded': true,
   'gee:terms_of_use': |||
       The data may be used by anyone, anywhere, anytime without permission,
