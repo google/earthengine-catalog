@@ -35,7 +35,8 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     and projections to 2025 and 2030 derived from CIESIN GPWv4.11 were
     disaggregated from census or administrative units to grid cells, informed by
     the distribution, volume, and classification of built-up area as mapped in
-    the global GHSL built-up surface layers per epoch.
+    the [global GHSL built-up surface layers](https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_S)
+    per epoch.
 
     More information about the GHSL main products can be found in the
     [GHSL Data Package 2023 report]
@@ -68,7 +69,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     'eo:bands': [
       {
         name: 'population_count',
-        description: 'Number of people per cell',
+        description: 'Population count by epoch'
       },
     ],
     'gee:visualizations': [
@@ -100,11 +101,6 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
         },
       },
     ],
-    population_count: {
-      minimum: 0.0,
-      maximum: 1344190.0,
-      'gee:estimated_range': true,
-    },
   },
   'sci:citation': |||
    Schiavina, Marcello; Freire, Sergio; Alessandra Carioli; MacManus, Kytt (2023):

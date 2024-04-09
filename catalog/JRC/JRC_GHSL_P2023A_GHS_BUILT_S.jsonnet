@@ -5,6 +5,7 @@ local subdir = 'JRC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -25,7 +26,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GHSL: Global built-Up surface 1975-2030 (P2023A)',
+  title: 'GHSL: Global built-up surface 1975-2030 (P2023A)',
   version: 'P2023A',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -76,16 +77,18 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     'eo:bands': [
       {
         name: 'built_surface',
-        description: 'Built-up surface per grid cell in square metres',
+        description: 'Built-up surface per grid cell',
+        'gee:units': units.area
       },
       {
         name: 'built_surface_nres',
-        description: 'Non-residential built-up surface per grid cell in square metres',
+        description: 'Non-residential built-up surface per grid cell',
+        'gee:units': units.area
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Multitemporal Built-up Surface',
+        display_name: 'Built-up surface per grid cell in square metres',
         lookat: {
           lat: 75,
           lon: 28,

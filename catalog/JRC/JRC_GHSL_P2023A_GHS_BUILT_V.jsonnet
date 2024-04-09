@@ -4,6 +4,7 @@ local subdir = 'JRC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -29,8 +30,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     total building volume and the building volume allocated to grid cells of
     predominant non-residential (NRES) use. Estimates are based on the (built-up
     surface)
-    [ https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_S]
-    and (building height))
+    [https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_S]
+    and (building height)
     [https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_H]
     products.
 
@@ -69,16 +70,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'built_volume_total',
-        description: 'Total (Residential and Non-Residential) Built-up Volume',
+        description: 'Total building volume per grid cell',
+        'gee:units': units.volume,
       },
       {
         name: 'built_volume_nres',
-        description: 'Non-Residential Built-up Volume',
+        description: 'Non-residential building volume per grid cell',
+        'gee:units': units.volume,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Total (Residential and Non-Residential) Built-up Volume',
+        display_name: 'Total building volume per grid cell in cubic meters',
         lookat: {
           lat: 77.15,
           lon: 28.65,

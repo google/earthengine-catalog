@@ -19,6 +19,9 @@
   acceleration_si: 'm/s^2',
   // https://en.wikipedia.org/wiki/Air_pollutant_concentrations
   mg_per_sq_m: '&mu;g/m&sup3',
+
+  // https://en.wikipedia.org/wiki/Area
+  area: 'm^2',
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
   area_density_megagrams_per_hectare: 'Mg/ha',
@@ -202,6 +205,9 @@
 
   // https://en.wikipedia.org/wiki/Velocity
   velocity_si: 'm/s',
+
+  // https://en.wikipedia.org/wiki/Volume
+  volume: 'm^3',
 
   // https://en.wikipedia.org/wiki/Volume_fraction
   volume_fraction: 'Volume fraction',

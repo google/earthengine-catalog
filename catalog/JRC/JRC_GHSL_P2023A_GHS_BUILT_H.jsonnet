@@ -4,6 +4,7 @@ local subdir = 'JRC';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
@@ -70,12 +71,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'built_height',
-        description: 'Multitemporal Built-up Height',
+        description: 'Average building height per grid cell',
+        'gee:units': units.meter
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Multitemporal Built-up Height',
+        display_name: 'Average building height per grid cell in meters',
         lookat: {
           lat: 74,
           lon: 31,
