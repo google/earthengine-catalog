@@ -5,7 +5,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'USFS_GTAC_LCMS.libsonnet';
 
 local subdir = 'USFS';
-local version = 'v2022.8';
+local version = 'v2023.9';
 local version_config = versions(subdir, version_table, version);
 local basename = std.strReplace(version_config.id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -22,14 +22,16 @@ local license = spdx.proprietary;
   ],
   id: version_config.id,
   title: 'USFS Landscape Change Monitoring System ' + version + ' ' +
-    '(CONUS and OCONUS) [deprecated]',
+    '(CONUS and OCONUS)',
   version: version,
-  deprecated: true,
+  'gee:skip_indexing': true
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the CONUS and OCONUS.
+    covers the Conterminous United States (CONUS) and Southeastern Alaska, Hawaii and 
+    Puerto Rico-US Virgin Islands (OCONUS). Hawaii and Puerto Rico-US Virgin Islands data will
+    be released in summer 2024.
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -45,7 +47,7 @@ local license = spdx.proprietary;
     Because no algorithm performs best in all situations, LCMS uses an ensemble of models as
     predictors, which improves map accuracy across a range of ecosystems and change processes
     (Healey et al., 2018). The resulting suite of LCMS change, land cover, and land use maps offer
-    a holistic depiction of landscape change across the United States over the past four decades.
+    a holistic depiction of landscape change across the United States since 1985.
 
     Predictor layers for the LCMS model include outputs
     from the LandTrendr and CCDC change detection algorithms, and terrain information. These
@@ -68,16 +70,21 @@ local license = spdx.proprietary;
     All cloud and cloud shadow free values are also temporally segmented using the CCDC algorithm
     (Zhu and Woodcock, 2014).
 
-    The raw composite values, LandTrendr fitted values, pair-wise differences,
-    segment duration, change magnitude, and slope, and CCDC September 1 sine and
+    Predictor data include raw composite values, LandTrendr fitted values, pair-wise differences,
+    segment duration, change magnitude, and slope, and CCDC sine and
     cosine coefficients (first 3 harmonics), fitted values, and pairwise
     differences, along with elevation, slope, sine of aspect, cosine of aspect,
     and topographic position indices (Weiss, 2001) from the 10 m USGS 3D Elevation
-    Program (3DEP) data (U.S. Geological Survey, 2019), are used as
-    independent predictor variables in a Random Forest (Breiman, 2001) model.
+    Program (3DEP) data (U.S. Geological Survey, 2019).
 
     Reference data are collected using TimeSync, a web-based tool that helps
     analysts visualize and interpret the Landsat data record from 1984-present (Cohen et al., 2010).
+
+    Random Forests models (Breiman, 2001) were trained using reference data from TimeSync and predictor data 
+    from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes. 
+    Following modeling, we instituted a series of probability thresholds and rulesets using ancillary datasets 
+    to improve qualitative map outputs and reduce commission and omission. More information can be found in 
+    the LCMS Methods Brief included in the Description. 
 
     **Additional Resources**
 
@@ -86,7 +93,7 @@ local license = spdx.proprietary;
     * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
       provides users the ability to view, analyze, summarize and download LCMS data.
 
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2022-8_Methods.pdf)
+    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2023-9_Methods.pdf)
       for more detailed information regarding methods and accuracy assessment, or the
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
@@ -176,18 +183,16 @@ local license = spdx.proprietary;
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
   ] + version_config.version_links,
   keywords: [
+    'lcms',
     'change',
     'change_detection',
-    'forest',
-    'gtac',
     'landcover',
-    'landsat_derived',
     'landuse',
-    'lcms',
-    'redcastle_resources',
-    'rmrs',
-    'sentinel2_derived',
+    'forest',
+    'landsat',
+    'sentinel2',
     'time_series',
+    'gtac',
     'usda',
     'usfs',
   ],
@@ -196,15 +201,16 @@ local license = spdx.proprietary;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
-                    '1985-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
+                    '1985-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       { 
         name: 'study_area',
         description: |||
           LCMS currently covers the conterminous United States, Southeastern Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
-          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, and Hawaii.
+          Puerto Rico-US Virgin Islands, and Hawaii (summer 2024). This version contains outputs across 
+          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands (summer 2024), 
+          and Hawaii (summer 2024).
           Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
@@ -226,7 +232,8 @@ local license = spdx.proprietary;
           that the pixel belongs to that class. Because of this, individual pixels have three different
           model outputs for each year. Final classes are assigned to the change class with the highest
           probability that is also above a specified threshold. Any pixel that does not have any value
-          above each class's respective threshold is assigned to the Stable class.
+          above each class's respective threshold is assigned to the Stable class. Prior to assigning the 
+          change class, a rule was applied to all study areas to prevent change in non-vegetated land cover. 
         |||,
         'gee:classes': [
           {
@@ -264,11 +271,13 @@ local license = spdx.proprietary;
           imagery. Each class is predicted using a separate Random Forest model, which outputs a
           probability (proportion of the trees within the Random Forest model) that the pixel belongs
           to that class. Because of this, individual pixels have 14 different model outputs for each
-          year, and final classes are assigned to the land cover with the highest probability. Seven of
-          the 14 land cover classes indicate a single land cover, where that land cover type covers
-          most of the pixel's area and no other class covers more than 10% of the pixel. There are also
-          seven mixed classes. These represent pixels in which an additional land cover class covers at
-          least 10% of the pixel.
+          year, and final classes are assigned to the land cover with the highest probability. For Southeastern 
+          Alaska, prior to assigning the land cover class with the highest probability, a land cover rule was 
+          implemented to limit tree and snow landcover class commission in the large intertidal zones at sea level. 
+          No land cover rules were applied to CONUS, Puerto Rico-US Virgin Islands or Hawaii. Seven of the 14 land 
+          cover classes indicate a single land cover, where that land cover type covers most of the pixel's area and 
+          no other class covers more than 10% of the pixel. There are also seven mixed classes. These represent pixels 
+          in which an additional land cover class covers at least 10% of the pixel.
         |||,
         'gee:classes': [
           {
@@ -356,7 +365,10 @@ local license = spdx.proprietary;
           Each class is predicted using a separate Random Forest model, which outputs a probability
           (proportion of the trees within the Random Forest model) that the pixel belongs to that class.
           Because of this, individual pixels have 6 different model outputs for each year, and final
-          classes are assigned to the land use with the highest probability.
+          classes are assigned to the land use with the highest probability. Prior to assigning the land 
+          use class with the highest probability, a series of probability thresholds and rulesets using 
+          ancillary datasets land use rules were applied. More information on the probability thresholds 
+          and rulesets can be found in the LCMS Methods Brief included in the Description.  
         |||,
         'gee:classes': [
           {
@@ -795,8 +807,8 @@ local license = spdx.proprietary;
     ],
   },
   'sci:citation': |||
-    USDA Forest Service. 2023. USFS Landscape Change Monitoring System
-    v2022.8 (Conterminous United States and Southeastern Alaska).
+    USDA Forest Service. 2024. USFS Landscape Change Monitoring System
+    v2023.9 (Conterminous United States and  Outer Conterminous United States).
     Salt Lake City, Utah.
   |||,
   'gee:terms_of_use': |||
@@ -815,8 +827,8 @@ local license = spdx.proprietary;
     without additional permissions or fees. If you use these data in a publication, presentation, or
     other research product please use the following citation:
 
-    USDA Forest Service. 2023. USFS Landscape Change Monitoring System v2022.8
-    (Conterminous United States and Southeastern Alaska). Salt Lake City, Utah.
+    USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9
+    (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
   'gee:user_uploaded': true,
 }

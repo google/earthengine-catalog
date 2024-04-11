@@ -386,7 +386,7 @@ local license = spdx.proprietary;
     other research product please use the following citation:
 
     USDA Forest Service. 2023. USFS Tree Canopy Cover v2021.4
-    (Conterminous United States and Southeastern Alaska). Salt Lake City, Utah.
+    (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
   'gee:user_uploaded': true,
 }
