@@ -30,9 +30,8 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the Conterminous United States (CONUS) and Southeastern Alaska, Hawaii and 
-    Puerto Rico-US Virgin Islands (OCONUS). Hawaii and Puerto Rico-US Virgin Islands data will
-    be released in summer 2024.
+    covers the Conterminous United States (CONUS) and Southeastern Alaska (OCONUS). Hawaii 
+    and Puerto Rico-US Virgin Islands (OCONUS) data will be released in summer 2024.
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -80,12 +79,6 @@ local license = spdx.proprietary;
 
     Reference data are collected using TimeSync, a web-based tool that helps
     analysts visualize and interpret the Landsat data record from 1984-present (Cohen et al., 2010).
-
-    Random Forests models (Breiman, 2001) were trained using reference data from TimeSync and predictor data 
-    from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes. 
-    Following modeling, we instituted a series of probability thresholds and rulesets using ancillary datasets 
-    to improve qualitative map outputs and reduce commission and omission. More information can be found in 
-    the LCMS Methods Brief included in the Description. 
 
     **Additional Resources**
 
@@ -191,7 +184,7 @@ local license = spdx.proprietary;
     'landuse',
     'forest',
     'landsat',
-    'sentinel2',
+    'sentinel',
     'time_series',
     'gtac',
     'usda',
