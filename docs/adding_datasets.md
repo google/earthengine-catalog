@@ -41,7 +41,8 @@ your real PRs later.
 
 1. Create a jsonnet file describing the dataset using any of the existing files
 as a starting point. See also [template files with field
-annotations](../catalog/TEMPLATE).
+annotations](../catalog/TEMPLATE). The order of the fields that are located
+at the same level does not matter.
 
 1. The text fields support
 [markdown syntax](https://www.markdownguide.org/cheat-sheet/).
