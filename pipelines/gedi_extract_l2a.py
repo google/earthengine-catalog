@@ -79,13 +79,17 @@ string_variables = ('shot_number',)
 rh_names = tuple([f'rh{d}' for d in range(101)])
 
 
-def extract_values(input_paths: list[str], output_path: str) -> None:
-  """Extracts all rh (relative heights) from all algorithms and some qa flags.
+def extract_values(
+      input_paths: list[str], output_path: str,
+      use_all_algorithms: bool = False) -> None:
+  """Extracts all rh (relative heights) and some qa flags.
 
   Args:
      input_paths: GEDI L2A and GEDI L2B file paths
      output_path: csv output file path
+     use_all_algorithms: whether to read rh data from all algorithms
   """
+  del use_all_algorithms  # unused for now
   l2a_path = input_paths[0]
   l2b_path = input_paths[1]
 
