@@ -35,6 +35,7 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, id) +
   version_config.version_links,
   keywords: [
+    'change_detection',
     'geophysical',
     'google',
     'jrc',
