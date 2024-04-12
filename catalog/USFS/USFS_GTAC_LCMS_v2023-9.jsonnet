@@ -728,8 +728,12 @@ local license = spdx.proprietary;
       },
     ],
   },
-  'sci:citation': 'USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9 (Conterminous United States and  Outer Conterminous United States). Salt Lake City, Utah.',
-  'sci:publications: [
+  'sci:citation': |||
+    USDA Forest Service. 2024. USFS Landscape Change Monitoring System
+    v2023.9 (Conterminous United States and  Outer Conterminous United States).
+    Salt Lake City, Utah.
+  |||,
+  'sci:publications': [
     {
       citation: |||
         Breiman, L., 2001. Random Forests. In Machine Learning. Springer, 45: 5-32.
