@@ -4,9 +4,6 @@ local spdx = import 'spdx.libsonnet';
 
 local subdir = 'USFS';
 local id = 'USFS/GTAC/LCMS/v2023-9';
-
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
  
 local version = 'v2023.9';
 local basename = std.strReplace(id, '/', '_');
