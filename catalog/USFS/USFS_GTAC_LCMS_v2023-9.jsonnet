@@ -739,7 +739,7 @@ local license = spdx.proprietary;
         Breiman, L., 2001. Random Forests. In Machine Learning. Springer, 45: 5-32.
         [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
       |||,
-      doi:10.1023/A:1010933404324
+      doi:10.1023/A:1010933404324,
     },
     {
       citation: |||
@@ -749,7 +749,7 @@ local license = spdx.proprietary;
         conterminous United States. In Remote Sensing of Environment. Science Direct,
         221: 274-285. [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
       |||,
-      doi:10.1016/j.rse.2018.11.012
+      doi:10.1016/j.rse.2018.11.012,
     },
     {
       citation: |||
@@ -759,7 +759,7 @@ local license = spdx.proprietary;
         Science Direct, 114(12): 2911-2924. [doi:10.1016/j.rse.2010.07.010]
         (https://doi.org/10.1016/j.rse.2010.07.010)
       |||,
-      doi:10.1016/j.rse.2010.07.010
+      doi:10.1016/j.rse.2010.07.010,
     },
     {
       citation: |||
@@ -768,7 +768,7 @@ local license = spdx.proprietary;
         In Remote Sensing of Environment. Science Direct, 205: 131-140.
         [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
       |||,
-      doi:10.1016/j.rse.2017.11.015
+      doi:10.1016/j.rse.2017.11.015,
     },
     {
       citation: |||
@@ -778,7 +778,7 @@ local license = spdx.proprietary;
         products. In Remote Sensing of Environment. Science Direct, 194: 379-390.
         [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
       |||,
-      doi:10.1016/j.rse.2017.03.026
+      doi:10.1016/j.rse.2017.03.026,
     },
     {
       citation: |||
@@ -797,7 +797,7 @@ local license = spdx.proprietary;
         Remote Sensing of Environment. Science Direct, 204: 717-728.
         [doi:10.1016/j.rse.2017.09.029](https://doi.org/10.1016/j.rse.2017.09.029)
       |||,
-      doi:10.1016/j.rse.2017.09.029
+      doi:10.1016/j.rse.2017.09.029,
     },
     {
       citation: |||
@@ -807,7 +807,7 @@ local license = spdx.proprietary;
         Science Direct, 114(12): 2897-2910. [doi:10.1016/j.rse.2010.07.008]
         (https://doi.org/10.1016/j.rse.2010.07.008)
       |||,
-      doi:10.1016/j.rse.2010.07.008
+      doi:10.1016/j.rse.2010.07.008,
     },
     {
       citation: |||
@@ -816,7 +816,7 @@ local license = spdx.proprietary;
         Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
         10(5): 691. [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
       |||,
-      doi:10.3390/rs10050691
+      doi:10.3390/rs10050691,
     },
     {
       citation: |||
@@ -839,7 +839,7 @@ local license = spdx.proprietary;
         detection in Landsat imagery. In Remote Sensing of Environment. Science Direct,
         118: 83-94. [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
       |||,
-      doi:10.1016/j.rse.2011.10.028
+      doi:10.1016/j.rse.2011.10.028,
     },
     {
       citation: |||
@@ -848,7 +848,7 @@ local license = spdx.proprietary;
         In Remote Sensing of Environment. Science Direct, 144: 152-171.
         [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
       |||,
-      doi:10.1016/j.rse.2014.01.011
+      doi:10.1016/j.rse.2014.01.011,
     },
   ],
   'gee:terms_of_use': |||
