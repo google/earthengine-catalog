@@ -54,7 +54,6 @@ EXCEPTIONS = frozenset({
     'cdl',
     'cgiar',
     'change',
-    'change_detection',
     'china',
     'chip',
     'ciesin_derived',

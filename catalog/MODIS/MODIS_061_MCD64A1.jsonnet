@@ -68,6 +68,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   keywords: [
     'burn',
+    'change_detection',
     'fire',
     'geophysical',
     'global',
