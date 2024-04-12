@@ -3,7 +3,11 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local subdir = 'USFS';
-local id = 'USFS/GTAC/LCMS/v2023-9'; 
+local id = 'USFS/GTAC/LCMS/v2023-9';
+
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
+ 
 local version = 'v2023.9';
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -100,9 +104,9 @@ local license = spdx.proprietary;
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, version) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
-  ] + version_config.version_links,
+  ] + 'USFS/GTAC/LCMS/v2023-9',
   keywords: [
     'change_detection',
     'landcover',
