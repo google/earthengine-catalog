@@ -101,9 +101,12 @@ local license = spdx.proprietary;
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version) + [
-    ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
-  ] + {'USFS/GTAC/LCMS/v2023-9'},
+  links: ee.standardLinks(subdir, id) + [
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
+    },
+  ],
   keywords: [
     'change_detection',
     'landcover',
