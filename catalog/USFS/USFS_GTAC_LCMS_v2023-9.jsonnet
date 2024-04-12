@@ -30,8 +30,9 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the Conterminous United States (CONUS) and Southeastern Alaska (OCONUS). Hawaii 
-    and Puerto Rico-US Virgin Islands (OCONUS) data will be released in summer 2024.
+    covers the Conterminous United States (CONUS) and Southeastern Alaska, Hawaii and 
+    Puerto Rico-US Virgin Islands (OCONUS). Hawaii and Puerto Rico-US Virgin Islands data will
+    be released in summer 2024.
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -80,6 +81,12 @@ local license = spdx.proprietary;
     Reference data are collected using TimeSync, a web-based tool that helps
     analysts visualize and interpret the Landsat data record from 1984-present (Cohen et al., 2010).
 
+    Random Forests models (Breiman, 2001) were trained using reference data from TimeSync and predictor data 
+    from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes. 
+    Following modeling, we instituted a series of probability thresholds and rulesets using ancillary datasets 
+    to improve qualitative map outputs and reduce commission and omission. More information can be found in 
+    the LCMS Methods Brief included in the Description. 
+
     **Additional Resources**
 
     * [A more detailed code example of using LCMS data](https://github.com/google/earthengine-community/blob/master/datasets/scripts/LCMS_Visualization.js).
@@ -94,91 +101,12 @@ local license = spdx.proprietary;
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
-
-    * **Breiman, L., 2001.**
-    Random Forests. In Machine Learning. *Springer*,
-    45: 5-32
-    [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
-
-    * **Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.**
-    Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, and Landsat-7 ETM
-    top of atmosphere spectral characteristics over the conterminous United States. In Remote
-    Sensing of Environment. *Science Direct*,
-    221: 274-285
-    [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
-
-    * **Cohen, W. B., Yang, Z., and Kennedy, R., 2010.**
-    Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2.
-    TimeSync - Tools for calibration and validation. In Remote Sensing of Environment.
-    *Science Direct*,
-    114(12): 2911-2924
-    [doi:10.1016/j.rse.2010.07.010](https://doi.org/10.1016/j.rse.2010.07.010)
-
-    * **Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 2018.**
-    A LandTrendr multispectral ensemble for forest disturbance detection. In Remote Sensing of
-    Environment. *Science Direct*,
-    205: 131-140
-    [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
-
-    * **Foga, S., Scaramuzza, P.L., Guo, S., Zhu, Z., Dilley, R.D., Beckmann,
-    T., Schmidt, G.L., Dwyer, J.L., Hughes, M.J., Laue, B., 2017.** Cloud
-    detection algorithm comparison and validation for operational Landsat data
-    products. In Remote Sensing of Environment.  *Science Direct*, 194: 379-390
-    [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
-
-    * **U.S. Geological Survey, 2019.** USGS 3D Elevation Program Digital Elevation
-    Model, accessed August 2022 at https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
-
-    * **Healey, S. P., Cohen, W. B., Yang, Z., Kenneth Brewer, C., Brooks, E. B.,
-    Gorelick, N., Hernandez, A. J., Huang, C., Joseph Hughes, M., Kennedy,
-    R. E., Loveland, T. R., Moisen, G. G., Schroeder, T. A., Stehman, S. V.,
-    Vogelmann, J. E., Woodcock, C. E., Yang, L., and Zhu, Z., 2018.**
-    Mapping forest change using stacked generalization: An ensemble approach. In Remote Sensing of
-    Environment. *Science Direct*,
-    204: 717-728
-    [doi:10.1016/j.rse.2017.09.029](https://doi.org/10.1016/j.rse.2017.09.029)
-
-    * **Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010.**
-    Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1.
-    LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment.
-    *Science Direct*,
-    114(12): 2897-2910
-    [doi:10.1016/j.rse.2010.07.008](https://doi.org/10.1016/j.rse.2010.07.008)
-
-    * **Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., Cohen, W., and Healey, S., 2018.**
-    Implementation of the LandTrendr Algorithm on Google Earth Engine. In Remote Sensing. *MDPI*,
-    10(5): 691
-    [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
-
-    * **Sentinel-Hub, 2021.**
-    Sentinel 2 Cloud Detector. [Online].
-    Available at: [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
-
-    * **Weiss, A.D., 2001.**
-    Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
-    San Diego, CAZhu, Z., and Woodcock, C. E. (2012).
-    Object-based cloud and cloud shadow detection in Landsat imagery. 
-    118: 83-94
-
-    * **Zhu, Z., and Woodcock, C. E., 2012.**. 
-    Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
-    Environment. *Science Direct*,
-    118: 83-94
-    [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
-
-    * **Zhu, Z., and Woodcock, C. E., 2014.**
-    Continuous change detection and classification of land cover using all available Landsat data.
-    In Remote Sensing of Environment. *Science Direct*,
-    144: 152-171
-    [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, version_config.id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
   ] + version_config.version_links,
   keywords: [
-    'lcms',
-    'change',
     'change_detection',
     'landcover',
     'landuse',
@@ -805,6 +733,114 @@ local license = spdx.proprietary;
     v2023.9 (Conterminous United States and  Outer Conterminous United States).
     Salt Lake City, Utah.
   |||,
+  'sci:publications: [
+    {
+      citation: |||
+        Breiman, L., 2001. Random Forests. In Machine Learning. Springer, 45: 5-32.
+        [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
+      |||,
+    },
+    {
+      citation: |||
+        Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.
+        Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, 
+        and Landsat-7 ETM top of atmosphere spectral characteristics over the 
+        conterminous United States. In Remote Sensing of Environment. Science Direct,
+        221: 274-285. [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
+      |||,
+    },
+    {
+      citation: |||
+        Cohen, W. B., Yang, Z., and Kennedy, R., 2010. Detecting trends in forest 
+        disturbance and recovery using yearly Landsat time series: 2. TimeSync - 
+        Tools for calibration and validation. In Remote Sensing of Environment.
+        Science Direct, 114(12): 2911-2924. [doi:10.1016/j.rse.2010.07.010]
+        (https://doi.org/10.1016/j.rse.2010.07.010)
+      |||,
+    },
+    {
+      citation: |||
+        Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 
+        2018. A LandTrendr multispectral ensemble for forest disturbance detection. 
+        In Remote Sensing of Environment. Science Direct, 205: 131-140.
+        [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
+      |||,
+    },
+    {
+      citation: |||
+        Foga, S., Scaramuzza, P.L., Guo, S., Zhu, Z., Dilley, R.D., Beckmann,
+        T., Schmidt, G.L., Dwyer, J.L., Hughes, M.J., Laue, B., 2017. Cloud
+        detection algorithm comparison and validation for operational Landsat data
+        products. In Remote Sensing of Environment. Science Direct, 194: 379-390.
+        [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
+      |||,
+    },
+    {
+      citation: |||
+        U.S. Geological Survey, 2019. USGS 3D Elevation Program Digital Elevation
+        Model, accessed August 2022 at 
+        https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
+      |||,
+    },
+    {
+      citation: |||
+        Healey, S. P., Cohen, W. B., Yang, Z., Kenneth Brewer, C., Brooks, E. B.,
+        Gorelick, N., Hernandez, A. J., Huang, C., Joseph Hughes, M., Kennedy,
+        R. E., Loveland, T. R., Moisen, G. G., Schroeder, T. A., Stehman, S. V.,
+        Vogelmann, J. E., Woodcock, C. E., Yang, L., and Zhu, Z., 2018. Mapping 
+        forest change using stacked generalization: An ensemble approach. In 
+        Remote Sensing of Environment. Science Direct, 204: 717-728.
+        [doi:10.1016/j.rse.2017.09.029](https://doi.org/10.1016/j.rse.2017.09.029)
+      |||,
+    },
+    {
+      citation: |||
+        Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010. Detecting trends 
+        in forest disturbance and recovery using yearly Landsat time series: 1. 
+        LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment. 
+        Science Direct, 114(12): 2897-2910. [doi:10.1016/j.rse.2010.07.008]
+        (https://doi.org/10.1016/j.rse.2010.07.008)
+      |||,
+    },
+    {
+      citation: |||
+        Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., 
+        Cohen, W., and Healey, S., 2018. Implementation of the LandTrendr 
+        Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
+        10(5): 691. [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
+      |||,
+    },
+    {
+      citation: |||
+        Sentinel-Hub, 2021. Sentinel 2 Cloud Detector. [Online]. Available at: 
+        [https://github.com/sentinel-hub/sentinel2-cloud-detector]
+        (https://github.com/sentinel-hub/sentinel2-cloud-detector)
+      |||,
+    },
+    {
+      citation: |||
+        Weiss, A.D., 2001. Topographic position and landforms analysis 
+        Poster Presentation, ESRI Users Conference, San Diego, CAZhu, Z., 
+        and Woodcock, C. E. (2012). Object-based cloud and cloud shadow 
+        detection in Landsat imagery. 118: 83-94.
+      |||,
+    },
+    {
+      citation: |||
+        Zhu, Z., and Woodcock, C. E., 2012. Object-based cloud and cloud shadow
+        detection in Landsat imagery. In Remote Sensing of Environment. Science Direct,
+        118: 83-94. [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
+      |||,
+    },
+    {
+      citation: |||
+        Zhu, Z., and Woodcock, C. E., 2014. Continuous change detection 
+        and classification of land cover using all available Landsat data.
+        In Remote Sensing of Environment. Science Direct, 144: 152-171.
+        [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)
+      |||,
+    },
+  ],
   'gee:terms_of_use': |||
     The USDA Forest Service makes no warranty, expressed or implied, including the warranties of
     merchantability and fitness for a particular purpose, nor assumes any legal liability or
