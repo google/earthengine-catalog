@@ -1,11 +1,13 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USFS_GTAC_LCMS_versions.libsonnet';
 
 local subdir = 'USFS';
 local id = 'USFS/GTAC/LCMS/v2023-9';
- 
-local version = 'v2023.9';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -23,7 +25,6 @@ local license = spdx.proprietary;
   title: 'USFS Landscape Change Monitoring System ' + 'version' + ' ' +
     '(CONUS and OCONUS)',
   version: version,
-  'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
@@ -106,7 +107,7 @@ local license = spdx.proprietary;
       rel: ee_const.rel.cite_as,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'change_detection',
     'landcover',
