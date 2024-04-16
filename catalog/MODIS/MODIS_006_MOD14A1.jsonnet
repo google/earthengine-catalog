@@ -1,26 +1,17 @@
 local id = 'MODIS/006/MOD14A1';
-local latest_id = 'MODIS/061/MOD14A1';
-local successor_id = 'MODIS/061/MOD14A1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MOD14A1_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local template = import 'templates/MODIS_006_MOD14A1.libsonnet';
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -32,7 +23,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   id: id,
   title: 'MOD14A1.006: Terra Thermal Anomalies & Fire Daily Global 1km [deprecated]',
-  version: '6',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -62,9 +53,7 @@ local successor_url = catalog_subdir_url + successor_filename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD14A1.006',
     },
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'daily',
     'fire',
@@ -77,7 +66,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD14A1.006'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C194001242-LPDAAC_ECS',

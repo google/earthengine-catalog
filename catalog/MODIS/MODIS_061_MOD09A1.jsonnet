@@ -1,22 +1,16 @@
 local id = 'MODIS/061/MOD09A1';
-local predecessor_id = 'MODIS/006/MOD09A1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MOD09A1_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MOD09A1.libsonnet';
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local predecessor_filename = predecessor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -28,7 +22,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MOD09A1.061 Terra Surface Reflectance 8-Day Global 500m',
-  version: '6.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD09A1 V6.1 product provides an estimate of the surface
@@ -54,8 +48,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD09A1.061',
     },
-    ee.link.predecessor(predecessor_id, predecessor_url)
-  ],
+  ] + version_config.version_links,
   keywords: [
     '8_day',
     'global',
@@ -69,7 +62,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD09A1.061'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1621091377-LPDAAC_ECS',

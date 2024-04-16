@@ -1,26 +1,17 @@
 local id = 'MODIS/061/MCD64A1';
-local latest_id = 'MODIS/061/MCD64A1';
-local predecessor_id = 'MODIS/006/MCD64A1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MCD64A1_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local template = import 'templates/MODIS_006_MCD64A1.libsonnet';
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local predecessor_filename = predecessor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -32,7 +23,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MCD64A1.061 MODIS Burned Area Monthly Global 500m',
-  version: '6.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Terra and Aqua combined MCD64A1 Version 6.1 Burned Area data product is
@@ -63,9 +54,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MCD64A1.061',
     },
-    ee.link.latest(latest_id, latest_url),
-    ee.link.predecessor(predecessor_id, predecessor_url)
-  ],
+  ] + version_config.version_links,
   keywords: [
     'burn',
     'change_detection',
@@ -80,7 +69,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD64A1.061'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1620913371-LPDAAC_ECS',
