@@ -25,8 +25,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: 'P2023A',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    These raster datasets depict the global distribution of building volume,
-    expressed in cubic metres per 100 m grid cell. The datasets measure the
+    This raster dataset depicts the global distribution of building volume,
+    expressed in cubic metres per 100 m grid cell. The dataset measures the
     total building volume and the building volume allocated to grid cells of
     predominant non-residential (NRES) use. Estimates are based on the (built-up
     surface)

@@ -28,6 +28,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('JRC_GHSL_P2023A_GHS_BUILT_C', base_url),
     ee.link.child_collection('JRC_GHSL_P2023A_GHS_BUILT_H', base_url),
     ee.link.child_collection('JRC_GHSL_P2023A_GHS_BUILT_S', base_url),
+    ee.link.child_collection('JRC_GHSL_P2023A_GHS_BUILT_S_10m', base_url),
     ee.link.child_collection('JRC_GHSL_P2023A_GHS_BUILT_V', base_url),
     ee.link.child_collection('JRC_GSW1_0_GlobalSurfaceWater', base_url),
     ee.link.child_collection('JRC_GSW1_0_Metadata', base_url),
