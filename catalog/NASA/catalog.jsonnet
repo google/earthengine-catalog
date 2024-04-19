@@ -48,6 +48,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_GRACE_MASS_GRIDS_OCEAN', base_url),
     ee.link.child_collection('NASA_GRACE_MASS_GRIDS_OCEAN_EOFR', base_url),
 
+    ee.link.child_collection('NASA_GRACE_MASS_GRIDS_V04_LAND', base_url),
+
     ee.link.child_collection('NASA_GSFC_MERRA_aer_2', base_url),
     ee.link.child_collection('NASA_GSFC_MERRA_aer_nv_2', base_url),
     ee.link.child_collection('NASA_GSFC_MERRA_flx_2', base_url),
