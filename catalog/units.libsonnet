@@ -98,8 +98,10 @@
   kelvin: 'K',
 
   // https://en.wikipedia.org/wiki/Mass_flux
-  // https://en.wikipedia.org/wiki/Flux#Flux_as_flow_rate_per_unit_area
   kg_per_hour: 'kg/h',
+
+  // https://en.wikipedia.org/wiki/Flux#Flux_as_flow_rate_per_unit_area
+  kg_per_hour_per_square_km: 'kg/h/km^2',
 
   // https://en.wikipedia.org/wiki/Foot_(unit)
   foot: 'ft',

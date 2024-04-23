@@ -1,81 +1,21 @@
 """Units used throughout the Earth Engine catalog.
 
-Mirrors the units listed here:
+Reads from the units listed here:
 
 https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
 """
 
-# TODO(schwehr): Load this from units.libsonnet
-UNITS = frozenset({
-    '%',
-    '% change/y',
-    'Area fraction',
-    'Dimensionless',
-    'Mass fraction',
-    'Mol fraction',
-    'Fraction',
-    'Volume fraction',
-    'Dobson',
-    'GHz',
-    'Gg',
-    'J/kg',
-    'J/m^2',
-    'K',
-    'nmi',
-    'MW',
-    'Mg/ha',
-    'N/m^2',
-    'Pa',
-    'P-value',
-    'W/m^2',
-    'y',
-    'cm',
-    'count',
-    'count/d',
-    'count/acre',
-    'c%/a',
-    'd',
-    'dB',
-    'deg',
-    'dn',
-    'ft',
-    'ft^2',
-    'ft^2/acre',
-    'ft^3/acre',
-    'h',
-    'h/km^2',
-    'ha',
-    'hPa',
-    'in',
-    'kg/h',
-    'kg/h/km^2',
-    'kg/m^2',
-    'kg/m^2/s',
-    'kg/m^3',
-    'kPa',
-    'km',
-    'km^2',
-    'kt',
-    'm',
-    'm/s',
-    'm/s^2',
-    'm^2',
-    'mbar',
-    'mg/m^3',
-    'min',
-    'mm',
-    'mm/d',
-    'nanoWatts/sr/cm^2',
-    'nm',
-    'pixel',
-    'ppb',
-    'ppm',
-    'psu',
-    'rad',
-    'sawlog-board-ft/acre',
-    'tons/acre',
-    '&deg;C',
-    '&micro;m',
-    '&mu;g/m&sup3',
-    '&mu;m',
-})
+import json
+import os
+
+from google3.pyglib import resources
+
+path = os.path.join(
+    resources.GetARootDirWithAllResources(),
+    'google3/third_party/earthengine_catalog/catalog/units.json',
+)
+with open(path, 'r') as f:
+  data_dict = json.load(f)
+
+
+UNITS = frozenset(data_dict.values())
