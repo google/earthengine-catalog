@@ -25,8 +25,6 @@ SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 
 CHECKER_CODE_ROOT = 'https://github.com/google/earthengine-catalog/blob/main'
 
-UNITS_FILE = pathlib.Path('units.json')
-
 # Legacy id for a top-level dataset
 FIRMS = 'FIRMS'
 
@@ -162,10 +160,6 @@ def load(root: pathlib.Path) -> list[Node]:
   root_len = len(root.parts)
   nodes: list[Node] = []
   for path in root.rglob('*.json'):
-    # We build a json for units.libsonnet to be read into our units.py library.
-    # That json should be ignored when loading dataset jsons.
-    if path.parts[-1] == UNITS_FILE.name:
-      continue
     relative_path = pathlib.Path(*path.parts[root_len:])
 
     stac = json.loads(path.read_text())
