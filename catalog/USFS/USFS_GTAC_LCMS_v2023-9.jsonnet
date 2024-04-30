@@ -25,7 +25,7 @@ local license = spdx.proprietary;
   title: 'USFS Landscape Change Monitoring System ' + 'version' + ' ' +
     '(CONUS and OCONUS)',
   version: version,
-  'gee:skip_indexing': true
+  'gee:skip_indexing': true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
