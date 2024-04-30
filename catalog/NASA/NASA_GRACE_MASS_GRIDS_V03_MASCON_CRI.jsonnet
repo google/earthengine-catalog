@@ -1,4 +1,4 @@
-local id = 'NASA/GRACE/MASS_GRIDS/MASCON_CRI';
+local id = 'NASA/GRACE/MASS_GRIDS_V03/MASCON_CRI';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/MASCON_CRI_versions.libsonnet';
 local subdir = 'NASA';
@@ -22,50 +22,45 @@ local version = version_config.version;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GRACE Monthly Mass Grids - Global Mascon (CRI Filtered) [deprecated]',
-  deprecated: true,
+  title: 'GRACE Monthly Mass Grids Version 03 - Global Mascon (CRI Filtered)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    GRACE Tellus Monthly Mass Grids provides monthly
-    gravitational anomalies relative to a 2004-2010 time-mean baseline.
-    The data contained in this dataset are units of \"Equivalent Water Thickness\"
-    which represent the deviations of mass in terms of vertical extent
-    of water in centimeters. See the provider's [Monthly Mass
-    Grids Overview](https://grace.jpl.nasa.gov/data/monthly-mass-grids/)
-    for more details.
-
-    The GRACE Tellus (GRCTellus) Global Mascon dataset
-    is based on Level-1 GRACE observations and processed
-    at NASA Jet Propulsion Laboratory (JPL).
-
-    This dataset uses a-priori constraints in space and time to
-    estimate global, monthly gravity fields in terms of equal-area
-    3&deg;x3&deg; spherical cap mass concentration (mascon) functions to minimize the
-    effect of measurement errors. This results in better S/N
-    ratios of the mascon fields compared to the conventional
-    spherical-harmonic solutions.
-
-    This version of the Global Mascon dataset has a Coastline Resolution
-    Improvement (CRI) filter applied to separate the land and ocean
-    portions of mass within each land/ocean mascon in a post-processing step.
-    For users who wish to do their own separation of land and ocean mass
-    signals, a version of the data without the CRI filter is available
-    at [NASA/GRACE/MASS_GRIDS/MASCON](https://developers.google.com/earth-engine/datasets/catalog/NASA_GRACE_MASS_GRIDS_MASCON).
-
-    **Note**
-
-    * A set of global gain factors to aid in the interpretation of signals
-      at sub-mascon resolution is available at
-      [NASA/GRACE/MASS_GRIDS/MASCON_SCALE_CRI_2015](https://code.earthengine.google.com/?asset=NASA/GRACE/MASS_GRIDS/MASCON_SCALE_CRI_2015).
-      **Please note**: the gain factors can be used for hydrology-related
-      signals, but not for mountain glaciers or ice sheets. For more
-      information on scaling the mascon solutions, please see [Wiese et al.
-      (2016)](https://doi.org/10.1002/2016WR019344).
-
-    * The data are represented on a 1/2 degree lon-lat grid, but they
-      represent the 3x3 degree equal-area caps, which is the current
-      native resolution of JPL-RL05M.
+    This dataset contains gridded monthly global water storage/height anomalies
+    relative to a time-mean, derived from GRACE and GRACE-FO and processed at
+    JPL using the Mascon approach (RL06.1Mv03). This version of the data employs
+    a Coastal Resolution Improvement (CRI) filter that reduces signal leakage
+    errors across coastlines. These data are provided in a single data file in
+    netCDF format, and can be used for analysis for ocean, ice, and hydrology
+    phenomena. The water storage/height anomalies are given in equivalent water
+    thickness units (cm). The solution provided here is derived from solving for
+    monthly gravity field variations in terms of geolocated spherical cap mass
+    concentration functions, rather than global spherical harmonic coefficients.
+    Additionally, realistic geophysical information is introduced during the
+    solution inversion to intrinsically remove correlated error. Thus, these
+    Mascon grids do not need to be destriped or smoothed, like traditional
+    spherical harmonic gravity solutions. The complete Mascon solution consists
+    of 4,551 relatively independent estimates of surface mass change that have
+    been derived using an equal-area 3-degree grid of individual mascons.
+    A subset of these individual mascons span coastlines, and contain mixed land
+    and ocean mass change signals. In a post-processing step, the CRI filter is
+    applied to those mixed land/ocean Mascons to separate land and ocean mass.
+    The land mask used to perform this separation is provided in the same
+    directory as this dataset. Since the individual mascons act as an inherent
+    smoother on the gravity field, a set of optional gain factors
+    (for continental hydrology applications) that can be applied to the solution
+    to study mass change signals at sub-mascon resolution is also provided
+    within the same data directory as the Mascon data. This RL06.1Mv03 is an
+    updated version of the previous [Tellus JPL Mascon RL06Mv02](https://doi.org/10.5067/TEMSC-3JC62).
+    RL06.1Mv03 differs from RL06Mv02 only in the Level-1B accelerometer
+    transplant data that is used for the GF2 (GRACE-FO 2)satellite;
+    RL06.1Mv03 uses the ACH data product. For more information,
+    please visit [GRACE page](https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/).
+    For a detailed description on the Mascon solution, including the
+    mathematical derivation, implementation of geophysical constraints, and
+    solution validation, please see [Watkins et al., 2015](https://doi.org/10.1002/2014JB011547).
+    For a detailed description of the CRI filter implementation,
+    please see [Wiese et al., 2016](https://doi.org/10.1002/2016WR019344).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -84,7 +79,7 @@ local version = version_config.version;
     ee.producer_provider('NASA Jet Propulsion Laboratory', 'https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2002-03-31T00:00:00Z', '2017-05-22T00:00:00Z'),
+  extent: ee.extent_global('2002-03-31T00:00:00Z', null),
   summaries: {
     gsd: [
       55660.0,
@@ -128,21 +123,11 @@ local version = version_config.version;
         },
       },
     ],
-    lwe_thickness: {
-      minimum: -570.65,
-      maximum: 495.53,
-      'gee:estimated_range': true,
-    },
-    uncertainty: {
-      minimum: 0.29,
-      maximum: 31.1,
-      'gee:estimated_range': true,
-    },
   },
   'sci:citation': |||
     D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF
-    RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at
-    [https://doi.org/10.5067/TEMSC-OCL05](https://doi.org/10.5067/TEMSC-OCL05).
+    RELEASE 6.1. Ver. 3.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at
+    [https://doi.org/10.5067/TEMSC-3JC63](https://doi.org/10.5067/TEMSC-3JC63).
   |||,
   'sci:publications': [
     {
