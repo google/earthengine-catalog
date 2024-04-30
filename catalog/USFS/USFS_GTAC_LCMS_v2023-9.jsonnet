@@ -29,9 +29,9 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the Conterminous United States (CONUS) and Southeastern Alaska, Hawaii and 
-    Puerto Rico-US Virgin Islands (OCONUS). Hawaii and Puerto Rico-US Virgin Islands data will
-    be released in summer 2024.
+    covers the Conterminous United States (CONUS) and Southeastern Alaska (OCONUS). Hawaii and 
+    Puerto Rico-US Virgin Islands (OCONUS) v2023.9 data will be released in summer 2024. Previously released
+    v2022.8 Puerto Rico-US Virgin Islands data are available in the Google Earth Engine Catalog.
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
