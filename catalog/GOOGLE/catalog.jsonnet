@@ -23,8 +23,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('GOOGLE_AirView_California_Unified_2015_2019', base_url),
     ee.link.child_collection('GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED', base_url),
     ee.link.child_collection('GOOGLE_DYNAMICWORLD_V1', base_url),
-    // TODO(gorelick): Add this back when we're ready to make it public.
-    // ee.link.child_collection('GOOGLE_GLOBAL_CCDC_V1', base_url),
+    ee.link.child_collection('GOOGLE_GLOBAL_CCDC_V1', base_url),
     ee.link.child_collection('GOOGLE_Research_open-buildings_v1_polygons', base_url),
     ee.link.child_collection('GOOGLE_Research_open-buildings_v2_polygons', base_url),
     ee.link.child_collection('GOOGLE_Research_open-buildings_v3_polygons', base_url),
