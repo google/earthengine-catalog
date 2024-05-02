@@ -1,4 +1,6 @@
 local id = 'NASA/GRACE/MASS_GRIDS_V04/LAND';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/LAND_versions.libsonnet';
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -8,9 +10,8 @@ local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'GRACE Monthly Mass Grids Release 06 Version 04 - Land',
-  version: 'Release 06',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The monthly land mass grids contain water mass anomalies given as equivalent
@@ -56,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-  ],
+  ] + version_config.version_links,
   keywords: [
     'crs',
     'gfz',
@@ -71,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NASA Jet Propulsion Laboratory', 'https://grace.jpl.nasa.gov/data/get-data/monthly-mass-grids-land/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2002-04-01T00:00:00Z', '2017-01-07T00:00:00Z'),
   summaries: {
