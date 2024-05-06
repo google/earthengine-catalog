@@ -17,8 +17,8 @@ from typing import Any
 
 from absl import app
 
-import ee
 from google3.pyglib.function_utils import memoize
+import ee
 import gedi_lib
 
 
