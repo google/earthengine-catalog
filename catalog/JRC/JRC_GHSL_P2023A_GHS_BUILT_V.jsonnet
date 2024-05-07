@@ -28,16 +28,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This raster dataset depicts the global distribution of building volume,
     expressed in cubic metres per 100 m grid cell. The dataset measures the
     total building volume and the building volume allocated to grid cells of
-    predominant non-residential (NRES) use. Estimates are based on the (built-up
-    surface)
-    [https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_S]
-    and (building height)
-    [https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_H]
+    predominant non-residential (NRES) use. Estimates are based on the [built-up
+    surface](https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_S)
+    and [building height](https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_H)
     products.
 
     More information about the GHSL data products can be found in the [GHSL Data
-    Package 2023 report]
-    (https://ghsl.jrc.ec.europa.eu/documents/GHSL_Data_Package_2023.pdf?t=1683540422)
+    Package 2023 report](https://ghsl.jrc.ec.europa.eu/documents/GHSL_Data_Package_2023.pdf?t=1683540422)
 
     The Global Human Settlement Layer (GHSL) project is supported by the
     European Commission, Joint Research Centre, and Directorate-General for
