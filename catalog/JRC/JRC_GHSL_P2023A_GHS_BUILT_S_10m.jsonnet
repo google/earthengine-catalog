@@ -74,10 +74,10 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
       {
         name: 'built_surface_nres',
-        description: 'Non-residential built-up surface per grid cell',
+        description: 'Non-residential built-up class (NRES)',
         'gee:classes': [
-          {value: 0, color: 'black', description: 'Fill'},
-          {value: 1, color: 'magenta', description: 'Non-residential'},
+          {value: 0, color: 'black', description: 'non-NRES'},
+          {value: 1, color: 'magenta', description: 'NRES'},
         ]
       },
     ],
