@@ -12,6 +12,8 @@ local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
+// TODO(simonf): mark as superseded by NASA/SMAP/SPL3SMP_E/006
+// once v6 goes back to the beginning of the time series.
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -26,6 +28,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '5',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+    Data starting from 2023-12-04 are available in the
+    [NASA/SMAP/SPL3SMP_E/006](NASA_SMAP_SPL3SMP_E_006) collection.
+
     This Level-3 (L3) soil moisture product provides a daily composite of global
     land surface conditions retrieved by the Soil Moisture Active Passive (SMAP)
     L-Band radiometer. The daily data here were collected from the descending
@@ -33,8 +38,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The SMAP mission is an orbiting observatory that measures the amount of
     water in the surface soil everywhere on Earth. A detailed description can be
-    found in the [SMAP Handbook]
-    (https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf).
+    found in the
+    [SMAP Handbook](https://smap.jpl.nasa.gov/system/internal_resources/details/original/178_SMAP_Handbook_FINAL_1_JULY_2014_Web.pdf).
     It was launched in January 2015 and started operation in April 2015. The
     radar instrument, ceasing operation in early 2015 due to failure of radar
     power supply, collected close to 3 months of science data. The prime mission
@@ -52,9 +57,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     particles found in soil everywhere in the world (SMAP measures liquid water
     in the top layer of ground but is not able to measure the ice.)
 
+    SPL3SMP_E data are transformed to
+    [geographic coordinates using GDAL libraries](https://github.com/google/earthengine-catalog/blob/main/pipelines/smap_convert_l3.py)
+    before the data are ingested into Google Earth Engine.
+
     See the
     [SMAP L3 Soil Moisture User Guide](https://nsidc.org/sites/default/files/spl3smp_e-v005-userguide.pdf)
     and references therein for additional documentation and algorithm details.
+
+    See
+    [basic](https://developers.google.com/earth-engine/tutorials/community/smap-soil-moisture)
+    and
+    [advanced](https://developers.google.com/earth-engine/tutorials/community/anomalies-analysis-smo-and-pre)
+    tutorials to learn how to use SMAP data in Earth Engine.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -73,7 +88,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Google and NSIDC', 'https://nsidc.org/data/spl3smp_e/versions/5'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -84, 180.0, 84, '2015-03-31T12:00:00Z', null),
+  extent: ee.extent(
+      -180.0, -84, 180.0, 84,
+      '2015-03-31T12:00:00Z', '2023-12-03T12:00:00Z'),
   summaries: {
     gsd: [
       9000.0,
@@ -394,7 +411,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
-    Earth Science Data & Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    Earth Science Data & Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

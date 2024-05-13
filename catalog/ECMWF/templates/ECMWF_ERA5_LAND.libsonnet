@@ -1,3 +1,4 @@
+local cds_notice = import 'cds_notice.libsonnet';
 local units = import 'units.libsonnet';
 
 local meters = 'm';
@@ -5,7 +6,8 @@ local meters_eq = 'm of water equivalent';
 local flux = 'J/m^2';
 
 {
-  description: |||
+  description: cds_notice.body + |||
+
     ERA5-Land is a reanalysis dataset providing a consistent view of the
     evolution of land variables over several decades at an enhanced resolution
     compared to ERA5. ERA5-Land has been produced by replaying the land
@@ -836,12 +838,12 @@ local flux = 'J/m^2';
     Please acknowledge the use of ERA5-Land as stated in the
     [Copernicus C3S/CAMS License agreement](https://apps.ecmwf.int/datasets/licences/copernicus/):
 
-    - 5.1.2 Where the Licensee communicates or distributes Copernicus Products
+    - 5.1.1 Where the Licensee communicates or distributes Copernicus Products
     to the public, the Licensee shall inform the recipients of the source by
     using the following or any similar notice:
     'Generated using Copernicus Climate Change Service Information [Year]'.
 
-    - 5.1.3 Where the Licensee makes or contributes to a publication or
+    - 5.1.2 Where the Licensee makes or contributes to a publication or
     distribution containing adapted or modified Copernicus Products, the
     Licensee shall provide the following or any similar notice:
     'Contains modified Copernicus Climate Change Service Information [Year]';

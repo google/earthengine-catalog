@@ -1,6 +1,5 @@
 local id = 'LANDSAT/LO08/C01/T1_RT';
-local latest_id = 'LANDSAT/LC08/C02/T1_RT';
-local successor_id = 'LANDSAT/LC08/C02/T1_RT';
+
 local subdir = 'LANDSAT';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -9,17 +8,10 @@ local landsat = import 'landsat.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.pddl_1_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = basename + '.json';
-local successor_basename = std.strReplace(successor_id, '/',  '_');
-local successor_filename = successor_basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
-
+local versions = import 'versions.libsonnet';
+local version_table = import 'LO8_T1_RT_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -29,18 +21,14 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   id: id,
   title: 'USGS Landsat 8 Collection 1 Tier 1 and Real-Time data OLI Raw Scenes [deprecated]',
-  version: 'C1',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Landsat 8 Collection 1 Tier 1 and Real-Time data OLI DN values, representing scaled, calibrated at-sensor radiance.
   ||| + landsat.tier1_rt,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(
-      successor_id, catalog_subdir_url + successor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'c1',
     'global',
@@ -57,7 +45,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.usgs.gov/land-resources/nli/landsat/landsat-8-data-users-handbook'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2013-04-01T13:46:38Z', null),
   summaries: {

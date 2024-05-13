@@ -20,6 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
 
     ee.link.child_collection('USGS_GMTED2010', base_url),
+    ee.link.child_collection('USGS_GMTED2010_FULL', base_url),
     ee.link.child_collection('USGS_GTOPO30', base_url),
     ee.link.child_collection('USGS_NED', base_url),
     ee.link.child_collection('USGS_NLCD', base_url),
@@ -43,13 +44,27 @@ local self_url = base_url + base_filename;
 
     ee.link.child_collection('USGS_LIMA_MOSAIC', base_url),
     ee.link.child_collection('USGS_LIMA_SR', base_url),
+    ee.link.child_collection('USGS_LIMA_SR_METADATA', base_url),
 
     ee.link.child_collection('USGS_NLCD_RELEASES_2016_REL', base_url),
     ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_NLCD', base_url),
-    ee.link.child_collection('USGS_NLCD_RELEASES_2019_REL_RCMAP_V4_COVER', base_url),
+
+    ee.link.child_collection(
+      'USGS_NLCD_RELEASES_2019_REL_RCMAP_V4_COVER', base_url),
     ee.link.child_collection(
       'USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_COVER', base_url),
-
+    ee.link.child_collection(
+      'USGS_NLCD_RELEASES_2023_REL_RCMAP_V6_COVER', base_url),
+    ee.link.child_collection(
+      'USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_TRENDS', base_url),
+    ee.link.child_collection(
+      'USGS_NLCD_RELEASES_2019_REL_RCMAP_V5_TRENDS_YEAR', base_url),
+    ee.link.child_collection(
+      'USGS_NLCD_RELEASES_2023_REL_RCMAP_V6_TRENDS_YEAR', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2020_REL_NALCMS', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2021_REL_NLCD', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2021_REL_TCC_v2021-4', base_url),
+    ee.link.child_collection('USGS_NLCD_RELEASES_2023_REL_RCMAP_V6_TRENDS', base_url),
     ee.link.child_collection('USGS_WBD_2017_HUC02', base_url),
     ee.link.child_collection('USGS_WBD_2017_HUC04', base_url),
     ee.link.child_collection('USGS_WBD_2017_HUC06', base_url),

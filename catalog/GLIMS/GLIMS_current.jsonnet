@@ -4,11 +4,11 @@ local subdir = 'GLIMS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local configs = import 'GLIMS.libsonnet';
+local configs = import 'GLIMS_versions.libsonnet';
 
 local license = spdx.proprietary;
 
-local version = '20210914';
+local version = '20230607';
 local config = configs[version];
 
 local license = spdx.proprietary;
@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     time.
 
     This dataset is a snapshot of the inventory of glacier boundaries as of
-    September 14, 2021, providing over 690,000 rows.
+    June 7, 2023, providing over 1,100,000 rows.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {
       rel: ee_const.rel.source,
-      href: 'https://www.glims.org/download/glims_db_20210914.zip',
+      href: 'https://daacdata.apps.nsidc.org/pub/DATASETS/nsidc0272_GLIMS_v1/',
     },
     {
       rel: ee_const.rel.cite_as,
@@ -76,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('National Snow and Ice Data Center (NSDIC)', 'https://www.glims.org'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1750-01-01T00:00:00Z', '2019-07-18T00:00:00Z'),
+  extent: ee.extent_global('1750-01-01T00:00:00Z', '2023-06-07T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {

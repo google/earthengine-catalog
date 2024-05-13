@@ -1,18 +1,15 @@
 local id = 'MODIS/MYD09GA_EVI';
-local successor_id = 'MODIS/MYD09GA_006_EVI';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MYD09GA_EVI_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -33,10 +30,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     for details. This product is generated from the MODIS/MYD09GA surface reflectance composites.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'evi',
     'modis',
@@ -44,7 +38,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('Google', 'https://earthengine.google.com/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2002-07-04T00:00:00Z', '2017-03-30T00:00:00Z'),
   summaries: {

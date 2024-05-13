@@ -1,24 +1,26 @@
 local id = 'MODIS/MYD09GA_006_BAI';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MYD09GA_BAI_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
   title: 'MODIS Aqua Daily BAI',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Burn Area Index (BAI) is generated from the Red and
@@ -30,7 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for details. This product is generated from the MODIS/006/MYD09GA surface reflectance composites.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'bai',
     'modis',
@@ -38,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Google', 'https://earthengine.google.com/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2002-07-04T00:00:00Z', null),
   summaries: {

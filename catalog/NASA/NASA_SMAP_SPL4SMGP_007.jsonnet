@@ -50,11 +50,17 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
 
     The SPL4SMGP product includes a series of 3-hourly time-averaged geophysical
     data fields from the assimilation system. SPL4SMGP data are transformed to
-    [geographic coordinates using GDAL libraries](https://github.com/google/earthengine-community/blob/master/datasets/smap_convert_l4.py)
+    [geographic coordinates using GDAL libraries](https://github.com/google/earthengine-catalog/blob/main/pipelines/smap_convert_l4.py)
     before the data are ingested into Google Earth Engine.
 
     See the [SMAP L4 Soil Moisture User Guide](https://nsidc.org/sites/default/files/documents/user-guide/multi_spl4smau-v007-userguide.pdf)
     and references therein for additional documentation and algorithm details.
+
+    See
+    [basic](https://developers.google.com/earth-engine/tutorials/community/smap-soil-moisture)
+    and
+    [advanced](https://developers.google.com/earth-engine/tutorials/community/anomalies-analysis-smo-and-pre)
+    tutorials to learn how to use SMAP data in Earth Engine.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -628,7 +634,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
-    Earth Science Data & Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    Earth Science Data & Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

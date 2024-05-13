@@ -1,5 +1,5 @@
 local id = 'LANDSAT/LC8_L1T';
-local successor_id = 'LANDSAT/LC08/C01/T1';
+
 local subdir = 'LANDSAT';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -7,13 +7,10 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.pddl_1_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-
+local versions = import 'versions.libsonnet';
+local version_table = import 'LC8_PRE_L1T_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -31,10 +28,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     As of May 1, 2017, the USGS is no longer producing Pre-Collection Landsat, and therefore this collection is complete. Please switch to a Collection 1-based dataset. See [this documentation page](https://developers.google.com/earth-engine/landsat) for more information.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'global',
     'l8',
@@ -46,7 +40,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('USGS', 'https://landsat.usgs.gov/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2013-04-11T00:14:45Z', '2017-05-01T08:14:12Z'),
   summaries: {
@@ -1000,5 +994,5 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     interval: 16,
   },
   'gee:terms_of_use': importstr 'terms_of_use.md',
-  version: ee_const.version_unknown,
+  version: version,
 }

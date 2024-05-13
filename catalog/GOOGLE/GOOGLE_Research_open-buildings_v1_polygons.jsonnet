@@ -3,12 +3,13 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'GOOGLE_Research_open-buildings_polygons.libsonnet';
+local version_table = import 'GOOGLE_Research_open-buildings_polygons_versions.libsonnet';
 
 local subdir = 'GOOGLE';
 
-local version = 'v1.0';
-local version_config = versions(subdir, version_table, version);
+local id = 'GOOGLE/Research/open-buildings/v1/polygons';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
 {
@@ -18,7 +19,7 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'Open Buildings V1 Polygons [deprecated]',
   version: version,
   deprecated: true,
@@ -46,13 +47,13 @@ local license = spdx.cc_by_4_0;
     Buildings dataset.
 
     Note that updated versions of this data are available. The newest version,
-    Version 2.0 (with inference carried out on Aug 2022), is available as
-    [GOOGLE/Research/open-buildings/v2/polygons](GOOGLE_Research_open-buildings_v2_polygons).
+    Version 3.0 (with inference carried out on May 2023), is available as
+    [GOOGLE/Research/open-buildings/v3/polygons](GOOGLE_Research_open-buildings_v3_polygons).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.example(
-      version_config.id, subdir, version_config.basename + '_FeatureView'),
+      id, subdir, version_config.basename + '_FeatureView'),
     ee.link.license(license.reference)
   ] + version_config.version_links,
   keywords: [

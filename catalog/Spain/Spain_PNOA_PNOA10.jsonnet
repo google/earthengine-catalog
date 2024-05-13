@@ -28,8 +28,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This data is provided by National Plan for Aerial Orthophotography Spain
     ([PNOA](https://pnoa.ign.es)).
 
-    For more information, please see the [Spain orthophotos documentation]
-    (https://pnoa.ign.es/web/portal/pnoa-imagen/proceso-fotogrametrico)
+    For more information, please see the
+    [Spain orthophotos documentation](https://pnoa.ign.es/web/portal/pnoa-imagen/proceso-fotogrametrico)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

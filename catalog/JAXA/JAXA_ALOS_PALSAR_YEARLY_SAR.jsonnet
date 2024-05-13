@@ -29,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   description: |||
     A newer version of this dataset with data for 2015-2021 can be found in
-    [JAXA/ALOS/PALSAR/YEARLY/SAR](JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH.html)
+    [JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH](JAXA_ALOS_PALSAR_YEARLY_SAR_EPOCH.html)
 
     The global 25m PALSAR/PALSAR-2 mosaic is a seamless global
     SAR image created by mosaicking strips of SAR imagery
@@ -41,6 +41,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for observations during specific emergencies), data were necessarily
     selected from the year before or after, including from 2006.
     [Shimada et al. 2014](https://doi.org/10.1016/j.rse.2014.04.014)
+
+    There is no data for 2011-2014 due to the gap between ALOS and ALOS-2
+    temporal coverage.
 
     The SAR imagery was ortho-rectificatied and slope corrected
     using the 90m SRTM Digital Elevation Model.
@@ -76,10 +79,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar',
   ],
   providers: [
-    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/fnf_index.htm'),
+    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2007-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent_global('2007-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
       25.0,

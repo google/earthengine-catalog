@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of the highest-quality observations is included.
 
     For additional information, visit the VIIRS [Land Product Quality
-    Assessment website](https://landweb.modaps.eosdis.nasa.gov/NPP_QA/) and see
+    Assessment website](https://landweb.modaps.eosdis.nasa.gov/browse?sensor=VIIRS&sat=SNPP) and see
     the [User Guide](https://lpdaac.usgs.gov/documents/124/VNP09_User_Guide_V1.6.pdf).
 
     Documentation:

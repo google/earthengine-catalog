@@ -38,6 +38,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     registers. There is one image for each modeled year.
 
     [General Documentation](https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-count-rev11/docs)
+
+    Note: Because this collection has a pyramid policy of MEAN, zooming out
+    results in information loss. Calculations need to be performed at native
+    resolution.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

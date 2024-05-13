@@ -248,7 +248,11 @@ local units = import 'units.libsonnet';
     },
     {
       name: 'sensitivity',
-      description: 'Maxmimum canopy cover that can be penetrated',
+      description: |||
+          Maxmimum canopy cover that can be penetrated. Valid range is [0, 1].
+          Values outside of this range may be present but must be ignored.
+          They represent noise and non-land surface waveforms.
+      |||,
       type:: ee_const.var_type.double,
     },
     {
@@ -357,7 +361,7 @@ local units = import 'units.libsonnet';
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
     Earth Science Data & Information Policy]
-    (https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    (https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

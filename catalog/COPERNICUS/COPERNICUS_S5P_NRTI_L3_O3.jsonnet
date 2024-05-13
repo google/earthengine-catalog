@@ -43,8 +43,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     being used for generating the operational total ozone products from GOME,
     SCIAMACHY and GOME-2; while GODFIT is being used in the ESA CCI and the
     Copernicus C3S projects.
-    [More information](http://www.tropomi.eu/data-products/total-ozone-column).
-    [Product user manual](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Total-Column)
+    [More information.](http://www.tropomi.eu/data-products/total-ozone-column)
+    [Product user manual.](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Total-Column)
 
     ### NRTI L3 Product
 

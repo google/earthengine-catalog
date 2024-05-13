@@ -38,11 +38,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     not included into EE assets. PFV53 data were collected through the
     operational periods of the NOAA-7 through NOAA-19 Polar Operational
     Environmental Satellites (POES), and are available from 1981 to 2014.
-    Additional information is available at the [NOAA Pathfinder site]
-    (https://www.nodc.noaa.gov/satellitedata/pathfinder4km53/).
+    Additional information is available at the
+    [NOAA Pathfinder site](https://www.nodc.noaa.gov/satellitedata/pathfinder4km53/).
 
-    Additional band details can be found in the [Tech Specs]
-    (https://data.nodc.noaa.gov/pathfinder/Version5.2/GDS_TechSpecs_v2.0.pdf) page.
+    Additional band details can be found in the
+    [Tech Specs](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Sea_Surface_Temperature_Pathfinder/AlgorithmDescription_01B-08.pdf)
+    page.
 
     These data were provided by GHRSST and the US NOAA National
     Centers for Environmental Information (NCEI). This project was
@@ -66,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wind',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/oceanic/sea-surface-temperature-pathfinder'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/avhrr-pathfinder-sst'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1981-08-24T00:00:00Z', null),
@@ -416,7 +417,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     use by the public. Once obtained, they may be put to any lawful use. The
     forgoing data is in the public domain and is being provided without
     restriction on use and distribution. For more information see the
-    'constraints' section in [https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3]
-    (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3).
+    'constraints' section in
+    [https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3](https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.nodc:AVHRR_Pathfinder-NCEI-L3C-v5.3).
   |||,
 }

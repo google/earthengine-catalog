@@ -11,8 +11,9 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'JRC_GSW_GlobalSurfaceWater_version_map.libsonnet';
 
 local subdir = 'JRC';
-local version = 'v1.1';
-local version_config = versions(subdir, version_table, version);
+local id = 'JRC/GSW1_1/GlobalSurfaceWater';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -24,7 +25,7 @@ local license = spdx.proprietary;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  id: version_config.id,
+  id: id,
   title: 'JRC Global Surface Water Mapping Layers, v1.1 [deprecated]',
   version: '1.1',
   deprecated: true,
@@ -50,7 +51,7 @@ local license = spdx.proprietary;
     never been detected are masked.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, version_config.id) +
+  links: ee.standardLinks(subdir, id) +
   version_config.version_links,
   keywords: [
     'geophysical',

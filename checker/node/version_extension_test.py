@@ -9,6 +9,7 @@ CATALOG_URL = CATALOG_BASE_URL + '/A_B'
 
 VERSION_URL = 'https://stac-extensions.github.io/version/v1.0.0/schema.json'
 JSON = 'application/json'
+HREF = 'http://site/file.json'
 
 
 class VersionExtensionCatalogTest(test_utils.NodeTest):
@@ -64,9 +65,26 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
         'deprecated': True,
         'title': 'A title [deprecated]',
         'links': [
-            {'rel': 'latest-version', 'title': 'Latest', 'type': JSON},
-            {'rel': 'predecessor-version', 'title': 'Older', 'type': JSON},
-            {'rel': 'successor-version', 'title': 'Newer', 'type': JSON}]})
+            {
+                'rel': 'latest-version',
+                'title': 'Latest',
+                'type': JSON,
+                'href': HREF,
+            },
+            {
+                'rel': 'predecessor-version',
+                'title': 'Older',
+                'type': JSON,
+                'href': HREF,
+            },
+            {
+                'rel': 'successor-version',
+                'title': 'Newer',
+                'type': JSON,
+                'href': HREF,
+            },
+        ],
+    })
 
   def test_links_not_list_ignored(self):
     self.assert_collection({
@@ -128,9 +146,16 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
 
   def test_missing_extension_with_link(self):
     self.assert_collection(
-        {'links': [
-            {'rel': 'predecessor-version', 'title': 'Older', 'type': JSON}]},
-        'Version extension not found, but have version links')
+        {
+            'links': [{
+                'rel': 'predecessor-version',
+                'title': 'Older',
+                'type': JSON,
+                'href': HREF,
+            }]
+        },
+        'Version extension not found, but have version links',
+    )
 
   def test_title_not_set_for_deprecated(self):
     self.assert_collection(
@@ -156,45 +181,106 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
 
   def test_link_json(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL],
-         'version': '2.0bis',
-         'title': 'A title',
-         'links': [{'rel': 'predecessor-version', 'title': 'Older'}]},
-        'Link must be of type "application/json"')
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '2.0bis',
+            'title': 'A title',
+            'links': [
+                {'rel': 'predecessor-version', 'title': 'Older', 'href': HREF}
+            ],
+        },
+        'Link must be of type "application/json"',
+    )
 
   def test_link_title(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL],
-         'version': '2.0bis',
-         'title': 'A title',
-         'links': [{'rel': 'predecessor-version', 'type': JSON}]},
-        'Link must have a "title"')
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '2.0bis',
+            'title': 'A title',
+            'links': [
+                {'rel': 'predecessor-version', 'type': JSON, 'href': HREF}
+            ],
+        },
+        'Link must have a "title"',
+    )
 
   def test_links_only_latest(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL], 'version': '4',
-         'links': [{'rel': 'latest-version', 'title': 'Latest', 'type': JSON}]},
-        'Must have one of "predecessor-version" or "successor-version"')
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '4',
+            'links': [{
+                'rel': 'latest-version',
+                'title': 'Latest',
+                'type': JSON,
+                'href': HREF,
+            }],
+        },
+        'Must have one of "predecessor-version" or "successor-version"',
+    )
 
   def test_deprecated_without_latest_or_successor(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL],
-         'version': '5',
-         'deprecated': True,
-         'title': 'A title [deprecated]',
-         'links': [
-             {'rel': 'predecessor-version', 'title': 'Older', 'type': JSON}]},
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '5',
+            'deprecated': True,
+            'title': 'A title [deprecated]',
+            'links': [{
+                'rel': 'predecessor-version',
+                'title': 'Older',
+                'type': JSON,
+                'href': HREF,
+            }],
+        },
         'Deprecated assets must have one or both of '
-        'latest-version or successor-version links')
+        'latest-version or successor-version links',
+    )
 
   def test_successor_but_not_deprecated(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL],
-         'version': '6',
-         'deprecated': False,
-         'links': [
-             {'rel': 'successor-version', 'title': 'Newer', 'type': JSON}]},
-        'Missing deprecated with successor-version link')
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '6',
+            'deprecated': False,
+            'links': [{
+                'rel': 'successor-version',
+                'title': 'Newer',
+                'type': JSON,
+                'href': HREF,
+            }],
+        },
+        'Missing deprecated with successor-version link',
+    )
+
+  def test_no_successor_link(self):
+    self.assert_collection(
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '6',
+            'links': [
+                {'rel': 'predecessor-version', 'title': 'Older', 'type': JSON}
+            ],
+        },
+        'The predecessor-version link must have an "href" property',
+    )
+
+  def test_bad_successor_link(self):
+    self.assert_collection(
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '66',
+            'links': [{
+                'rel': 'predecessor-version',
+                'title': 'Older',
+                'type': JSON,
+                'href': 'Bad href',
+            }],
+        },
+        'The predecessor-version link\'s "href" property must end with ".json",'
+        ' found "Bad href"',
+    )
 
 
 if __name__ == '__main__':

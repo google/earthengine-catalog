@@ -1,15 +1,16 @@
+local versions = import 'versions.libsonnet';
+local version_table = import 'NOAA_CDR_AVHRR_AOT_versions.libsonnet';
+
 local id = 'NOAA/CDR/AVHRR/AOT/V3';
 local subdir = 'NOAA';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -20,8 +21,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NOAA CDR AVHRR AOT: Daily Aerosol Optical Thickness Over Global Oceans, v03',
-  version: 'v03',
+  title: 'NOAA CDR AVHRR AOT: Daily Aerosol Optical Thickness Over Global Oceans, ' + version + ' [deprecated]',
+  version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA Climate Data Record (CDR) of Aerosol Optical Thickness (AOT) is a
@@ -35,7 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     AVHRR retrieval channels, this dataset only includes retrieval over
     non-glint water surface (specifically at the anti-solar side of the orbit
     with viewing angle more than 40 degree away from the specular ray). For
-    more details, see the [Algorithm Description](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/Aerosol_Optical_Thickness/AlgorithmDescription.pdf).
+    more details, see the [Algorithm Description](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Aerosol_Optical_Thickness/AlgorithmDescription_01B-04.pdf).
 
     Image and data processing by NOAA's National Climatic Data Center.
   |||,
@@ -45,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7289/V5BZ642P',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'aerosol',
     'aot',
@@ -59,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/atmospheric/avhrr-aerosol-optical-thickness'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1981-01-01T00:00:00Z', null),
   summaries: {

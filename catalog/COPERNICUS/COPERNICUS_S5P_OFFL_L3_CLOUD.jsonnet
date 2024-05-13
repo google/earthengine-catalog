@@ -38,7 +38,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     treatment of clouds as optically uniform layers of light-scattering particles.
     Additionally, the cloud parameters are also provided for a cloud model which
     assumes the cloud to be a Lambertian reflecting boundary.
-    [[More information](http://www.tropomi.eu/data-products/cloud)]
+    [More information.](http://www.tropomi.eu/data-products/cloud)
 
     ### OFFL L3 Product
 

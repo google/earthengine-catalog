@@ -2,8 +2,8 @@ var dataset = ee.ImageCollection('FAO/GHG/1/DROSE_A');
 
 var visualization = {
   bands: ['croplandc'],
-  min: 0.1,
-  max: 0.1,
+  min: 0,
+  max: 1,
   palette: ['yellow', 'red']
 };
 

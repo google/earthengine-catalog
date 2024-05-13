@@ -1,15 +1,14 @@
-local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
+local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local subdir = 'COPERNICUS';
 local license = spdx.proprietary;
 
 {
-  s2_dataset(id)::
+  s2_dataset(id, version, version_config)::
     local basename = std.strReplace(id, '/', '_');
     local base_filename = basename + '.json';
-    local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     local parent_url = catalog_subdir_url + 'catalog.json';
     local self_url = catalog_subdir_url + base_filename;
@@ -19,8 +18,10 @@ local license = spdx.proprietary;
       type: 'Collection',
       stac_extensions: [
         ee_const.ext_eo,
+        ee_const.ext_ver,
       ],
       id: id,
+      version: version,
       title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-1C',
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
@@ -31,9 +32,10 @@ local license = spdx.proprietary;
 
         The Sentinel-2 data contain 13 UINT16 spectral bands representing
         TOA reflectance scaled by 10000. See the [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
-        for details. In addition, three QA bands are present where one
-        (QA60) is a bitmask band with cloud mask information. For more
-        details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
+        for details. QA60 is a bitmask band that contained rasterized cloud mask
+        polygons until Feb 2022, when these polygons stopped being produced.
+        For more details,
+        [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks).
 
         Each Sentinel-2 product (zip archive) may contain multiple
         granules. Each granule becomes a separate Earth Engine asset.
@@ -47,23 +49,13 @@ local license = spdx.proprietary;
         The Level-2 data produced by ESA can be found in the collection
         [COPERNICUS/S2_SR](COPERNICUS_S2_SR).
 
-        Clouds can be mostly removed by using
-        [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY).
-        See
-        [this tutorial](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless)
-        explaining how to apply the cloud mask.
+        For datasets to assist with cloud and/or cloud shadow detection, see [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY)
+        and [GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED](GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED).
 
         For more details on Sentinel-2 radiometric resolution, [see this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
       |||,
       license: license.id,
-      links: [
-        ee.link.self_link(self_url),
-        ee.link.parent(parent_url),
-        ee.link.root(),
-        ee.link.example(id, subdir, basename),
-        ee.link.preview(subdir, basename),
-        ee.link.terms_of_use(self_ee_catalog_url),
-      ],
+      links: ee.standardLinks(subdir, id) + version_config.version_links,
       keywords: [
         'copernicus',
         'esa',
@@ -74,9 +66,9 @@ local license = spdx.proprietary;
       ],
       providers: [
         ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1'),
-        ee.host_provider(self_ee_catalog_url),
+        ee.host_provider(version_config.ee_catalog_url),
       ],
-      extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2015-06-23T00:00:00Z', null),
+      extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2015-06-27T00:00:00Z', null),
       summaries: {
         'gee:schema': [
           {
@@ -528,7 +520,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'QA60',
-            description: 'Cloud mask',
+            description: 'Cloud mask from polygons. Empty after Feb 2022.',
             gsd: 60.0,
             'gee:bitmask': {
               bitmask_parts: [
@@ -605,7 +597,7 @@ local license = spdx.proprietary;
       },
       'gee:terms_of_use': |||
         The use of Sentinel data is governed by the [Copernicus
-        Sentinel Data Terms and Conditions.](https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf)
+        Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
       |||,
-    }
-  }
+    },
+}

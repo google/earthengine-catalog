@@ -7,7 +7,7 @@ local subdir = 'COPERNICUS';
 local license = spdx.proprietary;
 
 {
-  s2_dataset(id)::
+  s2_dataset(id, version, version_config)::
     local basename = std.strReplace(id, '/', '_');
     local base_filename = basename + '.json';
     local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -20,8 +20,10 @@ local license = spdx.proprietary;
       type: 'Collection',
       stac_extensions: [
         ee_const.ext_eo,
+        ee_const.ext_ver,
       ],
       id: id,
+      version: version,
       title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-2A',
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
@@ -50,23 +52,13 @@ local license = spdx.proprietary;
         time, and the final 6-character string is a unique granule identifier
         indicating its UTM grid reference (see [MGRS](https://en.wikipedia.org/wiki/Military_Grid_Reference_System)).
 
-        Clouds can be removed by using
-        [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY).
-        See
-        [this tutorial](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless)
-        explaining how to apply the cloud mask.
+        For datasets to assist with cloud and/or cloud shadow detection, see [COPERNICUS/S2_CLOUD_PROBABILITY](COPERNICUS_S2_CLOUD_PROBABILITY)
+        and [GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED](GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED).
 
         For more details on Sentinel-2 radiometric resolution, [see this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric).
       |||,
       license: license.id,
-      links: [
-        ee.link.self_link(self_url),
-        ee.link.parent(parent_url),
-        ee.link.root(),
-        ee.link.example(id, subdir, basename),
-        ee.link.preview(subdir, basename),
-        ee.link.terms_of_use(self_ee_catalog_url),
-      ],
+      links: ee.standardLinks(subdir, id) + version_config.version_links,
       keywords: [
         'copernicus',
         'esa',
@@ -78,7 +70,7 @@ local license = spdx.proprietary;
       ],
       providers: [
         ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2'),
-        ee.host_provider(self_ee_catalog_url),
+        ee.host_provider(version_config.ee_catalog_url),
       ],
       extent: ee.extent(-180.0, -56.0, 180.0, 83.0, '2017-03-28T00:00:00Z', null),
       summaries: {

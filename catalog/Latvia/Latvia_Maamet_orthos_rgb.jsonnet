@@ -32,8 +32,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The RGB dataset has three bands: red, green, and blue.
 
-    For more information, please see the [Latvia orthophotos documentation]
-    (https://www.lgia.gov.lv/lv/ortofotokartes-1)
+    For more information, please see the
+    [Latvia orthophotos documentation](https://www.lgia.gov.lv/lv/ortofotokartes-1)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

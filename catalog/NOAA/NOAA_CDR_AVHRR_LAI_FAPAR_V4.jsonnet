@@ -68,7 +68,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'noaa',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/terrestrial/leaf-area-index-and-fapar'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/climate-data-records/leaf-area-index-and-fapar'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1981-06-24T00:00:00Z', '2019-05-16T00:00:00Z'),

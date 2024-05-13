@@ -1,22 +1,17 @@
 local id = 'MODIS/061/MYD11A2';
-local predecessor_id = 'MODIS/006/MYD11A2';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MYD11A2_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local template = import 'templates/MODIS_006_MOD11A2.libsonnet';
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local predecessor_filename = predecessor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local predecessor_url = catalog_subdir_url + predecessor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -28,15 +23,19 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   id: id,
   title: 'MYD11A2.061 Aqua Land Surface Temperature and Emissivity 8-Day Global 1km',
-  version: '6.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD11A2 V6.1 product provides an average 8-day land
     surface temperature (LST)  in a 1200 x 1200 kilometer grid.  Each
     pixel value in MYD11A2 is a simple average of all the corresponding
-    MYD11A1 LST pixels collected within that 8 day period.  The 8 day
-    compositing period was chosen because twice that period is the
-    exact ground track repeat period of the Terra and Aqua platforms.
+    MYD11A1 LST pixels collected within that 8 day period. The MYD11A2 does a
+    simple averaging of all daily LST values, without any filtering for specific
+    QA bits. Each of the MYD11A2 QA values are set based on what majority of
+    input daily QA values are for any given pixel.
+
+    The 8 day compositing period was chosen because twice that period is
+    the exact ground track repeat period of the Terra and Aqua platforms.
     In this product, along with both the day- and night-time surface
     temperature bands and their quality indicator (QC) layers, are
     also MODIS bands 31 and 32 and eight observation layers.
@@ -55,8 +54,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MYD11A2.061',
     },
-    ee.link.predecessor(predecessor_id, predecessor_url)
-  ],
+  ] + version_config.version_links,
   keywords: [
     '8_day',
     'aqua',
@@ -71,7 +69,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MYD11A2.061'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C194001210-LPDAAC_ECS',

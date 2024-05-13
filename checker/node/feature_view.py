@@ -86,24 +86,6 @@ MAX_FEATURES_RANGE = [150, 16000]
 THINNING_STRATEGIES = frozenset({'GLOBALLY_CONSISTENT', 'HIGHER_DENSITY'})
 DIRECTIONS = frozenset({'ASC', 'DESC'})
 
-TABLES_WITHOUT_FEATUREVIEW = frozenset({
-    'WWF/HydroATLAS/v1/Basins/level03',
-    'WWF/HydroATLAS/v1/Basins/level04',
-    'WWF/HydroATLAS/v1/Basins/level05',
-    'WWF/HydroATLAS/v1/Basins/level06',
-    'WWF/HydroATLAS/v1/Basins/level07',
-    'WWF/HydroATLAS/v1/Basins/level08',
-    'WWF/HydroATLAS/v1/Basins/level09',
-    'WWF/HydroATLAS/v1/Basins/level10',
-    'WWF/HydroATLAS/v1/Basins/level11',
-    'WWF/HydroATLAS/v1/Basins/level12',
-})
-
-
-# Use a function to allow a mock during testing.
-def table_without_featureview_exception(dataset_id: str) -> bool:
-  return dataset_id in TABLES_WITHOUT_FEATUREVIEW
-
 
 class Check(stac.NodeCheck):
   """Checks the feature view fields."""
@@ -137,14 +119,6 @@ class Check(stac.NodeCheck):
             f'in {node.gee_type}')
       return
 
-    if GEE_FEATURE_VIEW_INGESTION_PARAMS not in summaries:
-      if not table_without_featureview_exception(node.id):
-        yield cls.new_issue(
-            node,
-            f'{GEE_FEATURE_VIEW_INGESTION_PARAMS} must be present '
-            f'in {node.gee_type}')
-      return
-
     if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
       skip = node.stac[stac.SKIP_FEATUREVIEW_GENERATION]
       if not isinstance(skip, bool):
@@ -153,11 +127,15 @@ class Check(stac.NodeCheck):
       elif not skip:
         yield cls.new_issue(
             node, f'{stac.SKIP_FEATUREVIEW_GENERATION} cannot be false')
-    if table_without_featureview_exception(node.id):
+      return
+
+    if GEE_FEATURE_VIEW_INGESTION_PARAMS not in summaries:
       yield cls.new_issue(
           node,
-          f'{node.id} is in the list of tables without feature views, but '
-          f'{GEE_FEATURE_VIEW_INGESTION_PARAMS} is present')
+          f'{GEE_FEATURE_VIEW_INGESTION_PARAMS} must be present '
+          f'in {node.gee_type}',
+      )
+      return
 
     params = summaries[GEE_FEATURE_VIEW_INGESTION_PARAMS]
     if not isinstance(params, dict):

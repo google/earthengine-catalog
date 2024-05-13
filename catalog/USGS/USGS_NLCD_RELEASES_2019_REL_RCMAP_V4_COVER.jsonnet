@@ -1,5 +1,10 @@
 local id = 'USGS/NLCD_RELEASES/2019_REL/RCMAP/V4/COVER';
+local versions = import 'versions.libsonnet';
+local version_table = import 'USGS_NLCD_RCMAP_Cover_versions.libsonnet';
+
 local subdir = 'USGS';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,8 +26,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'RCMAP Rangeland Component Timeseries v4 (1985-2020)',
-  version: 'v4',
+  title: 'RCMAP Rangeland Component Timeseries (1985-2020), ' + version + ' [deprecated]',
+  version: version,
+  deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Rangeland ecosystems in the western United States have a dynamic response
@@ -78,7 +84,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'climate_change',
     'disturbance',
@@ -90,6 +96,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider('United States Geological Survey and Bureau of Land Management', 'https://www.mrlc.gov/'),
     ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(
       -125.0683594, 28.45903302, -101.0742188, 49.32512199,

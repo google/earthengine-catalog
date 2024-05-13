@@ -22,7 +22,9 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('USFS_GTAC_LCMS_v2020-6', base_url),
     ee.link.child_collection('USFS_GTAC_LCMS_v2021-7', base_url),
     ee.link.child_collection('USFS_GTAC_LCMS_v2022-8', base_url),
+    ee.link.child_collection('USFS_GTAC_LCMS_v2023-9', base_url),
     ee.link.child_collection('USFS_GTAC_MTBS_burned_area_boundaries_v1', base_url),
     ee.link.child_collection('USFS_GTAC_MTBS_annual_burn_severity_mosaics_v1', base_url),
+    ee.link.child_collection('USFS_GTAC_TreeMap_v2016', base_url),
   ],
 }

@@ -1,17 +1,16 @@
 local id = 'MODIS/061/MOD16A2';
-local predecessor_id = 'MODIS/006/MOD16A2';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MOD16A2_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MOD16A2.libsonnet';
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -23,10 +22,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MOD16A2.061: Terra Net Evapotranspiration 8-Day Global 500m',
-  version: '6.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MOD16A2 Version 6 Evapotranspiration/Latent Heat Flux product is an
+    The MOD16A2 Version 6.1 Evapotranspiration/Latent Heat Flux product is an
     8-day composite product produced at 500 meter pixel resolution. The
     algorithm used for the MOD16 data product collection is based on the logic
     of the Penman-Monteith equation, which includes inputs of daily
@@ -59,14 +58,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [User's Guide]
-      (https://lpdaac.usgs.gov/documents/494/MOD16_User_Guide_V6.pdf)
+    * [User's Guide](https://lpdaac.usgs.gov/documents/494/MOD16_User_Guide_V6.pdf)
 
-    * [Algorithm Theoretical Basis Document (ATBD)]
-      (https://lpdaac.usgs.gov/documents/93/MOD16_ATBD.pdf)
+    * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/93/MOD16_ATBD.pdf)
 
-    * [General Documentation]
-      (https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MOD16A2)
+    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MOD16A2)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -74,7 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD16A2.061',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     '8_day',
     'evapotranspiration',
@@ -86,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center',
     'https://doi.org/10.5067/MODIS/MOD16A2.061'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1000000524-LPDAAC_ECS',
@@ -99,8 +95,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5067/MODIS/MOD16A2.061',
   'sci:citation': |||
-    Please visit [LP DAAC 'Citing Our Data' page]
-    (https://lpdaac.usgs.gov/citing_our_data)
+    Please visit
+    [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
   |||,
   'gee:interval': {

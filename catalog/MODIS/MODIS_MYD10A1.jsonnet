@@ -1,18 +1,15 @@
 local id = 'MODIS/MYD10A1';
-local successor_id = 'MODIS/006/MYD10A1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MYD10A1_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -36,13 +33,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/ZFAEMQGSR4XD',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'albedo',
     'aqua',
@@ -56,7 +51,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('NSIDC', 'https://nsidc.org/data/MYD10A1/versions/5'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C115003860-NSIDC_ECS',

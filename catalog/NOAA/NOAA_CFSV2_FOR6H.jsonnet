@@ -64,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'weather',
   ],
   providers: [
-    ee.producer_provider('NOAA NWS National Centers for Environmental Prediction (NCEP)', 'https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/climate-forecast-system-version2-cfsv2'),
+    ee.producer_provider('NOAA NWS National Centers for Environmental Prediction (NCEP)', 'https://cfs.ncep.noaa.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1979-01-01T00:00:00Z', null),

@@ -1,6 +1,7 @@
 local id = 'ACA/reef_habitat/v1_0';
-local latest_id = 'ACA/reef_habitat/v2_0';
-local successor_id = 'ACA/reef_habitat/v2_0';
+local versions = import 'versions.libsonnet';
+local version_table = import 'ACA_versions.libsonnet';
+
 local subdir = 'ACA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -8,22 +9,12 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc_by_4_0;
-local version = '1.0';
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -36,7 +27,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'Allen Coral Atlas (ACA) - Geomorphic Zonation and Benthic Habitat - v1.0 [deprecated]',
   deprecated: true,
-  version: 'v1.0',
+  version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
     The [Allen Coral Atlas](https://allencoralatlas.org/) dataset maps the
@@ -84,10 +75,7 @@ local successor_url = catalog_subdir_url + successor_filename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.3833242',
     },
-  ] + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'coral',
     'ocean',

@@ -15,7 +15,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   id: id,
-  title: 'FAO GAUL: Global Administrative Unit Layers 2015, First-Level Administrative Units',
+  title:
+    'FAO GAUL: Global Administrative Unit Layers 2015, ' +
+    'First-Level Administrative Units',
   'gee:type': ee_const.gee_type.table,
   description: |||
     The Global Administrative Unit Layers (GAUL) compiles and disseminates the
@@ -31,7 +33,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     to the global layer based on the last country boundaries map provided by
     the UN Cartographic Unit (UNCS), d) generating codes using GAUL Coding
     System, and e) distribute data to the users
-    (see [Technical Aspects of the GAUL Distribution Set](https://data.apps.fao.org:/map/catalog/srv/api/records/9c35ba10-5649-41c8-bdfc-eb78e9e65654/attachments/GAUL2015_Documentation.zip).
+    (see [Technical Aspects of the GAUL Distribution Set](
+      https://data.apps.fao.org:/map/catalog/srv/api/records/9c35ba10-5649-41c8-bdfc-eb78e9e65654/attachments/GAUL2015_Documentation.zip).
     Note that some administrative units are multipolygon features.
   |||,
   license: license.id,
@@ -48,7 +51,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'un',
   ],
   providers: [
-    ee.producer_provider('FAO UN', 'https://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
+    ee.producer_provider(
+      'FAO UN',
+      'https://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-12-19T16:45:00Z', '2014-12-19T16:45:00Z'),
@@ -78,11 +83,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'Shape_Area',
         description: 'Shape area',
         type: ee_const.var_type.double,
+        // TODO(schwehr): Units?
       },
       {
         name: 'Shape_Leng',
         description: 'Shape length',
         type: ee_const.var_type.double,
+        // TODO(schwehr): Units?
       },
       {
         name: 'ADM1_CODE',
@@ -108,59 +115,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'First Level Administrative Units',
-        lookat: {
-          lat: 49.1,
-          lon: 7.82,
-          zoom: 4,
-        },
+        lookat: {lon: 7.82, lat: 49.1, zoom: 4},
         polygon_visualization: {
           property_name: 'ADM1_CODE',
           property_vis: {
-            min: [
-              500.0,
-            ],
-            max: [
-              4000.0,
-            ],
+            min: [500],
+            max: [4000],
             palette: [
-              '00ff97',
-              'ddff6b',
-              'f0ff6b',
-              'ffe96b',
-              '7277ff',
-              'ffffb3',
-              'daffff',
-              'b0ffff',
-              '72ffff',
-              'a9ff6b',
-              '72d6ff',
-              '00ff72',
-              '00eee3',
-              'ff84ff',
-              'e1e4e1',
-              'ecffe1',
-              'b3c59f',
-              'b3f09f',
-              'ffffca',
-              '47f09f',
-              'dadce7',
-              '47f0d7',
-              'ffa789',
-              '00ffbb',
-              'd3ff89',
-              '00b6ff',
-              'cfcdca',
-              'ff7789',
-              'cfbaca',
-              'ffe5c8',
-              'ffd1ff',
-              'ff7789',
-              'ffff89',
-              'd3a789',
-              '0cffff',
-              'ff87a8',
-              'd8ff6a',
-              'd8ddbb',
+              '00ff97', 'ddff6b', 'f0ff6b', 'ffe96b', '7277ff', 'ffffb3',
+              'daffff', 'b0ffff', '72ffff', 'a9ff6b', '72d6ff', '00ff72',
+              '00eee3', 'ff84ff', 'e1e4e1', 'ecffe1', 'b3c59f', 'b3f09f',
+              'ffffca', '47f09f', 'dadce7', '47f0d7', 'ffa789', '00ffbb',
+              'd3ff89', '00b6ff', 'cfcdca', 'ff7789', 'cfbaca', 'ffe5c8',
+              'ffd1ff', 'ff7789', 'ffff89', 'd3a789', '0cffff', 'ff87a8',
+              'd8ff6a', 'd8ddbb',
             ],
           },
         },
@@ -172,6 +140,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 4000,
+      min_vertices_per_tile: 50000,
       thinning_strategy: 'HIGHER_DENSITY',
       thinning_ranking: ['Shape_Area DESC'],
       prerender_tiles: true,
@@ -183,9 +152,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     use, download and print the materials contained in the GAUL dataset solely
     for non-commercial purposes and in accordance with the conditions specified
     in the data license.
-    [The full GAUL Data License document](https://developers.google.com/earth-engine/datasets/catalog/DataLicenseGAUL2015.pdf)
+    [The full GAUL Data License document](
+      https://developers.google.com/earth-engine/datasets/catalog/DataLicenseGAUL2015.pdf)
     is available for downloading. See also
-    [the disclaimer](https://developers.google.com/earth-engine/datasets/catalog/DisclaimerGAUL2015.pdf).
+    [the disclaimer](
+      https://developers.google.com/earth-engine/datasets/catalog/DisclaimerGAUL2015.pdf).
   |||,
   'gee:unusual_terms_of_use': true,
 }

@@ -1,15 +1,14 @@
 local id = 'MODIS/061/MYD08_M3';
-local subdir = 'MODIS';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MYD08_M3_versions.libsonnet';
 
+local subdir = 'MODIS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'MYD08_M3.061 Aqua Atmosphere Monthly Global Product',
-  version: '6.1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     MYD08_M3 V6.1 is an atmosphere global product that contains
@@ -51,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MYD08_M3.061',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'aqua',
     'atmosphere',
@@ -67,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NASA LAADS DAAC at NASA Goddard Space Flight Center', 'https://doi.org/10.5067/MODIS/MYD08_M3.061'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2002-07-01T00:00:00Z', null),
   'gee:provider_ids': [
@@ -239,7 +238,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA\'s
-    Earth Science Data & Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    Earth Science Data & Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

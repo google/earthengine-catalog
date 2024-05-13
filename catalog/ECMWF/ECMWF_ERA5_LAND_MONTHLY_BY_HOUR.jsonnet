@@ -1,6 +1,7 @@
 local id = 'ECMWF/ERA5_LAND/MONTHLY_BY_HOUR';
 local subdir = 'ECMWF';
 
+local cds_notice = import 'templates/cds_notice.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -22,7 +23,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'ERA5-Land Monthly Averaged by Hour of Day - ECMWF Climate Reanalysis',
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
+  description: cds_notice.body + |||
+
     ERA5-Land is a reanalysis dataset providing a consistent view of the evolution of land variables
     over several decades at an enhanced resolution compared to ERA5. ERA5-Land has been produced by
     replaying the land component of the ECMWF ERA5 climate reanalysis. Reanalysis combines model
@@ -42,7 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     one for each of the accumulation bands, with the hourly values computed as the difference
     between two consecutive forecast steps.
 
-    ERA5-Land data is available from 1981 to three months from real-time. More information
+    ERA5-Land data is available from 1950 to three months from real-time. More information
     can be found at the [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
   |||,
   license: license.id,
@@ -71,7 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Climate Data Store', 'https://cds.climate.copernicus.eu/cdsapp'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1981-01-01T01:00:00Z', null),
+  extent: ee.extent_global('1950-01-01T01:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
@@ -875,11 +877,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Please acknowledge the use of ERA5-Land as stated in the
     [Copernicus C3S/CAMS License agreement](https://apps.ecmwf.int/datasets/licences/copernicus/):
 
-    - 5.1.2 Where the Licensee communicates or distributes Copernicus Products to the public, the
+    - 5.1.1 Where the Licensee communicates or distributes Copernicus Products to the public, the
     Licensee shall inform the recipients of the source by using the following or any similar notice:
     'Generated using Copernicus Climate Change Service Information [Year]'.
 
-    - 5.1.3 Where the Licensee makes or contributes to a publication or distribution containing
+    - 5.1.2 Where the Licensee makes or contributes to a publication or distribution containing
     adapted or modified Copernicus Products, the Licensee shall provide the following or any similar
     notice: 'Contains modified Copernicus Climate Change Service Information [Year]';
 

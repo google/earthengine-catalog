@@ -6,23 +6,26 @@ local ee = import 'earthengine.libsonnet';
 local landsat = import 'landsat.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local notes = import 'templates/LANDSAT_L2.libsonnet';
 
 local license = spdx.proprietary {
   reference: 'https://www.usgs.gov/centers/eros/data-citation',
 };
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local versions = import 'versions.libsonnet';
+local version_table = import 'LE7_T2_L2_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'USGS Landsat 7 Level 2, Collection 2, Tier 2',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -51,31 +54,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
     [Additional documentation and usage examples.](/earth-engine/guides/landsat)
 
-    Data provider notes:
-
-    * Data products must contain both optical and thermal data to be
-      successfully processed to surface temperature, as ASTER NDVI is
-      required to temporally adjust the ASTER GED product to the target Landsat
-      scene. Therefore, night time acquisitions cannot be processed to
-      surface temperature.
-
-    * A known error exists in the surface temperature retrievals relative
-      to clouds and possibly cloud shadows. The characterization of these
-      issues has been documented by
-      [Cook et al., (2014)](https://doi.org/10.3390/rs61111244).
-
-    * For Landsat 7 ETM+ products, Band 6 TOA BT and ST data are generated from
-      ETM+ Band 6 High (6H) and 6 Low (6L) merged together. The merged band
-      contains unsaturated pixels from Band 6H. If Band 6H pixels have a BT
-      outside of the 6H dynamic range (240 to 322 Kelvin) then 6L band pixels
-      are used. Pixels that are saturated in Band 6L remain saturated in the
-      merged Band 6 product. The merged thermal radiance is then used in the
-      creation of the TOA BT and ST data.
-  ||| + landsat.l7_drift,
+  ||| + notes.description + landsat.l7_drift,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'cfmask',
     'cloud',
@@ -92,7 +75,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-2-level-2-science-products'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1999-05-28T01:06:16Z', null),
   summaries: {

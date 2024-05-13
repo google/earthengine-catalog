@@ -1,16 +1,16 @@
 local id = 'MODIS/006/MOD17A2H';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/MOD17A2H_versions.libsonnet';
+
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
 local template = import 'templates/MODIS_006_MOD17A2H.libsonnet';
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,12 +21,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m',
-  version: '6',
+  title: 'MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500m [deprecated]',
+  deprecated: true,
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD17A2H V6 Gross Primary Productivity (GPP) product
-    is a cumulative 8-day composite with a 500m resolution. The product
+    is a cumulative 8-day composite with a 500m pixel size. The product
     is based on the radiation-use efficiency concept and can be potentially
     used as inputs to data models to calculate terrestrial energy,
     carbon, water cycle processes, and biogeochemistry of vegetation.
@@ -45,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MOD17A2H.006',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     '8_day',
     'global',
@@ -61,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD17A2H.006'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C203669722-LPDAAC_ECS',

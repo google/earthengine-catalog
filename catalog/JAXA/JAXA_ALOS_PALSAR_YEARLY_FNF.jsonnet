@@ -67,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar',
   ],
   providers: [
-    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/fnf_index.htm'),
+    ee.producer_provider('JAXA EORC', 'https://www.eorc.jaxa.jp/ALOS/en/dataset/fnf_e.htm'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2007-01-01T00:00:00Z', '2018-01-01T00:00:00Z'),

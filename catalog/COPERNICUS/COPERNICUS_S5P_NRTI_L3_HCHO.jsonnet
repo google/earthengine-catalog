@@ -40,7 +40,8 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     variations of the formaldehyde distribution are principally related to temperature
     changes and fire events, but also to changes in anthropogenic activities. HCHO concentrations
     in the boundary layer can be directly related to the release of short-lived hydrocarbons, which
-    mostly cannot be observed directly from space. [[More information](http://www.tropomi.eu/data-products/formaldehyde)]
+    mostly cannot be observed directly from space.
+    [More information.](http://www.tropomi.eu/data-products/formaldehyde)
 
     ### NRTI L3 Product
 

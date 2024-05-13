@@ -499,7 +499,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:interval': {
     type: 'revisit_interval',
     unit: 'day',
-    interval: 3,
+    // 6 days in the best case when two S1 satellites are up.
+    interval: 6,
   },
   'gee:terms_of_use': |||
     The use of Sentinel data is governed by the [Copernicus

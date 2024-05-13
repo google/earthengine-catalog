@@ -21,6 +21,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('GLIMS_2016', base_url),
     ee.link.child_collection('GLIMS_20171027', base_url),
     ee.link.child_collection('GLIMS_20210914', base_url),
+    ee.link.child_collection('GLIMS_20230607', base_url),
     ee.link.child_collection('GLIMS_current', base_url),
   ],
 }

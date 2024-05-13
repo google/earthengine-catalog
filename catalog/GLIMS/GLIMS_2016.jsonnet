@@ -1,7 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local configs = import 'GLIMS.libsonnet';
+local configs = import 'GLIMS_versions.libsonnet';
 local subdir = 'GLIMS';
 
 local license = spdx.proprietary;

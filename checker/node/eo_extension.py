@@ -173,7 +173,7 @@ GSD_EXCEPTIONS = frozenset({
 
 MIN_DESCRIPTION_LEN = 3
 MAX_DESCRIPTION_LEN = 1600
-MAX_BANDS = 500
+MAX_BANDS = 2000
 MAX_GSD = 3e5
 POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 
@@ -213,8 +213,10 @@ UNITS = units.UNITS.union({
     'kg/m^2/8day',
     'm of water equivalent',
     'mW cm-2 &mu;m-1 sr-1',
+    'm^2',
     'm^2 s-2',
     'm^2/m^3',
+    'm^3',
     'meq/100g',
     'meter/year',
     'min. into half hour',
@@ -225,9 +227,9 @@ UNITS = units.UNITS.union({
     'mol/m^2',
     'molec cm-2 s-1',
     'ms',
-    'nanoWatts/cm2/sr',
     'occurrence',
     'ppm',
+    'ppm m',
     'seconds',
     'sr-1',
     'ug m-3',
@@ -397,7 +399,6 @@ class Check(stac.NodeCheck):
       if not isinstance(description, str):
         yield cls.new_issue(node, f'{name} {DESCRIPTION} must be a str')
       else:
-        # TODO(schwehr): Be more strict about the contents of the description
         if len(description) < MIN_DESCRIPTION_LEN:
           yield cls.new_issue(
               node, f'{name} {DESCRIPTION} too short: {len(description)}')

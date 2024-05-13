@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - Longitude values are not correctly associated with the center of
       the grid cell, error is < 0.02 degrees
 
-    See [technical note from the data provider](https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/AVHRR%20Surface%20Reflectance/TechNote.pdf).
+    See [technical note from the data provider](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/Normalized_Difference_Vegetation_Index/AVHRR/AlgorithmDescriptionAVHRR_01B-20b.pdf).
 
     Provider's note: the orbital drift of N-19 (the last NOAA satellite
     carrying the AVHRR sensor) began to severely degrade the retrieved
@@ -64,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'noaa',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/terrestrial/normalized-difference-vegetation-index'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/climate-data-records/normalized-difference-vegetation-index'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1981-06-24T00:00:00Z', '2013-12-31T00:00:00Z'),

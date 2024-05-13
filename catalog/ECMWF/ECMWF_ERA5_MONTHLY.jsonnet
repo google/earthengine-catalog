@@ -1,6 +1,7 @@
 local id = 'ECMWF/ERA5/MONTHLY';
 local subdir = 'ECMWF';
 
+local cds_notice = import 'templates/cds_notice.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -22,7 +23,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'ERA5 Monthly Aggregates - Latest Climate Reanalysis Produced by ECMWF / Copernicus Climate Change Service',
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
+  description: cds_notice.body + |||
+
     ERA5 is the fifth generation ECMWF atmospheric reanalysis of the global climate.
     Reanalysis combines model data with observations from across the world into
     a globally complete and consistent dataset. ERA5 replaces its predecessor,
@@ -37,9 +39,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     data. Monthly total precipitation values are given as monthly sums.
     All other parameters are provided as monthly averages.
 
-    ERA5 data is available from 1979 to three months from real-time. More information
+    ERA5 data is available from 1940 to three months from real-time, the version in the EE Data Catalog is available from 1979. More information
     and more ERA5 atmospheric parameters can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
+    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview).
 
     Provider's Note: Monthly aggregates have been calculated based on the ERA5 hourly values
     of each parameter.
@@ -60,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wind',
   ],
   providers: [
-    ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels'),
+    ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1979-01-01T00:00:00Z', null),
@@ -320,10 +322,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     Please acknowledge the use of ERA5 as stated in the [Copernicus C3S/CAMS License agreement](https://apps.ecmwf.int/datasets/licences/copernicus/):
 
-    - 5.1.2 Where the Licensee communicates or distributes Copernicus Products to the public,
+    - 5.1.1 Where the Licensee communicates or distributes Copernicus Products to the public,
     the Licensee shall inform the recipients of the source by using the following or any similar notice: "Generated using
     Copernicus Climate Change Service information (Year)".
-    - 5.1.3 Where the Licensee makes or contributes to a publication or distribution containing adapted or
+    - 5.1.2 Where the Licensee makes or contributes to a publication or distribution containing adapted or
     modified Copernicus Products, the Licensee shall provide the following or any similar notice: "Contains modified Copernicus
     Climate Change Service information (Year)".
     - 5.1.3 Any such publication or distribution covered by clauses 5.1.1 and 5.1.2 shall state that neither the European Commission

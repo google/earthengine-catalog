@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [General Documentation](https://lpdaac.usgs.gov/products/vnp43ia2v001/)
 
-    * [Land Product Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/NPP_QA/)
+    * [Land Product Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/browse?sensor=VIIRS&sat=SNPP)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

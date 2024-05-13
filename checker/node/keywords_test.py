@@ -49,10 +49,6 @@ class KeywordsTest(test_utils.NodeTest):
         for keyword in stac_data[KEYWORDS]]
     self.assert_collection(stac_data, issues)
 
-  def test_sorted(self):
-    self.assert_collection(
-        {KEYWORDS: ['bb', 'aa']}, '"keywords" must be sorted')
-
   def test_duplicate(self):
     self.assert_collection({KEYWORDS: ['aa', 'aa']}, 'duplicate keyword found')
 

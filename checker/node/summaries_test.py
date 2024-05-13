@@ -151,11 +151,15 @@ class ErrorSummariesTest(test_utils.NodeTest):
 
   def test_extra_key(self):
     self.assert_collection(
-        {'summaries': {
-            'bogus': 'does not matter',
-            'eo:bands': 'does not matter',
-            'gee:visualizations': 'does not matter'}},
-        'summaries has unexpected keys: bogus')
+        {
+            'summaries': {
+                'bogus': 'does not matter',
+                'eo:bands': 'does not matter',
+                'gee:visualizations': 'does not matter',
+            }
+        },
+        'summaries has unexpected keys: bogus. Each key must be a band name.',
+    )
 
   def test_band_summary_with_dash(self):
     self.assert_collection(

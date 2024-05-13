@@ -1,27 +1,27 @@
 local id = 'LANDSAT/LT04/C02/T1_L2';
 local subdir = 'LANDSAT';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local notes = import 'templates/LANDSAT_L2.libsonnet';
 
 local license = spdx.proprietary {
   reference: 'https://www.usgs.gov/centers/eros/data-citation',
 };
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-
+local versions = import 'versions.libsonnet';
+local version_table = import 'LT4_T1_L2_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'USGS Landsat 4 Level 2, Collection 2, Tier 1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -50,21 +50,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
     [Additional documentation and usage examples.](/earth-engine/guides/landsat)
 
-    Data provider notes:
-
-    * Data products must contain both optical and thermal data to be
-      successfully processed to surface temperature, as ASTER NDVI is
-      required to temporally adjust the ASTER GED product to the target Landsat
-      scene. Therefore, night time acquisitions cannot be processed to
-      surface temperature.
-
-    * A known error exists in the surface temperature retrievals relative
-      to clouds and possibly cloud shadows. The characterization of these
-      issues has been documented by
-      [Cook et al., (2014)](https://doi.org/10.3390/rs61111244).
-  |||,
+  ||| + notes.description,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.license(license.reference),
   ],
   keywords: [
@@ -83,7 +71,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-2-level-2-science-products'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1982-08-22T14:19:55Z', '1993-06-24T14:26:23Z'),
   summaries: {

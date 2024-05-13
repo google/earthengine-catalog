@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local era5_land = import 'templates/ECMWF_ERA5_LAND.libsonnet';
+local notes = importstr 'templates/important_notes.md';
 
 local license = spdx.proprietary;
 
@@ -48,7 +49,7 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ERA5-Land monthly aggregated data is available from 1950 to three months
     from real-time. More information can be found at the
     [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
-  |||,
+  ||| + notes,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.predecessor(predecessor_id, predecessor_url)
@@ -61,8 +62,20 @@ local predecessor_url = catalog_subdir_url + predecessor_filename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1950-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1950-02-01T00:00:00Z', null),
   summaries: {
+    'gee:schema': [
+      {
+        name: 'month',
+        description: 'Calendar month',
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'year',
+        description: 'Calendar year',
+        type: ee_const.var_type.int,
+      },
+    ],
     gsd: [
       11132.0,
     ],

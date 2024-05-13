@@ -41,13 +41,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Chlorophyll Forum](https://oceancolor.gsfc.nasa.gov/forum/oceancolor/forum_show.pl)
 
-    * [Algorithm Theoretical Basis Document (Chlorophyll)](https://oceancolor.gsfc.nasa.gov/atbd/chlor_a)
+    * [Algorithm Theoretical Basis Document (Chlorophyll)](https://oceancolor.gsfc.nasa.gov/resources/atbd/chlor_a)
 
-    * [Algorithm Theoretical Basis Document (Fluorescence Line Height)](https://oceancolor.gsfc.nasa.gov/atbd/nflh)
+    * [Algorithm Theoretical Basis Document (Fluorescence Line Height)](https://oceancolor.gsfc.nasa.gov/resources/atbd/nflh)
 
-    * [Algorithm Theoretical Basis Document (Particulate Organic Carbon)](https://oceancolor.gsfc.nasa.gov/atbd/poc)
+    * [Algorithm Theoretical Basis Document (Particulate Organic Carbon)](https://oceancolor.gsfc.nasa.gov/resources/atbd/poc)
 
-    * [Algorithm Theoretical Basis Document (Remote-Sensing Reflectance)](https://oceancolor.gsfc.nasa.gov/atbd/rrs)
+    * [Algorithm Theoretical Basis Document (Remote-Sensing Reflectance)](https://oceancolor.gsfc.nasa.gov/resources/atbd/rrs)
 
     * [Processing History](https://oceancolor.gsfc.nasa.gov/reprocessing)
 
@@ -56,26 +56,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     hence the -2147.48 estimated minimum value. For more information, visit the
     [Ocean Color Forum](https://oceancolor.gsfc.nasa.gov/forum/oceancolor/topic_show.pl?pid=33202;hl=poc%20values).
 
-    [MODIS-Aqua OceanData](https://oceancolor.gsfc.nasa.gov/data/aqua)
+    [MODIS-Aqua OceanData](https://oceancolor.gsfc.nasa.gov/about/missions/aqua/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/AQUA/MODIS/L3M/CHL/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/AQUA/MODIS/L3M/FLH/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/AQUA/MODIS/L3M/POC/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/AQUA/MODIS/L3M/RRS/2018',
-    },
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/GHMDA-2PJ19',
@@ -510,11 +494,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': true,
     },
   },
-  'sci:doi': '10.5067/AQUA/MODIS/L3M/CHL/2018',
   'sci:citation': |||
     NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology
     Processing Group. Moderate-resolution Imaging Spectroradiometer
     (MODIS) Aqua Ocean Color Data, NASA OB.DAAC, Greenbelt, MD, USA.
+
+    *   DOI: 10.5067/AQUA/MODIS/L3M/CHL/2018 [unrecoverable]
   |||,
   'sci:publications': [
     {
@@ -522,24 +507,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         NASA Ocean Biology Processing Group. (2017). <i>MODIS-Aqua Level 3
         Mapped Fluorescent Line Height Data Version R2018.0</i> [Data set]. NASA
         Ocean Biology DAAC.
+
+        *   DOI: 10.5067/AQUA/MODIS/L3M/FLH/2018 [unrecoverable]
       |||,
-      doi: '10.5067/AQUA/MODIS/L3M/FLH/2018',
     },
     {
       citation: |||
         NASA Ocean Biology Processing Group. (2017). <i>MODIS-Aqua Level 3
         Mapped Particulate Organic Carbon Data Version R2018.0</i> [Data
         set]. NASA Ocean Biology DAAC.
+
+        *   DOI: 10.5067/AQUA/MODIS/L3M/POC/2018 [unrecoverable]
       |||,
-      doi: '10.5067/AQUA/MODIS/L3M/POC/2018',
     },
     {
       citation: |||
         NASA Ocean Biology Processing Group. (2017). <i>MODIS-Aqua Level 3
         Mapped Remote-Sensing Reflectance Data Version R2018.0</i> [Data
         set]. NASA Ocean Biology DAAC.
+
+        *   DOI: 10.5067/AQUA/MODIS/L3M/RRS/2018 [unrecoverable]
       |||,
-      doi: '10.5067/AQUA/MODIS/L3M/RRS/2018',
     },
     {
       citation: |||
@@ -559,7 +547,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
-    Earth Science Data & Information Policy](https://science.nasa.gov/earth-science/earth-science-data/data-information-policy)
+    Earth Science Data & Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     for additional information.
   |||,
 }

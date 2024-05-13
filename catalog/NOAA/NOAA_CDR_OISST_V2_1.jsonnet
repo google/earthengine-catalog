@@ -59,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'temperature',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/oceanic/sea-surface-temperature-optimum-interpolation'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/optimum-interpolation-sst'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1981-09-01T00:00:00Z', null),
