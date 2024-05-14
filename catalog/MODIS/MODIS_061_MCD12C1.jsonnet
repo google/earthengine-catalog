@@ -38,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Provided in each MCD12C1 Version 6.1 Hierarchical Data Format 4 (HDF4) file
     are layers for Majority Land Cover Type 1-3, Majority Land Cover Type 1-3
-    Assessment, and Majority Land Cover Type 1-3 Percent.
+    Assessment, and Land Cover Type 1-3 Percent for each class.
 
     Documentation:
 

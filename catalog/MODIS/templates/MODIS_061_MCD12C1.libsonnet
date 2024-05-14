@@ -128,8 +128,88 @@ local units = import 'units.libsonnet';
         'gee:units': units.percent,
       },
       {
-        name: 'Majority_Land_Cover_Type_1_Percent',
-        description: 'Majority Land Cover Type 1 Percent: Percent cover of each IGBP class at each pixel',
+        name: 'Land_Cover_Type_1_Percent_Class_0',
+        description: 'Percent cover of IGBP class 0 (Water Bodies) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_1',
+        description: 'Percent cover of IGBP class 1 (Evergreen Needleleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_2',
+        description: 'Percent cover of IGBP class 2 (Evergreen Broadleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_3',
+        description: 'Percent cover of IGBP class 3 (Deciduous Needleleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_4',
+        description: 'Percent cover of IGBP class 4 (Deciduous Broadleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_5',
+        description: 'Percent cover of IGBP class 5 (Mixed Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_6',
+        description: 'Percent cover of IGBP class 6 (Closed Shrublands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_7',
+        description: 'Percent cover of IGBP class 7 (Open Shrublands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_8',
+        description: 'Percent cover of IGBP class 8 (Woody Savannas) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_9',
+        description: 'Percent cover of IGBP class 9 (Savannas) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_10',
+        description: 'Percent cover of IGBP class 10 (Grasslands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_11',
+        description: 'Percent cover of IGBP class 11 (Permanent Wetlands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_12',
+        description: 'Percent cover of IGBP class 12 (Croplands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_13',
+        description: 'Percent cover of IGBP class 13 (Urban and Built-up Lands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_14',
+        description: 'Percent cover of IGBP class 14 (Cropland/Natural Vegetation Mosaics) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_15',
+        description: 'Percent cover of IGBP class 15 (Permanent Snow and Ice) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_1_Percent_Class_16',
+        description: 'Percent cover of IGBP class 16 (Barren) at each pixel',
         'gee:units': units.percent,
       },
       {
@@ -230,8 +310,73 @@ local units = import 'units.libsonnet';
         'gee:units': units.percent,
       },
       {
-        name: 'Majority_Land_Cover_Type_2_Percent',
-        description: 'Majority Land Cover Type 2 Percent: Percent cover of each UMD class at each pixel',
+        name: 'Land_Cover_Type_2_Percent_Class_0',
+        description: 'Percent cover of UMD class 0 (Water Bodies) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_1',
+        description: 'Percent cover of UMD class 1 (Evergreen Needleleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_2',
+        description: 'Percent cover of UMD class 2 (Evergreen Broadleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_3',
+        description: 'Percent cover of UMD class 3 (Deciduous Needleleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_4',
+        description: 'Percent cover of UMD class 4 (Deciduous Broadleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_5',
+        description: 'Percent cover of UMD class 5 (Mixed Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_6',
+        description: 'Percent cover of UMD class 6 (Closed Shrublands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_7',
+        description: 'Percent cover of UMD class 7 (Open Shrublands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_8',
+        description: 'Percent cover of UMD class 8 (Woody Savannas) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_9',
+        description: 'Percent cover of UMD class 9 (Savannas) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_10',
+        description: 'Percent cover of UMD class 10 (Grasslands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_11',
+        description: 'Percent cover of UMD class 11 (Croplands) at each pixel. (Note that "Croplands" has value 12 in Majority_Land_Cover_Type_2 to match IGBP.)',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_12',
+        description: 'Percent cover of UMD class 12 (Urban and Built-up Lands) at each pixel. (Note that "Urban and Built-up Lands" has value 13 in Majority_Land_Cover_Type_2 to match IGBP.)',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_2_Percent_Class_13',
+        description: 'Percent cover of UMD class 13 (Barren) at each pixel. (Note that "Barren" has value 15 in Majority_Land_Cover_Type_2.)',
         'gee:units': units.percent,
       },
       {
@@ -314,8 +459,58 @@ local units = import 'units.libsonnet';
         'gee:units': units.percent,
       },
       {
-        name: 'Majority_Land_Cover_Type_3_Percent',
-        description: 'Majority Land Cover Type 3 Percent: Percent cover of each LAI class at each pixel',
+        name: 'Land_Cover_Type_3_Percent_Class_0',
+        description: 'Percent cover of LAI class 0 (Water Bodies) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_1',
+        description: 'Percent cover of LAI class 1 (Grasslands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_2',
+        description: 'Percent cover of LAI class 2 (Shrublands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_3',
+        description: 'Percent cover of LAI class 3 (Broadleaf Croplands) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_4',
+        description: 'Percent cover of LAI class 4 (Savannas) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_5',
+        description: 'Percent cover of LAI class 5 (Evergreen Broadleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_6',
+        description: 'Percent cover of LAI class 6 (Deciduous Broadleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_7',
+        description: 'Percent cover of LAI class 7 (Evergreen Needleleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_8',
+        description: 'Percent cover of LAI class 8 (Deciduous Needleleaf Forests) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_9',
+        description: 'Percent cover of LAI class 9 (Unvegetated) at each pixel',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'Land_Cover_Type_3_Percent_Class_10',
+        description: 'Percent cover of LAI class 10 (Urban and Built-up Lands) at each pixel',
         'gee:units': units.percent,
       },
     ],
@@ -362,24 +557,99 @@ local units = import 'units.libsonnet';
       maximum: 16.0,
       'gee:estimated_range': false,
     },
-    Majority_Land_Cover_Type_2: {
-      minimum: 0.0,
-      maximum: 15.0,
-      'gee:estimated_range': false,
-    },
-    Majority_Land_Cover_Type_3: {
-      minimum: 0.0,
-      maximum: 10.0,
-      'gee:estimated_range': false,
-    },
     Majority_Land_Cover_Type_1_Assessment: {
       minimum: 0.0,
       maximum: 100.0,
       'gee:estimated_range': false,
     },
-    Majority_Land_Cover_Type_1_Percent: {
+    Land_Cover_Type_1_Percent_Class_0: {
       minimum: 0.0,
       maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_1: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_2: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_3: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_4: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_5: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_6: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_7: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_8: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_9: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_10: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_11: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_12: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_13: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_14: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_15: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_1_Percent_Class_16: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Majority_Land_Cover_Type_2: {
+      minimum: 0.0,
+      maximum: 15.0,
       'gee:estimated_range': false,
     },
     Majority_Land_Cover_Type_2_Assessment: {
@@ -387,9 +657,79 @@ local units = import 'units.libsonnet';
       maximum: 100.0,
       'gee:estimated_range': false,
     },
-    Majority_Land_Cover_Type_2_Percent: {
+    Land_Cover_Type_2_Percent_Class_0: {
       minimum: 0.0,
       maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_1: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_2: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_3: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_4: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_5: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_6: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_7: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_8: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_9: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_10: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_11: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_12: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_2_Percent_Class_13: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Majority_Land_Cover_Type_3: {
+      minimum: 0.0,
+      maximum: 10.0,
       'gee:estimated_range': false,
     },
     Majority_Land_Cover_Type_3_Assessment: {
@@ -397,7 +737,57 @@ local units = import 'units.libsonnet';
       maximum: 100.0,
       'gee:estimated_range': false,
     },
-    Majority_Land_Cover_Type_3_Percent: {
+    Land_Cover_Type_3_Percent_Class_0: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_1: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_2: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_3: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_4: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_5: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_6: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_7: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_8: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_9: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': false,
+    },
+    Land_Cover_Type_3_Percent_Class_10: {
       minimum: 0.0,
       maximum: 100.0,
       'gee:estimated_range': false,
