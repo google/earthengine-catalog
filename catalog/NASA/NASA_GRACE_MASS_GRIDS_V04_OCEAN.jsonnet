@@ -1,4 +1,4 @@
-local id = 'NASA/GRACE/MASS_GRIDS/OCEAN';
+local id = 'NASA/GRACE/MASS_GRIDS_V04/OCEAN';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/OCEAN_versions.libsonnet';
 local subdir = 'NASA';
@@ -22,14 +22,13 @@ local version = version_config.version;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GRACE Monthly Mass Grids - Ocean [deprecated]',
-  deprecated: true,
+  title: 'GRACE Monthly Mass Grids Release 06 Version 04 - Ocean',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     GRACE Tellus Monthly Mass Grids provides monthly
     gravitational anomalies relative to a 2004-2010 time-mean baseline.
-    The data contained in this dataset are units of \"Equivalent Water Thickness\"
+    The data contained in this dataset are units of "Equivalent Water Thickness"
     which represent the deviations of mass in terms of vertical extent
     of water in centimeters. See the provider's [Monthly Mass
     Grids Overview](https://grace.jpl.nasa.gov/data/monthly-mass-grids/)
@@ -60,11 +59,6 @@ local version = version_config.version;
     * The GRCTellus Ocean datasets are optimized to examine regional
       ocean bottom pressure, but NOT intended to be spatially
       averaged to determine global mean ocean mass.
-
-    * A filtered version of the  GRCTellus Ocean dataset is also available
-      which uses an alternative filtering method which may reduce leakage
-      errors, and have results which agree better with altimetric sea surface
-      height. [NASA/GRACE/MASS_GRIDS/OCEAN_EOFR](https://developers.google.com/earth-engine/datasets/catalog/NASA_GRACE_MASS_GRIDS_OCEAN_EOFR).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -85,7 +79,7 @@ local version = version_config.version;
     ee.producer_provider('NASA Jet Propulsion Laboratory', 'https://grace.jpl.nasa.gov/data/get-data/monthly-mass-grids-ocean/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2002-07-31T00:00:00Z', '2016-12-10T00:00:00Z'),
+  extent: ee.extent_global('2002-04-04T00:00:00Z', '2017-10-25T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -162,26 +156,11 @@ local version = version_config.version;
         },
       },
     ],
-    lwe_thickness_csr: {
-      minimum: -27.0,
-      maximum: 36.81,
-      'gee:estimated_range': true,
-    },
-    lwe_thickness_gfz: {
-      minimum: -28.87,
-      maximum: 33.02,
-      'gee:estimated_range': true,
-    },
-    lwe_thickness_jpl: {
-      minimum: -26.03,
-      maximum: 37.36,
-      'gee:estimated_range': true,
-    },
   },
   'sci:citation': |||
     D.P. Chambers. 2012. GRACE MONTHLY OCEAN MASS GRIDS NETCDF
-    RELEASE 5.0. Ver. 5.0. PO.DAAC, CA, USA. Dataset accessed
-    [YYYY-MM-DD] at [https://doi.org/10.5067/TEOCN-0N005](https://doi.org/10.5067/TEOCN-0N005).
+    RELEASE 6.0. Ver. 4.0. PO.DAAC, CA, USA. Dataset accessed
+    [YYYY-MM-DD] at [https://doi.org/10.5067/TEOCN-3AC64](https://doi.org/10.5067/TEOCN-3AC64).
   |||,
   'sci:publications': [
     {
