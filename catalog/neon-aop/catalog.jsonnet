@@ -1,4 +1,4 @@
-local id = 'NEON';
+local id = 'neon-aop';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
