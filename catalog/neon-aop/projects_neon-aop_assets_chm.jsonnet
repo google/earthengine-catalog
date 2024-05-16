@@ -59,7 +59,7 @@ local units = import 'units.libsonnet';
   ],
   keywords: [
     # 'airborne',
-    'canopy',
+    # 'canopy',
     # 'ecology',
     'forest',
     'lidar',
