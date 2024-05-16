@@ -1,5 +1,5 @@
-local id = 'NEON/CHM';
-local subdir = 'NEON';
+local id = 'projects/neon-aop/assets/chm';
+local subdir = 'neon-aop';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
