@@ -4,7 +4,7 @@ local ee = import 'earthengine.libsonnet';
 
 local basename = 'catalog';
 local base_filename = basename + '.json';
-local base_url = ee_const.catalog_base + 'NEON/';
+local base_url = ee_const.catalog_base + 'neon-aop/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
@@ -19,9 +19,10 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     // TODO(schwehr): Uncomment when the datases are ready.
-    // ee.link.child_collection('NEON_CHM', base_url),
-    // ee.link.child_collection('NEON_DEM', base_url),
-    // ee.link.child_collection('NEON_RGB', base_url),
-    // ee.link.child_collection('NEON_SDR', base_url),
+    ee.link.child_collection('projects_neon-aop_assets_chm', base_url),
+    // ee.link.child_collection('projects_neon-aop_assets_dem', base_url),
+    // ee.link.child_collection('projects_neon-aop_assets_rgb', base_url),
+    // ee.link.child_collection('projects_neon-aop_assets_sdr', base_url),
+    // ee.link.child_collection('projects_neon-aop_assets_sbr', base_url),
   ],
 }
