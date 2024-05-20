@@ -99,7 +99,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'interp_days',
-        description: 'Number of days before and after each image date to include in interpolation',
+        description: 'Maximum number of days before and after each image date to include in interpolation',
         type: ee_const.var_type.double,
       },
       {
@@ -109,7 +109,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'interp_source_count',
-        description: 'Potential number of available images in the interpolation source image collection for the target month',
+        description: 'Number of available images in the interpolation source image collection for the target month',
         type: ee_const.var_type.double,
       },
       {
