@@ -1,18 +1,15 @@
 local id = 'CIESIN/GPWv4/unwpp-adjusted-population-count';
-local successor_id = 'CIESIN/GPWv411/GPW_UNWPP-Adjusted_Population_Count';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/GPW_adjusted_population_count_versions.libsonnet';
+
 local subdir = 'CIESIN';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.cc_by_4_0;
-
-local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -24,7 +21,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'GPWv4: Gridded Population of the World Version 4, UN-Adjusted Population Count [deprecated]',
-  version: 'v4',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -48,13 +45,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7927/H4SF2T42',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'ciesin',
     'gpw',
@@ -62,7 +57,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('CIESIN', 'https://sedac.ciesin.columbia.edu/data/collection/gpw-v4'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1418754426-SEDAC',

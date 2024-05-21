@@ -1,0 +1,6 @@
+[
+  {'1.1': 'JAXA/ALOS/AW3D30/V1_1'},
+  {'2.1': 'JAXA/ALOS/AW3D30/V2_1'},
+  {'2.2': 'JAXA/ALOS/AW3D30/V2_2'},
+  {'3.2': 'JAXA/ALOS/AW3D30/V3_2'},
+]
