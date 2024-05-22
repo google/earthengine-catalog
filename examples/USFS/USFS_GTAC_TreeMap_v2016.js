@@ -65,3 +65,64 @@ Map.setOptions('TERRAIN');
 
 // Center map on CONUS
 Map.setCenter(-95.712891, 38, 5);
+
+// Clip TreeMap dataset to an AOI
+
+// --- SET VARIABLES HERE ---
+
+// SET band name  
+var bandName = "CARBON_L"; // treemap attribute of interest to clip and export, use description below
+
+// SET AOI (example given with TIGER data set)
+var stateName = "Montana"; // Sentence case
+var TIGER_dataset = ee.FeatureCollection("TIGER/2018/States");
+var AOI = TIGER_dataset.filter(ee.Filter.eq('NAME', stateName));
+var exportName = "tm2016_"+stateName+"_clip";
+
+// SET custom AOI, export name (un-comment to set)
+// var AOI = ee.FeatureCollection("path-to-custom-AOI"); // user defined AOI, must be accessible through GEE assets
+// var exportName = "custom-export-name"; // the band name will be added to this export name variable (exportName_<band name>)
+
+// EXPORT Parameters
+var cloudBucketName = "your-bucket-name"; // set GCS bucket name
+var noDataVal = -9999; // set no data value
+var maxPixelNum = 350000000; // Specify higher maxPixels value if you intend to export a large area
+
+// === DO NOT EDIT BELOW ===
+
+// SET default projection and transform
+var dataset_proj = dataset.first().projection().getInfo();
+var exportCRS = dataset_proj.wkt;
+var exportTransform = dataset_proj.transform;
+var exportScale = null;
+
+//  CLIP
+
+// filter dataset to band name of interest
+var tm2016 = dataset.select(bandName).first();
+
+// Clip to AOI
+var tm2016_clip = tm2016.clip(AOI);
+
+// OPTIONAL: add clip layer to map viewer
+Map.addLayer(AOI,{},'AOI',false);
+Map.addLayer(tm2016_clip,{'palette': ['ff0000']},exportName);
+Map.centerObject(AOI);
+
+// EXPORT
+
+// Set the export "scale" and "crs" parameters.
+Export.image.toCloudStorage({
+  image: tm2016_clip,
+  description: (exportName+"_"+bandName),
+  bucket: cloudBucketName, 
+  fileNamePrefix: (exportName+"_"+bandName),
+  region: AOI,
+  scale: exportScale,
+  crs: exportCRS,
+  crsTransform:exportTransform,
+  maxPixels: maxPixelNum,
+  formatOptions: {
+    noData: noDataVal
+  }
+}); // Navigate to the 'Tasks' pane to complete export to GCS bucket
