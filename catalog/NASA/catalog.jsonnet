@@ -40,6 +40,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_GLDAS_V20_NOAH_G025_T3H', base_url),
 
     ee.link.child_collection('NASA_GPM_L3_IMERG_MONTHLY_V06', base_url),
+    ee.link.child_collection('NASA_GPM_L3_IMERG_MONTHLY_V07', base_url),
     ee.link.child_collection('NASA_GPM_L3_IMERG_V06', base_url),
 
     ee.link.child_collection('NASA_GRACE_MASS_GRIDS_LAND', base_url),

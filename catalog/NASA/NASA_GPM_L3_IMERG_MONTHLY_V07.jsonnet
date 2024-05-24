@@ -1,6 +1,7 @@
-local id = 'NASA/GPM_L3/IMERG_MONTHLY_V06';
+local id = 'NASA/GPM_L3/IMERG_MONTHLY_V07';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/IMERG_MONTHLY_versions.libsonnet';
 local subdir = 'NASA';
-local version = '6';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -12,6 +13,9 @@ local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
@@ -26,9 +30,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    IMERG-Final version "06" stopped being produced in September, 2021.
-    Version "07" is expected to be released in September 2022
-
     Global Precipitation Measurement (GPM) is an international
     satellite mission to provide next-generation observations of
     rain and snow worldwide every three hours. The Integrated Multi-satellitE
@@ -49,28 +50,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [Algorithm Theoretical Basis Document](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERG_ATBD_V06.pdf)
+    * [Algorithm Theoretical Basis Document](https://arthurhou.pps.eosdis.nasa.gov/Documents/IMERG_V07_ATBD_final.pdf)
 
     * [IMERG Quality Index](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERGV06_QI.pdf)
 
     * [Caveats for IMERG extension into TRMM era](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERGV06_TRMMera-caveats.pdf)
 
-    * [IMERG Technical Documentation](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERG_doc.06.pdf)
+    * [IMERG Technical Documentation](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERG_doc.07.pdf)
 
-    * [Release notes; New Morphing algorithm](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/MorphingInV06IMERG.pdf)
+    * [Release notes; New Morphing algorithm](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/MorphingInV07IMERG.pdf)
 
     * [Remote-Sensing Reflectance](https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/doc/README.GPM.pdf)
 
-    * [Anomalies](ftp://gpmweb2.pps.eosdis.nasa.gov/tsdis/AB/docs/gpm_anomalous.html)
+    * [Anomalies](https://gpmweb2https.pps.eosdis.nasa.gov/tsdis/AB/docs/gpm_anomalous.html)
 
     This collection contains data from
-    [GPM_3IMERGM_06](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_V06/summary)
+    [GPM_3IMERGM_07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_V07/summary)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/GPM/IMERG/3B-MONTH/06',
+      href: 'https://doi.org/10.5067/GPM/IMERG/3B-MONTH/07',
     },
   ],
   keywords: [
@@ -85,10 +86,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'weather',
   ],
   providers: [
-    ee.producer_provider('NASA GES DISC at NASA Goddard Space Flight Center', 'https://doi.org/10.5067/GPM/IMERG/3B-MONTH/06'),
+    ee.producer_provider('NASA GES DISC at NASA Goddard Space Flight Center', 'https://doi.org/10.5067/GPM/IMERG/3B-MONTH/07'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-06-01T00:00:00Z', '2021-09-01T00:00:00Z'),
+  extent: ee.extent_global('2000-06-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,
@@ -134,12 +135,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '10.5067/GPM/IMERG/3B-MONTH/06',
+  'sci:doi': '10.5067/GPM/IMERG/3B-MONTH/07',
   'sci:citation': |||
     Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
-    GPM IMERG Final Precipitation L3 1 month 0.1 degree x 0.1 degree V06,
+    GPM IMERG Final Precipitation L3 1 month 0.1 degree x 0.1 degree V07,
     Greenbelt, MD, Goddard Earth Sciences Data and Information Services Center
-    (GES DISC), Accessed: [Data Access Date], 10.5067/GPM/IMERG/3B-MONTH/06
+    (GES DISC), Accessed: [Data Access Date], 10.5067/GPM/IMERG/3B-MONTH/07
   |||,
   'gee:interval': {
     type: 'cadence',
