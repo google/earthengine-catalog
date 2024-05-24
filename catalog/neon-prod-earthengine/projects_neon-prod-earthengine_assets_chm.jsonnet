@@ -1,5 +1,5 @@
-local id = 'projects/neon-aop/assets/chm';
-local subdir = 'neon-aop';
+local id = 'projects/neon-prod-earthengine/assets/chm';
+local subdir = 'neon-prod-earthengine';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -32,8 +32,8 @@ local units = import 'units.libsonnet';
     a continuous surface of canopy height estimates across the entire spatial 
     domain of the LiDAR survey. The point cloud is separated into classes 
     representing the ground and vegetation returns. The ground classified 
-    points allow for calculation of a height-normalized point cloud to 
-    provide a relative estimate of vegetation elevation. A surface is then
+    points are used to generate a height-normalized point cloud that
+    provides a relative estimate of vegetation elevation. A surface is then
     generated using the height normalized vegetation points to produce the
     CHM. Any canopy heights less than 2m are set to zero for data collected with
     the Optech Gemini LiDAR sensors, and less than 2/3m for the Riegl and Optech
