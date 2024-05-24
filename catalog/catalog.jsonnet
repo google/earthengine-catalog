@@ -57,6 +57,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('HYCOM', base_url),
     ee.link.child_catalog('IDAHO_EPSCOR', base_url),
     ee.link.child_catalog('IGN', base_url),
+    ee.link.child_catalog('IPCC', base_url),
     ee.link.child_catalog('ISDASOIL', base_url),
     ee.link.child_catalog('JAXA', base_url),
     ee.link.child_catalog('JCU', base_url),
