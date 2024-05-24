@@ -1,15 +1,15 @@
 local id = 'CIESIN/GPWv411/GPW_Population_Count';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/GPW_population_count_versions.libsonnet';
+
 local subdir = 'CIESIN';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.cc_by_4_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'GPWv411: Population Count (Gridded Population of the World Version 4.11)',
-  version: 'v4.11',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Gridded Population of World Version 4 (GPWv4), Revision 11 models the distribution
@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7927/H4JW8BX5',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'ciesin',
     'gpw',
@@ -59,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NASA SEDAC at the Center for International Earth Science Information Network', 'https://doi.org/10.7927/H4JW8BX5'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1597158029-SEDAC',

@@ -1,17 +1,13 @@
 local id = 'JRC/GSW1_1/GlobalSurfaceWater';
-local successor_id = 'JRC/GSW1_2/GlobalSurfaceWater';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/jrc_globalsurfacewater.libsonnet';
+
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-
-local versions = import 'versions.libsonnet';
-local version_table = import 'JRC_GSW_GlobalSurfaceWater_version_map.libsonnet';
-
-local subdir = 'JRC';
-local id = 'JRC/GSW1_1/GlobalSurfaceWater';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
@@ -27,7 +23,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'JRC Global Surface Water Mapping Layers, v1.1 [deprecated]',
-  version: '1.1',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||
@@ -51,8 +47,7 @@ local license = spdx.proprietary;
     never been detected are masked.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) +
-  version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'geophysical',
     'google',

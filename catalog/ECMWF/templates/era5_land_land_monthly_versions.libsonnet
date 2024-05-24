@@ -1,0 +1,4 @@
+[
+  {'0.1': 'ECMWF/ERA5_LAND/MONTHLY'},
+  {' 1.0': 'ECMWF/ERA5_LAND/MONTHLY_AGGR'},
+]

@@ -1,3 +1,5 @@
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/glims_versions.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -8,6 +10,7 @@ local license = spdx.proprietary;
 
 local version = '20230607';
 local config = configs[version];
+local version_config = versions(subdir, version_table, config.id);
 
 {
   stac_version: ee_const.stac_version,
@@ -46,8 +49,6 @@ local config = configs[version];
   license: license.id,
   links: ee.standardLinks(subdir, config.id) + [
     ee.link.example(config.id, subdir, self.basename + '_FeatureView'),
-    ee.link.latest(config.latest_id, config.latest_url),
-    ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {
       rel: ee_const.rel.source,
       href: 'https://daacdata.apps.nsidc.org/pub/DATASETS/nsidc0272_GLIMS_v1/',
@@ -56,7 +57,7 @@ local config = configs[version];
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7265/N5V98602',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'glacier',
     'glims',
@@ -68,7 +69,7 @@ local config = configs[version];
   ],
   providers: [
     ee.producer_provider('National Snow and Ice Data Center (NSDIC)', 'https://www.glims.org'),
-    ee.host_provider(config.self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1750-01-01T00:00:00Z', '2023-06-07T00:00:00Z'),
   summaries: {

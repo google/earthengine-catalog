@@ -1,26 +1,17 @@
 local id = 'ECMWF/ERA5_LAND/MONTHLY';
-local latest_id = 'ECMWF/ERA5_LAND/MONTHLY_AGGR';
-local successor_id = 'ECMWF/ERA5_LAND/MONTHLY_AGGR';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/era5_land_land_monthly_versions.libsonnet';
+
 local subdir = 'ECMWF';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local era5_land = import 'templates/ECMWF_ERA5_LAND.libsonnet';
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -33,7 +24,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   id: id,
   title: 'ERA5-Land Monthly Averaged - ECMWF Climate Reanalysis [deprecated]',
   deprecated: true,
-  version: '1.0.0',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: era5_land.description + |||
 
@@ -47,17 +38,14 @@ local successor_url = catalog_subdir_url + successor_filename;
     [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land-monthly-means?tab=overview).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: era5_land.keywords,
   providers: [
     ee.producer_provider(
       'Copernicus Climate Data Store',
       'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land-monthly-means?tab=overview'
     ),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1950-02-01T00:00:00Z', null),
   summaries: {

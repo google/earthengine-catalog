@@ -17,9 +17,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
   title: 'GRIDMET DROUGHT: CONUS Drought Indices',
+  version: ee_const.version_unknown,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains drought indices derived from the 4-km daily Gridded
