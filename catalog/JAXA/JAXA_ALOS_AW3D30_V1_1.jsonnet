@@ -1,31 +1,19 @@
 local id = 'JAXA/ALOS/AW3D30/V1_1';
-local latest_id = 'JAXA/ALOS/AW3D30/V3_2';
-local successor_id = 'JAXA/ALOS/AW3D30/V3_2';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/AW3D30_versions.libsonnet';
+
 local subdir = 'JAXA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary {
   reference: 'https://earth.jaxa.jp/en/data/policy/',
 };
-local version = '1.1';
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -71,10 +59,8 @@ local successor_url = catalog_subdir_url + successor_filename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'alos',
     'dem',
@@ -85,7 +71,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   providers: [
     ee.producer_provider('JAXA Earth Observation Research Center', 'https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-12T00:00:00Z'),
   summaries: {

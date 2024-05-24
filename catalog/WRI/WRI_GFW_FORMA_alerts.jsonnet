@@ -17,6 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
   title: 'FORMA Alerts',
@@ -151,4 +152,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     as the source of the data.
   |||,
   'gee:user_uploaded': true,
+  version: ee_const.version_unknown,
 }

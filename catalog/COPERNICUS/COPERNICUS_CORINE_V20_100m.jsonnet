@@ -1,15 +1,15 @@
 local id = 'COPERNICUS/CORINE/V20/100m';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/corine_100m_versions.libsonnet';
+
 local subdir = 'COPERNICUS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'Copernicus CORINE Land Cover',
-  version: 'V20',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The CORINE (coordination of information on the environment) Land Cover
@@ -73,7 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.source,
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'clc',
     'copernicus',
@@ -85,7 +85,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('EEA/Copernicus', 'https://land.copernicus.eu/pan-european/corine-land-cover/view'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-81.77, -29.2, 94.13, 73.81,
                     '1986-01-01T00:00:00Z', '2018-12-31T00:00:00Z'),

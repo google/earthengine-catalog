@@ -49,16 +49,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Algorithm Theoretical Basis Document (Remote-Sensing Reflectance)](https://oceancolor.gsfc.nasa.gov/resources/atbd/rrs)
 
-    * [Processing History](https://oceancolor.gsfc.nasa.gov/reprocessing)
+    * [Processing History](https://oceancolor.gsfc.nasa.gov/data/reprocessing)
 
     - There are number of missing data dates in this dataset. For example,
       most dates are missing between 2009-04-29 and 2009-12-01.
 
     - The estimated values for POC might be a result of the data being generated
       without a scale. For more information, visit the
-      [Ocean Color Forum](https://oceancolor.gsfc.nasa.gov/forum/oceancolor/topic_show.pl?pid=33202;hl=poc%20values).
-
-      [SeaWiFS OceanData](https://oceancolor.gsfc.nasa.gov/data/seawifs)
+      [SeaWiFS OceanData](https://oceancolor.gsfc.nasa.gov/about/missions/seawifs)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
