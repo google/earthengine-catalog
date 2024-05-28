@@ -1,26 +1,17 @@
 local id = 'USGS/GMTED2010';
-local latest_id = 'USGS/GMTED2010_FULL';
-local successor_id = 'USGS/GMTED2010_FULL';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/GMTED2010_versions.libsonnet';
+
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local base_filename = basename + '.json';
-local latest_filename = latest_basename + '.json';
-local successor_filename = successor_basename + '.json';
-
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local latest_url = catalog_subdir_url + latest_filename;
-local successor_url = catalog_subdir_url + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -32,7 +23,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   id: id,
   title: 'GMTED2010: Global Multi-resolution Terrain Elevation Data 2010, Breakline Emphasis [deprecated]',
-  version: '1.0',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||
@@ -61,10 +52,7 @@ local successor_url = catalog_subdir_url + successor_filename;
     This dataset replaces the GTOPO30 Elevation Model.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, latest_url),
-    ee.link.successor(successor_id, successor_url),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'dem',
     'elevation',
@@ -75,7 +63,7 @@ local successor_url = catalog_subdir_url + successor_filename;
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.usgs.gov/core-science-systems/eros/coastal-changes-and-impacts/gmted2010'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -56.0, 180.0, 84.0,
                     '2010-01-01T00:00:00Z', '2010-01-01T00:00:00Z'),

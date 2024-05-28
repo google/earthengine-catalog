@@ -5,13 +5,14 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
 local id = nlcd.id(2016);
-local successor_id = nlcd.id(2019);
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/NLCD_versions.libsonnet';
+
 local subdir = 'USGS';
 
 local license = spdx.cc0_1_0;
-
-local self_ee_catalog_url = nlcd.provider_url(id);
-local successor_url = nlcd.link_url(successor_id);
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 {
   stac_version: ee_const.stac_version,
@@ -24,7 +25,7 @@ local successor_url = nlcd.link_url(successor_id);
   id: id,
   title: 'NLCD 2016: USGS National Land Cover Database, 2016 release [deprecated]',
   deprecated: true,
-  version: '1.0',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset is partially superseded by newer datasets:
@@ -64,9 +65,7 @@ local successor_url = nlcd.link_url(successor_id);
     U.S. Geological Survey.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(successor_id, successor_url),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'blm',
     'landcover',
@@ -79,7 +78,7 @@ local successor_url = nlcd.link_url(successor_id);
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.mrlc.gov'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-130.24, 21.75, -63.66, 57.68,
                     '1992-01-01T00:00:00Z', '2017-01-01T00:00:00Z'),

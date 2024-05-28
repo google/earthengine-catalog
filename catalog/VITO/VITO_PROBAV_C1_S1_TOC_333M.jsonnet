@@ -1,16 +1,17 @@
 local id = 'VITO/PROBAV/C1/S1_TOC_333M';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/TOC_333M_versions.libsonnet';
+
 local subdir = 'VITO';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'PROBA-V C1 Top Of Canopy Daily Synthesis 333m',
-  version: 'C1',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Proba-V is a satellite mission tasked to map land cover and vegetation
@@ -42,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Section 4.6.1 of the [user manual](https://publications.vito.be/2017-1333-probav-products-user-manual.pdf).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'esa',
     'multispectral',
@@ -54,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Vito / ESA', 'https://proba-v.vgt.vito.be/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2013-10-17T00:00:00Z', null),
   summaries: {

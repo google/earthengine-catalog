@@ -1,18 +1,16 @@
 local id = 'USGS/GFSAD1000_V0';
-local successor_id = 'USGS/GFSAD1000_V1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/GFSAD1000_versions.libsonnet';
+
 local subdir = 'USGS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -24,7 +22,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'GFSAD1000: Cropland Extent 1km Crop Dominance, Global Food-Support Analysis Data [deprecated]',
-  version: 'V0.0',
+  version: version,
   deprecated: true,
   'gee:type': ee_const.gee_type.image,
   description: |||
@@ -46,10 +44,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     nominal 2010 product was created with data from 2007 to 2012.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, catalog_subdir_url + successor_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'crop',
     'cropland',
@@ -59,7 +54,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('Global Food Security-support Analysis Data at 30m Project (GFSAD30)', 'https://geography.wr.usgs.gov/science/croplands/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2010-01-01T00:00:00Z', '2011-01-01T00:00:00Z'),
   summaries: {

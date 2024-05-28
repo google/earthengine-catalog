@@ -1,15 +1,16 @@
 local id = 'NOAA/CDR/AVHRR/LAI_FAPAR/V5';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/AVHRR_LAI_FAPAR_versions.libsonnet';
+
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'NOAA CDR AVHRR LAI FAPAR: Leaf Area Index and Fraction of Absorbed Photosynthetically Active Radiation, Version 5',
-  version: '5',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA Climate Data Record (CDR) of AVHRR Leaf Area Index (LAI) and
@@ -56,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7289/V5M043BX',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'avhrr',
     'cdr',
@@ -68,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/climate-data-records/leaf-area-index-and-fapar'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1981-06-24T00:00:00Z', '2013-12-31T00:00:00Z'),
   summaries: {

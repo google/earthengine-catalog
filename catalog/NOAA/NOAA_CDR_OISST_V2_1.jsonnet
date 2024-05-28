@@ -1,16 +1,17 @@
 local id = 'NOAA/CDR/OISST/V2_1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/CDR_OISST_versions.libsonnet';
+
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'NOAA CDR OISST v02r01: Optimum Interpolation Sea Surface Temperature',
-  version: 'v02r01',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA 1/4 degree daily Optimum Interpolation Sea Surface Temperature
@@ -45,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.7289/V5SQ8XB5',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'avhrr',
     'cdr',
@@ -60,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/optimum-interpolation-sst'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1981-09-01T00:00:00Z', null),
   summaries: {
