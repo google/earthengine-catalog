@@ -12,9 +12,9 @@
 |||,
   "homeBucket": "projects/geoscience-aus-cat",
   "id": "geoscience-aus-cat",
-  "imageLink": "https://developers.google.com/static/earth-engine/datasets/logos/geoscience-aus-cat_image.png",
+  "imageLink": "/static/earth-engine/datasets/logos/geoscience-aus-cat_image.png",
   "link": "https://www.ga.gov.au/",
-  "logo": "https://developers.google.com/static/earth-engine/datasets/logos/geoscience-aus-cat_logo.png",
+  "logo": "/static/earth-engine/datasets/logos/geoscience-aus-cat_logo.png",
   "name": "Geoscience Australia",
   "type": "PUBLISHER"
 }
