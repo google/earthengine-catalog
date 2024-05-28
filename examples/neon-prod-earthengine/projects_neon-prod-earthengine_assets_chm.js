@@ -1,5 +1,5 @@
 var chm = ee.ImageCollection(
-  'projects/neon-prod-earthengine/assets/DP3-30015-001');
+  'projects/neon-prod-earthengine/assets/chm');
 
 var startDate = ee.Date('2021-01-01');
 var endDate = startDate.advance(1, 'year');
