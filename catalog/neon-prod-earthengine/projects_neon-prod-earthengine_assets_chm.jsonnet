@@ -59,7 +59,7 @@ local units = import 'units.libsonnet';
   ],
   keywords: [
     # 'airborne',
-    # 'canopy',
+    'canopy',
     # 'ecology',
     'forest',
     'lidar',
@@ -67,7 +67,7 @@ local units = import 'units.libsonnet';
     'vegetation',
   ],
   providers: [
-    ee.producer_provider('NEON', 'https://www.neonscience.org/'),
+    ee.producer_provider('NEON', 'https://data.neonscience.org/data-products/DP3.30015.001'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-170, 16, -66, 73, '2013-01-01T00:00:00Z', null),
@@ -93,7 +93,7 @@ local units = import 'units.libsonnet';
       {
         name: 'FLIGHT_YEAR',
         description: 'Year the data were collected',
-        type: ee_const.var_type.string,
+        type: ee_const.var_type.int,
       },
       {
         name: 'NEON_DOMAIN',
@@ -137,11 +137,16 @@ local units = import 'units.libsonnet';
         type: ee_const.var_type.string,
       },
       {
-        name: 'RELEASE_TAG',
-        description: 'NEON Release Tag. See ' +
+        name: 'PROVISIONAL_RELEASED',
+        description: 'Whether the data are Provisional or Released. See ' +
         '[https://www.neonscience.org/data-samples/data-management/data-revisions-releases]' +
         '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases)',
         type: ee_const.var_type.string,
+      },
+      {
+        name: 'RELEASE_YEAR',
+        description: 'If data are released, the year of the NEON Release Tag.',
+        type: ee_const.var_type.int,
       },
     ],
     gsd: [1],
@@ -152,7 +157,6 @@ local units = import 'units.libsonnet';
       description: 'Canopy Height Model',
       'gee:units': units.meter,
     }],
-    // TODO(bhass-neon): Add the range values for CHM.
     CHM: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
     'gee:visualizations': [{
       display_name: 'Canopy Height Model (CHM)',
