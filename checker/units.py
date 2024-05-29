@@ -29,6 +29,7 @@ UNITS = frozenset({
     'P-value',
     'W/m^2',
     'y',
+    'atm cm',
     'cm',
     'count',
     'count/d',

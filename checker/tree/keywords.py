@@ -36,7 +36,6 @@ EXCEPTIONS = frozenset({
     'biota',
     'bnu',
     'brandenburg',
-    'brightness_temperature',
     'built_up',
     'bulk',
     'bulk_density',

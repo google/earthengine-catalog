@@ -1,4 +1,4 @@
-local id = 'MODIS/061/MOD09CMG';
+local id = 'MODIS/061/MYD09CMG';
 local subdir = 'MODIS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -22,15 +22,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD09CMG.061 Terra Surface Reflectance Daily L3 Global 0.05 Deg CMG',
+  title: 'MYD09CMG.061 Aqua Surface Reflectance Daily L3 Global 0.05 Deg CMG',
   version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MOD09CMG Version 6.1 product provides an estimate of the surface
-    spectral reflectance of Terra Moderate Resolution Imaging Spectroradiometer
+    The MYD09CMG Version 6.1 product provides an estimate of the surface
+    spectral reflectance of Aqua Moderate Resolution Imaging Spectroradiometer
     (MODIS) Bands 1 through 7, resampled to 5600 meter pixel resolution and
     corrected for atmospheric conditions such as gasses, aerosols, and Rayleigh
-    scattering. The MOD09CMG data product provides 25 layers including MODIS
+    scattering. The MYD09CMG data product provides 25 layers including MODIS
     bands 1 through 7; Brightness Temperature data from thermal bands 20, 21,
     31, and 32; along with Quality Assurance (QA) and observation bands.
     This product is based on a Climate Modeling Grid (CMG) for use in climate
@@ -42,35 +42,35 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/305/MOD09_ATBD.pdf)
 
-    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD09CMG)
+    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MYD09CMG)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/MODIS/MOD09CMG.061',
+      href: 'https://doi.org/10.5067/MODIS/MYD09CMG.061',
     },
   ],
   keywords: [
     'brightness_temperature',
     'ozone',
     'surface_reflectance',
-    'terra',
+    'aqua',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD09CMG.061'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MYD09CMG.061'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C2565788876-LPCLOUD',
+    'C2565794001-LPCLOUD',
   ],
-  extent: ee.extent_global('2000-02-24T00:00:00Z', null),
+  extent: ee.extent_global('2002-07-04T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
-      'Terra',
+      'Aqua',
     ],
   },
-  'sci:doi': '10.5067/MODIS/MOD09CMG.061',
+  'sci:doi': '10.5067/MODIS/MYD09CMG.061',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
