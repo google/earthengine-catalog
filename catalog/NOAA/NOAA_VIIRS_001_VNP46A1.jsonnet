@@ -69,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'viirs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP46A1.001'),
+    ee.producer_provider('NASA GSFC / LAADS', 'https://doi.org/10.5067/VIIRS/VNP46A1.001'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
@@ -91,21 +91,25 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'BrightnessTemperature_M12',
         description: 'Brightness temperature of band M12',
         'gee:units': units.kelvin,
+        'gee:offset': 203,
       },
       {
         name: 'BrightnessTemperature_M13',
         description: 'Brightness temperature of band M13',
         'gee:units': units.kelvin,
+        'gee:offset': 203,
       },
       {
         name: 'BrightnessTemperature_M15',
         description: 'Brightness temperature of band M15',
         'gee:units': units.kelvin,
+        'gee:offset': 111,
       },
       {
         name: 'BrightnessTemperature_M16',
         description: 'Brightness temperature of band M16',
         'gee:units': units.kelvin,
+        'gee:offset': 103,
       },
       {
         name: 'DNB_At_Sensor_Radiance_500m',
@@ -555,10 +559,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Radiance_M10',
         description: 'Radiance in band M10',
+        'gee:offset': -0.04,
       },
       {
         name: 'Radiance_M11',
         description: 'Radiance in band M11',
+        'gee:offset': -0.02,
       },
       {
         name: 'Sensor_Azimuth',
