@@ -1,22 +1,21 @@
-local id = 'LANDSAT/LC08/C01/T1_8DAY_EVI';
-local successor_id = 'LANDSAT/COMPOSITES/C02/T1_L2_8DAY_EVI';
+local id = 'LANDSAT/COMPOSITES/C02/T1_L2_8DAY_NBR';
 local subdir = 'LANDSAT';
-local latest_id = successor_id;
-local version = 'LC08/C01';
+local version = 'COMPOSITES/C02';
+local predecessor_id = 'LANDSAT/LC08/C01/T1_8DAY_NBRT';
+local latest_id = id;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
+local notes = import 'templates/LANDSAT_COMPOSITES_L2.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
@@ -26,19 +25,15 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   version: version,
-  deprecated: true,
-  title: 'Landsat 8 Collection 1 Tier 1 8-Day EVI Composite [deprecated]',
+  title: 'Landsat Collection 2 Tier 1 Level 2 8-Day NBR Composite',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    These Landsat 8 Collection 1 Tier 1 composites are made from Tier 1 orthorectified scenes, using the
-      computed top-of-atmosphere (TOA) reflectance.
-      See [Chander et al. (2009)](https://www.sciencedirect.com/science/article/pii/S0034425709000169)
-      for details on the TOA computation.
+    These Landsat Collection 2 Tier 1 Level 2 composites are made from Tier 1 Level 2 orthorectified scenes.
 
-    The Enhanced Vegetation Index (EVI) is generated from the
-    Near-IR, Red and Blue bands of each scene, and ranges in value from
-    -1.0 to 1.0. See
-    [Huete et al. (2002)](https://www.sciencedirect.com/science/article/pii/S0034425702000962)
+    The Normalized Burn Ratio Thermal (NBRT) index is
+    generated from the Near-IR, Mid-IR (2215 nm), and Thermal bands, and
+    has a range from -1.0 to 1.0. See
+    [Holden et al. (2005)](https://www.tandfonline.com/doi/abs/10.1080/01431160500239008)
     for details.
 
     These composites are created from
@@ -48,17 +43,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     beginning on day 361, will overlap the first composite of the
     following year by 3 days.  All the images from each 8-day period are
     included in the composite, with the most recent pixel as the composite value.
-  |||,
+  ||| + notes.description,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
     ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id, catalog_subdir_url + successor_basename + '.json'),
+    ee.link.predecessor(
+      predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
   ],
   keywords: [
-    'evi',
     'landsat',
+    'nbrt',
     'usgs',
   ],
   providers: [
@@ -69,8 +64,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   summaries: {
     'eo:bands': [
       {
-        name: 'EVI',
-        description: 'Enhanced Vegetation Index',
+        name: 'NBRT',
+        description: 'Normalized Burn Ratio Thermal',
         gsd: 30.0,
       },
     ],
@@ -85,32 +80,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         image_visualization: {
           band_vis: {
             min: [
-              0.0,
+              0.9,
             ],
             max: [
               1.0,
             ],
             palette: [
+              '000000',
               'ffffff',
-              'ce7e45',
-              'df923d',
-              'f1b555',
-              'fcd163',
-              '99b718',
-              '74a901',
-              '66a000',
-              '529400',
-              '3e8601',
-              '207401',
-              '056201',
-              '004c00',
-              '023b01',
-              '012e01',
-              '011d01',
-              '011301',
             ],
             bands: [
-              'EVI',
+              'NBRT',
             ],
           },
         },
