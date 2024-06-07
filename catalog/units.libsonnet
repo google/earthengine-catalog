@@ -140,6 +140,7 @@
 
   // Typically used for evaporation.
   millimeter_per_day: 'mm/d',
+  millimeter_per_year: 'mm/y',
 
   // http://www.iau.org/science/publications/proceedings_rules/units/
   minute: 'min',

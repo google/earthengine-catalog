@@ -97,7 +97,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             std.strReplace(index, '_', '.'),
           ]
         ),
-        'gee:units': units.millimeter,
+        'gee:units': bands_info.UNITS_MAPPING[band],
       }
       for band in bands_info.BAND_PREFIXES
       for index in bands_info.QUANTILES
