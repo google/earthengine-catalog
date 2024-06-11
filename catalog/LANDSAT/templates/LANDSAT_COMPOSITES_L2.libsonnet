@@ -1,7 +1,7 @@
 {
   description: |||
 
-    notes:
+    Notes:
 
     * Only daytime images with WRS_ROW < 122 are included.
 
