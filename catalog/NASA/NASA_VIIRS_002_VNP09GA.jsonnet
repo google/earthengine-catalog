@@ -1,8 +1,8 @@
-local id = 'NOAA/VIIRS/001/VNP09GA';
-local successor_id = 'NASA/VIIRS/002/VNP09GA';
-local latest_id = successor_id;
-local version = 'v001';
-local subdir = 'NOAA';
+local id = 'NASA/VIIRS/002/VNP09GA';
+local version = 'v002';
+local predecessor_id = 'NOAA/VIIRS/001/VNP09GA';
+local latest_id = id;
+local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -12,7 +12,7 @@ local units = import 'units.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -27,8 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km [deprecated]',
-  deprecated: true,
+  title: 'VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -48,13 +47,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     day. When multiple observations are present for each day, only the first
     of the highest-quality observations is included.
 
+    The band scale factors are already applied.
+
     For additional information, visit the VIIRS [Land Product Quality
-    Assessment website](https://landweb.modaps.eosdis.nasa.gov/browse?sensor=VIIRS&sat=SNPP) and see
-    the [User Guide](https://lpdaac.usgs.gov/documents/124/VNP09_User_Guide_V1.6.pdf).
+    Assessment website](https://landweb.modaps.eosdis.nasa.gov/browse?sensor=VIIRS&sat=SNPP)
 
     Documentation:
 
-    * [User's Guide] (https://lpdaac.usgs.gov/documents/124/VNP09_User_Guide_V1.6.pdf)
+    * [User's Guide] (https://lpdaac.usgs.gov/documents/1657/VNP09_User_Guide_V2.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)] (https://lpdaac.usgs.gov/documents/122/VNP09_ATBD.pdf)
   |||,
@@ -62,14 +62,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/VIIRS/VNP09GA.001',
+      href: 'https://doi.org/10.5067/VIIRS/VNP09GA.002',
     },
-    ee.link.latest(
-        latest_id,
-        ee_const.catalog_base + 'NASA/' + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
+    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
+    ee.link.predecessor(
+      predecessor_id,
+      ee_const.catalog_base + 'NOAA/' + predecessor_basename + '.json'),
   ],
   keywords: [
     'daily',
@@ -82,11 +80,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'vnp09ga',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP09GA.001'),
+    ee.producer_provider('NASA Land SIPS', 'https://doi.org/10.5067/VIIRS/VNP09GA.002'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1373412034-LPDAAC_ECS',
+    'C2631841556-LPCLOUD',
   ],
   extent: ee.extent_global('2012-01-19T00:00:00Z', null),
   summaries: {
@@ -102,7 +100,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M1',
         center_wavelength: 0.412,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.402 - 0.422&micro;m',
       },
       {
@@ -110,7 +107,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance Band M2',
         center_wavelength: 0.445,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.436 - 0.454&micro;m',
       },
       {
@@ -118,7 +114,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M3',
         center_wavelength: 0.483,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.478 - 0.488&micro;m',
       },
       {
@@ -126,7 +121,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M4',
         center_wavelength: 0.555,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.545 - 0.565&micro;m',
       },
       {
@@ -134,7 +128,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M5',
         center_wavelength: 0.672,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.662 - 0.682&micro;m',
       },
       {
@@ -142,7 +135,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M7',
         center_wavelength: 0.866,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.846 - 0.885&micro;m',
       },
       {
@@ -150,7 +142,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M8',
         center_wavelength: 1.24,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '1.230 - 1.250&micro;m',
       },
       {
@@ -158,7 +149,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M10',
         center_wavelength: 1.61,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '1.580 - 1.640&micro;m',
       },
       {
@@ -166,7 +156,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '1km surface reflectance band M11',
         center_wavelength: 2.25,
         gsd: 1000.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '2.230 - 2.280&micro;m',
       },
       {
@@ -174,7 +163,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '500m surface reflectance band I1',
         center_wavelength: 0.64,
         gsd: 500.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.600 - 0.680&micro;m',
       },
       {
@@ -182,7 +170,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '500m surface reflectance band I2',
         center_wavelength: 0.865,
         gsd: 500.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '0.850 - 0.880&micro;m',
       },
       {
@@ -190,7 +177,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: '500m surface reflectance band I3',
         center_wavelength: 1.61,
         gsd: 500.0,
-        'gee:scale': 0.0001,
         'gee:wavelength': '1.580 - 1.640&micro;m',
       },
       {
@@ -198,28 +184,24 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: 'Sensor azimuth angle',
         'gee:units': units.degree,
         gsd: 1000.0,
-        'gee:scale': 0.01,
       },
       {
         name: 'SensorZenith',
         description: 'Sensor zenith angle',
         'gee:units': units.degree,
         gsd: 1000.0,
-        'gee:scale': 0.01,
       },
       {
         name: 'SolarAzimuth',
         description: 'Solar azimuth angle',
         'gee:units': units.degree,
         gsd: 1000.0,
-        'gee:scale': 0.01,
       },
       {
         name: 'SolarZenith',
         description: 'Solar zenith angle',
         'gee:units': units.degree,
         gsd: 1000.0,
-        'gee:scale': 0.01,
       },
       {
         name: 'iobs_res',
@@ -1046,6 +1028,21 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           total_bit_count: 5,
         },
       },
+      {
+        name: 'land_water_mask',
+        description: 'Land/water mask.',
+        gsd: 1000.0,
+        'gee:classes': [
+          {value: 0, color: '0000ff', description: 'Shallow_Ocean'},
+          {value: 1, color: '008000', description: 'Land'},
+          {value: 2, color: 'ffff00', description: 'Coastline'},
+          {value: 3, color: '808000', description: 'Shallow_Inland'},
+          {value: 4, color: '00ffff', description: 'Ephemeral'},
+          {value: 5, color: '800000', description: 'Deep_Inland'},
+          {value: 6, color: 'ff0000', description: 'Continental'},
+          {value: 7, color: '000080', description: 'Deep_Ocean'}
+        ]
+      }
     ],
     'gee:visualizations': [
       {
@@ -1061,7 +1058,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               0.0,
             ],
             max: [
-              3000.0,
+              0.3,
             ],
             bands: [
               'M5',
@@ -1073,83 +1070,83 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
     ],
     M1: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M2: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M3: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M4: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M5: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M7: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M8: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M10: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     M11: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     I1: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     I2: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     I3: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     SensorAzimuth: {
-      minimum: -18000.0,
-      maximum: 18000.0,
+      minimum: -180.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     SensorZenith: {
       minimum: 0.0,
-      maximum: 18000.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     SolarAzimuth: {
-      minimum: -18000.0,
-      maximum: 18000.0,
+      minimum: -180.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     SolarZenith: {
       minimum: 0.0,
-      maximum: 18000.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     iobs_res: {
@@ -1182,9 +1179,16 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       maximum: 15.0,
       'gee:estimated_range': false,
     },
+    land_water_mask: {
+      minimum: 0.0,
+      maximum: 7.0,
+      'gee:estimated_range': false,
+    },
   },
-  'sci:doi': '10.5067/VIIRS/VNP09GA.001',
-  'sci:citation': "Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)",
+  'sci:doi': '10.5067/VIIRS/VNP09GA.002',
+  'sci:citation': |||
+      Vermote, E., Franch, B., Claverie, M. (2023). VIIRS/NPP Surface Reflectance Daily L2G Global 1km and 500m SIN Grid V002 [Data set]. NASA EOSDIS Land Processes Distributed Active Archive Center.
+   |||,
   'gee:interval': {
     type: 'cadence',
     unit: 'day',
