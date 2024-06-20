@@ -79,6 +79,11 @@ local version = version_config.version;
     ee.producer_provider('NASA Jet Propulsion Laboratory', 'https://grace.jpl.nasa.gov/data/get-data/monthly-mass-grids-ocean/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
+  'gee:provider_ids': [
+    'C2077042363-POCLOUD',
+    'C2077042412-POCLOUD',
+    'C2077042455-POCLOUD',
+  ],
   extent: ee.extent_global('2002-04-04T00:00:00Z', '2017-10-25T00:00:00Z'),
   summaries: {
     'gee:schema': [

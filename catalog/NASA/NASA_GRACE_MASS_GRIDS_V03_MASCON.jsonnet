@@ -73,6 +73,9 @@ local version = version_config.version;
     ee.producer_provider('NASA Jet Propulsion Laboratory', 'https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
+  'gee:provider_ids': [
+    'C2536982552-POCLOUD',
+  ],
   extent: ee.extent_global('2002-03-31T00:00:00Z', null),
   summaries: {
     gsd: [
