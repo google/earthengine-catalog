@@ -56,8 +56,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Climate Scenario types:
 
           * historical: Baseline condition/ no climate scenario needed
-          * rcp4p5: Representative Concentration Pathway 4.5 (rising carbon emissions)
-          * rcp8p5: Representative Concentration Pathway 8.5 (steady carbon emissions)
+          * rcp4p5: Representative Concentration Pathway 4.5 (steady carbon emissions)
+          * rcp8p5: Representative Concentration Pathway 8.5 (rising carbon emissions)
         |||,
         type: ee_const.var_type.string,
       },
