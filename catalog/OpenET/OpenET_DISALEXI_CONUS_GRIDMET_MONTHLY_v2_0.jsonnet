@@ -54,8 +54,95 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126, 25, -66, 50, '2016-01-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '2013-01-01T00:00:00Z', null),
   summaries: {
+    'gee:schema': [
+      {
+        name: 'build_date',
+        description: 'Date assets were built',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'cloud_cover_max',
+        description: 'Maximum CLOUD_COVER_LAND percent value for Landsat images included in interpolation',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'collections',
+        description: 'List of Landsat collections for Landsat images included in the interpolation',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'core_version',
+        description: 'OpenET core library version',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'end_date',
+        description: 'End date of month',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'et_reference_band',
+        description: 'Band in et_reference_source that contains the daily reference ET data',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'et_reference_resample',
+        description: 'Spatial interpolation mode to resample daily reference ET data',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'et_reference_source',
+        description: 'Collection ID for the daily reference ET data',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'interp_days',
+        description: 'Maximum number of days before and after each image date to include in interpolation',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'interp_method',
+        description: 'Method used to interpolate between Landsat model estimates',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'interp_source_count',
+        description: 'Number of available images in the interpolation source image collection for the target month',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'mgrs_tile',
+        description: 'MGRS grid zone ID',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'model_name',
+        description: 'OpenET model name',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'model_version',
+        description: 'OpenET model version',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'scale_factor_count',
+        description: 'Scaling factor that should be applied to the count band',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'scale_factor_et',
+        description: 'Scaling factor that should be applied to the et band',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'start_date',
+        description: 'Start date of month',
+        type: ee_const.var_type.string,
+      },
+    ],
     gsd: [30],
     'eo:bands': [
       {
@@ -63,7 +150,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'DisALEXI ET value',
         'gee:units': units.millimeter,
       },
-
       {
         name: 'count',
         description: 'Number of cloud free values',

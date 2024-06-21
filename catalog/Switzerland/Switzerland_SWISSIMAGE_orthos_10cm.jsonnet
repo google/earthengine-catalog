@@ -27,7 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     is updated annually.
 
     For more information, please see the
-    [SWISSIMAGE10cm_FR documentation](https://www.swisstopo.admin.ch/content/swisstopo-internet/fr/geodata/images/ortho/swissimage10/_jcr_content/contentPar/tabs_copy_copy/items/60_1569482292365/tabPar/downloadlist/downloadItems/67_1588752711524.download/SWISSIMAGE10-ProdInfo-FR.pdf)
+    [SWISSIMAGE10cm_FR documentation](https://backend.swisstopo.admin.ch/fileservice/sdweb-docs-prod-swisstopoch-files/files/2023/11/14/a84642dc-5feb-48e5-af6b-55df4ae7a10b.pdf)
 
     This RGB collection contains digital aerial images with three bands.
     Standard deviation for the precision in position: +/- 0.15 m for the ground

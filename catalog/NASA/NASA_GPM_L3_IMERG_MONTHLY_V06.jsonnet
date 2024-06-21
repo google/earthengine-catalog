@@ -48,6 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for more details on the algorithm.
 
     Documentation:
+
     * [Algorithm Theoretical Basis Document](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERG_ATBD_V06.pdf)
 
     * [IMERG Quality Index](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERGV06_QI.pdf)

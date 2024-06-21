@@ -222,7 +222,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
     )
 
   def test_bad_description_too_long(self):
-    description = 'a' * 1801
+    description = 'a' * 4001
     self.assert_collection(
         {
             'summaries': {
@@ -233,7 +233,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
                 }]
             }
         },
-        'description too long: 1801 exceeds limit 1800',
+        'description too long: 4001 exceeds limit 4000',
         gee_type=IMAGE_COLLECTION,
     )
 

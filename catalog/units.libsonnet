@@ -22,6 +22,7 @@
 
   // https://en.wikipedia.org/wiki/Area
   area: 'm^2',
+
   // https://en.wikipedia.org/wiki/Area_density
   area_density: 'kg/m^2',
   area_density_megagrams_per_hectare: 'Mg/ha',
@@ -29,6 +30,12 @@
   // Unitless fraction of area covering an area.
   // Example: m^2 / m^2
   area_fraction: 'Area fraction',
+
+  // Atmosphere-centimeters. Measures the total amount of gas in a column from
+  // the surface to the top of the atmosphere by asking, "how many centimeters
+  // thick would the gas in this column be if compressed into a single layer
+  // at 1 atm and 0 deg C?"
+  atmosphere_centimeters: 'atm cm',
 
   // https://en.wikipedia.org/wiki/Bar_(unit)
   millibar: 'mbar',
@@ -134,6 +141,7 @@
 
   // Typically used for evaporation.
   millimeter_per_day: 'mm/d',
+  millimeter_per_year: 'mm/y',
 
   // http://www.iau.org/science/publications/proceedings_rules/units/
   minute: 'min',

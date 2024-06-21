@@ -1,3 +1,5 @@
+local units = import 'units.libsonnet';
+
 {
   summaries: {
     gsd: [
@@ -10,97 +12,97 @@
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_1',
         description: 'Surface reflectance for band 1',
-        'gee:scale': 0.0001,
         'gee:wavelength': '620-670nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_2',
         description: 'Surface reflectance for band 2',
-        'gee:scale': 0.0001,
         'gee:wavelength': '841-876nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_3',
         description: 'Surface reflectance for band 3',
-        'gee:scale': 0.0001,
         'gee:wavelength': '459-479nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_4',
         description: 'Surface reflectance for band 4',
-        center_wavelength: 0.555,
-        'gee:scale': 0.0001,
         'gee:wavelength': '545-565nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_5',
         description: 'Surface reflectance for band 5',
-        'gee:scale': 0.0001,
         'gee:wavelength': '1230-1250nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_6',
         description: 'Surface reflectance for band 6',
         'gee:wavelength': '1628-1652nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Surface_Reflectance_Band_7',
         description: 'Surface reflectance for band 7',
-        'gee:scale': 0.0001,
         'gee:wavelength': '2105-2155nm',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_Solar_Zenith_Angle',
         description: 'Solar Zenith Angle',
-        'gee:scale': 0.01,
+        'gee:units': units.degree,
       },
       {
         name: 'Coarse_Resolution_View_Zenith_Angle',
         description: 'View Zenith Angle',
-        'gee:scale': 0.01,
+        'gee:units': units.degree,
       },
       {
         name: 'Coarse_Resolution_Relative_Azimuth_Angle',
         description: 'Relative Azimuth Angle',
-        'gee:scale': 0.01,
+        'gee:units': units.degree,
       },
       {
         name: 'Coarse_Resolution_Ozone',
         description: 'Ozone Resolution',
-        'gee:scale': 0.0025,
+        'gee:units': units.atmosphere_centimeters,
       },
       {
         name: 'Coarse_Resolution_Brightness_Temperature_Band_20',
         description: 'Band 20 Brightness Temperature',
-        'gee:scale': 0.01,
         'gee:wavelength': '3.360-3.840&micro;m',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Coarse_Resolution_Brightness_Temperature_Band_21',
         description: 'Band 21 Brightness Temperature',
-        'gee:scale': 0.01,
         'gee:wavelength': '3.929-3.989&micro;m',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Coarse_Resolution_Brightness_Temperature_Band_31',
         description: 'Band 31 Brightness Temperature',
-        'gee:scale': 0.01,
         'gee:wavelength': '10.780-11.280&micro;m',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Coarse_Resolution_Brightness_Temperature_Band_32',
         description: 'Band 32 Brightness Temperature',
-        'gee:scale': 0.01,
         'gee:wavelength': '11.770-12.270&micro;m',
+        'gee:units': units.kelvin,
       },
       {
         name: 'Coarse_Resolution_Granule_Time',
-        description: 'Granule time of day',
+        description: 'Granule time of day, as HHMM',
       },
       {
         name: 'Coarse_Resolution_Band_3_Path_Radiance',
         description: 'Band 3 Radiance',
-        'gee:scale': 0.0001,
+        'gee:units': units.dimensionless,
       },
       {
         name: 'Coarse_Resolution_QA',
@@ -117,7 +119,7 @@
                 },
                 {
                   value: 1,
-                  description: 'Corrected product produced at less than ideal\nquality - some or all bands',
+                  description: 'Corrected product produced at less than ideal quality - some or all bands',
                 },
                 {
                   value: 2,
@@ -165,11 +167,11 @@
                 },
                 {
                   value: 12,
-                  description: 'Internal constant used in place of climatological\ndata for at least one atmospheric constant',
+                  description: 'Internal constant used in place of climatological data for at least one atmospheric constant',
                 },
                 {
                   value: 13,
-                  description: 'Correction out of bounds, pixel constrained\nto extreme allowable value',
+                  description: 'Correction out of bounds, pixel constrained to extreme allowable value',
                 },
                 {
                   value: 14,
@@ -212,11 +214,11 @@
                 },
                 {
                   value: 12,
-                  description: 'Internal constant used in place of climatological\ndata for at least one atmospheric constant',
+                  description: 'Internal constant used in place of climatological data for at least one atmospheric constant',
                 },
                 {
                   value: 13,
-                  description: 'Correction out of bounds, pixel constrained\nto extreme allowable value',
+                  description: 'Correction out of bounds, pixel constrained to extreme allowable value',
                 },
                 {
                   value: 14,
@@ -259,7 +261,7 @@
                 },
                 {
                   value: 12,
-                  description: 'Internal constant used in place of climatological\ndata for at least one atmospheric constant',
+                  description: 'Internal constant used in place of climatological data for at least one atmospheric constant',
                 },
                 {
                   value: 13,
@@ -1033,78 +1035,78 @@
       },
     ],
     Coarse_Resolution_Surface_Reflectance_Band_1: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Surface_Reflectance_Band_2: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Surface_Reflectance_Band_3: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Surface_Reflectance_Band_4: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Surface_Reflectance_Band_5: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Surface_Reflectance_Band_6: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Surface_Reflectance_Band_7: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Solar_Zenith_Angle: {
       minimum: 0.0,
-      maximum: 18000.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_View_Zenith_Angle: {
       minimum: 0.0,
-      maximum: 18000.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Relative_Azimuth_Angle: {
-      minimum: -18000.0,
-      maximum: 18000.0,
+      minimum: -180.0,
+      maximum: 180.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Ozone: {
-      minimum: 1.0,
-      maximum: 255.0,
+      minimum: 0.0025,
+      maximum: 0.6375,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Brightness_Temperature_Band_20: {
-      minimum: 1.0,
-      maximum: 40000.0,
+      minimum: 0.01,
+      maximum: 400.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Brightness_Temperature_Band_21: {
-      minimum: 1.0,
-      maximum: 40000.0,
+      minimum: 0.01,
+      maximum: 400.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Brightness_Temperature_Band_31: {
-      minimum: 1.0,
-      maximum: 40000.0,
+      minimum: 0.01,
+      maximum: 400.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Brightness_Temperature_Band_32: {
-      minimum: 1.0,
-      maximum: 40000.0,
+      minimum: 0.01,
+      maximum: 400.0,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Granule_Time: {
@@ -1113,8 +1115,8 @@
       'gee:estimated_range': false,
     },
     Coarse_Resolution_Band_3_Path_Radiance: {
-      minimum: -100.0,
-      maximum: 16000.0,
+      minimum: -0.01,
+      maximum: 1.6,
       'gee:estimated_range': false,
     },
     Coarse_Resolution_QA: {

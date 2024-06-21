@@ -74,6 +74,11 @@ local version = version_config.version;
     ee.producer_provider('NASA Jet Propulsion Laboratory', 'https://grace.jpl.nasa.gov/data/get-data/monthly-mass-grids-land/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
+  'gee:provider_ids': [
+    'C2077042515-POCLOUD',
+    'C2077042566-POCLOUD',
+    'C2077042612-POCLOUD',
+  ],
   extent: ee.extent_global('2002-04-01T00:00:00Z', '2017-01-07T00:00:00Z'),
   summaries: {
     'gee:schema': [

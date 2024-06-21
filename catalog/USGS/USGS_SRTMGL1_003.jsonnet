@@ -59,11 +59,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('NASA / USGS / JPL-Caltech', 'https://cmr.earthdata.nasa.gov/search/concepts/C1000000240-LPDAAC_ECS.html'),
+    ee.producer_provider('NASA / USGS / JPL-Caltech', 'https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1_NC.003'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1000000240-LPDAAC_ECS',
+    'C2763266362-LPCLOUD',
   ],
   extent: ee.extent(-180.0, -56.0, 180.0, 60.0,
                     '2000-02-11T00:00:00Z', '2000-02-22T00:00:00Z'),
