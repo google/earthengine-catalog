@@ -8,7 +8,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local notes = import 'templates/LANDSAT_COMPOSITES_L2.libsonnet';
-local license = spdx.cc_by_4_0;
+local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
@@ -46,7 +46,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ||| +  notes.description,
   license: license.id,
     links: ee.standardLinks(subdir, id) + [
-    ee.link.license(license.reference),
     ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
     ee.link.predecessor(
       predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
