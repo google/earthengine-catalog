@@ -1,5 +1,8 @@
 local id = 'LANDSAT/LE07/C01/T1_ANNUAL_NDWI';
+local successor_id = 'LANDSAT/COMPOSITES/C02/T1_L2_ANNUAL_NDWI';
 local subdir = 'LANDSAT';
+local latest_id = successor_id;
+local version = 'LE07/C01';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -8,17 +11,23 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_ver,
   ],
   id: id,
-  title: 'Landsat 7 Collection 1 Tier 1 Annual NDWI Composite',
+  version: version,
+  deprecated: true,
+  title: 'Landsat 7 Collection 1 Tier 1 Annual NDWI Composite [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     These Landsat 7 Collection 1 Tier 1 composites are made from Tier 1 orthorectified scenes, using the
@@ -41,7 +50,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     are included in the composite, with the most recent pixel as the composite value.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
+    ee.link.successor(
+      successor_id, catalog_subdir_url + successor_basename + '.json'),
+  ],
   keywords: [
     'landsat',
     'ndwi',
