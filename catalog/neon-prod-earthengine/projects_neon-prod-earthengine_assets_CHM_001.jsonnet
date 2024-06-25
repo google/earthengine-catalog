@@ -122,11 +122,6 @@ local units = import 'units.libsonnet';
         type: ee_const.var_type.string,
       },
       {
-        name: 'PRODUCT_TYPE',
-        description: 'Acronym of the NEON data product type; CHM = Canopy Height Model',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'SENSOR_NAME',
         description: 'Make and model of the lidar sensor: "Optech Galaxy Prime", "Optech Gemini", "Riegl Q780"',
         type: ee_const.var_type.string,
