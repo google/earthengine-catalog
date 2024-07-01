@@ -98,7 +98,7 @@ local license = spdx.proprietary;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    * The CONUS land use product was updated July 2nd 2024, to correct an issue with the developed class.
+    * The CONUS land use product was updated on July 2nd 2024, to correct an issue with the developed class.
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
@@ -295,7 +295,7 @@ local license = spdx.proprietary;
           use class with the highest probability, a series of probability thresholds and rulesets using 
           ancillary datasets land use rules were applied. More information on the probability thresholds 
           and rulesets can be found in the LCMS Methods Brief included in the Description. The CONUS land use 
-          product was updated July 2nd 2024, to correct an issue with the developed class.  
+          product was updated on July 2nd 2024, to correct an issue with the developed class.  
         |||,
         'gee:classes': [
           {
