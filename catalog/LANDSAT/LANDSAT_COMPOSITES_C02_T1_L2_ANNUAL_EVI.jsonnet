@@ -58,7 +58,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.producer_provider('USGS', 'https://landsat.usgs.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2013-01-01T00:00:00Z', '2017-01-01T00:00:00Z'),
+  extent: ee.extent_global('2013-01-01T00:00:00Z', null),
   summaries: {
     'eo:bands': [
       {
