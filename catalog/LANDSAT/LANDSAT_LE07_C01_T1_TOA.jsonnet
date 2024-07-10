@@ -16,6 +16,7 @@ local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
 {
+  "gee:skip_indexing": true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
