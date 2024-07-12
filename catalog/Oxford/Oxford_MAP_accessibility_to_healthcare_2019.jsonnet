@@ -1,6 +1,4 @@
 local id = 'Oxford/MAP/accessibility_to_healthcare_2019';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/accessibility_to_cities_versions.libsonnet';
 
 local subdir = 'Oxford';
 
@@ -8,8 +6,8 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
+local basename = std.strReplace(id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.cc_by_4_0;
 
@@ -19,11 +17,9 @@ local license = spdx.cc_by_4_0;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
-    ee_const.ext_ver,
   ],
   id: id,
   title: 'Accessibility to Healthcare 2019',
-  version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
     This global accessibility map enumerates land-based travel time (in
@@ -72,7 +68,7 @@ local license = spdx.cc_by_4_0;
     Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'accessibility',
     'jrc',
@@ -82,7 +78,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('Malaria Atlas Project', 'https://malariaatlas.org/research-project/accessibility-to-cities/'),
-    ee.host_provider(version_config.ee_catalog_url),
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2019-01-01T00:00:00Z', '2020-01-01T00:00:00Z'),
