@@ -826,8 +826,7 @@ local license = spdx.proprietary;
     {
       citation: |||
         Sentinel-Hub, 2021. Sentinel 2 Cloud Detector. [Online]. Available at: 
-        [https://github.com/sentinel-hub/sentinel2-cloud-detector]
-        (https://github.com/sentinel-hub/sentinel2-cloud-detector)
+        [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
       |||,
     },
     {
