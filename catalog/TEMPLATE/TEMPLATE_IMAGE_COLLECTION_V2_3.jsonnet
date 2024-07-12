@@ -310,8 +310,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   //   https://developers.google.com/earth-engine/apidocs/ee-image-collection
   'gee:type': ee_const.gee_type.image_collection,
 
-  'gee:user_uploaded': true,
-
   // Files should use this line as-is. There is a local license variable at
   // the top of the file that sets the SPDX license entry.
   license: license.id,

@@ -125,5 +125,4 @@ local license = spdx.proprietary;
     used)
   |||,
   'gee:unusual_terms_of_use': true,
-  'gee:user_uploaded': true,
 }
