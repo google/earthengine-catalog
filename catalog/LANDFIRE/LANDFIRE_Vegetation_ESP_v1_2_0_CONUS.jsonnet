@@ -92803,7 +92803,7 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
     U.S. Department of Agriculture.
     Accessed 28 October 2021 at https://earthengine.google.com.
     Additional guidance on citation of LANDFIRE products can be found
-    [here](https://www.landfire.gov/landfire_citation.php)
+    [here](https://landfire.gov/data/citation)
   |||,
   'gee:terms_of_use': |||
     LANDFIRE data are public domain data with no use restrictions, though if modifications
