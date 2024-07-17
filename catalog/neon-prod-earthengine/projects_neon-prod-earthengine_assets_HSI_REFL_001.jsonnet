@@ -3565,7 +3565,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B429',
-      description: 'Cast Shadow mask used as input to ATCOR'
+      description: 'Cast Shadow mask used as input to ATCOR',
       'gee:classes': [
          {
           value: 0,
