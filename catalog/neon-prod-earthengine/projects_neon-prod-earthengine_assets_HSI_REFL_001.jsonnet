@@ -3565,8 +3565,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B429',
-      'gee:units':  'Flag: 1=shadow; 0=no shadow',
       description: 'Cast Shadow mask used as input to ATCOR'
+      'gee:classes': [
+         {
+          value: 0,
+          color: 'ffffff',
+          description: 'no shadow',
+         },
+         {
+          value: 1,
+          color: 'a9a9a9',
+          description: 'shadow',
+         },
+       ]
      },
      {
       name: 'B430',
@@ -3788,7 +3799,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B442',
-      'gee:units': 'date yyyy-mm-dd',
+//      'gee:units': 'date yyyy-mm-dd',
       description: 'Acquisition Date, YYYYMMDD'
      }
     ],
