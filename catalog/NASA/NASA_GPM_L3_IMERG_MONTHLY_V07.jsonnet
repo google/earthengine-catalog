@@ -65,7 +65,7 @@ local version = version_config.version;
     * [Anomalies](https://gpmweb2https.pps.eosdis.nasa.gov/tsdis/AB/docs/gpm_anomalous.html)
 
     This collection contains data from
-    [GPM_3IMERGM_07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_V07/summary)
+    [GPM_3IMERGM_07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
