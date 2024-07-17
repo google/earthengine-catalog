@@ -139,10 +139,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'NEON',
     ],
     instruments: [
+      'GAO',
       'NIS1', 
       'NIS2',
       'NIS3',
-      'GAO',
     ],
     'eo:bands': [
      {
