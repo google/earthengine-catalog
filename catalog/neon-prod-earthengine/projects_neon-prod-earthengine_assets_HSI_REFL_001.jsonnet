@@ -132,6 +132,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.double,
       },
     ],
+    gsd: [
+        1.0
+    ],
     platform: [
       'NEON',
     ],
