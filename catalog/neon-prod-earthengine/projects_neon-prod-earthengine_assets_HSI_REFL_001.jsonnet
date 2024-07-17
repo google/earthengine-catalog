@@ -3555,25 +3555,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B427',
-      'gee:scale': 1.0,
       'gee:units':'degrees',
       description: 'Aerosol Optical Depth'
      },
      {
       name: 'B428',
-      'gee:scale': 1.0,
       'gee:units': 'degrees',
       description: 'Aspect used as input to ATCOR'
      },
      {
       name: 'B429',
-      'gee:scale': 1.0,
       'gee:units':  'Flag: 1=shadow; 0=no shadow',
       description: 'Cast Shadow mask used as input to ATCOR'
      },
      {
       name: 'B430',
-      'gee:scale': 1.0,
       'gee:classes': [
               {
                 value: 0,
@@ -3605,7 +3601,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B431',
-      'gee:scale':  1.0,
       description: 'Haze Cloud Water Map generate by ATCOR',
       'gee:classes': [
           {
@@ -3727,61 +3722,51 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B432',
-      'gee:scale': 1.0,
       'gee:units': 'degrees',
       description: 'Illumination Factor used as input to ATCOR'
      },
      {
       name: 'B433',
-      'gee:scale': 1.0,
       'gee:units': 'meters',
       description: 'Path length between sensor and surface'
      },
      {
       name: 'B434',
-      'gee:scale': 1.0,
       'gee:units': 'percent',
       description: 'Sky View Factor used as input to ATCOR'
      },
      {
       name: 'B435',
-      'gee:scale': 1.0,
       'gee:units': 'degrees',
       description: 'Slope used as input to ATCOR'
      },
      {
       name: 'B436',
-      'gee:scale': 1.0,
       'gee:units': 'meters',
       description: 'Smooth Surface Elevation used as input to ATCOR'
      },
      {
       name: 'B437',
-      'gee:scale': 1.0,
       'gee:units': 'kilometers',
       description: 'Visibility Index Map - sea level values of visibility index / total optical thickeness'
      },
      {
       name: 'B438',
-      'gee:scale': 1.0,
       'gee:units': 'centimeters',
       description: 'Water Vapor Column - (cm)*1000 ground-to-space used in ATCOR'
      },
      {
       name: 'B439',
-      'gee:scale': 1.0,
       'gee:units': 'degrees',
       description: 'to-sensor Azimuth Angle'
      },
      {
       name: 'B440',
-      'gee:scale': 1.0,
       'gee:units': 'degrees',
       description: 'to-sensor Zenith Angle'
      },
      {
       name: 'B441',
-      'gee:scale': 1.0,
         'gee:classes': [
             {
             value: 0,
@@ -3803,7 +3788,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B442',
-      'gee:scale': 1.0,
       'gee:units': 'date yyyy-mm-dd',
       description: 'Acquisition Date, YYYYMMDD'
      }
