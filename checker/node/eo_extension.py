@@ -184,7 +184,6 @@ UNITS = units.UNITS.union({
     '(kg/m^3)/(m/s)',
     '1.0e15 molec cm-2',
     'Coefficient of Variation',
-    'degrees',
     'Equivalent gauges per 2.5 degree box',
     'J/m^2/day',
     'Julian Day',
