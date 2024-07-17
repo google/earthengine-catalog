@@ -1,4 +1,4 @@
-local id = 'projects/neon-prod-earthengine/assets/HSI-REFL/001';
+local id = 'projects/neon-prod-earthengine/assets/HSI_REFL/001';
 local subdir = 'neon-prod-earthengine';
 
 local ee_const = import 'earthengine_const.libsonnet';

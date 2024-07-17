@@ -1,5 +1,5 @@
 var sdr = ee.ImageCollection(
-  'projects/neon-prod-earthengine/assets/HSI-REFL/001');
+  'projects/neon-prod-earthengine/assets/HSI_REFL/001');
 
 var startDate = ee.Date('2017-01-01');
 var endDate = startDate.advance(1, 'year');
