@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#This python code opens a single SMAP L3 HDF file and outputs a Geotiff in geographic projection
+# This python code opens a single SMAP L3 HDF file and outputs a Geotiff in
+# geographic projection
 #
 # requires pyl4c toolbox https://pypi.org/project/pyl4c/
 #
@@ -150,7 +151,7 @@ def convert(source_h5, target_tif):
   for i in range(0,2):
     print('SMAP overpass is %s' % (SMAP_opass[i]))
     if i == 1:
-      #add '_pm' to all the variables in the list
+      # add '_pm' to all the variables in the list
       pass_var_list = [s + '_pm' for s in VAR_LIST]
       bnum=8
     else:
@@ -183,7 +184,7 @@ def convert(source_h5, target_tif):
     sds_array = sds.ReadAsArray()
     dst_tmp = '/tmp/tmp'+str(iband+bnum)+'.tif'
 
-    #Call to  QA function here
+    # Call to QA function here
     qa = SMAP_retrievalQC_fail(sds_array).astype(np.uint8)
     qa_gdal = array_to_raster(qa,gt,wkt)
     ds = gdal.Translate(dst_tmp,qa_gdal,options=translate_options)
@@ -201,16 +202,16 @@ def convert(source_h5, target_tif):
       sds_array = sds.ReadAsArray()
       dst_tmp = '/tmp/tmp'+str(iband+bnum)+'.tif'
 
-      #Call to  QA function here
+      # Call to QA function here
       qa = SMAP_TB_QC_fail(sds_array).astype(np.uint8)
       qa_gdal = array_to_raster(qa,gt,wkt)
       ds = gdal.Translate(dst_tmp,qa_gdal,options=translate_options)
       ds = None
       tif_list.append(dst_tmp)
 
-
   # build a VRT(Virtual Dataset) that includes the list of input tif files
-  gdal.BuildVRT('/tmp/tmp.vrt', tif_list, options='-separate')
+  tmp_vrt = '/tmp/tmp.vrt'
+  gdal.BuildVRT(tmp_vrt, tif_list, options='-separate')
 
   warp_options = gdal.WarpOptions(
       creationOptions=['COMPRESS=LZW'],
@@ -224,12 +225,11 @@ def convert(source_h5, target_tif):
 
   # run gdal_Warp to reproject the VRT data and save in the target tif file with
   # compression
-  ds = gdal.Warp(target_tif, '/tmp/tmp.vrt', options=warp_options)
+  ds = gdal.Warp(target_tif, tmp_vrt, options=warp_options)
   ds = None
 
   # remove temporary files
-  os.remove('/tmp/tmp.vrt')
-  for f in tif_list:
+  for f in [tmp_vrt] + tif_list:
     if os.path.exists(f):
       os.remove(f)
 

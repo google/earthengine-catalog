@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#This python code opens a single SMAP L4 HDF file and outputs a Geotiff in geographic projection
+# This python code opens a single SMAP L4 HDF file and outputs a Geotiff in
+# geographic projection
 #
 # requires pyl4c toolbox https://pypi.org/project/pyl4c/
 #
@@ -117,12 +118,12 @@ def convert(source_h5, target_tif):
       outputBounds     =[-17367530.45, 7314540.11, 17367530.45, -7314540.11],
   )
 
-  #array_to_raster params
+  # array_to_raster params
   gt = EASE2_GRID_PARAMS['M09']['geotransform']
   wkt = EPSG[6933]
 
-  #initiate temp tiff list
-  tif_list =[]
+  # initialize temp tiff list
+  tif_list = []
 
   # convert individual variables to separate GeoTiff files
   sizeoflist = len(VAR_LIST)
@@ -137,7 +138,8 @@ def convert(source_h5, target_tif):
     tif_list.append(dst_tmp)
 
   # build a VRT(Virtual Dataset) that includes the list of input tif files
-  gdal.BuildVRT('/tmp/tmp.vrt', tif_list, options='-separate')
+  tmp_vrt = '/tmp/tmp.vrt'
+  gdal.BuildVRT(tmp_vrt, tif_list, options='-separate')
 
   warp_options = gdal.WarpOptions(
       creationOptions=['COMPRESS=LZW'],
@@ -149,12 +151,11 @@ def convert(source_h5, target_tif):
 
   # run gdal_Warp to reproject the VRT data and save in the target tif file with
   # compression
-  ds = gdal.Warp(target_tif, '/tmp/tmp.vrt', options=warp_options)
+  ds = gdal.Warp(target_tif, tmp_vrt, options=warp_options)
   ds = None
 
   # remove temporary files
-  os.remove('/tmp/tmp.vrt')
-  for f in tif_list:
+  for f in [tmp_vrt] + tif_list:
     if os.path.exists(f):
       os.remove(f)
 
