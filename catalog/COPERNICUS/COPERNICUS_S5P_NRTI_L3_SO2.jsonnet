@@ -41,7 +41,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     surface with a revisit time of one day with unprecedented spatial resolution
     of 3.5 x 7 km which allows the resolution of fine details including the
     detection of much smaller SO<sub>2</sub> plumes.
-    [More information.](http://www.tropomi.eu/data-products/sulphur-dioxide)
+    [More information.](https://www.tropomi.eu/data-products/sulfur-dioxide)
 
     ### NRTI L3 Product
 
