@@ -1,3 +1,5 @@
+// TODO(simonf): mark this collection as deprecating the V5 one
+// once we confirm all assets are ingested.
 local id = 'NASA/SMAP/SPL3SMP_E/006';
 local subdir = 'NASA';
 
@@ -81,10 +83,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'weather'
   ],
   'gee:provider_ids': [
-    'C2136471727-NSIDC_ECS',
+    'C2776463943-NSIDC_ECS',
   ],
   providers: [
-    ee.producer_provider('Google and NSIDC', 'https://nsidc.org/data/spl3smp_e/versions/5'),
+    ee.producer_provider('Google and NSIDC', 'https://nsidc.org/data/spl3smp_e/versions/6'),
     ee.host_provider(self_ee_catalog_url),
   ],
   // TODO(simonf): this should eventually go back to 2015-03-31T12:00:00Z

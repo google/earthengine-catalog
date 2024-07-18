@@ -95,6 +95,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     A reference to the source is mandatory.
     please see the [Terms of use](
-    https://www.swisstopo.admin.ch/en/home/meta/conditions/geodata/ogd.html)
+    https://www.swisstopo.admin.ch/en/terms-and-conditions)
   |||,
 }

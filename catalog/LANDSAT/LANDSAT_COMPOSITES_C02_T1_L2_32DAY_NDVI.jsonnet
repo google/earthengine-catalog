@@ -58,7 +58,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.producer_provider('Google', 'https://earthengine.google.com'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2013-04-07T00:00:00Z', null),
+  extent: ee.extent_global('1984-01-01T00:00:00Z', null),
   summaries: {
     'eo:bands': [
       {

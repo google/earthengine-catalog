@@ -11145,7 +11145,7 @@ Department of the Interior's Geological Survey (USGS), and The Nature Conservanc
     U.S. Geological Survey; Arlington, VA: The Nature Conservancy (Producers).
     Available: [https://www.landfire.gov/bps-models.php](https://www.landfire.gov/bps-models.php) [2018, June 27].
     Additional guidance on citation of LANDFIRE products can be found
-    [here](https://www.landfire.gov/landfire_citation.php)
+    [here](https://landfire.gov/data/citation)
   |||,
   'gee:terms_of_use': |||
     LANDFIRE data are public domain data with no use restrictions, though if modifications
