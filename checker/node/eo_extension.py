@@ -234,7 +234,6 @@ UNITS = units.UNITS.union({
     'seconds',
     'sr-1',
     'ug m-3',
-    'unitless',
 })
 
 
