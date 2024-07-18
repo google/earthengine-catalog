@@ -3308,7 +3308,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B433',
-      'gee:units': 'units.meters',
+      'gee:units': 'm',
       description: 'Path length between sensor and surface'
      },
      {
@@ -3323,7 +3323,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B436',
-      'gee:units': 'units.meters',
+      'gee:units': 'm',
       description: 'Smooth Surface Elevation used as input to ATCOR'
      },
      {
