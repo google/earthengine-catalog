@@ -3125,7 +3125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B427',
-      'gee:units':units.degree,
+      'gee:units': units.degree,
       description: 'Aerosol Optical Depth'
      },
      {
