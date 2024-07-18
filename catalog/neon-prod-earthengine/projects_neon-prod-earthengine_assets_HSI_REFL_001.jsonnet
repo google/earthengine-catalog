@@ -30,10 +30,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Lab (JPL). Major corrections include calibration, orthorectification, and 
     atmospheric correction. Reflectance is converted to a mosaic from flightlines 
     using the nadir-most pixels from the flight lines observed with the least 
-    cloud cover. Spatial resolution is 1 m and spectral resolution is ~5 nm. 
+    cloud cover. Spatial resolution is 1 m and spectral resolution is ~5 nm.
+    
     See [NEON Data Product
     DP3.30006.001](https://data.neonscience.org/data-products/DP3.30006.001) for
     more details.
+    
     Documentation: [NEON DP3.30006.001 Spectrometer orthorectified surface directional reflectance - mosaic Quick Start
     Guide](https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30006.001v1?inline=true&fallback=html)
   |||,
@@ -46,8 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'forest',
     'hyperspectral',
     'neon',
-    'reflectance',
-    'surface-reflectance',
+    'surface_reflectance',
     'vegetation',
   ],
   providers: [
