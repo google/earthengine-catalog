@@ -59,8 +59,8 @@ local units = import 'units.libsonnet';
     // },
   ],
   keywords: [
-    // 'airborne',
-    // 'ecology',
+    'airborne',
+    'ecology',
     'forest',
     'highres',
     'orthophoto',
@@ -90,7 +90,7 @@ local units = import 'units.libsonnet';
         name: 'DOI',
         description: 'Digital Object Identifier. NEON data that have been released are assigned a DOI.',
         type: ee_const.var_type.string,
-      },      
+      },
       {
         name: 'FLIGHT_YEAR',
         description: 'Year the data were collected',
@@ -163,17 +163,17 @@ local units = import 'units.libsonnet';
       {
         name: 'R',
         description: 'Red',
-        'gee:units': units.dimensionless,
+        'gee:units': units.dn,
       },
       {
         name: 'G',
         description: 'Green',
-        'gee:units': units.dimensionless,
+        'gee:units': units.dn,
       },
       {
         name: 'B',
         description: 'Blue',
-        'gee:units': units.dimensionless,
+        'gee:units': units.dn,
       },
     ],
     // TODO(bhass-neon): Check the range values for bands.
