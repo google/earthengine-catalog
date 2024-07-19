@@ -41,9 +41,8 @@ following changes:
 ## Dataset deletion protection
 
 To safeguard datasets added to publisher and community catalogs, Earth Engine
-uses a special property called `dataset_admin_delete_protected`. This
-property, applied at the dataset level, dictates whether assets in the
-catalog can be deleted.
+uses a special asset property called `dataset_admin_delete_protected`. This
+property determines whether assets added to the catalog can be deleted.
 
 * **Protected Datasets:** Datasets with the `dataset_admin_delete_protected`
  property set (to any value other than `pending_update`) are protected.
@@ -51,12 +50,15 @@ catalog can be deleted.
 
 * **Asset types**. If this property is set on individual images and tables,
  they cannot be deleted. If it's set on image collections, images in those
- collections cannot be delted.
+ collections cannot be deleted.
 
 * **Temporary Disabling:**  The protection can be temporarily disabled by
  setting the `dataset_admin_delete_protected` property to `pending_update`.
  This allows intentional changes while still guarding against accidental
- deletion.
+ deletion. You can set the property via the `earthengine` command line tool
+(using the
+["asset set"](https://developers.google.com/earth-engine/guides/command_line#asset)
+subcommand) or in the Code Editor UI.
 
 * **Administrative Management:** The Earth Engine Data team sets this
   property for user-owned datasets listed in the data catalog once these
