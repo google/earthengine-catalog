@@ -32,7 +32,7 @@ local template = import 'templates/MODIS_006_MOD14A2.libsonnet';
 
     Documentation:
 
-    * [User's Guide](https://lpdaac.usgs.gov/documents/88/MOD14_User_Guide_v6.pdf)
+    * [User's Guide](https://lpdaac.usgs.gov/documents/876/MOD14_User_Guide_v6.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/87/MOD14_ATBD.pdf)
 
