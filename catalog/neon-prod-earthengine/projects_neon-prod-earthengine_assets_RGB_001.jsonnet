@@ -59,8 +59,8 @@ local units = import 'units.libsonnet';
     // },
   ],
   keywords: [
-    'airborne',
-    'ecology',
+#    'airborne',
+#    'ecology',
     'forest',
     'highres',
     'orthophoto',
