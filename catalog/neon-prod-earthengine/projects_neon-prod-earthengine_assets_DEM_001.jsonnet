@@ -50,11 +50,11 @@ local units = import 'units.libsonnet';
     // },
   ],
   keywords: [
-    'airborne',
+#    'airborne',
     'dem',
     'forest',
     'lidar',
-    'neon',
+#    'neon',
     'vegetation',
   ],
   providers: [
