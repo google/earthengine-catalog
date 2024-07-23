@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Processing History](https://oceancolor.gsfc.nasa.gov/reprocessing)
 
-    * [MODIS-Terra OceanData](https://oceancolor.gsfc.nasa.gov/data/terra)
+    * [MODIS-Terra OceanData](https://oceancolor.gsfc.nasa.gov/about/missions/terra/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
