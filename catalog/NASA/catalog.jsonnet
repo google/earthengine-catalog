@@ -24,6 +24,10 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_EMIT_L2B_CH4ENH', base_url),
     ee.link.child_collection('NASA_EMIT_L2B_CH4PLM', base_url),
 
+    ee.link.child_collection('NASA_EMIT_L1B_RAD', base_url),
+    // TODO: Uncomment when the collections are ready.
+    // ee.link.child_collection('NASA_EMIT_L2A_RFL', base_url),
+
     ee.link.child_collection('NASA_FLDAS_NOAH01_C_GL_M_V001', base_url),
 
     ee.link.child_collection('NASA_GDDP-CMIP6', base_url),

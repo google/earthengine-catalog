@@ -37,6 +37,9 @@
   // at 1 atm and 0 deg C?"
   atmosphere_centimeters: 'atm cm',
 
+  // https://en.wikipedia.org/wiki/Astronomical_unit
+  astronomical_unit: 'AU',
+
   // https://en.wikipedia.org/wiki/Bar_(unit)
   millibar: 'mbar',
 
@@ -71,6 +74,9 @@
   // https://en.wikipedia.org/wiki/Density
   density_si: 'kg/m^3',
   density_mg_per_m_cubed: 'mg/m^3',
+
+  // https://www.efunda.com/glossary/units/units--surface_density--gram_per_square_centimeter.cfm
+  surface_density: 'g/cm^2',
 
   // Digital Number (DN) is an uncalibrated pixel value.
   // https://www.oxfordreference.com/display/10.1093/oi/authority.20110803095718218
@@ -176,6 +182,13 @@
   // https://en.wikipedia.org/wiki/Steradian
   // radiance: 'Watts/sr/m^2',
   radiance_nanowatts_cm2: 'nanoWatts/sr/cm^2',
+  radiance_nanowatts_cm2_nanometers: 'nanoWatts/sr/cm^2/nm',
+
+  // https://en.wikipedia.org/wiki/Reflectance
+  spectral_reflectance: 'Spectral reflectance',
+
+  // https://en.wikipedia.org/wiki/Standard_deviation
+  standard_deviation: 'Standard deviation',
 
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
