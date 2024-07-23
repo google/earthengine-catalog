@@ -21,11 +21,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CHIRPS Daily: Climate Hazards Group InfraRed Precipitation With Station Data (Version 2.0 Final)',
+  title: 'CHIRPS Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS)
+    Climate Hazards Center InfraRed Precipitation with Station data (CHIRPS)
     is a 30+ year quasi-global rainfall dataset. CHIRPS incorporates
     0.05° resolution satellite imagery with in-situ station data
     to create gridded rainfall time series for trend analysis and seasonal
@@ -110,6 +110,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This datasets are in the public domain. To the extent possible under law,
     [Pete Peterson](https://chc.ucsb.edu/people/pete-peterson)
     has waived all copyright and related or neighboring rights to
-    Climate Hazards Group Infrared Precipitation with Stations (CHIRPS).
+    Climate Hazards Center Infrared Precipitation with Stations (CHIRPS).
   |||,
 }
