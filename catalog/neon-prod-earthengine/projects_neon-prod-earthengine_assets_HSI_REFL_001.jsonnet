@@ -1,12 +1,18 @@
 local id = 'projects/neon-prod-earthengine/assets/HSI_REFL/001';
 local subdir = 'neon-prod-earthengine';
+
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local license = spdx.proprietary;
+
+local license = spdx.cc0_1_0;
+
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+
+local units = import 'units.libsonnet';
+
 {
   // TODO(google): Remove when the dataset is ready.
   'gee:skip_indexing': true,
@@ -42,12 +48,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'airborne',
+#    'airborne',
     'canopy',
-    'ecology',
     'forest',
     'hyperspectral',
-    'neon',
+#    'neon',
     'surface_reflectance',
     'vegetation',
   ],
@@ -3309,7 +3314,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B433',
-      'gee:units': 'm',
+      'gee:units': units.meter,
       description: 'Path length between sensor and surface'
      },
      {
@@ -3324,7 +3329,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B436',
-      'gee:units': 'm',
+      'gee:units': units.meter,
       description: 'Smooth Surface Elevation used as input to ATCOR'
      },
      {
