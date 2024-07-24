@@ -120,7 +120,6 @@ EXCEPTIONS = frozenset({
     'hsl',
     'human',
     'hyperion',
-    'hyperspectral',
     'igbp',
     'igsnrr',
     'impervious',
