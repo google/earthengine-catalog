@@ -35,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     "saturated" categories (mask codes 10, 11, 30, and 31), but within these categories there
     can still be false alarms.
 
-    [README](https://www.ncdc.noaa.gov/data-access/satellite-data/goes-r-series-satellites#FDC)
+    [README](https://www.ncei.noaa.gov/products/goes-terrestrial-weather-abi-glm)
 
     NOAA provides the following scripts for suggested categories,
     color maps, and visualizations:
