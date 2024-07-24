@@ -3309,7 +3309,7 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'B432',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'Illumination Factor used as input to ATCOR'
      },
      {
@@ -3319,12 +3319,12 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'B434',
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       description: 'Sky View Factor used as input to ATCOR'
      },
      {
       name: 'B435',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'Slope used as input to ATCOR'
      },
      {
@@ -3334,22 +3334,22 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'B437',
-      'gee:units': 'km',
+      'gee:units': units.kilometer,
       description: 'Visibility Index Map - sea level values of visibility index / total optical thickeness'
      },
      {
       name: 'B438',
-      'gee:units': 'cm',
+      'gee:units': units.centimeter,
       description: 'Water Vapor Column - (cm)*1000 ground-to-space used in ATCOR'
      },
      {
       name: 'B439',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'to-sensor Azimuth Angle'
      },
      {
       name: 'B440',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'to-sensor Zenith Angle'
      },
      {
