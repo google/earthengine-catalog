@@ -75,14 +75,14 @@ local units = import 'units.libsonnet';
     'gee:schema': [
       {
         name: 'AOP_VISIT_NUMBER',
-        description: 'Unique visit number to the NEON site',
+        description: 'Unique visit number to the NEON site.',
         type: ee_const.var_type.int,
       },
       {
         name: 'CITATION',
         description: 'Data citation. See ' +
         '[NEON Data Policies and Citation Guidelines]' +
-        '(https://www.neonscience.org/data-samples/data-policies-citation)',
+        '(https://www.neonscience.org/data-samples/data-policies-citation).',
         type: ee_const.var_type.string,
       },
       {
@@ -92,7 +92,7 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'FLIGHT_YEAR',
-        description: 'Year the data were collected',
+        description: 'Year the data were collected.',
         type: ee_const.var_type.int,
       },
       {
@@ -100,25 +100,25 @@ local units = import 'units.libsonnet';
         description:
           'NEON eco-climatic domain code, "D01" to "D20". See ' +
           '[NEON Field Sites and Domains]' +
-          '(https://www.neonscience.org/field-sites/about-field-sites)',
+          '(https://www.neonscience.org/field-sites/about-field-sites).',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_SITE',
         description: 'NEON four-digit site code. See ' +
-        '[NEON Field Sites](https://www.neonscience.org/field-sites/)',
+        '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_DATA_PROD_ID',
-        description: 'NEON data product identification code. Always set to: "DP3.30010.001"',
+        description: 'NEON data product identification code. Always set to: "DP3.30010.001".',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_DATA_PROD_URL',
         description: 'NEON data product url. Always set to: ' +
         '[https://data.neonscience.org/data-products/DP3.30010.001]' +
-        '(https://data.neonscience.org/data-products/DP3.30010.001)',
+        '(https://data.neonscience.org/data-products/DP3.30010.001).',
         type: ee_const.var_type.string,
       },
       {
@@ -134,14 +134,14 @@ local units = import 'units.libsonnet';
         description:
           'Serial number of the camera sensor: ' +
           '"EH021537", "EH021656", "EH021554", "FT010031", ' +
-          '"MM010175", "MM010176", "YC030119", "YC030129"',
+          '"MM010175", "MM010176", "YC030119", "YC030129".',
         type: ee_const.var_type.string,
       },
       {
         name: 'PROVISIONAL_RELEASED',
         description: 'Whether the data are Provisional or Released. See ' +
-        '[https://www.neonscience.org/data-samples/data-management/data-revisions-releases]' +
-        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases)',
+        '[NEON Data Revisions and Releases]' +
+        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases).',
         type: ee_const.var_type.string,
       },
       {
