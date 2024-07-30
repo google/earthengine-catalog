@@ -30,13 +30,14 @@ local units = import 'units.libsonnet';
     hyperspectral VSWIR (visible to shortwave infrared) data product, containing 
     426 bands spanning wavelengths from ~380 nm to 2510 nm. Wavelengths 
     between 1340-1445 nm and 1790-1955 nm are set to -100; these are water vapor 
-    absorption bands without valid values. The dataset also contains additional 
-    QA and raster bands (B427 - B442). Data are collected by one of three NEON 
+    absorption bands without valid values. The dataset also contains QA
+    raster bands (B427 - B442). Data are collected by one of three NEON 
     Imaging Spectrometer units, AVIRIS-NG sensors built by NASA's Jet Propulsion 
     Lab (JPL). Major corrections include calibration, orthorectification, and 
-    atmospheric correction. Reflectance is converted to a mosaic from flightlines 
-    using the nadir-most pixels from the flight lines observed with the least 
-    cloud cover. Spatial resolution is 1 m and spectral resolution is ~5 nm.
+    atmospheric correction. Reflectance is converted to a mosaic using the 
+    nadir-most pixels from the flight lines observed with the least cloud 
+    cover. Spatial resolution is 1 m and spectral resolution is ~5 nm. The center 
+    wavelength and full width half max for each band are provided in the Image Properties.
     
     See [NEON Data Product
     DP3.30006.001](https://data.neonscience.org/data-products/DP3.30006.001) for
@@ -48,11 +49,11 @@ local units = import 'units.libsonnet';
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-#    'airborne',
+    'airborne',
     'canopy',
     'forest',
     'hyperspectral',
-#    'neon',
+    'neon',
     'surface_reflectance',
     'vegetation',
   ],
@@ -130,7 +131,7 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'SENSOR_ID',
-        description: 'ID of NEON Imaging Spectrometer (NIS). The Global Airborne Observatory (GAO) sensor has also been used to collect the NEON D20 site: "NIS1", "NIS2", "NIS3", "GAO".',
+        description: 'ID of NEON Imaging Spectrometer (NIS), or Global Airborne Observatory (GAO): "NIS1", "NIS2", "NIS3", "GAO".',
         type: ee_const.var_type.double,
       },
     ],
