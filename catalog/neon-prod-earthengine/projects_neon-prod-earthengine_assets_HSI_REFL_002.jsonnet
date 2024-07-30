@@ -23,7 +23,7 @@ local units = import 'units.libsonnet';
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'NEON Directional Surface Reflectance',
+  title: 'NEON Bidirectional Surface Reflectance',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NEON AOP surface bidirectional reflectance data is an orthorectified 
