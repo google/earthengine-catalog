@@ -1,12 +1,18 @@
-local id = 'projects/neon-prod-earthengine/assets/HSI_REFL/001';
+local id = 'projects/neon-prod-earthengine/assets/HSI_REFL/002';
 local subdir = 'neon-prod-earthengine';
+
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local license = spdx.proprietary;
+
 local basename = std.strReplace(id, '/', '_');
+
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+
+local units = import 'units.libsonnet';
+
 {
   // TODO(google): Remove when the dataset is ready.
   'gee:skip_indexing': true,
@@ -3302,47 +3308,47 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      },
      {
       name: 'B432',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'Illumination Factor used as input to ATCOR'
      },
      {
       name: 'B433',
-      'gee:units': 'm',
+      'gee:units': units.meter,
       description: 'Path length between sensor and surface'
      },
      {
       name: 'B434',
-      'gee:units': 'percent',
+      'gee:units': units.percent,
       description: 'Sky View Factor used as input to ATCOR'
      },
      {
       name: 'B435',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'Slope used as input to ATCOR'
      },
      {
       name: 'B436',
-      'gee:units': 'm',
+      'gee:units': units.meter,
       description: 'Smooth Surface Elevation used as input to ATCOR'
      },
      {
       name: 'B437',
-      'gee:units': 'km',
+      'gee:units': units.kilometer,
       description: 'Visibility Index Map - sea level values of visibility index / total optical thickeness'
      },
      {
       name: 'B438',
-      'gee:units': 'cm',
+      'gee:units': units.centimeter,
       description: 'Water Vapor Column - (cm)*1000 ground-to-space used in ATCOR'
      },
      {
       name: 'B439',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'to-sensor Azimuth Angle'
      },
      {
       name: 'B440',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'to-sensor Zenith Angle'
      },
      {
