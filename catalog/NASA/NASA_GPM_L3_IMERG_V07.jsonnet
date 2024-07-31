@@ -1,4 +1,4 @@
-local id = 'NASA/GPM_L3/IMERG_V06';
+local id = 'NASA/GPM_L3/IMERG_V07';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/IMERG_HHR_versions.libsonnet';
 local subdir = 'NASA';
@@ -26,9 +26,7 @@ local version = version_config.version;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GPM: Global Precipitation Measurement (GPM) ' + version +
-  ' [deprecated]',
-  deprecated: true,
+  title: 'GPM: Global Precipitation Measurement (GPM) ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -52,17 +50,17 @@ local version = version_config.version;
 
     Documentation:
 
-    * [Algorithm Theoretical Basis Document](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERG_ATBD_V06.pdf)
+    * [Algorithm Theoretical Basis Document](https://arthurhou.pps.eosdis.nasa.gov/Documents/IMERG_V07_ATBD_final.pdf)
 
     * [IMERG Quality Index](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERGV06_QI.pdf)
 
     * [Caveats for IMERG extension into TRMM era](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERGV06_TRMMera-caveats.pdf)
 
-    * [IMERG Technical Documentation](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/IMERG_doc.06.pdf)
+    * [IMERG Technical Documentation](https://arthurhou.pps.eosdis.nasa.gov/Documents/IMERG_TechnicalDocumentation_final.pdf)
 
-    * [Release notes; New Morphing algorithm](https://docserver.gesdisc.eosdis.nasa.gov/public/project/GPM/MorphingInV06IMERG.pdf)
+    * [Release notes; New Morphing algorithm](https://gpm.nasa.gov/resources/documents/imerg-v07-release-notes)
 
-    * [Remote-Sensing Reflectance](https://gpm1.gesdisc.eosdis.nasa.gov/data/doc/README.GPM.pdf)
+    * [Remote-Sensing Reflectance](https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/doc/README.GPM.pdf)
 
     * [Anomalies](https://gpmweb2https.pps.eosdis.nasa.gov/tsdis/AB/docs/gpm_anomalous.html)
 
@@ -76,14 +74,14 @@ local version = version_config.version;
 
     This collection contains data from:
 
-    * GPM_3IMERGHH_V06 [doi:10.5067/GPM/IMERG/3B-HH-L/06](https://doi.org/10.5067/GPM/IMERG/3B-HH-L/06)
-    * GPM_3IMERGHH_06 [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)
+    * GPM_3IMERGHH_V07 [doi:10.5067/GPM/IMERG/3B-HH-L/07](https://doi.org/10.5067/GPM/IMERG/3B-HH-L/07)
+    * GPM_3IMERGHH_07 [doi:10.5067/GPM/IMERG/3B-HH/07](https://doi.org/10.5067/GPM/IMERG/3B-HH/07)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.source,
-      href: 'ftp://198.118.195.100/gpmallversions/V06',
+      href: 'ftp://198.118.195.100/gpmallversions/V07',
     },
     {
       rel: ee_const.rel.source,
@@ -91,11 +89,11 @@ local version = version_config.version;
     },
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/GPM/IMERG/3B-HH-L/06',
+      href: 'https://doi.org/10.5067/GPM/IMERG/3B-HH-L/07',
     },
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/GPM/IMERG/3B-HH/06',
+      href: 'https://doi.org/10.5067/GPM/IMERG/3B-HH/07',
     },
   ] + version_config.version_links,
   keywords: [
@@ -112,11 +110,11 @@ local version = version_config.version;
   providers: [
     ee.producer_provider(
       'NASA GES DISC at NASA Goddard Space Flight Center',
-       'https://doi.org/10.5067/GPM/IMERG/3B-HH/06'),
+       'https://doi.org/10.5067/GPM/IMERG/3B-HH/07'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1598621093-GES_DISC',
+    'C2723754847-GES_DISC',
   ],
   extent: ee.extent_global('2000-06-01T00:00:00Z', null),
   summaries: {
@@ -125,12 +123,12 @@ local version = version_config.version;
     ],
     'eo:bands': [
       {
-        name: 'HQobservationTime',
+        name: 'MWobservationTime',
         description: 'PMW source time',
         'gee:units': 'min. into half hour',
       },
       {
-        name: 'HQprecipSource',
+        name: 'MWprecipSource',
         description: 'PMW source sensor identifier',
         'gee:bitmask': {
           bitmask_parts: [
@@ -206,12 +204,12 @@ local version = version_config.version;
         },
       },
       {
-        name: 'HQprecipitation',
+        name: 'MWprecipitation',
         description: 'merged PMW precipitation',
         'gee:units': 'mm/hr',
       },
       {
-        name: 'IRkalmanFilterWeight',
+        name: 'IRinfluence',
         description: 'Kalman filter weight for IR',
         'gee:units': units.percent,
       },
@@ -221,7 +219,7 @@ local version = version_config.version;
         'gee:units': 'mm/hr',
       },
       {
-        name: 'precipitationCal',
+        name: 'precipitation',
         description: 'snapshot precipitation - calibrated',
         'gee:units': 'mm/hr',
       },
@@ -249,29 +247,29 @@ local version = version_config.version;
           band_vis: {
             min: [1],
             max: [15],
-            bands: ['precipitationCal'],
+            bands: ['precipitation'],
           },
         },
       },
     ],
-    HQobservationTime: {minimum: 0, maximum: 29, 'gee:estimated_range': true},
-    HQprecipitation: {minimum: 0, maximum: 120, 'gee:estimated_range': true},
-    IRkalmanFilterWeight: {
+    MWobservationTime: {minimum: 0, maximum: 29, 'gee:estimated_range': true},
+    MWprecipitation: {minimum: 0, maximum: 120, 'gee:estimated_range': true},
+    IRinfluence: {
       minimum: 0, maximum: 100, 'gee:estimated_range': true},
     IRprecipitation: {minimum: 0.0, maximum: 79.5, 'gee:estimated_range': true},
-    precipitationCal: {minimum: 0, maximum: 174, 'gee:estimated_range': true},
+    precipitation: {minimum: 0, maximum: 174, 'gee:estimated_range': true},
     precipitationUncal: {minimum: 0, maximum: 120, 'gee:estimated_range': true},
     probabilityLiquidPrecipitation: {
       minimum: 0, maximum: 100, 'gee:estimated_range': true},
     randomError: {minimum: 0.24, maximum: 250.00, 'gee:estimated_range': true},
   },
-  'sci:doi': '10.5067/GPM/IMERG/3B-HH-L/06',
+  'sci:doi': '10.5067/GPM/IMERG/3B-HH-L/07',
   'sci:citation': |||
     Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019),
     GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06,
     Greenbelt, MD, Goddard Earth Sciences Data and Information Services Center
     (GES DISC), Accessed: [Data Access Date],
-    [doi:10.5067/GPM/IMERG/3B-HH/06](https://doi.org/10.5067/GPM/IMERG/3B-HH/06)
+    [doi:10.5067/GPM/IMERG/3B-HH/07](https://doi.org/10.5067/GPM/IMERG/3B-HH/07)
   |||,
   'gee:interval': {
     type: 'cadence',
