@@ -228,7 +228,6 @@ UNITS = units.UNITS.union({
     'molec cm-2 s-1',
     'ms',
     'occurrence',
-    'percent',
     'ppm',
     'ppm m',
     'seconds',
