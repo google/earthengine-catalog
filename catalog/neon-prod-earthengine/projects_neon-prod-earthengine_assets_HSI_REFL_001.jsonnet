@@ -3132,12 +3132,12 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'B427',
-      'gee:units':'deg',
+      'gee:units': units.degree,
       description: 'Aerosol Optical Depth'
      },
      {
       name: 'B428',
-      'gee:units': 'deg',
+      'gee:units': units.degree,
       description: 'Aspect used as input to ATCOR'
      },
      {
