@@ -3374,7 +3374,6 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'B442',
-//      'gee:units': 'date yyyy-mm-dd',
       description: 'Acquisition Date, YYYYMMDD'
      }
     ],
