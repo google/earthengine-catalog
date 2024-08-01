@@ -6,6 +6,10 @@ local units = import 'units.libsonnet';
 local subdir = 'COPERNICUS';
 local license = spdx.proprietary;
 
+// TODO(b/271332540): After Collection 1 reprocessing, the Feb 2022-Feb 2024
+// gap in QA60/MSK_CLASSI bands will be gone, so we will need to remove
+// the corresponding text below.
+
 {
   s2_dataset(id, version, version_config)::
     local basename = std.strReplace(id, '/', '_');
@@ -41,9 +45,14 @@ local license = spdx.proprietary;
         there is no B10). There are also several more L2-specific bands (see band
         list for details). See the
         [Sentinel-2 User Handbook](https://sentinel.esa.int/documents/247904/685211/Sentinel-2_User_Handbook)
-        for details. In addition, three QA bands are present where one
-        (QA60) is a bitmask band with cloud mask information. For more
-        details, [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
+        for details.
+
+        QA60 is a bitmask band that contained rasterized cloud mask
+        polygons until February 2022, when these polygons stopped being produced.
+        Starting in February 2024, legacy-consistent QA60 bands are constructed from the MSK_CLASSI
+        cloud classification bands.
+        For more details,
+        [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
 
         EE asset ids for Sentinel-2 L2 assets have the following format:
         COPERNICUS/S2_SR/20151128T002653_20151128T102149_T56MNN. Here the
@@ -694,7 +703,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'QA60',
-            description: 'Cloud mask',
+            description: 'Cloud mask. Masked out between February 2022 and February 2024.',
             gsd: 60.0,
             'gee:bitmask': {
               bitmask_parts: [
@@ -737,6 +746,21 @@ local license = spdx.proprietary;
               total_bit_count: 12,
             },
           },
+          {
+            name: 'MSK_CLASSI_OPAQUE',
+            description: 'Opaque clouds classification band (0=no clouds, 1=clouds). Masked out before February 2024.',
+            gsd: 60.0,
+          },
+          {
+            name: 'MSK_CLASSI_CIRRUS',
+            description: 'Cirrus clouds classification band (0=no clouds, 1=clouds). Masked out before February 2024.',
+            gsd: 60.0,
+          },
+          {
+            name: 'MSK_CLASSI_SNOW_ICE',
+            description: 'Snow/ice classification band (0=no snow/ice, 1=snow/ice). Masked out before February 2024.',
+            gsd: 60.0,
+          }
         ],
         'gee:visualizations': [
           {
