@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent(
       -16.171875, 34.313433, 36.386719, 72.182526,
-      '2018-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
+      '2018-01-01T00:00:00Z', null),
   'sci:citation': |||
     d'Andrimont, R., Verhegghen, A., Lemoine, G., Kempeneers, P., Meroni, M.,
     & Van der Velde, M. (2021). From parcel to continental scale-A first
