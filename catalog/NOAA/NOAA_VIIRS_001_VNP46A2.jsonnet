@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Documentation:
 
-    * [User's Guide](https://ladsweb.modaps.eosdis.nasa.gov/api/v2/content/archives/Document%20Archive/Science%20Data%20Product%20Documentation/VIIRS_Black_Marble_UG_v1.1_July_2020.pdf)
+    * [User's Guide](https://ladsweb.modaps.eosdis.nasa.gov/api/v2/content/archives/Document%20Archive/Science%20Data%20Product%20Documentation/VIIRS_Black_Marble_UG_v1.3_Sep_2022.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://ladsweb.modaps.eosdis.nasa.gov/api/v2/content/archives/Document%20Archive/Science%20Data%20Product%20Documentation/Product%20Generation%20Algorithms/VIIRS_Black_Marble_ATBD_v1.1_July_2020.pdf)
 
@@ -66,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'viirs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP46A2.001'),
+    ee.producer_provider('NASA LAADS DAAC', 'https://doi.org/10.5067/VIIRS/VNP46A2.001'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
