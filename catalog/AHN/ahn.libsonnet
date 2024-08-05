@@ -35,7 +35,7 @@ local self_ee_catalog_url(id) =
       'netherlands',
     ],
     providers: [
-      ee.producer_provider('AHN', 'https://www.ahn.nl/index.html'),
+      ee.producer_provider('AHN', 'https://www.ahn.nl'),
       ee.host_provider(self_ee_catalog_url(id)),
     ],
     extent: ee.extent(3.35, 50.74, 7.24, 53.55,
