@@ -1,8 +1,8 @@
-local id = 'NOAA/VIIRS/001/VNP15A2H';
-local subdir = 'NOAA';
-local successor_id = 'NASA/VIIRS/002/VNP15A2H';
-local latest_id = successor_id;
-local version = 'v001';
+local id = 'NASA/VIIRS/002/VNP15A2H';
+local subdir = 'NASA';
+local version = 'v002';
+local predecessor_id = 'NOAA/VIIRS/001/VNP15A2H';
+local latest_id = id;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -12,7 +12,7 @@ local units = import 'units.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -27,8 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP15A2H: LAI/FPAR 8-Day L4 Global 500m SIN Grid [deprecated]',
-  deprecated: true,
+  title: 'VNP15A2H: LAI/FPAR 8-Day L4 Global 500m SIN Grid',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -50,7 +49,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/125/VNP15_ATBD.pdf)
 
-    * [General Documentation](https://lpdaac.usgs.gov/products/vnp15a2hv001/)
+    * [General Documentation](https://lpdaac.usgs.gov/products/vnp15a2hv002/)
 
     * [Land Product Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/browse?sensor=VIIRS&sat=SNPP)
   |||,
@@ -58,14 +57,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/VIIRS/VNP15A2H.001',
+      href: 'https://doi.org/10.5067/VIIRS/VNP15A2H.002',
     },
-    ee.link.latest(
-      latest_id,
-      ee_const.catalog_base + 'NASA/' + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
+    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
+    ee.link.predecessor(
+      predecessor_id,
+      ee_const.catalog_base + 'NOAA/' + predecessor_basename + '.json'),
   ],
   keywords: [
     'land',
@@ -75,13 +72,13 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'viirs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP15A2H.001'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP15A2H.002'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1407099490-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2012-01-17T00:00:00Z', '2024-06-16T00:00:00Z'),
+  extent: ee.extent_global('2012-01-17T00:00:00Z', null),
   summaries: {
     gsd: [
       500.0,
@@ -373,7 +370,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
     ],
   },
-  'sci:doi': '10.5067/VIIRS/VNP15A2H.001',
+  'sci:doi': '10.5067/VIIRS/VNP15A2H.002',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
