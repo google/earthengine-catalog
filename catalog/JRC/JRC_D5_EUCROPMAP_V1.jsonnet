@@ -23,20 +23,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'EUCROPMAP 2018',
+  title: 'EUCROPMAP',
   version: 'V1',
   // Currently we only have in the collection a single image for 2018,
-  // but this structure allows easily adding more years in the future.
+  // with two images for 2022 - one for EU27, and another for Ukraine.
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    European crop type map based on Sentinel-1 and LUCAS Copernicus in-situ
-    observations for 2018.
+    European crop type map based on Sentinel-1 and LUCAS Copernicus 2018 in-situ
+    observations for 2018; and one based on Sentinel-2 and LUCAS Copernicus 2022 for 2022.
 
     Capitalizing on the unique
     [LUCAS 2018 Copernicus in-situ survey](JRC_LUCAS_HARMO_THLOC_V1),
-    this dataset is the first continental crop type map with 10m
+    the 2018 dataset is the first continental crop type map with 10m
     pixel size for the EU based on S1A and S1B Synthetic Aperture Radar
-    observations for the year 2018.
+    observations for the year 2018; the 2022 dataset is a continuation of
+    the work and is based on optical S2 observations for the year 2022.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -55,13 +56,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent(
       -16.171875, 34.313433, 36.386719, 72.182526,
-      '2018-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
+      '2018-01-01T00:00:00Z', null),
   'sci:citation': |||
     d'Andrimont, R., Verhegghen, A., Lemoine, G., Kempeneers, P., Meroni, M.,
     & Van der Velde, M. (2021). From parcel to continental scale-A first
     European crop type map based on Sentinel-1 and LUCAS Copernicus in-situ
     observations. Remote sensing of environment, 266, 112708.
   |||,
+'sci:publications': [
+      {
+        citation: |||
+          d'Andrimont, R., Verhegghen, A., Lemoine, G., Kempeneers, P., Meroni, M.,
+          & Van der Velde, M. (2021). From parcel to continental scale-A first
+          European crop type map based on Sentinel-1 and LUCAS Copernicus in-situ
+          observations. Remote sensing of environment, 266, 112708.
+          [doi:10.1016/j.rse.2021.112708](https://doi.org/10.1016/j.rse.2021.112708).
+        |||,
+        doi: '10.1016/j.rse.2021.112708',
+      },
+      {
+        citation: |||
+          Ghassemi, B., Dujakovic, A., Żółtak, M., Immitzer, M., Atzberger, C. and Vuolo, F., 2022. Designing a European-wide crop type mapping approach based on machine learning algorithms using LUCAS field survey and Sentinel-2 data. Remote sensing, 14(3), p.541.
+          [10.3390/rs14030541](https://doi.org/10.3390/rs14030541)
+        |||,
+        doi: '10.3390/rs14030541',
+      },
+    ],
   'gee:user_uploaded': true,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:interval': {
