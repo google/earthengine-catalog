@@ -14,6 +14,8 @@ local version = version_config.version;
 local license = spdx.cc_by_4_0;
 
 {
+  // TODO(google): Remove when the dataset is ready.
+  'gee:skip_indexing': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
