@@ -1,10 +1,10 @@
-var dataset = ee.ImageCollection('NASA/VIIRS/002/VNP15A2H')
+var dataset = ee.ImageCollection('NASA/VIIRS/002/VNP21A1D')
                   .filter(ee.Filter.date('2022-11-01', '2022-12-01'));
 
 var visualization = {
-  bands: ['Lai'],
-  min: [0],
-  max: [3],
+  bands: ['LST_1KM'],
+  min: [150],
+  max: [300],
   palette: [
     'a50026',
     'd73027',
@@ -19,6 +19,8 @@ var visualization = {
     '006837',
   ]
 };
+// Map.setCenter(41.2, 38.84, 3);
+Map.addLayer(dataset, visualization, 'LST');
 
 var lon = 7.347;
 var lat = 59.085;
@@ -31,7 +33,7 @@ var delta = 12.5;
 
 Map.addLayer(dataset, visualization, 'Leaf Area Index (LAI)');
 
-var rgb = dataset.select(['Lai']).mosaic().visualize(visualization);
+var rgb = dataset.select(['LST_1KM']).mosaic().visualize(visualization);
 
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
