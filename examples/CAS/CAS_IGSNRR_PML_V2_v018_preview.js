@@ -1,10 +1,6 @@
 var dataset = ee.ImageCollection('CAS/IGSNRR/PML/V2_v018')
 
-// test. for raw data
-// var dataset = ee.ImageCollection('projects/pml_evapotranspiration/PML/OUTPUT/PML_V2_8day_v018')
-
 var visualization = {
-  bands: ['GPP'],
   min: 0.0,
   max: 9.0,
   palette: [
@@ -13,17 +9,17 @@ var visualization = {
   ]
 };
 
+var gray = 150;
+var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
 
 var image = dataset.select('GPP').filterDate('2001-01-01', '2023-12-31').mean()
 
-// test. with sclae factor 0.01
-// var image = dataset.select('GPP').filterDate('2001-01-01', '2023-12-31').mean().multiply(0.01)
-
 Map.addLayer(
-    image, visualization, 'PML_V2 0.1.7 Gross Primary Product (GPP)');
+    image, visualization, 'PML_V2 0.1.8 Gross Primary Product (GPP)');
 
-// create image 
+// create image
 image = image.visualize(visualization)
+var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
 var lon = -58;
 var lat = -11;
@@ -45,5 +41,4 @@ var visParams = {
   format: 'png',
 };
 
-    
-print(ui.Thumbnail({image: image, params: visParams}));
+print(ui.Thumbnail({image: imageWithBackground, params: visParams}));

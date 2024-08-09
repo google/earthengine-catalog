@@ -14,6 +14,7 @@ local version = version_config.version;
 local license = spdx.cc_by_4_0;
 
 {
+  deprecated: true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -24,19 +25,19 @@ local license = spdx.cc_by_4_0;
   id: id,
   title:
     'PML_V2 ' + version +
-    ': Coupled Evapotranspiration and Gross Primary Product (GPP)',
+    ': Coupled Evapotranspiration and Gross Primary Product (GPP) [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Penman-Monteith-Leuning Evapotranspiration V2 (PML_V2) products include
     evapotranspiration (ET), its three components, and
     gross primary product (GPP) at 500m and 8-day resolution during 2000-2017
-    and with spatial range from -60°S to 90°N. The major advantages of the
+    and with spatial range from -60&deg;S to 90&deg;°N. The major advantages of the
     PML_V2 products are:
 
-      1. coupled estimates of transpiration and GPP via canopy
+      1. Coupled estimates of transpiration and GPP via canopy
       conductance (Gan et al., 2018; Zhang et al., 2019)
-      2. partitioning ET into three components: transpiration from vegetation,
+      2. Partitioning ET into three components: transpiration from vegetation,
       direct evaporation from the soil and vaporization of intercepted
        rainfall from vegetation (Zhang et al., 2016).
 
@@ -48,13 +49,8 @@ local license = spdx.cc_by_4_0;
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
-    'cas',
     'evapotranspiration',
-    // TODO(schwehr): Redundant tags. Pick one of gpp or gross_primary_product
     'gpp',
-    'gross_primary_product',
-    'igsnrr',
-    'pml',
   ],
   providers: [
     ee.producer_provider('PML_V2', 'https://github.com/kongdd/PML'),

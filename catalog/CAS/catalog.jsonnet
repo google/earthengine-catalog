@@ -20,5 +20,6 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('CAS_IGSNRR_PML_V2', base_url),
     ee.link.child_collection('CAS_IGSNRR_PML_V2_v017', base_url),
+    ee.link.child_collection('CAS_IGSNRR_PML_V2_v018', base_url),
   ],
 }

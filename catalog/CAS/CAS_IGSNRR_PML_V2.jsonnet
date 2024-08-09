@@ -49,13 +49,8 @@ local license = spdx.cc_by_4_0;
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
-    'cas',
     'evapotranspiration',
-    // TODO(schwehr): Redundant tags. Pick one of gpp or gross_primary_product
     'gpp',
-    'gross_primary_product',
-    'igsnrr',
-    'pml',
   ],
   providers: [
     ee.producer_provider('PML_V2', 'https://github.com/kongdd/PML'),

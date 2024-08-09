@@ -13,4 +13,4 @@ var visualization = {
 Map.setCenter(0.0, 15.0, 2);
 
 Map.addLayer(
-    dataset, visualization, 'PML_V2 0.1.8 Gross Primary Product (GPP)');
+    dataset.first(), visualization, 'PML_V2 0.1.8 Gross Primary Product (GPP)');
