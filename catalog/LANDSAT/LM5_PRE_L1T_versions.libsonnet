@@ -1,4 +1,0 @@
-[
-  {'PRE': 'LANDSAT/LM5_L1T'},
-  {'C02': 'LANDSAT/LM05/C02/T1'},
-]
