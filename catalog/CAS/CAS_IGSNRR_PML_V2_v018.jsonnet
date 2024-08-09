@@ -22,7 +22,7 @@ local license = spdx.cc_by_4_0;
 // https://github.com/google/earthengine-catalog/blob/main/catalog/TEMPLATE/TEMPLATE_IMAGE_COLLECTION_V2_3.jsonnet
 
 local id = 'CAS/IGSNRR/PML/V2_v018';
-local versions = '0.1.8';
+local version = '0.1.8';
 local subdir = 'CAS';
 
 local ee_const = import 'earthengine_const.libsonnet';
