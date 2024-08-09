@@ -17,7 +17,6 @@ local license = spdx.cc_by_4_0;
 
 */
 
-
 // for testing
 // https://github.com/google/earthengine-catalog/blob/main/catalog/TEMPLATE/TEMPLATE_IMAGE_COLLECTION_V2_3.jsonnet
 
