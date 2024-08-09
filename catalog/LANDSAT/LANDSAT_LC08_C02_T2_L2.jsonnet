@@ -54,7 +54,7 @@ local version = version_config.version;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ] + version_config.version_links,
+  ],
   keywords: [
     'cfmask',
     'cloud',

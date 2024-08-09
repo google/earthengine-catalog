@@ -56,7 +56,7 @@ local version = version_config.version;
 
   ||| + notes.description + landsat.l7_drift,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'cfmask',
     'cloud',

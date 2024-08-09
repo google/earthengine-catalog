@@ -1,8 +1,6 @@
 local id = 'LANDSAT/COMPOSITES/C02/T1_L2_8DAY_BAI';
 local subdir = 'LANDSAT';
 local version = 'COMPOSITES/C02';
-local predecessor_id = 'LANDSAT/LC08/C01/T1_8DAY_BAI';
-local latest_id = id;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -11,8 +9,6 @@ local notes = import 'templates/LANDSAT_COMPOSITES_L2.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
@@ -49,9 +45,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   license: license.id,
 
   links: ee.standardLinks(subdir, id) + [
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-    ee.link.predecessor(
-      predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
   ],
 
   keywords: [

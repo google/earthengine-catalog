@@ -1,4 +1,3 @@
 [
-  {'C01': 'LANDSAT/LE07/C01/T2_SR'},
   {'C02': 'LANDSAT/LE07/C02/T2_L2'},
 ]

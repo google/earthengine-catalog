@@ -31,7 +31,7 @@ local license = spdx.pddl_1_0;
       for details on the TOA computation.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'global',
     'landsat',

@@ -92,7 +92,7 @@ class ValidVisualizationsTest(test_utils.NodeTest):
         {'summaries': {'gee:visualizations': [{
             'display_name': 'Display name',
             'image_visualization': {}}]}},
-        dataset_id='LANDSAT/LC8')
+        dataset_id='NASA_USDA/HSL/soil_moisture')
 
 
 class ErrorsVisualizationsTest(test_utils.NodeTest):

@@ -52,7 +52,7 @@ local version = version_config.version;
 
   ||| + notes.description,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links + [
+  links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
   keywords: [
