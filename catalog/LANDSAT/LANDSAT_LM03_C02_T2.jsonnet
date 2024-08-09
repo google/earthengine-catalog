@@ -29,7 +29,7 @@ local version = version_config.version;
     Landsat 3 MSS Collection 2 Tier 2 DN values, representing scaled, calibrated at-sensor radiance.
   ||| + landsat.tier2,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'c2',
     'global',
