@@ -839,7 +839,6 @@ _PREVIEW_EXCEPTIONS = frozenset({
 
 
 _GEE_SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
-_GEE_SKIP_INDEXING = 'gee:skip_indexing'
 
 
 def load(examples_root: pathlib.Path) -> set[str]:
