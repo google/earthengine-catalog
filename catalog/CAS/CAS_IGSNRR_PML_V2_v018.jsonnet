@@ -32,7 +32,7 @@ local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-
+local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
