@@ -49,8 +49,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('NASA / USGS / JPL-Caltech', 'https://cmr.earthdata.nasa.gov/search/concepts/C1546314043-LPDAAC_ECS.html'),
+    ee.producer_provider('NASA / USGS / JPL-Caltech', 'https://lpdaac.usgs.gov/products/nasadem_hgtv001/'),
     ee.host_provider(self_ee_catalog_url),
+  ],
+  'gee:provider_ids': [
+    'C2763264762-LPCLOUD',
   ],
   extent: ee.extent(-180.0, -56.0, 180.0, 60.0,
                     '2000-02-11T00:00:00Z', '2000-02-22T00:00:00Z'),
