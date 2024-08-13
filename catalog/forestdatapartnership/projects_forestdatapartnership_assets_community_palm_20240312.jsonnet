@@ -58,7 +58,7 @@ local self_url = catalog_subdir_url + base_filename;
     [20240312 model on GitHub](https://github.com/google/forest-data-partnership/tree/main/models).
 
     For more information about the Forest Data Partnership, visit our
-    [website](https://www.forestdatapartnership.org/).,
+    [website](https://www.forestdatapartnership.org/).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
