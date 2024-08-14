@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Algorithm Theoretical Basis Document (Remote-Sensing Reflectance)](https://oceancolor.gsfc.nasa.gov/resources/atbd/rrs)
 
-    * [Processing History](https://oceancolor.gsfc.nasa.gov/reprocessing)
+    * [Processing History](https://oceancolor.gsfc.nasa.gov/data/reprocessing/)
 
     * [MODIS-Terra OceanData](https://oceancolor.gsfc.nasa.gov/about/missions/terra/)
   |||,
