@@ -16,7 +16,7 @@ Map.setCenter(lon, lat, 12);
 // Degrees in EPSG:3857.
 var delta = 0.015;
 // Width and Height of the thumbnail image.
-var pixels = 2000;
+var pixels = 256;
 
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);

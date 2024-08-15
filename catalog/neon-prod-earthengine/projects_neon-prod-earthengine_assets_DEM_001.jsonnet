@@ -14,9 +14,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local units = import 'units.libsonnet';
 
 {
-  // TODO(google): Remove when the dataset is ready.
-  'gee:skip_indexing': true,
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
