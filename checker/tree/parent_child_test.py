@@ -21,7 +21,7 @@ PARENT = parent_child.PARENT
 PREFIX = parent_child.PREFIX
 REL = parent_child.REL
 SELF = parent_child.SELF
-GEE_SKIP_INDEXING = parent_child.GEE_SKIP_INDEXING
+GEE_INCOMPLETE_ENTRY = parent_child.GEE_INCOMPLETE_ENTRY
 
 ID = 'id'
 CATALOG_ID = 'AAFC'
@@ -78,10 +78,12 @@ class ParentChildTest(absltest.TestCase):
         # Correctly leave out child link.
         {REL: PARENT, HREF: PREFIX + 'catalog.json'}]}
     collection = {
-        GEE_SKIP_INDEXING: True,
+        GEE_INCOMPLETE_ENTRY: True,
         LINKS: [
             {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
-            {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'}]}
+            {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'},
+        ],
+    }
 
     nodes = [ROOT_NODE, catalog_node(catalog), collection_node(collection)]
 
@@ -144,17 +146,19 @@ class ParentChildTest(absltest.TestCase):
 
   def test_incorrectly_have_child_link_with_skip_indexing(self):
     collection = {
-        GEE_SKIP_INDEXING: True,
+        GEE_INCOMPLETE_ENTRY: True,
         LINKS: [
             {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
-            {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'}]}
+            {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'},
+        ],
+    }
     a_collection_node = collection_node(collection)
     nodes = [ROOT_NODE, CATALOG_NODE, a_collection_node]
 
     issues = list(Check.run(nodes))
     message = (
         "Please don't reference in catalog.jsonnet datasets that have "
-        'gee:skip_indexing set to true: AAFC/catalog AAFC/AAFC_ACI'
+        'gee:incomplete_entry set to true: AAFC/catalog AAFC/AAFC_ACI'
     )
     expect = [Check.new_issue(a_collection_node, message)]
     self.assertEqual(expect, issues)

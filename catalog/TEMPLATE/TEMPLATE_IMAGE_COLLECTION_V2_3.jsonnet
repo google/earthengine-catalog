@@ -304,7 +304,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // The fields below generally don't need to be changed.
 
   // TODO(simonf): Remove skip_indexing when the dataset is ready.
-  'gee:skip_indexing': true,
+  'gee:incomplete_entry': true,
 
   // This says that the dataset is an ee.ImageCollection.
   //   https://developers.google.com/earth-engine/apidocs/ee-image-collection

@@ -21,14 +21,34 @@ class TopLevelTest(test_utils.NodeTest):
 
   def test_all_collections_fields(self):
     fields = [
-        'deprecated', 'description', 'extent', 'gee:interval',
-        'gee:is_derived', 'gee:min_zoom_level', 'gee:provider_ids',
-        'gee:skip_featureview_generation', 'gee:skip_indexing',
-        'gee:terms_of_use', 'gee:type', 'gee:unusual_terms_of_use',
-        'gee:user_owned', 'gee:user_uploaded', 'id', 'keywords', 'license',
-        'links', 'providers', 'sci:citation', 'sci:doi', 'sci:publications',
-        'stac_extensions', 'stac_version', 'summaries', 'title', 'type',
-        'version'
+        'deprecated',
+        'description',
+        'extent',
+        'gee:interval',
+        'gee:is_derived',
+        'gee:min_zoom_level',
+        'gee:provider_ids',
+        'gee:skip_featureview_generation',
+        'gee:incomplete_entry',
+        'gee:terms_of_use',
+        'gee:type',
+        'gee:unusual_terms_of_use',
+        'gee:user_owned',
+        'gee:user_uploaded',
+        'id',
+        'keywords',
+        'license',
+        'links',
+        'providers',
+        'sci:citation',
+        'sci:doi',
+        'sci:publications',
+        'stac_extensions',
+        'stac_version',
+        'summaries',
+        'title',
+        'type',
+        'version',
     ]
     self.assert_collection({x: None for x in fields})
 

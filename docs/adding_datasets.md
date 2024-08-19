@@ -57,8 +57,8 @@ to preview your markdown content.
 licensing terms.
 
 1. New dataset will not be activated at first. To indicate that, set
-`'gee:skip_indexing': true` at the top level. Don't yet add the new dataset to
-the `catalog.jsonnet` file.
+`'gee:incomplete_entry': true` at the top level. Don't yet add the new dataset
+to the `catalog.jsonnet` file.
 
 1. In the examples/ directory, create a JavaScript file that will be used as
 the main example.
