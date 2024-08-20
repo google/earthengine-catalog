@@ -169,8 +169,6 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'ESA/ESA_GLOBCOVER_L4_200901_200912_V2_3',
     'ESA/ESA_WorldCover_v100',
     'ESA/ESA_WorldCover_v200',
-    'Estonia/Estonia_Maamet_orthos_mono',
-    'Estonia/Estonia_Maamet_orthos_rgb',
     'FAO/FAO_GAUL_2015_level0',
     'FAO/FAO_GAUL_2015_level1',
     'FAO/FAO_GAUL_2015_level2',

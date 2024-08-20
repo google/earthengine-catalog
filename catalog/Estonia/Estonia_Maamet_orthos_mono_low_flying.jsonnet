@@ -1,4 +1,4 @@
-local id = 'Estonia/Maamet/orthos/rgb';
+local id = 'Estonia/Maamet/orthos/mono_low_flying';
 local subdir = 'Estonia';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,11 +20,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Estonia RGB orthophotos',
+  title: 'Estonia mono low flying orthophotos',
   'gee:type': ee_const.gee_type.image_collection,
   description: estonia_orthos.description + |||
-    The RGB dataset has three bands with nationwide coverage: red, green, and
-    blue.
+    The mono_low_flying dataset has a single grayscale band for
+    densely-populated areas.
 
     For more information, please see the
     [Estonia orthophotos documentation](https://geoportaal.maaamet.ee/eng/Spatial-Data/Orthophotos-p309.html)
@@ -33,8 +33,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'estonia',
+    'low_flying',
     'orthophoto',
-    'rgb',
   ],
   providers: estonia_orthos.providers('', self_ee_catalog_url),
   extent: estonia_orthos.extent,
@@ -44,21 +44,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'eo:bands': [
       {
-        name: 'R',
-        description: 'Red',
-      },
-      {
-        name: 'G',
-        description: 'Green',
-      },
-      {
-        name: 'B',
-        description: 'Blue',
+        name: 'mono',
+        description: 'Grayscale',
       }
     ],
     'gee:visualizations': [
         {
-        display_name: 'RGB',
+        display_name: 'mono',
         lookat: {
           lat: 24.959,
           lon: 58.148,
@@ -73,30 +65,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               255
             ],
             bands: [
-              'R',
-              'G',
-              'B',
+              'mono'
             ],
           },
         },
       },
     ],
-    R: {
+    mono: {
       minimum: 0.0,
       maximum: 255.0,
       'gee:estimated_range': false,
-    },
-    G: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
-    B: {
-      minimum: 0.0,
-      maximum: 255.0,
-      'gee:estimated_range': false,
-    },
+    }
   },
   'sci:citation': estonia_orthos.citation,
-  'gee:terms_of_use': estonia_orthos.terms_of_use
+  'gee:terms_of_use': estonia_orthos.terms_of_use,
 }

@@ -26,5 +26,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('Estonia_Maamet_orthos_rgb', base_url),
     ee.link.child_collection('Estonia_Maamet_orthos_mono', base_url),
+    ee.link.child_collection('Estonia_Maamet_orthos_rgb_low_flying', base_url),
+    ee.link.child_collection('Estonia_Maamet_orthos_mono_low_flying', base_url),
   ],
 }

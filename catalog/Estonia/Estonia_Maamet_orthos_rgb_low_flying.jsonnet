@@ -1,4 +1,4 @@
-local id = 'Estonia/Maamet/orthos/rgb';
+local id = 'Estonia/Maamet/orthos/rgb_low_flying';
 local subdir = 'Estonia';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,11 +20,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Estonia RGB orthophotos',
+  title: 'Estonia RGB low flying orthophotos',
   'gee:type': ee_const.gee_type.image_collection,
   description: estonia_orthos.description + |||
-    The RGB dataset has three bands with nationwide coverage: red, green, and
-    blue.
+    The rgb_low_flying dataset has three bands covering densely-populated
+    areas: red, green, and blue.
 
     For more information, please see the
     [Estonia orthophotos documentation](https://geoportaal.maaamet.ee/eng/Spatial-Data/Orthophotos-p309.html)
@@ -33,6 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id),
   keywords: [
     'estonia',
+    'low_flying',
     'orthophoto',
     'rgb',
   ],

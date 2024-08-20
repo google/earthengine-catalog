@@ -6,6 +6,8 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local license = spdx.proprietary;
 
+local estonia_orthos = import 'Estonia_orthos.libsonnet';
+
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -20,20 +22,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Estonia mono orthophotos',
   'gee:type': ee_const.gee_type.image_collection,
-  description: |||
-    Orthophotos are an aerial photo dataset covering Estonia.
-
-    An orthophoto is a processed aerial photo from which distortions caused
-    by terrain relief, camera tilt relative to the ground at the moment of
-    exposure and camera central projection are removed. A digital orthophoto
-    has a certain pixel size or resolution which shows the smallest
-    indivisible exposed area on the ground (Ground Sampling Distance, GSD).
-
-    Orthophotos have a nationwide coverage and correspond to the scale of
-    1:5000-1:10000 (pixel size 20-40 cm). Orthophotos for densely populated
-    areas are produced with the pixel size of 10-16 cm.
-
-    The mono dataset has a single grayscale band.
+  description: estonia_orthos.description + |||
+    The mono dataset has a single grayscale band with nationwide coverage.
 
     For more information, please see the
     [Estonia orthophotos documentation](https://geoportaal.maaamet.ee/eng/Spatial-Data/Orthophotos-p309.html)
@@ -44,16 +34,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'estonia',
     'orthophoto',
   ],
-  providers: [
-    ee.producer_provider(
-    'Estonia orthophotos',
-    'https://geoportaal.maaamet.ee/eng/Spatial-Data/Orthophotos-p309.html'
-    ),
-    ee.host_provider(self_ee_catalog_url),
-  ],
-  extent: ee.extent(57.3, 21.5, 59.5, 28.1,
-                    '1993-01-01T00:00:00Z', '2021-06-16T00:00:00Z'),
-
+  providers: estonia_orthos.providers('', self_ee_catalog_url),
+  extent: estonia_orthos.extent,
   summaries: {
     gsd: [
       0.4,
@@ -93,14 +75,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     }
   },
-  'sci:citation': 'Map data: Estonian Land Board',
-  'gee:terms_of_use': |||
-    The data is free to use for commercial and non-commercial purposes for a
-    non-specified term, provided that proper attribution is given to the
-    licensor (e.g. Estonian Land Board) along with the title and age of the
-    data.
-
-    For more details please see the
-    [Terms of use](https://geoportaal.maaamet.ee/docs/Avaandmed/Licence-of-open-data-of-Estonian-Land-Board.pdf)
-  |||
+  'sci:citation': estonia_orthos.citation,
+  'gee:terms_of_use': estonia_orthos.terms_of_use,
 }
