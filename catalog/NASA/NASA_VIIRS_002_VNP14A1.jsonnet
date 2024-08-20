@@ -1,8 +1,8 @@
-local id = 'NOAA/VIIRS/001/VNP14A1';
-local subdir = 'NOAA';
-local successor_id = 'NASA/VIIRS/002/VNP14A1';
-local latest_id = successor_id;
-local version = '1';
+local id = 'NASA/VIIRS/002/VNP14A1';
+local subdir = 'NASA';
+local version = '2';
+local predecessor_id = 'NOAA/VIIRS/001/VNP14A1';
+local latest_id = id;
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -12,7 +12,7 @@ local units = import 'units.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -27,9 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP14A1.001: Thermal Anomalies/Fire Daily L3 Global 1km SIN Grid' +
-  ' [deprecated]',
-  deprecated: true,
+  title: 'VNP14A1.002: Thermal Anomalies/Fire Daily L3 Global 1km SIN Grid',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -47,7 +45,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/427/VNP14_User_Guide_V1.pdf)
 
-    * [General Documentation](https://lpdaac.usgs.gov/products/vnp14a1v001/)
+    * [General Documentation](https://lpdaac.usgs.gov/products/vnp14a1v002/)
 
     * [Land Product Quality Assessment website](https://landweb.modaps.eosdis.nasa.gov/browse?sensor=VIIRS&sat=SNPP)
   |||,
@@ -55,14 +53,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/VIIRS/VNP14A1.001',
+      href: 'https://doi.org/10.5067/VIIRS/VNP14A1.002',
     },
-    ee.link.latest(
-      latest_id,
-      ee_const.catalog_base + 'NASA/' + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
+      ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
+      ee.link.predecessor(predecessor_id,ee_const.catalog_base + 'NOAA/' +
+        predecessor_basename + '.json'),
   ],
   keywords: [
     'fire',
@@ -73,11 +68,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'viirs',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP14A1.001'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP14A1.002'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1523387372-LPDAAC_ECS',
+    'C2545314541-LPCLOUD',
   ],
   extent: ee.extent_global('2012-01-19T00:00:00Z', null),
   summaries: {
@@ -393,7 +388,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
     ],
   },
-  'sci:doi': '10.5067/VIIRS/VNP14A1.001',
+  'sci:doi': '10.5067/VIIRS/VNP14A1.002',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
