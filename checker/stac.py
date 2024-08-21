@@ -13,6 +13,7 @@ from typing import Iterator, Optional
 import os
 
 GEE_TYPE = 'gee:type'
+GEE_STATUS = 'gee:status'
 TYPE = 'type'
 # This is an intentionally invalid dataset_id.
 UNKNOWN_ID = '> UNKNOWN ID: '

@@ -22,7 +22,6 @@ PARENT = 'parent'
 SELF = 'self'
 
 GEE_CATALOG = 'GEE_catalog'
-GEE_STATUS = 'gee:status'
 
 PREFIX = 'https://storage.googleapis.com/earthengine-stac/catalog/'
 SUFFIX = '.json'
@@ -88,17 +87,17 @@ class Check(stac.TreeCheck):
           yield cls.new_issue(
               node,
               f'catalog_url != parent_url: {catalog_url} {a_parent_url}')
-        elif node.stac.get(GEE_STATUS) == stac.Status.INCOMPLETE.value:
+        elif node.stac.get(stac.GEE_STATUS) == stac.Status.INCOMPLETE.value:
           message = (
               "Please don't reference in catalog.jsonnet datasets that have "
-              f'{GEE_STATUS} set to "{stac.Status.INCOMPLETE.value}": '
+              f'{stac.GEE_STATUS} set to "{stac.Status.INCOMPLETE.value}": '
               f'{catalog_url} {a_self_url}'
           )
           yield cls.new_issue(node, message)
       else:
         if (
             node.id != GEE_CATALOG
-            and node.stac.get(GEE_STATUS) != stac.Status.INCOMPLETE.value
+            and node.stac.get(stac.GEE_STATUS) != stac.Status.INCOMPLETE.value
             and not node.id.startswith('TEMPLATE')
         ):
           yield cls.new_issue(node, 'Not in any catalog as a child link')

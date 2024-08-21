@@ -21,7 +21,6 @@ PARENT = parent_child.PARENT
 PREFIX = parent_child.PREFIX
 REL = parent_child.REL
 SELF = parent_child.SELF
-GEE_STATUS = parent_child.GEE_STATUS
 
 ID = 'id'
 CATALOG_ID = 'AAFC'
@@ -78,7 +77,7 @@ class ParentChildTest(absltest.TestCase):
         # Correctly leave out child link.
         {REL: PARENT, HREF: PREFIX + 'catalog.json'}]}
     collection = {
-        GEE_STATUS: 'incomplete',
+        'gee:status': 'incomplete',
         LINKS: [
             {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
             {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'},
@@ -146,7 +145,7 @@ class ParentChildTest(absltest.TestCase):
 
   def test_incorrectly_have_child_link_with_skip_indexing(self):
     collection = {
-        GEE_STATUS: 'incomplete',
+        'gee:status': 'incomplete',
         LINKS: [
             {REL: SELF, HREF: PREFIX + 'AAFC/AAFC_ACI.json'},
             {REL: PARENT, HREF: PREFIX + 'AAFC/catalog.json'},
