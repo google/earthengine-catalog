@@ -2,7 +2,8 @@
 
 - For each child in catalog, the child should point back to the parent catalog
 - For each parent link in a node, parent should have a link to the child node.
-- There should be no child link in the catalog for 'gee:incomplete_entry' nodes.
+- There should be no child link in the catalog for nodes with
+'gee:status'='incomplete'.
 """
 
 from typing import Iterator
@@ -21,7 +22,7 @@ PARENT = 'parent'
 SELF = 'self'
 
 GEE_CATALOG = 'GEE_catalog'
-GEE_INCOMPLETE_ENTRY = 'gee:incomplete_entry'
+GEE_STATUS = 'gee:status'
 
 PREFIX = 'https://storage.googleapis.com/earthengine-stac/catalog/'
 SUFFIX = '.json'
@@ -87,17 +88,17 @@ class Check(stac.TreeCheck):
           yield cls.new_issue(
               node,
               f'catalog_url != parent_url: {catalog_url} {a_parent_url}')
-        elif node.stac.get(GEE_INCOMPLETE_ENTRY):
+        elif node.stac.get(GEE_STATUS) == stac.Status.INCOMPLETE.value:
           message = (
               "Please don't reference in catalog.jsonnet datasets that have "
-              f'{GEE_INCOMPLETE_ENTRY} set to true: '
+              f'{GEE_STATUS} set to "{stac.Status.INCOMPLETE.value}": '
               f'{catalog_url} {a_self_url}'
           )
           yield cls.new_issue(node, message)
       else:
         if (
             node.id != GEE_CATALOG
-            and not node.stac.get(GEE_INCOMPLETE_ENTRY)
+            and node.stac.get(GEE_STATUS) != stac.Status.INCOMPLETE.value
             and not node.id.startswith('TEMPLATE')
         ):
           yield cls.new_issue(node, 'Not in any catalog as a child link')

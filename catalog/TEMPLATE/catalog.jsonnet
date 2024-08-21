@@ -22,7 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    // TODO(schwehr): Enable link when removing gee:incomplete_entry
+    // TODO(google): Enable link when changing gee:status
     // ee.link.child_collection('TEMPLATE_IMAGE_V2_1', base_url),
   ],
 }

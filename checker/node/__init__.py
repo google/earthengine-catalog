@@ -12,9 +12,9 @@ from checker.node import feature_view
 from checker.node import file_path
 from checker.node import gee_bitmask
 from checker.node import gee_classes
-from checker.node import gee_incomplete_entry
 from checker.node import gee_is_derived
 from checker.node import gee_provider_ids
+from checker.node import gee_status
 from checker.node import gee_terms_of_use
 from checker.node import gee_type
 from checker.node import gee_unusual_terms_of_use
@@ -70,9 +70,9 @@ _CHECKS = [
     # gee extensions
     gee_bitmask.Check,
     gee_classes.Check,
-    gee_incomplete_entry.Check,
     gee_is_derived.Check,
     gee_provider_ids.Check,
+    gee_status.Check,
     gee_terms_of_use.Check,
     gee_unusual_terms_of_use.Check,
     gee_user_uploaded.Check,

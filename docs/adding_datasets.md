@@ -57,7 +57,7 @@ to preview your markdown content.
 licensing terms.
 
 1. New dataset will not be activated at first. To indicate that, set
-`'gee:incomplete_entry': true` at the top level. Don't yet add the new dataset
+`'gee:status': 'incomplete'` at the top level. Don't yet add the new dataset
 to the `catalog.jsonnet` file.
 
 1. In the examples/ directory, create a JavaScript file that will be used as

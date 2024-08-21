@@ -29,7 +29,7 @@ class TopLevelTest(test_utils.NodeTest):
         'gee:min_zoom_level',
         'gee:provider_ids',
         'gee:skip_featureview_generation',
-        'gee:incomplete_entry',
+        'gee:status',
         'gee:terms_of_use',
         'gee:type',
         'gee:unusual_terms_of_use',

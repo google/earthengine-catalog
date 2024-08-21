@@ -23,7 +23,7 @@ COLLECTION_ALLOWED_FIELDS = [
     'gee:min_zoom_level',
     'gee:provider_ids',
     stac.SKIP_FEATUREVIEW_GENERATION,
-    'gee:incomplete_entry',
+    'gee:status',
     'gee:terms_of_use',
     'gee:type',
     'gee:unusual_terms_of_use',

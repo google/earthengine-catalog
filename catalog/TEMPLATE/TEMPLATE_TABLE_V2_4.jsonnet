@@ -234,8 +234,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   // The fields below generally don't need to be changed.
 
-  // TODO(simonf): Remove skip_indexing when the dataset is ready.
-  'gee:incomplete_entry': true,
+  // TODO(google): Remove gee:status when the dataset is ready.
+  'gee:status': 'incomplete',
 
  // This says that the dataset is an ee.FeatureCollection.
   //   https://developers.google.com/earth-engine/apidocs/ee-featurecollection

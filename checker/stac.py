@@ -52,6 +52,14 @@ class GeeType(*_StrEnum):
     return frozenset(x.value for x in cls if x != cls.NONE)
 
 
+class Status(*_StrEnum):
+  INCOMPLETE = 'incomplete'
+
+  @classmethod
+  def allowed_statuses(cls):
+    return frozenset(x.value for x in cls)
+
+
 def data_root() -> pathlib.Path:
   return (
       pathlib.Path(os.path.dirname(__file__)) /
