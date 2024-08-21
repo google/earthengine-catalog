@@ -16,13 +16,6 @@ from checker import stac
 
 GEE_TYPE = 'gee:type'
 
-IMAGE = 'image'
-IMAGE_COLLECTION = 'image_collection'
-TABLE = 'table'
-TABLE_COLLECTION = 'table_collection'
-
-GEE_TYPE_SET = frozenset({IMAGE, IMAGE_COLLECTION, TABLE, TABLE_COLLECTION})
-
 
 class Check(stac.NodeCheck):
   """Checks for gee:type."""
@@ -39,6 +32,9 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{GEE_TYPE} must be a str')
       return
 
-    if gee_type not in GEE_TYPE_SET:
+    if gee_type not in stac.GeeType.allowed_collection_types():
       yield cls.new_issue(
-          node, f'{GEE_TYPE} must be one of {sorted(GEE_TYPE_SET)}')
+          node,
+          f'{GEE_TYPE} must be one of'
+          f' {sorted(stac.GeeType.allowed_collection_types())}',
+      )

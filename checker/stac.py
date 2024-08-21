@@ -47,6 +47,10 @@ class GeeType(*_StrEnum):
   # For catalogs
   NONE = 'none'
 
+  @classmethod
+  def allowed_collection_types(cls):
+    return frozenset(x.value for x in cls if x != cls.NONE)
+
 
 def data_root() -> pathlib.Path:
   return (
