@@ -26,6 +26,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '6.1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+
+    Note: As of July 2024, the MCD18 V6.1 datasets are no longer being produced
+    as they have been superseded by V6.2. We are working on adding the new
+    version to the catalog.
+
     The MCD18C2 Version 6.1 is a Moderate Resolution Imaging Spectroradiometer
     (MODIS) Terra and Aqua combined Photosynthetically Active Radiation (PAR)
     gridded Level 3 product produced daily at 0.05 degree (5,600 meters at the
@@ -61,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/products/mcd18c2v061/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2002-02-24T00:00:00Z', null),
+  extent: ee.extent_global('2002-02-24T00:00:00Z', '2024-06-01T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Aqua',
