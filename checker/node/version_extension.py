@@ -164,12 +164,9 @@ class Check(stac.NodeCheck):
       predecessor = version_links.get(PREDECESSOR)
       successor = version_links.get(SUCCESSOR)
 
-      if node.id not in [
-          'USFS/GTAC/LCMS/v2020-6',
-          'USGS/NLCD_RELEASES/2016_REL']:
-        if not predecessor and not successor:
-          yield cls.new_issue(
-              node, f'Must have one of "{PREDECESSOR}" or "{SUCCESSOR}"')
+      if not predecessor and not successor:
+        yield cls.new_issue(
+            node, f'Must have one of "{PREDECESSOR}" or "{SUCCESSOR}"')
 
       for link in version_links.values():
         if link.get(TYPE) != JSON:
