@@ -26,7 +26,7 @@ local license = spdx.proprietary;
     'USFS Landscape Change Monitoring System ' + version + ' ' +
     '(Conterminous United States and Southeastern Alaska) [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.

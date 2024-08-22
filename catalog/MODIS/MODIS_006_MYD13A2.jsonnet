@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD13A2.libsonnet';
   ],
   id: id,
   title: 'MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

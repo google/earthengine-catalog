@@ -28,7 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'RCMAP Rangeland Component Timeseries (1985-2021), ' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The RCMAP (Rangeland Condition Monitoring Assessment and Projection) dataset

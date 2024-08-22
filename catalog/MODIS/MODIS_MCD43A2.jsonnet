@@ -20,7 +20,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MCD43A2.005 BRDF-Albedo Quality 16-Day Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MODerate-resolution Imaging

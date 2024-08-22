@@ -24,7 +24,7 @@ local license = spdx.proprietary;
     'LSIB 2013: Large Scale International Boundary Polygons, Detailed'
     + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.table,
   description: |||
     The United States Office of the Geographer provides

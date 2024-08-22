@@ -23,7 +23,7 @@ local license = spdx.cc_by_4_0;
   id: id,
   title: 'WorldPop Project Population Data: Estimated Residential Population per 100x100m Grid Square [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     High-resolution, contemporary data on human population distributions are

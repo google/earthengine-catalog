@@ -23,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'GLCF: Landsat Tree Cover Continuous Fields [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Landsat Vegetation Continuous Fields (VCF) tree cover layers contain

@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MOD11A2.006 Terra Land Surface Temperature and Emissivity 8-Day Global 1km [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

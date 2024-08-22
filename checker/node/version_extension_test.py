@@ -44,10 +44,6 @@ class VersionExtensionCatalogTest(test_utils.NodeTest):
         {'links': [{'rel': 'successor-version'}]},
         'Catalog must not have version links')
 
-  def test_bad_has_deprecated(self):
-    self.assert_catalog(
-        {'deprecated': False}, 'Catalog must not have "deprecated"')
-
 
 class VersionExtensionCollectionTest(test_utils.NodeTest):
 
@@ -62,7 +58,7 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
     self.assert_collection({
         'stac_extensions': [VERSION_URL],
         'version': '2.0bis',
-        'deprecated': True,
+        'gee:status': 'deprecated',
         'title': 'A title [deprecated]',
         'links': [
             {
@@ -130,19 +126,14 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
 
   def test_deprecated_field_without_extension(self):
     self.assert_collection(
-        {'deprecated': False},
-        'Version extension not found, but has deprecated field')
+        {'gee:status': 'deprecated'},
+        'Version extension not found, but "gee:status" is set to "deprecated"',
+    )
 
   def test_version_field_not_str(self):
     self.assert_collection(
         {'stac_extensions': [VERSION_URL], 'version': 321},
         '"version" must be a str')
-
-  def test_deprecated_field_not_bool(self):
-    self.assert_collection(
-        {'stac_extensions': [VERSION_URL], 'version': '1',
-         'deprecated': 'Not a bool'},
-        '"deprecated" must be a bool')
 
   def test_missing_extension_with_link(self):
     self.assert_collection(
@@ -159,19 +150,25 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
 
   def test_title_not_set_for_deprecated(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL],
-         'version': '3.1.45',
-         'deprecated': True,
-         'title': 'A title'},
-        'The title for deprecated assets must end with " [deprecated]"')
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '3.1.45',
+            'gee:status': 'deprecated',
+            'title': 'A title',
+        },
+        'The title for deprecated assets must end with " [deprecated]"',
+    )
 
   def test_title_deprecated_for_deprecated_false(self):
     self.assert_collection(
-        {'stac_extensions': [VERSION_URL],
-         'version': '3.1.45',
-         'deprecated': False,
-         'title': 'A title [deprecated]'},
-        'The title for non-deprecated assets must not end with "[deprecated]"')
+        {
+            'stac_extensions': [VERSION_URL],
+            'version': '3.1.45',
+            'gee:status': 'incomplete',
+            'title': 'A title [deprecated]',
+        },
+        'The title for non-deprecated assets must not end with "[deprecated]"',
+    )
 
   def test_title_deprecated_for_non_deprecated(self):
     self.assert_collection(
@@ -225,7 +222,7 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
         {
             'stac_extensions': [VERSION_URL],
             'version': '5',
-            'deprecated': True,
+            'gee:status': 'deprecated',
             'title': 'A title [deprecated]',
             'links': [{
                 'rel': 'predecessor-version',
@@ -243,7 +240,7 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
         {
             'stac_extensions': [VERSION_URL],
             'version': '6',
-            'deprecated': False,
+            'gee:status': 'incomplete',
             'links': [{
                 'rel': 'successor-version',
                 'title': 'Newer',
@@ -251,7 +248,7 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
                 'href': HREF,
             }],
         },
-        'Missing deprecated with successor-version link',
+        'Missing "gee:status"="deprecated" with successor-version link',
     )
 
   def test_no_successor_link(self):

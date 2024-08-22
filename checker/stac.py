@@ -54,6 +54,7 @@ class GeeType(*_StrEnum):
 
 
 class Status(*_StrEnum):
+  DEPRECATED = 'deprecated'
   INCOMPLETE = 'incomplete'
 
   @classmethod

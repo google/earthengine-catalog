@@ -20,7 +20,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MOD09A1.005 Surface Reflectance 8-Day Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MODIS Surface Reflectance products

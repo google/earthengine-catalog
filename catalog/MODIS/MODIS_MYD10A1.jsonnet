@@ -22,7 +22,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'MYD10A1.005 Aqua Snow Cover Daily Global 500m [deprecated]',
   version: '5',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD10A1 V5 Snow Cover Daily Global 500m product

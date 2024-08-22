@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'MCD64A1.006 MODIS Burned Area Monthly Global 500m [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Terra and Aqua combined MCD64A1 Version 6 Burned Area data product is

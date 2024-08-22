@@ -28,7 +28,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

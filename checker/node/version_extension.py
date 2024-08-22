@@ -13,10 +13,9 @@ The remaining is for STAC Collections:
   following https://semver.org/, e.g. on Debian Linux:
     dpkg --compare-versions 1.1.2 lt 1.2.2 && echo true
     true
-- The deprecated field is an optional bool unless there is a successor-version
-  link.  It is okay to have a deprecated: False on other assets, which is the
-  default assumed if it not present.
-- If a file has deprecated set to true, then the collection must have
+- The 'gee:status' field must be set to 'deprecated' if there is
+  a successor-version link.
+- If a file has 'gee:status'='deprecated', then the collection must have
   - `[deprecated]` at the end of the title
   - a successor-link
 - For each version link must have:
@@ -35,12 +34,14 @@ Example version information in python format:
 {
   'stac_extensions': [VERSION_URL],
   'version': '2.3.4',
-  'deprecated': True,
+  'gee:status': 'deprecated',
   'title': 'A title v2.3.4 [deprecated]',
   'links': [
     {'rel': 'latest-version', 'title': 'a/b/2.3.6', 'type': 'application/json'},
-    {'rel': 'predecessor-version', 'title': 'a/b/1.9.8', 'type': 'application/json'},
-    {'rel': 'successor-version', 'title': 'a/b/2.3.5', 'type': 'application/json'}]}
+    {'rel': 'predecessor-version', 'title': 'a/b/1.9.8', 'type':
+    'application/json'},
+    {'rel': 'successor-version', 'title': 'a/b/2.3.5', 'type':
+    'application/json'}]}
 """
 
 import re
@@ -60,7 +61,6 @@ PREDECESSOR = 'predecessor-version'
 SUCCESSOR = 'successor-version'
 LINK_TYPES = [LATEST, PREDECESSOR, SUCCESSOR]
 
-DEPRECATED = 'deprecated'
 DEPRECATED_TITLE = ' [deprecated]'
 TITLE = 'title'
 TYPE = 'type'
@@ -85,8 +85,9 @@ class Check(stac.NodeCheck):
     has_version_extension = bool(extension_list)
 
     version_field = node.stac.get(VERSION)
-    deprecated = node.stac.get(DEPRECATED)
-    has_deprecated = DEPRECATED in node.stac
+    has_deprecated = (
+        node.stac.get(stac.GEE_STATUS) == stac.Status.DEPRECATED.value
+    )
 
     links = node.stac.get(LINKS, [])
     if not isinstance(links, list):
@@ -102,8 +103,12 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, f'Catalog must not have "{VERSION}"')
       if version_links:
         yield cls.new_issue(node, 'Catalog must not have version links')
-      if deprecated is not None:
-        yield cls.new_issue(node, f'Catalog must not have "{DEPRECATED}"')
+      if has_deprecated:
+        yield cls.new_issue(
+            node,
+            f'Catalog must not have "{stac.GEE_STATUS}" set to'
+            f' "{stac.Status.DEPRECATED.value}"',
+        )
       return
 
     # TODO(simonf): do we need to require 'version' for 'deprecated' and
@@ -115,7 +120,10 @@ class Check(stac.NodeCheck):
             node, 'Version extension not found, but has version field')
       if has_deprecated:
         yield cls.new_issue(
-            node, 'Version extension not found, but has deprecated field')
+            node,
+            'Version extension not found, but "gee:status" is set to'
+            ' "deprecated"',
+        )
       if version_links:
         yield cls.new_issue(
             node, 'Version extension not found, but have version links')
@@ -135,12 +143,9 @@ class Check(stac.NodeCheck):
       if not isinstance(version_field, str):
         yield cls.new_issue(node, f'"{VERSION}" must be a str')
 
-    if has_deprecated and not isinstance(deprecated, bool):
-      yield cls.new_issue(node, f'"{DEPRECATED}" must be a bool')
-
     if TITLE in node.stac:
       title = node.stac[TITLE]
-      if has_deprecated and deprecated:
+      if has_deprecated:
         if not title.endswith(DEPRECATED_TITLE):
           yield cls.new_issue(
               node,
@@ -186,10 +191,15 @@ class Check(stac.NodeCheck):
               node, f'The {rel} link must have an "{HREF}" property'
           )
 
-        if deprecated and not latest and not successor:
+        if has_deprecated and not latest and not successor:
           yield cls.new_issue(
               node, 'Deprecated assets must have one or both of '
               f'{LATEST} or {SUCCESSOR} links')
-        if successor and not deprecated and node.id != 'USFS/GTAC/LCMS/v2020-5':
+        if (
+            successor
+            and not has_deprecated
+            and node.id != 'USFS/GTAC/LCMS/v2020-5'
+        ):
           yield cls.new_issue(
-              node, f'Missing {DEPRECATED} with {SUCCESSOR} link')
+              node, f'Missing "gee:status"="deprecated" with {SUCCESSOR} link'
+          )

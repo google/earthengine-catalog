@@ -21,7 +21,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'Copernicus CORINE Land Cover [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The CORINE (coordination of information on the environment) Land Cover

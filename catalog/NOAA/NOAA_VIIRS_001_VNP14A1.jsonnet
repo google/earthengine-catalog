@@ -29,7 +29,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   id: id,
   title: 'VNP14A1.001: Thermal Anomalies/Fire Daily L3 Global 1km SIN Grid' +
   ' [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

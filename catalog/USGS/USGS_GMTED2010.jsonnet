@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'GMTED2010: Global Multi-resolution Terrain Elevation Data 2010, Breakline Emphasis [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The Global Multi-resolution Terrain Elevation Data

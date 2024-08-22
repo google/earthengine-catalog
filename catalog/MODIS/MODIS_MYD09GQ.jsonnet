@@ -20,7 +20,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MYD09GQ.005 Aqua Surface Reflectance Daily L2G Global 250m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MODIS Surface Reflectance products

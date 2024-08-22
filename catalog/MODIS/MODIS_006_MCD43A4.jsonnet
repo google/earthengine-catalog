@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MCD43A4.libsonnet';
   ],
   id: id,
   title: 'MCD43A4.006 MODIS Nadir BRDF-Adjusted Reflectance Daily 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

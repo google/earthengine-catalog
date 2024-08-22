@@ -20,7 +20,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MODIS Terra Daily NDSI [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Normalized Difference Snow Index is used to

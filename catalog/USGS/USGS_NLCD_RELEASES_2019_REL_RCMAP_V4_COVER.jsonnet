@@ -28,7 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'RCMAP Rangeland Component Timeseries (1985-2020), ' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Rangeland ecosystems in the western United States have a dynamic response

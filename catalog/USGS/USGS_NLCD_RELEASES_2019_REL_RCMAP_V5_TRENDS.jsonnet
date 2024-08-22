@@ -30,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'RCMAP Rangeland Component Timeseries Trends (1985-2021), ' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: utils.description,
   'sci:publications': utils.publication,

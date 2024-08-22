@@ -20,7 +20,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MODIS Terra Daily BAI [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Burn Area Index (BAI) is generated from the Red and

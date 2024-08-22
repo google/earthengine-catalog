@@ -309,7 +309,11 @@ class Check(stac.TreeCheck):
     # to a new version, keywords that used to be single would be
     # duplicated, but since we skip deprecated datasets in tag searches,
     # users will still effectively see a single keyword.
-    nodes = [x for x in dataset_nodes if not x.stac.get('deprecated')]
+    nodes = [
+        x
+        for x in dataset_nodes
+        if x.stac.get(stac.GEE_STATUS) != stac.Status.DEPRECATED.value
+    ]
 
     counts = collections.Counter()
     for node in nodes:

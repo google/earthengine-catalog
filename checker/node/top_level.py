@@ -15,7 +15,6 @@ CATALOG_ALLOWED_FIELDS = [
     'title', 'type']
 
 COLLECTION_ALLOWED_FIELDS = [
-    'deprecated',
     'description',
     'extent',
     'gee:interval',

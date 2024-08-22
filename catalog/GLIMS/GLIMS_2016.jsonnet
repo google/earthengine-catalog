@@ -21,7 +21,7 @@ local version_config = versions(subdir, version_table, config.id);
   ],
   id: config.id,
   title: 'GLIMS 2016: Global Land Ice Measurements From Space [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.table,
   description: |||

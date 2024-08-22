@@ -28,7 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   version: version,
   title: 'PRISM Long-Term Average Climate Dataset Norm81m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The PRISM daily and monthly datasets are gridded climate

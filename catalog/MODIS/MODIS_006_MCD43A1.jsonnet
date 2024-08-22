@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'MCD43A1.006 MODIS BRDF-Albedo Model Parameters Daily 500m [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MCD43A1 V6 Bidirectional Reflectance Distribution

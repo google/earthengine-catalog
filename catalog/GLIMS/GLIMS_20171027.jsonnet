@@ -23,7 +23,7 @@ local version_config = versions(subdir, version_table, config.id);
   basename:: std.strReplace(config.id, '/', '_'),
 
   title: 'GLIMS 2017: Global Land Ice Measurements From Space [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.table,
   description: |||

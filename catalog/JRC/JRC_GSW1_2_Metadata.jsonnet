@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'JRC Global Surface Water Metadata, v1.2 [deprecated]',
   version: '1.2',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     This dataset contains maps of the location and temporal

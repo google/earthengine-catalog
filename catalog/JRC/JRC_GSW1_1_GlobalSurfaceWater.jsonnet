@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'JRC Global Surface Water Mapping Layers, v1.1 [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     This dataset contains maps of the location and temporal

@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MCD15A3H.libsonnet';
   ],
   id: id,
   title: 'MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

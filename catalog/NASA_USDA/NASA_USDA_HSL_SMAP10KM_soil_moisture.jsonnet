@@ -28,7 +28,7 @@ local successor_url = ee_const.catalog_base + 'NASA/' + successor_filename;
   id: id,
   title: 'NASA-USDA Enhanced SMAP Global Soil Moisture Data [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
-  deprecated: true,
+  'gee:status': 'deprecated',
   description: |||
     The NASA-USDA Enhanced SMAP Global soil moisture data provides soil moisture information across
     the globe at 10-km spatial resolution. This dataset includes:

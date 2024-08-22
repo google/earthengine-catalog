@@ -26,7 +26,7 @@ local license = spdx.cc0_1_0;
   id: id,
   title: 'NLCD: USGS National Land Cover Database [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset is superseded by newer datasets:

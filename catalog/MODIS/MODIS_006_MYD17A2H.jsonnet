@@ -21,7 +21,7 @@ local template = import 'templates/MODIS_006_MOD17A2H.libsonnet';
   ],
   id: id,
   title: 'MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

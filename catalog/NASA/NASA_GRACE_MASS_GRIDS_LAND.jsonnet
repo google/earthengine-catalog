@@ -23,7 +23,7 @@ local version = version_config.version;
   ],
   id: id,
   title: 'GRACE Monthly Mass Grids - Land [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

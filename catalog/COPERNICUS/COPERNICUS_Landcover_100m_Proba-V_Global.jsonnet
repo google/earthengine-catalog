@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'Copernicus Global Land Cover Layers: CGLS-LC100 Collection 2 [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Copernicus Global Land Service (CGLS) is earmarked as a component of

@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD09A1.libsonnet';
   ],
   id: id,
   title: 'MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

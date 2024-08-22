@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MCD43C3.libsonnet';
   ],
   id: id,
   title: 'MCD43C3.006 BRDF/Albedo Daily L3 0.05 Deg CMG [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'MOD17A3.055: Terra Net Primary Production Yearly Global 1km [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD17A3 V055 product provides information about

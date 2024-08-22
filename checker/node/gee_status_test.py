@@ -15,7 +15,7 @@ class GeeIncompleteEntryTest(test_utils.NodeTest):
     bad_val = 603
     self.assert_collection(
         {'gee:status': bad_val},
-        "gee:status must be one of ['incomplete']",
+        "gee:status, if set, must be one of ['deprecated', 'incomplete']",
     )
 
   def test_gee_status_on_catalog(self):

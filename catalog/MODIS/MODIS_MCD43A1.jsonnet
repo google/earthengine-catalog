@@ -20,7 +20,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'MCD43A1.005 BRDF-Albedo Model Parameters 16-Day L3 Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MODerate-resolution Imaging Spectroradiometer

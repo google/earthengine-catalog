@@ -1,6 +1,6 @@
 """Checks that the title field is valid.
 
-TODO(schwehr): Describe title requirements.
+TODO(simonf): Describe title requirements.
 
 Checking of deprecated assets is done in the version extension check.
 """

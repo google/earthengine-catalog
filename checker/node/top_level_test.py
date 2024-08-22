@@ -21,7 +21,6 @@ class TopLevelTest(test_utils.NodeTest):
 
   def test_all_collections_fields(self):
     fields = [
-        'deprecated',
         'description',
         'extent',
         'gee:interval',

@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'NOAA CDR AVHRR: Surface Reflectance, Version 4 [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA Climate Data Record (CDR) of AVHRR Surface Reflectance contains

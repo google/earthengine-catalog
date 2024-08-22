@@ -28,6 +28,6 @@ class Check(stac.NodeCheck):
         if field_value not in stac.Status.allowed_statuses():
           yield cls.new_issue(
               node,
-              f'{stac.GEE_STATUS} must be one of'
+              f'{stac.GEE_STATUS}, if set, must be one of'
               f' {sorted(stac.Status.allowed_statuses())}',
           )

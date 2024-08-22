@@ -23,7 +23,7 @@ local version = version_config.version;
   ],
   id: id,
   title: 'Global map of Local Climate Zones, v1 [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: 'v1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

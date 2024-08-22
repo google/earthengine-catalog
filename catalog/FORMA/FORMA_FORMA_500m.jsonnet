@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'FORMA Global Forest Watch Deforestation Alerts, 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     FORMA is a MODIS-based deforestation alerting system for the humid tropical

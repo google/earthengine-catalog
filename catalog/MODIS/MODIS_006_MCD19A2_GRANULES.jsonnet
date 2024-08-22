@@ -21,7 +21,7 @@ local template = import 'templates/MODIS_006_MCD19A2_GRANULES.libsonnet';
   ],
   id: id,
   title: 'MCD19A2.006: Terra & Aqua MAIAC Land Aerosol Optical Depth Daily 1km [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

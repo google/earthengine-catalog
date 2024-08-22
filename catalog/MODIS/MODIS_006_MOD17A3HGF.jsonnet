@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD17A3HGF.libsonnet';
   ],
   id: id,
   title: 'MOD17A3HGF.006: Terra Net Primary Production  Gap-Filled Yearly Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

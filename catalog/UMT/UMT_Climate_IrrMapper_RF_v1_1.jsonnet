@@ -23,7 +23,7 @@ local version = version_config.version;
   id: id,
   title: 'IrrMapper Irrigated Lands, Version ' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     IrrMapper is an annual classification of irrigation status in the 11

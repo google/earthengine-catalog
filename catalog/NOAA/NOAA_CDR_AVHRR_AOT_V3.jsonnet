@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'NOAA CDR AVHRR AOT: Daily Aerosol Optical Thickness Over Global Oceans, ' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA Climate Data Record (CDR) of Aerosol Optical Thickness (AOT) is a

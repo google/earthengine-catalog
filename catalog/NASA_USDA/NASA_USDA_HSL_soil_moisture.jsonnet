@@ -28,7 +28,7 @@ local successor_url =  ee_const.catalog_base + 'NASA/' + successor_filename;
   ],
   id: id,
   title: 'NASA-USDA Global Soil Moisture Data [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NASA-USDA Global soil moisture and the NASA-USDA SMAP Global soil

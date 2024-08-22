@@ -9,7 +9,7 @@ local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
 template.s2_dataset(id, version, version_config) {
-  deprecated: true,
+  'gee:status': 'deprecated',
   title: super.title + ' [deprecated]',
   description: |||
   See also collection COPERNICUS/S2_SR_HARMONIZED that shifts data with

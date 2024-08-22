@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD14A2.libsonnet';
   ],
   id: id,
   title: 'MOD14A2.006: Terra Thermal Anomalies & Fire 8-Day Global 1km [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

@@ -21,7 +21,7 @@ local template = import 'templates/MODIS_006_MOD15A2H.libsonnet';
   ],
   id: id,
   title: 'MYD15A2H.006: Aqua Leaf Area Index/FPAR 8-Day Global 500m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

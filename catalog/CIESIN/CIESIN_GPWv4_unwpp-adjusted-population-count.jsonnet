@@ -22,7 +22,7 @@ local license = spdx.cc_by_4_0;
   id: id,
   title: 'GPWv4: Gridded Population of the World Version 4, UN-Adjusted Population Count [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Gridded Population of World Version 4 (GPWv4) models the distribution

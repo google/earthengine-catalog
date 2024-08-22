@@ -71,7 +71,7 @@ class KeywordsTest(absltest.TestCase):
         {'keywords': [single_use_keyword]},
     )
     node2 = copy.deepcopy(node)
-    node2.stac['deprecated'] = True
+    node2.stac['gee:status'] = 'deprecated'
     issues = list(Check.run([node, node2]))
     expect = [Check.new_issue(node, 'Only one instance of "a_keyword"')]
     self.assertEqual(expect, issues)

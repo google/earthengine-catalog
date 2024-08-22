@@ -23,7 +23,7 @@ local template = import 'templates/MODIS_006_MOD10A1.libsonnet';
   id: id,
   title: 'MYD10A1.006 Aqua Snow Cover Daily Global 500m [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MYD10A1 V6 Snow Cover Daily Global 500m product

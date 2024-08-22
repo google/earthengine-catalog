@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'ArcticDEM Mosaic [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     ArcticDEM is a digital surface model (DSM) that portrays first-return

@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'ArcticDEM Strips [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     ArcticDEM is a digital surface model (DSM) that portrays first-return

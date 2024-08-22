@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD11A1.libsonnet';
   ],
   id: id,
   title: 'MOD11A1.006 Terra Land Surface Temperature and Emissivity Daily Global 1km [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

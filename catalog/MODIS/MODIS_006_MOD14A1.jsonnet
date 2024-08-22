@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'MOD14A1.006: Terra Thermal Anomalies & Fire Daily Global 1km [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD14A1 V6 dataset provides daily fire mask composites

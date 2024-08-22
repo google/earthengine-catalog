@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD09Q1.libsonnet';
   ],
   id: id,
   title: 'MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

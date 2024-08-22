@@ -22,7 +22,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'MOD10A1.005 Terra Snow Cover Daily Global 500m [deprecated]',
   version: '5',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD10A1 V5 Snow Cover Daily Global 500m product

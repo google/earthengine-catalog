@@ -22,7 +22,7 @@ local license = spdx.cc_by_4_0;
   id: id,
   title: 'Open Buildings V1 Polygons [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.table,
   description: |||
     This large-scale open dataset consists of outlines of buildings derived

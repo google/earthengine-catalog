@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'Daymet V3: Daily Surface Weather and Climatological Summaries [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Daymet V3 provides gridded estimates of daily weather parameters for

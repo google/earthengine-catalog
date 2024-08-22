@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD17A3H.libsonnet';
   id: id,
   title: 'MOD17A3H.006: Terra Net Primary Production Yearly Global 500m [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The MOD17A3H V6 product provides information about

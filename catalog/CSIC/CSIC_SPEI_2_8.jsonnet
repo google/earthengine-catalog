@@ -25,7 +25,7 @@ local license = spdx.cc_by_4_0;
   title: 'SPEIbase: Standardised Precipitation-Evapotranspiration Index ' +
     'database, Version ' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Global SPEI database (SPEIbase) offers long-time robust information

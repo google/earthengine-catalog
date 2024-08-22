@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'ERA5-Land Monthly Averaged - ECMWF Climate Reanalysis [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: era5_land.description + |||

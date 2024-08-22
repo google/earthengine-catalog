@@ -22,7 +22,7 @@ local template = import 'templates/MODIS_006_MOD08_M3.libsonnet';
   id: id,
   title: 'MYD08_M3.006 Aqua Aerosol Cloud Water Vapor Ozone Monthly Global Product 1Deg CMG [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     MYD08_M3 V6 is an atmosphere global product that contains

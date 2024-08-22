@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'GFSAD1000: Cropland Extent 1km Crop Dominance, Global Food-Support Analysis Data [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The GFSAD is a NASA-funded project to provide high-resolution global

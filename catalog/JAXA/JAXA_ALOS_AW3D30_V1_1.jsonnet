@@ -26,7 +26,7 @@ local license = spdx.proprietary {
   id: id,
   title: 'ALOS DSM: Global 30m v' + version + ' [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     ALOS World 3D - 30m (AW3D30) is a global digital surface

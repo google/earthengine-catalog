@@ -25,7 +25,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'HYCOM: Hybrid Coordinate Ocean Model, Water Velocity [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: template.description,
   license: license.id,

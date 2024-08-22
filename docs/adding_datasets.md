@@ -119,7 +119,7 @@ separate bands in such cases.
 using the versioning approach [similar to this
 one](https://github.com/google/earthengine-catalog/tree/main/catalog/UMD): put
 a version map into a file named `dataset.libsonnet`, then use this map in
-every jsonnet file. Mark all but the most recent versions with `deprecated:
-true`.
+every jsonnet file. Mark all but the most recent versions with `"gee_status":
+"deprecated"`.
 
 1. Don't create new single-use keywords. If you feel a new keyword would make sense, propose other existing datasets where it should also be added.

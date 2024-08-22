@@ -24,7 +24,7 @@ local license = spdx.proprietary;
   id: id,
   title: 'NOAA CDR OISST v2: Optimum Interpolation Sea Surface Temperature [deprecated]',
   version: version,
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The NOAA 1/4 degree daily Optimum Interpolation Sea Surface Temperature

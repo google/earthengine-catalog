@@ -5,8 +5,8 @@ from checker import test_utils
 from checker.node import title
 from absl.testing import absltest
 
-DEPRECATED = title.DEPRECATED
-TITLE = title.TITLE
+DEPRECATED = ' [deprecated]'
+TITLE = 'title'
 
 
 class CatalogTest(test_utils.NodeTest):

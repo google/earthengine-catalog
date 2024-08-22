@@ -24,7 +24,7 @@ local version = version_config.version;
   ],
   id: id,
   title: 'NLCD 2016: USGS National Land Cover Database, 2016 release [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

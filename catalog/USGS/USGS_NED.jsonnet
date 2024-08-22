@@ -23,7 +23,7 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'USGS National Elevation Dataset 1/3 Arc-Second [deprecated]',
-  deprecated: true,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The National Elevation Dataset (NED) used to be* the
