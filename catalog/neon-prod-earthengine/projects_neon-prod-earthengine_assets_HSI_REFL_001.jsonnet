@@ -43,12 +43,14 @@ local units = import 'units.libsonnet';
     
     Documentation: [NEON DP3.30006.001 Spectrometer orthorectified surface directional reflectance - mosaic Quick Start
     Guide](https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30006.001v1?inline=true&fallback=html)
+
+    Tutorial: [Intro to AOP Data in Google Earth Engine Tutorial Series](
+    https://www.neonscience.org/resources/learning-hub/tutorials/intro-aop-data-google-earth-engine-tutorial-series)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
     'airborne',
-    'canopy',
     'forest',
     'hyperspectral',
     'neon',
@@ -99,15 +101,10 @@ local units = import 'units.libsonnet';
         type: ee_const.var_type.string,
       },
       {
-        name: 'NEON_DATA_PROD_ID',
-        description: 'NEON data product identification code. Always set to: "DP3.30006.001".',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'NEON_DATA_PROD_URL',
         description: 'NEON data product url. Always set to: ' +
-        '[https://data.neonscience.org/data-products/DP3.30010.001]' +
-        '(https://data.neonscience.org/data-products/DP3.30010.001).',
+        '[https://data.neonscience.org/data-products/DP3.30006.001]' +
+        '(https://data.neonscience.org/data-products/DP3.30006.001).',
         type: ee_const.var_type.string,
       },
       {
@@ -124,13 +121,13 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'SCALE_FACTOR',
-        description: 'Reflectance scale factor used.',
+        description: 'Reflectance scale factor.',
         type: ee_const.var_type.double,
       },
       {
         name: 'SENSOR_ID',
         description: 'ID of NEON Imaging Spectrometer (NIS), or Global Airborne Observatory (GAO): "NIS1", "NIS2", "NIS3", "GAO".',
-        type: ee_const.var_type.double,
+        type: ee_const.var_type.string,
       },
     ],
     gsd: [
