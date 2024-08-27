@@ -120,8 +120,8 @@ py_test(
 )
 
 py_test(
-    name = "gee_skip_indexing_test",
-    srcs = ["gee_skip_indexing_test.py"],
+    name = "gee_incomplete_entry_test",
+    srcs = ["gee_incomplete_entry_test.py"],
     deps = [
         ":node",
         "//checker:stac",
