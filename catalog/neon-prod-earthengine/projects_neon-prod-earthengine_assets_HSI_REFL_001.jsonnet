@@ -24,12 +24,12 @@ local units = import 'units.libsonnet';
   title: 'NEON Directional Surface Reflectance',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The NEON AOP surface bidirectional reflectance data is a hyperspectral 
+    The NEON AOP surface directional reflectance data is a hyperspectral 
     VSWIR (visible to shortwave infrared) data product, containing 
     426 bands spanning wavelengths from ~380 nm to 2510 nm. Wavelengths 
     between 1340-1445 nm and 1790-1955 nm are set to -100; these are water vapor 
     absorption bands without valid values. The dataset also contains QA
-    raster bands (B427 - B442). Major processing steps include orthorectification, 
+    raster bands (B427 - B442). Major processing steps include orthorectification 
     and atmospheric corrections. Data are collected by one of three NEON 
     Imaging Spectrometer units, AVIRIS-NG sensors built by NASA's Jet Propulsion 
     Lab (JPL). Reflectance is converted to a mosaic using the nadir-most pixels 
