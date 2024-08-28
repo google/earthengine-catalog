@@ -716,7 +716,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': false,
     },
     Sensor_Zenith: {
-      minimum: -90,
+      minimum: 0,
       maximum: 90,
       'gee:estimated_range': false,
     },
