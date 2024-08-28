@@ -24,29 +24,31 @@ local units = import 'units.libsonnet';
   title: 'NEON Bidirectional Surface Reflectance',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The NEON AOP surface bidirectional reflectance data is an orthorectified 
-    hyperspectral VSWIR (visible to shortwave infrared) data product, containing 
+    The NEON AOP surface bidirectional reflectance data is a hyperspectral 
+    VSWIR (visible to shortwave infrared) data product, containing 
     426 bands spanning wavelengths from ~380 nm to 2510 nm. Wavelengths 
     between 1340-1445 nm and 1790-1955 nm are set to -100; these are water vapor 
     absorption bands without valid values. The dataset also contains QA
-    raster bands (B427 - B442). Data are collected by one of three NEON 
+    raster bands (B427 - B442). Major processing steps include orthorectification, 
+    plus atmospheric, topographic, and Bidirecitonal Reflectance Distribution 
+    Function (BRDF) corrections. Data are collected by one of three NEON 
     Imaging Spectrometer units, AVIRIS-NG sensors built by NASA's Jet Propulsion 
-    Lab (JPL). Major corrections include calibration, orthorectification, 
-    atmospheric, topographic, and Bidirecitonal Reflectance Distribution 
-    Function (BRDF). Reflectance is converted to a mosaic using the
-    nadir-most pixels from the flight lines observed with the least cloud
-    cover. Spatial resolution is 1 m and spectral resolution is ~5 nm. The center 
-    wavelength and full width half max for each band are provided in the Image Properties.
+    Lab (JPL). Reflectance is converted to a mosaic using the nadir-most pixels 
+    from the flight lines observed with the least cloud cover. Spatial resolution 
+    is 1 m and spectral resolution is ~5 nm. The center wavelength and full width 
+    half max (FWHM) for each band are provided in the Image Properties.
 
     See [NEON Data Product
-    DP3.30006.001](https://data.neonscience.org/data-products/DP3.30006.002) for
+    DP3.30006.002](https://data.neonscience.org/data-products/DP3.30006.002) for
     more details.
+
+    Tutorial: [Intro to AOP Data in Google Earth Engine Tutorial Series](
+    https://www.neonscience.org/resources/learning-hub/tutorials/intro-aop-data-google-earth-engine-tutorial-series)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
     'airborne',
-    'canopy',
     'forest',
     'hyperspectral',
     'neon',
@@ -62,14 +64,14 @@ local units = import 'units.libsonnet';
     'gee:schema': [
       {
         name: 'AOP_VISIT_NUMBER',
-        description: 'Unique visit number to the NEON site',
+        description: 'Unique visit number to the NEON site.',
         type: ee_const.var_type.int,
       },
       {
         name: 'CITATION',
         description: 'Data citation. See ' +
         '[NEON Data Policies and Citation Guidelines]' +
-        '(https://www.neonscience.org/data-samples/data-policies-citation)',
+        '(https://www.neonscience.org/data-samples/data-policies-citation).',
         type: ee_const.var_type.string,
       },
       {
@@ -79,7 +81,7 @@ local units = import 'units.libsonnet';
       },      
       {
         name: 'FLIGHT_YEAR',
-        description: 'Year the data were collected',
+        description: 'Year the data were collected.',
         type: ee_const.var_type.int,
       },
       {
@@ -87,32 +89,27 @@ local units = import 'units.libsonnet';
         description:
           'NEON eco-climatic domain code, "D01" to "D20". See ' +
           '[NEON Field Sites and Domains]' +
-          '(https://www.neonscience.org/field-sites/about-field-sites)',
+          '(https://www.neonscience.org/field-sites/about-field-sites).',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_SITE',
         description: 'NEON four-digit site code. See ' +
-        '[NEON Field Sites](https://www.neonscience.org/field-sites/)',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'NEON_DATA_PROD_ID',
-        description: 'NEON data product identification code. Always set to: "DP3.30006.001"',
+        '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_DATA_PROD_URL',
         description: 'NEON data product url. Always set to: ' +
-        '[https://data.neonscience.org/data-products/DP3.30010.001]' +
-        '(https://data.neonscience.org/data-products/DP3.30010.001)',
+        '[https://data.neonscience.org/data-products/DP3.30006.002]' +
+        '(https://data.neonscience.org/data-products/DP3.30006.002).',
         type: ee_const.var_type.string,
       },
       {
         name: 'PROVISIONAL_RELEASED',
         description: 'Whether the data are Provisional or Released. See ' +
         '[https://www.neonscience.org/data-samples/data-management/data-revisions-releases]' +
-        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases)',
+        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases).',
         type: ee_const.var_type.string,
       },
       {
@@ -122,13 +119,13 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'SCALE_FACTOR',
-        description: 'Reflectance scale factor used',
+        description: 'Reflectance scale factor.',
         type: ee_const.var_type.double,
       },
       {
         name: 'SENSOR_ID',
-        description: 'ID of NEON Imaging Spectrometer (NIS), or Global Airborne Observatory (GAO) sensor has also been used to collect the NEON D20 site: "NIS1", "NIS2", "NIS3", "GAO"',
-        type: ee_const.var_type.double,
+        description: 'ID of NEON Imaging Spectrometer (NIS), or Global Airborne Observatory (GAO): "NIS1", "NIS2", "NIS3", "GAO".',
+        type: ee_const.var_type.string,
       },
     ],
     gsd: [

@@ -120,16 +120,6 @@ py_test(
 )
 
 py_test(
-    name = "gee_skip_indexing_test",
-    srcs = ["gee_skip_indexing_test.py"],
-    deps = [
-        ":node",
-        "//checker:stac",
-        "//checker:test_utils",
-    ],
-)
-
-py_test(
     name = "gee_terms_of_use_test",
     srcs = ["gee_terms_of_use_test.py"],
     deps = [

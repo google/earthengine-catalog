@@ -35,6 +35,9 @@ local units = import 'units.libsonnet';
 
     Documentation: [Elevation - LiDAR (DP3.30024.001) Quick Start Guide](
     https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30024.001v1?inline=true&fallback=html)
+
+    Tutorial: [Intro to AOP Data in Google Earth Engine Tutorial Series](
+    https://www.neonscience.org/resources/learning-hub/tutorials/intro-aop-data-google-earth-engine-tutorial-series)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -47,11 +50,11 @@ local units = import 'units.libsonnet';
     // },
   ],
   keywords: [
-#    'airborne',
+    'airborne',
     'dem',
     'forest',
     'lidar',
-#    'neon',
+    'neon',
     'vegetation',
   ],
   providers: [
@@ -63,14 +66,14 @@ local units = import 'units.libsonnet';
     'gee:schema': [
       {
         name: 'AOP_VISIT_NUMBER',
-        description: 'Unique visit number to the NEON site',
+        description: 'Unique visit number to the NEON site.',
         type: ee_const.var_type.int,
       },
       {
         name: 'CITATION',
         description: 'Data citation. See ' +
         '[NEON Data Policies and Citation Guidelines]' +
-        '(https://www.neonscience.org/data-samples/data-policies-citation)',
+        '(https://www.neonscience.org/data-samples/data-policies-citation).',
         type: ee_const.var_type.string,
       },
       {
@@ -80,7 +83,7 @@ local units = import 'units.libsonnet';
       },      
       {
         name: 'FLIGHT_YEAR',
-        description: 'Year the data were collected',
+        description: 'Year the data were collected.',
         type: ee_const.var_type.int,
       },
       {
@@ -88,42 +91,37 @@ local units = import 'units.libsonnet';
         description:
           'NEON eco-climatic domain code, "D01" to "D20". See ' +
           '[NEON Field Sites and Domains]' +
-          '(https://www.neonscience.org/field-sites/about-field-sites)',
+          '(https://www.neonscience.org/field-sites/about-field-sites).',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_SITE',
         description: 'NEON four-digit site code. See ' +
-        '[NEON Field Sites](https://www.neonscience.org/field-sites/)',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'NEON_DATA_PROD_ID',
-        description: 'NEON data product identification code. Always set to: "DP3.30024.001"',
+        '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
         type: ee_const.var_type.string,
       },
       {
         name: 'NEON_DATA_PROD_URL',
         description: 'NEON data product url. Always set to: ' +
         '[https://data.neonscience.org/data-products/DP3.30024.001]' +
-        '(https://data.neonscience.org/data-products/DP3.30024.001)',
+        '(https://data.neonscience.org/data-products/DP3.30024.001).',
         type: ee_const.var_type.string,
       },
       {
         name: 'SENSOR_NAME',
-        description: 'Make and model of the lidar sensor: "Optech Galaxy Prime", "Optech Gemini", "Riegl Q780"',
+        description: 'Make and model of the lidar sensor: "Optech Galaxy Prime", "Optech Gemini", "Riegl Q780".',
         type: ee_const.var_type.string,
       },
       {
         name: 'SENSOR_SERIAL',
-        description: 'Serial number of the lidar sensor: "11SEN287", "12SEN311", "5060445", "220855"',
+        description: 'Serial number of the lidar sensor: "11SEN287", "12SEN311", "5060445", "220855".',
         type: ee_const.var_type.string,
       },
       {
         name: 'PROVISIONAL_RELEASED',
         description: 'Whether the data are Provisional or Released. See ' +
         '[https://www.neonscience.org/data-samples/data-management/data-revisions-releases]' +
-        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases)',
+        '(https://www.neonscience.org/data-samples/data-management/data-revisions-releases).',
         type: ee_const.var_type.string,
       },
       {

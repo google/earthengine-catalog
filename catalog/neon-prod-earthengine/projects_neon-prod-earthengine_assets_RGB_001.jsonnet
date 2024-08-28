@@ -44,6 +44,9 @@ local units = import 'units.libsonnet';
 
     Documentation: [NEON DP3.30010.001 Camera imagery mosaic Quick Start
     Guide](https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30010.001v1?inline=true&fallback=html)
+
+    Tutorial: [Intro to AOP Data in Google Earth Engine Tutorial Series](
+    https://www.neonscience.org/resources/learning-hub/tutorials/intro-aop-data-google-earth-engine-tutorial-series)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -56,9 +59,10 @@ local units = import 'units.libsonnet';
     // },
   ],
   keywords: [
-#    'airborne',
+    'airborne',
     'forest',
     'highres',
+    'neon',
     'orthophoto',
     'rgb',
     'vegetation',
@@ -107,11 +111,6 @@ local units = import 'units.libsonnet';
         type: ee_const.var_type.string,
       },
       {
-        name: 'NEON_DATA_PROD_ID',
-        description: 'NEON data product identification code. Always set to: "DP3.30010.001".',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'NEON_DATA_PROD_URL',
         description: 'NEON data product url. Always set to: ' +
         '[https://data.neonscience.org/data-products/DP3.30010.001]' +
@@ -123,7 +122,7 @@ local units = import 'units.libsonnet';
         description:
           'Make and model of the camera sensor: ' +
           '"Phase One D8900", "Phase One IQ180", ' +
-          '"Phase One iX-RS 1000", "Phase One iXM-RS 150F"',
+          '"Phase One iX-RS 1000", "Phase One iXM-RS 150F".',
         type: ee_const.var_type.string,
       },
       {
