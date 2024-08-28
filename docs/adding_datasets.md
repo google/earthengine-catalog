@@ -34,10 +34,10 @@ will be accepted.
 
 1. Wait until Earth Engine Data team configures asset mirroring.
 
-1. If this is your first time creating a pull request (PR) for EE datasets,
+1. If your github account was created recently, the repo might not allow you
+to run tests on your pull requests (PRs) automatically. To address this,
 create and submit a trivial PR modifying [this file](spaces.md) (for example,
-add or remove a space). This will make it easier to run automated checks on
-your real PRs later.
+add or remove a space).
 
 1. Create a jsonnet file describing the dataset using any of the existing files
 as a starting point. See also [template files with field
