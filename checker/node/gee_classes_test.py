@@ -24,7 +24,7 @@ class GeeClassesTest(test_utils.NodeTest):
 
   def test_valid_hex(self):
     classes = [{'color': 'fafafa', 'description': 'A', 'value': 1},
-               {'color': '00ff11', 'description': 'B', 'value': 2}]
+               {'color': '00FF11', 'description': 'B', 'value': 2}]
     self.assert_collection(make_stac(classes))
 
   def test_valid_hex_with_alpha(self):

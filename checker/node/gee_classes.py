@@ -323,7 +323,8 @@ class Check(stac.NodeCheck):
             colors.append(color)
             if color in COLOR_NAMES:
               have_name = True
-            elif re.fullmatch(r'[0-9a-f]{6}([0-9a-f]{2})?', color):
+            elif re.fullmatch(
+                r'[0-9a-f]{6}([0-9a-f]{2})?', color, re.IGNORECASE):
               have_hex = True
             else:
               yield cls.new_issue(
