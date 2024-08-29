@@ -1,6 +1,8 @@
 
 local id = 'EDF/OGIM/OGIM_v2-4_RF06_RF08';
+local successor_id = 'EDF/OGIM/current';
 local subdir = 'EDF';
+local latest_id = successor_id;
 local version = '2.4_RF06_RF08';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -11,11 +13,15 @@ local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   id: id,
-  title: 'OGIM: Oil and Gas Infrastructure Mapping Database v' + version,
+  title: 'OGIM: Oil and Gas Infrastructure Mapping Database v' + version +
+    ' [deprecated]',
   version: version,
 
   description: |||
@@ -245,7 +251,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, subdir, basename + '_FeatureView')
+    ee.link.example(id, subdir, basename + '_FeatureView'),
+    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + ".json"),
+    ee.link.successor(
+      successor_id, catalog_subdir_url + successor_basename + ".json"),
   ],
 
   type: ee_const.stac_type.collection,
@@ -254,4 +263,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
+  'gee:status': "deprecated",
 }

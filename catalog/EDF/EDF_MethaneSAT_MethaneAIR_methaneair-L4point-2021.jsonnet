@@ -1,5 +1,7 @@
 local id = 'EDF/MethaneSAT/MethaneAIR/methaneair-L4point-2021';
+local successor_id = 'EDF/MethaneSAT/MethaneAIR/L4point';
 local subdir = 'EDF';
+local latest_id = successor_id;
 local version = '2021';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -10,11 +12,14 @@ local units = import 'units.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   id: id,
-  title: 'MethaneAIR L4 Point Sources ' + version,
+  title: 'MethaneAIR L4 Point Sources ' + version + " [deprecated]",
   version: version,
 
   description: |||
@@ -126,7 +131,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(
-      'https://www.edf.org/sites/default/files/2024-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%202024_0.pdf')
+      'https://www.edf.org/sites/default/files/2024-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%202024_0.pdf'),
+    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + ".json"),
+    ee.link.successor(
+      successor_id, catalog_subdir_url + successor_basename + ".json"),
   ],
 
 
@@ -135,4 +143,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_ver,
   ],
+  'gee:status': "deprecated",
 }
