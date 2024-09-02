@@ -16,6 +16,9 @@
 //     sort | \
 //     xargs -I % echo "  '%',"
 //
+// There are also some non-commercial datasets with non-standard licenses
+// that need to be added manually.
+//
 // See also:
 //
 // - https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_unusual_terms_of_use.py
@@ -48,4 +51,5 @@
   'Oxford/MAP/TCB_5km_Monthly',
   'Oxford/MAP/TCW_5km_Monthly',
   'WCMC/WDOECM',
+  'WRI/SBTN/naturalLands/v1'
 ]
