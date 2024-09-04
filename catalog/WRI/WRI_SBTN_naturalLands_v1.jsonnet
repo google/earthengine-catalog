@@ -40,9 +40,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     that align with AFi guidance to the extent possible.
 
     This map was made by compiling existing global
-    and regional data. You can find the full technical note explaining the
-    methodology linked on the Natural Lands GitHub
-    <https://github.com/wri/natural-lands-map/tree/main>.
+    and regional data.You can find the full technical note explaining the
+    methodology linked on the
+    [Natural Lands GitHub](https://github.com/wri/natural-lands-map).
+    This work was a collaboration between Land & Carbon Lab at the World
+    Resources Institute, World Wildlife Fund US, Systemiq, and SBTN.
   |||,
   license: license.id,
   'gee:unusual_terms_of_use': true,
@@ -139,9 +141,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     natural: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
   },
   'sci:citation': |||
-    Mazur, E., M. Sims, E. Goldman, M. Schneider, F. Stolle, M.D. Pirri,
-    C.R. Beatty. 2024. "SBTN Natural Lands Map v1: Technical Documentation.
-    Science Based Targets for Land Version 0.3-- Supplementary Material. Science Based Targets Network.
+    Mazur, E., M. Sims, E. Goldman, M. Schneider, M.D. Pirri, C.R. Beatty, F.
+    Stolle, Stevenson, M. 2024. "SBTN Natural Lands Map v1: Technical
+    Documentation". Science Based Targets for Land Version 1 - Supplementary
+    Material. Science Based Targets Network.
     [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
   |||,
   'gee:interval': {
