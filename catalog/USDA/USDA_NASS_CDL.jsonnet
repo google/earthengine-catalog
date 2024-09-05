@@ -68,7 +68,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'cdl',
     'crop',
-    'cropland',
     'landcover',
     'nass',
     'usda',
