@@ -35,7 +35,7 @@ local units = import 'units.libsonnet';
     ee.host_provider(catalog_url),
   ],
   license: license.id,
-  extent: ee.extent_global('2017-01-01T01:00:00Z', '2017-12-31T16:45:00Z'),
+  extent: ee.extent_global('2023-09-14T00:00:00Z', '2023-09-14T00:00:00Z'),
   citation: |||
     Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. [https://doi.org/10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
   |||,
