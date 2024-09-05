@@ -1,4 +1,4 @@
-local id = 'UCSB-CHG/CHIRTSdaily';
+local id = 'UCSB-CHG/CHIRTS/daily';
 local subdir = 'UCSB-CHG';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -22,14 +22,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'CHIRTS-daily: Climate Hazards Center InfraRed Temperature with Stations daily temperature data product',
-  version: '2020',
+  version: 'v1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 The Climate Hazards Center InfraRed Temperature with Stations daily temperature data  product (CHIRTS-daily; Verdin et al. 2020) is a quasi global, high resolution gridded dataset (0.05° × 0.05° resolution, 60°S–70°N) that provides daily minimum (Tmin) and maximum 2-meter temperatures (Tmax) and four derived variables: Saturation vapor pressure (SVP), vapor pressure deficit (VPD), relative humidity (RH), and Heat Index (HI). CHIRTS temperature products are designed to support analysis of temperature extremes and variability, especially in regions with a low density of station observations. 
 
 CHIRTS-daily is created by merging a high quality, high resolution monthly maximum temperature dataset— the Climate Hazards Center InfraRed Temperature with Stations monthly maximum temperature climate record (CHIRTSmax; Funk et al. 2019)— with daily temperatures from the European Centre for Medium-Range Weather Forecasts (ECMWF) Reanalysis v5 (ERA5). The result is a high resolution, daily temperature dataset that maintains spatio-temporal information from monthly CHIRTSmax and the daily and diurnal temperature variability from ERA5. Monthly CHIRTSmax are based on (1) a Tmax climatology constructed using geostatistical regressions and long-term averages of FAO station observations, ERA5 temperatures, and several other geographic predictors; and (2) estimates of Tmax variability using ~15,000 in situ observations and high resolution (0.05° × 0.05°) satellite observations. These are from Berkeley Earth and Global Telecommunication System (GTS) station reports and cloud-screened GridSat geostationary satellite thermal infrared brightness temperatures.
 
-Daily Tmax are produced using downscaled ERA5 Tmax anomalies and high resolution CHIRTSmax; daily Tmin is created by removing the downscaled ERA5 diurnal temperature range (Tmax-Tmin). Daily SVP, VPD, RH, and HI are computed using CHIRTS-daily Tmin and Tmax and hourly ERA5 for other meteorological variable inputs (see Williams et al. 2024 for details). CHIRTS-daily, version 2020, covers the period 1983-2016. 
+Daily Tmax are produced using downscaled ERA5 Tmax anomalies and high resolution CHIRTSmax; daily Tmin is created by removing the downscaled ERA5 diurnal temperature range (Tmax-Tmin). Daily SVP, VPD, RH, and HI are computed using CHIRTS-daily Tmin and Tmax and hourly ERA5 for other meteorological variable inputs (see Williams et al. 2024 for details). CHIRTS-daily, version 1, covers the period 1983-2016. 
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -75,7 +75,22 @@ Daily Tmax are produced using downscaled ERA5 Tmax anomalies and high resolution
       {
         name: 'saturation_vapor_pressure',
         description: 'Saturation_vapor_pressure_2m',
-        'gee:units': units.degrees_Celsius,
+        'gee:units': units.kPa,
+      },
+      {
+        name: 'vapor_pressure_deficit',
+        description: 'Vapor_pressure_deficit_2m',
+        'gee:units': units.kPa,
+      },
+      {
+        name: 'relative_humidity',
+        description: 'Relative_humidity_2m',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'heat_index',
+        description: 'Heat_Index',
+        'gee:units': units.degrees_Fahrenheit,
       },
     ],
     'gee:visualizations': [
