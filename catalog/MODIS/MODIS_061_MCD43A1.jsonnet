@@ -45,7 +45,7 @@ local license = spdx.proprietary;
 
     Documentation:
 
-    * [User's Guide](https://www.umb.edu/spectralmass/terra_aqua_modis/v006/mcd43a1_brdif_albedo_model_parameters_product)
+    * [User's Guide](https://www.umb.edu/spectralmass/v006/)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/97/MCD43_ATBD.pdf)
 
