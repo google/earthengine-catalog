@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '1',
   'gee:type': ee_const.gee_type.image,
   description: |||
-    NASADEM is a reprocessing of STRM data, with improved accuracy by incorporating auxiliary data
+    NASADEM is a reprocessing of SRTM data, with improved accuracy by incorporating auxiliary data
     from ASTER GDEM, ICESat GLAS, and PRISM datasets.
 
     The most significant processing improvements involve void reduction through improved
