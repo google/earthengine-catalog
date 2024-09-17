@@ -1,6 +1,6 @@
 """Build with many jsonnet files."""
 
-load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_to_json")
+load("@rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_to_json")
 
 def jsonnets_to_json(
         name,
