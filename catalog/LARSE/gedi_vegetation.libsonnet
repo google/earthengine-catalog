@@ -26,7 +26,10 @@ local units = import 'units.libsonnet';
     applications in carbon and water cycling processes in earth system models,
     as well as forest management, biodiversity modeling, and habitat assessment.
     Variables include canopy height, canopy cover, plant area index, foliage
-    height diversity, and plant area volume density at 5 m strata.
+    height diversity, and plant area volume density at 5 m strata. Refer to the
+    [Gridded GEDI Vegetation Structure Metrics and Biomass Density]
+    (https://daac.ornl.gov/GEDI/guides/GEDI_HighQuality_Shots_Rasters.html)
+    for more information.
 
     Eight statistics are included for each GEDI shot metric: mean, bootstrapped
     standard error of the mean, median, standard deviation, interquartile range,
@@ -45,6 +48,10 @@ local units = import 'units.libsonnet';
     'larse',
     'nasa',
     'vegetation',
+    'lidar',
+    'forest',
+    'biomass',
+    'canopy',
   ],
   providers(name, catalog_url): [
     ee.producer_provider(
