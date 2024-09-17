@@ -1,6 +1,6 @@
 # The EarthEngine Catalog STAC catalog from Jsonnet.
 
-bazel_dep(name = "rules_jsonnet", version = "0.6.0"))
+load("@rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_library")
 load("@//dev:jsonnets_to_json.bzl", "jsonnets_to_json")
 
 jsonnets_to_json(
