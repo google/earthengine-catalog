@@ -90,7 +90,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: 'digital_elevation_model_srtm',
-      description: 'STRM elevation at GEDI footprint location',
+      description: 'SRTM elevation at GEDI footprint location',
       'gee:units': units.meter,
       type:: ee_const.var_type.double,
     },
