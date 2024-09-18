@@ -10,6 +10,7 @@ py_binary(
         ":stac",
         "//checker/node",
         "//checker/tree",
+        requirement("absl-py")
     ],
 )
 
