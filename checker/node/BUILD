@@ -132,6 +132,17 @@ py_test(
 )
 
 py_test(
+    name = "gee_status_test",
+    srcs = ["gee_status_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+        requirement("absl-py"),
+    ],
+)
+
+py_test(
     name = "gee_terms_of_use_test",
     srcs = ["gee_terms_of_use_test.py"],
     deps = [
@@ -178,6 +189,17 @@ py_test(
 py_test(
     name = "id_field_test",
     srcs = ["id_field_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+        requirement("absl-py"),
+    ],
+)
+
+py_test(
+    name = "instrument_test",
+    srcs = ["instrument_test.py"],
     deps = [
         ":node",
         "//checker:stac",
