@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(59.0, 18.0, 69.4, 29.2,
+  extent: ee.extent(18.0, 59.0, 29.2, 69.4,
                     '2015-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
   summaries: {
     gsd: [
@@ -73,8 +73,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'RGB',
         lookat: {
-          lat: 24.9,
-          lon: 60.2,
+          lat: 60.2,
+          lon: 24.9,
           zoom: 17,
         },
         image_visualization: {

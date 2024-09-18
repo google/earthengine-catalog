@@ -44,7 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://opendata.beeldmateriaal.nl/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(50.75, 3.2, 53.7, 7.22,
+  extent: ee.extent(3.2, 50.75, 7.22, 53.7,
                     '2021-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
   summaries: {
     gsd: [0.08],
@@ -58,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
     'gee:visualizations': [{
       display_name: 'Netherlands orthophotos RGB',
-      lookat: {lon: 51.88, lat: 5.54, zoom: 18},
+      lookat: {lon: 5.54, lat: 51.88, zoom: 18},
       image_visualization: {
         band_vis: {min: [0], max: [255], bands: ['R', 'G', 'B']}}}],
   },

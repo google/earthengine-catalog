@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(59.0, 18.0, 69.4, 29.2,
+  extent: ee.extent(18.0, 59.0, 29.2, 69.4,
                     '2015-01-01T00:00:00Z', '2018-01-01T00:00:00Z'),
   summaries: {
     gsd: [
@@ -75,8 +75,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'NRG',
         lookat: {
-          lat: 25.7416,
-          lon: 62.2446,
+          lat: 62.2446,
+          lon: 25.7416,
           zoom: 16,
         },
         image_visualization: {

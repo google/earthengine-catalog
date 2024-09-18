@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'Latvia orthophotos', 'https://www.lgia.gov.lv/lv/ortofotokartes-1'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(55.5, 20.5, 58.5, 28.6,
+  extent: ee.extent(20.5, 55.5, 28.6, 58.5,
                     '2007-01-01T00:00:00Z', '2018-01-01T00:00:00Z'),
   summaries: {
     gsd: [0.2],
@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
     'gee:visualizations': [{
       display_name: 'RGB',
-      lookat: {lon: 56.861, lat: 24.737, zoom: 18},
+      lookat: {lon: 24.737, lat: 56.861, zoom: 18},
       image_visualization: {
         band_vis: {min: [0], max: [255], bands: ['R', 'G', 'B']}}}],
   },

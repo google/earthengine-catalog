@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(45.8, 5.9, 47.8, 10.6,
+  extent: ee.extent(5.9, 45.8, 10.6, 47.8,
                     '2017-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
     gsd: [0.1],
@@ -74,7 +74,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:visualizations': [{
       display_name: 'Switzerland RGB (10 cm)',
-      lookat: {lon: 46.3, lat: 7.4, zoom: 19},
+      lookat: {lon: 7.4, lat: 46.3, zoom: 19},
       image_visualization: {
         band_vis: {
           min: [11],

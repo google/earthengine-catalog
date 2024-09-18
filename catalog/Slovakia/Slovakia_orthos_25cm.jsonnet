@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://www.geoportal.sk/en/zbgis/orthophotomosaic/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(47.44, 16.5, 49.36, 22.33,
+  extent: ee.extent(16.5, 47.44, 22.33, 49.36,
                     '2017-01-01T00:00:00Z', '2020-01-01T00:00:00Z'),
   summaries: {
     gsd: [0.25],
@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     B: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
     'gee:visualizations': [{
       display_name: 'Slovakia orthophotos RGB',
-      lookat: {lon: 48.8, lat: 19.2, zoom: 18},
+      lookat: {lon: 19.2, lat: 48.8, zoom: 18},
       image_visualization: {
         band_vis: {min: [0], max: [255], bands: ['R', 'G', 'B']}}}],
   },

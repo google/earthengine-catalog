@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(51.28, 11.0, 53.7, 15.0,
+  extent: ee.extent(11.0, 51.28, 15.0, 53.7,
                     '2021-08-23T00:00:00Z', '2023-01-20T00:00:00Z'),
   /*
     listing the first and last filenames from which we deduced the date range
@@ -81,8 +81,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         {
         display_name: 'RGB',
         lookat: {
-          lat: 13.4,
-          lon: 52.5,
+          lat: 52.5,
+          lon: 13.4,
           zoom: 18,
         },
         image_visualization: {
@@ -104,8 +104,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'NRG',
         lookat: {
-          lat: 13.4,
-          lon: 52.5,
+          lat: 52.5,
+          lon: 13.4,
           zoom: 18,
         },
         image_visualization: {

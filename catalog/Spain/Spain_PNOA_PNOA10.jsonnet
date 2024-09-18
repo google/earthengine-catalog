@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://pnoa.ign.es/web/portal/pnoa-imagen/productos-a-descarga'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(36.11, -9.32, 43.48, 4.7,
+  extent: ee.extent(-9.32, 36.11, 4.7, 43.48,
                     '2007-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
     gsd: [0.1],
@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Spain RGB (10cm)',
-        lookat: {lon: 38.98, lat: -1.85, zoom: 19},
+        lookat: {lon: -1.85, lat: 38.98, zoom: 19},
         image_visualization: {
           band_vis: {
             min: [0],

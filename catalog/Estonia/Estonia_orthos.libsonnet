@@ -26,7 +26,7 @@ local license = spdx.proprietary;
     ee.host_provider(catalog_url),
   ],
   license: license.id,
-  extent: ee.extent(57.3, 21.5, 59.5, 28.1,
+  extent: ee.extent(21.5, 57.3, 28.1, 59.5,
                     '1993-01-01T00:00:00Z', '2021-06-16T00:00:00Z'),
   citation: 'Map data: Estonian Land Board',
   terms_of_use: |||
