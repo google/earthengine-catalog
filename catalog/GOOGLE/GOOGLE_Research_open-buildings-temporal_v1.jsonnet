@@ -51,11 +51,11 @@ local units = import 'units.libsonnet';
     <code>
       Other example scripts:
 
-      [How to get building count for a given AOI](https://code.earthengine.google.com/e3d238ecbad4b49a6e58036bb99d999e)
+      [How to get building count for a given AOI](https://code.earthengine.google.com/31ca8ccee65887ed2a152c8ea920bbd2)
 
-      [How to get building density (area occupied by buildings) for a given AOI](https://code.earthengine.google.com/938d9dc22d72c9b97b29e386a5e5ce1c)
+      [How to get building density (area occupied by buildings) for a given AOI](https://code.earthengine.google.com/46468628f66eb57c79753ae4c1c09f54)
 
-      [How to see two years side by side and compare](https://code.earthengine.google.com/28d757213da9cbafab5a359613cf1728)
+      [How to see two years side by side and compare](https://code.earthengine.google.com/e9e5a84d279d4b5669872a560e8329a2?hideCode=true)
     </code>
 
     For more details on the project and FAQs about the data checkout our
@@ -94,13 +94,13 @@ local units = import 'units.libsonnet';
     'gee:schema': [
       {
         name: 'imagery_start_time_epoch_s',
-        description: 'Oldest Sentinel-2 imagery used to produce these rasters.',
+        description: 'Oldest possible date for source Sentinel-2 imagery used to produce these rasters.',
         units: units.seconds,
         type: ee_const.var_type.double,
       },
       {
         name: 'imagery_end_time_epoch_s',
-        description: 'Newest Sentinel-2 imagery used to produce these rasters',
+        description: 'Newest possible date for source Sentinel-2 imagery used to produce these rasters',
         units: units.seconds,
         type: ee_const.var_type.double,
       },
@@ -155,9 +155,9 @@ local units = import 'units.libsonnet';
       {
         display_name: 'Open Buildings Temporal V' + version,
         lookat: {
-          lat: 6.492,
-          lon: 3.389,
-          zoom: 17,
+          lat: -5.178058074165919,
+          lon: 9.261976832473348,
+          zoom: 4,
         },
         image_visualization: {
           band_vis: {
@@ -185,7 +185,7 @@ local units = import 'units.libsonnet';
   'sci:citation': |||
     Wojciech Sirko, Emmanuel Asiedu Brempong, Juliana T. C. Marcos, Abigail
     Annkah, Abel Korme, Mohammed Alewi Hassen, Krishna Sapkota, Tomer Shekel,
-    Abdoulaye Diack, Sella Nevo, Jason Hickey, John Quinn. [High-Resolution 
+    Abdoulaye Diack, Sella Nevo, Jason Hickey, John Quinn. [High-Resolution
     Building and Road Detection from Sentinel-2](https://arxiv.org/abs/2310.11622), 2023.
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
