@@ -73,7 +73,7 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'Collection {TITLE} is too long: "{title}"')
       return
 
-    if not re.fullmatch('[a-zA-Z][-+ .,_:/&<()a-zA-Z0-9]*', title):
+    if not re.fullmatch(r'[a-zA-Z][-+ .,_:/&<()\'a-zA-Z0-9]*', title):
       yield cls.new_issue(
           node, f'Collection {TITLE} has invalid characters: "{title}"'
       )

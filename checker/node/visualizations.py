@@ -147,7 +147,7 @@ class Check(stac.NodeCheck):
         display_name = visualization[DISPLAY_NAME]
         if not isinstance(display_name, str):
           yield cls.new_issue(node, f'{DISPLAY_NAME} must be a str')
-        elif not re.fullmatch(r'[a-zA-Z][-_a-zA-Z0-9 .,:()%"/\[\]²<^]{2,70}',
+        elif not re.fullmatch(r'[a-zA-Z][-_a-zA-Z0-9 .,:()%"/\[\]²<^\']{2,70}',
                               display_name):
           yield cls.new_issue(node, f'Invalid {DISPLAY_NAME}: "{display_name}"')
 
