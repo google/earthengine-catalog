@@ -28,7 +28,7 @@ var ts = col.filterBounds(geometry)
              .slice(-2);
 
 
-ts.map(addLayers);
+ts.forEach(addLayers);
 
 
 Map.centerObject(geometry, 14);

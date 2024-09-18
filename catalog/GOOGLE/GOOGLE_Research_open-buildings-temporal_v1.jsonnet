@@ -39,30 +39,22 @@ local units = import 'units.libsonnet';
     (e.g., governmental, non-profits, commercial) focusing on a range of
     applications for social good.
 
-    Explore the data interactively with the demo Earth Engine [app](https://goo.gle/open-buildings-temporal-demo-app).
-
-    In case you encounter performance issues with the Earth Engine app please
-    try [this](https://goo.gle/open-buildings-temporal-demo) Earth Engine script
-    instead.
+    Explore the data interactively with the demo Earth Engine [app](https://goo.gle/open-buildings-temporal-demo-app). (In case you encounter performance issues with the Earth Engine app please try [this](https://goo.gle/open-buildings-temporal-demo) Earth Engine script instead.)
 
     Alternatively, if you are not an Earth Engine user, you can download the
     data directly from Google Cloud Storage using [this notebook](https://colab.research.google.com/github/google-research/google-research/blob/master/building_detection/open_buildings_temporal_download_region_geotiffs.ipynb).
 
-    <code>
-      Other example scripts:
+    For more details on the project and FAQs about the data checkout the project
+    [website](https://sites.research.google/gr/open-buildings/temporal/).
 
-      [How to get building count for a given AOI](https://code.earthengine.google.com/31ca8ccee65887ed2a152c8ea920bbd2)
+    Example scripts:
 
-      [How to get building density (area occupied by buildings) for a given AOI](https://code.earthengine.google.com/46468628f66eb57c79753ae4c1c09f54)
+    * <code>[How to compute building count for a given AOI](https://code.earthengine.google.com/31ca8ccee65887ed2a152c8ea920bbd2)</code>
+    * <code>[How to compute built-up area for a given AOI](https://code.earthengine.google.com/46468628f66eb57c79753ae4c1c09f54)</code>
+    * <code>[How to see two years side-by-side and compare](https://code.earthengine.google.com/e9e5a84d279d4b5669872a560e8329a2?hideCode=true)</code>
 
-      [How to see two years side by side and compare](https://code.earthengine.google.com/e9e5a84d279d4b5669872a560e8329a2?hideCode=true)
-    </code>
-
-    For more details on the project and FAQs about the data checkout our
-    [website](https://sites.research.google/gr/open-buildings/temporal/)
-
-    <sup>1</sup> equivalent to what could be achieved by a high-resolution model
-    using a single frame of 4 m resolution imagery.
+    <small><sup>1</sup>equivalent to what could be achieved by a high-resolution model
+    using a single frame of 4 m resolution imagery.</small>
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -100,7 +92,7 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'imagery_end_time_epoch_s',
-        description: 'Newest possible date for source Sentinel-2 imagery used to produce these rasters',
+        description: 'Newest possible date for source Sentinel-2 imagery used to produce these rasters.',
         units: units.seconds,
         type: ee_const.var_type.double,
       },
@@ -195,7 +187,7 @@ local units = import 'units.libsonnet';
     you can pick which of the two licenses you prefer and use the data under the
     terms of that license.
 
-    Leverages the Copernicus Sentinel-2 data [2015-present]. See the [Sentinel Data
+    Leverages the Copernicus Sentinel-2 data (2015-present). See the [Sentinel Data
     Legal Notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
   |||,
 
