@@ -1,5 +1,7 @@
 bazel_dep(name = "rules_jsonnet", version = "0.6.0")
 
+bazel_dep(name = "rules_python", version = "0.24.0")
+
 pip = use_extension("@rules_python//python:extensions.bzl", "pip")
 pip.parse(
     name = "pip",
