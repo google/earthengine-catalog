@@ -75,6 +75,7 @@ UNITS = frozenset({
     'psu',
     'rad',
     'sawlog-board-ft/acre',
+    'seconds',
     'tons/acre',
     '&deg;C',
     '&micro;m',
