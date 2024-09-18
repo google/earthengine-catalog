@@ -1,4 +1,5 @@
 # Checks that operate on only a single STAC node at a time.
+load("@pip//:requirements.bzl", "requirement")
 
 py_library(
     name = "node",
@@ -16,6 +17,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -26,6 +28,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -36,6 +39,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -46,6 +50,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -56,6 +61,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -66,6 +72,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -76,6 +83,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -86,6 +94,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -96,6 +105,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -106,6 +116,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -116,6 +127,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -126,6 +138,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -136,6 +149,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -146,6 +160,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -156,6 +171,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -166,6 +182,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -176,6 +193,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -186,6 +204,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -196,6 +215,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -206,6 +226,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -216,6 +237,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -226,6 +248,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -236,6 +259,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -246,6 +270,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -256,6 +281,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -266,6 +292,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -276,6 +303,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -286,6 +314,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -296,6 +325,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -306,6 +336,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -316,6 +347,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -326,6 +358,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -336,6 +369,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -346,6 +380,7 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
 
@@ -356,5 +391,6 @@ py_test(
         ":node",
         "//checker:stac",
         "//checker:test_utils",
+        requirement("absl-py"),
     ],
 )
