@@ -1,3 +1,5 @@
+load("@pip//:requirements.bzl", "requirement")
+
 # Checks working on two or more STAC nodes at a time.
 
 py_library(
@@ -15,5 +17,6 @@ py_test(
     deps = [
         ":tree",
         "//checker:stac",
+        requirement("absl-py"),
     ],
 )
