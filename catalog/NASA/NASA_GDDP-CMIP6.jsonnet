@@ -43,6 +43,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     scenarios were produced and distributed through the Earth System Grid
     Federation.
 
+    This collection contains 34 different models. One model, "GFDL-CM4," has
+    data for two different configurations that can be differentiated by further
+    filtering on the *grid_label* property.
+
     See also
     [the provider tech note](https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf).
 
@@ -81,24 +85,53 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'model',
         description: |||
-          Name of the CMIP6 model. It is one of: 'ACCESS-CM2', 'ACCESS-ESM1-5',
-          'BCC-CSM2-MR', 'CESM2', 'CESM2-WACCM', 'CMCC-CM2-SR5', 'CMCC-ESM2',
-          'CNRM-CM6-1', 'CNRM-ESM2-1', 'CanESM5', 'EC-Earth3',
-          'EC-Earth3-Veg-LR', 'FGOALS-g3', 'GFDL-CM4', 'GFDL-ESM4',
-          'GISS-E2-1-G', 'HadGEM3-GC31-LL', 'HadGEM3-GC31-MM', 'IITM-ESM',
-          'INM-CM4-8', 'INM-CM5-0', 'IPSL-CM6A-LR', 'KACE-1-0-G', 'KIOST-ESM',
-          'MIROC-ES2L', 'MIROC6', 'MPI-ESM1-2-HR', 'MPI-ESM1-2-LR',
-          'MRI-ESM2-0', 'NESM3', 'NorESM2-LM', 'NorESM2-MM', 'TaiESM1',
-          'UKESM1-0-LL'.
+          Name of the CMIP6 model. It is one of:
+
+          * ACCESS-CM2
+          * ACCESS-ESM1-5
+          * BCC-CSM2-MR
+          * CESM2
+          * CESM2-WACCM
+          * CMCC-CM2-SR5
+          * CMCC-ESM2
+          * CNRM-CM6-1
+          * CNRM-ESM2-1
+          * CanESM5
+          * EC-Earth3
+          * EC-Earth3-Veg-LR
+          * FGOALS-g3
+          * GFDL-CM4 (see *grid_label* for additional information)
+          * GFDL-ESM4
+          * GISS-E2-1-G
+          * HadGEM3-GC31-LL
+          * HadGEM3-GC31-MM
+          * IITM-ESM
+          * INM-CM4-8
+          * INM-CM5-0
+          * IPSL-CM6A-LR
+          * KACE-1-0-G
+          * KIOST-ESM
+          * MIROC-ES2L
+          * MIROC6
+          * MPI-ESM1-2-HR
+          * MPI-ESM1-2-LR
+          * MRI-ESM2-0
+          * NESM3
+          * NorESM2-LM
+          * NorESM2-MM
+          * TaiESM1
+          * UKESM1-0-LL
         |||,
         type: ee_const.var_type.string,
       },
       {
         name: 'scenario',
         description: |||
-          Name of the CMIP6 scenario. It is one of: 'historical', 'ssp245',
-          'ssp585', where 'historical' designates retrospective model runs
-          (pre-2015).
+          Name of the CMIP6 scenario. It is one of:
+
+          * historical (retrospective model runs pre-2015)
+          * ssp245
+          * ssp585
         |||,
         type: ee_const.var_type.string,
       },
@@ -121,15 +154,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'grid_label',
         description: |||
           The grid label, which is only set when differentiating simulation
-          results for the 'GFDL-CM4' model.
+          results for the 'GFDL-CM4' model. It is one of:
+
+          * gr1
+          * gr2
         |||,
         type: ee_const.var_type.string,
       },
       {
         name: 'license',
         description: |||
-          The license under which a model is released. This will either be
-          '%s' (%s) or '%s' (%s).
+          The license under which a model is released. It will be one of:
+
+          * %s (%s)
+          * %s (%s)
         ||| % [
           spdx.cc_by_4_0.id, spdx.cc_by_4_0.name, spdx.cc0_1_0.id,
           spdx.cc0_1_0.name
