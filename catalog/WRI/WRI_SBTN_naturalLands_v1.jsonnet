@@ -147,9 +147,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Material. Science Based Targets Network.
     [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
   |||,
-  'gee:interval': {
-    unit: 'year',
-    interval: 1,
-  },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
