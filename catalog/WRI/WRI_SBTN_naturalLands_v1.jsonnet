@@ -148,7 +148,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
   |||,
   'gee:interval': {
-    type: 'cadence',
     unit: 'year',
     interval: 1,
   },
