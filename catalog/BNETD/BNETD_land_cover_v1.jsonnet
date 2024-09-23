@@ -28,7 +28,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   title: "Cote d'Ivoire BNETD 2020 Land Cover Map",
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
     The Cote d'Ivoire BNETD 2020 Land Cover Map was produced by the Ivorian
     Government through a national institution, the Center for Geographic
@@ -54,13 +53,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     Indeed, the classes in the land cover map can be combined to create a
     forest/non-forest map that is aligned with the FAO definition of forests.
 
-    A platform for accessing 2020 land cover data has been developed using ESRI
-    solutions, from Africa GeoPortal, for data analysis and visualisation.
+    A platform for accessing 2020 land cover data, metadata and the methodology
+    has been developed using ESRI solutions, from Africa GeoPortal, for data
+    analysis and visualization:
+
     The address is: [https://bit.ly/carte-ci-2020](https://bit.ly/carte-ci-2020)
 
     Documentation:
 
     * [Detailed documentation](https://drive.google.com/file/d/1c2ej637TRmbwvJqzdElf64-aahb1Sbw2/view)
+
+    * [Methodology in French](https://africageoportal.maps.arcgis.com/sharing/rest/content/items/76dc18767b89472eb89e8aa54e08a6c9/data)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
