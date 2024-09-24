@@ -21,6 +21,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Gridded GEDI Vegetation Structure Metrics and Biomass Density, 6KM pixel size',
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
+  // TODO(simonf): figure out why require() in example scripts doesn't work
+  // in tests
+  'gee:user_uploaded': true,
   description: gedi_vegetation.description + 'This dataset uses the pixel size of 6KM.',
   license: gedi_vegetation.license,
   links: ee.standardLinks(subdir, id),

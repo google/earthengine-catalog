@@ -22,6 +22,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: gedi_vegetation.description + 'This dataset uses the pixel size of 1KM.',
+  // TODO(simonf): figure out why require() in example scripts doesn't work
+  // in tests
+  'gee:user_uploaded': true,
   license: gedi_vegetation.license,
   links: ee.standardLinks(subdir, id),
   keywords: gedi_vegetation.keywords,
