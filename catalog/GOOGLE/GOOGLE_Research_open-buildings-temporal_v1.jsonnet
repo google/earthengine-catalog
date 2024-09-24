@@ -190,5 +190,6 @@ local units = import 'units.libsonnet';
     Leverages the Copernicus Sentinel-2 data (2015-present). See the [Sentinel Data
     Legal Notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
   |||,
+  'gee:user_uploaded': true,
 
 }
