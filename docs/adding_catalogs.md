@@ -3,7 +3,7 @@
 ## Steps to add a new catalog
 
 1.  Make sure the
-    [eligibility criteria](https://developers.google.com/earth-engine/reference/publisher_data_catalogs_eligibility)
+    [eligibility criteria](https://developers.google.com/earth-engine/publisher_data_catalogs_eligibility)
     are satisfied.
 1.  Get approval from the EE Data team (email earthengine-data@google.com)
 1.  Send the EE Data team two catalog images:
