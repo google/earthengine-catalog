@@ -7,9 +7,9 @@ import unittest
 from absl.testing import absltest
 import iso8601
 
-from google3.third_party.earthengine_catalog.stac import bboxes
-from google3.third_party.earthengine_catalog.stac import errors
-from google3.third_party.earthengine_catalog.stac import stac_lib as stac
+from stac import bboxes
+from stac import errors
+from stac import stac_lib as stac
 
 
 LICENSE_LINK: str = 'https://developers.google.com/license'

@@ -6,9 +6,9 @@ from unittest import mock
 from absl.testing import absltest
 import iso8601
 
-from google3.third_party.earthengine_catalog.stac import bboxes
-from google3.third_party.earthengine_catalog.stac import stac_gcs_loader
-from google3.third_party.earthengine_catalog.stac import stac_lib as stac
+from stac import bboxes
+from stac import stac_gcs_loader
+from stac import stac_lib as stac
 
 
 def valid_stac():

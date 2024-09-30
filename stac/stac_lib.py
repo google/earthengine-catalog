@@ -13,9 +13,9 @@ import iso8601
 import stringcase
 
 from checker import stac as stac_checker
-from google3.third_party.earthengine_catalog.stac import bboxes
-from google3.third_party.earthengine_catalog.stac import constants
-from google3.third_party.earthengine_catalog.stac import errors
+from stac import bboxes
+from stac import constants
+from stac import errors
 
 
 # STAC field names

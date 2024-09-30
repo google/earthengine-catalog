@@ -1,6 +1,6 @@
 """Unit tests for bboxes.py."""
 import unittest
-from google3.third_party.earthengine_catalog.stac import bboxes
+from stac import bboxes
 
 
 class BboxeslTest(unittest.TestCase):

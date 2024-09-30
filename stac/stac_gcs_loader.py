@@ -10,8 +10,8 @@ from google.cloud import storage
 from google.cloud.storage import blob
 import iso8601
 
-from google3.third_party.earthengine_catalog.stac import bboxes
-from google3.third_party.earthengine_catalog.stac import stac_lib as stac
+from stac import bboxes
+from stac import stac_lib as stac
 
 
 def matches_interval(
