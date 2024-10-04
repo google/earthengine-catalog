@@ -1,5 +1,5 @@
 # Construct a collection of corresponding Dynamic World and Sentinel-2 for
-# inspection. Filter the DW and S2 collections by region and date.
+# inspection. Filter by region and date.
 START = ee.Date('2021-04-02')
 END = START.advance(1, 'day')
 
@@ -9,18 +9,13 @@ col_filter = ee.Filter.And(
 )
 
 dw_col = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1').filter(col_filter)
-s2_col = ee.ImageCollection('COPERNICUS/S2').filter(col_filter)
+s2_col = ee.ImageCollection('COPERNICUS/S2_HARMONIZED');
 
-# Join corresponding DW and S2 images (by system:index).
-dw_s2_col = ee.Join.saveFirst('s2_img').apply(
-    dw_col,
-    s2_col,
-    ee.Filter.equals(leftField='system:index', rightField='system:index'),
-)
+# Link DW and S2 source images.
+linked_col = dw_col.linkCollection(s2_col, s2_col.first().bandNames());
 
-# Extract an example DW image and its source S2 image.
-dw_image = ee.Image(dw_s2_col.first())
-s2_image = ee.Image(dw_image.get('s2_img'))
+# Get example DW image with linked S2 image.
+linked_image = ee.Image(linked_col.first())
 
 # Create a visualization that blends DW class label with probability.
 # Define list pairs of DW LULC label and color.
@@ -50,13 +45,13 @@ VIS_PALETTE = [
 
 # Create an RGB image of the label (most likely class) on [0, 1].
 dw_rgb = (
-    dw_image.select('label')
+    linked_image.select('label')
     .visualize(min=0, max=8, palette=VIS_PALETTE)
     .divide(255)
 )
 
 # Get the most likely class probability.
-top1_prob = dw_image.select(CLASS_NAMES).reduce(ee.Reducer.max())
+top1_prob = linked_image.select(CLASS_NAMES).reduce(ee.Reducer.max())
 
 # Create a hillshade of the most likely class probability on [0, 1]
 top1_prob_hillshade = ee.Terrain.hillshade(top1_prob.multiply(100)).divide(255)
@@ -68,7 +63,7 @@ dw_rgb_hillshade = dw_rgb.multiply(top1_prob_hillshade)
 m = geemap.Map()
 m.set_center(20.6729, 52.4305, 12)
 m.add_layer(
-    s2_image,
+    linked_image,
     {'min': 0, 'max': 3000, 'bands': ['B4', 'B3', 'B2']},
     'Sentinel-2 L1C',
 )
