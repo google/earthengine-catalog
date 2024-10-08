@@ -265,6 +265,7 @@ EXCEPTIONS = frozenset({
     'treemap',
     'tropical',
     'urban_gradient',
+    'uk',
     'ukraine',
     'unep',
     'utokyo',
