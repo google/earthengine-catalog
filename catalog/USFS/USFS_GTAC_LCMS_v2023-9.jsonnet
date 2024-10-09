@@ -104,12 +104,7 @@ local license = spdx.proprietary;
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
-    },
-  ] + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'change_detection',
     'landcover',
@@ -873,6 +868,11 @@ local license = spdx.proprietary;
 
     USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
+
+    Note
+
+    * [https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) is the preferred link for citations
+
   |||,
   'gee:user_uploaded': true,
 }
