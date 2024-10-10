@@ -1,8 +1,7 @@
 """Bounding Box dataclass with named properties for clarity."""
 
 import dataclasses
-from typing import Self
-
+from typing_extensions import Self
 
 @dataclasses.dataclass
 class BBox:
