@@ -4,11 +4,12 @@ from concurrent import futures
 import datetime
 import json
 import logging
-from typing import Iterable, Optional, Self, Sequence
+from typing import Iterable, Optional, Sequence
 
 from google.cloud import storage
 from google.cloud.storage import blob
 import iso8601
+from typing_extensions import Self
 
 from stac import bboxes
 from stac import stac_lib as stac
