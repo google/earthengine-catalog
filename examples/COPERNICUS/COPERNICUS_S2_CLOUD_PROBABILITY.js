@@ -1,4 +1,4 @@
-var s2Sr = ee.ImageCollection('COPERNICUS/S2_SR');
+var s2Sr = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED');
 var s2Clouds = ee.ImageCollection('COPERNICUS/S2_CLOUD_PROBABILITY');
 
 var START_DATE = ee.Date('2019-01-01');
