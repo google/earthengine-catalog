@@ -143,8 +143,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     inundation_depth: {
       minimum: 0.0,
-      maximum: 1.0,
-      'gee:estimated_range': false,
+      maximum: 32.05,
+      'gee:estimated_range': true,
     },
   },
   'gee:terms_of_use': |||
