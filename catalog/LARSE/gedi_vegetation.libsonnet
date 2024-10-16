@@ -28,7 +28,7 @@ local units = import 'units.libsonnet';
     Variables include canopy height, canopy cover, plant area index, foliage
     height diversity, and plant area volume density at 5 m strata. Refer to the
     [Gridded GEDI Vegetation Structure Metrics and Biomass Density]
-    (https://daac.ornl.gov/GEDI/guides/GEDI_HighQuality_Shots_Rasters.html)
+    (https://daac.ornl.gov/VEGETATION/guides/GEDI_HighQuality_Shots_Rasters.html)
     for more information.
 
     Eight statistics are included for each GEDI shot metric: mean, bootstrapped
@@ -60,7 +60,7 @@ local units = import 'units.libsonnet';
     ),
     ee.processor_provider(
       'Gridded GEDI Vegetation Structure Metrics and Biomass Density',
-      'https://daac.ornl.gov/GEDI/guides/GEDI_HighQuality_Shots_Rasters.html'
+      'https://daac.ornl.gov/VEGETATION/guides/GEDI_HighQuality_Shots_Rasters.html'
     ),
     ee.host_provider(catalog_url),
   ],
@@ -141,6 +141,8 @@ local units = import 'units.libsonnet';
       |||,
       type:: ee_const.var_type.double,
     },
+  ],
+  counts_bands: [
     {
       name: 'shots_count',
       description: |||

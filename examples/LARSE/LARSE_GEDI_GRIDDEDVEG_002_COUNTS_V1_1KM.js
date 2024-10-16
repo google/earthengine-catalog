@@ -1,9 +1,5 @@
 var palettes = require('users/gena/packages:palettes');
 
-// GEDI image collections at different spatial resolutions
-var ic_1k = ee.ImageCollection('LARSE/GEDI/GRIDDEDVEG_002/V1/1KM')
-var ic_6k = ee.ImageCollection('LARSE/GEDI/GRIDDEDVEG_002/V1/6KM')
-var ic_12k = ee.ImageCollection('LARSE/GEDI/GRIDDEDVEG_002/V1/12KM')
 
 // slopeshade basemap
 var elev = ee.Image('MERIT/DEM/v1_0_3').select('dem')

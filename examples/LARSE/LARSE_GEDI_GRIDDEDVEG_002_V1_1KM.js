@@ -17,7 +17,7 @@ var opac = 0.7
 // "va" in the asset name corresponds to the count of high-quality, leaf-on
 // vegetation measurements by GEDI
 var i_counts_1k_19to23 = ee.Image(
-    'LARSE/GEDI/GRIDDEDVEG_002/V1/1KM/gediv002_counts_va_20190417_20230316')
+    'LARSE/GEDI/GRIDDEDVEG_002/COUNTS/V1/1KM/gediv002_counts_va_20190417_20230316')
 // Number of GEDI laser shots (i.e. footprints) per 1km pixel
 Map.addLayer(
     i_counts_1k_19to23.select('shots_count'),
