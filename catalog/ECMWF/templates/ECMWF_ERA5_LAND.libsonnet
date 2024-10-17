@@ -1,4 +1,3 @@
-local cds_notice = import 'cds_notice.libsonnet';
 local units = import 'units.libsonnet';
 
 local meters = 'm';
@@ -6,8 +5,7 @@ local meters_eq = 'm of water equivalent';
 local flux = 'J/m^2';
 
 {
-  description: cds_notice.body + |||
-
+  description: |||
     ERA5-Land is a reanalysis dataset providing a consistent view of the
     evolution of land variables over several decades at an enhanced resolution
     compared to ERA5. ERA5-Land has been produced by replaying the land

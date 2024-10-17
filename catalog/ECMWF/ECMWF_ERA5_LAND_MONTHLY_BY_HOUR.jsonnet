@@ -1,7 +1,6 @@
 local id = 'ECMWF/ERA5_LAND/MONTHLY_BY_HOUR';
 local subdir = 'ECMWF';
 
-local cds_notice = import 'templates/cds_notice.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -23,8 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'ERA5-Land Monthly Averaged by Hour of Day - ECMWF Climate Reanalysis',
   'gee:type': ee_const.gee_type.image_collection,
-  description: cds_notice.body + |||
-
+  description: |||
     ERA5-Land is a reanalysis dataset providing a consistent view of the evolution of land variables
     over several decades at an enhanced resolution compared to ERA5. ERA5-Land has been produced by
     replaying the land component of the ECMWF ERA5 climate reanalysis. Reanalysis combines model
