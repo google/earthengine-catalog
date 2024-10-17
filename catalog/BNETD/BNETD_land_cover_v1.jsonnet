@@ -61,7 +61,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
     Documentation:
 
-    * [Detailed documentation](https://drive.google.com/file/d/1c2ej637TRmbwvJqzdElf64-aahb1Sbw2/view)
+    * [Detailed documentation](https://africageoportal.maps.arcgis.com/sharing/rest/content/items/26a717d4c13f4f3db2c6056f7e5c0bab/data)
 
     * [Methodology in French](https://africageoportal.maps.arcgis.com/sharing/rest/content/items/76dc18767b89472eb89e8aa54e08a6c9/data)
   |||,
