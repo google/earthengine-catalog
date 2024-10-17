@@ -21,6 +21,5 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('UK_EA_ENGLAND_1M_TERRAIN_2022', base_url),
-    ee.link.child_collection('UK_NHM_BII_V1', base_url),
   ],
 }
