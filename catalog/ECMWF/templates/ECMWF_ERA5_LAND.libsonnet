@@ -1,8 +1,11 @@
 local units = import 'units.libsonnet';
 
-local meters = 'm';
+// Meters of water equivalent, a measurement used in ECMWF datasets for things
+// like amount of snowfall (assuming an evenly-distributed melt) or evaporation
+// (assuming an evenly-distributed condensation). It is different from the
+// meter water equivalent used to measure cosmic ray shielding for underground
+// laboratories (https://en.wikipedia.org/wiki/Meter_water_equivalent).
 local meters_eq = 'm of water equivalent';
-local flux = 'J/m^2';
 
 {
   description: |||
@@ -62,23 +65,23 @@ local flux = 'J/m^2';
   flow_bands_unit: [
     meters_eq,
     meters_eq,
-    flux,
-    flux,
-    flux,
-    flux,
-    flux,
-    flux,
+    units.joules_per_meter2,
+    units.joules_per_meter2,
+    units.joules_per_meter2,
+    units.joules_per_meter2,
+    units.joules_per_meter2,
+    units.joules_per_meter2,
     meters_eq,
     meters_eq,
     meters_eq,
     meters_eq,
-    meters,
-    meters,
+    units.meter,
+    units.meter,
     meters_eq,
-    meters,
-    meters,
+    units.meter,
+    units.meter,
     meters_eq,
-    meters,
+    units.meter,
   ],
   bands: [
     {
@@ -173,7 +176,7 @@ local flux = 'J/m^2';
         layer is represented. This parameter is the thickness of that ice
         layer.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'lake_ice_temperature',
@@ -200,7 +203,7 @@ local flux = 'J/m^2';
         water below. Mixing can also occur through the action of wind on the
         surface of the lake.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'lake_mix_layer_temperature',
@@ -272,7 +275,7 @@ local flux = 'J/m^2';
     {
       name: 'snow_depth',
       description: 'Instantaneous grib-box average of the snow thickness on\n          the ground (excluding snow on canopy).',
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'snow_depth_water_equivalent',
@@ -398,7 +401,7 @@ local flux = 'J/m^2';
         to the end of the forecast step. By model convention, downward fluxes
         are positive.
       |||,
-      units: flux,
+      units: units.joules_per_meter2,
     },
     {
       name: 'surface_net_solar_radiation',
@@ -418,7 +421,7 @@ local flux = 'J/m^2';
         period expressed in seconds. The ECMWF convention for vertical fluxes
         is positive downwards.
       |||,
-      units: flux,
+      units: units.joules_per_meter2,
     },
     {
       name: 'surface_net_thermal_radiation',
@@ -427,7 +430,7 @@ local flux = 'J/m^2';
         beginning of the forecast time to the end of the forecast step.
         By model convention downward fluxes are positive.
       |||,
-      units: flux,
+      units: units.joules_per_meter2,
     },
     {
       name: 'surface_sensible_heat_flux',
@@ -446,7 +449,7 @@ local flux = 'J/m^2';
         accumulation period expressed in seconds. The ECMWF convention for
         vertical fluxes is positive downwards.
       |||,
-      units: flux,
+      units: units.joules_per_meter2,
     },
     {
       name: 'surface_solar_radiation_downwards',
@@ -470,7 +473,7 @@ local flux = 'J/m^2';
         expressed in seconds. The ECMWF convention for vertical fluxes is
         positive downwards.
       |||,
-      units: flux,
+      units: units.joules_per_meter2,
     },
     {
       name: 'surface_thermal_radiation_downwards',
@@ -487,7 +490,7 @@ local flux = 'J/m^2';
         should be divided by the accumulation period expressed in seconds.
         The ECMWF convention for vertical fluxes is positive downwards.
       |||,
-      units: flux,
+      units: units.joules_per_meter2,
     },
     {
       name: 'evaporation_from_bare_soil',
@@ -544,7 +547,7 @@ local flux = 'J/m^2';
         forced by dry air. This variable is accumulated from the beginning of
         the forecast time to the end of the forecast step.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'runoff',
@@ -566,7 +569,7 @@ local flux = 'J/m^2';
         runoff is calculated is given in the IFS Physical Processes
         documentation.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'snow_evaporation',
@@ -596,7 +599,7 @@ local flux = 'J/m^2';
         flood. More information about how runoff is calculated is given in the
         IFS Physical Processes documentation.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'surface_runoff',
@@ -618,7 +621,7 @@ local flux = 'J/m^2';
         runoff is calculated is given in the IFS Physical Processes
         documentation.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'total_evaporation',
@@ -701,7 +704,7 @@ local flux = 'J/m^2';
         rather than representing averages over a model grid box and model time
         step.
       |||,
-      units: meters,
+      units: units.meter,
     },
     {
       name: 'leaf_area_index_high_vegetation',
