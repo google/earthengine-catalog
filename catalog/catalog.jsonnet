@@ -62,6 +62,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('IGN', base_url),
     ee.link.child_catalog('IPCC', base_url),
     ee.link.child_catalog('ISDASOIL', base_url),
+    ee.link.child_catalog('IUCN', base_url),
     ee.link.child_catalog('JAXA', base_url),
     ee.link.child_catalog('JCU', base_url),
     ee.link.child_catalog('JRC', base_url),
