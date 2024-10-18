@@ -36,9 +36,9 @@ local license = spdx.proprietary;
         including the monitoring of vegetation, soil and water cover,
         as well as observation of inland waterways and coastal areas.
 
-        The Sentinel-2 L2 data are downloaded from scihub. They were
-        computed by running sen2cor. WARNING: ESA did not produce L2 data
-        for all L1 assets, and earlier L2 coverage is not global.
+        The Sentinel-2 L2 data are downloaded from CDSE. They were
+        computed by running sen2cor. WARNING: 2017-2018 L2 coverage
+        in the EE collection is not yet global.
 
         The assets contain
         12 UINT16 spectral bands representing SR scaled by 10000 (unlike in L1 data,
