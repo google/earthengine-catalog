@@ -28,6 +28,7 @@ MUST_BE_UNUSUAL = frozenset({
     'CC-BY-NC-SA-4.0',
     'CC-BY-SA-4.0',
     'ODbL-1.0',
+    'proprietary_non_commercial'
 })
 POSSIBLY_UNUSUAL = MUST_BE_UNUSUAL.union({'proprietary'})
 
