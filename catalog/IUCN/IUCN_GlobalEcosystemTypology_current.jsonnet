@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   id: id,
   version: version,
-  title: 'IUCN Global Ecosystem Typology',
+  title: 'IUCN Global Ecosystem Typology: 1.0',
   'gee:type': ee_const.gee_type.table,
   description: |||
       The Global Ecosystem Typology is a taxonomy of ecosystems based on
@@ -109,7 +109,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:terms_of_use': |||
     Global Ecosystem Typology datasets are provided under the CC BY 4.0 license,
-    which allows for most commmercial, noncommercial, and academic uses.
+    which allows re-distribution and re-use of a licensed work on the condition
+    that the creator is appropriately credited.
   |||,
   'sci:publications': [
     {
