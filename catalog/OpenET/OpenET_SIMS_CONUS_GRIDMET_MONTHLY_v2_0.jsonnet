@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS SIMS Monthly Evapotranspiration v' + version,
+  title: 'OpenET SIMS Monthly Evapotranspiration v' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -71,7 +71,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'conus',
     'evapotranspiration',
     'gridmet_derived',
     'landsat_derived',
