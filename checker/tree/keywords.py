@@ -211,6 +211,7 @@ EXCEPTIONS = frozenset({
     'power_plants',
     'precipitable',
     'prescribedfire',
+    'primary_forest',
     'protection',
     'quality',
     'radarsat_1',
