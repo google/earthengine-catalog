@@ -19,6 +19,7 @@ LICENSE = 'license'
 NON_COMMERCIAL_LICENSES = frozenset({
     'CC-BY-NC-4.0',
     'CC-BY-NC-SA-4.0',
+    'proprietary_non_commercial'
 })
 
 
