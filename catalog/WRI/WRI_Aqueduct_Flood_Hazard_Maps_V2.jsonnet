@@ -73,12 +73,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'projection',
-        description: 'Sea level rise scenario (in percentile)',
+        description: |||
+          Sea level rise scenario (in percentile)
+
+          * 5: A low sea level rise scenario
+          * 50: The median sea level rise projection
+          * 95: A high sea level rise scenario
+        |||,
         type: ee_const.var_type.int,
       },
       {
         name: 'returnperiod',
-        description: 'Return period of flood in years',
+        description: |||
+          Return period is the average time interval expected between hazard
+          events of a given magnitude or greater (in years). The flood hazard
+          maps are generated for return periods of 1, 2, 5, 10, 25, 50, 100,
+          250, 500, and 1000 years.
+        |||,
         type: ee_const.var_type.int,
       },
       {
@@ -95,6 +106,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'model',
         description: |||
           Applies only for inunriver flood type, represents type of model used.
+
+          * 000000000WATCH: Baseline condition
+          * 00000NorESM1-M: (GCM model) Bjerknes Centre for Climate Research,
+            Norwegian Meteorological Institute
+          * 0000GFDL_ESM2M: (GCM model) Geophysical Fluid Dynamics Laboratory
+            (NOAA)
+          * 0000HadGEM2-ES: (GCM model) Met Office Hadley Centre
+          * 00IPSL-CM5A-LR: (GCM model) Institut Pierre Simon Laplace
         |||,
         type: ee_const.var_type.string,
       },
