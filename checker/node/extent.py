@@ -22,6 +22,7 @@ import datetime
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 BBOX = 'bbox'
 EXTENT = 'extent'
@@ -154,7 +155,10 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{start_date} is before {EARLIEST}')
 
     if end is None:
-      if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+      if node.gee_type in (
+          stac_lib.GeeType.TABLE,
+          stac_lib.GeeType.TABLE_COLLECTION,
+      ):
         yield cls.new_issue(node, f'{node.gee_type} must have an end date')
     else:
       if not isinstance(end, str):

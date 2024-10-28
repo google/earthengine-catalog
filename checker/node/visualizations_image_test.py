@@ -1,11 +1,11 @@
 """Tests for visualizations_image."""
 
 from absl.testing import absltest
-from checker import stac
 from checker import test_utils
 from checker.node import visualizations_image
+from stac import stac_lib
 
-IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
+IMAGE_COLLECTION = stac_lib.GeeType.IMAGE_COLLECTION
 
 
 class ValidVisualizationsImageTest(test_utils.NodeTest):
@@ -465,7 +465,6 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
                     'min': [1],
                     'palette': ['violet', 'aa22ff']}}}]}},
         'colors must be all hex or all color names. Found a mix of both')
-
 
 
 if __name__ == '__main__':

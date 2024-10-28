@@ -9,6 +9,7 @@
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
@@ -87,17 +88,22 @@ class Check(stac.TreeCheck):
           yield cls.new_issue(
               node,
               f'catalog_url != parent_url: {catalog_url} {a_parent_url}')
-        elif node.stac.get(stac.GEE_STATUS) == stac.Status.INCOMPLETE.value:
+        elif (
+            node.stac.get(stac_lib.GEE_STATUS)
+            == stac_lib.Status.INCOMPLETE.value
+        ):
           message = (
-              "Please don't reference in catalog.jsonnet datasets that have "
-              f'{stac.GEE_STATUS} set to "{stac.Status.INCOMPLETE.value}": '
-              f'{catalog_url} {a_self_url}'
+              "Please don't reference in catalog.jsonnet datasets that have"
+              f' {stac_lib.GEE_STATUS} set to'
+              f' "{stac_lib.Status.INCOMPLETE.value}":'
+              f' {catalog_url} {a_self_url}'
           )
           yield cls.new_issue(node, message)
       else:
         if (
             node.id != GEE_CATALOG
-            and node.stac.get(stac.GEE_STATUS) != stac.Status.INCOMPLETE.value
+            and node.stac.get(stac_lib.GEE_STATUS)
+            != stac_lib.Status.INCOMPLETE.value
             and not node.id.startswith('TEMPLATE')
         ):
           yield cls.new_issue(node, 'Not in any catalog as a child link')

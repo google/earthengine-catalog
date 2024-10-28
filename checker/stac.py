@@ -11,9 +11,8 @@ import sys
 from typing import Iterator, Optional
 
 import os
+from stac import stac_lib
 
-GEE_TYPE = 'gee:type'
-GEE_STATUS = 'gee:status'
 TYPE = 'type'
 # This is an intentionally invalid dataset_id.
 UNKNOWN_ID = '> UNKNOWN ID: '
@@ -38,29 +37,6 @@ _StrEnum = (
 class StacType(*_StrEnum):
   CATALOG = 'Catalog'
   COLLECTION = 'Collection'
-
-
-class GeeType(*_StrEnum):
-  IMAGE = 'image'
-  IMAGE_COLLECTION = 'image_collection'
-  TABLE = 'table'
-  TABLE_COLLECTION = 'table_collection'
-  # For catalogs
-  NONE = 'none'
-
-  @classmethod
-  def allowed_collection_types(cls):
-    return frozenset(x.value for x in cls if x != cls.NONE)
-
-
-class Status(*_StrEnum):
-  BETA = 'beta'
-  DEPRECATED = 'deprecated'
-  INCOMPLETE = 'incomplete'
-
-  @classmethod
-  def allowed_statuses(cls):
-    return frozenset(x.value for x in cls)
 
 
 def data_root() -> pathlib.Path:
@@ -103,7 +79,7 @@ class Node:
   id: str
   path: pathlib.Path
   type: StacType
-  gee_type: GeeType
+  gee_type: stac_lib.GeeType
   stac: dict[str, object]  # The result of json.load
 
 
@@ -181,12 +157,12 @@ def load(root: pathlib.Path) -> list[Node]:
     dataset_id = stac.get('id', UNKNOWN_ID + str(relative_path))
     asset_type = stac.get(TYPE)
 
-    gee_type_str = stac.get(GEE_TYPE)
-    gee_type: Optional[GeeType]
+    gee_type_str = stac.get(stac_lib.GEE_TYPE)
+    gee_type: Optional[stac_lib.GeeType]
     try:
-      gee_type = GeeType(gee_type_str)
+      gee_type = stac_lib.GeeType(gee_type_str)
     except ValueError:
-      gee_type = GeeType.NONE
+      gee_type = stac_lib.GeeType.NONE
     nodes.append(Node(dataset_id, relative_path, asset_type, gee_type, stac))
   return nodes
 

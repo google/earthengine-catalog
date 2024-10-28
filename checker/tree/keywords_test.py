@@ -7,13 +7,14 @@ from unittest import mock
 from absl.testing import absltest
 from checker import stac
 from checker.tree import keywords
+from stac import stac_lib
 
 Check = keywords.Check
 
 CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac.GeeType.IMAGE
-NONE = stac.GeeType.NONE
+IMAGE = stac_lib.GeeType.IMAGE
+NONE = stac_lib.GeeType.NONE
 
 ID = 'a/collection'
 FILE_PATH = pathlib.Path('test/path/should/be/ignored')

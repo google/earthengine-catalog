@@ -78,6 +78,7 @@ from typing import Iterator
 
 from checker import stac
 from checker.node import gee_classes
+from stac import stac_lib
 
 COLOR_NAMES = gee_classes.COLOR_NAMES
 
@@ -143,8 +144,10 @@ class Check(stac.NodeCheck):
         continue
 
       if IMAGE_VISUALIZATION not in visualization:
-        if (node.gee_type == stac.GeeType.IMAGE or
-            node.gee_type == stac.GeeType.IMAGE_COLLECTION):
+        if (
+            node.gee_type == stac_lib.GeeType.IMAGE
+            or node.gee_type == stac_lib.GeeType.IMAGE_COLLECTION
+        ):
           yield cls.new_issue(
               node, f'{node.gee_type} must have a {IMAGE_VISUALIZATION}')
         continue

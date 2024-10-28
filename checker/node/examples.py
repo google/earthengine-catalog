@@ -14,6 +14,7 @@ import pathlib
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 
 _EXCEPTIONS_RAW = frozenset((
@@ -892,7 +893,7 @@ class Check(stac.NodeCheck):
           node,
           f'Remove preview script from _PREVIEW_EXCEPTIONS: {preview_filename}')
 
-    if node.gee_type == stac.GeeType.TABLE:
+    if node.gee_type == stac_lib.GeeType.TABLE:
       if (featureview_filename not in cls.scripts and
           _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac and
           str(featureview_filename) not in _FEATURE_VIEW_EXCEPTIONS):

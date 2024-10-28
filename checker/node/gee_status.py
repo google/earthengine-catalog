@@ -10,6 +10,7 @@ Requirements and specification:
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 
 class Check(stac.NodeCheck):
@@ -18,16 +19,16 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    if stac.GEE_STATUS in node.stac:
+    if stac_lib.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
         yield cls.new_issue(
-            node, f'Catalogs may not have a {stac.GEE_STATUS} field'
+            node, f'Catalogs may not have a {stac_lib.GEE_STATUS} field'
         )
       elif node.type == stac.StacType.COLLECTION:
-        field_value = node.stac.get(stac.GEE_STATUS)
-        if field_value not in stac.Status.allowed_statuses():
+        field_value = node.stac.get(stac_lib.GEE_STATUS)
+        if field_value not in stac_lib.Status.allowed_statuses():
           yield cls.new_issue(
               node,
-              f'{stac.GEE_STATUS}, if set, must be one of'
-              f' {sorted(stac.Status.allowed_statuses())}',
+              f'{stac_lib.GEE_STATUS}, if set, must be one of'
+              f' {sorted(stac_lib.Status.allowed_statuses())}',
           )

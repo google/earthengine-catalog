@@ -44,6 +44,7 @@ import re
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 EXTENSION_VERSION = '1.0.0'
 
@@ -88,7 +89,10 @@ class Check(stac.NodeCheck):
             node, f'{node.type} must not have the sar extension')
       return
 
-    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+    if node.gee_type in (
+        stac_lib.GeeType.TABLE,
+        stac_lib.GeeType.TABLE_COLLECTION,
+    ):
       if has_sar_extension:
         yield cls.new_issue(node, f'{node.gee_type} cannot have sar extension')
       return

@@ -77,6 +77,7 @@ import pathlib
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 CATALOG = stac.StacType.CATALOG
 
@@ -402,12 +403,18 @@ class Check(stac.NodeCheck):
         l for l in links_by_rel[RELATED]
         if CODE in l and l[HREF].endswith(FEATURE_VIEW)
     ]
-    if node.gee_type in (stac.GeeType.IMAGE, stac.GeeType.IMAGE_COLLECTION):
+    if node.gee_type in (
+        stac_lib.GeeType.IMAGE,
+        stac_lib.GeeType.IMAGE_COLLECTION,
+    ):
       if feature_view_links:
         yield cls.new_issue(
             node,
             f'{node.gee_type} cannot have example {RELATED} a FeatureView link')
-    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+    if node.gee_type in (
+        stac_lib.GeeType.TABLE,
+        stac_lib.GeeType.TABLE_COLLECTION,
+    ):
       if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
         pass
       elif not feature_view_links:

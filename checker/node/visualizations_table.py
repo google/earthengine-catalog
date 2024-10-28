@@ -39,6 +39,7 @@ from typing import Iterator
 
 from checker import stac
 from checker.node import gee_classes
+from stac import stac_lib
 
 COLOR_NAMES = gee_classes.COLOR_NAMES
 
@@ -48,7 +49,7 @@ POLYGON_VISUALIZATION = 'polygon_visualization'
 TABLE_VISUALIZATION = 'table_visualization'
 VISUALIZE_AS = 'visualize_as'
 
-TABLE_TYPES = (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION)
+TABLE_TYPES = (stac_lib.GeeType.TABLE, stac_lib.GeeType.TABLE_COLLECTION)
 
 COLOR = 'color'
 FILL_COLOR = 'fill_color'

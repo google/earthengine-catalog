@@ -13,6 +13,7 @@
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 GEE_TYPE = 'gee:type'
 
@@ -32,9 +33,9 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{GEE_TYPE} must be a str')
       return
 
-    if gee_type not in stac.GeeType.allowed_collection_types():
+    if gee_type not in stac_lib.GeeType.allowed_collection_types():
       yield cls.new_issue(
           node,
           f'{GEE_TYPE} must be one of'
-          f' {sorted(stac.GeeType.allowed_collection_types())}',
+          f' {sorted(stac_lib.GeeType.allowed_collection_types())}',
       )

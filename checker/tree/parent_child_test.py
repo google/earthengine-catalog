@@ -2,17 +2,18 @@
 
 import pathlib
 
+from absl.testing import absltest
 from checker import stac
 from checker.tree import parent_child
-from absl.testing import absltest
+from stac import stac_lib
 
 Check = parent_child.Check
 
 CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
 GEE_CATALOG = parent_child.GEE_CATALOG
-IMAGE = stac.GeeType.IMAGE
-NONE = stac.GeeType.NONE
+IMAGE = stac_lib.GeeType.IMAGE
+NONE = stac_lib.GeeType.NONE
 
 CHILD = parent_child.CHILD
 HREF = parent_child.HREF

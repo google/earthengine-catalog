@@ -1,13 +1,13 @@
 """Tests for gee_type."""
 
-from checker import stac
+from absl.testing import absltest
 from checker import test_utils
 from checker.node import gee_type
-from absl.testing import absltest
+from stac import stac_lib
 
-IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
-TABLE = stac.GeeType.TABLE
-TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+IMAGE_COLLECTION = stac_lib.GeeType.IMAGE_COLLECTION
+TABLE = stac_lib.GeeType.TABLE
+TABLE_COLLECTION = stac_lib.GeeType.TABLE_COLLECTION
 
 
 class GeeTypeTest(test_utils.NodeTest):

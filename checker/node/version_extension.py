@@ -45,10 +45,10 @@ Example version information in python format:
 """
 
 import re
-
 from typing import Iterator
 
 from checker import stac
+from stac import stac_lib
 
 EXTENSION_VERSION = '1.0.0'
 
@@ -86,7 +86,7 @@ class Check(stac.NodeCheck):
 
     version_field = node.stac.get(VERSION)
     has_deprecated = (
-        node.stac.get(stac.GEE_STATUS) == stac.Status.DEPRECATED.value
+        node.stac.get(stac_lib.GEE_STATUS) == stac_lib.Status.DEPRECATED.value
     )
 
     links = node.stac.get(LINKS, [])
@@ -106,8 +106,8 @@ class Check(stac.NodeCheck):
       if has_deprecated:
         yield cls.new_issue(
             node,
-            f'Catalog must not have "{stac.GEE_STATUS}" set to'
-            f' "{stac.Status.DEPRECATED.value}"',
+            f'Catalog must not have "{stac_lib.GEE_STATUS}" set to'
+            f' "{stac_lib.Status.DEPRECATED.value}"',
         )
       return
 

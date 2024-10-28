@@ -3,12 +3,13 @@
 import pathlib
 from unittest import mock
 
+from absl.testing import absltest
 from checker import stac
 from checker import test_utils
 from checker.node import links
-from absl.testing import absltest
+from stac import stac_lib
 
-TABLE = stac.GeeType.TABLE
+TABLE = stac_lib.GeeType.TABLE
 
 BASE_URL = 'https://storage.googleapis.com/earthengine-stac/catalog/'
 DEV_URL = 'https://developers.google.com/earth-engine/datasets/'
@@ -299,7 +300,8 @@ class CollectionLinkTest(test_utils.NodeTest):
         stac_data,
         dataset_id=self.node_id,
         file_path=self.node_path,
-        gee_type=stac.GeeType.TABLE)
+        gee_type=stac_lib.GeeType.TABLE,
+    )
 
   def test_missing_required(self):
     stac_links = [l for l in self.required_links if l['rel'] != 'license']
