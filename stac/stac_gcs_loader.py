@@ -86,8 +86,24 @@ class CollectionList(Sequence[stac.Collection]):
 
   def filter_by_ids(self, ids: Iterable[str]) -> Self:
     """Returns a sublist with only the collections matching the given ids."""
+    # Save a local copy of the input for safe iterations.
+    ids_copy = tuple(ids)
     return self.__class__(
-        [c for c in self._collections if c.public_id() in ids]
+        [c for c in self._collections if c.public_id() in ids_copy]
+    )
+
+  def filter_by_types(self, gee_types: Iterable[str]) -> Self:
+    """Returns a sublist with only the collections matching the given types."""
+    # Save a local copy of the input for safe iterations.
+    gee_types_copy = tuple(gee_types)
+    for gee_type in gee_types_copy:
+      if (
+          stac.GeeType(gee_type)
+          not in stac.GeeType.allowed_collection_types()
+      ):
+        raise ValueError(f'Type {gee_type} is not a valid GEE type.')
+    return self.__class__(
+        [c for c in self._collections if c.dataset_type() in gee_types_copy]
     )
 
   def filter_by_datetime(

@@ -55,6 +55,7 @@ class TestFilterFunctions(absltest.TestCase):
     collection1 = valid_stac()
     collection1.update({
         'id': 'collection1',
+        'gee:type': 'image',
         'extent': {
             'temporal': {
                 'interval': [['2022-01-01T00:00:00Z', '2022-12-31T23:59:59Z']]
@@ -68,6 +69,7 @@ class TestFilterFunctions(absltest.TestCase):
     collection11 = valid_stac()
     collection11.update({
         'id': 'collection11',
+        'gee:type': 'image_collection',
         'extent': {
             'temporal': {
                 'interval': [
@@ -84,6 +86,7 @@ class TestFilterFunctions(absltest.TestCase):
     collection2 = valid_stac()
     collection2.update({
         'id': 'collection2',
+        'gee:type': 'image_collection',
         'extent': {
             'temporal': {
                 'interval': [['2023-01-01T00:00:00Z', '2023-12-31T23:59:59Z']]
@@ -95,6 +98,7 @@ class TestFilterFunctions(absltest.TestCase):
     collection3 = valid_stac()
     collection3.update({
         'id': 'collection3',
+        'gee:type': 'table',
         'extent': {
             'temporal': {
                 'interval': [
@@ -128,6 +132,24 @@ class TestFilterFunctions(absltest.TestCase):
 
     filtered2 = filtered.filter_by_ids(('no such id',))
     self.assertEmpty(filtered2)
+
+  def test_filter_by_types(self):
+    filtered = self.collections.filter_by_types(('image',))
+    self.assertEqual(['collection1'], [x['id'] for x in filtered])
+
+    filtered2 = self.collections.filter_by_types(('image_collection',))
+    self.assertEqual(
+        ['collection11', 'collection2'], [x['id'] for x in filtered2]
+    )
+
+    filtered3 = self.collections.filter_by_types(('table',))
+    self.assertEqual(['collection3'], [x['id'] for x in filtered3])
+
+    filtered4 = filtered.filter_by_types(('table_collection',))
+    self.assertEmpty(filtered4)
+
+    with self.assertRaises(ValueError):
+      filtered.filter_by_types(('not_a_valid_type',))
 
   def test_filter_by_time_interval(self):
     filtered = self.collections.filter_by_datetime(
