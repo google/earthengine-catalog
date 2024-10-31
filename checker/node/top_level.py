@@ -9,7 +9,6 @@ See also: required.
 from typing import Iterator
 
 from checker import stac
-from stac import stac_lib
 
 CATALOG_ALLOWED_FIELDS = [
     'description', 'id', 'links', 'stac_version',
@@ -23,7 +22,7 @@ COLLECTION_ALLOWED_FIELDS = [
     'gee:min_zoom_level',
     'gee:provider_ids',
     stac.SKIP_FEATUREVIEW_GENERATION,
-    stac_lib.GEE_STATUS,
+    stac.GEE_STATUS,
     'gee:terms_of_use',
     'gee:type',
     'gee:unusual_terms_of_use',

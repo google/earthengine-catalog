@@ -71,7 +71,6 @@ import re
 from typing import Iterator
 
 from checker import stac
-from stac import stac_lib
 
 SUMMARIES = 'summaries'
 
@@ -95,10 +94,9 @@ class Check(stac.NodeCheck):
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     if node.gee_type in (
-        stac_lib.GeeType.IMAGE,
-        stac_lib.GeeType.IMAGE_COLLECTION,
-        stac_lib.GeeType.TABLE_COLLECTION,
-    ):
+        stac.GeeType.IMAGE,
+        stac.GeeType.IMAGE_COLLECTION,
+        stac.GeeType.TABLE_COLLECTION):
       if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
         yield cls.new_issue(
             node,
@@ -111,10 +109,9 @@ class Check(stac.NodeCheck):
 
     # Note: table collections may have ingestion params in the future.
     if node.gee_type in (
-        stac_lib.GeeType.IMAGE,
-        stac_lib.GeeType.IMAGE_COLLECTION,
-        stac_lib.GeeType.TABLE_COLLECTION,
-    ):
+        stac.GeeType.IMAGE,
+        stac.GeeType.IMAGE_COLLECTION,
+        stac.GeeType.TABLE_COLLECTION):
       if GEE_FEATURE_VIEW_INGESTION_PARAMS in summaries:
         yield cls.new_issue(
             node,

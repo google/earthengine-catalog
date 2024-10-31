@@ -1,12 +1,12 @@
 """Tests for visualizations_table."""
 
-from absl.testing import absltest
+from checker import stac
 from checker import test_utils
 from checker.node import visualizations_table
-from stac import stac_lib
+from absl.testing import absltest
 
-TABLE = stac_lib.GeeType.TABLE
-TABLE_COLLECTION = stac_lib.GeeType.TABLE_COLLECTION
+TABLE = stac.GeeType.TABLE
+TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
 
 POINT_SHAPE_MESSAGE = (
     'point_shape must be one of [\'circle\', \'cross\', \'diamond\', '

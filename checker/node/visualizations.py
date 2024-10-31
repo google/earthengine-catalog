@@ -49,7 +49,6 @@ import re
 from typing import Any, Iterator, Optional
 
 from checker import stac
-from stac import stac_lib
 
 SUMMARIES = 'summaries'
 VISUALIZATIONS = 'gee:visualizations'
@@ -204,17 +203,14 @@ class Check(stac.NodeCheck):
         else:
           field = other_fields[0]
 
-          if (
-              node.gee_type
-              in (stac_lib.GeeType.IMAGE, stac_lib.GeeType.IMAGE_COLLECTION)
-              and field != IMAGE_VISUALIZATION
-          ):
+          if (node.gee_type
+              in (stac.GeeType.IMAGE, stac.GeeType.IMAGE_COLLECTION) and
+              field != IMAGE_VISUALIZATION):
             yield cls.new_issue(
                 node, f'{node.gee_type} must have an {IMAGE_VISUALIZATION}')
-          elif node.gee_type in (
-              stac_lib.GeeType.TABLE,
-              stac_lib.GeeType.TABLE_COLLECTION,
-          ) and field not in (POLYGON_VISUALIZATION, TABLE_VISUALIZATION):
+          elif (node.gee_type
+                in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION) and
+                field not in (POLYGON_VISUALIZATION, TABLE_VISUALIZATION)):
             yield cls.new_issue(
                 node, f'{node.gee_type} must have one of ' +
                 f'{POLYGON_VISUALIZATION} or {TABLE_VISUALIZATION}')

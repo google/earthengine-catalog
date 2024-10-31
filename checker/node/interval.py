@@ -17,7 +17,6 @@ Example in Jsonnet:
 from typing import Iterator
 
 from checker import stac
-from stac import stac_lib
 
 CUSTOM_TIME_UNIT = 'custom_time_unit'
 DESCRIPTION = 'description'
@@ -50,8 +49,8 @@ class Check(stac.NodeCheck):
       return
 
     if GEE_TYPE in node.stac.keys() and node.gee_type in (
-        stac_lib.GeeType.IMAGE,
-        stac_lib.GeeType.TABLE,
+        stac.GeeType.IMAGE,
+        stac.GeeType.TABLE,
     ):
       yield cls.new_issue(
           node, f'Image/Table datasets cannot have "{GEE_INTERVAL}"'

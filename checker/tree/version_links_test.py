@@ -2,15 +2,14 @@
 
 import pathlib
 
-from absl.testing import absltest
 from checker import stac
 from checker.tree import version_links
-from stac import stac_lib
+from absl.testing import absltest
 
 Check = version_links.Check
 
 COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac_lib.GeeType.IMAGE
+IMAGE = stac.GeeType.IMAGE
 
 HREF = version_links.HREF
 LINKS = version_links.LINKS
@@ -65,6 +64,7 @@ class VersionLinksTest(absltest.TestCase):
     message='successor-version url has no destination: DOES/NOT_EXIST'
     expect = [Check.new_issue(bad_node, message)]
     self.assertEqual(expect, issues)
+
 
 
 if __name__ == "__main__":

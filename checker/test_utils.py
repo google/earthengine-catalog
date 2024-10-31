@@ -3,13 +3,12 @@
 import pathlib
 from typing import Any, Optional, Union
 
-from absl.testing import absltest
 from checker import stac
-from stac import stac_lib
+from absl.testing import absltest
 
 _CATALOG = stac.StacType.CATALOG
 _COLLECTION = stac.StacType.COLLECTION
-_IMAGE = stac_lib.GeeType.IMAGE
+_IMAGE = stac.GeeType.IMAGE
 
 _CATALOG_ID = 'a/catalog'
 _COLLECTION_ID = 'a/collection'
@@ -27,9 +26,8 @@ class NodeTest(absltest.TestCase):
       messages: Optional[Union[str, list[str]]],
       dataset_id: str,
       file_path: Union[pathlib.Path, str],
-      gee_type: stac_lib.GeeType,
-      issue_level: stac.IssueLevel,
-  ) -> None:
+      gee_type: stac.GeeType,
+      issue_level: stac.IssueLevel) -> None:
     """Fail if a checker run does not generate the expected messages."""
     if isinstance(file_path, str):
       file_path = pathlib.Path(file_path)
@@ -74,7 +72,7 @@ class NodeTest(absltest.TestCase):
     Raises:
       AssertionError: The checker run did not produce the expected messages.
     """
-    gee_type = stac_lib.GeeType.NONE
+    gee_type = stac.GeeType.NONE
     self._assert_stac(
         _CATALOG, stac_data, messages, dataset_id, file_path, gee_type,
         issue_level)
@@ -85,9 +83,8 @@ class NodeTest(absltest.TestCase):
       messages: Optional[Union[str, list[str]]] = None,
       dataset_id: str = _COLLECTION_ID,
       file_path: Union[pathlib.Path, str] = _FILE_PATH,
-      gee_type: stac_lib.GeeType = _IMAGE,
-      issue_level: stac.IssueLevel = stac.IssueLevel.ERROR,
-  ) -> None:
+      gee_type: stac.GeeType = _IMAGE,
+      issue_level: stac.IssueLevel = stac.IssueLevel.ERROR) -> None:
     """Fails if a checker run does not generate the expected messages.
 
     Provides a unittest for checkers for STAC Collections in checker/node.

@@ -2,15 +2,14 @@
 
 import pathlib
 
-from absl.testing import absltest
 from checker import stac
 from checker.tree import title
-from stac import stac_lib
+from absl.testing import absltest
 
 Check = title.Check
 
 COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac_lib.GeeType.IMAGE
+IMAGE = stac.GeeType.IMAGE
 
 ID = 'a/collection'
 FILE_PATH = pathlib.Path('test/path/should/be/ignored')
