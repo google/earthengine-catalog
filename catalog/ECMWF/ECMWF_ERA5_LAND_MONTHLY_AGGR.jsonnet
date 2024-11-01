@@ -50,7 +50,7 @@ local license = spdx.proprietary;
   providers: [
     ee.producer_provider(
       'Monthly Aggregates: Google and Copernicus Climate Data Store',
-      'https://cds.climate.copernicus.eu/cdsapp'
+      'https://cds.climate.copernicus.eu'
     ),
     ee.host_provider(version_config.ee_catalog_url),
   ],

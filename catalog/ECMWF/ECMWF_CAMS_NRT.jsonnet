@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'European Centre for Medium-Range Weather Forecasts (ECMWF)',
-      'https://ads.atmosphere.copernicus.eu/cdsapp#!/dataset/cams-global-atmospheric-composition-forecasts'),
+      'https://ads.atmosphere.copernicus.eu/datasets/cams-global-atmospheric-composition-forecasts'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2016-06-22T12:00:00Z', null),
