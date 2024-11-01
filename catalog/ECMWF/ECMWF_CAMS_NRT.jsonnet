@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.license,
-      href: 'https://ads.atmosphere.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf',
+      href: 'https://object-store.os-api.cci2.ecmwf.int/cci2-prod-catalogue/licences/licence-to-use-copernicus-products/licence-to-use-copernicus-products_b4b9451f54cffa16ecef5c912c9cebd6979925a956e3fa677976e0cf198c2c18.pdf',
       type: ee_const.media_type.pdf,
     },
   ],
@@ -297,7 +297,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     programme, i.e., Sentinel mission data and Copernicus service information.
 
     See the
-    [full COPERNICUS data license](https://ads.atmosphere.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf).
+    [full COPERNICUS data license](https://object-store.os-api.cci2.ecmwf.int/cci2-prod-catalogue/licences/licence-to-use-copernicus-products/licence-to-use-copernicus-products_b4b9451f54cffa16ecef5c912c9cebd6979925a956e3fa677976e0cf198c2c18.pdf).
 
     The license clauses with attribution requirements are shown below:
 
