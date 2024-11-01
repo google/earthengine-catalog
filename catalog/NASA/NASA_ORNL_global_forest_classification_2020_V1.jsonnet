@@ -14,7 +14,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local version = 'V1';
 
 {
-  'gee:status': 'beta',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -52,8 +51,9 @@ local version = 'V1';
     ### Data Acquisition, Materials, and Methods
 
     The forest status/condition classification is created by conducting a
-    Boolean analysis of a suite of existing datasets (see Table 1, Hunka et al.,
-    2024, in review), including satellite-derived forest tree cover, height, age,
+    Boolean analysis of a suite of existing datasets (see Table 1,
+    [Hunka et al., 2024](https://doi.org/10.1038/s41597-024-03930-9)),
+    including satellite-derived forest tree cover, height, age,
     and land use classification layers. In this approach, layers that
     identify a potential forest status/condition class (e.g. primary forests) are
     merged, and layers that identify sources of disagreement (e.g. presence of
@@ -169,6 +169,15 @@ local version = 'V1';
     DAAC, Oak Ridge, Tennessee, USA.
     [https://doi.org/10.3334/ORNLDAAC/2345](https://doi.org/10.3334/ORNLDAAC/2345)
 |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Hunka, N., Duncanson, L., Armston, J. et al. Intergovernmental Panel on Climate Change (IPCC) Tier 1 forest biomass estimates from Earth Observation. Sci Data 11, 1127 (2024). https://doi.org/10.1038/s41597-024-03930-9
+        [doi:10.1038/s41597-024-03930-9](https://doi.org/10.1038/s41597-024-03930-9)
+      |||,
+      doi:'10.1038/s41597-024-03930-9',
+    },
+  ],
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
     without restriction on use and distribution. See [NASA's
