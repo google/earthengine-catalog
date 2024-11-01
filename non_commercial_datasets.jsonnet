@@ -50,6 +50,7 @@
   'Oxford/MAP/LST_Night_5km_Monthly',
   'Oxford/MAP/TCB_5km_Monthly',
   'Oxford/MAP/TCW_5km_Monthly',
+  'UN/Geodata/BNDA_simplified/current',
   'WCMC/WDOECM',
   'WRI/SBTN/naturalLands/v1'
 ]

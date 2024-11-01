@@ -229,6 +229,7 @@ EXCEPTIONS = frozenset({
     'sea_ice',
     'sea_level_changes',
     'seasonality',
+    'secondary_forest',
     'seawifs',
     'sentinelhub',
     'silt',

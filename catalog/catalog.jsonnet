@@ -103,6 +103,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('UMN', base_url),
     ee.link.child_catalog('UMT', base_url),
     ee.link.child_catalog('UQ', base_url),
+    ee.link.child_catalog('UN', base_url),
     ee.link.child_catalog('USDA', base_url),
     ee.link.child_catalog('USDOS', base_url),
     ee.link.child_catalog('USFS', base_url),

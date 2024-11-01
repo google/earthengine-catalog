@@ -12,7 +12,8 @@ import iso8601
 from typing_extensions import Self
 
 from stac import bboxes
-from stac import stac_lib as stac
+from stac import stac_lib
+from checker import stac
 
 
 def matches_interval(
@@ -57,12 +58,12 @@ def matches_datetime(
   return collection_interval[0] <= query_datetime <= end_date
 
 
-class CollectionList(Sequence[stac.Collection]):
-  """List of stac.Collections; can be filtered to return a smaller sublist."""
+class CollectionList(Sequence[stac_lib.Collection]):
+  """List of stac_lib.Collections; can be filtered to return a smaller sublist."""
 
-  _collections = Sequence[stac.Collection]
+  _collections = Sequence[stac_lib.Collection]
 
-  def __init__(self, collections: Sequence[stac.Collection]):
+  def __init__(self, collections: Sequence[stac_lib.Collection]):
     self._collections = tuple(collections)
 
   # Define immutable list interface for convenience, though one could
@@ -86,8 +87,24 @@ class CollectionList(Sequence[stac.Collection]):
 
   def filter_by_ids(self, ids: Iterable[str]) -> Self:
     """Returns a sublist with only the collections matching the given ids."""
+    # Save a local copy of the input for safe iterations.
+    ids_copy = tuple(ids)
     return self.__class__(
-        [c for c in self._collections if c.public_id() in ids]
+        [c for c in self._collections if c.public_id() in ids_copy]
+    )
+
+  def filter_by_types(self, gee_types: Iterable[str]) -> Self:
+    """Returns a sublist with only the collections matching the given types."""
+    # Save a local copy of the input for safe iterations.
+    gee_types_copy = tuple(gee_types)
+    for gee_type in gee_types_copy:
+      if (
+          stac.GeeType(gee_type)
+          not in stac.GeeType.allowed_collection_types()
+      ):
+        raise ValueError(f'Type {gee_type} is not a valid GEE type.')
+    return self.__class__(
+        [c for c in self._collections if c.dataset_type() in gee_types_copy]
     )
 
   def filter_by_datetime(
@@ -136,14 +153,14 @@ class Catalog:
   def __init__(self, storage_client: storage.Client):
     self.collections = CollectionList(self._load_collections(storage_client))
 
-  def _read_file(self, file_blob: blob.Blob) -> stac.Collection:
+  def _read_file(self, file_blob: blob.Blob) -> stac_lib.Collection:
     """Reads the contents of a file from the specified bucket."""
     file_contents = file_blob.download_as_string().decode()
-    return stac.Collection(json.loads(file_contents))
+    return stac_lib.Collection(json.loads(file_contents))
 
   def _read_files(
       self, file_blobs: list[blob.Blob]
-  ) -> list[stac.Collection]:
+  ) -> list[stac_lib.Collection]:
     """Processes files in parallel."""
     result = []
     with futures.ThreadPoolExecutor(max_workers=10) as executor:
@@ -157,7 +174,7 @@ class Catalog:
 
   def _load_collections(
       self, storage_client: storage.Client
-  ) -> Sequence[stac.Collection]:
+  ) -> Sequence[stac_lib.Collection]:
     """Loads all EE STAC JSON files from GCS, with datetimes as objects."""
     bucket = storage_client.get_bucket('earthengine-stac')
     files = [
