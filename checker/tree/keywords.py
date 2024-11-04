@@ -8,7 +8,6 @@ import collections
 from typing import Iterator
 
 from checker import stac
-from stac import stac_lib
 
 KEYWORDS = 'keywords'
 
@@ -310,7 +309,7 @@ class Check(stac.TreeCheck):
     nodes = [
         x
         for x in dataset_nodes
-        if x.stac.get(stac_lib.GEE_STATUS) != stac_lib.Status.DEPRECATED.value
+        if x.stac.get(stac.GEE_STATUS) != stac.Status.DEPRECATED.value
     ]
 
     counts = collections.Counter()
@@ -334,12 +333,8 @@ class Check(stac.TreeCheck):
     multiple_use_keywords = {k for k, v in counts.items() if v > 1}
     no_longer_single_use = multiple_use_keywords.intersection(EXCEPTIONS)
     unknown_node = stac.Node(
-        stac.UNKNOWN_ID,
-        stac.UNKNOWN_PATH,
-        stac.StacType.COLLECTION,
-        stac_lib.GeeType.NONE,
-        {},
-    )
+        stac.UNKNOWN_ID, stac.UNKNOWN_PATH, stac.StacType.COLLECTION,
+        stac.GeeType.NONE, {})
     for keyword in sorted(no_longer_single_use):
       yield cls.new_issue(
           unknown_node,

@@ -1,11 +1,11 @@
 """Tests for visualizations."""
 
-from absl.testing import absltest
+from checker import stac
 from checker import test_utils
 from checker.node import visualizations
-from stac import stac_lib
+from absl.testing import absltest
 
-TABLE = stac_lib.GeeType.TABLE
+TABLE = stac.GeeType.TABLE
 
 
 class BboxTest(absltest.TestCase):

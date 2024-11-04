@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   id: id,
   version: version,
-  title: 'IUCN Global Ecosystem Typology Level 3: 1.0',
+  title: 'IUCN Global Ecosystem Typology Level 3: ' + version,
   'gee:type': ee_const.gee_type.table,
   description: |||
       The Global Ecosystem Typology is a taxonomy of ecosystems based on
@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       applied to each one to reduce their complexity. As many vertices as
       possible were discarded without moving the distance from the original
       shape more than 100 m. As a result, approximately two dozen rows in the
-      table collapsed into geometries with 0 area.
+      table collapsed into geometries with 0 area and were removed.
     |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

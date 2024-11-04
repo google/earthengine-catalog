@@ -6,13 +6,13 @@ import dataclasses
 import datetime
 import enum
 import functools
-import sys
 from typing import Any, Iterable, Iterator, Optional, Sequence, Union
 
 from absl import logging
 import iso8601
 import stringcase
 
+from checker import stac as stac_checker
 from stac import bboxes
 from stac import constants
 from stac import errors
@@ -49,38 +49,6 @@ class Role(enum.Enum):
   LICENSOR = 'licensor'
   PROCESSOR = 'processor'
   PRODUCER = 'producer'
-
-
-GEE_TYPE = 'gee:type'
-GEE_STATUS = 'gee:status'
-
-
-_StrEnum = (
-    (enum.StrEnum,) if sys.version_info[:2] >= (3, 11) else (str, enum.Enum)
-)
-
-
-class GeeType(*_StrEnum):
-  IMAGE = 'image'
-  IMAGE_COLLECTION = 'image_collection'
-  TABLE = 'table'
-  TABLE_COLLECTION = 'table_collection'
-  # For catalogs
-  NONE = 'none'
-
-  @classmethod
-  def allowed_collection_types(cls):
-    return frozenset(x.value for x in cls if x != cls.NONE)
-
-
-class Status(*_StrEnum):
-  BETA = 'beta'
-  DEPRECATED = 'deprecated'
-  INCOMPLETE = 'incomplete'
-
-  @classmethod
-  def allowed_statuses(cls):
-    return frozenset(x.value for x in cls)
 
 
 @dataclasses.dataclass
@@ -421,7 +389,7 @@ class Collection:
 
   def __init__(self, stac_json: dict[str, Any]):
     self.stac_json = stac_json
-    if stac_json.get(GEE_STATUS) == Status.DEPRECATED:
+    if stac_json.get(stac_checker.GEE_STATUS) == stac_checker.Status.DEPRECATED:
       # Set the STAC 'deprecated' field that we don't set in the jsonnet files
       stac_json['deprecated'] = True
 
@@ -435,8 +403,8 @@ class Collection:
   def public_id(self) -> str:
     return self['id']
 
-  def dataset_type(self) -> GeeType:
-    return GeeType(self.stac_json['gee:type'])
+  def dataset_type(self) -> stac_checker.GeeType:
+    return stac_checker.GeeType(self.stac_json['gee:type'])
 
   def bbox(self) -> bboxes.BBox:
     return self.bbox_list()[0]
@@ -617,7 +585,7 @@ class Collection:
     return False
 
   def in_beta(self) -> bool:
-    return self.get(GEE_STATUS) == Status.BETA
+    return self.get(stac_checker.GEE_STATUS) == stac_checker.Status.BETA
 
 
 class Catalog:

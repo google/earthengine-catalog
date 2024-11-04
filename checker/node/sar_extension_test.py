@@ -1,12 +1,12 @@
 """Tests for sar_extension."""
 
-from absl.testing import absltest
+from checker import stac
 from checker import test_utils
 from checker.node import sar_extension
-from stac import stac_lib
+from absl.testing import absltest
 
-TABLE = stac_lib.GeeType.TABLE
-TABLE_COLLECTION = stac_lib.GeeType.TABLE_COLLECTION
+TABLE = stac.GeeType.TABLE
+TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
 
 SAR_URL = 'https://stac-extensions.github.io/sar/v1.0.0/schema.json'
 

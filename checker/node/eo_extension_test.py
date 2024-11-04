@@ -1,12 +1,12 @@
 """Tests for eo_extension."""
 
-from absl.testing import absltest
+from checker import stac
 from checker import test_utils
 from checker.node import eo_extension
-from stac import stac_lib
+from absl.testing import absltest
 
-TABLE = stac_lib.GeeType.TABLE
-TABLE_COLLECTION = stac_lib.GeeType.TABLE_COLLECTION
+TABLE = stac.GeeType.TABLE
+TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
 
 EO_URL = 'https://stac-extensions.github.io/eo/v1.0.0/schema.json'
 

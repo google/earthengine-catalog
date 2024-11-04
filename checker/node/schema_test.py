@@ -1,11 +1,11 @@
 """Tests for schema."""
 
-from absl.testing import absltest
+from checker import stac
 from checker import test_utils
 from checker.node import schema
-from stac import stac_lib
+from absl.testing import absltest
 
-IMAGE_COLLECTION = stac_lib.GeeType.IMAGE_COLLECTION
+IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 
 
 class ValidSchemaTest(test_utils.NodeTest):

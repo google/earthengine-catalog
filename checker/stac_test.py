@@ -2,13 +2,12 @@
 
 import pathlib
 
-from absl.testing import absltest
 from checker import stac
-from stac import stac_lib
+from absl.testing import absltest
 
 CATALOG = stac.StacType.CATALOG
 COLLECTION = stac.StacType.COLLECTION
-IMAGE = stac_lib.GeeType.IMAGE
+IMAGE = stac.GeeType.IMAGE
 
 ID = 'id'
 EMPTY_PATH = pathlib.Path('')
@@ -38,7 +37,7 @@ class CheckTest(absltest.TestCase):
     path = pathlib.Path('a/path.json')
     expected_path = pathlib.Path('a/path.jsonnet')
     stac_type = stac.StacType.COLLECTION
-    gee_type = stac_lib.GeeType.TABLE
+    gee_type = stac.GeeType.TABLE
     stac_data = {'field': 'value'}
     node = stac.Node(dataset_id, path, stac_type, gee_type, stac_data)
 
@@ -58,7 +57,7 @@ class CheckTest(absltest.TestCase):
     dataset_id = 'id2'
     path = pathlib.Path('another/path.json')
     stac_type = stac.StacType.COLLECTION
-    gee_type = stac_lib.GeeType.TABLE
+    gee_type = stac.GeeType.TABLE
     stac_data = {'field2': 'value2'}
     node = stac.Node(dataset_id, path, stac_type, gee_type, stac_data)
 
@@ -77,8 +76,7 @@ class CheckTest(absltest.TestCase):
 
   def test_not_implemented(self):
     node = stac.Node(
-        ID, EMPTY_PATH, stac.StacType.COLLECTION, stac_lib.GeeType.TABLE, {}
-    )
+        ID, EMPTY_PATH, stac.StacType.COLLECTION, stac.GeeType.TABLE, {})
 
     with self.assertRaises(NotImplementedError):
       stac.NodeCheck.run(node)

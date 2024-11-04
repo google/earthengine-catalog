@@ -2,11 +2,10 @@
 
 import pathlib
 
-from absl.testing import absltest
 from checker import stac
 from checker import test_utils
 from checker.node import extent
-from stac import stac_lib
+from absl.testing import absltest
 
 Check = extent.Check
 check_spatial = Check.check_spatial
@@ -16,9 +15,9 @@ BBOX = extent.BBOX
 CHECK_NAME = 'https://github.com/google/earthengine-catalog/blob/main/checker/node/extent.py'
 COLLECTION = stac.StacType.COLLECTION
 EXTENT = extent.EXTENT
-IMAGE = stac_lib.GeeType.IMAGE
+IMAGE = stac.GeeType.IMAGE
 INTERVAL = extent.INTERVAL
-NONE = stac_lib.GeeType.NONE
+NONE = stac.GeeType.NONE
 SPATIAL = extent.SPATIAL
 TEMPORAL = extent.TEMPORAL
 
@@ -268,7 +267,7 @@ class TemporalTest(absltest.TestCase):
 
   def test_table_must_have_end_date(self):
     self.first_interval[1] = None
-    self.node.gee_type = stac_lib.GeeType.TABLE
+    self.node.gee_type = stac.GeeType.TABLE
     issues = list(check_temporal(self.node, self.extent))
     message = 'table must have an end date'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -276,7 +275,7 @@ class TemporalTest(absltest.TestCase):
 
   def test_table_collection_must_have_end_date(self):
     self.first_interval[1] = None
-    self.node.gee_type = stac_lib.GeeType.TABLE_COLLECTION
+    self.node.gee_type = stac.GeeType.TABLE_COLLECTION
     issues = list(check_temporal(self.node, self.extent))
     message = 'table_collection must have an end date'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
