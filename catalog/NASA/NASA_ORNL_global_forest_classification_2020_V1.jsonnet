@@ -14,6 +14,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local version = 'V1';
 
 {
+  // TODO(b/376948924): this is not really user-uploaded, but it causes
+  // an integration test failure. Why?
+  'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
