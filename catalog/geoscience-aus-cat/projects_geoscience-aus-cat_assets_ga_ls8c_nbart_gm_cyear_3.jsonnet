@@ -8,7 +8,10 @@ local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-local version = '3.1.0';
+local versions = import 'versions.libsonnet';
+local version_table = import 'projects_geoscience-aus-cat_assets_ga_ls8c_nbart_gm_change_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
