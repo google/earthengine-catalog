@@ -68,7 +68,7 @@ local self_url = catalog_subdir_url + base_filename;
       rel: ee_const.rel.source,
       href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls8cls9c_gm_cyear_3/',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'australia',
     'ga',

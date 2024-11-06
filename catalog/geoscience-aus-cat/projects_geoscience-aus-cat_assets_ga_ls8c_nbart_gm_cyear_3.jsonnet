@@ -31,6 +31,7 @@ local self_url = catalog_subdir_url + base_filename;
   id: id,
   version: version,
   title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product provides statistical tools to exploit the time series of Landsat 8 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
@@ -66,7 +67,7 @@ local self_url = catalog_subdir_url + base_filename;
       rel: ee_const.rel.source,
       href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls5t_nbart_gm_cyear_3/',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'australia',
     'ga',
