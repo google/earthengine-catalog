@@ -30,7 +30,7 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version,
+  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version + ' [deprecated]',
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
