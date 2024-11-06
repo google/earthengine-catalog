@@ -122,6 +122,32 @@ class CollectionTest(absltest.TestCase):
     self.assertEqual(iso8601.parse_date(start), collection.start())
     self.assertIsNone(collection.end())
 
+  def test_get_catalog_url_empty(self):
+    stac_json = _valid_stac()
+    collection = stac.Collection(stac_json)
+    self.assertEqual(collection.catalog_url(), '')
+
+  def test_get_catalog_url(self):
+    stac_json = _valid_stac()
+
+    # Add a catalog link to the STAC.
+    expected_url = (
+        'https://developers.google.com/earth-engine/datasets/catalog/foo'
+    )
+    stac_json['links'].append({'href': expected_url, 'rel': 'catalog'})
+    collection = stac.Collection(stac_json)
+    self.assertEqual(collection.catalog_url(), expected_url)
+
+  def test_get_catalog_url_without_catalog_ref(self):
+    stac_json = _valid_stac()
+    original_url = 'https://developers.google.com/earth-engine/datasets/catalog/foo#ignore_this'
+    expected_url = (
+        'https://developers.google.com/earth-engine/datasets/catalog/foo'
+    )
+    stac_json['links'].append({'href': original_url, 'rel': 'random_rel'})
+    collection = stac.Collection(stac_json)
+    self.assertEqual(collection.catalog_url(), expected_url)
+
   def test_link_from_stac(self):
     result = stac.Link.from_stac({'rel': 'child'})
     expect = stac.Link(stac.Rel.CHILD)
