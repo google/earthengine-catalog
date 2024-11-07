@@ -1,4 +1,4 @@
-local id = 'projects/geoscience-aus-cat/assets/ga_ls8c_nbart_gm_cyear_3';
+local id = 'projects/geoscience-aus-cat/assets/ga_ls8cls9c_gm_cyear_3';
 local subdir = 'geoscience-aus-cat';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -30,13 +30,12 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version + ' [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 and 9 ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product provides statistical tools to exploit the time series of Landsat 8 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
-
-    The geomedian part of the product provides an "average" cloud-free image over the given year. The geomedian image is calculated with a multi-dimensional median, using all the spectral measurements from the satellite imagery at the same time in order to maintain the relationships among the measurements.
+    This product provides statistical tools to exploit the time series of Landsat 8 and 9 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year. For calendar years 2022 onwards, Landsat 8 and 9 are combined to offer improved performance than the standalone Landsat 8, due to using a larger number of observations.
+    
+    The geometric median part of the product provides an "average" cloud-free image over the given year. The geometric median image is calculated with a multi-dimensional median, using all the spectral measurements from the satellite imagery at the same time in order to maintain the relationships among the measurements.
     
     The median absolute deviation part of the product uses three measures of variance, each of which provides a "second order" high dimensional statistical composite for the given year. The three variance measures show how much an area varies from the "average" in terms of "distance" based on factors such as brightness and spectra:
 
@@ -46,8 +45,10 @@ local self_url = catalog_subdir_url + base_filename;
 
     Together, they provide information on variance in the landscape over the given year and are useful for change detection applications.
     
-    For more information, please see the [DEA Geometric Median and Median Absolute Deviation Landsat](https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat)
-
+    For more information, please see the [DEA Geometric Median and Median Absolute Deviation Landsat](https://knowledge.dea.ga.gov.au/data/product/dea-geometric-median-and-median-absolute-deviation-landsat/)
+    
+    More information on what has changed between the versions can be found in the [changelog](https://knowledge.dea.ga.gov.au/data/product/dea-geometric-median-and-median-absolute-deviation-landsat/?tab=history#v4.0.0)
+    
     This product is part of the [Digital Earth Australia Program](https://www.dea.ga.gov.au/)
   |||,
   license: license.id,
@@ -65,7 +66,7 @@ local self_url = catalog_subdir_url + base_filename;
     },
     {
       rel: ee_const.rel.source,
-      href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls5t_nbart_gm_cyear_3/',
+      href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls8cls9c_gm_cyear_3/',
     },
   ] + version_config.version_links,
   keywords: [
@@ -76,7 +77,7 @@ local self_url = catalog_subdir_url + base_filename;
   providers: [
     ee.producer_provider(
       'Geoscience Australia',
-      'https://cmi.ga.gov.au/data-products/dea/645/dea-geometric-median-and-median-absolute-deviation-landsat#basics'),
+      'https://knowledge.dea.ga.gov.au/data/product/dea-geometric-median-and-median-absolute-deviation-landsat/'),
     ee.processor_provider('NGIS', 'https://ngis.com.au/'),
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -87,61 +88,61 @@ local self_url = catalog_subdir_url + base_filename;
     gsd: [25],
     'eo:bands': [
       {
-        name: 'blue',
+        name: 'nbart_blue',
         description: |||
           Band blue surface reflectance geometric median.
         |||,
         'gee:wavelength': '0.452-0.512 &mu;m',
       },
       {
-        name: 'green',
+        name: 'nbart_green',
         description: |||
           Band green surface reflectance geometric median.
         |||,
         'gee:wavelength': '0.533-0.590 &mu;m',
       },
       {
-        name: 'red',
+        name: 'nbart_red',
         description: |||
           Band red surface reflectance geometric median.
         |||,
         'gee:wavelength': '0.636-0.673 &mu;m',
       },
       {
-        name: 'near_infrared',
+        name: 'nbart_nir',
         description: |||
           Band near infrared surface reflectance geometric median.
         |||,
         'gee:wavelength': '0.851-0.879 &mu;m',
       },
       {
-        name: 'shortwave_infrared_1',
+        name: 'nbart_swir_1',
         description: |||
           Band shortwave infrared 1 surface reflectance geometric median.
         |||,
         'gee:wavelength': '1.566-1.651 &mu;m',
       },
       {
-        name: 'shortwave_infrared_2',
+        name: 'nbart_swir_2',
         description: |||
           Band shortwave infrared 2 surface reflectance geometric median.
         |||,
         'gee:wavelength': '2.107-2.294 &mu;m',
       },
       {
-        name: 'Euclidean_distance_median_absolute_deviation',
+        name: 'edev',
         description: |||
           The Median Absolute Deviation using Euclidean distance (EMAD). EMAD is more sensitive to changes in target brightness.
         |||,
       },
       {
-        name: 'spectral_distance_median_absolute_deviation',
+        name: 'sdev',
         description: |||
           The Median Absolute Deviation using Cosine (spectral) distance (SMAD). SMAD is more sensitive to change in target spectral response.
         |||,
       },
       {
-        name: 'Bray_Curtis_dissimilarity_median_absolute_deviation',
+        name: 'bcdev',
         description: |||
           The Median Absolute Deviation using Bray Curtis dissimilarity (BCMAD). BCMAD is more sensitive to the distribution of the observation values through time.
         |||,
@@ -153,15 +154,15 @@ local self_url = catalog_subdir_url + base_filename;
         |||,
       },
     ],
-    blue: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    green: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    red: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    near_infrared: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    shortwave_infrared_1: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    shortwave_infrared_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    Euclidean_distance_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    spectral_distance_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    Bray_Curtis_dissimilarity_median_absolute_deviation: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    nbart_blue: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    nbart_green: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    nbart_red: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    nbart_nir: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    nbart_swir_1: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    nbart_swir_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    edev: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    sdev: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    bcdev: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     count: {minimum: 0, maximum: 400, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
@@ -171,7 +172,7 @@ local self_url = catalog_subdir_url + base_filename;
           band_vis: {
             min: [0],
             max: [255],
-            bands: ['red', 'green', 'blue'],
+            bands: ['nbart_red', 'nbart_green', 'nbart_blue'],
           }
         },
       },
