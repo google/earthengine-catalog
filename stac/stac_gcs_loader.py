@@ -9,11 +9,13 @@ from typing import Iterable, Optional, Sequence
 from google.cloud import storage
 from google.cloud.storage import blob
 import iso8601
+import tenacity
+import tqdm
 from typing_extensions import Self
 
+from checker import stac as stac_checker
 from stac import bboxes
 from stac import stac_lib
-from checker import stac
 
 
 def matches_interval(
@@ -59,7 +61,7 @@ def matches_datetime(
 
 
 class CollectionList(Sequence[stac_lib.Collection]):
-  """List of stac_lib.Collections; can be filtered to return a smaller sublist."""
+  """List of stac.Collections; can be filtered to return a smaller sublist."""
 
   _collections = Sequence[stac_lib.Collection]
 
@@ -99,8 +101,8 @@ class CollectionList(Sequence[stac_lib.Collection]):
     gee_types_copy = tuple(gee_types)
     for gee_type in gee_types_copy:
       if (
-          stac.GeeType(gee_type)
-          not in stac.GeeType.allowed_collection_types()
+          stac_checker.GeeType(gee_type)
+          not in stac_checker.GeeType.allowed_collection_types()
       ):
         raise ValueError(f'Type {gee_type} is not a valid GEE type.')
     return self.__class__(
@@ -133,8 +135,7 @@ class CollectionList(Sequence[stac_lib.Collection]):
           break
     return self.__class__(result)
 
-  def filter_by_bounding_box(
-      self, query_bbox: bboxes.BBox) -> Self:
+  def filter_by_bounding_box(self, query_bbox: bboxes.BBox) -> Self:
     """Returns a sublist with the bbox matching the given bbox."""
     result = []
     for collection in self._collections:
@@ -153,22 +154,30 @@ class Catalog:
   def __init__(self, storage_client: storage.Client):
     self.collections = CollectionList(self._load_collections(storage_client))
 
+  @tenacity.retry(
+      stop=tenacity.stop_after_attempt(5),
+      wait=tenacity.wait_exponential(multiplier=1, min=4, max=10),
+  )
   def _read_file(self, file_blob: blob.Blob) -> stac_lib.Collection:
-    """Reads the contents of a file from the specified bucket."""
+    """Reads the contents of a file from the specified bucket with retry logic."""
     file_contents = file_blob.download_as_string().decode()
     return stac_lib.Collection(json.loads(file_contents))
 
   def _read_files(
       self, file_blobs: list[blob.Blob]
   ) -> list[stac_lib.Collection]:
-    """Processes files in parallel."""
+    """Processes files in parallel with a progress bar."""
     result = []
     with futures.ThreadPoolExecutor(max_workers=10) as executor:
       file_futures = [
           executor.submit(self._read_file, file_blob)
           for file_blob in file_blobs
       ]
-      for future in file_futures:
+      for future in tqdm.tqdm(
+          futures.as_completed(file_futures),
+          total=len(file_futures),
+          desc='Reading files',
+      ):
         result.append(future.result())
     return result
 

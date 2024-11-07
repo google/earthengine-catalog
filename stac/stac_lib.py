@@ -559,7 +559,7 @@ class Collection:
       relation_link = relation_links[0]
       if not relation_link.title and relation_link.rel != Rel.SELF:
         raise errors.InputError(
-            '{} link has no title in dataset {}', relation, self.public_id()
+            f'{relation} link has no title in dataset {self.public_id()}'
         )
       # The title is the Earth Engine dataset_id
       return relation_link
@@ -586,6 +586,21 @@ class Collection:
 
   def in_beta(self) -> bool:
     return self.get(stac_checker.GEE_STATUS) == stac_checker.Status.BETA
+
+  def catalog_url(self):
+    """Returns the URL of the dataset in the Earth Engine catalog."""
+    links = self.stac_json['links']
+    for link in links:
+      if 'rel' in link and link['rel'] == 'catalog':
+        return link['href']
+
+      # Ideally there would be a 'catalog' link but sometimes there isn't.
+      base_url = 'https://developers.google.com/earth-engine/datasets/catalog/'
+      if link['href'].startswith(base_url):
+        return link['href'].split('#')[0]
+
+    logging.warning('No catalog link found for %s', self.public_id())
+    return ''
 
 
 class Catalog:
