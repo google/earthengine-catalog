@@ -78,6 +78,7 @@ UNITS = frozenset({
     'seconds',
     'tons/acre',
     '&deg;C',
+    '&deg;F',
     '&micro;m',
     '&mu;g/m&sup3',
     '&mu;m',

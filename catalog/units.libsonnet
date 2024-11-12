@@ -45,6 +45,7 @@
 
   // https://en.wikipedia.org/wiki/Celsius
   celsius: '&deg;C',
+  fahrenheit: '&deg;F',
 
   // A number of items.
   count: 'count',
