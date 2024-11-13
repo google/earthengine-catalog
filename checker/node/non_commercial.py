@@ -33,20 +33,32 @@ class Check(stac.NodeCheck):
     if node.type == stac.StacType.CATALOG:
       if non_commercial:
         yield cls.new_issue(
-            node, f'{node.type} cannot be in non-commercial dataset list')
+            node, f'{node.type} cannot be in non-commercial dataset list'
+        )
       return
 
-    if LICENSE not in node.stac: return
+    if LICENSE not in node.stac:
+      return
     license_field = node.stac[LICENSE]
-    if not isinstance(license_field, str): return
+    if not isinstance(license_field, str):
+      return
 
     if license_field in NON_COMMERCIAL_LICENSES:
       if not non_commercial:
         yield cls.new_issue(
             node,
             'Dataset with non-commercial license must be listed in '
-            'non_commercial_datasets.jsonnet')
+            'non_commercial_datasets.jsonnet',
+        )
     else:
       if non_commercial:
+        # Special cases for WCMC/WDOECM, which we did not fully configure as
+        # non-commercial but left in the list.
+        # TODO: b/363257841 - Remove this special case once new WCMC datasets
+        # are added with the correct license.
+        if node.id in [
+            'WCMC/WDOECM/current/polygons',
+            'WCMC/WDOECM/current/points',
+        ]:
+          return
         yield cls.new_issue(node, 'Cannot be in non-commercial dataset list')
-
