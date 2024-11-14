@@ -148,14 +148,31 @@ local license = spdx.proprietary;
       },
     ],
   },
-  'sci:citation': |||
-    Schiavina, Marcello; Melchiorri, Michele; Pesaresi, Martino (2023): 
-    GHS-SMOD R2023A - GHS settlement layers, application of the Degree of
-    Urbanisation methodology (stage I) to GHS-POP R2023A and GHS-BUILT-S R2023A,
-    multitemporal (1975-2030). European Commission, Joint Research Centre (JRC)
-    [PID: http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba](http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba)
-    [doi:10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA](https://doi.org/10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA)
-  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Dataset : Schiavina, Marcello; Melchiorri, Michele; Pesaresi,
+        Martino (2023): GHS-SMOD R2023A - GHS settlement layers, application of
+        the Degree of Urbanisation methodology (stage I) to GHS-POP R2023A and
+        GHS-BUILT-S R2023A, multitemporal (1975-2030).
+        European Commission, Joint Research Centre (JRC)
+        [PID: http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba](http://data.europa.eu/89h/a0df7a6f-49de-46ea-9bde-563437a6e2ba)
+        [doi:10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA](https://doi.org/10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA)
+      |||,
+      doi: '10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA',
+    },
+    {
+      citation: |||
+        Methodology : Pesaresi, Martino, Marcello Schiavina, Panagiotis Politis,
+        Sergio Freire, Katarzyna Krasnodebska,
+        Johannes H. Uhl, Alessandra Carioli, et al. (2024). Advances on the
+        Global Human Settlement Layer by Joint Assessment of Earth Observation
+        and Population Survey Data. International Journal of Digital Earth 17(1).
+        [doi:10.1080/17538947.2024.2390454](https://doi.org/10.1080/17538947.2024.2390454).
+      |||,
+      doi: '10.1080/17538947.2024.2390454',
+    },
+  ],
   'sci:doi': '10.2905/A0DF7A6F-49DE-46EA-9BDE-563437A6E2BA',
   'gee:terms_of_use': |||
     The GHSL has been produced by the European Commission Joint Research Centre

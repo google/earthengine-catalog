@@ -106,14 +106,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:citation': |||
-    Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-V R2023A - GHS
-    built-up volume grids derived from joint assessment of Sentinel2, Landsat,
-    and global DEM data, multitemporal (1975-2030). European Commission, Joint
-    Research Centre (JRC)
-    [PID: http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283](http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283)
-    [doi:10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283](https://doi.org/10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283)
-  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Dataset : Pesaresi, Martino; Politis, Panagiotis (2023):GHS-BUILT-V
+        R2023A - GHS built-up volume grids derived from joint assessment of
+        Sentinel2, Landsat, and global DEM data, multitemporal (1975-2030).
+        European Commission, Joint Research Centre (JRC)
+        [PID: http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283](http://data.europa.eu/89h/ab2f107a-03cd-47a3-85e5-139d8ec63283)
+        [doi:10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283](https://doi.org/10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283)
+      |||,
+      doi: '10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283',
+    },
+    {
+      citation: |||
+        Methodology : Pesaresi, Martino, Marcello Schiavina, Panagiotis Politis,
+        Sergio Freire, Katarzyna Krasnodebska,
+        Johannes H. Uhl, Alessandra Carioli, et al. (2024). Advances on the
+        Global Human Settlement Layer by Joint Assessment of Earth Observation
+        and Population Survey Data. International Journal of Digital Earth 17(1).
+        [doi:10.1080/17538947.2024.2390454](https://doi.org/10.1080/17538947.2024.2390454).
+      |||,
+      doi: '10.1080/17538947.2024.2390454',
+    },
+  ],
   'sci:doi': '10.2905/AB2F107A-03CD-47A3-85E5-139D8EC63283',
   'gee:terms_of_use': |||
     The GHSL has been produced by the European Commission Joint Research Centre

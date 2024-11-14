@@ -105,14 +105,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:citation': |||
-    Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-H R2023A - GHS
-    building height, derived from AW3D30, SRTM30, and Sentinel2 composite
-    (2018). European Commission, Joint Research Centre (JRC)
-    [PID: http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe](http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe)
-    [doi:10.2905/85005901-3A49-48DD-9D19-6261354F56FE](https://doi.org/10.2905/85005901-3A49-48DD-9D19-6261354F56FE)
-    
-  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Dataset : Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-H
+        R2023A - GHS building height, derived from AW3D30, SRTM30, and Sentinel2
+        composite (2018). European Commission, Joint Research Centre (JRC)
+        [PID: http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe](http://data.europa.eu/89h/85005901-3a49-48dd-9d19-6261354f56fe)
+        [doi:10.2905/85005901-3A49-48DD-9D19-6261354F56FE](https://doi.org/10.2905/85005901-3A49-48DD-9D19-6261354F56FE)
+      |||,
+      doi: '10.2905/85005901-3A49-48DD-9D19-6261354F56FE',
+    },
+    {
+      citation: |||
+        Methodology : Pesaresi, Martino, Marcello Schiavina, Panagiotis Politis,
+        Sergio Freire, Katarzyna Krasnodebska,
+        Johannes H. Uhl, Alessandra Carioli, et al. (2024). Advances on the
+        Global Human Settlement Layer by Joint Assessment of Earth Observation
+        and Population Survey Data. International Journal of Digital Earth 17(1).
+        [doi:10.1080/17538947.2024.2390454](https://doi.org/10.1080/17538947.2024.2390454).
+      |||,
+      doi: '10.1080/17538947.2024.2390454',
+    },
+  ],
   'sci:doi': '10.2905/85005901-3A49-48DD-9D19-6261354F56FE',
   'gee:terms_of_use': |||
     The GHSL has been produced by the European Commission Joint Research Centre
