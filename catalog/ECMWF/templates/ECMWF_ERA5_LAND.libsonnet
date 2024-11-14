@@ -500,6 +500,13 @@ local meters_eq = 'm of water equivalent';
         forecast time to the end of the forecast step.
       |||,
       units: meters_eq,
+      note: |||
+
+        Note: Due to a known issue with ECMWF data, this band has values
+        corresponding to the evaporation_from_vegetation_transpiration band.
+        Users are encouraged to perform their own validation before using this
+        band.
+      |||,
     },
     {
       name: 'evaporation_from_open_water_surfaces_excluding_oceans',
@@ -510,6 +517,12 @@ local meters_eq = 'm of water equivalent';
         forecast step.
       |||,
       units: meters_eq,
+      note: |||
+
+        Note: Due to a known issue with ECMWF data, this band has values
+        corresponding to the evaporation_from_bare_soil band. Users are
+        encouraged to perform their own validation before using this band.
+      |||,
     },
     {
       name: 'evaporation_from_the_top_of_canopy',
@@ -531,6 +544,13 @@ local meters_eq = 'm of water equivalent';
         forecast step.
       |||,
       units: meters_eq,
+      note: |||
+
+        Note: Due to a known issue with ECMWF data, this band has values
+        corresponding to the
+        evaporation_from_open_water_surfaces_excluding_oceans band. Users are
+        encouraged to perform their own validation before using this band.
+      |||,
     },
     {
       name: 'potential_evaporation',
