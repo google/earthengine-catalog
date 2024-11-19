@@ -62,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Global Change Observation Mission (GCOM)', 'https://suzaku.eorc.jaxa.jp/GCOM/index.html'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2021-11-29T00:00:00Z', null),
+  extent: ee.extent_global('2018-01-22T00:00:00Z', null),
   summaries: {
     'gee:schema': [
       {
