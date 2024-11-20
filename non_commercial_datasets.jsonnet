@@ -50,7 +50,10 @@
   'Oxford/MAP/LST_Night_5km_Monthly',
   'Oxford/MAP/TCB_5km_Monthly',
   'Oxford/MAP/TCW_5km_Monthly',
+  'projects/forestdatapartnership/assets/palm',
+  'projects/forestdatapartnership/assets/cocoa',
+  'projects/forestdatapartnership/assets/rubber',
   'UN/Geodata/BNDA_simplified/current',
   'WCMC/WDOECM',
-  'WRI/SBTN/naturalLands/v1'
+  'WRI/SBTN/naturalLands/v1',
 ]
