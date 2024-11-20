@@ -75,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       [doi:10.3390/rs13040813](https://doi.org/10.3390/rs13040813).',
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'climate_change',
     'disturbance',
