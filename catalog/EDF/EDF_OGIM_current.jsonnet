@@ -141,7 +141,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
          ID number(s) linking the record to its corresponding original data
          source(s). To look up the citation for a given SRC_REF_ID value, refer
-         to the Data Source Reference list (PDF) here, or the "Data_Catalog"
+         to the [Data Source Reference list](https://zenodo.org/records/13259749), or the "Data_Catalog"
          table in the GeoPackage that accompanies [Omara et al (2023)](https://doi.org/10.5194/essd-15-3761-2023).
         |||,
         type: ee_const.var_type.int,
