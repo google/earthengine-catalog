@@ -469,8 +469,26 @@ class Collection:
       yield Link.from_stac(link)
 
   def providers(self) -> Iterator[Provider]:
-    for provider in self.stac_json['providers']:
-      yield Provider.from_stac(provider)
+    """Returns a list of Provider objects."""
+    if 'providers' in self.stac_json:
+      for index, stac_provider in enumerate(self.stac_json['providers']):
+        if stac_provider['name'] == 'Google Earth Engine':
+          continue
+        provider = Provider.from_stac(stac_provider)
+        if index == 0:
+          # Only add these to the first provider.
+          provider.instruments = self.stac_json['summaries'].get(
+              'instruments', []
+          )
+          provider.platforms = self.stac_json['summaries'].get('platform', [])
+          provider.file_links = []
+          for link in self.links(Rel.SOURCE):
+            href = link.href
+            if href:
+              provider.file_links.append(href)
+        yield provider
+    else:
+      return
 
   def dois(self) -> list[str]:
     """Returns all the DOIs found in links and the doi fields."""
