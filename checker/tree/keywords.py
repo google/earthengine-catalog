@@ -223,6 +223,7 @@ EXCEPTIONS = frozenset({
     'river_networks',
     'rmrs',
     'rtma',
+    'rubber',
     'salinity',
     'saltmarsh',
     'seagrass',
