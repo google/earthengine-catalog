@@ -44,11 +44,6 @@ local self_url = catalog_subdir_url + base_filename;
     [Forest Data Partnership repo](https://github.com/google/forest-data-partnership/tree/main/models/cocoa)
     on Github.
 
-    artifacts based on data availability, cross-track nonuniformity, or
-    cloudiness may be visually apparent in output probabilities and result in
-    classification errors at some thresholds.
-    Geographic scope: Côte d'Ivoire, Ghana.
-
     The primary purpose of this image collection is to support the mission of
     the [Forest Data Partnership](https://www.forestdatapartnership.org/)
     which aims to halt and reverse forest loss from commodity production
@@ -64,10 +59,15 @@ local self_url = catalog_subdir_url + base_filename;
     additional data to improve these layers, please contact
     [https://goo.gle/fdap-data](https://goo.gle/fdap-data).
 
-    **Limitations**: Model output is limited to selected countries as calendar year composites
-    for 2020 and 2023. Not all regions of the output are represented by training
-    data. Accuracy is reported in aggregate, is based on a notional threshold,
-    and will vary geographically and with user chosen thresholds. Sensor
+    **Limitations**: Model output is limited to selected countries as calendar
+    year composites for 2020 and 2023. Not all regions of the output are
+    represented by training data. Accuracy is reported in aggregate, is based on
+    a notional threshold, and will vary geographically and with user chosen
+    thresholds. Sensor artifacts based on data availability, cross-track
+    nonuniformity, or cloudiness may be visually apparent in output
+    probabilities and result in classification errors at some thresholds.
+    Geographic scope: Côte d'Ivoire, Ghana.
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
