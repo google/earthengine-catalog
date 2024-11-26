@@ -59,6 +59,17 @@ local self_url = catalog_subdir_url + base_filename;
     additional data to improve these layers, please contact 
     [https://goo.gle/fdap-data](https://goo.gle/fdap-data).
 
+    **Limitations**: Model output is limited to selected countries as calendar
+    year composites for 2020 and 2023. Not all regions of the output are
+    represented by training data. Accuracy is reported in aggregate, is based
+    on a notional threshold, and will vary geographically and with user chosen
+    thresholds. Sensor artifacts based on data availability, cross-track
+    nonuniformity, or cloudiness may be visually apparent in output
+    probabilities and result in classification errors at some thresholds.
+    Geographic scope:  SE Asia (Thailand, Indonesia, Vietnam, Malaysia,
+    Philippines, Hainan Island), Africa (Côte d'Ivoire, Ghana).
+
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -72,6 +83,7 @@ local self_url = catalog_subdir_url + base_filename;
     'landuse',
     'rubber',
     'plantation',
+    'pre_review'
   ],
   providers: [
     ee.producer_provider(
