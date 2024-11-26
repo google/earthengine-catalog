@@ -31,6 +31,10 @@ local self_url = catalog_subdir_url + base_filename;
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
   description: |||
+
+    **Note: This dataset is not yet peer-reviewed.  Please see the GitHub 
+    README associated with this model for more information.**
+
     This image collection provides per-pixel probability that the underlying
     area is occupied by palm.
 
@@ -76,14 +80,7 @@ local self_url = catalog_subdir_url + base_filename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(
-    92.99,
-    -11.94,
-    132.71,
-    11.71,
-    '2020-01-01T00:00:00Z',
-    '2023-12-31T23:59:59Z'
-  ),
+  extent: ee.extent_global('2020-01-01T00:00:00Z', '2023-12-31T23:59:59Z'),
   summaries: {
     'eo:bands': [
       {
@@ -117,7 +114,7 @@ local self_url = catalog_subdir_url + base_filename;
     “Produced by Google for the Forest Data Partnership”. 
 
     For commercial use of the dataset you may request access using 
-    [this form](https://docs.google.com/forms/d/e/1FAIpQLSds44ghXX2cfDT5sJJEoa-R7X0zff6TKVGZGLypKZvMkT6wKQ/viewform?usp=sf_link).
+    [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform).
     Access will be granted or denied on a case by case basis. Commercial use 
     of the dataset is subject to the [Forest Data Partnership Datasets 
     Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
