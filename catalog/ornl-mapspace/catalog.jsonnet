@@ -4,7 +4,7 @@ local ee = import 'earthengine.libsonnet';
 
 local basename = 'catalog';
 local base_filename = basename + '.json';
-local base_url = ee_const.catalog_base + 'mapspace-ornl/';
+local base_url = ee_const.catalog_base + 'ornl-mapspace/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
@@ -14,13 +14,13 @@ local self_url = base_url + base_filename;
   id: id,
   title: id,
   description: |||
-    Datasets shared by the
-    [The Geospatial Science and Human Security Division in Oak Ridge National Laboratory](https://www.ornl.gov/gshsd).
+    Global POI-based Landuse Datasets generated and shared by the
+    [The Geospatial Science and Human Security Division in Oak Ridge National Laboratory](https://mapspace.ornl.gov/).
   |||,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('ornl-mapspace_assets_mapspace_3c_grid', base_url)
+    ee.link.child_collection('projects_ornl-mapspace_assets_grid_3c', base_url),
       ],
 }
