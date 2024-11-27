@@ -29,7 +29,6 @@ local self_url = catalog_subdir_url + base_filename;
   version: version,
   title: 'Cocoa Probability model ' + version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
 
     **Note: This dataset is not yet peer-reviewed.  Please see the GitHub

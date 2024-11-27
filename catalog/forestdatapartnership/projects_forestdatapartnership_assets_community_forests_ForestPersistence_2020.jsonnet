@@ -29,7 +29,6 @@ local self_url = catalog_subdir_url + base_filename;
   version: version,
   title: 'Forest Persistence ' + version,
   'gee:type': ee_const.gee_type.image,
-  'gee:status': 'beta',
   description: |||
 
     **Note: This dataset is not yet peer-reviewed.  Please see the GitHub 
