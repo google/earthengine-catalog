@@ -268,6 +268,7 @@ EXCEPTIONS = frozenset({
     'tropical',
     'urban_gradient',
     'ukraine',
+    'undisturbed_forest',
     'unep',
     'utokyo',
     'viirs_derived',
