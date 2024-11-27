@@ -12,15 +12,15 @@ var img_mosaic = ms_grid3c.mosaic();
 var ms_grid3cVis = {bands: 'label',min: 10, max: 30, palette: ['3eca76','cf6aa6','e6e5d8']};
 
 
-var lon = 8.25;
-var lat = 37.06;
+var lon = 18.25;
+var lat = 8.06;
 
 Map.setCenter(lon, lat, 4);
 
 // Degrees in EPSG:3857.
-var delta = 15;
+var delta = 45;
 // Width and Height of the thumbnail image.
-var pixels = 512;
+var pixels = 256;
 
 var areaOfInterest = ee.Geometry.Rectangle(
   [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
