@@ -1,9 +1,14 @@
 local id = 'JRC/GFC2020/V1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/jrc_gfc2020_versions.libsonnet';
+
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -20,10 +25,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'EC JRC global map of forest cover 2020, V1',
-  version: 'V1',
+  title: 'EC JRC global map of forest cover 2020, V1 [deprecated]',
+  version: version,
   // The collection contains tiles for a global mosaic.
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'deprecated',
   description: |||
     The EC JRC global map of forest cover provides a spatially explicit representation
     of forest presence and absence for the year 2020 at 10m spatial resolution.
@@ -74,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Please also refer to the [list of known issues](https://forobs.jrc.ec.europa.eu/GFC) and to the [JRC Data Catalogue entry](https://data.jrc.ec.europa.eu/dataset/10d1b337-b7d1-4938-a048-686c8185b290).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'eudr',
     'forest',
