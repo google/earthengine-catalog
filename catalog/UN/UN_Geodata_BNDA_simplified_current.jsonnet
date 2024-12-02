@@ -184,7 +184,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     users must credit the UN as the source in their creations. The data is
     provided "as is" without warranties, and the UN is not liable for any
     damages or losses arising from its use. Please refer this
-    [page](https://drive.google.com/file/d/1ADChwVCVwgaNwIo9OTMwATp9b21iOpI3/view?resourcekey=0-8loAZp_t-wTzafeASPXy4g)
+    [page](https://developers.google.com/earth-engine/datasets/papers/BNDA_terms_of_use.pdf)
     for more information.
 
     Note:
