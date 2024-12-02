@@ -35,7 +35,7 @@ local license = spdx.proprietary;
 
     ERA5-Land data is available from 1950 to three months from real-time. More
     information can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land-monthly-means?tab=overview).
+    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land-monthly-means?tab=overview).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
@@ -43,7 +43,7 @@ local license = spdx.proprietary;
   providers: [
     ee.producer_provider(
       'Copernicus Climate Data Store',
-      'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land-monthly-means?tab=overview'
+      'https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land-monthly-means?tab=overview'
     ),
     ee.host_provider(version_config.ee_catalog_url),
   ],

@@ -59,7 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'wind',
   ],
   providers: [
-    ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels'),
+    ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1979-01-02T00:00:00Z', null),
@@ -314,7 +314,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:citation': |||
     Copernicus Climate Change Service (C3S) (2017): ERA5: Fifth generation of ECMWF atmospheric reanalyses of the global climate.
-    Copernicus Climate Change Service Climate Data Store (CDS), (date of access), [https://cds.climate.copernicus.eu/cdsapp#!/home](https://cds.climate.copernicus.eu/cdsapp#!/home)
+    Copernicus Climate Change Service Climate Data Store (CDS), (date of access), [https://cds.climate.copernicus.eu](https://cds.climate.copernicus.eu)
   |||,
   'gee:interval': {
     type: 'cadence',

@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'Daily Aggregates: Google and Copernicus Climate Data Store',
-      'https://cds.climate.copernicus.eu/cdsapp'
+      'https://cds.climate.copernicus.eu'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
