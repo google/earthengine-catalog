@@ -88,19 +88,19 @@ local units = import 'units.libsonnet';
     {
       name: 'residential',
       description: 'probability of being residential landuse',
-      'gee.units': units.percent,
+      'gee:units': units.percent,
       
     },
         {
       name:'non-residential',
       description: 'probability of being non-residential landuse',
-      'gee.units': units.percent,
+      'gee:units': units.percent,
       
     },
         {
       name:'open-space',
       description:'probability of being open space landuse',
-      'gee.units': units.percent,
+      'gee:units': units.percent,
       
     },
     ],
