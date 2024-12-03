@@ -285,6 +285,11 @@ EXCEPTIONS = frozenset({
     'zcta',
     'zinc',
     'zip_code',
+    'residential',
+    'non_residential',
+    'point_of_interest',
+    'mapspace'
+
 })
 
 
