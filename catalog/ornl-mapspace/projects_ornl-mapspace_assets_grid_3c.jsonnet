@@ -8,7 +8,7 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.cc0_1_0;
 
 local basename = std.strReplace(id, '/', '_');
-// local basename = 'ornl-mapspace_assets_mapspace_3c_grid';
+
 
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -38,12 +38,7 @@ local units = import 'units.libsonnet';
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-    // TODO(bhass-neon): Add doi link.
-    // {
-    //   rel: ee_const.rel.cite_as,
-    //   href: '',
-    //   type: ee_const.media_type.html,
-    // },
+
   ],
   keywords: [
     'landuse',
@@ -88,19 +83,19 @@ local units = import 'units.libsonnet';
     {
       name: 'residential',
       description: 'probability of being residential landuse',
-      'gee:units': units.percent,
+      
       
     },
         {
       name:'non-residential',
       description: 'probability of being non-residential landuse',
-      'gee:units': units.percent,
+   
       
     },
         {
       name:'open-space',
       description:'probability of being open space landuse',
-      'gee:units': units.percent,
+    
       
     },
     ],
