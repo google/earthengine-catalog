@@ -287,7 +287,7 @@ EXCEPTIONS = frozenset({
     'zip_code',
     'residential',
     'non_residential',
-    'point_of_interest',
+    'points_of_interest',
     'mapspace'
 
 })
