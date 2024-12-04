@@ -6,9 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.cc0_1_0;
-
 local basename = std.strReplace(id, '/', '_');
-
 
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -23,10 +21,10 @@ local units = import 'units.libsonnet';
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'MapSpace Global Residential/Non_Residential Landuse Model',
+  title: 'MapSpace Global Residential/Non_Residential Land Use Model',
   'gee:type': ee_const.gee_type.image_collection,
   description: ||| 
-    Global residential/non-residential landuse classification generated based on spatial distribution and semantic attributes of Points of Interest(POI) data.
+    Global residential/non-residential land use classification generated based on spatial distribution and semantic attributes of Points of Interest (POI) data.
       
     Please refer to the [journal article](https://doi.org/10.1080/17538947.2023.2174607) for technical details about the methodology used to generate the dataset. 
 
@@ -41,27 +39,23 @@ local units = import 'units.libsonnet';
 
   ],
   keywords: [
-    'landuse',
-    'residential',
+    'land_use',
     'points_of_interest',
-    'non_residential',
-    'mapspace',
     'ornl'
   ],
   providers: [
-    ee.producer_provider('ORNL', 'https://mapspace.ornl.gov/'),
+    ee.producer_provider('ORNL', 'https://doi.org/10.17605/OSF.IO/395ZF'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2024-11-01T00:00:00Z', '2025-11-01T00:00:00Z'),
   summaries: {
 
     gsd: [500],
-    platform: ['ORNL'],
  
     'eo:bands': [
       {
-      name: 'label',
-      description: 'landuse class labels',
+      name: 'classification',
+      description: 'Land use class labels',
       'gee:classes': [
           {
             value: 10,
@@ -82,25 +76,19 @@ local units = import 'units.libsonnet';
     }, 
     {
       name: 'residential',
-      description: 'probability of being residential landuse',
-      
-      
+      description: 'Probability of being residential land use',     
     },
         {
       name:'non-residential',
-      description: 'probability of being non-residential landuse',
-   
-      
+      description: 'Probability of being non-residential land use',    
     },
-        {
+    {
       name:'open-space',
-      description:'probability of being open space landuse',
-    
-      
+      description:'Probability of being open space land use',
     },
     ],
     'gee:visualizations': [{
-      display_name: 'Residential/Non-Residential Landuse Model',
+      display_name: 'Residential/Non-Residential Land Use Model',
       lookat: {lon: -88.25, lat: 37.06, zoom: 8},
       image_visualization: {
         band_vis: {
@@ -119,8 +107,10 @@ local units = import 'units.libsonnet';
   
   
   'sci:citation': ||| 
-  Fan, J., & Thakur, G. (2023). Towards POI-based large-scale land use modeling: spatial scale, semantic granularity and geographic context. International Journal of Digital Earth, 16(1), 430–445. [https://doi.org/10.1080/17538947.2023.2174607](https://doi.org/10.1080/17538947.2023.2174607)
   Fan, Junchuan & Thakur, Gautam (2024), Three-class Global POI-based land use map, Dataset, [https://doi.org/10.17605/OSF.IO/395ZF](https://doi.org/10.17605/OSF.IO/395ZF)
+|||,
+  'sci:publications': ||| 
+  Fan, J., & Thakur, G. (2023). Towards POI-based large-scale land use modeling: spatial scale, semantic granularity and geographic context. International Journal of Digital Earth, 16(1), 430–445. [https://doi.org/10.1080/17538947.2023.2174607](https://doi.org/10.1080/17538947.2023.2174607)
 |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
