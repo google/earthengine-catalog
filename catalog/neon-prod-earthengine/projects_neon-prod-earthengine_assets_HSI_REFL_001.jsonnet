@@ -44,8 +44,11 @@ local units = import 'units.libsonnet';
     Documentation: [NEON DP3.30006.001 Spectrometer orthorectified surface directional reflectance - mosaic Quick Start
     Guide](https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30006.001v1?inline=true&fallback=html)
 
-    Tutorial: [Intro to AOP Data in Google Earth Engine Tutorial Series](
+    Get started by exploring the [Intro to AOP Data in Google Earth Engine Tutorial Series](
     https://www.neonscience.org/resources/learning-hub/tutorials/intro-aop-data-google-earth-engine-tutorial-series)
+
+    Browse and interact with AOP data in the [NEON AOP GEE Data Viewer App](
+    https://neon-prod-earthengine.projects.earthengine.app/view/neon-aop-gee-data-viewer---desktop)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -97,6 +100,12 @@ local units = import 'units.libsonnet';
       {
         name: 'NEON_SITE',
         description: 'NEON four-digit site code. See ' +
+        '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'NEON_SITE_NAME',
+        description: 'Full name of the NEON site. See ' +
         '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
         type: ee_const.var_type.string,
       },
