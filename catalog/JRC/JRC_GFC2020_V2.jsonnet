@@ -61,7 +61,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     project serves as one baseline layer to define the extent of tree cover for
     year 2020 at 10 m spatial resolution. In 2024, the global map of forest
     cover 2020 was improved by integrating user feedback, and new or revised
-    spatial data layers. For direct access and metadata, please consult the JRC
+    spatial data layers.
+
+    It now better captures temporally unstocked forests, low-density
+    tropical forests, and secondary tropical forests that have regrown for at
+    least five years. Additionally, the exclusion criteria have been enhanced
+    to more effectively exclude trees in urban areas, mining sites, wetlands,
+    areas with shifting cultivation, and tree plantations. This is achieved by
+    utilizing multiple global maps of canopy height, crop area, and specific
+    crop commodity maps to more accurately distinguish forests from trees
+    under agricultural use.
+
+    For direct access and metadata, please consult the JRC
     data catalogue ([JRC 2024](https://data.jrc.ec.europa.eu/dataset/e554d6fb-6340-45d5-9309-332337e5bc26)). A technical report ([Bourgoin et al 2024](https://op.europa.eu/en/publication-detail/-/publication/f9baaa45-e73f-11ee-9ea8-01aa75ed71a1/language-en))
     describes the mapping approach for the first version; a technical report for
     version 2 is forthcoming. The global map of forest cover may be revised if
