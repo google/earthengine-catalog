@@ -110,8 +110,8 @@ local units = import 'units.libsonnet';
   Fan, Junchuan & Thakur, Gautam (2024), Three-class Global POI-based land use map, Dataset, [https://doi.org/10.17605/OSF.IO/395ZF](https://doi.org/10.17605/OSF.IO/395ZF)
 |||,
   'sci:publications':  
-  [Fan, J., & Thakur, G. (2023). Towards POI-based large-scale land use modeling: spatial scale, semantic granularity and geographic context. International Journal of Digital Earth, 16(1), 430–445. [https://doi.org/10.1080/17538947.2023.2174607](https://doi.org/10.1080/17538947.2023.2174607),
-  Thakur, G., & Fan, J. (2021). MapSpace: POI-based Multi-Scale Global Land Use Modeling. GIScience Conference 2021. https://doi.org/10.25436/E2Z59N]
+  [ 'Fan, J., & Thakur, G. (2023). Towards POI-based large-scale land use modeling: spatial scale, semantic granularity and geographic context. International Journal of Digital Earth, 16(1), 430–445. [https://doi.org/10.1080/17538947.2023.2174607](https://doi.org/10.1080/17538947.2023.2174607)',
+  'Thakur, G., & Fan, J. (2021). MapSpace: POI-based Multi-Scale Global Land Use Modeling. GIScience Conference 2021. https://doi.org/10.25436/E2Z59N']
 ,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
