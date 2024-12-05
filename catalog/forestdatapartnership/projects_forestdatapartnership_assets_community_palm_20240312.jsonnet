@@ -1,14 +1,16 @@
 local id = 'projects/forestdatapartnership/assets/community_palm/20240312';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/projects_forestdatapartnership_assets_palm_versions.libsonnet';
 local subdir = 'forestdatapartnership';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
-
-local version = '20240312';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -27,7 +29,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Palm Probability v' + version,
+  'gee:status': 'deprecated',
+  title: 'Palm Probability v' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This image collection provides per-pixel probability that the underlying
@@ -63,7 +66,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   keywords: [
     'deforestation',
     'eudr',
