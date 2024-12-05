@@ -569,10 +569,33 @@ local license = spdx.proprietary;
     ],
   },
   'sci:citation': |||
-    See "Terms of Use" for citation requirements.
+    For Real-Time Experimental Data, please see the applicable Terms of Use
+    for citation requirements.
+
+    If you disclose findings arising from the Historical Data, you must cite
+    "© 2024 DeepMind Technologies Limited's machine learning models used to
+    create the experimental data made available at
+    [https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_59572747_4_0](https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_59572747_4_0)
+    under CC BY 4.0 licence terms. This data is intended for experimental
+    modelling only and is not intended, validated, or approved for real
+    world use."
   |||,
   'gee:unusual_terms_of_use': true,
   'gee:terms_of_use': |||
-    [Terms Of Use](https://storage.googleapis.com/weathernext/terms-of-use.pdf)
+    The Historic Experimental Data is licensed under the Creative Commons
+    Attribution International License, Version 4.0 (CC BY 4.0).
+
+    The Real-Time Experimental Data is made available under the following
+    GDM Real-Time Weather Forecasting Experimental Data Terms of Use:
+
+    [Terms Of Use](https://storage.googleapis.com/weathernext-public/terms-of-use.pdf)
+
+    ## Third-party materials
+
+    Use of the third-party materials referred to in the Acknowledgements
+    section may be governed by separate terms and conditions or license
+    provisions. Your use of the third-party materials is subject to any such
+    terms and you should check that you can comply with any applicable
+    restrictions or terms and conditions before use.
   |||,
 }
