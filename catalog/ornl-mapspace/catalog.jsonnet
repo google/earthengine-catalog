@@ -9,7 +9,6 @@ local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
 {
-  'gee:status': 'beta',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,

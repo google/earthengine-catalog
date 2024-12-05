@@ -127,4 +127,6 @@ local units = import 'units.libsonnet';
 ,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:user_uploaded': true,
+  'gee:status': 'beta',
+
 }
