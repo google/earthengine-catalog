@@ -74,7 +74,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'dominant_class',
-        description: 'Dominant class derived through probability maps.',
+        description: 'Dominant class derived through Random Forest and probability maps.',
         gsd: 30,
         'gee:classes': [
           {value: 0, color: 'ffffff', description: 'Other'},
@@ -83,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         ],
       }
     ],
-    probability: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    dominant_class: {minimum: 0, maximum: 2, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Dominant grassland class',
