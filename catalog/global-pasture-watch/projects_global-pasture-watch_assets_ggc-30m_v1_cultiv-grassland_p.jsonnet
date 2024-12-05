@@ -17,7 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   description: |||
     This dataset provides global annual probabilitiy maps of cultivated
-    grassland from 2000 to 2022 at 30-m spatial resolution. Produced by Land &
+    grassland from 2000 to 2022 at 30-m spatial resolution. Produced by Land &#38;
     Carbon Lab Global Pasture Watch initiative, the mapped grassland extent
     includes any land cover type, which contains at least 30% of dry or wet
     low vegetation, dominated by grasses and forbs (less than 3 meters) 
@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - maximum of 50% tree canopy cover (greater than 5 meters),
     - maximum of 70% of other woody vegetation (scrubs and open shrubland), and
     - maximum of 50% active cropland cover in mosaic landscapes of cropland
-     & other vegetation.
+     &#38; other vegetation.
     
     The grassland extent is classified into two classes:
     - Cultivated grassland: Areas where grasses and other forage plants have
@@ -55,7 +55,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)
   |||,
   keywords: [
-    'landsat-derived',
     'land',
     'landcover',
     'landuse',
@@ -64,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   providers: [
-    ee.producer_provider('Land & Carbon Lab Global Pasture Watch', 'https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring'),
+    ee.producer_provider('Land &#38; Carbon Lab Global Pasture Watch', 'https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
@@ -76,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         gsd: 30
       }
     ],
-    band_name_1: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    probability: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Cultivated grassland probability value',
@@ -86,10 +85,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             min: [0],
             max: [100],
             palette: [
-              '#f5f5f5',
-              '#fdaf27',
-              '#ae7947',
-              '#3a2200'
+              'f5f5f5',
+              'fdaf27',
+              'ae7947',
+              '3a2200'
             ],
             bands: ['probability'],
           }
@@ -100,8 +99,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'version',
         description: 'Product version',
-        type: ee_const.var_type.int,
-        'units': 'version',
+        type: ee_const.var_type.int
       },
     ],
   },
@@ -112,7 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
 
-  'sci:doi': 'http://doi.org/10.1038/s41597-024-04139-6',
+  'sci:doi': '10.1038/s41597-024-04139-6',
   'sci:citation': |||
     Parente, L., Sloat, L., Mesquita, V., et al. (2024).
     Annual 30-m maps of global grassland class and extent (2000–2022) 
