@@ -4,7 +4,7 @@ var cultiv_grassland = ee.ImageCollection(
   "projects/global-pasture-watch/assets/ggc-30m/v1/cultiv-grassland_p"
 )
 var min_prob = 32 // Probability threshold
-var visParams = {min: 0, max: 100, palette: 'f5f5f5,fdaf27,ae7947,3a2200'}
+var visParams = {min: 15, max: 85, palette: 'f5f5f5,fdaf27,ae7947,3a2200'}
 
 var cultiv_grassland_2022 = cultiv_grassland.filterDate('2022-01-01', '2023-01-01').first();
 Map.addLayer(

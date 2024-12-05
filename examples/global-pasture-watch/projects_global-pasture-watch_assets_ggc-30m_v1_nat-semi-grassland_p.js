@@ -3,8 +3,8 @@ Map.setCenter(63.72366666, 38.30182604, 4);
 var nat_semi_grassland = ee.ImageCollection(
   "projects/global-pasture-watch/assets/ggc-30m/v1/nat-semi-grassland_p"
 )
-var min_prob = 43 // Probability threshold
-var visParams = {min: 0, max: 100, palette: 'f7f1e5,af8260,803d3b,322c2b'}
+var min_prob = 42 // Probability threshold
+var visParams = {min: 15, max: 85, palette: 'f7f1e5,af8260,803d3b,322c2b'}
 
 var nat_semi_grassland_2022 = nat_semi_grassland.filterDate('2022-01-01', '2023-01-01').first();
 Map.addLayer(

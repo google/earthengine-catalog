@@ -1,4 +1,4 @@
-local id = 'projects/global-pasture-watch/assets/ggc-30m/v1/nat-semi-grassland_p';
+local id = 'projects/global-pasture-watch/assets/ggc-30m/v1/grassland_c';
 local subdir = 'global-pasture-watch';
 local version = '1';
 
@@ -13,11 +13,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual Probabilities of Natural/Semi-natural Grasslands v' + version,
+  title: 'GPW Annual Dominant Class of Crasslands v' + version,
   version: version,
   description: |||
-    This dataset provides global annual probability maps of natural/semi-natural
-    grassland from 2000 to 2022 at 30-m spatial resolution. Produced by Land &#38;
+    This dataset provides global annual dominant class maps of grasslands 
+    (cultivated and natural/semi-natural) from 2000 to 2022 at 30-m spatial 
+    resolution. Produced by Land &#38;
     Carbon Lab Global Pasture Watch initiative, the mapped grassland extent
     includes any land cover type, which contains at least 30% of dry or wet
     low vegetation, dominated by grasses and forbs (less than 3 meters) 
@@ -72,27 +73,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   summaries: {
     'eo:bands': [
       {
-        name: 'probability',
-        description: 'Natural/Semi-natural grassland probability value derived through Random Forest.',
-        gsd: 30
+        name: 'dominant_class',
+        description: 'Dominant class derived through probability maps.',
+        gsd: 30,
+        'gee:classes': [
+          {value: 0, color: 'ffffff', description: 'Other'},
+          {value: 1, color: 'ff9916', description: 'Cultivated grassland '},
+          {value: 2, color: 'ffcd73', description: 'Natural/Semi-natural grassland'},
+        ],
       }
     ],
     probability: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
-        display_name: 'Natural/Semi-natural grassland probability value',
+        display_name: 'Dominant grassland class',
         lookat: {lon: -55.50, lat: -12.20, zoom: 4},
         image_visualization: {
           band_vis: {
             min: [0],
-            max: [100],
+            max: [2],
             palette: [
-              'f7f1e5',
-              'af8260',
-              '803d3b',
-              '322c2b'
+              'ffffff',
+              'ff9916',
+              'ffcd73'
             ],
-            bands: ['probability'],
+            bands: ['dominant_class'],
           }
         },
       }
@@ -105,7 +110,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-
   'gee:interval': {
     type: 'cadence',
     unit: 'year',

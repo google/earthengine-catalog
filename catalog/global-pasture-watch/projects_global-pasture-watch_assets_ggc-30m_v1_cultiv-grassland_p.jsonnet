@@ -22,6 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     includes any land cover type, which contains at least 30% of dry or wet
     low vegetation, dominated by grasses and forbs (less than 3 meters) 
     and a:
+
     - maximum of 50% tree canopy cover (greater than 5 meters),
     - maximum of 70% of other woody vegetation (scrubs and open shrubland), and
     - maximum of 50% active cropland cover in mosaic landscapes of cropland
@@ -41,15 +42,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     In general, they exhibit natural-looking patterns of varied vegetation 
     and clearly ordered hydrological relationships throughout the landscape.
     
-    The implemented methodology considered [GLAD Landsat ARD-2 image 
-    archive](https://glad.umd.edu/ard), accompanied by climatic, 
-    landform and proximity covariates, spatiotemporal machine learning 
-    (per-class Random Forest) and over 2.3 million reference samples 
-    (visually interpreted in Very High Resolution imagery). 
-    Custom probability thresholds (based on five-fold spatial 
-    cross-validation) were used to derive dominant class maps 
-    with balanced precision and recall values, 0.64 and 0.75 
-    for cultivated and natural/semi-natural grassland, respectively.
+    The implemented methodology considered [GLAD Landsat ARD-2 images 
+    ](https://glad.umd.edu/ard) (processed into cloud-free bi-monthly 
+    aggregates, see [Consoli et al, 2024](https://doi.org/10.7717/peerj.18585)
+    ), accompanied by climatic, landform and proximity covariates, 
+    spatiotemporal machine learning (per-class Random Forest) and over 
+    2.3 million reference samples (visually interpreted in Very High 
+    Resolution imagery). Custom probability thresholds (based on five-fold 
+    spatial cross-validation and balanced precision and recall values) 
+    were used to derive dominant class maps, 0.32 and 0.42 for 
+    cultivated and natural/semi-natural grassland probabilities, respectively.
     For more information see [Parente et. al, 2024](http://doi.org/10.1038/s41597-024-04139-6),
     [Zenodo](https://zenodo.org/records/13890401) and 
     [https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)

@@ -8,7 +8,7 @@ var lat = -15.10079993;
 var cultiv_grassland_2020 = cultiv_grassland.filterDate('2020-01-01', '2021-01-01').first();
 
 var palette = ['#f5f5f5', '#fdaf27', '#ae7947', '#3a2200'];
-var vis = {min: 0, max: 100, palette: palette};
+var vis = {min: 15, max: 85, palette: palette};
 
 Map.setCenter(lon, lat, 10);
 Map.addLayer(cultiv_grassland_2020, vis);
@@ -27,5 +27,5 @@ var parameters = {
   format: 'png'
 };
 
-var image = cultiv_grassland_2020.visualize({palette: palette});
+var image = cultiv_grassland_2020.visualize(vis);
 print(ui.Thumbnail({image: image, params: parameters}));
