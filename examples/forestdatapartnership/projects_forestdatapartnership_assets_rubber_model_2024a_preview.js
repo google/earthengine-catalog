@@ -10,7 +10,7 @@ var lat = 11.17099;
 var rubber2020 =
     dataset.filterDate(ee.Date('2020-01-01'), ee.Date('2020-12-31')).first();
 
-var palette = ['#eff3ff', '#bdd7e7', '#6baed6', '#3182bd', '#08519c'];
+var palette = ['ffffff', '880088'];
 var vis = {min: 0, max: 1.0, palette: palette};
 
 // Display land cover on the map.
