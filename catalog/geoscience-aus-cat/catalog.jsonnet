@@ -34,5 +34,6 @@ local self_url = base_url + base_filename;
        'projects_geoscience-aus-cat_assets_ga_ls_wo_fq_cyear_3', base_url),
     ee.link.child_collection(
        'projects_geoscience-aus-cat_assets_ga_ls8cls9c_gm_cyear_3', base_url),
+    ee.link.child_collection('projects_geoscience-aus-cat_assets_ga_s2ls_intertidal_cyear_3', base_url),
   ],
 }
