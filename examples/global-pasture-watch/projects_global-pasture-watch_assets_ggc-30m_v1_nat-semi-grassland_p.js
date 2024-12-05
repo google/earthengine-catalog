@@ -9,11 +9,11 @@ var visParams = {min: 15, max: 85, palette: 'f7f1e5,af8260,803d3b,322c2b'}
 var nat_semi_grassland_2022 = nat_semi_grassland.filterDate('2022-01-01', '2023-01-01').first();
 Map.addLayer(
     nat_semi_grassland_2022.mask(nat_semi_grassland_2022.gte(min_prob)), 
-    visParams, 'Cultivated grassland prob. (2022)'
+    visParams, 'Natural/Semi-natural grassland prob. (2022)'
 );
 
 var nat_semi_grassland_2000 = nat_semi_grassland.filterDate('2000-01-01', '2001-01-01').first();
 Map.addLayer(
     nat_semi_grassland_2000.mask(nat_semi_grassland_2000.gte(min_prob)), 
-    visParams, 'Cultivated grassland prob. (2000)'
+    visParams, 'Natural/Semi-natural grassland prob. (2000)'
 );

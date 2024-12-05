@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Resolution imagery). Custom probability thresholds (based on five-fold 
     spatial cross-validation and balanced precision and recall values) 
     were used to derive dominant class maps, 0.32 and 0.42 for 
-    cultivated and natural/semi-natural grassland probabilities, respectively.
+    cultivated and natural/semi-natural grassland probability thresholds, respectively.
     For more information see [Parente et. al, 2024](http://doi.org/10.1038/s41597-024-04139-6),
     [Zenodo](https://zenodo.org/records/13890401) and 
     [https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)

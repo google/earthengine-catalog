@@ -1,4 +1,4 @@
-Map.setCenter(-56.0780, -13.8429, 4);
+Map.setCenter(-49.265188, -16.602052, 4);
 
 var domi_grassland = ee.ImageCollection(
   "projects/global-pasture-watch/assets/ggc-30m/v1/grassland_c"
