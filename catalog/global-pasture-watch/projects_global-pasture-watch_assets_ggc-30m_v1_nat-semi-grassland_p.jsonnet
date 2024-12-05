@@ -1,4 +1,4 @@
-local id = 'projects/global-pasture-watch/assets/ggc-30m/v1/cultiv-grassland_p';
+local id = 'projects/global-pasture-watch/assets/ggc-30m/v1/nat-semi-grassland_p';
 local subdir = 'global-pasture-watch';
 local version = '1';
 
@@ -13,10 +13,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual Probabilities of Cultivated Grasslands v' + version,
+  title: 'GPW Annual Probabilities of Natural/Semi-natural Grasslands v' + version,
   version: version,
   description: |||
-    This dataset provides global annual probability maps of cultivated
+    This dataset provides global annual probability maps of natural/semi-natural
     grassland from 2000 to 2022 at 30-m spatial resolution. Produced by Land &#38;
     Carbon Lab Global Pasture Watch initiative, the mapped grassland extent
     includes any land cover type, which contains at least 30% of dry or wet
@@ -71,24 +71,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'probability',
-        description: 'Cultivated grassland probability value derived through Random Forest.',
+        description: 'Natural/Semi-natural grassland probability value derived through Random Forest.',
         gsd: 30
       }
     ],
     probability: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
-        display_name: 'Cultivated grassland probability value',
+        display_name: 'Natural/Semi-natural grassland probability value',
         lookat: {lon: -55.50, lat: -12.20, zoom: 4},
         image_visualization: {
           band_vis: {
             min: [0],
             max: [100],
             palette: [
-              'f5f5f5',
-              'fdaf27',
-              'ae7947',
-              '3a2200'
+              'f7f1e5',
+              'af8260',
+              '803d3b',
+              '322c2b'
             ],
             bands: ['probability'],
           }

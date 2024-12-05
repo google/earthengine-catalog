@@ -5,7 +5,7 @@ var cultiv_grassland = ee.ImageCollection(
 var lon = -51.24642275;
 var lat = -15.10079993;
 
-var cultiv_grassland_2020 = cultiv_grassland.filterDate('2022-01-01', '2023-01-01').first();
+var cultiv_grassland_2020 = cultiv_grassland.filterDate('2020-01-01', '2021-01-01').first();
 
 var palette = ['#f5f5f5', '#fdaf27', '#ae7947', '#3a2200'];
 var vis = {min: 0, max: 100, palette: palette};
@@ -24,8 +24,7 @@ var parameters = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
   crs: 'EPSG:3857',
-  format: 'png',
-  forceRgbOutput: true,
+  format: 'png'
 };
 
 var image = cultiv_grassland_2020.visualize({palette: palette});
