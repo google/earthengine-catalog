@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   providers: [
-    ee.producer_provider('Land &#38; Carbon Lab Global Pasture Watch', 'https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring'),
+    ee.producer_provider('Land and Carbon Lab Global Pasture Watch', 'https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
