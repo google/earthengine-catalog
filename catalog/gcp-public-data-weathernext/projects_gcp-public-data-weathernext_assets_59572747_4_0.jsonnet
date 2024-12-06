@@ -16,8 +16,6 @@ local self_url = catalog_subdir_url + base_filename;
 local license = spdx.proprietary;
 
 {
-  // TODO(samier): Remove when the dataset is ready.
-  'gee:status': 'beta',
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
