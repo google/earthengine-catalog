@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local ggc30m_v1 = importstr 'ggc-30m_v1.md';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
