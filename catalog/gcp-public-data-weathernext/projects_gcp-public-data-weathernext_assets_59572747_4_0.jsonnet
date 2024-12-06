@@ -47,7 +47,7 @@ local license = spdx.proprietary;
     out this [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform).
 
     More information on the model is in "[Learning skillful
-    medium-range global weather forecasting](https://www.science.org/stoken/author-tokens/ST-1550/full)"
+    medium-range global weather forecasting](https://www.science.org/stoken/author-tokens/ST-1550/full)".
 
     If you have any questions on using this experimental dataset, or would
     like to use it for purposes not currently permitted under the terms of use
