@@ -30,12 +30,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      &#38; other vegetation.
     
     The grassland extent is classified into two classes:
-    - Cultivated grassland: Areas where grasses and other forage plants have
+    - **Cultivated grassland**: Areas where grasses and other forage plants have
     been intentionally planted and managed, as well as areas of native 
     grassland-type vegetation where they clearly exhibit active and
     heavy management for specific human-directed uses, such as directed
     grazing of livestock.
-    - Natural/Semi-natural grassland: Relatively undisturbed native
+    - **Natural/Semi-natural grassland**: Relatively undisturbed native
     grasslands/short-height vegetation, such as steppes and tundra, 
     as well as areas that have experienced varying degrees of human 
     activity in the past, which may contain a mix of native and 
@@ -53,9 +53,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     spatial cross-validation and balanced precision and recall values) 
     were used to derive dominant class maps, 0.32 and 0.42 for 
     cultivated and natural/semi-natural grassland probability thresholds, respectively.
-    For more information see [Parente et. al, 2024](http://doi.org/10.1038/s41597-024-04139-6),
+    
+    **Limitations:** Grassland extent is partly under-predicted in southeastern
+    Africa (Zimbabwe and Mozambique) and in eastern Australia (shrublands and
+    woodlands of the Mulga ecoregion). Cropland is misclassified as grassland
+    in parts of northern Africa, the Arabian Peninsula, Western Australia, 
+    New Zealand, the center of Bolivia, and Mato Grosso state (Brazil). Due 
+    to the Landsat 7 SLC failure, regular stripes of grassland probabilities 
+    are visible at parcel-level, particularly in the year 2012. The usage of 
+    coarser resolution layers (accessibility maps and MODIS products) 
+    introduced curvilinear macroscopic errors (due to the downscaling 
+    strategy based on cubicspline) in Uruguay, Southwest Argentina, South 
+    of Angola and in the Sahel region in Africa. Users need to be aware 
+    of the limitations and known issues; whilst considering them 
+    carefully to ensure appropriate use of maps at this initial prediction 
+    stage. GPW is working actively to collect systematic feedback [Geo-Wiki 
+    platform](https://www.geo-wiki.org), validate the current version 
+    and improve future versions of the dataset.
+
+    **For more information see [Parente et. al, 2024](http://doi.org/10.1038/s41597-024-04139-6),
     [Zenodo](https://zenodo.org/records/13890401) and 
-    [https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)
+    [https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)**
   |||,
   keywords: [
     'land',
