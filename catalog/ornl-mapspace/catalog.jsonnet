@@ -14,8 +14,8 @@ local self_url = base_url + base_filename;
   id: id,
   title: id,
   description: |||
-    Global POI-based land use datasets generated and shared by the
-    [The Geospatial Science and Human Security Division in Oak Ridge National Laboratory](https://mapspace.ornl.gov/).
+    Global POI-based land use datasets generated and shared by the [The Geospatial Science and Human Security Division in Oak Ridge National Laboratory](https://mapspace.ornl.gov/). 
+    This dataset classifies land use into three classes: residential, non-residential and open space. It has a spatial resolution of 500 meters and covers all countries and regions of the world except for the US and Greenland. This dataset has four bands. The pixel values for residential, non-residential and open space bands are probabilities of the area being the land use class. The 'classification' band classifies each pixel into one of the three land use classes with the highest probability.  
   |||,
   links: [
     ee.link.root(),
