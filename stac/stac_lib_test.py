@@ -83,6 +83,11 @@ class CollectionTest(absltest.TestCase):
     with self.assertRaises(KeyError):
       collection['does not exist']  # pylint: disable=pointless-statement
 
+  def test_get_title(self):
+    stac_json = _valid_stac()
+    collection = stac.Collection(stac_json)
+    self.assertEqual('A Title', collection.title())
+
   def test_bbox(self):
     stac_json = _valid_stac()
     stac_json['extent']['spatial'].update({'bbox': [[-1, -2, 3, 4]]})

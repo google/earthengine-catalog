@@ -403,6 +403,9 @@ class Collection:
   def public_id(self) -> str:
     return self['id']
 
+  def title(self) -> str:
+    return self.stac_json['title']
+
   def dataset_type(self) -> stac_checker.GeeType:
     return stac_checker.GeeType(self.stac_json['gee:type'])
 
