@@ -47,7 +47,7 @@ strategy based on cubicspline) in Uruguay, Southwest Argentina, South
 of Angola and in the Sahel region in Africa. Users need to be aware 
 of the limitations and known issues; whilst considering them 
 carefully to ensure appropriate use of maps at this initial prediction 
-stage. GPW is working actively to collect systematic feedback [Geo-Wiki 
+stage. GPW is working actively to collect systematic feedback via the [Geo-Wiki 
 platform](https://www.geo-wiki.org), validate the current version 
 and improve future versions of the dataset.
 

@@ -14,7 +14,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual Dominant Class of Crasslands v' + version,
+  title: 'GPW Annual Dominant Class of Grasslands v' + version,
   version: version,
   description: |||
     This dataset provides global annual dominant class maps of grasslands 
