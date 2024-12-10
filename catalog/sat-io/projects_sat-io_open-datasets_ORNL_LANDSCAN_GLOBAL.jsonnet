@@ -35,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Oak Ridge National Laboratory', 'https://www.ornl.gov/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
+  extent: ee.extent_global('2000-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     gsd: [
       1000,
