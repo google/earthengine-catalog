@@ -22,7 +22,7 @@ var areaOfInterest = ee.Geometry.Rectangle(
 
 // Define parameters for the thumbnail
 var thumbnailParams = {
-  dimensions: 512,
+  dimensions: 256,
   region: areaOfInterest,
   crs: 'EPSG:4326',
   format: 'png'
@@ -35,5 +35,5 @@ Map.addLayer(mosaicImage, {}, 'HLS S30 Mosaic');
 print(ui.Thumbnail({
   image: mosaicImage,
   params: thumbnailParams,
-  style: {width: '512px'}
+  style: {width: '256px'}
 }));
