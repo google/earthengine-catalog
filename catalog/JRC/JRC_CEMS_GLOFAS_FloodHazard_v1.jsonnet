@@ -36,6 +36,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the exposure of population and economic assets to river floods, and to
     perform flood risk assessments. The dataset is created as part of the
     Copernicus Emergency Management Service.
+
+    Note: This dataset may have missing tiles. This collection will be
+    eventually be replaced by v2.1 once it's updated by the provider.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
