@@ -30,23 +30,28 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     WeatherNext Gen is an experimental dataset of global medium-range ensemble
-    weather forecasts produced by Google DeepMind's [diffusion-based ensemble weather model](https://www.nature.com/articles/s41586-024-08252-9).
+    weather forecasts produced by an operational version of Google DeepMind's
+    [diffusion-based ensemble weather model](https://www.nature.com/articles/s41586-024-08252-9).
 
-    The experimental dataset includes real-time (i.e. any data that relates
-    to a time that is no more than 48 hours in the past (“Real-Time
-    Experimental Data”)) and historical ensemble (probabilistic) (i.e. any data
-    that relates to a time that is more than 48 hours ago
-    (“Historic Experimental Data”)) forecasts. This includes major atmospheric
-    and surface fields including temperature, wind, precipitation, humidity,
-    geopotential, vertical velocity, sea surface temperature and pressure. The
-    spatial resolution is 0.25 degrees. New forecast init times have 6 hour
-    resolution (00z, 06z, 12z, 18z) and forecast lead times have 12 hour
-    resolution up to a max lead time of 15 days.
+    The experimental dataset includes real-time and historic data. Real-time
+    data is any data that relates to a time that is no more than 48 hours in
+    the past ("Real-Time Experimental Data"), while historic data is any data
+    that relates to a time that is more than 48 hours ago ("Historic
+    Experimental Data"). This dataset includes major surface fields including
+    temperature, wind, precipitation, humidity, geopotential, sea surface
+    temperature, vertical velocity, and pressure. The spatial resolution is
+    0.25 degrees. Forecast init times have 6 hour resolution (00z, 06z, 12z, 18z).
+    Forecast lead times have 12 hour resolution up to a max lead time of 15 days.
 
     If you are interested in accessing the experimental dataset, please fill
     out this [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform).
 
     More information on the model is described in "[GenCast: Diffusion-based ensemble forecasting for medium-range weather](https://www.nature.com/articles/s41586-024-08252-9)".
+    The model used to produce this experimental dataset is an operational
+    version derived from that research model. Please note that the accuracy
+    of this operational model may not directly correspond to the accuracy
+    reported for the research model, and that additional variables may be
+    included in this forecast dataset.
 
     If you have any questions on using this experimental dataset, or would
     like to use it for purposes not currently permitted under the terms of use
