@@ -105,18 +105,25 @@ local license = spdx.proprietary;
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + [
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
+    },
+  ] + version_config.version_links,
   keywords: [
+    'lcms',
+    'usfs',
+    'usda',
     'change_detection',
     'landcover',
     'landuse',
-    'forest',
-    'landsat',
-    'sentinel',
-    'time_series',
     'gtac',
-    'usda',
-    'usfs',
+    'forest',
+    'landsat_derived',
+    'sentinel_derived',
+    'time_series',
+    'redcastle_resources'
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/'),
@@ -505,11 +512,11 @@ local license = spdx.proprietary;
         name: 'Land_Cover_Raw_Probability_Barren-or-Impervious',
         description: |||
           Raw LCMS modeled probability of Barren or Impervious. Defined as: The majority of the pixel
-          is comprised of 1) bare soil exposed by disturbance (e.g., soil uncovered by mechanical
+          is comprised of 1.) bare soil exposed by disturbance (e.g., soil uncovered by mechanical
           clearing or forest harvest), as well as perennially barren areas such as deserts, playas,
           rock outcroppings (including minerals and other geologic materials exposed by surface mining
           activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
-          considered barren or 2) man-made materials that water cannot penetrate, such as paved roads,
+          considered barren or 2.) man-made materials that water cannot penetrate, such as paved roads,
           rooftops, and parking lots.
         |||,
       },
@@ -878,11 +885,6 @@ local license = spdx.proprietary;
 
     USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
-
-    Note
-
-    * [https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) is the preferred link for citations
-
   |||,
   'gee:user_uploaded': true,
 }
