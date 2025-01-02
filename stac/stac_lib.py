@@ -81,7 +81,6 @@ class Provider:
     if roles:
       roles = [Role(role) for role in roles]
       provider.roles.extend(roles)
-
     return provider
 
 
@@ -466,8 +465,10 @@ class Collection:
       yield Link.from_stac(link)
 
   def providers(self) -> Iterator[Provider]:
-    for provider in self.stac_json['providers']:
-      yield Provider.from_stac(provider)
+    providers = self.stac_json.get('providers')
+    if providers:
+      for provider in providers:
+        yield Provider.from_stac(provider)
 
   def dois(self) -> list[str]:
     """Returns all the DOIs found in links and the doi fields."""
