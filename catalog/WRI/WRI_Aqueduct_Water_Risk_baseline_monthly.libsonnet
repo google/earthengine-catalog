@@ -82,21 +82,25 @@ local units = import 'units.libsonnet';
     {
       name: 'cat',
       description: 'category',
+      short_name: 'c',
       type: ee_const.var_type.int,
     },
     {
       name: 'label',
       description: 'label',
+      short_name: 'l',
       type: ee_const.var_type.string,
     },
     {
       name: 'raw',
       description: 'raw value',
+      short_name: 'r',
       type: ee_const.var_type.double,
     },
     {
       name: 'score',
       description: 'score',
+      short_name: 's',
       type: ee_const.var_type.double,
     },
   ],

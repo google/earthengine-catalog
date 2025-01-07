@@ -21,6 +21,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('WRI_Aqueduct_Flood_Hazard_Maps_V2', base_url),
     ee.link.child_collection('WRI_Aqueduct_Water_Risk_V4_baseline_annual', base_url),
     ee.link.child_collection('WRI_Aqueduct_Water_Risk_V4_baseline_monthly', base_url),
+    ee.link.child_collection('WRI_Aqueduct_Water_Risk_V4_future_annual', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_alerts', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_raw_output_firms', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_raw_output_ndvi', base_url),
