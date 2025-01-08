@@ -30,7 +30,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 and 9 ' + version,
+  'gee:status': 'deprecated',
+  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 and 9 ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product provides statistical tools to exploit the time series of Landsat 8 and 9 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year. For calendar years 2022 onwards, Landsat 8 and 9 are combined to offer improved performance than the standalone Landsat 8, due to using a larger number of observations.
