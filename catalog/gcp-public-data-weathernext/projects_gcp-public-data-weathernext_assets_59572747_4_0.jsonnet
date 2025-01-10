@@ -59,7 +59,7 @@ local license = spdx.proprietary;
     **Accessing Raw Data (.zarr)**
 
     A bucket containing the raw .zarr files for the historical dataset
-    ("Historic Experimental Data") is available at gs://weathernext/59572747_4_0/zarr. To gain access to
+    ("Historic Experimental Data") is available at `gs://weathernext/59572747_4_0/zarr`. To gain access to
     the bucket, please request access through the same [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform?usp=preview),
     and note your interest in receiving access to the raw .zarr files.
 
