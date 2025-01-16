@@ -6,7 +6,6 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-// TODO: b/374801684 - Update license once provider responds.
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
