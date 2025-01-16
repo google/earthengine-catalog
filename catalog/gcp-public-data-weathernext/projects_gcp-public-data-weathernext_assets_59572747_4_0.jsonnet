@@ -114,7 +114,7 @@ local license = spdx.proprietary;
         name: 'end_time',
         description: |||
           The valid time for this specific forecast. Calculated as
-          start_time + forecast_hour
+          start_time + forecast_hour.
         |||,
         type: ee_const.var_type.string,
       },
