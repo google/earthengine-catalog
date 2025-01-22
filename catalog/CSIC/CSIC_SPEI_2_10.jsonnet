@@ -6,7 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local id = 'CSIC/SPEI/2_9';
+local id = 'CSIC/SPEI/2_10';
 local subdir = 'CSIC';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
@@ -14,7 +14,7 @@ local version = version_config.version;
 local license = spdx.cc_by_4_0;
 
 {
-  'gee:status': 'deprecated',
+  'gee:status': 'beta',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -24,7 +24,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'SPEIbase: Standardised Precipitation-Evapotranspiration Index ' +
-    'database, Version ' + version + ' [deprecated]',
+    'database, Version ' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
