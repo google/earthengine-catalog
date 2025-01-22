@@ -191,6 +191,9 @@
   // https://en.wikipedia.org/wiki/Standard_deviation
   standard_deviation: 'Standard deviation',
 
+  // https://en.wikipedia.org/wiki/Viscosity#Kinematic_viscosity
+  squared_meter_per_second: 'm^2/s',
+
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
   // TODO(kumaraashutosh): Temporarily added, we need to double-check with the
