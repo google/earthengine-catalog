@@ -145,7 +145,6 @@ def convert(source_h5, target_tif):
       creationOptions=['COMPRESS=LZW'],
       srcSRS='EPSG:6933',
       dstSRS='EPSG:4326',
-      srcNodata=-9999,
       dstNodata=-9999
    )
 
