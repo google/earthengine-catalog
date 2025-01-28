@@ -14,7 +14,6 @@ local version = version_config.version;
 local license = spdx.cc_by_4_0;
 
 {
-  'gee:status': 'beta',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [

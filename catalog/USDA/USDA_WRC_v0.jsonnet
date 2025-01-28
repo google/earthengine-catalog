@@ -19,7 +19,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_eo,
     ee_const.ext_sci,
   ],
-  'gee:status': 'beta',
   id: id,
   title: 'Wildfire Risk to Communities v0',
   'gee:type': ee_const.gee_type.image_collection,
