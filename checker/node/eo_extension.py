@@ -214,6 +214,7 @@ UNITS = units.UNITS.union({
     'm^2 s-2',
     'm^2/s^2',
     'm^2/m^3',
+    'm^2/s',
     'm^3',
     'meq/100g',
     'meter/year',

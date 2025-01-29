@@ -88,6 +88,17 @@ class CollectionTest(absltest.TestCase):
     collection = stac.Collection(stac_json)
     self.assertEqual('A Title', collection.title())
 
+  def test_get_terms_of_use(self):
+    stac_json = _valid_stac()
+    collection = stac.Collection(stac_json)
+    self.assertEqual('The terms', collection.terms_of_use())
+
+  def test_no_terms_of_use(self):
+    stac_json = _valid_stac()
+    del stac_json['gee:terms_of_use']
+    collection = stac.Collection(stac_json)
+    self.assertEmpty(collection.terms_of_use())
+
   def test_bbox(self):
     stac_json = _valid_stac()
     stac_json['extent']['spatial'].update({'bbox': [[-1, -2, 3, 4]]})

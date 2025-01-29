@@ -21,5 +21,6 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_59572747_4_0', base_url),
+    ee.link.child_collection('projects_gcp-public-data-weathernext_assets_126478713_1_0', base_url),
   ],
 }

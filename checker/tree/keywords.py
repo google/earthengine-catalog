@@ -280,7 +280,6 @@ EXCEPTIONS = frozenset({
     'warmest',
     'watercontent',
     'water_temp',
-    'weathernext',
     'wetness',
     'wettest',
     'whoi',

@@ -23,6 +23,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: 'V003',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+
+    **Note:**
+    Data collection has been paused as of November 28, 2024, due to
+    technical issues with the ASTER instrument. See the USGS
+    [announcement](https://lpdaac.usgs.gov/news/terra-aster-safe-mode-alert/)
+    for more information.
+
     The Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER)
     is a multispectral imager that was launched on board NASA's Terra spacecraft
     in December, 1999. ASTER can collect data in 14 spectral bands from the

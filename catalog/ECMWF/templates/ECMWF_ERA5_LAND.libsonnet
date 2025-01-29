@@ -18,6 +18,15 @@ local meters_eq = 'm of water equivalent';
     goes several decades back in time, providing an accurate description of the
     climate of the past. This dataset includes all 50 variables as available on
     CDS.
+
+    ERA5-Land data is available from 1950 to three months from real-time.
+
+    Please consult [the ERA5-Land "Known Issues" section](https://confluence.ecmwf.int/display/CKB/ERA5-Land%3A+data+documentation). In particular, note that three components of the total evapotranspiration have values swapped as follows:
+
+    * variable "Evaporation from bare soil" (mars parameter code 228101 (evabs)) has the values corresponding to the "Evaporation from vegetation transpiration" (mars parameter 228103 (evavt)),
+    * variable "Evaporation from open water surfaces excluding oceans (mars parameter code 228102 (evaow)) has the values corresponding to the "Evaporation from bare soil" (mars parameter code 228101 (evabs)),
+    * variable "Evaporation from vegetation transpiration" (mars parameter code 228103 (evavt)) has the values corresponding to the "Evaporation from open water surfaces excluding oceans" (mars parameter code 228102 (evaow)).
+
   |||,
   min_max: [{key:'min', value:'minimum'}, {key:'max', value:'maximum'}],
   keywords: [

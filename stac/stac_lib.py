@@ -409,6 +409,9 @@ class Collection:
   def dataset_type(self) -> stac_checker.GeeType:
     return stac_checker.GeeType(self.stac_json['gee:type'])
 
+  def terms_of_use(self) -> str:
+    return self.stac_json.get('gee:terms_of_use', '')
+
   def bbox(self) -> bboxes.BBox:
     return self.bbox_list()[0]
 

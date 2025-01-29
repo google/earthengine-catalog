@@ -32,7 +32,7 @@ local license = spdx.cc_by_4_0;
     about drought conditions at the global scale, with a 0.5 degree pixel size
     and monthly cadence. It provides SPEI time scales from 1 to 48 months.
 
-    The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses,
+    The Standardized Precipitation-Evapotranspiration Index (SPEI) expresses,
     as a standardized variate (mean zero and unit variance), the deviations of
     the current climatic balance (precipitation minus evapotranspiration
     potential) with respect to the long-term balance. The reference period for

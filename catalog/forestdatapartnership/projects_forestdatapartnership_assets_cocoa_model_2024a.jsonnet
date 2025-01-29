@@ -130,7 +130,7 @@ local self_url = catalog_subdir_url + base_filename;
     “Produced by Google for the Forest Data Partnership”.
 
     For commercial use of the dataset you may request access using
-    [this form](https://docs.google.com/forms/d/e/1FAIpQLSds44ghXX2cfDT5sJJEoa-R7X0zff6TKVGZGLypKZvMkT6wKQ/viewform?usp=sf_link).
+    [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform?resourcekey=0-db8WFCPwr2AZRhnrnH2SFg).
     Access will be granted or denied on a case by case basis. Commercial use
     of the dataset is subject to the [Forest Data Partnership Datasets
     Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).

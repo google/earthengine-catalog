@@ -28,28 +28,40 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     WeatherNext Graph is an experimental dataset of global medium-range weather
-    forecasts produced by Google DeepMind's [graphical neural network weather
-    model](https://www.science.org/stoken/author-tokens/ST-1550/full).
+    forecasts produced by an operational version of Google DeepMind's
+    [graphical neural network weather model](https://www.science.org/stoken/author-tokens/ST-1550/full).
 
-    The experimental dataset includes real-time (i.e., any data that relates to
-    a time that is no more than 48 hours in the past ("Real-Time Experimental
-    Data")) and historical (i.e. any data that relates to a time that is more
-    than 48 hours ago ("Historic Experimental Data")) forecasts. This includes
-    major atmospheric and surface fields including temperature, wind,
-    precipitation, humidity, geopotential, vertical velocity, and pressure.
-    The spatial resolution is 0.25 degrees and temporal resolution is 6 hours.
-    Initialisation times are 00z, 06z, 12z, 18z. The data are 6 hour forecasts
-    up to a max lead time of 10 days.
+    The experimental dataset includes real-time and historic data. Real-time
+    data is any data that relates to a time that is no more than 48 hours in
+    the past ("Real-Time Experimental Data"), while historic data is any data
+    that relates to a time that is more than 48 hours ago ("Historic
+    Experimental Data"). This dataset includes major surface fields including
+    temperature, wind, precipitation, humidity, geopotential, vertical velocity,
+    and pressure. The spatial resolution is 0.25 degrees. Forecast init times
+    have 6 hour resolution (00z, 06z, 12z, 18z). Forecast lead times have 6
+    hour resolution up to a max lead time of 10 days.
 
     If you are interested in accessing the experimental dataset, please fill
     out this [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform).
 
     More information on the model is in "[Learning skillful
     medium-range global weather forecasting](https://www.science.org/stoken/author-tokens/ST-1550/full)".
+    The model used to produce this experimental dataset is an operational
+    version derived from that research model. Please note that the accuracy of
+    this operational model may not directly correspond to the accuracy reported
+    for the research model, and that additional variables may be included in
+    this forecast dataset.
 
     If you have any questions on using this experimental dataset, or would
     like to use it for purposes not currently permitted under the terms of use
     set out below, please contact weathernext@google.com.
+
+    **Accessing Raw Data (.zarr)**
+
+    A bucket containing the raw .zarr files for the historical dataset
+    ("Historic Experimental Data") is available at `gs://weathernext/59572747_4_0/zarr`. To gain access to
+    the bucket, please request access through the same [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform?usp=preview),
+    and note your interest in receiving access to the raw .zarr files.
 
     **Acknowledgements**
 
@@ -102,7 +114,7 @@ local license = spdx.proprietary;
         name: 'end_time',
         description: |||
           The valid time for this specific forecast. Calculated as
-          start_time + forecast_hour
+          start_time + forecast_hour.
         |||,
         type: ee_const.var_type.string,
       },
