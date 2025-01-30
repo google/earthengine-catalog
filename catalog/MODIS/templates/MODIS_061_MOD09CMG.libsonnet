@@ -3,7 +3,7 @@ local units = import 'units.libsonnet';
 {
   summaries: {
     gsd: [
-      500.0,
+      5600.0,
     ],
     instruments: [
       'MODIS',
