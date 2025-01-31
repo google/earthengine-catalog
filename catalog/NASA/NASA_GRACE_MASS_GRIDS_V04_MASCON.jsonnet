@@ -1,4 +1,4 @@
-local id = 'NASA/GRACE/MASS_GRIDS_V03/MASCON';
+local id = 'NASA/GRACE/MASS_GRIDS_V04/MASCON';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/MASCON_versions.libsonnet';
 local subdir = 'NASA';
@@ -22,14 +22,13 @@ local version = version_config.version;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GRACE Monthly Mass Grids Release 6.1 Version 3 - Global Mascons [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'GRACE Monthly Mass Grids Release 6.3 Version 4 - Global Mascons',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains gridded monthly global water storage/height anomalies
     relative to a time-mean, derived from GRACE and GRACE-FO and processed at
-    JPL using the Mascon approach (RL06.1Mv03). These data are provided in a
+    JPL using the Mascon approach (RL06.3Mv04). These data are provided in a
     single data file in netCDF format, and can be used for analysis for ocean,
     ice, and hydrology phenomena. The water storage/height anomalies are given
     in equivalent water thickness units (cm). The solution provided here is
@@ -38,24 +37,25 @@ local version = version_config.version;
     spherical harmonic coefficients. Additionally, realistic geophysical
     information is introduced during the solution inversion to intrinsically
     remove correlated error. Thus, these Mascon grids do not need to be
-    destriped or smoothed, like traditional spherical harmonic gravity
-    solutions. The complete Mascon solution consists of 4,551 relatively
+    de-correlated or smoothed, like traditional spherical harmonic gravity
+    solutions.
+
+    The complete Mascon solution consists of 4,551 relatively
     independent estimates of surface mass change that have been derived using an
     equal-area 3-degree grid of individual mascons. It should be noted that this
     dataset does not correct for leakage errors across coastlines; it is
     therefore recommended only for users who want to apply their own algorithm
     to separate between land and ocean mass very near coastlines.
-    This RL06.1Mv03 is an updated version of the previous [Tellus JPL Mascon
-    RL06Mv02](https://doi.org/10.5067/TEMSC-3JC62). RL06.1Mv03 differs from RL06Mv02 only
-    in the Level-1B accelerometer transplant data that is used for the GF2
-    (GRACE-FO 2) satellite; RL06.1Mv03 uses the ACH data product.
-    For more information,
-    please visit [GRACE page](https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/).
+
+    For more information, please visit [GRACE page](https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/).
     For a detailed description on the Mascon solution, including
     the mathematical derivation, implementation of geophysical constraints, and
     solution validation, please see [Watkins et al., 2015](https://doi.org/10.1002/2014JB011547).
     This product is intended for expert use only; other users are encouraged to
-    use the [CRI-filtered Mascon dataset](https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_GRID_RL06.1_V3).
+    use the [CRI-filtered Mascon dataset](https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4).
+
+    This RL06.3Mv04 is an updated version of the previous [Tellus JPL Mascon
+    RL06.1Mv03](https://doi.org/10.5067/TEMSC-3MJ63).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -75,7 +75,7 @@ local version = version_config.version;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C2536982552-POCLOUD',
+    'C3195502222-POCLOUD',
   ],
   extent: ee.extent_global('2002-03-31T00:00:00Z', null),
   summaries: {
@@ -123,9 +123,11 @@ local version = version_config.version;
     ],
   },
   'sci:citation': |||
-    D.N. Wiese. 2015. GRACE monthly global water mass grids NETCDF
-    RELEASE 6.1. Ver. 3.0. PO.DAAC, CA, USA.. Dataset accessed [YYYY-MM-DD] at
-    [https://doi.org/10.5067/TEMSC-3MJ63](https://doi.org/10.5067/TEMSC-3MJ63).
+    D. N. Wiese, D.-N. Yuan, C. Boening, F. W. Landerer, M. M. Watkins. 2023.
+    JPL GRACE and GRACE-FO Mascon Ocean, Ice, and Hydrology Equivalent Water
+    Height JPL RL06.3Mv04. Ver. RL06.3Mv04. PO.DAAC, CA, USA. Dataset accessed
+    [YYYY-MM-DD] at
+    [https://doi.org/10.5067/TEMSC-3MJ634](https://doi.org/10.5067/TEMSC-3MJ634).
   |||,
   'sci:publications': [
     {
