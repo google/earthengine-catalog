@@ -47,10 +47,10 @@ local license = spdx.proprietary;
     More information on the model is in "[Learning skillful
     medium-range global weather forecasting](https://www.science.org/stoken/author-tokens/ST-1550/full)".
     The model used to produce this experimental dataset is an operational
-    version derived from that research model. Please note that the accuracy of
-    this operational model may not directly correspond to the accuracy reported
-    for the research model, and that additional variables may be included in
-    this forecast dataset.
+    version derived from that research model (formerly known as GraphCast).
+    Please note that the accuracy of this operational model may not directly
+    correspond to the accuracy reported for the research model, and that
+    additional variables may be included in this forecast dataset.
 
     If you have any questions on using this experimental dataset, or would
     like to use it for purposes not currently permitted under the terms of use
@@ -90,6 +90,7 @@ local license = spdx.proprietary;
     'weather',
     'weathernext',
     'forecast',
+    'graphcast',
     'temperature',
     'precipitation',
     'wind',

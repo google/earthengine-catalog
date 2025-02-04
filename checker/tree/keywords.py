@@ -107,6 +107,7 @@ EXCEPTIONS = frozenset({
     'globalsoilmap',
     'globcover',
     'goddard',
+    'graphcast',
     'grsg',
     'gtopo30',
     'habitats',
