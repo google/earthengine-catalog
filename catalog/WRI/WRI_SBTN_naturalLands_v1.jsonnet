@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'SBTN Natural Lands Map v1',
   version: 'v1',
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
   description: |||
     The SBTN Natural Lands Map v1 is a 2020 baseline map of natural and
     non-natural land covers intended for use by companies setting
@@ -141,16 +141,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     natural: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
   },
   'sci:citation': |||
-    Mazur, E., M. Sims, E. Goldman, M. Schneider, M.D. Pirri, C.R. Beatty, F.
-    Stolle, Stevenson, M. 2024. "SBTN Natural Lands Map v1: Technical
+    Mazur, E., M. Sims, E. Goldman, M. Schneider, F. Stolle, M.D. Pirri, C.R. Beatty,
+    M. Stevenson, 2024. "SBTN Natural Lands Map v1: Technical
     Documentation". Science Based Targets for Land Version 1 - Supplementary
     Material. Science Based Targets Network.
     [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
   |||,
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
