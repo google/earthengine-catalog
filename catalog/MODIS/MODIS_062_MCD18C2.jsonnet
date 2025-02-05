@@ -1,4 +1,4 @@
-local id = 'MODIS/061/MCD18C2';
+local id = 'MODIS/062/MCD18C2';
 local subdir = 'MODIS';
 
 local versions = import 'versions.libsonnet';
@@ -26,18 +26,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MCD18C2.061 Photosynthetically Active Radiation Daily 3-Hour [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'MCD18C2.062 Photosynthetically Active Radiation Daily 3-Hour',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The MCD18C2 Version 6.1
+    The MCD18C2 Version 6.2
   ||| + template.description,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/MODIS/MCD18C2.061',
+      href: 'https://doi.org/10.5067/MODIS/MCD18C2.062',
     },
   ] + version_config.version_links,
   keywords: [
@@ -45,17 +44,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'radiation',
   ],
   providers: [
-    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/products/mcd18c2v061/'),
+    ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://lpdaac.usgs.gov/products/mcd18c2v062/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2002-02-24T00:00:00Z', '2024-06-01T00:00:00Z'),
+  extent: ee.extent_global('2000-02-24T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
       'Aqua',
       'Terra',
     ],
   },
-  'sci:doi': '10.5067/MODIS/MCD18C2.061',
+  'sci:doi': '10.5067/MODIS/MCD18C2.062',
   'sci:citation': |||
     Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
     for information on citing LP DAAC datasets.
