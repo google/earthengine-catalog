@@ -25,6 +25,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('EDF_MethaneSAT_MethaneAIR_L4area', base_url),
     ee.link.child_collection('EDF_MethaneSAT_MethaneAIR_L4point', base_url),
     ee.link.child_collection('EDF_MethaneSAT_MethaneAIR_L3concentration', base_url),
+    ee.link.child_collection('EDF_MethaneSAT_COP29_L4area', base_url),
+    ee.link.child_collection('EDF_MethaneSAT_COP29_L3concentration', base_url),
   ],
 }
 
