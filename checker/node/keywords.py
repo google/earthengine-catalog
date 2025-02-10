@@ -6,7 +6,7 @@ Keyword list should have no duplicates.
   - Be 2 to 50 characters
   - All letters must be lower case
   - Must start with a letter or number
-  - Contain letters, numbers, and underscores
+  - Contain letters, numbers, dashes, and underscores
   - Be used in at least two datasets (see checker/tree/keywords.py)
 
 Example Jsonnet:
@@ -20,10 +20,6 @@ from typing import Iterator
 from checker import stac
 
 KEYWORDS = 'keywords'
-
-EXCEPTIONS = frozenset({
-    '16_day', '3_hourly', '30_year', '3dep', '4_day', '8_day',
-})
 
 
 class Check(stac.NodeCheck):
@@ -52,12 +48,12 @@ class Check(stac.NodeCheck):
     for keyword in keywords:
       if not isinstance(keyword, str):
         yield cls.new_issue(node, f'keyword must be a string: "{keyword}"')
-      elif keyword not in EXCEPTIONS:
-        if not re.fullmatch('[a-z][_a-z0-9]{1,49}', keyword):
+      else:
+        if not re.fullmatch('[a-z0-9][-_a-z0-9]{1,49}', keyword):
           yield cls.new_issue(
               node,
-              f'keyword must contain only lowercase letters, digits, and '
-              f'underscores and be at most 49 characters long: "{keyword}"'
+              'keyword must contain only lowercase letters, digits, dashes, '
+              f'and underscores and be at most 50 characters long: "{keyword}"'
           )
 
     if len(keywords) != len(set(keywords)):
