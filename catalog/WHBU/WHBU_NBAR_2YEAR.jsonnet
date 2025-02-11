@@ -44,6 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   keywords: [
     'albedo',
+    'annual',
     'bu',
     'mcd43a4',
     'modis_derived',

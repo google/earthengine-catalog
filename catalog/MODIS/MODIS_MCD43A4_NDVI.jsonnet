@@ -33,6 +33,13 @@ local license = spdx.proprietary;
     'modis',
     'ndvi',
     'usgs',
+    '16-day',
+    'brdf',
+    'global',
+    'mcd43a4',
+    'nbar',
+    'reflectance',
+    'surface_reflectance',
   ],
   providers: [
     ee.producer_provider('Google', 'https://earthengine.google.com/'),
