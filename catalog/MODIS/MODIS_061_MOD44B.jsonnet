@@ -1,4 +1,4 @@
-local id = 'MODIS/006/MOD44B';
+local id = 'MODIS/061/MOD44B';
 local subdir = 'MODIS';
 
 local versions = import 'versions.libsonnet';
@@ -25,19 +25,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MOD44B.006 Terra Vegetation Continuous Fields Yearly Global 250m [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'MOD44B.061 Terra Vegetation Continuous Fields Yearly Global 250m',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: template.description + |||
 
     Documentation:
 
-    * [User's Guide](https://lpdaac.usgs.gov/documents/1322/MOD44B_User_Guide_V6.pdf)
+    * [User's Guide](https://lpdaac.usgs.gov/documents/1494/MOD44B_User_Guide_V61.pdf)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/113/MOD44B_ATBD.pdf)
 
-    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/6/MOD44B)
+    * [General Documentation](https://lpdaac.usgs.gov/products/mod44bv061/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
@@ -47,9 +46,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C1374355842-LPDAAC_ECS',
+    'C2565805839-LPCLOUD',
   ],
-  extent: ee.extent_global('2000-03-05T00:00:00Z', '2023-07-31T00:00:00Z'),
+  extent: ee.extent_global('2000-03-05T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
       'Terra',
