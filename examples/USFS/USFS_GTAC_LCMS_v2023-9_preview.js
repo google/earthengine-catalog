@@ -1,7 +1,7 @@
 var dataset = ee.ImageCollection('USFS/GTAC/LCMS/v2023-9');
 
 var lcms = dataset.filter(ee.Filter.calendarRange(2022, 2022,'year'))  // range: [1985, 2023]
-               .filter('study_area == "CONUS"').first()  // or "SEAK" ("PRUSVI" and "HAWAII" available late summer 2024)
+               .filter('study_area == "CONUS"').first()  // or "SEAK"; "PRUSVI"; "HAWAII"
 
 var landCover = lcms.select('Land_Cover');
 var image = landCover.visualize();

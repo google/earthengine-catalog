@@ -29,9 +29,8 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the Conterminous United States (CONUS) and Southeastern Alaska (OCONUS). Hawaii and 
-    Puerto Rico-US Virgin Islands (OCONUS) v2023.9 data will be released in summer 2024. Previously released
-    v2022.8 Puerto Rico-US Virgin Islands data are available in the Google Earth Engine Catalog.
+    covers the Conterminous United States (CONUS) and areas outside the CONUS (OCONUS) that 
+    include Southeastern Alaska (SEAK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). 
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -58,9 +57,9 @@ local license = spdx.proprietary;
     and HI. To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
-    (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), and s2cloudless
-    (Sentinel-Hub, 2021) (Sentinel 2-only) are used to mask clouds, while TDOM
-    (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
+    (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), s2cloudless
+    (Sentinel-Hub, 2021) and Cloud Score plus (Pasquarella et al., 2023) (Sentinel 2-only) are 
+    used to mask clouds, while TDOM (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
     2). For LandTrendr, the annual medoid is then computed to summarize cloud
     and cloud shadow-free values from each year into a single composite.
 
@@ -100,16 +99,13 @@ local license = spdx.proprietary;
 
     * The CONUS land use product was updated on July 2nd 2024, to correct an issue with the developed class.
 
+    * PRUSVI and HI data were released October 1st 2024. 
+
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
-    },
-  ] + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   keywords: [
     'change_detection',
     'landcover',
@@ -134,9 +130,9 @@ local license = spdx.proprietary;
         name: 'study_area',
         description: |||
           LCMS currently covers the conterminous United States, Southeastern Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii (summer 2024). This version contains outputs across 
-          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands (summer 2024), 
-          and Hawaii (summer 2024).
+          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
+          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, 
+          and Hawaii.
           Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
@@ -817,9 +813,18 @@ local license = spdx.proprietary;
     {
       citation: |||
         Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., 
-        Cohen, W., and Healey, S., 2018. Implementation of the LandTrendr 
+        Cohen, W., and Healey, S. 2018. Implementation of the LandTrendr 
         Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
         10(5): 691. [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
+      |||,
+      doi:'10.3390/rs10050691',
+    },
+    {
+      citation: |||
+        Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J.,
+        2023. Comprehensive Quality Assessment of Optical Satellite Imagery Using 
+        Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
+        on Computer Vision and Pattern Recognition. 2124-2134.
       |||,
       doi:'10.3390/rs10050691',
     },
@@ -833,7 +838,7 @@ local license = spdx.proprietary;
       citation: |||
         Weiss, A.D., 2001. Topographic position and landforms analysis 
         Poster Presentation, ESRI Users Conference, San Diego, CAZhu, Z., 
-        and Woodcock, C. E. (2012). Object-based cloud and cloud shadow 
+        and Woodcock, C. E. 2012. Object-based cloud and cloud shadow 
         detection in Landsat imagery. 118: 83-94.
       |||,
     },
@@ -873,6 +878,11 @@ local license = spdx.proprietary;
 
     USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
+
+    Note
+
+    * [https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) is the preferred link for citations
+
   |||,
   'gee:user_uploaded': true,
 }

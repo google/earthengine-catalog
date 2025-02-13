@@ -122,6 +122,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Main crop-specific land cover classification.',
         'gee:classes': [
           {
+            value: 100,
+            color: 'ff130f',
+            description: 'Artificial',
+          },
+          {
             value: 211,
             color: 'a57000',
             description: 'Common wheat',
@@ -225,6 +230,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             value: 500,
             color: 'e8ffbf',
             description: 'Grasslands',
+          },
+          {
+            value: 600,
+            color: 'a89e7f',
+            description: 'Bare land/lichens moss',
+          },
+          {
+            value: 700,
+            color: '0793de',
+            description: 'Water',
+          },
+          {
+            value: 800,
+            color: '7cafaf',
+            description: 'Wetlands',
           },
         ]
       },

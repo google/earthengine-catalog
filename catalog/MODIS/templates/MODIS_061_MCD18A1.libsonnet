@@ -1,6 +1,23 @@
 local units = import 'units.libsonnet';
 
 {
+  description: |||
+    is a Moderate Resolution Imaging Spectroradiometer
+    (MODIS) Terra and Aqua combined Downward Shortwave Radiation (DSR) gridded
+    Level 3 product produced daily at 1 kilometer pixel resolution with
+    estimates of DSR every 3 hours. DSR is incident solar radiation over land
+    surfaces in the shortwave spectrum (300-4,000 nanometers) and is an
+    important variable in land-surface models that address a variety of
+    scientific and application issues. The MCD18 products are based on a
+    prototyping algorithm that uses multi-temporal signatures of MODIS data to
+    derive surface reflectance and then calculate incident DSR using the look-up
+    table (LUT) approach. The LUTs consider different types of loadings of
+    aerosols and clouds at a variety of illumination/viewing geometry. Global
+    DSR products are generated from MODIS and geostationary satellite data.
+    Additional details regarding the methodology used to create the data are
+    available in the
+    [Algorithm Theoretical Basis Document](https://lpdaac.usgs.gov/documents/106/MCD18_ATBD.pdf).
+  |||,
   summaries: {
     gsd: [
       500.0,

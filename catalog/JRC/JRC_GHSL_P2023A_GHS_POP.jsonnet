@@ -96,13 +96,30 @@ local license = spdx.proprietary;
       },
     ],
   },
-  'sci:citation': |||
-   Schiavina, Marcello; Freire, Sergio; Alessandra Carioli; MacManus, Kytt (2023):
-   GHS-POP R2023A - GHS population grid multitemporal (1975-2030). European
-   Commission, Joint Research Centre (JRC)
-   [PID: http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe](http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe)
-   [doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE](https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE)
-  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Dataset : Schiavina, Marcello; Freire, Sergio; Alessandra Carioli;
+        MacManus, Kytt (2023): GHS-POP R2023A - GHS population grid
+        multitemporal (1975-2030). European Commission, Joint Research Centre
+        (JRC)
+        [PID: http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe](http://data.europa.eu/89h/2ff68a52-5b5b-4a22-8f40-c41da8332cfe)
+        [doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE](https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE)
+      |||,
+      doi: '10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE',
+    },
+    {
+      citation: |||
+        Methodology : Pesaresi, Martino, Marcello Schiavina, Panagiotis Politis,
+        Sergio Freire, Katarzyna Krasnodebska,
+        Johannes H. Uhl, Alessandra Carioli, et al. (2024). Advances on the
+        Global Human Settlement Layer by Joint Assessment of Earth Observation
+        and Population Survey Data. International Journal of Digital Earth 17(1).
+        [doi:10.1080/17538947.2024.2390454](https://doi.org/10.1080/17538947.2024.2390454).
+      |||,
+      doi: '10.1080/17538947.2024.2390454',
+    },
+  ],
   'sci:doi': '10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE',
   'gee:terms_of_use': |||
     The GHSL has been produced by the European Commission Joint Research Centre

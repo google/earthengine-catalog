@@ -32,10 +32,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     added 19 additional bands,
     one for each of the accumulation bands, with the hourly values computed as
     the difference between two consecutive forecast steps.
-
-    ERA5-Land data is available from 1950 to three months from real-time. More
-    information can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

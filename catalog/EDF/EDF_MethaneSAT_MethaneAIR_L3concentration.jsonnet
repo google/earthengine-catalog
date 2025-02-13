@@ -69,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-118.42, 27.62, -73.44, 54.6,
-                    '2023-05-25T00:00:00Z', '2023-10-13T00:00:00Z'),
+                    '2021-08-06T00:00:00Z', '2023-10-14T00:00:00Z'),
 
   summaries: {
     'gsd': [10.2],
@@ -162,7 +162,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': |||
     Use of this data is subject to [MethaneSAT's Content License Terms of
-    Use](https://library.edf.org/AssetLink/3u27pb5103r1m825jykd7v0347t4m41y.pdf).
+    Use](https://www.methanesat.org/sites/default/files/2024-10/MethaneSATGEE%20Terms%20of%20Use%20October%202024.pdf).
   |||,
   'gee:unusual_terms_of_use': true,
 
@@ -172,7 +172,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(
-      'https://library.edf.org/AssetLink/3u27pb5103r1m825jykd7v0347t4m41y.pdf')
+      'https://www.methanesat.org/sites/default/files/2024-10/MethaneSATGEE%20Terms%20of%20Use%20October%202024.pdf')
   ],
 
   type: ee_const.stac_type.collection,

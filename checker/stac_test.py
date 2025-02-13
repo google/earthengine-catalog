@@ -91,6 +91,11 @@ class LoadTest(absltest.TestCase):
     nodes = stac.load(stac_root)
     self.assertGreater(len(nodes), 200)
 
-
+class NoncommercialTest(absltest.TestCase):
+  def test_is_in_noncommercial_evaluates_prefix(self):
+    # 'WRI/SBTN/naturalLands/v1' is in the noncommercial prefix list, so
+    # 'WRI/SBTN/naturalLands/v1/2020' should be considered noncommercial.
+    full_asset_id = 'WRI/SBTN/naturalLands/v1/2020'
+    self.assertTrue(stac.is_in_non_commercial(full_asset_id))
 if __name__ == '__main__':
   absltest.main()

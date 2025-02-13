@@ -39,10 +39,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Daily aggregates have been pre-calculated to facilitate many applications
     requiring easy and fast access to the data.
-
-    ERA5-Land daily aggregated data is available from 1950 to three months
-    from real-time. More information can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
   ||| + notes,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -81,7 +77,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: if std.member(
           era5_land.flow_bands, band.name
           ) then band.name + '_sum' else band.name,
-        description: band.description,
+        description: band.description + (if std.objectHas(
+          band, 'note') then band.note else ""),
         [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands

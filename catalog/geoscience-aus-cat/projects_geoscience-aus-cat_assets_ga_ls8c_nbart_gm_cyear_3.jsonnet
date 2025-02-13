@@ -8,7 +8,10 @@ local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
-local version = '3.1.0';
+local versions = import 'versions.libsonnet';
+local version_table = import 'projects_geoscience-aus-cat_assets_ga_ls8c_nbart_gm_change_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -27,7 +30,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version,
+  title: 'DEA Geometric Median and Median Absolute Deviation - Landsat 8 ' + version + ' [deprecated]',
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product provides statistical tools to exploit the time series of Landsat 8 data available in Digital Earth Australia, providing annual images of general conditions and how much an area changes for a given year.
@@ -63,7 +67,7 @@ local self_url = catalog_subdir_url + base_filename;
       rel: ee_const.rel.source,
       href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls5t_nbart_gm_cyear_3/',
     },
-  ],
+  ] + version_config.version_links,
   keywords: [
     'australia',
     'ga',

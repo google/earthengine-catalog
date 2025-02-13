@@ -25,6 +25,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: 'V2',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+
+    Note: This dataset has not been updated by the provider since 2024-03-31
+    due to ongoing infrastructure updates. There is no current timeline for when
+    dataset updates will resume.
+
     This dataset provides a high quality Climate Data
     Record (CDR) of global infrared measurements from geostationary satellites.
 

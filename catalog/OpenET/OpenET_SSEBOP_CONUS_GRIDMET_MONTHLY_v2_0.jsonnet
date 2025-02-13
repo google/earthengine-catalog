@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET CONUS SSEBop Monthly Evapotranspiration v' + version,
+  title: 'OpenET SSEBop Monthly Evapotranspiration v' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -56,7 +56,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'conus',
     'evapotranspiration',
     'gridmet_derived',
     'landsat_derived',
@@ -68,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126, 25, -66, 50, '2013-01-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '1999-10-01T00:00:00Z', null),
   summaries: {
     'gee:schema': [
       {

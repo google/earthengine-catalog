@@ -39,10 +39,6 @@ local license = spdx.proprietary;
     Monthly aggregates have been pre-calculated to facilitate many applications
     requiring easy and fast access to the data, when sub-monthly fields are not
     required.
-
-    ERA5-Land monthly aggregated data is available from 1950 to three months
-    from real-time. More information can be found at the
-    [Copernicus Climate Data Store](https://cds.climate.copernicus.eu).
   ||| + notes,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
@@ -76,7 +72,8 @@ local license = spdx.proprietary;
         name: if std.member(
           era5_land.flow_bands, band.name
           ) then band.name + '_sum' else band.name,
-        description: band.description,
+        description: band.description + (if std.objectHas(
+          band, 'note') then band.note else ""),
         [if std.objectHas(band, 'units') then 'gee:units']: band.units
       }
       for band in era5_land.bands

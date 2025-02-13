@@ -35,8 +35,6 @@ local license = spdx.cc0_1_0;
       [USGS/NLCD_RELEASES/2019_REL/NLCD](USGS_NLCD_RELEASES_2019_REL_NLCD).
     * 2019 landcover and imperviousness data in
       [USGS/NLCD_RELEASES/2019_REL/NLCD](USGS_NLCD_RELEASES_2019_REL_NLCD).
-    * 2019 rangeland data in
-      [USGS/NLCD_RELEASES/2019_REL/RCMAP/V4/COVER](USGS_NLCD_RELEASES_2019_REL_RCMAP_V4_COVER).
 
     NLCD (the National Land Cover Database) is a 30-m Landsat-based land cover
     database spanning 8 epochs (1992, 2001, 2004, 2006, 2008, 2011, 2013 and 2016).

@@ -107,13 +107,30 @@ local license = spdx.proprietary;
       },
     ],
   },
-  'sci:citation': |||
-    Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-S R2023A - GHS
-    built-up surface grid, derived from Sentinel2 composite and Landsat,
-    multitemporal (1975-2030). European Commission, Joint Research Centre (JRC)
-    [PID: http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea](http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea)
-    [doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA](https://doi.org/10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA)
-  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Dataset : Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-S
+        R2023A - GHS built-up surface grid, derived from Sentinel2 composite and
+        Landsat, multitemporal (1975-2030). European Commission, Joint Research
+        Centre (JRC).
+        [PID: http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea](http://data.europa.eu/89h/9f06f36f-4b11-47ec-abb0-4f8b7b1d72ea)
+        [doi:10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA](https://doi.org/10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA)
+      |||,
+      doi: '10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA',
+    },
+    {
+      citation: |||
+        Methodology : Pesaresi, Martino, Marcello Schiavina, Panagiotis Politis,
+        Sergio Freire, Katarzyna Krasnodebska,
+        Johannes H. Uhl, Alessandra Carioli, et al. (2024). Advances on the
+        Global Human Settlement Layer by Joint Assessment of Earth Observation
+        and Population Survey Data. International Journal of Digital Earth 17(1).
+        [doi:10.1080/17538947.2024.2390454](https://doi.org/10.1080/17538947.2024.2390454).
+      |||,
+      doi: '10.1080/17538947.2024.2390454',
+    },
+  ],
   'sci:doi': '10.2905/9F06F36F-4B11-47EC-ABB0-4F8B7B1D72EA',
   'gee:terms_of_use': |||
     The GHSL has been produced by the European Commission Joint Research Centre

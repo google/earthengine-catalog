@@ -164,13 +164,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:citation': |||
-    Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-C R2023A - GHS
-    Settlement Characteristics, derived from Sentinel2 composite (2018) and
-    other GHS R2023A data. European Commission, Joint Research Centre (JRC)
-    [PID: http://data.europa.eu/89h/3c60ddf6-0586-4190-854b-f6aa0edc2a30](http://data.europa.eu/89h/3c60ddf6-0586-4190-854b-f6aa0edc2a30)
-    [doi:10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30](https://doi.org/10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30)
-  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Dataset : Pesaresi, Martino; Politis, Panagiotis (2023): GHS-BUILT-C
+        R2023A - GHS Settlement Characteristics, derived from Sentinel2
+        composite (2018) and other GHS R2023A data. European Commission,
+        Joint Research Centre (JRC)
+        [PID: http://data.europa.eu/89h/3c60ddf6-0586-4190-854b-f6aa0edc2a30](http://data.europa.eu/89h/3c60ddf6-0586-4190-854b-f6aa0edc2a30)
+        [doi:10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30](https://doi.org/10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30)
+      |||,
+      doi: '10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30',
+    },
+    {
+      citation: |||
+        Methodology : Pesaresi, Martino, Marcello Schiavina, Panagiotis Politis,
+        Sergio Freire, Katarzyna Krasnodebska,
+        Johannes H. Uhl, Alessandra Carioli, et al. (2024). Advances on the
+        Global Human Settlement Layer by Joint Assessment of Earth Observation
+        and Population Survey Data. International Journal of Digital Earth 17(1).
+        [doi:10.1080/17538947.2024.2390454](https://doi.org/10.1080/17538947.2024.2390454).
+      |||,
+      doi: '10.1080/17538947.2024.2390454',
+    },
+  ],
   'sci:doi': '10.2905/3c60ddf6-0586-4190-854b-f6aa0edc2a30',
   'gee:terms_of_use': |||
     The GHSL has been produced by the European Commission Joint Research Centre

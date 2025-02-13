@@ -67,7 +67,6 @@ Jsonnet examples:
 
 # TODO(schwehr): Check gee:visualizations visualize_as
 
-import re
 from typing import Iterator
 
 from checker import stac
@@ -170,6 +169,10 @@ class Check(stac.NodeCheck):
             f'{THINNING_STRATEGY} must be one of ' +
             ', '.join(sorted(THINNING_STRATEGIES)))
 
+    property_names = [
+        x['name'] for x in node.stac[SUMMARIES].get('gee:schema', {})
+    ] + ['.geometryType', '.minZoomLevel']
+
     if THINNING_RANKING in params:
       rankings = params[THINNING_RANKING]
       if not isinstance(rankings, list):
@@ -191,15 +194,17 @@ class Check(stac.NodeCheck):
                 node, f'{THINNING_RANKING} must be "<field> ASC|DESC')
           else:
             property_name, direction = fields
-            if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
-              yield cls.new_issue(
-                  node, f'Invalid property_name: "{property_name}"')
             if direction not in DIRECTIONS:
               yield cls.new_issue(
                   node,
                   f'{THINNING_RANKING} direction must be one of ' +
                   ', '.join(sorted(DIRECTIONS)))
-            # TODO(schwehr): Make sure the property_name is in the schema.
+            if property_name not in property_names:
+              yield cls.new_issue(
+                  node,
+                  f'{THINNING_RANKING} property_name "{property_name}" '
+                  'not found in the schema',
+              )
 
     if Z_ORDER_RANKING in params:
       rankings = params[Z_ORDER_RANKING]
@@ -222,16 +227,17 @@ class Check(stac.NodeCheck):
                 node, f'{Z_ORDER_RANKING} must be "<field> ASC|DESC')
           else:
             property_name, direction = fields
-            # Can start with a fullstop: .minZoomLevel
-            if not re.fullmatch('[.a-zA-Z][_a-zA-Z0-9]{1,49}', property_name):
-              yield cls.new_issue(
-                  node, f'Invalid property_name: "{property_name}"')
             if direction not in DIRECTIONS:
               yield cls.new_issue(
                   node,
                   f'{Z_ORDER_RANKING} direction must be one of ' +
                   ', '.join(sorted(DIRECTIONS)))
-            # TODO(schwehr): Make sure the property_name is in the schema.
+            if property_name not in property_names:
+              yield cls.new_issue(
+                  node,
+                  f'{Z_ORDER_RANKING} property_name "{property_name}" '
+                  'not found in the schema',
+              )
 
     if PRERENDER_TILES in params:
       prerender = params[PRERENDER_TILES]

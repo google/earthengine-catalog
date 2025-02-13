@@ -21,5 +21,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('AHN_AHN2_05M_INT', base_url),
     ee.link.child_collection('AHN_AHN2_05M_NON', base_url),
     ee.link.child_collection('AHN_AHN2_05M_RUW', base_url),
+    ee.link.child_collection('AHN_AHN3', base_url),
+    ee.link.child_collection('AHN_AHN4', base_url),
   ],
 }

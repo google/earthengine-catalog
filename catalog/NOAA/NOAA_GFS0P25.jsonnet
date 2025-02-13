@@ -109,9 +109,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.mass_fraction,
       },
       {
+        name: 'dew_point_temperature_2m_above_ground',
+        description: 'Dew point temperature 2m above ground (available starting from January 2025)',
+        'gee:units': units.celsius,
+      },
+      {
         name: 'relative_humidity_2m_above_ground',
         description: 'Relative humidity 2m above ground',
         'gee:units': units.percent,
+      },
+      {
+        name: 'maximum_temperature_2m_above_ground',
+        description: 'Maximum temperature 2m above ground (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        'gee:units': units.celsius,
+      },
+      {
+        name: 'minimum_temperature_2m_above_ground',
+        description: 'Minimum temperature 2m above ground (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        'gee:units': units.celsius,
       },
       {
         name: 'u_component_of_wind_10m_above_ground',
@@ -146,14 +161,63 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.area_density,
       },
       {
+        name: 'u_component_of_wind_planetary_boundary_layer',
+        description: 'U component of wind planetary boundary layer (available starting from January 2025)',
+        'gee:units': units.velocity_si,
+      },
+      {
+        name: 'v_component_of_wind_planetary_boundary_layer',
+        description: 'V component of wind planetary boundary layer (available starting from January 2025)',
+        'gee:units': units.velocity_si,
+      },
+      {
+        name: 'gust',
+        description: 'Wind Speed (Gust) (available starting from January 2025)',
+        'gee:units': units.velocity_si,
+      },
+      {
+        name: 'precipitation_rate',
+        description: 'Precipitation Rate (available starting from January 2025)',
+        'gee:units': units.rainfall_rate_kg_per_m2_per_s,
+      },
+      {
+        name: 'haines_index',
+        description: 'Haines Index (available starting from January 2025)',
+      },
+      {
+        name: 'ventilation_rate',
+        description: 'Ventilation Rate (available starting from January 2025)',
+        'gee:units': units.squared_meter_per_second,
+      },
+      {
         name: 'total_cloud_cover_entire_atmosphere',
-        description: 'Total cloud cover for entire atmosphere (only for assets with forecast_hours > 0)',
+        description: 'Total cloud cover for entire atmosphere (previously only for assets with forecast_hours > 0, but available for those with forecast_hours == 0 starting from January 2025)',
         'gee:units': units.percent,
       },
       {
         name: 'downward_shortwave_radiation_flux',
         description: 'Downward shortwave radiation flux (only for assets with forecast_hours > 0)',
         'gee:units': units.watt_per_meter_squared,
+      },
+      {
+        name: 'downward_longwave_radiation_flux',
+        description: 'Downward longwave radiation flux (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        'gee:units': units.watt_per_meter_squared,
+      },
+      {
+        name: 'upward_shortwave_radiation_flux',
+        description: 'Upward shortwave radiation flux (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        'gee:units': units.watt_per_meter_squared,
+      },
+      {
+        name: 'upward_longwave_radiation_flux',
+        description: 'Upward longwave radiation flux (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        'gee:units': units.watt_per_meter_squared,
+      },
+      {
+        name: 'planetary_boundary_layer_height',
+        description: 'Planetary boundary layer height (available starting from January 2025)',
+        'gee:units': units.meter,
       },
     ],
     'gee:visualizations': [
@@ -197,9 +261,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 0.03,
       'gee:estimated_range': true,
     },
+    dew_point_temperature_2m_above_ground: {
+      minimum: -81.05,
+      maximum: 29.05,
+      'gee:estimated_range': true,
+    },
     relative_humidity_2m_above_ground: {
       minimum: 1.0,
       maximum: 100.05,
+      'gee:estimated_range': true,
+    },
+    maximum_temperature_2m_above_ground: {
+      minimum: -60.73,
+      maximum: 59.28,
+      'gee:estimated_range': true,
+    },
+    minimum_temperature_2m_above_ground: {
+      minimum: -63.78,
+      maximum: 59.39,
       'gee:estimated_range': true,
     },
     u_component_of_wind_10m_above_ground: {
@@ -222,6 +301,36 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 100.0,
       'gee:estimated_range': true,
     },
+    u_component_of_wind_planetary_boundary_layer: {
+      minimum: -66.80,
+      maximum: 62.18,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_planetary_boundary_layer: {
+      minimum: -63.08,
+      maximum: 57.60,
+      'gee:estimated_range': true,
+    },
+    gust: {
+      minimum: 0.0,
+      maximum: 57.41,
+      'gee:estimated_range': true,
+    },
+    precipitation_rate: {
+      minimum: 0.0,
+      maximum: 0.032,
+      'gee:estimated_range': true,
+    },
+    haines_index: {
+      minimum: 2.0,
+      maximum: 6.0,
+      'gee:estimated_range': true,
+    },
+    ventilation_rate: {
+      minimum: 0.0,
+      maximum: 234000.0,
+      'gee:estimated_range': true,
+    },
     total_cloud_cover_entire_atmosphere: {
       minimum: 0.0,
       maximum: 100.0,
@@ -230,6 +339,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     downward_shortwave_radiation_flux: {
       minimum: 0.0,
       maximum: 1230.0,
+      'gee:estimated_range': true,
+    },
+    downward_longwave_radiation_flux: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': true,
+    },
+    upward_shortwave_radiation_flux: {
+      minimum: 0.0,
+      maximum: 1230.0,
+      'gee:estimated_range': true,
+    },
+    upward_longwave_radiation_flux: {
+      minimum: 0.0,
+      maximum: 100.0,
+      'gee:estimated_range': true,
+    },
+    planetary_boundary_layer_height: {
+      minimum: 7.77,
+      maximum: 6312.67,
       'gee:estimated_range': true,
     },
   },

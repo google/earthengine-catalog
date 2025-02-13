@@ -21,7 +21,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GHSL: Degree of Urbanization 1975-2030 (P2023A)',
+  title: 'GHSL: Degree of Urbanization 1975-2030 (P2023A) [deprecated]',
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

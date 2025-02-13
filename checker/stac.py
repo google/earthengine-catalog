@@ -196,4 +196,7 @@ def is_in_non_commercial(dataset_id: str) -> bool:
   if not NON_COMMERCIAL_LIST:
     non_commerical_file = data_root() / 'non_commercial_datasets.json'
     NON_COMMERCIAL_LIST = json.loads(non_commerical_file.read_text())
-  return dataset_id in NON_COMMERCIAL_LIST
+  for pattern in NON_COMMERCIAL_LIST:
+    if dataset_id.startswith(pattern):
+      return True
+  return False

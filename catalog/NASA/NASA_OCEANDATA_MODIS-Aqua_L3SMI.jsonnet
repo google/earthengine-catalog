@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Newer datasets have scaled POC values while older ones don't. This
     scaling gets rid of negative values but older datasets still retain them
     hence the -2147.48 estimated minimum value. For more information, visit the
-    [Ocean Color Forum](https://oceancolor.gsfc.nasa.gov/forum/oceancolor/topic_show.pl?pid=33202;hl=poc%20values).
+    [Ocean Color Forum](https://oceancolor.gsfc.nasa.gov/forum/oceancolor/forum_show.pl).
 
     [MODIS-Aqua OceanData](https://oceancolor.gsfc.nasa.gov/about/missions/aqua/)
   |||,

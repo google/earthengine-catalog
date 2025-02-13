@@ -35,6 +35,11 @@ local license = spdx.proprietary;
     'evi',
     'modis',
     'usgs',
+    'aqua',
+    'daily',
+    'global',
+    'myd09ga',
+    'surface_reflectance',
   ],
   providers: [
     ee.producer_provider('Google', 'https://earthengine.google.com/'),

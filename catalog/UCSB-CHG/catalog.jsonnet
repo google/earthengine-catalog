@@ -20,5 +20,6 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('UCSB-CHG_CHIRPS_DAILY', base_url),
     ee.link.child_collection('UCSB-CHG_CHIRPS_PENTAD', base_url),
+    ee.link.child_collection('UCSB-CHG_CHIRTS_DAILY', base_url),
   ],
 }

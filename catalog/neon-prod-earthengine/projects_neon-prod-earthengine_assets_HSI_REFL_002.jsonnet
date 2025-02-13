@@ -42,8 +42,11 @@ local units = import 'units.libsonnet';
     DP3.30006.002](https://data.neonscience.org/data-products/DP3.30006.002) for
     more details.
 
-    Tutorial: [Intro to AOP Data in Google Earth Engine Tutorial Series](
+    Get started by exploring the [Intro to AOP Data in Google Earth Engine Tutorial Series](
     https://www.neonscience.org/resources/learning-hub/tutorials/intro-aop-data-google-earth-engine-tutorial-series)
+
+    Browse and interact with AOP data in the [NEON AOP GEE Data Viewer App](
+    https://neon-prod-earthengine.projects.earthengine.app/view/neon-aop-gee-data-viewer---desktop)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -95,6 +98,12 @@ local units = import 'units.libsonnet';
       {
         name: 'NEON_SITE',
         description: 'NEON four-digit site code. See ' +
+        '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'NEON_SITE_NAME',
+        description: 'Full name of the NEON site. See ' +
         '[NEON Field Sites](https://www.neonscience.org/field-sites/).',
         type: ee_const.var_type.string,
       },

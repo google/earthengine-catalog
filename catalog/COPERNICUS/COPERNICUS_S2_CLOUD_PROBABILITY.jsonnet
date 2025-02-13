@@ -37,8 +37,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     as well as observation of inland waterways and coastal areas.
 
     The Level-2 data can be found in the collection
-    [COPERNICUS/S2_SR](COPERNICUS_S2_SR).  The Level-1B data can be found in the collection
-    [COPERNICUS/S2](COPERNICUS_S2).  Additional metadata is available on assets in those
+    [COPERNICUS/S2_SR_HARMONIZED](COPERNICUS_S2_SR_HARMONIZED).  The Level-1B data can be found in the collection
+    [COPERNICUS/S2_HARMONIZED](COPERNICUS_S2_HARMONIZED).  Additional metadata is available on assets in those
     collections.
 
     See

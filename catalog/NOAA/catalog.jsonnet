@@ -42,8 +42,12 @@ local gsm_description = importstr 'general_satellite_messages_description.md';
     ee.link.child_collection('NOAA_CDR_PATMOSX_V53', base_url),
     ee.link.child_collection('NOAA_CDR_SST_PATHFINDER_V53', base_url),
     ee.link.child_collection('NOAA_CDR_SST_WHOI_V2', base_url),
+    ee.link.child_collection('NOAA_CDR_VIIRS_LAI_FAPAR_V1', base_url),
+    ee.link.child_collection('NOAA_CDR_VIIRS_NDVI_V1', base_url),
 
     ee.link.child_collection('NOAA_CFSV2_FOR6H', base_url),
+    ee.link.child_collection('NOAA_CPC_Precipitation', base_url),
+    ee.link.child_collection('NOAA_CPC_Temperature', base_url),
 
     ee.link.child_collection('NOAA_DMSP-OLS_CALIBRATED_LIGHTS_V4', base_url),
     ee.link.child_collection('NOAA_DMSP-OLS_NIGHTTIME_LIGHTS', base_url),

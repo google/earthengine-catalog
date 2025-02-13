@@ -38,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('USGS', 'https://landsat.usgs.gov/'),
+    ee.producer_provider('USGS', 'https://www.usgs.gov/landsat-missions/global-land-survey-gls'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2003-07-29T00:00:00Z', '2008-07-29T00:00:00Z'),

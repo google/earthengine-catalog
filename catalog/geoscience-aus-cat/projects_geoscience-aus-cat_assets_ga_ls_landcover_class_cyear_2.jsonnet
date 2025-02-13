@@ -27,7 +27,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'DEA Land Cover ' + version,
+  'gee:status': 'deprecated',
+  title: 'DEA Land Cover ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Digital Earth Australia (DEA) Land Cover provides annual land cover classifications for Australia using the Food and Agriculture Organisation Land Cover Classification System taxonomy Version 2 (Di Gregorio and Jansen, 1998; 2005).

@@ -34,7 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: utils.description,
   'sci:publications': utils.publication,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   keywords: [
     'climate_change',
     'disturbance',

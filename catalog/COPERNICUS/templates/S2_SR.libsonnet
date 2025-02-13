@@ -36,9 +36,9 @@ local license = spdx.proprietary;
         including the monitoring of vegetation, soil and water cover,
         as well as observation of inland waterways and coastal areas.
 
-        The Sentinel-2 L2 data are downloaded from scihub. They were
-        computed by running sen2cor. WARNING: ESA did not produce L2 data
-        for all L1 assets, and earlier L2 coverage is not global.
+        The Sentinel-2 L2 data are downloaded from CDSE. They were
+        computed by running sen2cor. WARNING: 2017-2018 L2 coverage
+        in the EE collection is not yet global.
 
         The assets contain
         12 UINT16 spectral bands representing SR scaled by 10000 (unlike in L1 data,
@@ -48,9 +48,9 @@ local license = spdx.proprietary;
         for details.
 
         QA60 is a bitmask band that contained rasterized cloud mask
-        polygons until February 2022, when these polygons stopped being produced.
-        Starting in February 2024, legacy-consistent QA60 bands are constructed from the MSK_CLASSI
-        cloud classification bands.
+        polygons until 2022-01-25, when these polygons stopped being produced.
+        Starting 2024-02-28, legacy-consistent QA60 bands are constructed from
+        the MSK_CLASSI cloud classification bands.
         For more details,
         [see the full explanation of how cloud masks are computed.](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-1c/cloud-masks)
 
@@ -703,7 +703,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'QA60',
-            description: 'Cloud mask. Masked out between February 2022 and February 2024.',
+            description: 'Cloud mask. Masked out between 2022-01-25 to 2024-02-28 inclusive.',
             gsd: 60.0,
             'gee:bitmask': {
               bitmask_parts: [

@@ -1,5 +1,5 @@
 {
-  "contactDisplay": "neon@service-now.com",
+  "contactDisplay": "listaopgee@battelleecology.org",
   "contactLink": "",
   "description": "The U.S. National Science Foundation's National Ecological Observatory Network (NEON) is a continental-scale observation facility operated by Battelle and designed to collect long-term open access ecological data to better understand how U.S. ecosystems are changing. In addition to in situ data products, NEON provides repeat high-resolution airborne remote sensing data at 81 terrestrial and aquatic field sites throughout the United States and Puerto Rico for ecological research and monitoring.",
   "homeBucket": "projects/neon-prod-earthengine",

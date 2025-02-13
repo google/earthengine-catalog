@@ -36,16 +36,15 @@ class KeywordsTest(test_utils.NodeTest):
 
   def test_keyword_not_valid(self):
     stac_data = {KEYWORDS: [
-        '1b',  # Must start with a letter
+        '-b',  # Must start with a letter or digit
         'Ab',  # Must be lower case
         'a',  # Too short
         'cD',  # Must be lower case
-        'e-f',  # No dashes
         'g h',  # No spaces
     ]}
     issues = [
-        f'keyword must contain only lowercase letters, digits, and '
-        f'underscores and be at most 49 characters long: "{keyword}"'
+        f'keyword must contain only lowercase letters, digits, dashes, and '
+        f'underscores and be at most 50 characters long: "{keyword}"'
         for keyword in stac_data[KEYWORDS]]
     self.assert_collection(stac_data, issues)
 
