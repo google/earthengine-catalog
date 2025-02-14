@@ -4,11 +4,7 @@ local subdir = 'WRI';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local versions = import 'versions.libsonnet';
-local version_table = import 'WRI_SBTN_NaturalLands_versions.libsonnet';
 
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
 local license = spdx.cc_by_nc_sa_4_0;
 
 local basename = std.strReplace(id, '/', '_');
@@ -24,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'SBTN Natural Lands Map v1',
-  version: version,
+  version: 'v1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The SBTN Natural Lands Map v1 is a 2020 baseline map of natural and

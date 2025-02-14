@@ -146,7 +146,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:citation': |||
     Mazur, E., M. Sims, E. Goldman, M. Schneider, M.D. Pirri, C.R. Beatty, F.
-    Stolle, M. Stevenson. 2024. "SBTN Natural Lands Map v1.1: Technical
+    Stolle, M. Stevenson. 2025. "SBTN Natural Lands Map v1.1: Technical
     Documentation". Science Based Targets for Land Version 1 - Supplementary
     Material. Science Based Targets Network.
     [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
