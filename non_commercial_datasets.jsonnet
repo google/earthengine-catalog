@@ -55,5 +55,5 @@
   'projects/forestdatapartnership/assets/rubber',
   'UN/Geodata/BNDA_simplified/current',
   'WCMC/WDOECM',
-  'WRI/SBTN/naturalLands/v1',
+  'WRI/SBTN/naturalLands/v1/2020',
 ]

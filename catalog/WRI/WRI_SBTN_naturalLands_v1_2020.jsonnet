@@ -1,4 +1,4 @@
-local id = 'WRI/SBTN/naturalLands/v1';
+local id = 'WRI/SBTN/naturalLands/v1/2020';
 local subdir = 'WRI';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'SBTN Natural Lands Map v1',
   version: 'v1',
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
   description: |||
     The SBTN Natural Lands Map v1 is a 2020 baseline map of natural and
     non-natural land covers intended for use by companies setting
@@ -147,10 +147,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Material. Science Based Targets Network.
     [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
   |||,
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'year',
-    interval: 1,
-  },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
