@@ -1,4 +1,4 @@
-local id = 'WRI/SBTN/naturalLands/v1_1';
+local id = 'WRI/SBTN/naturalLands/v1_1/2020';
 local subdir = 'WRI';
 
 local ee_const = import 'earthengine_const.libsonnet';
