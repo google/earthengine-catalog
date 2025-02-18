@@ -54,7 +54,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   keywords: [
     'abi',
-    'climate',
     'fdc',
     'fire',
     'goes',
