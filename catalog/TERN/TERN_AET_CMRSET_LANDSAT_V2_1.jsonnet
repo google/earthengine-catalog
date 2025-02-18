@@ -78,7 +78,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'csiro',
     'evaporation',
     'evapotranspiration',
-    'hydrology',
     'landsat_derived',
     'tern',
     'viirs_derived',
