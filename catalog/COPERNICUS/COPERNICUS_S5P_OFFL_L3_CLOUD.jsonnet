@@ -73,7 +73,6 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
   license: license.id,
   links: ee.standardLinks(subdir, id),
   keywords: [
-    'climate',
     'cloud',
     'copernicus',
     'dlr',

@@ -63,7 +63,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'biology',
     'chlorophyll',
-    'climate',
     'modis',
     'nasa',
     'ocean',

@@ -50,7 +50,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ],
   keywords: [
-    'climate',
     'energy',
     'infrastructure',
     'power',
