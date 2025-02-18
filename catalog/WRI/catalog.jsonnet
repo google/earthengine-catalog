@@ -28,6 +28,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('WRI_GFW_FORMA_thresholds', base_url),
     ee.link.child_collection('WRI_GFW_FORMA_vegetation_tstats', base_url),
     ee.link.child_collection('WRI_GPPD_power_plants', base_url),
-    ee.link.child_collection('WRI_SBTN_naturalLands_v1', base_url),
+    ee.link.child_collection('WRI_SBTN_naturalLands_v1_2020', base_url),
   ],
 }
