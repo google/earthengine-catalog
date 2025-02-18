@@ -1,4 +1,4 @@
-local id = 'WRI/SBTN/naturalLands/v1/2020';
+local id = 'WRI/SBTN/naturalLands/v1_1/2020';
 local subdir = 'WRI';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -9,7 +9,7 @@ local version_table = import 'WRI_SBTN_naturalLands_versions.libsonnet';
 
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
-local license = spdx.cc_by_nc_sa_4_0;
+local license = spdx.cc_by_sa_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -23,11 +23,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'SBTN Natural Lands Map v1',
+  title: 'SBTN Natural Lands Map v1.1',
+  'gee:status': 'beta',
   version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
-    The SBTN Natural Lands Map v1 is a 2020 baseline map of natural and
+    The SBTN Natural Lands Map v1.1 is a 2020 baseline map of natural and
     non-natural land covers intended for use by companies setting
     [science-based targets for nature](https://sciencebasedtargetsnetwork.org/companies/take-action/),
     specifically the SBTN Land target #1: no conversion of natural ecosystems.
@@ -146,10 +147,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:citation': |||
     Mazur, E., M. Sims, E. Goldman, M. Schneider, M.D. Pirri, C.R. Beatty, F.
-    Stolle, Stevenson, M. 2024. "SBTN Natural Lands Map v1: Technical
+    Stolle, M. Stevenson. 2025. "SBTN Natural Lands Map v1.1: Technical
     Documentation". Science Based Targets for Land Version 1 - Supplementary
     Material. Science Based Targets Network.
-    [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2024/09/Technical-Guidance-2024-Step3-Land-v1-Natural-Lands-Map.pdf)
+    [https://sciencebasedtargetsnetwork.org/wp-content/uploads/2025/02/Technical-Guidance-2025-Step3-Land-v1_1-Natural-Lands-Map.pdf](https://sciencebasedtargetsnetwork.org/wp-content/uploads/2025/02/Technical-Guidance-2025-Step3-Land-v1_1-Natural-Lands-Map.pdf)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 }
