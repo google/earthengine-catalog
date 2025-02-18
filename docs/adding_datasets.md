@@ -57,8 +57,10 @@ to preview your markdown content.
 licensing terms.
 
 1. New dataset will not be activated at first. To indicate that, set
-`'gee:status': 'incomplete'` at the top level. Don't yet add the new dataset
-to the `catalog.jsonnet` file.
+`'gee:status': 'beta'` at the top level.
+
+1. Add a pointer to the new file to the `catalog.jsonnet` file in the same
+directory.
 
 1. In the examples/ directory, create a JavaScript file that will be used as
 the main example.
