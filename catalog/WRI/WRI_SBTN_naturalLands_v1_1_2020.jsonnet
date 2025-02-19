@@ -24,7 +24,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'SBTN Natural Lands Map v1.1',
-  'gee:status': 'beta',
   version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
