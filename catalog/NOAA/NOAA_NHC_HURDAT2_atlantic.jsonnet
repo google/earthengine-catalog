@@ -31,6 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2018-051019.txt',
     },
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'hurricane',
     'nhc',

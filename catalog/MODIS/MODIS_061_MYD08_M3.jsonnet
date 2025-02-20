@@ -51,6 +51,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5067/MODIS/MYD08_M3.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     'aqua',
     'atmosphere',

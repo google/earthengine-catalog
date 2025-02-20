@@ -75,6 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.license(
       'https://yceo.yale.edu/research/global-surface-uhi-explorer'),
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'climate',
     'uhi',

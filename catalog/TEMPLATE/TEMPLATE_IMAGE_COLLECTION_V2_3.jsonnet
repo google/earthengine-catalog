@@ -78,6 +78,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'A short title for the dataset goes here V' + version,
   version: version,
 
+  // One or more category keywords
+
   description: |||
     Write enough here for most people to understand:
     - what the dataset is for
@@ -108,6 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   //
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
+  'gee:categories': ['climate', 'hydrology'],
   keywords: [
     'elevation',
     'lidar',
