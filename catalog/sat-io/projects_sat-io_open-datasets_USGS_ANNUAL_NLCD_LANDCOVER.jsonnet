@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'LandScan Population Data Global 1km',
+  title: 'Annual NLCD 30m Landcover',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The USGS Land Cover program integrates methodologies from the National Land Cover Database (NLCD) and the Land Change Monitoring, Assessment, and Projection (LCMAP), along with advanced deep learning, to create
@@ -41,8 +41,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landcover',
     'mrlc',
     'nlcd',
-    'shrub',
-    'shrubland',
     'usgs',
   ],
   providers: [
