@@ -60,6 +60,7 @@ local self_url = catalog_subdir_url + base_filename;
     //   title: successor_id,
     //   type: ee_const.media_type.stac},
   ],
+  'gee:categories': ['fire'],
   keywords: [
     'area',
     'burnt',
