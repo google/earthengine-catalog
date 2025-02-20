@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('USGS', 'https://www.mrlc.gov'),
-    ee.host_provider(version_config.ee_catalog_url),
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-130.24, 21.75, -63.66, 57.68,
                     '1985-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
