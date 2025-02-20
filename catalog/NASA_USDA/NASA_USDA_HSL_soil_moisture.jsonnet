@@ -63,6 +63,7 @@ local successor_url =  ee_const.catalog_base + 'NASA/' + successor_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.successor(successor_id, successor_url)
   ],
+  'gee:categories': ['soil'],
   keywords: [
     'geophysical',
     'hsl',
