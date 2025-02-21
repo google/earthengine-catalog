@@ -45,6 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       type: ee_const.media_type.pdf,
     },
   ],
+  'gee:categories': ['atmosphere'],
   keywords: [
     'aerosol',
     'atmosphere',

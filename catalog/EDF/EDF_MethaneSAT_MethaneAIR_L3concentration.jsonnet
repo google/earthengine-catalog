@@ -55,6 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Methane emission fluxes were produced using a geostatistical inverse
     modeling framework on each of these Zamboni swaths.
   ||| + publications,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
     'emissions',

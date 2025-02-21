@@ -58,6 +58,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     Contact the data provider for more information about the project at this link:
     [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/)
   |||,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
     'emissions',

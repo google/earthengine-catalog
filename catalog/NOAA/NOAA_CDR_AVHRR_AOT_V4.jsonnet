@@ -47,6 +47,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.25921/w3zj-4y48'
     },
   ] + version_config.version_links,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'aerosol',
     'aot',

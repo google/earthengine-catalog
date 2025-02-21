@@ -35,6 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     spatial coverage, and high precision of MethaneAIR data. Not all data
     products are available for all flights.
   ||| + publications,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
     'emissions',

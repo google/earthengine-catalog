@@ -37,6 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439). Not all
     data products are available for all flights.
   ||| + publications,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
     'emissions',
