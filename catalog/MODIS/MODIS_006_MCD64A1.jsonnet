@@ -56,6 +56,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5067/MODIS/MCD64A1.006',
     },
   ] + version_config.version_links,
+  'gee:categories': ['fire'],
   keywords: [
     'burn',
     'fire',

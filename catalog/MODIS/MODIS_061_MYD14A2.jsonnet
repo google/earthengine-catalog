@@ -45,6 +45,7 @@ local template = import 'templates/MODIS_006_MOD14A2.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MYD14A2.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['fire'],
   keywords: [
     '8_day',
     'aqua',
