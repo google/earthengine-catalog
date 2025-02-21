@@ -67,6 +67,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ] + version_config.version_links,
+  'gee:categories': ['agriculture'],
   keywords: [
     'deforestation',
     'eudr',

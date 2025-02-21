@@ -51,6 +51,7 @@ local version = version_config.version;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ] + version_config.version_links,
+  'gee:categories': ['agriculture'],
   keywords: [
     'landsat_derived',
   ],
