@@ -52,6 +52,7 @@ local self_url = catalog_subdir_url + base_filename;
       href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls_wo_fq_cyear_3/',
     },
   ],
+  'gee:categories': ['hydrology'],
   keywords: [
     'australia',
     'ga',

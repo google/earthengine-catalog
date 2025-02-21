@@ -62,6 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://console.cloud.google.com/storage/browser/gfd_v3',
     },
   ],
+  'gee:categories': ['hydrology'],
   keywords: [
     'c2s',
     'cloudtostreet',
