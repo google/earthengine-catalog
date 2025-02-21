@@ -89,6 +89,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       href: 'https://environment.data.gov.uk/dataset/9ba4d5ac-d596-445a-9056-dae3ddec0178',
     },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     // 'uk',
     'lidar',

@@ -52,6 +52,7 @@ local units = import 'units.libsonnet';
     //   type: ee_const.media_type.html,
     // },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'airborne',
     'dem',

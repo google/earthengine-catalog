@@ -42,6 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://ftp.geogratis.gc.ca/pub/nrcan_rncan/elevation/cdem_mnec/',
     },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'canada',
     'cdem',

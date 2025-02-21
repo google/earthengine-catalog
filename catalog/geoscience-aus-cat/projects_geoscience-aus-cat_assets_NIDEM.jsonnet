@@ -64,6 +64,7 @@ local self_url = catalog_subdir_url + base_filename;
       href: 'https://dapds00.nci.org.au/thredds/catalog/fk4/datacube/002/NIDEM/geotiff/catalog.html',
     },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'australia',
     'ga',

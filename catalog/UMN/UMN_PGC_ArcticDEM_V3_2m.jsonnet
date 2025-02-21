@@ -48,6 +48,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.7910/DVN/OHHUKH',
     },
   ] + version_config.version_links,
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'arctic',
     'dem',

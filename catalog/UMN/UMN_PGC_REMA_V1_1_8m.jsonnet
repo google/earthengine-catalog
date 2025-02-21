@@ -39,6 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5194/tc-13-665-2019',
     },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'dem',
     'geophysical',
