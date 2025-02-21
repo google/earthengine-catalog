@@ -59,6 +59,7 @@ local version_config = versions(subdir, version_table, config.id);
       href: 'https://doi.org/10.7265/N5V98602',
     },
   ] + version_config.version_links,
+  'gee:categories': ['cryosphere'],
   keywords: [
     'glacier',
     'glims',

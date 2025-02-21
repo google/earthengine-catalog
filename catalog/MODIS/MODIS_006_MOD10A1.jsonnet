@@ -41,6 +41,7 @@ local template = import 'templates/MODIS_006_MOD10A1.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MOD10A1.006',
     },
   ]  + version_config.version_links,
+  'gee:categories': ['cryosphere'],
   keywords: [
     'albedo',
     'daily',
