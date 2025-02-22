@@ -65,6 +65,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       predecessor_id,
       ee_const.catalog_base + 'NOAA/' + predecessor_basename + '.json'),
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'daily',
     'land',

@@ -42,6 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r00/access/csv/ibtracs.ALL.list.v04r00.csv',
     },
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'hurricane',
     'noaa',

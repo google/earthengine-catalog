@@ -86,6 +86,7 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['climate'],
   keywords: [
     'weather',
     'weathernext',
