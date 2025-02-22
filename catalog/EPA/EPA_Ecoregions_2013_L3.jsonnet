@@ -68,6 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['ecosystems'],
   keywords: [
     'ecoregions',
     'epa',
