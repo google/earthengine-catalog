@@ -28,6 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: 'Suomi NPP ' + viirs_firms.description,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['fire'],
   keywords: viirs_firms.keywords,
   providers: [
     ee.producer_provider('NASA / LANCE / SNPP_VIIRS', 'https://www.earthdata.nasa.gov/learn/find-data/near-real-time/firms/vnp14imgtdlnrt'),
