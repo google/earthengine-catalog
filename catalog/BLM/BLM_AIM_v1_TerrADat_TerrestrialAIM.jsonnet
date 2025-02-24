@@ -79,6 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://gis.blm.gov/AIMdownload/layerpackages/BLM_AIM_Terrestrial.zip',
     },
   ],
+  'gee:categories': ['ecosystems', 'soil'],
   keywords: [
     'aim',
     'biota',
