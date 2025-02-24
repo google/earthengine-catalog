@@ -162,8 +162,8 @@ local self_url = catalog_subdir_url + base_filename;
     nbart_swir_1: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     nbart_swir_2: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
     edev: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    sdev: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
-    bcdev: {minimum: 0, maximum: 10000, 'gee:estimated_range': true},
+    sdev: {minimum: 0, maximum: 1, 'gee:estimated_range': true},
+    bcdev: {minimum: 0, maximum: 1, 'gee:estimated_range': true},
     count: {minimum: 0, maximum: 400, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
