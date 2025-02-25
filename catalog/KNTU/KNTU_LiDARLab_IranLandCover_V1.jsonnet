@@ -39,6 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'ftp://94.184.181.78:1399/Iran_LC/Iran_LC.rar',
     },
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'iran',
     'kntu',

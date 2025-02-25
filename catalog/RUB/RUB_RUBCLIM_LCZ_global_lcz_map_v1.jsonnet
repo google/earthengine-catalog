@@ -76,6 +76,7 @@ local version = version_config.version;
       href: 'https://doi.org/10.5281/zenodo.6364593',
     },
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'climate',
     'landcover',

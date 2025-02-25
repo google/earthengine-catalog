@@ -57,6 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://www.dropbox.com/s/f467ffmvh6nl5au/l2018_poly_attr_geomCC.csv?dl=0',
     },
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'copernicus',
     'eu',

@@ -48,6 +48,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           href: 'https://esa-worldcover.org/en/data-access',
         },
       ],
+      'gee:categories': ['landuse-landcover'],
       keywords: [
         'esa',
         'landcover',

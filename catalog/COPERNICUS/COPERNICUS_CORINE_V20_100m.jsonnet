@@ -74,6 +74,7 @@ local license = spdx.proprietary;
       href: 'https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download',
     },
   ] + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'clc',
     'copernicus',

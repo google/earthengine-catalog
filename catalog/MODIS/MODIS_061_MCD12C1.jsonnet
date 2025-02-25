@@ -53,6 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MODIS/MCD12C1.061',
     }
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'landcover',
     'modis',

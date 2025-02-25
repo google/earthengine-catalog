@@ -68,6 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.license(
       'https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice'),
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'global',
     'google',

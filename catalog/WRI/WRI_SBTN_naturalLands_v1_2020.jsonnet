@@ -56,6 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['landuse-landcover', 'ecosystems'],
   keywords: ['wri', 'landcover'],
   providers: [
     ee.producer_provider(

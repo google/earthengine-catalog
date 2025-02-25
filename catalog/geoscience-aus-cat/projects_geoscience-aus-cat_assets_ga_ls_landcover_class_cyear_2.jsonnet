@@ -59,6 +59,7 @@ local self_url = catalog_subdir_url + base_filename;
       href: 'http://dea-public-data.s3-website-ap-southeast-2.amazonaws.com/?prefix=derivative/ga_ls_landcover_class_cyear_2/',
     },
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'australia',
     'ga',

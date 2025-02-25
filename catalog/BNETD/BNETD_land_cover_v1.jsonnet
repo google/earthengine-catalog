@@ -72,6 +72,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       href: 'https://africageoportal.maps.arcgis.com/home/item.html?id=46348aa12a3d46e592584737de64f72a',
     },
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'landcover',
     'forest',

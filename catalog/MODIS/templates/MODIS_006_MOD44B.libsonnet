@@ -16,6 +16,7 @@ local units = import 'units.libsonnet';
     composites of Terra MODIS 250 and 500 meters Land Surface Reflectance
     data, including all seven bands, and Land Surface Temperature.
   |||,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'annual',
     'geophysical',

@@ -59,6 +59,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5281/zenodo.3243509',
     },
   ] + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'copernicus',
     'eea',
