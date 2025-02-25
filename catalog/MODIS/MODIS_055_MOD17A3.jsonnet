@@ -44,6 +44,7 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['plant-productivity'],
   keywords: [
     'global',
     'gpp',

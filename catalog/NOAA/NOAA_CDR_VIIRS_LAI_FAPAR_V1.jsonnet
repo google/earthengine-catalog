@@ -60,6 +60,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.25921/9x3m-0e02',
     },
   ],
+  'gee:categories': ['plant-productivity'],
   keywords: [
     'viirs',
     'cdr',
