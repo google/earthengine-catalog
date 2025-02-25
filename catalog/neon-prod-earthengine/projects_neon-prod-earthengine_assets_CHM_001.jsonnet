@@ -60,6 +60,7 @@ local units = import 'units.libsonnet';
     //   type: ee_const.media_type.html,
     // },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'airborne',
     'canopy',

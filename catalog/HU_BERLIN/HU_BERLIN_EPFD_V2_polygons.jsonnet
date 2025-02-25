@@ -29,6 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: epfd_v2.keywords,
   providers: epfd_v2.providers('', self_ee_catalog_url),
   extent: epfd_v2.extent,

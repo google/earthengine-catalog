@@ -71,6 +71,7 @@ local self_url = catalog_subdir_url + base_filename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'primary_forest',
     'undisturbed_forest',

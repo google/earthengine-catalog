@@ -44,6 +44,7 @@ local license = spdx.cc_by_4_0;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference)
   ] + version_config.version_links,
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'forest',
     'geophysical',

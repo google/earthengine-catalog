@@ -56,6 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.successor(
         successor_id, ee_const.catalog_base + 'NASA/NASA_MEASURES_GFCC_TC_v3.json'),
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'forest',
     'glcf',

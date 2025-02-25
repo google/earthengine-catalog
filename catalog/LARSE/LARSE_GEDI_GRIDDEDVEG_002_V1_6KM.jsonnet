@@ -27,6 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: gedi_vegetation.description + 'This dataset uses the pixel size of 6KM.',
   license: gedi_vegetation.license,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['forest-biomass'],
   keywords: gedi_vegetation.keywords,
   providers: gedi_vegetation.providers(
     'Rasterization: Google and ', self_ee_catalog_url),

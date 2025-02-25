@@ -47,6 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://opendata.nfis.org/downloads/forest_change/CA_forest_age_2019.zip',
     },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'canada',
     'forest',

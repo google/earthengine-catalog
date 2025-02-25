@@ -83,6 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'eudr',
     'forest',

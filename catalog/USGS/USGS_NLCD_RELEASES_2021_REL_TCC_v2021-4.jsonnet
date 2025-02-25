@@ -142,6 +142,7 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'forest',
     'gtac',

@@ -50,6 +50,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       href: 'https://doi.org/10.7927/H4J67DW8',
     },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'annual',
     'ciesin',
