@@ -543,6 +543,43 @@ class CollectionTest(absltest.TestCase):
     self.assertIsNone(gee_params.z_order_ranking)
     self.assertEqual(gee_params.to_dict(), {'maxFeaturesPerTile': 750})
 
+  def test_providers(self):
+    stac_json = _valid_stac()
+    collection = stac.Collection(stac_json)
+    providers = list(collection.providers())
+    expected_providers = [
+        stac.Provider(
+            name='provider 1',
+            description=None,
+            roles=[stac.Role.PRODUCER],
+            url='url 1',
+            instruments=['i1', 'i2'],
+            platforms=['p1', 'p2'],
+            file_links=[
+                'https://example.com/a.tar.xz',
+                'https://example.com/b.zip',
+            ],
+        ),
+        stac.Provider(
+            name='provider 3',
+            description=None,
+            roles=[stac.Role.LICENSOR],
+            url='url 3',
+            instruments=[],
+            platforms=[],
+            file_links=[],
+        ),
+    ]
+
+    self.assertEqual(providers, expected_providers)
+
+  def test_providers_empty_providers_list(self):
+    stac_json = _valid_stac()
+    stac_json.update({'providers': []})
+    collection = stac.Collection(stac_json)
+    providers = list(collection.providers())
+    self.assertEqual(providers, [])
+
 
 class CatalogTest(unittest.TestCase):
 
