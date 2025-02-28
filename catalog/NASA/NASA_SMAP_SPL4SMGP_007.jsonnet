@@ -64,6 +64,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['soil'],
   keywords: [
     'drought',
     'nasa',
