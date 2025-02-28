@@ -44,6 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.successor(
         successor_id, ee_const.catalog_base + 'WRI/WRI_GFW_FORMA_alerts.json'),
   ],
+  'gee:categories': ['fire'],
   keywords: [
     'alerts',
     'deforestation',

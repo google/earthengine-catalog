@@ -59,6 +59,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       ee.link.predecessor(predecessor_id,ee_const.catalog_base + 'NOAA/' +
         predecessor_basename + '.json'),
   ],
+  'gee:categories': ['fire'],
   keywords: [
     'fire',
     'land',

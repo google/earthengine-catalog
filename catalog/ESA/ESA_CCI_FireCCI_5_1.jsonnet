@@ -57,6 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5285/58f00d8814064b79a0c49662ad3af537',
     },
   ],
+  'gee:categories': ['fire'],
   keywords: [
     'burn',
     'c3s',
