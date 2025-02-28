@@ -49,6 +49,7 @@ local template = import 'templates/MODIS_006_MOD11A1.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MYD11A1.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     'aqua',
     'daily',

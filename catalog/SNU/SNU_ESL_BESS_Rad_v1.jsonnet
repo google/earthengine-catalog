@@ -48,6 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://drive.google.com/drive/folders/1B2aSPkgnGsSdQx4XtX4H21O7tP6kq-pG',
     },
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'evapotranspiration',
     'gpp',

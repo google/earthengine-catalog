@@ -56,6 +56,7 @@ local license = spdx.cc_by_4_0;
       href: 'https://doi.org/10.20350/digitalCSIC/15121',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     'climate',
     'climate_change',

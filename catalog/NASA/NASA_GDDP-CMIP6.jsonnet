@@ -62,6 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       type: ee_const.media_type.html,
     },
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'cag',
     'climate',

@@ -39,6 +39,7 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: era5_land.keywords,
   providers: [
     ee.producer_provider(

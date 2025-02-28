@@ -39,6 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MODIS/MCD18C2.062',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     'par',
     'radiation',

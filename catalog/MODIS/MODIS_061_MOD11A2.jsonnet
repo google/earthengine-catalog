@@ -55,6 +55,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5067/MODIS/MOD11A2.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     '8_day',
     'emissivity',
