@@ -58,6 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://disc2.gesdisc.eosdis.nasa.gov/data/TRMM_L3/TRMM_3B43.7/',
     },
   ],
+  'gee:categories': ['precipitation'],
   keywords: [
     'climate',
     'geophysical',

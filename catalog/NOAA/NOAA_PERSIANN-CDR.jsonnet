@@ -44,6 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.7289/V51V5BWQ',
     },
   ],
+  'gee:categories': ['precipitation'],
   keywords: [
     'cdr',
     'climate',
