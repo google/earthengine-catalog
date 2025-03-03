@@ -142,7 +142,7 @@ local license = spdx.proprietary;
         description: |||
           Total precipitation over a 6-hour period
         |||,
-        'gee:units': units.millimeter,
+        'gee:units': units.meter,
       },
       {
         name: '10m_u_component_of_wind',
