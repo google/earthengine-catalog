@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * ozone_total_vertical_column in [0, 0.45]
     * ozone_effective_temperature in [180, 260]
-    * fitted_root_mean_square > 0.01
+    * fitted_root_mean_square <= 0.01
 
     Example harpconvert invocation:
     ```
@@ -196,9 +196,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'SPATIAL_RESOLUTION',
         description: |||
-          Spatial resolution at nadir. For most products this is `3.5x7km2`,
+          Spatial resolution at nadir. For most products this is `3.5x7 km2`,
           except for `L2__O3__PR`, which uses `28x21km2`, and
-          `L2__CO____` and `L2__CH4___`, which both use `7x7km2`.
+          `L2__CO____` and `L2__CH4___`, which both use `7x7 km2`.
           This attribute originates from the CCI standard.
         |||,
         type: ee_const.var_type.string,

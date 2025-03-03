@@ -44,7 +44,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     [More information.](https://www.tropomi.eu/data-products/sulfur-dioxide)
 
     For this L3 SO<sub>2</sub> product, the absorbing_aerosol_index is calculated with a
-    pair of measurements at the 340 nm and 380 wavelengths.  The
+    pair of measurements at the 340 nm and 380 nm wavelengths.  The
     [COPERNICUS/S5P/OFFL/L3_AER_AI](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_OFFL_L3_AER_AI)
     product has the absorbing_aerosol_index calculated using the 354 nm and 388
     nm wavelengths.
@@ -141,7 +141,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
         name: 'absorbing_aerosol_index',
         description: |||
           A measure of the prevalence of aerosols in the atmosphere, calculated by
-          [this equation](https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-ultraviolet-aerosol-index) using the 340/380 wavelength pair.
+          [this equation](https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-ultraviolet-aerosol-index) using the 340/380 nm wavelength pair.
         |||,
       },
       {

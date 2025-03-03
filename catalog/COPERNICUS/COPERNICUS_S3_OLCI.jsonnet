@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     above the sea surface (the water-leaving radiance).
 
     OLCI observation is performed simultaneously in 21 spectral bands
-    ranging from the visible to the near-infrared (400 to 1029nm).
+    ranging from the visible to the near-infrared (400 to 1029 nm).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

@@ -110,9 +110,9 @@ local units = import 'units.libsonnet';
       {
         name: 'SPATIAL_RESOLUTION',
         description: |||
-          Spatial resolution at nadir. For most products this is `3.5x7km2`,
+          Spatial resolution at nadir. For most products this is `3.5x7 km2`,
           except for `L2__O3__PR`, which uses `28x21km2`, and
-          `L2__CO____` and `L2__CH4___`, which both use `7x7km2`.
+          `L2__CO____` and `L2__CH4___`, which both use `7x7 km2`.
           This attribute originates from the CCI standard.
         |||,
         type: ee_const.var_type.string,

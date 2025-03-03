@@ -31,7 +31,7 @@ local license = spdx.proprietary;
     Copernicus programme and implemented by national teams. The number of
     participating countries has increased over time currently including 33 (EEA)
     member countries and six cooperating countries (EEA39) with a total area of
-    over 5.8 Mkm2.
+    over 5.8M km2.
 
     The reference year of the first CLC inventory was 1990 and the first update
     created in 2000. Later, the update cycle has become 6 years. Satellite

@@ -28,7 +28,7 @@ local license = spdx.proprietary;
       ],
       id: id,
       version: version,
-      title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-2A',
+      title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-2A (SR)',
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
         Sentinel-2 is a wide-swath, high-resolution, multi-spectral

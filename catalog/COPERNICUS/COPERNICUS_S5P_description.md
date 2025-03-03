@@ -11,7 +11,7 @@ quickly after acquisition.  The OFFL assets contain data from a single orbit
 (which, due to half the earth being dark, contains data only for a single 
 hemisphere).
 
-Because of noise on the data, negative vertical column values are often
+Because of noise in the data, negative vertical column values are often
 observed in particular over clean regions or for low SO2 emissions. It is
 recommended not to filter these values except for outliers, i.e.
 for vertical columns lower than -0.001 mol/m^2.

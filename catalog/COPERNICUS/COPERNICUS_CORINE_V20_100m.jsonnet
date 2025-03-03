@@ -30,7 +30,7 @@ local license = spdx.proprietary;
     Copernicus programme and implemented by national teams. The number of
     participating countries has increased over time currently including 33 (EEA)
     member countries and six cooperating countries (EEA39) with a total area of
-    over 5.8 Mkm2.
+    over 5.8M km2.
 
     CLC2018 is one of the datasets produced within the frame the Corine Land Cover
     programme referring to land cover / land use status of year 2018.
