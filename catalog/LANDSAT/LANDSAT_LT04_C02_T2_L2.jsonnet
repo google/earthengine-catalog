@@ -56,6 +56,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'cfmask',
     'cloud',

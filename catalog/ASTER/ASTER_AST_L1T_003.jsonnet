@@ -64,6 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/ASTER/AST_L1T.003',
     },
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'aster',
     'eos',

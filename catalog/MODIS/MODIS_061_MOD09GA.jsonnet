@@ -48,6 +48,7 @@ local template = import 'templates/MODIS_006_MOD09GA.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MOD09GA.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'daily',
     'global',

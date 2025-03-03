@@ -49,6 +49,7 @@ local license = spdx.proprietary;
       commodities and financial markets.
   |||,
   license: license.id,
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'basemaps',
     'forest',

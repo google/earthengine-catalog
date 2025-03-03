@@ -57,6 +57,7 @@ local version = version_config.version;
   ||| + notes.description + landsat.l7_drift,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'cfmask',
     'cloud',

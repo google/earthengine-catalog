@@ -42,6 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.1088/1748-9326/3/4/045011',
     },
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'albedo',
     'annual',

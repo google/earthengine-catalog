@@ -68,6 +68,7 @@ local self_url = catalog_subdir_url + base_filename;
       href: 'https://data.dea.ga.gov.au/?prefix=derivative/ga_ls5t_nbart_gm_cyear_3/',
     },
   ] + version_config.version_links,
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'australia',
     'ga',

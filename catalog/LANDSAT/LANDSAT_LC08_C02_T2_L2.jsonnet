@@ -55,6 +55,7 @@ local version = version_config.version;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'cfmask',
     'cloud',
