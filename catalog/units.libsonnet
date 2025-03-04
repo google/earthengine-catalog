@@ -238,6 +238,7 @@
 
   // https://en.wikipedia.org/wiki/Volume_fraction
   volume_fraction: 'Volume fraction',
+  volumetric_content: 'cm^3/cm^3',
 
   // https://en.wikipedia.org/wiki/Watt
   // Unused: watt: 'w',
