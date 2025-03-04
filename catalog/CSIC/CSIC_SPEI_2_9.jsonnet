@@ -45,7 +45,7 @@ local license = spdx.cc_by_4_0;
     estimation of potential evapotranspiration.
     This is a major difference with respect to the SPEI Global Drought Monitor,
     that uses the Thornthwaite PET estimation.
-    The Penman-Montheith method is considered a superior method, so the
+    The Penman-Monteith method is considered a superior method, so the
     SPEIbase is recommended for most uses including long-term climatological
     analysis.
   |||,

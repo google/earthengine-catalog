@@ -201,7 +201,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {
             value: 180,
             color: '00dc82',
-            description: 'Shrub or herbaceous cover, flooded, fresh/saline/brakish water',
+            description: 'Shrub or herbaceous cover, flooded, fresh/saline/brackish water',
           },
         ],
       },

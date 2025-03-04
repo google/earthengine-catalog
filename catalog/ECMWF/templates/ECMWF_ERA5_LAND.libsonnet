@@ -269,7 +269,6 @@ local meters_eq = 'm of water equivalent';
         It represents the fraction (0-1) of the cell / grid-box occupied by
         snow (similar to the cloud cover fields of ERA5).
       |||,
-      units: units.percent,
     },
     {
       name: 'snow_density',
