@@ -156,120 +156,69 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   // Summaries contain additional information specific to the dataset type.
   summaries: {
-    // Platform and instrument fields are optional and can be left out,
-    // but are recommended.
-    // https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#instrument
-    // Name of the ship, aircraft, spacecraft, or other collecting device.
-    platform: ['MethaneSAT'],
-    // Name of instrument or sensor used (e.g., MODIS, ASTER, OLI, Canon F-1).
-    instruments: ['MethaneSAT'],
-
-    // Describe all of the bands in the order they appear in an ee.Image.
-    // For each band, only `name` and `description` are required.
-    // If the pixel size is the same for all bands, set it here.
-    // (In STAC, pixel size is called "gsd", or "ground sample distance".)
-    // https://en.wikipedia.org/wiki/Ground_sample_distance
-    // Value is in meters. If the pixel size is in degrees, multiply by 111,195.
-    // gsd: [15],
     'eo:bands': [
       {
-        name: 'band_name_1',
-        description: 'Describe the band',
-        gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
-                  // If the pixel size is in degrees, multiply by 111,195.
-        center_wavelength: 0.56,  // in nm
-        // Note that gee:wavelength is more expressive than 'center_wavelength',
-        // as it allows value ranges and units.
-        'gee:wavelength': '0.520-0.600 &mu;m',
-        // See here for predefined units and prefer those over using a custom
-        // units string.
-        // https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
-        'gee:units': units.dn,
-      },
-      {
-        name: 'band_name_2',
-        description: 'Describe the band',
-        gsd: 20,
-        // For units without dimensions.
-        'gee:units': units.dimensionless,
-      },
-      {
-        name: 'band_name_3',
-        description: 'Describe the band',
-        gsd: 41,
-        'gee:units': units.percent,
-      },
-      {
-        name: 'band_name_4',
-        description: 'Example of gee:classes',
-        gsd: 1.2,
-        // Only for bands with enumerated values.
-        'gee:classes': [
-          {value: 10, color: 'ff0000', description: 'Red thing'},
-          {value: 11, color: '00ff00', description: 'Green thing'},
-          {value: 20, color: '0000ff', description: 'Blue thing'},
-          {value: 99, color: 'ffffff', description: 'White thing'},
-        ],
-      },
+        name: 'flux',
+        description: 'Methane emissions traceable to a 1km^2 area.',
+        gsd: 1000,
+        'gee:units': units.kg_per_hour_per_square_km,
+      }
     ],
+    flux: {minimum: 0, maximum: 28.3, 'gee:estimated_range': true},
 
-    // Optional band statistics - one entry per band.
-    // If the exact statistics are known, then set gee:estimated_range to true.
-    band_name_1: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
-    band_name_2: {minimum: 0, maximum: 1e8, 'gee:estimated_range': false},
-    band_name_3: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
-    band_name_4: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
-
-    // One or more band visualizations.
     'gee:visualizations': [
-      // Example with three bands, but only one value for min and max.
       {
-        // Give units when possible.
-        display_name: 'Describe what is shown 1',
-        // Do not use too many significant digits.
-        lookat: {lon: -122.03, lat: 39.67, zoom: 11},
-        // See for details:
-        // https://developers.google.com/earth-engine/guides/image_visualization
+        display_name: 'Methane area sources flux in kg/h/km^2',
+        lookat: { lon: -102.5, lat: 31.85, zoom: 8 },
         image_visualization: {
           band_vis: {
             min: [0],
-            max: [255],
-            // Which bands to map to red, green, and blue rgb channels.
-            bands: ['band_name_1', 'band_name_2', 'band_name_3'],
+            max: [18],
+            bands: ['flux'],
+            palette: ['navy', 'magenta', 'orange', 'yellow'],
           }
         },
       },
-      // Example with one band.
-      {
-        display_name: 'Describe what is shown 2',
-        lookat: {lon: -122, lat: 39, zoom: 4},
-        image_visualization: {band_vis: {bands: ['band_name_4']}},
-      },
-      // Example with one band and a palette for the colors.
-      {
-        display_name: 'Describe what is shown 3',
-        lookat: {lon: -122, lat: 39, zoom: 14},
-        image_visualization: {
-          band_vis: {
-            min: [0],
-            max: [100],
-            // Use W3C color names or 6-character hex (e.g., green is 00ff00).
-            // https://www.w3.org/wiki/CSS/Properties/color/keywords
-            palette: ['blue', 'red'],
-            bands: ['band_name_3'],
-          },
-        },
-      },
     ],
 
-    // Describes values set on each image.
     'gee:schema': [
       {
-        name: 'Property_name',
-        description: 'Describe the property',
-        // Possible type values: int, double, string
-        type: ee_const.var_type.double,
-        'units': units.dimensionless,
+        name: 'collection_id',
+        description: 'satellite observation number.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'basin',
+        description: 'Oil and Gas basin (e.g. Permian) or area of interest ' +
+        '(e.g. New York City).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'time_coverage_start',
+        description: 'Data collection start time in YYYY-MM-DDThh:mm:ssZ ' +
+        'format STRING (ISO 8601).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'time_coverage_end',
+        description: 'Data collection end time in YYYY-MM-DDThh:mm:ssZ ' +
+        'format STRING (ISO 8601).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'processing_id',
+        description: |||
+          (internal) Processing run identifier that represents the calculations
+          that led to the features. It is not an attribute describing the
+          flight, but the processing pipeline.
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'area_source_total_kg_hr',
+        description: 'Total value of area emissions for this flight in ' +
+        'kg/hr. Missing values are indicated by -1.',
+        type: ee_const.var_type.int,
       },
     ],
   },
@@ -283,9 +232,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // - climatological_interval: for climatological averages.
     type: 'cadence',
     // One of: second, minute, hour, day, week, month, year, custom_time_unit.
-    unit: 'week',
+    unit: 'day',
     // How long the interval is (expressed in units above).
-    interval: 1,
+    interval: 7,
   },
 
   'sci:citation': |||

@@ -144,21 +144,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   // Summaries contain additional information specific to the dataset type.
   summaries: {
-    // Platform and instrument fields are optional and can be left out,
-    // but are recommended.
-    // https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#instrument
-    // Name of the ship, aircraft, spacecraft, or other collecting device.
-    platform: ['MethaneSAT'],
-    // Name of instrument or sensor used (e.g., MODIS, ASTER, OLI, Canon F-1).
-    instruments: ['MethaneSAT'],
-
-    // Describe all of the bands in the order they appear in an ee.Image.
-    // For each band, only `name` and `description` are required.
-    // If the pixel size is the same for all bands, set it here.
-    // (In STAC, pixel size is called "gsd", or "ground sample distance".)
-    // https://en.wikipedia.org/wiki/Ground_sample_distance
-    // Value is in meters. If the pixel size is in degrees, multiply by 111,195.
-    // gsd: [15],
     'gsd': [10.2],
     'eo:bands': [
       {
@@ -187,56 +172,53 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     surface_pressure: {minimum: 725.95, maximum: 1011.33, 'gee:estimated_range': true},
     terrain_height: {minimum: 0.026, maximum: 2.915, 'gee:estimated_range': true},
 
-    // One or more band visualizations.
     'gee:visualizations': [
-      // Example with three bands, but only one value for min and max.
       {
-        // Give units when possible.
-        display_name: 'Describe what is shown 1',
-        // Do not use too many significant digits.
-        lookat: {lon: -122.03, lat: 39.67, zoom: 11},
-        // See for details:
-        // https://developers.google.com/earth-engine/guides/image_visualization
+        display_name: 'Retrieved column-averaged dry-air CH4 mole fraction.',
+        lookat: { lon: -102.9, lat: 32, zoom: 8 },
         image_visualization: {
           band_vis: {
-            min: [0],
-            max: [255],
-            // Which bands to map to red, green, and blue rgb channels.
-            bands: ['band_name_1', 'band_name_2', 'band_name_3'],
+            min: [1870],
+            max: [2030],
+            bands: ['XCH4'],
+            palette: ['navy', 'magenta', 'orange', 'yellow'],
           }
-        },
-      },
-      // Example with one band.
-      {
-        display_name: 'Describe what is shown 2',
-        lookat: {lon: -122, lat: 39, zoom: 4},
-        image_visualization: {band_vis: {bands: ['band_name_4']}},
-      },
-      // Example with one band and a palette for the colors.
-      {
-        display_name: 'Describe what is shown 3',
-        lookat: {lon: -122, lat: 39, zoom: 14},
-        image_visualization: {
-          band_vis: {
-            min: [0],
-            max: [100],
-            // Use W3C color names or 6-character hex (e.g., green is 00ff00).
-            // https://www.w3.org/wiki/CSS/Properties/color/keywords
-            palette: ['blue', 'red'],
-            bands: ['band_name_3'],
-          },
         },
       },
     ],
 
-    // Describes values set on each image.
     'gee:schema': [
       {
-        name: 'Property_name',
-        description: 'Describe the property',
-        // Possible type values: int, double, string
-        type: ee_const.var_type.double,
-        'units': units.dimensionless,
+        name: 'flight_id',
+        description: 'Research flight number.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'basin',
+        description: 'Oil and Gas basin (e.g. Permian) or area of interest ' +
+        '(e.g. New York City).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'time_coverage_start',
+        description: 'Data collection start time in YYYY-MM-DDThh:mm:ssZ ' +
+        'format STRING (ISO 8601).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'time_coverage_end',
+        description: 'Data collection end time in YYYY-MM-DDThh:mm:ssZ ' +
+        'format STRING (ISO 8601).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'processing_id',
+        description: |||
+          (internal) Processing run identifier that represents the calculations
+          that led to the features. It is not an attribute describing the
+          flight, but the processing pipeline.
+        |||,
+        type: ee_const.var_type.string,
       },
     ],
   },
@@ -250,9 +232,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // - climatological_interval: for climatological averages.
     type: 'cadence',
     // One of: second, minute, hour, day, week, month, year, custom_time_unit.
-    unit: 'week',
+    unit: 'day',
     // How long the interval is (expressed in units above).
-    interval: 1,
+    interval: 7,
   },
 
   'sci:citation': |||
