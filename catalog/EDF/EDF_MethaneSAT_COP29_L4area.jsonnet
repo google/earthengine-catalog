@@ -75,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
   // Do not end the title with punctuation. Include version if it is known.
-  title: 'MethaneSAT L4 Area Sources released at COP29' + version
+  title: 'MethaneSAT L4 Area Sources released at COP29' + version,
   version: version,
 
   description: |||
