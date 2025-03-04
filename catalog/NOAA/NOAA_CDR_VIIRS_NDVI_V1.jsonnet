@@ -59,6 +59,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.25921/gakh-st76',
     },
   ],
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'viirs',
     'cdr',

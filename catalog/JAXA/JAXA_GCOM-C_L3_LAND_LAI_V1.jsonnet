@@ -49,6 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'g_portal',
     'gcom',

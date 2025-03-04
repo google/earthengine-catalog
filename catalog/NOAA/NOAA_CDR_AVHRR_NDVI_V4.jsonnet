@@ -52,6 +52,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.7289/V5PZ56R6',
     },
   ] + version_config.version_links,
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'avhrr',
     'cdr',

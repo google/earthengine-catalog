@@ -50,6 +50,7 @@ local template = import 'templates/MODIS_006_MOD13A2.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MYD13A2.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     '16_day',
     'aqua',
