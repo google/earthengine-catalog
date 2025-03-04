@@ -55,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [ASTER Level-1T Product Specification](https://lpdaac.usgs.gov/documents/300/ASTER_L1T_Product_Specification.pdf)
 
-    * [ASTER L1T Quick Reference Guide(ASTER L1T Quick Reference Guide)](https://lpdaac.usgs.gov/documents/174/AST_L1T_Quick_Reference_Guide.pdf)
+    * [ASTER L1T Quick Reference Guide](https://lpdaac.usgs.gov/documents/174/AST_L1T_Quick_Reference_Guide.pdf)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

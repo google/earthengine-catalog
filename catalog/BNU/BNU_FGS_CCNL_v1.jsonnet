@@ -22,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title:
-    'CCNL: Consistent And Corrected Nighttime Light Dataset from DMSP-OLS ' +
+    'CCNL: Consistent and Corrected Nighttime Light Dataset from DMSP-OLS ' +
     '(1992-2013) v' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     A series of methods was used to mitigate the impact of inter-annual
     inconsistency, saturation, and blooming effects and to improve data quality.
 
-    CCNL Version 1 spans the globe from 75N to 65S and has 1km pixel size.
+    CCNL Version 1 spans the globe from 75N to 65S and has 1 km pixel size.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider(
-        'Beijng Normal University', 'https://doi.org/10.5281/zenodo.6644980'),
+        'Beijing Normal University', 'https://doi.org/10.5281/zenodo.6644980'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(

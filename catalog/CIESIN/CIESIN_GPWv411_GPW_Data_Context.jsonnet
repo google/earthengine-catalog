@@ -151,7 +151,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Center for International Earth Science Information Network - CIESIN -
     Columbia University. 2018. Gridded Population of the World, Version 4
     (GPWv4): Data Context, Revision 11. Palisades, NY: NASA Socioeconomic Data
-    and Applications Center (SEDAC). [doi:10.7927/H46M34XX](https://doi.org/10.7927/H46M34XX).
+    and Applications Center (SEDAC). [doi:10.7927/H42Z13KG](https://doi.org/10.7927/H42Z13KG).
     Accessed DAY MONTH YEAR.
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),

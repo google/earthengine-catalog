@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset contains estimates of the water area (permanent ice and water)
-    within each pixel, and was used to calculate the GPWv4 population density
+    within each pixel, and was used to calculate the GPW v4.11 population density
     datasets.
 
     [General Documentation](https://sedac.ciesin.columbia.edu/data/set/gpw-v4-land-water-area-rev11/docs)

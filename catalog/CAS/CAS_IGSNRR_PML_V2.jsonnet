@@ -24,7 +24,7 @@ local license = spdx.cc_by_4_0;
   id: id,
   title:
     'PML_V2 ' + version +
-    ': Coupled Evapotranspiration and Gross Primary Product (GPP) [deprecated]',
+    ': Coupled Evapotranspiration and Gross Primary Production (GPP) [deprecated]',
   version: version,
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
@@ -42,9 +42,9 @@ local license = spdx.cc_by_4_0;
        rainfall from vegetation (Zhang et al., 2016).
 
     The PML_V2 products perform well against observations
-    at 95 flux sites across globe, and are similar to or noticeably better than
+    at 95 flux sites across the globe, and are similar to or noticeably better than
     major state-of-the-art ET and GPP products widely used by water and ecology
-    science communities (Zhang et al., 2019).
+    research communities (Zhang et al., 2019).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
@@ -63,7 +63,7 @@ local license = spdx.cc_by_4_0;
     'eo:bands': [
       {
         name: 'GPP',
-        description: 'Gross primary product',
+        description: 'Gross primary production',
         'gee:units': 'gC m-2 d-1',
       },
       {
@@ -84,8 +84,9 @@ local license = spdx.cc_by_4_0;
       {
         name: 'ET_water',
         description: |||
-          Water body, snow and ice evaporation. Penman evapotranspiration is
-          regarded as actual evaporation for them.
+          Evaporation from water bodies, snow, and ice. Calculated using the
+          Penman equation, which is considered a good estimate of actual
+          evaporation for these surfaces.
         |||,
         'gee:units': units.millimeter_per_day,
       },
