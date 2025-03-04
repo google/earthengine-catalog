@@ -15,7 +15,6 @@ CATEGORIES = frozenset([
     'elevation-topography',
     'fire',
     'forest-biomass',
-    'hydrology',
     'infrastructure-boundaries',
     'landuse-landcover',
     'oceanography',
@@ -25,6 +24,7 @@ CATEGORIES = frozenset([
     'precipitation',
     'satellite-imagery',
     'soil',
+    'surface-ground-water',
     'vegetation-indices',
 ])
 

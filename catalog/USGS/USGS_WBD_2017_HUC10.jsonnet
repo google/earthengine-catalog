@@ -72,6 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://nrcs.app.box.com/v/huc',
     },
   ],
+  'gee:categories': ['surface-ground-water'],
   keywords: [
     'hydrology',
     'usgs',

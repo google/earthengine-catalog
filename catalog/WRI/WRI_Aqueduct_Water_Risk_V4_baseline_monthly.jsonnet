@@ -35,6 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://www.wri.org/data/aqueduct-global-maps-40-data',
     },
   ],
+  'gee:categories': ['surface-ground-water'],
   keywords: aqueduct_water_risk.keywords,
   providers: [
     ee.producer_provider('World Resources Institute', 'https://www.wri.org/data/aqueduct-global-maps-40-data'),

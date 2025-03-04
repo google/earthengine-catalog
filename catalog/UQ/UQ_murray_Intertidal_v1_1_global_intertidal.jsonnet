@@ -55,6 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.1038/s41586-018-0805-8',
     },
   ],
+  'gee:categories': ['surface-ground-water'],
   keywords: [
     'coastal',
     'google',
