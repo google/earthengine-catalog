@@ -43,6 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'ftp://ftp2.census.gov/geo/tiger/TIGER2016/STATE/tl_2016_us_state.zip',
     },
   ],
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'census',
     'state',

@@ -80,6 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5066/P955KPLE',
     },
   ],
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'conservation_easements',
     'designation',

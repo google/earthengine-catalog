@@ -42,6 +42,7 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ] + version_config.version_links,
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'borders',
     'countries',

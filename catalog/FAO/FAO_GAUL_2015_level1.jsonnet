@@ -41,6 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ],
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'borders',
     'departments',

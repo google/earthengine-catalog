@@ -41,6 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'ftp://ftp2.census.gov/geo/tiger/TIGER2016/ROADS/',
     },
   ],
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'census',
     'roads',

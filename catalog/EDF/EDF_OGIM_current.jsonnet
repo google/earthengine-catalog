@@ -78,6 +78,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset will be updated in-place with the new versions.
   |||,
 
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'methane',
     'emissions',

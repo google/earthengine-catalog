@@ -66,6 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'ftp://ftp2.census.gov/geo/tiger/TIGER2018/COUNTY/tl_2018_us_county.zip',
     },
   ],
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'census',
     'county',
