@@ -29,6 +29,7 @@ local license = spdx.proprietary;
   description: template.description,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['oceanography'],
   keywords: [
     'elevation',
     'hycom',

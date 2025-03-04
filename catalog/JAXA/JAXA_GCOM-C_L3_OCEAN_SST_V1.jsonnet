@@ -50,6 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['oceanography'],
   keywords: [
     'climate',
     'g_portal',
