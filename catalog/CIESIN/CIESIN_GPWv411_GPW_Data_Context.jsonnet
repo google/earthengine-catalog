@@ -37,6 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.7927/H42Z13KG',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'ciesin',
     'gpw',

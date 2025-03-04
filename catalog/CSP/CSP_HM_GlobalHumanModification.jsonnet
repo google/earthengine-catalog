@@ -49,6 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://gdra-tnc.org/current/',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'csp',
     'fragmentation',

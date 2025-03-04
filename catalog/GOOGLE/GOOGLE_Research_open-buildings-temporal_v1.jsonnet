@@ -61,6 +61,7 @@ local units = import 'units.libsonnet';
     ee.link.license(license.reference),
     ee.link.license(spdx.odbl_1_0.reference),
   ],
+  'gee:categories': ['population'],
   keywords: [
     'building_height',
     'height',

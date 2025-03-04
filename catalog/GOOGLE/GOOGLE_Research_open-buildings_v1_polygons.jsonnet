@@ -56,6 +56,7 @@ local license = spdx.cc_by_4_0;
       id, subdir, version_config.basename + '_FeatureView'),
     ee.link.license(license.reference)
   ] + version_config.version_links,
+  'gee:categories': ['population'],
   keywords: [
     'africa',
     'building',

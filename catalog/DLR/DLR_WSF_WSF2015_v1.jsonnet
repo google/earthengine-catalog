@@ -68,6 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.1038/s41597-020-00580-5',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'landcover',
     'landsat_derived',
