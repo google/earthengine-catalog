@@ -289,10 +289,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://www.methanesat.org/sites/default/files/2024-10/MethaneSATGEE%20Terms%20of%20Use%20October%202024.pdf')
   ],  
 
-  // The standard links cover the basic locations of the dataset, catalog
-  // entries, code examples, etc.
-  links: ee.standardLinks(subdir, id),
-
   // Here are some of the other links that are sometimes needed. Add by
   // concatenating a Jsonnet array like this:
   //   links: ee.standardLinks(subdir, id) + [more links here],
