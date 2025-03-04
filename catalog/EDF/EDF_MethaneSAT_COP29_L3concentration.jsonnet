@@ -79,30 +79,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
-This early “Public Preview” dataset provides geospatial data for the 
-column-averaged dry-air mole fraction of methane in the atmosphere, "XCH₄", 
-retrieved from measurements by the MethaneSAT imaging spectrometer. XCH₄ is 
-defined as the total column amount (number of molecules above a unit surface 
-area) of methane ("CH₄") divided by the total amount of air (number of molecules 
-above a unit surface area, water vapor amount removed) along the line of sight 
-from the satellite’s spectrometer to the Earth's surface and back up to the Sun. 
-Additional data layers are provided for reference: observed albedo at 1622 nm, 
-surface pressure, and terrain height.
-The spatial footprint of individual MethaneSAT soundings is 110m x 400m when 
-viewing at nadir, with the long side in the satellite’s flight direction, and 
-with the short side that can be stretched wider at higher viewing zenith angles 
-(which is why some targets appear more rectangular than others). At nadir, the 
-swath width is ~220 km. The data on these native soundings is Level 2 (L2) data. 
-The precision of the L2 XCH₄ is 22-35 ppb (corresponding to 0.7-0.2 surface albedo).
-L2 concentrations (XCH₄) are retrieved from the measured high resolution (0.08 nm 
-sampling, 0.24 nm resolution) spectra from the 1.6 micron band using the CO2-Proxy 
-method ([Chan Miller et al. (2024)](https://doi.org/10.5194/amt-17-5429-2024)). 
-The Level 3 (L3) dataset is created by regridding the L2 data from the native 
-sounding locations to a regular 45m x 45m grid using the approach detailed in 
-[Sun et al. (2018)](https://doi.org/10.5194/amt-11-6679-2018). 
-
-Contact the data provider for more information about the project at this link: 
-[https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
+    This early “Public Preview” dataset provides geospatial data for the 
+    column-averaged dry-air mole fraction of methane in the atmosphere, "XCH₄", 
+    retrieved from measurements by the MethaneSAT imaging spectrometer. XCH₄ is 
+    defined as the total column amount (number of molecules above a unit surface 
+    area) of methane ("CH₄") divided by the total amount of air (number of molecules 
+    above a unit surface area, water vapor amount removed) along the line of sight 
+    from the satellite’s spectrometer to the Earth's surface and back up to the Sun. 
+    Additional data layers are provided for reference: observed albedo at 1622 nm, 
+    surface pressure, and terrain height.
+    The spatial footprint of individual MethaneSAT soundings is 110m x 400m when 
+    viewing at nadir, with the long side in the satellite’s flight direction, and 
+    with the short side that can be stretched wider at higher viewing zenith angles 
+    (which is why some targets appear more rectangular than others). At nadir, the 
+    swath width is ~220 km. The data on these native soundings is Level 2 (L2) data. 
+    The precision of the L2 XCH₄ is 22-35 ppb (corresponding to 0.7-0.2 surface albedo).
+    L2 concentrations (XCH₄) are retrieved from the measured high resolution (0.08 nm 
+    sampling, 0.24 nm resolution) spectra from the 1.6 micron band using the CO2-Proxy 
+    method ([Chan Miller et al. (2024)](https://doi.org/10.5194/amt-17-5429-2024)). 
+    The Level 3 (L3) dataset is created by regridding the L2 data from the native 
+    sounding locations to a regular 45m x 45m grid using the approach detailed in 
+    [Sun et al. (2018)](https://doi.org/10.5194/amt-11-6679-2018). 
+    
+    Contact the data provider for more information about the project at this link: 
+    [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
   |||,
 
   // Please look through the list of existing keywords and pick two or more
