@@ -29,7 +29,7 @@
 
 // The asset id as used in Earth Engine:
 //   ee.ImageCollection('TEMPLATE/IMAGE_COLLECTION_V2_3');
-local id = 'EDF/MethaneSAT/COP29/L3concentration';
+local id = 'EDF/MethaneSAT/public-preview/L4area';
 
 // The directory under 'catalog' that contains the dataset.
 // For datasets under 'projects', leave off the 'projects' component.
@@ -75,34 +75,46 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
   // Do not end the title with punctuation. Include version if it is known.
-  title: 'MethaneSAT L3 Concentration released at COP29 V' + version,
+  title: 'MethaneSAT L4 Area Sources Public Preview' + version,
   version: version,
 
   description: |||
-    This early “Public Preview” dataset provides geospatial data for the 
-    column-averaged dry-air mole fraction of methane in the atmosphere, "XCH₄", 
-    retrieved from measurements by the MethaneSAT imaging spectrometer. XCH₄ is 
-    defined as the total column amount (number of molecules above a unit surface 
-    area) of methane ("CH₄") divided by the total amount of air (number of molecules 
-    above a unit surface area, water vapor amount removed) along the line of sight 
-    from the satellite’s spectrometer to the Earth's surface and back up to the Sun. 
-    Additional data layers are provided for reference: observed albedo at 1622 nm, 
-    surface pressure, and terrain height.
-    The spatial footprint of individual MethaneSAT soundings is 110m x 400m when 
-    viewing at nadir, with the long side in the satellite’s flight direction, and 
-    with the short side that can be stretched wider at higher viewing zenith angles 
-    (which is why some targets appear more rectangular than others). At nadir, the 
-    swath width is ~220 km. The data on these native soundings is Level 2 (L2) data. 
-    The precision of the L2 XCH₄ is 22-35 ppb (corresponding to 0.7-0.2 surface albedo).
-    L2 concentrations (XCH₄) are retrieved from the measured high resolution (0.08 nm 
-    sampling, 0.24 nm resolution) spectra from the 1.6 micron band using the CO2-Proxy 
-    method ([Chan Miller et al. (2024)](https://doi.org/10.5194/amt-17-5429-2024)). 
-    The Level 3 (L3) dataset is created by regridding the L2 data from the native 
-    sounding locations to a regular 45m x 45m grid using the approach detailed in 
-    [Sun et al. (2018)](https://doi.org/10.5194/amt-11-6679-2018). 
+    *The dispersed area emissions model is still in development and not 
+    representative of a final product.*
+
+    This early “Public Preview” dataset provides high precision data for methane 
+    emissions over wide areas from the oil and gas sector. This includes total 
+    emissions that come from discrete point sources and dispersed area sources. 
+    These emissions data come from the Appalachian, Permian, and Uinta basins 
+    in the United States; the Amu Darya and South Caspian basins in Turkmenistan; 
+    and the Maturin basin in Venezuela. These novel measurements demonstrate the 
+    importance of quantifying total methane emissions with high resolution to 
+    meet global methane mitigation goals.
+
+    Dispersed area emissions are estimated from methane concentration observations 
+    in the form of column-averaged dry-air mole fractions of methane (XCH₄) using 
+    an inverse model. An atmospheric transport model - the Stochastic Time-Inverted 
+    Lagrangian Transport (STILT) model; [Lin et al. (2003)](https://doi.org/10.1029/2002JD003161), 
+    [Fasoli et al. (2018)](https://doi.org/10.5194/gmd-11-2813-2018); driven 
+    by meteorological data from the National Centers for Environmental 
+    Prediction ([NCEP](https://www.weather.gov/ncep/)) Global Forecast System 
+    ([GFS](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php)) 
+    - is used to link variations in observed XCH₄ to potential upwind sources. 
+    The sources of variation in observed XCH₄ include 1) dispersed area emissions, 
+    2) discrete point sources, 3) inflow across the domain boundary, and 
+    4) the background concentration. Discrete point source emissions are 
+    determined individually using a divergence integral approach described by 
+    [Chulakadaba et al. (2023)](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-822/) 
+    and prescribed to the inverse model. XCH₄ inflow across the domain boundary 
+    and dispersed area emissions are then estimated simultaneously using an 
+    inverse model with an enforced non-negative solution. Total emissions are 
+    the sum of dispersed area and point source emissions.
     
-    Contact the data provider for more information about the project at this link: 
-    [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
+    This set of initial observations made by MethaneSAT are consistent with 
+    independent empirical data where available from other sources.
+    Contact the data provider for more information about the project at this 
+    link: [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
+
   |||,
 
   // Please look through the list of existing keywords and pick two or more
@@ -144,43 +156,25 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   // Summaries contain additional information specific to the dataset type.
   summaries: {
-    'gsd': [10.2],
     'eo:bands': [
       {
-        name: 'XCH4',
-        description: 'Retrieved column-averaged dry-air CH4 mole fraction.',
-        'gee:units': units.ppb,
-      },
-      {
-        name: 'albedo',
-        description: 'Ratio of solar radiance at the ground to observed ' +
-        'radiance at the sensor.',
-      },
-      {
-        name: 'surface_pressure',
-        description: 'Air pressure at the surface.',
-        'gee:units': units.hectopascal,
-      },
-      {
-        name: 'terrain_height',
-        description: 'Elevation with respect to WGS84 reference ellipsoid.',
-        'gee:units': units.kilometer,
+        name: 'flux',
+        description: 'Methane emissions traceable to a 1km^2 area.',
+        gsd: 1000,
+        'gee:units': units.kg_per_hour_per_square_km,
       }
     ],
-    XCH4: {minimum: 1894.00, maximum: 2114.65, 'gee:estimated_range': true},
-    albedo: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
-    surface_pressure: {minimum: 725.95, maximum: 1011.33, 'gee:estimated_range': true},
-    terrain_height: {minimum: 0.026, maximum: 2.915, 'gee:estimated_range': true},
+    flux: {minimum: 0, maximum: 28.3, 'gee:estimated_range': true},
 
     'gee:visualizations': [
       {
-        display_name: 'Retrieved column-averaged dry-air CH4 mole fraction.',
-        lookat: { lon: -102.9, lat: 32, zoom: 8 },
+        display_name: 'Methane area sources flux in kg/h/km^2',
+        lookat: { lon: -102.5, lat: 31.85, zoom: 8 },
         image_visualization: {
           band_vis: {
-            min: [1870],
-            max: [2030],
-            bands: ['XCH4'],
+            min: [0],
+            max: [18],
+            bands: ['flux'],
             palette: ['navy', 'magenta', 'orange', 'yellow'],
           }
         },
@@ -189,8 +183,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     'gee:schema': [
       {
-        name: 'flight_id',
-        description: 'Research flight number.',
+        name: 'collection_id',
+        description: 'satellite observation number.',
         type: ee_const.var_type.string,
       },
       {
@@ -219,6 +213,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           flight, but the processing pipeline.
         |||,
         type: ee_const.var_type.string,
+      },
+      {
+        name: 'area_source_total_kg_hr',
+        description: 'Total value of area emissions for this flight in ' +
+        'kg/hr. Missing values are indicated by -1.',
+        type: ee_const.var_type.int,
       },
     ],
   },
@@ -270,6 +270,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2024-10/MethaneSATGEE%20Terms%20of%20Use%20October%202024.pdf')
   ],  
+
 
   // Here are some of the other links that are sometimes needed. Add by
   // concatenating a Jsonnet array like this:
