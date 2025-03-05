@@ -41,8 +41,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     field, to train a supervised classification algorithm (Random Forest).
     Two field campaigns were conducted, from 10 November to 9 December 2022 and
     from 26 January to 13 February 2023, throughout the country. These missions
-    mobilized 33 people, census or inventory because the data collection methods,
-    definitions used and purpose of the exercise are different.
+    involved 33 people from multiple partner organizations because the data
+    collection methods and definitions of certain land use classes
+    adopted by stakeholders may sometimes differ.
 
     As part of the EUDR due diligence process, geolocation data for plots of
     land producing EUDR-relevant products could be overlaid with 2020 forest
