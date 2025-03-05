@@ -29,7 +29,7 @@
 
 // The asset id as used in Earth Engine:
 //   ee.ImageCollection('TEMPLATE/IMAGE_COLLECTION_V2_3');
-local id = 'EDF/MethaneSAT/COP29';
+local id = 'EDF/MethaneSAT/COP29/L4area';
 
 // The directory under 'catalog' that contains the dataset.
 // For datasets under 'projects', leave off the 'projects' component.
