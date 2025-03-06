@@ -56,6 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'http://files.ntsg.umt.edu/data/MOD16_TP/',
     },
   ],
+  'gee:categories': ['water-vapor'],
   keywords: [
     '8_day',
     'evapotranspiration',

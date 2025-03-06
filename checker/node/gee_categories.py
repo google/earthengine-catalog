@@ -4,6 +4,9 @@ from typing import Iterator
 
 from checker import stac
 
+# We keep the category names in sync with NASA GCMD when possible.
+# See https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/all
+
 # Use dashes, not underscores, as the HTML catalog converts
 # underscores to dashes anyway.
 CATEGORIES = frozenset([
@@ -26,6 +29,7 @@ CATEGORIES = frozenset([
     'soil',
     'surface-ground-water',
     'vegetation-indices',
+    'water-vapor'
 ])
 
 GEE_CATEGORIES = 'gee:categories'
