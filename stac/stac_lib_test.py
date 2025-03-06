@@ -580,6 +580,30 @@ class CollectionTest(absltest.TestCase):
     providers = list(collection.providers())
     self.assertEqual(providers, [])
 
+  def test_google_producer_provider(self):
+    stac_json = _valid_stac()
+    stac_json['providers'] = [
+        {'name': 'Google Earth Engine', 'roles': ['producer'], 'url': 'url 1'},
+        {'name': 'Google Earth Engine', 'roles': ['host']},
+    ]
+    collection = stac.Collection(stac_json)
+    providers = list(collection.providers())
+    expected_providers = [
+        stac.Provider(
+            name='Google Earth Engine',
+            description=None,
+            roles=[stac.Role.PRODUCER],
+            url='url 1',
+            instruments=['i1', 'i2'],
+            platforms=['p1', 'p2'],
+            file_links=[
+                'https://example.com/a.tar.xz',
+                'https://example.com/b.zip',
+            ],
+        ),
+    ]
+    self.assertEqual(providers, expected_providers)
+
 
 class CatalogTest(unittest.TestCase):
 

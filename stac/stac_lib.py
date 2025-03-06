@@ -482,10 +482,13 @@ class Collection:
 
     if 'providers' in self.stac_json:
       for stac_provider in self.stac_json['providers']:
-        if stac_provider['name'] == 'Google Earth Engine':
-          continue
-
         provider = Provider.from_stac(stac_provider)
+        if provider.name == 'Google Earth Engine':
+          roles = set(provider.roles)
+          # Ignore GEE unless it does more than just host the data.
+          roles.discard(Role.HOST)
+          if not roles:
+            continue
 
         if not first_valid_provider_found:
           provider.instruments = self.stac_json['summaries'].get(
