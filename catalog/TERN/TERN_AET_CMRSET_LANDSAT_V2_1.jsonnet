@@ -72,7 +72,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.link.successor(
       successor_id, catalog_subdir_url + successor_basename + '.json'),
   ],
-  'gee:categories': ['surface-ground-water'],
+  'gee:categories': ['water-vapor'],
   keywords: [
     'agriculture',
     'australia',

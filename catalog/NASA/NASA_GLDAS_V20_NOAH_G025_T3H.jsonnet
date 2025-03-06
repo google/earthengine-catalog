@@ -58,10 +58,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
   ],
-  'gee:categories': ['precipitation', 'soil'],
+  'gee:categories': ['climate', 'cryosphere', 'precipitation', 'soil', 'water-vapor'],
   keywords: [
     '3_hourly',
-    'climate',
     'evaporation',
     'forcing',
     'geophysical',
@@ -69,10 +68,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'humidity',
     'ldas',
     'nasa',
-    'precipitation',
     'pressure',
     'radiation',
-    'soil',
     'soil_moisture',
     'surface',
     'temperature',
