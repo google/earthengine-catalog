@@ -247,16 +247,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     5771-5785.
     [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023),
   |||,
-  'gee:terms_of_use': |||
-    Use of this data is subject to [MethaneSAT's Content License Terms of
-    Use](https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf).
-  |||,
+  'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
 
   // The fields below generally don't need to be changed.
 
   // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'incomplete',
+  'gee:status': 'beta',
 
   // This says that the dataset is an ee.ImageCollection.
   //   https://developers.google.com/earth-engine/apidocs/ee-image-collection
