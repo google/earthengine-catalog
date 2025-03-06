@@ -53,6 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5281/zenodo.1435912',
     },
   ],
+  'gee:categories': ['precipitation'],
   keywords: [
     'envirometrix',
     'imerg',
