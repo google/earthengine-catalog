@@ -17,7 +17,7 @@ CATEGORIES = frozenset([
     'forest-biomass',
     'infrastructure-boundaries',
     'landuse-landcover',
-    'oceanography',
+    'oceans',
     'orthophotos',
     'plant-productivity',
     'population',

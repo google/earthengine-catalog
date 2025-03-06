@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/GHMDT-2PJ19',
     },
   ],
-  'gee:categories': ['oceanography'],
+  'gee:categories': ['oceans'],
   keywords: [
     'biology',
     'chlorophyll',

@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.7289/V5FB510W',
     },
   ],
-  'gee:categories': ['oceanography'],
+  'gee:categories': ['oceans'],
   keywords: [
     'atmospheric',
     'cdr',
