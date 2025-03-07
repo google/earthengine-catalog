@@ -49,6 +49,15 @@ class BBox:
         and query_bbox.north > self.south
     )
 
+  def union(self, other_bbox: Self) -> Self:
+    """Returns a new bbox that covers both this one and `other_bbox`."""
+    return BBox(
+        min(self.west, other_bbox.west),
+        min(self.south, other_bbox.south),
+        max(self.east, other_bbox.east),
+        max(self.north, other_bbox.north),
+    )
+
 
 @dataclasses.dataclass
 class Tile:
