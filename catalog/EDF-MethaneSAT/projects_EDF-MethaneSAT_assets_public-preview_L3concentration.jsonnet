@@ -1,5 +1,5 @@
-local id = 'projects/EDF/MethaneSAT/public-preview/L3concentration';
-local subdir = 'EDF';
+local id = 'projects/EDF-MethaneSAT/public-preview/L3concentration';
+local subdir = 'EDF-MethaneSAT';
 local version = '1.0.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -54,10 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-13T00:00:00Z'),
-
-  // Summaries contain additional information specific to the dataset type.
+  extent: ee.extent_global('2006-01-24T00:00:00Z', null),
   summaries: {
     'gsd': [10.2],
     'eo:bands': [
@@ -173,21 +170,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf')
   ],  
 
-  // This refers to a STAC term 'collection', not to Earth Engine collections.
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [
-    // The EO extension is required for bands.
     ee_const.ext_eo,
-    // For synthetic aperture radar (SAR)
-    // ee_const.ext_sar,
     ee_const.ext_sci,
-    // Include the version extension if the dataset uses any of:
-    // - the deprecated fields
-    // - the version fields
-    // - successor link
-    // - predecessor link
-    // - latest link
     ee_const.ext_ver,
   ],
 }

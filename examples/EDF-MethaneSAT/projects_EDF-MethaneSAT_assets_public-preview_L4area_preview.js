@@ -1,4 +1,4 @@
-var methaneSATArea = ee.ImageCollection("EDF/MethaneSAT/public-preview/L4area")
+var methaneSATArea = ee.ImageCollection("EDF-MethaneSAT/assets/public-preview/L4area")
 
 // Visualization
 var datasetVis = methaneSATArea.mosaic().visualize({
