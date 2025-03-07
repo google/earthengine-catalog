@@ -1,4 +1,4 @@
-local id = 'EDF';
+local id = 'EDF-MethaneSAT';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
@@ -18,8 +18,9 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('projects_EDF-MethaneSAT_assets_public-preview_L3concentration', base_url),
     ee.link.child_collection('projects_EDF-MethaneSAT_assets_public-preview_L4area', base_url),
-    ee.link.child_collection('projects_EDF-MethaneSAT_assets_public-preview_L3concentration', base_url),    
+    ee.link.child_collection('projects_EDF-MethaneSAT_assets_public-preview_L4point', base_url),
   ],
 }
 
