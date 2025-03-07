@@ -42,7 +42,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Environmental Defense Fund - MethaneSAT', 'https://methanesat.org'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2024-06-14T00:00:00Z', null),
+  // TODO(supertom): I don't think I should need an end date?
+  extent: ee.extent_global('2024-06-14T00:00:00Z', '2025-01-17T00:00:00Z'),
   summaries: {
     platform: ['MethaneSAT'],
     'gee:schema': [
