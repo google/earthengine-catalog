@@ -51,9 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     types occurring. Before the fire intensity modeling, the LANDFIRE 2020 data
     were updated to reflect fuels disturbances occurring in 2021 and 2022. As
     such, the fire intensity datasets represent landscape conditions as of the
-    end of 2022. Additional methodology documentation is available on USDA's 
-    [website](https://www.fs.usda.gov/rds/archive/catalog/RDS-2020-0016-2).
-
+    end of 2022.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -67,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'USDA Forest Service Research Data Archive',
-       'https://www.fs.usda.gov/rds/archive/'),
+       'https://www.fs.usda.gov/rds/archive/catalog/RDS-2020-0016-2'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -67.933, 18.854, 63.904,
