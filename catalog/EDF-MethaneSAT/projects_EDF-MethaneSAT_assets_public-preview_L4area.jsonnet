@@ -1,4 +1,4 @@
-local id = 'projects/EDF-MethaneSAT/public-preview/L4area';
+local id = 'projects/EDF-MethaneSAT/assets/public-preview/L4area';
 local subdir = 'EDF-MethaneSAT';
 local version = '1.0.0';
 
