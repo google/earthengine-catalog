@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("EDF-MethaneSAT/assets/public-preview/L4area");
+var dataset = ee.ImageCollection("edf-methanesat-ee/assets/public-preview/L4area");
 
 var fluxVisParams = {
   min: 0,

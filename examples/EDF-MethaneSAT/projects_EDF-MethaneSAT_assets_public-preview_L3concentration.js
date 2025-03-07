@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection("EDF-MethaneSAT/assets/public-preview/L3concentration");
+var dataset = ee.ImageCollection("edf-methanesat-ee/assets/public-preview/L3concentration");
 
 var fluxVisParams = {
   bands: ['XCH4'],

@@ -1,4 +1,4 @@
-var fvLayer = ui.Map.FeatureViewLayer('EDF-MethaneSAT/assets/public-preview/L4point_FeatureView');
+var fvLayer = ui.Map.FeatureViewLayer('edf-methanesat-ee/assets/public-preview/L4point_FeatureView');
 
 var visParams = {
   color: '00909F',

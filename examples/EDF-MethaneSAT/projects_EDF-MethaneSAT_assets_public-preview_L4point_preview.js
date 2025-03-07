@@ -1,4 +1,4 @@
-var dataset = ee.FeatureCollection("EDF-MethaneSAT/assets/public-preview/L4point");
+var dataset = ee.FeatureCollection("edf-methanesat-ee/assets/public-preview/L4point");
 
 // Add a `style` property with `pointSize` dependent on flux value.
 dataset = dataset.map(function(feature) {
