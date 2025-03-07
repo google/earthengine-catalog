@@ -62,6 +62,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     2007 was a transition year so there may be both sets of categories in the
     2007 national product but will not appear within the same state.
+
+    Note: The 2024 CDL only has the data band. The cultivated and
+    confidence bands are yet to be released by the provider.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -273,7 +276,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'cultivated',
         description:
           'Classification layer for identifying cultivated and ' +
-          'non-cultivated land cover. Available from 2013 to 2017.',
+          'non-cultivated land cover. Available from 2013 to 2023.',
         'gee:classes': [
           { value: 1, color: 'd3d3d3', description: 'Non-cultivated' },
           { value: 2, color: 'b1b58c', description: 'Cultivated' },
@@ -284,7 +287,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Per-pixel predicted confidence of the given classification,
           with 0 being the least confident and 100 the most confident. Available
-          from 2008 to 2017 (Note: Confidence for Florida and Washington D.C.
+          from 2008 to 2023 (Note: Confidence for Florida and Washington D.C.
           is unavailable for 2010).
         |||,
       },
