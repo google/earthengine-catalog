@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NASADEM: NASA NASADEM Digital Elevation 30m',
+  title: 'NASADEM: NASA 30m Digital Elevation Model',
   version: '1',
   'gee:type': ee_const.gee_type.image,
   description: |||
