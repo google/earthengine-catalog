@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.successor(
         successor_id, ee_const.catalog_base + 'GRIDMET/GRIDMET_DROUGHT.json'),
   ],
-  'gee:categories': ['precipitation'],
+  'gee:categories': ['precipitation', 'water-vapor'],
   keywords: [
     'climate',
     'conus',
