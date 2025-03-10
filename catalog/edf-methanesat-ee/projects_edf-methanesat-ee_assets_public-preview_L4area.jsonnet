@@ -1,14 +1,11 @@
 local id = 'projects/edf-methanesat-ee/assets/public-preview/L4area';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local license = spdx.proprietary;
-
-// These are helper variables used below. Most files will just leave them as-is.
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -16,7 +13,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'MethaneSAT L4 Area Sources Public Preview' + version,
   version: version,
-
   description: |||
     *The dispersed area emissions model is still in development and not 
     representative of a final product.*
@@ -63,7 +59,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'edf',
     'methanesat',
   ],
-
   providers: [
     ee.producer_provider('Environmental Defense Fund - MethaneSAT', 'https://methanesat.org'),
     // This is always the last entry.
@@ -80,7 +75,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       }
     ],
     flux: {minimum: 0, maximum: 28.3, 'gee:estimated_range': true},
-
     'gee:visualizations': [
       {
         display_name: 'Methane area sources flux in kg/h/km^2',
@@ -95,7 +89,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
     ],
-
     'gee:schema': [
       {
         name: 'collection_id',
@@ -144,7 +137,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // How long the interval is (expressed in units above).
     interval: 7,
   },
-
   'sci:citation': |||
     Chulakadabba, A., Sargent, M., Lauvaux, T., Benmergui, J. S., Franklin, J.
     E., Chan Miller, C., Wilzewski, J. S., Roche, S., Conway, E., Souri, A. H.,
@@ -157,18 +149,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
-
   // TODO(google): Remove gee:status when the dataset is ready.
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   'gee:user_uploaded': true,
-
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf')
   ],  
-
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [

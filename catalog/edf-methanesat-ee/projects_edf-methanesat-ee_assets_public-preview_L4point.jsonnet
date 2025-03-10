@@ -1,16 +1,13 @@
 local id = 'projects/edf-methanesat-ee/assets/public-preview/L4point';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local methane = importstr 'methane.md';
 local publications = importstr 'publications.md';
 local units = import 'units.libsonnet';
-
 local license = spdx.proprietary;
-
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -18,7 +15,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'MethaneSAT L4 Point Sources ' + version,
   version: version,
-
   description: |||
     The methane emission fluxes were produced using a point source detection and
     emissions quantification framework specialized to exploit the high spatial
@@ -116,12 +112,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
     ],
-
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 150,
       thinning_strategy: 'HIGHER_DENSITY',
     },
-
     'gee:visualizations': [
       {
         display_name: 'Methane point sources flux',
@@ -138,7 +132,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-
   'sci:citation': |||
     Chulakadabba, A., Sargent, M., Lauvaux, T., Benmergui, J. S., Franklin, J.
     E., Chan Miller, C., Wilzewski, J. S., Roche, S., Conway, E., Souri, A. H.,
@@ -151,19 +144,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
-
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.table,
   'gee:user_uploaded': true,
-
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2024-10/MethaneSATGEE%20Terms%20of%20Use%20October%202024.pdf')
   ],
-
-
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [

@@ -1,7 +1,6 @@
 local id = 'projects/edf-methanesat-ee/assets/public-preview/L3concentration';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
-
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -14,7 +13,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'MethaneSAT L3 Concentration Public Preview V' + version,
   version: version,
-
   description: |||
     This early "Public Preview" dataset provides geospatial data for the 
     column-averaged dry-air mole fraction of methane in the atmosphere, "XCH₄", 
@@ -83,7 +81,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     albedo: {minimum: 0, maximum: 1, 'gee:estimated_range': false},
     surface_pressure: {minimum: 725.95, maximum: 1011.33, 'gee:estimated_range': true},
     terrain_height: {minimum: 0.026, maximum: 2.915, 'gee:estimated_range': true},
-
     'gee:visualizations': [
       {
         display_name: 'Retrieved column-averaged dry-air CH4 mole fraction.',
@@ -98,7 +95,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
     ],
-
     'gee:schema': [
       {
         name: 'flight_id',
@@ -141,7 +137,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // How long the interval is (expressed in units above).
     interval: 7,
   },
-
   'sci:citation': |||
     Chulakadabba, A., Sargent, M., Lauvaux, T., Benmergui, J. S., Franklin, J.
     E., Chan Miller, C., Wilzewski, J. S., Roche, S., Conway, E., Souri, A. H.,
@@ -154,22 +149,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
-
   // TODO(google): Remove gee:status when the dataset is ready.
   'gee:status': 'beta',
-
-  // This says that the dataset is an ee.ImageCollection.
   'gee:type': ee_const.gee_type.image_collection,
   'gee:user_uploaded': true,
-
-  // Files should use this line as-is. There is a local license variable at
-  // the top of the file that sets the SPDX license entry.
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf')
   ],  
-
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [
