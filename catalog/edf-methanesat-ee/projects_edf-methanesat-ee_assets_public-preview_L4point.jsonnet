@@ -119,7 +119,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.table,
   'gee:user_uploaded': true,
   license: license.id,
