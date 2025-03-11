@@ -192,6 +192,7 @@ UNITS = units.UNITS.union({
     'W m^-2 sr^-1 &micro;m^-1',
     'W/(m^2*sr*um)/ DN',
     'W/m^2 SR&mu;m',
+    'cm^3/cm^3',
     'cmol(+)/kg',
     'g/cm^2',
     'g/cm^3',
