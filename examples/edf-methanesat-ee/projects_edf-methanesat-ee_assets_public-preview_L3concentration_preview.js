@@ -1,4 +1,5 @@
 var methaneSATArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L3concentration")
+  .filterDate('2024-06-01', '2025-01-31');
 
 // Visualization
 var datasetVis = methaneSATArea.mosaic().visualize({
