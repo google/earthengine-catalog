@@ -75,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'terrain_height',
         description: 'Elevation with respect to WGS84 reference ellipsoid.',
-        'gee:units': units.meter,
+        'gee:units': units.kilometer,
       }
     ],
     XCH4: {minimum: 1894.00, maximum: 2114.65, 'gee:estimated_range': true},
