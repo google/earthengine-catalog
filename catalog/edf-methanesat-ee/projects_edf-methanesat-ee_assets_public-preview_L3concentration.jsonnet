@@ -135,6 +135,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
+        name: 'target_id',
+        description: 'Satellite Target ID.',
+        type: ee_const.var_type.int,
+      },      
+      {
         name: 'time_coverage_end',
         description: 'Data collection end time in YYYY-MM-DDThh:mm:ssZ ' +
         'format STRING (ISO 8601).',

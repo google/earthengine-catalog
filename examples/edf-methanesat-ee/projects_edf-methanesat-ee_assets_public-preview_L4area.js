@@ -1,4 +1,5 @@
-var dataset = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L4area");
+var dataset = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L4area")
+  .filterDate('2024-06-01', '2025-01-31');
 
 var fluxVisParams = {
   min: 0,
