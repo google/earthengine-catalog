@@ -57,7 +57,7 @@ local license = spdx.cc_by_4_0;
   // for testing
   links: ee.standardLinks(subdir, id),
 
-  'gee:categories': ['plant-productivity'],
+  'gee:categories': ['plant-productivity', 'water-vapor'],
   keywords: [
     'evapotranspiration',
     'gpp',

@@ -58,9 +58,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://hydro1.gesdisc.eosdis.nasa.gov/data/FLDAS/FLDAS_NOAH01_C_GL_M.001/',
     },
   ],
-  'gee:categories': ['precipitation', 'soil'],
+  'gee:categories': ['climate', 'cryosphere', 'precipitation', 'soil', 'water-vapor'],
   keywords: [
-    'climate',
     'evapotranspiration',
     'famine',
     'fldas',

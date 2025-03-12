@@ -58,9 +58,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://disc.sci.gsfc.nasa.gov/datasets?keywords=NLDAS',
     },
   ],
-  'gee:categories': ['precipitation'],
+  'gee:categories': ['climate', 'precipitation', 'soil', 'water-vapor'],
   keywords: [
-    'climate',
     'evaporation',
     'forcing',
     'geophysical',
@@ -69,7 +68,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'ldas',
     'nasa',
     'nldas',
-    'precipitation',
     'pressure',
     'radiation',
     'temperature',
