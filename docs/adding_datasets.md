@@ -18,6 +18,19 @@ To add a new dataset:
 See also
 [dataset acceptance criteria](https://developers.google.com/earth-engine/help_collection_criteria).
 
+## Timelines
+
+Large-scale data uploads and writing good dataset descriptions can be
+complicated, so please follow these timing rules if you have a dataset
+launch deadline:
+
+* 4 weeks before the launch: notify the Earth Engine Data team
+  about the upcoming dataset
+* 2 weeks before the launch: upload test data to Earth Engine
+  and send them for a review
+* 1 week before the launch: create a pull request for the dataset
+  description and send it for review
+
 ## Detailed steps for adding a new dataset:
 
 1. File a bug
