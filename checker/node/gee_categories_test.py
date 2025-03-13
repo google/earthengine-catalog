@@ -17,12 +17,9 @@ class GeeCategoiresTest(test_utils.NodeTest):
         {'gee:categories': 77}, '"gee:categories" must be a list of strings'
     )
 
-  def test_missing_ok(self):
-    self.assert_collection({})
-
-  # TODO(b/397988701): require categories when all datasets have them
-  # def test_empty_categories_is_bad(self):
-  #   self.assert_collection({'gee:categories': []}, 'must not be empty')
+  def test_empty_categories_is_bad(self):
+    self.assert_collection(
+        {'gee:categories': []}, '"gee:categories" must not be empty')
 
   def test_valid_category(self):
     self.assert_collection({'gee:categories': ['soil']})

@@ -102,6 +102,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - Indent 2 spaces under the |||.
   |||,
 
+
+  // One or more category keywords. For the current list, see
+  // https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_categories.py
+  // All categories will also be added as keywords.
+  'gee:categories': ['climate', 'soil'],
+
   // Please look through the list of existing keywords and pick two or more
   // that match the dataset.
   // https://developers.google.com/earth-engine/datasets/tags
