@@ -1,3 +1,4 @@
+// Request access to this data by filling out the form at: https://forms.gle/jqw4Mvr63dsV1fUF8
 var dataset = ee.FeatureCollection("projects/edf-methanesat-ee/assets/public-preview/L4point");
 
 // Add a `style` property with `pointSize` dependent on flux value.

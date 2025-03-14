@@ -11,7 +11,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneSAT L4 Area Sources Public Preview' + version,
+  title: 'MethaneSAT L4 Area Sources Public Preview V' + version,
   version: version,
   description: |||
     *The dispersed area emissions model is still in development and not 
