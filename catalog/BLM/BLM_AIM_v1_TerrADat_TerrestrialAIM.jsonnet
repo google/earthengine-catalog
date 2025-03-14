@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset was created to monitor the status, condition and trend
     of national BLM resources in accordance with BLM policies.  The
     methodology used for the collection of these data can be found on
-    [https://landscapetoolbox.org)](https://landscapetoolbox.org)
+    [the Landscape Toolbox](https://landscapetoolbox.org)
     and the Monitoring Manual, 2nd Edition.  These
     data should not be used for statistical or spatial inferences without
     knowledge of how the sample design was drawn or without calculating
