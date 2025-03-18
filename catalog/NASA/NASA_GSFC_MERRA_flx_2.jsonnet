@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'https://earthdata.nasa.gov/collaborate/open-data-services-and-software/data-information-policy'
     ),
   ],
-  'gee:categories': ['climate'],
+  'gee:categories': ['climate', 'precipitation'],
   keywords: [
     // 'buoyancy',
     // 'drag',
