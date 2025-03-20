@@ -55,13 +55,13 @@ The full list of files will be in
 gs://earthengine-stats/providers/provider-name/index.txt
 
 File contents will look like this:
-***
+```
 Interval,Dataset,30-day active users
 2025-01-05/2025-02-03,projects/provider-name/assets/dataset1,110
 2025-01-05/2025-02-03,projects/provider-name/assets/dataset2,66
-***
+```
 
-To read the files, use [gsutil[(https://cloud.google.com/storage/docs/gsutil).
+To read the files, use [gsutil](https://cloud.google.com/storage/docs/gsutil).
 There are no charges for reading these files.
 
 ## Dataset deletion protection
