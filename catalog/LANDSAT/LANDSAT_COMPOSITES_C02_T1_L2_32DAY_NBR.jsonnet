@@ -57,7 +57,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   summaries: {
     'eo:bands': [
       {
-        name: 'NBRT',
+        name: 'NBR',
         description: 'Normalized Burn Ratio Thermal',
         gsd: 30.0,
       },
@@ -83,7 +83,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               'ffffff',
             ],
             bands: [
-              'NBRT',
+              'NBR',
             ],
           },
         },
