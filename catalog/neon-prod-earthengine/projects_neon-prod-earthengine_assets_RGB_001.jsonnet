@@ -36,7 +36,10 @@ local units = import 'units.libsonnet';
     digital camera imagery is acquired at higher spatial resolution than the
     imaging spectrometer data, it can aid in identifying features in the
     spectrometer images including manmade features (e.g., roads, fence lines,
-    and buildings) that are indicative of land-use change.
+    and buildings) that are indicative of land-use change. Availability in
+    GEE may not represent full availability in the NEON Data Portal (linked below).
+    Additional sites and years can be added to GEE upon request by emailing
+    listaopgee@battelleecology.org.
 
     See [NEON Data Product
     DP3.30010.001](https://data.neonscience.org/data-products/DP3.30010.001) for
