@@ -24,11 +24,14 @@ local units = import 'units.libsonnet';
   title: 'NEON Digital Elevation Model (DEM)',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Digital models of the surface (DSM) and terrain (DTM) derived from NEON LiDAR data.
-    DSM: Surface features (topographic information with vegetation and man-made structures present).
-    DTM: Bare earth elevation (topographic information with vegetation and man-made structures removed).
-    Images are given in meters above mean sea level and mosaicked onto a spatially uniform grid at
-    1 m resolution.
+    Digital models of the surface (DSM) and terrain (DTM) derived from [NEON LiDAR data](
+    https://www.neonscience.org/data-collection/lidar). DSM: Surface features (topographic
+    information with vegetation and man-made structures present). DTM: Bare earth elevation
+    (topographic information with vegetation and man-made structures removed). Images are
+    given in meters above mean sea level and mosaicked onto a spatially uniform grid at
+    1 m resolution. Availability in GEE may not represent full availability in the NEON
+    Data Portal (linked below). Additional sites and years can be added to GEE upon request
+    by emailing listaopgee@battelleecology.org.
 
     See [NEON Data Product DP3.30024.001](
     https://data.neonscience.org/data-products/DP3.30024.001) for more details.
