@@ -12,6 +12,9 @@ class GeeCategoiresTest(test_utils.NodeTest):
   def test_catalog(self):
     self.assert_catalog({})
 
+  def test_no_categories_is_bad(self):
+    self.assert_collection({}, 'Missing "gee:categories"')
+
   def test_not_a_list(self):
     self.assert_collection(
         {'gee:categories': 77}, '"gee:categories" must be a list of strings'

@@ -14,43 +14,44 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'MethaneSAT L4 Area Sources Public Preview V' + version,
   version: version,
   description: |||
-    *The dispersed area emissions model is still in development and not 
+    *The dispersed area emissions model is still in development and not
     representative of a final product.*
 
-    This early "Public Preview" dataset provides high precision data for methane 
-    emissions over wide areas from the oil and gas sector. This includes total 
-    emissions that come from discrete point sources and dispersed area sources. 
-    These emissions data come from the Appalachian, Permian, and Uinta basins 
-    in the United States; the Amu Darya and South Caspian basins in Turkmenistan; 
-    and the Maturin basin in Venezuela. These novel measurements demonstrate the 
-    importance of quantifying total methane emissions with high resolution to 
+    This early "Public Preview" dataset provides high precision data for methane
+    emissions over wide areas from the oil and gas sector. This includes total
+    emissions that come from discrete point sources and dispersed area sources.
+    These emissions data come from the Appalachian, Permian, and Uinta basins
+    in the United States; the Amu Darya and South Caspian basins in Turkmenistan;
+    and the Maturin basin in Venezuela. These novel measurements demonstrate the
+    importance of quantifying total methane emissions with high resolution to
     meet global methane mitigation goals.
 
-    Dispersed area emissions are estimated from methane concentration observations 
-    in the form of column-averaged dry-air mole fractions of methane (XCH4) using 
-    an inverse model. An atmospheric transport model - the Stochastic Time-Inverted 
-    Lagrangian Transport (STILT) model; [Lin et al. (2003)](https://doi.org/10.1029/2002JD003161), 
-    [Fasoli et al. (2018)](https://doi.org/10.5194/gmd-11-2813-2018); driven 
-    by meteorological data from the National Centers for Environmental 
-    Prediction ([NCEP](https://www.weather.gov/ncep/)) Global Forecast System 
-    ([GFS](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php)) 
-    - is used to link variations in observed XCH4 to potential upwind sources. 
+    Dispersed area emissions are estimated from methane concentration observations
+    in the form of column-averaged dry-air mole fractions of methane (XCH4) using
+    an inverse model. An atmospheric transport model - the Stochastic Time-Inverted
+    Lagrangian Transport (STILT) model; [Lin et al. (2003)](https://doi.org/10.1029/2002JD003161),
+    [Fasoli et al. (2018)](https://doi.org/10.5194/gmd-11-2813-2018); driven
+    by meteorological data from the National Centers for Environmental
+    Prediction ([NCEP](https://www.weather.gov/ncep/)) Global Forecast System
+    ([GFS](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php))
+    - is used to link variations in observed XCH4 to potential upwind sources.
 
-    The sources of variation in observed XCH4 include 1) dispersed area emissions, 
-    2) discrete point sources, 3) inflow across the domain boundary, and 
-    4) the background concentration. Discrete point source emissions are 
-    determined individually using a divergence integral approach described by 
-    [Chulakadaba et al. (2023)](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-822/) 
-    and prescribed to the inverse model. XCH4 inflow across the domain boundary 
-    and dispersed area emissions are then estimated simultaneously using an 
-    inverse model with an enforced non-negative solution. Total emissions are 
+    The sources of variation in observed XCH4 include 1) dispersed area emissions,
+    2) discrete point sources, 3) inflow across the domain boundary, and
+    4) the background concentration. Discrete point source emissions are
+    determined individually using a divergence integral approach described by
+    [Chulakadaba et al. (2023)](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-822/)
+    and prescribed to the inverse model. XCH4 inflow across the domain boundary
+    and dispersed area emissions are then estimated simultaneously using an
+    inverse model with an enforced non-negative solution. Total emissions are
     the sum of dispersed area and point source emissions.
-    
-    This set of initial observations made by MethaneSAT are consistent with 
+
+    This set of initial observations made by MethaneSAT are consistent with
     independent empirical data where available from other sources.
-    Contact the data provider for more information about the project at this 
+    Contact the data provider for more information about the project at this
     link: [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
   |||,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
     'emissions',
@@ -154,7 +155,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf')
-  ],  
+  ],
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [

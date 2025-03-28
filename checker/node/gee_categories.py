@@ -46,8 +46,7 @@ class Check(stac.NodeCheck):
       return
 
     if GEE_CATEGORIES not in node.stac:
-      # TODO(b/397988701): require categories when all datasets have them
-      # yield cls.new_issue(node, f'Missing {GEE_CATEGORIES}')
+      yield cls.new_issue(node, f'Missing "{GEE_CATEGORIES}"')
       return
 
     categories = node.stac[GEE_CATEGORIES]
