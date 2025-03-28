@@ -6,4 +6,4 @@ var forestPersistence = ee.Image(
 Map.addLayer(forestPersistence, {}, 'ForestPersistence');
 Map.addLayer(
     forestPersistence.gt(0.95).selfMask(), {palette: 'green'},
-    'Persistant forest');
+    'Persistent forest');
