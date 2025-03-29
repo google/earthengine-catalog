@@ -1,29 +1,7 @@
-var dataset = ee.Image('NASA/VIIRS/002/VNP43IA4/2021_06_01');
+var dataset = ee.ImageCollection('NASA/VIIRS/002/VNP43IA4')
+                  .filter(ee.Filter.date('2021-06-01', '2021-06-03'));
 
-// Sukhanova in Russia.
-var lon = 80;
-var lat = 66;
-
-Map.setCenter(lon, lat, 6);
-Map.setOptions('SATELLITE');
-
-// Degrees in SR-ORG:6974
-var delta = 3.5;
-// Width and height of the thumbnail image.
-var pixels = 256;
-
-var I1_band = dataset.select('BRDF_Albedo_Band_Mandatory_Quality_I1');
-
-var areaOfInterest = ee.Geometry.Rectangle(
-    [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
-
-var visParams = {
-  dimensions: [pixels, pixels],
-  region: areaOfInterest,
-  crs: 'SR-ORG:6974',
-  format: 'png',
-};
-
+var nadir_reflectance_I1 = dataset.select('Nadir_Reflectance_I1').first();
 var palette = [
   '000080',
   '0000d9',
@@ -44,9 +22,42 @@ var palette = [
   'ff0a00',
   'ff00ff',
 ];
+var visParams = {
+  min: 0,
+  max: 10000,
+  palette: palette,
+};
 
-var image = I1_band.visualize({palette: palette, min: 0, max: 1});
+// cadetblue
+var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 255});
+var image = nadir_reflectance_I1.visualize(visParams);
 
-Map.addLayer(image, {}, 'BRDF/Albedo mandatory quality for band I1');
+var lon = -8;
+var lat = 60;
 
-print(ui.Thumbnail({image: image, params: visParams}));
+var geometry = ee.Geometry.Polygon(
+    [[
+      [-114, 83],
+      [-114, 60],
+      [-8, 60],
+      [-8, 83],
+    ]],
+    null, false);
+
+var pixels = 256;
+
+var areaOfInterest = geometry;
+
+var imageParams = {
+  dimensions: [pixels, pixels],
+  region: areaOfInterest,
+  crs: 'EPSG:3857',
+  format: 'png',
+};
+
+Map.addLayer(background, {}, 'background');
+Map.addLayer(image, {}, 'Nadir BRDF/Albedo Reflectance I1');
+Map.setCenter(lon, lat, 3);
+var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
+
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
