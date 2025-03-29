@@ -75,7 +75,7 @@ def save_array_to_tif(
     gt: Sequence[float],
 ) -> None:
   """Saves `numpy_array` to `tif_path`."""
-  options = ['COMPRESS=DEFLATE', 'ZLEVEL=9', 'BIGTIFF=IF_SAFER']
+  options = ['COMPRESS=DEFLATE', 'ZLEVEL=9', 'BIGTIFF=YES']
   dtype = numpy_array.dtype
   if dtype == numpy.dtype(numpy.int8):
     options.append('PIXELTYPE=SIGNEDBYTE')
