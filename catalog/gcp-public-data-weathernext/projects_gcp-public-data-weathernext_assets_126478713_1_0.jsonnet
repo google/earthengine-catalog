@@ -62,6 +62,7 @@ local license = spdx.proprietary;
     A bucket containing the raw .zarr files for the 2020-present historical dataset
     ("Historic Experimental Data") is available at `gs://weathernext/126478713_1_0/zarr`.
     Additionally, 2019 historical forecasts, an extra year of forecasts evaluated in [“Probabilistic weather forecasting with machine learning”](https://www.nature.com/articles/s41586-024-08252-9), are available at `gs://weathernext/weathernext_gen_research_2019`.
+    The 2019 forecast dataset is an additional year of forecast data, complementing the 2020-2024 data available through this dataset listing. The 2019 forecasts are, as in the paper, ERA5 initialized forecasts for a model trained on ERA5.
     To gain access to those resources, please request access through the same [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform?usp=preview).
 
     **Acknowledgements**
