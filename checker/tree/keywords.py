@@ -240,7 +240,6 @@ EXCEPTIONS = frozenset({
     'smos',
     'social',
     'soil_depth',
-    'soil_temperature',
     'spain',
     'spei',
     'spi',
