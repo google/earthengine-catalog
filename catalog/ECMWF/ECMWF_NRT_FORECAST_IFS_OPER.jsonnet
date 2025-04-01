@@ -521,9 +521,806 @@ local pressure_levels = [
       },
     ],
 
-    // TODO(dpencosk): Add band statistics.
-    // If the exact statistics are unknown, then set gee:estimated_range=true.
-    // band_name_1: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    u_component_of_wind_100m_sfc: {
+      minimum: -53.36,
+      maximum: 53.26,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_100m_sfc: {
+      minimum: -49.45,
+      maximum: 63.75,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_10m_sfc: {
+      minimum: -46.87,
+      maximum: 46.25,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_10m_sfc: {
+      minimum: -43.74,
+      maximum: 57.40,
+      'gee:estimated_range': true,
+    },
+    dewpoint_temperature_2m_sfc: {
+      minimum: -79.58,
+      maximum: 30.25,
+      'gee:estimated_range': true,
+    },
+    temperature_2m_sfc: {
+      minimum: -79.58,
+      maximum: 46.33,
+      'gee:estimated_range': true,
+    },
+    snow_albedo_sfc: {
+      minimum: 0.50,
+      maximum: 0.85,
+      'gee:estimated_range': true,
+    },
+    eastward_turbulent_surface_stress_sfc: {
+      minimum: -12311551,
+      maximum: 14940493,
+      'gee:estimated_range': true,
+    },
+    divergence_pl100: {
+      minimum: -0.0012,
+      maximum: 0.0020,
+      'gee:estimated_range': true,
+    },
+    divergence_pl1000: {
+      minimum: -0.0018,
+      maximum: 0.0001,
+      'gee:estimated_range': true,
+    },
+    divergence_pl150: {
+      minimum: -0.0010,
+      maximum: 0.0016,
+      'gee:estimated_range': true,
+    },
+    divergence_pl200: {
+      minimum: -0.0010,
+      maximum: 0.0012,
+      'gee:estimated_range': true,
+    },
+    divergence_pl250: {
+      minimum: -0.0010,
+      maximum: 0.0011,
+      'gee:estimated_range': true,
+    },
+    divergence_pl300: {
+      minimum: -0.0014,
+      maximum: 0.0011,
+      'gee:estimated_range': true,
+    },
+    divergence_pl400: {
+      minimum: -0.0010,
+      maximum: 0.0010,
+      'gee:estimated_range': true,
+    },
+    divergence_pl50: {
+      minimum: -0.0013,
+      maximum: 0.0010,
+      'gee:estimated_range': true,
+    },
+    divergence_pl500: {
+      minimum: -0.0010,
+      maximum: 0.0010,
+      'gee:estimated_range': true,
+    },
+    divergence_pl600: {
+      minimum: -0.0011,
+      maximum: 0.0010,
+      'gee:estimated_range': true,
+    },
+    divergence_pl700: {
+      minimum: -0.0012,
+      maximum: 0.0009,
+      'gee:estimated_range': true,
+    },
+    divergence_pl850: {
+      minimum: -0.0011,
+      maximum: 0.0010,
+      'gee:estimated_range': true,
+    },
+    divergence_pl925: {
+      minimum: -0.0016,
+      maximum: 0.0011,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl100: {
+      minimum: 14693.90,
+      maximum: 16815.55,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl1000: {
+      minimum: -647.25,
+      maximum: 452.31,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl150: {
+      minimum: 12279.07,
+      maximum: 14446.04,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl200: {
+      minimum: 10524.51,
+      maximum: 12608.83,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl250: {
+      minimum: 9148.03,
+      maximum: 11099.75,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl300: {
+      minimum: 7999.95,
+      maximum: 9810.31,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl400: {
+      minimum: 6111.43,
+      maximum: 7694.22,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl50: {
+      minimum: 18601.52,
+      maximum: 20939.84,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl500: {
+      minimum: 4627.77,
+      maximum: 5974.44,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl600: {
+      minimum: 3384.05,
+      maximum: 4526.21,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl700: {
+      minimum: 2251.74,
+      maximum: 3281.08,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl850: {
+      minimum: 742.93,
+      maximum: 1711.14,
+      'gee:estimated_range': true,
+    },
+    geopotential_height_pl925: {
+      minimum: 32.27,
+      maximum: 1057.44,
+      'gee:estimated_range': true,
+    },
+    land_sea_mask_sfc: {
+      minimum: 0,
+      maximum: 1,
+      'gee:estimated_range': false,
+    },
+    mean_sea_level_pressure_sfc: {
+      minimum: 92686.50,
+      maximum: 106341.13,
+      'gee:estimated_range': true,
+    },
+    most_unstable_convective_available_potential_energy_sfc: {
+      minimum: 0,
+      maximum: 9833.5,
+      'gee:estimated_range': true,
+    },
+    northward_turbulent_surface_stress_sfc: {
+      minimum: -6431634,
+      maximum: 8478005,
+      'gee:estimated_range': true,
+    },
+    precipitation_type_sfc: {
+      minimum: 0,
+      maximum: 12,
+      'gee:estimated_range': false,
+    },
+    specific_humidity_pl100: {
+      minimum: 0,
+      maximum: 0.000025,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl1000: {
+      minimum: 0,
+      maximum: 0.027,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl150: {
+      minimum: 0,
+      maximum: 0.00017,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl200: {
+      minimum: 0,
+      maximum: 0.00089,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl250: {
+      minimum: 0,
+      maximum: 0.0024,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl300: {
+      minimum: 0,
+      maximum: 0.0044,
+      'gee:estimated_range': true,
+    },    
+    specific_humidity_pl400: {
+      minimum: 0,
+      maximum: 0.0064,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl50: {
+      minimum: 0,
+      maximum: 0.0000073,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl500: {
+      minimum: 0,
+      maximum: 0.0097,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl600: {
+      minimum: 0,
+      maximum: 0.012,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl700: {
+      minimum: 0,
+      maximum: 0.015,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl850: {
+      minimum: 0,
+      maximum: 0.019,
+      'gee:estimated_range': true,
+    },
+    specific_humidity_pl925: {
+      minimum: 0,
+      maximum: 0.024,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl100: {
+      minimum: -6.15,
+      maximum: 137.32,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl1000: {
+      minimum: -8.75,
+      maximum: 131.46,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl150: {
+      minimum: -5.93,
+      maximum: 160.47,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl200: {
+      minimum: -6.54,
+      maximum: 145.93,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl250: {
+      minimum: -7.08,
+      maximum: 143.48,
+      'gee:estimated_range': true,
+    },    
+    relative_humidity_pl300: {
+      minimum: -8.08,
+      maximum: 136.92,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl400: {
+      minimum: -12.31,
+      maximum: 136.92,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl50: {
+      minimum: 0.021,
+      maximum: 140.17,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl500: {
+      minimum: -10.16,
+      maximum: 126.13,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl600: {
+      minimum: -8.73,
+      maximum: 132.07,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl700: {
+      minimum: -8.60,
+      maximum: 131.50,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl850: {
+      minimum: -7.04,
+      maximum: 131.48,
+      'gee:estimated_range': true,
+    },
+    relative_humidity_pl925: {
+      minimum: -9.61,
+      maximum: 132.04,
+      'gee:estimated_range': true,
+    },
+    runoff_sfc: {
+      minimum: 0,
+      maximum: 1.85,
+      'gee:estimated_range': true,
+    },
+    sea_ice_thickness_sfc: {
+      minimum: 0,
+      maximum: 9999,
+      'gee:estimated_range': true,
+    },
+    skin_temperature_sfc: {
+      minimum: -82.08,
+      maximum: 69.60,
+      'gee:estimated_range': true,
+    },
+    soil_temperature_sol1: {
+      minimum: 214.05,
+      maximum: 330.78,
+      'gee:estimated_range': true,
+    },
+    soil_temperature_sol2: {
+      minimum: 214.06,
+      maximum: 318.86,
+      'gee:estimated_range': true,
+    },
+    soil_temperature_sol3: {
+      minimum: 214.10,
+      maximum: 314.26,
+      'gee:estimated_range': true,
+    },
+    soil_temperature_sol4: {
+      minimum: 214.17,
+      maximum: 314.41,
+      'gee:estimated_range': true,
+    },
+    surface_pressure_sfc: {
+      minimum: 47323.99,
+      maximum: 107444.59,
+      'gee:estimated_range': true,
+    },
+    surface_net_solar_radiation_sfc: {
+      minimum: 0,
+      maximum: 492011520,
+      'gee:estimated_range': true,
+    },
+    surface_solar_radiation_downwards_sfc: {
+      minimum: 0,
+      maximum: 611336192,
+      'gee:estimated_range': true,
+    },
+    surface_net_thermal_radiation_sfc: {
+      minimum: -287437568,
+      maximum: 14857416,
+      'gee:estimated_range': true,
+    },
+    surface_thermal_radiation_downwards_sfc: {
+      minimum: 0,
+      maximum: 589142976,
+      'gee:estimated_range': true,
+    },
+    eastward_surface_sea_water_velocity_sfc: {
+      minimum: -3.77,
+      maximum: 2.03,
+      'gee:estimated_range': true,
+    },
+    northward_surface_sea_water_velocity_sfc: {
+      minimum: -2.74,
+      maximum: 1.82,
+      'gee:estimated_range': true,
+    },
+    temperature_pl100: {
+      minimum: -90.11,
+      maximum: -31.75,
+      'gee:estimated_range': true,
+    },
+    temperature_pl1000: {
+      minimum: -52.05,
+      maximum: 46.79,
+      'gee:estimated_range': true,
+    },
+    temperature_pl150: {
+      minimum: -85.44,
+      maximum: -34.15,
+      'gee:estimated_range': true,
+    },
+    temperature_pl200: {
+      minimum: -79.16,
+      maximum: -32.29,
+      'gee:estimated_range': true,
+    },
+    temperature_pl250: {
+      minimum: -74.30,
+      maximum: -23.39,
+      'gee:estimated_range': true,
+    },
+    temperature_pl300: {
+      minimum: -68.69,
+      maximum: -13.95,
+      'gee:estimated_range': true,
+    },
+    temperature_pl400: {
+      minimum: -60.07,
+      maximum: -2.25,
+      'gee:estimated_range': true,
+    },    
+    temperature_pl50: {
+      minimum: -91.63,
+      maximum: -18.46,
+      'gee:estimated_range': true,
+    },
+    temperature_pl500: {
+      minimum: -53.27,
+      maximum: 8.57,
+      'gee:estimated_range': true,
+    },
+    temperature_pl600: {
+      minimum: -70.11,
+      maximum: 18.69,
+      'gee:estimated_range': true,
+    },
+    temperature_pl700: {
+      minimum: -69.81,
+      maximum: 24.50,
+      'gee:estimated_range': true,
+    },
+    temperature_pl850: {
+      minimum: -54.99,
+      maximum: -35.58,
+      'gee:estimated_range': true,
+    },
+    temperature_pl925: {
+      minimum: -52.38,
+      maximum: 42.02,
+      'gee:estimated_range': true,
+    },
+    total_column_water_sfc: {
+      minimum: 0.05,
+      maximum: 127.04,
+      'gee:estimated_range': true,
+    },
+    total_column_water_vapour_sfc: {
+      minimum: 0.05,
+      maximum: 83.54,
+      'gee:estimated_range': true,
+    },
+    total_precipitation_sfc: {
+      minimum: 0,
+      maximum: 1.86,
+      'gee:estimated_range': true,
+    },
+    total_precipitation_rate_sfc: {
+      minimum: 0,
+      maximum: 0.023,
+      'gee:estimated_range': true,
+    },
+    top_net_thermal_radiation_sfc: {
+      minimum: -425198592,
+      maximum: 0,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl100: {
+      minimum: -47.11,
+      maximum: 86.87,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl1000: {
+      minimum: -38.74,
+      maximum: 39.05,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl150: {
+      minimum: -50.50,
+      maximum: 102.75,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl200: {
+      minimum: -58.21,
+      maximum: 120.00,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl250: {
+      minimum: -58.35,
+      maximum: 120.48,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl300: {
+      minimum: -58.68,
+      maximum: 119.08,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl400: {
+      minimum: -57.09,
+      maximum: 96.34,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl50: {
+      minimum: -62.03,
+      maximum: 77.22,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl500: {
+      minimum: -58.43,
+      maximum: 83.02,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl600: {
+      minimum: -57.80,
+      maximum: 65.01,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl700: {
+      minimum: -57.72,
+      maximum: 56.19,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl850: {
+      minimum: -60.52,
+      maximum: 57.48,
+      'gee:estimated_range': true,
+    },
+    u_component_of_wind_pl925: {
+      minimum: -56.88,
+      maximum: 55.04,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl100: {
+      minimum: -57.62,
+      maximum: 49.17,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl1000: {
+      minimum: -40.45,
+      maximum: 43.98,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl150: {
+      minimum: -61.40,
+      maximum: 64.33,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl200: {
+      minimum: -76.17,
+      maximum: 82.86,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl250: {
+      minimum: -86.18,
+      maximum: 94.55,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl300: {
+      minimum: -87.37,
+      maximum: 91.05,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl400: {
+      minimum: -73.27,
+      maximum: 83.39,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl50: {
+      minimum: -74.60,
+      maximum: 71.44,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl500: {
+      minimum: -62.97,
+      maximum: 71.87,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl600: {
+      minimum: -52.43,
+      maximum: 63.38,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl700: {
+      minimum: -57.63,
+      maximum: 57.62,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl850: {
+      minimum: -60.95,
+      maximum: 62.67,
+      'gee:estimated_range': true,
+    },
+    v_component_of_wind_pl925: {
+      minimum: -59.31,
+      maximum: 59.90,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl100: {
+      minimum: -0.0010,
+      maximum: 0.0012,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl1000: {
+      minimum: -0.0033,
+      maximum: 0.0020,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl150: {
+      minimum: -0.0012,
+      maximum: 0.0012,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl200: {
+      minimum: -0.0018,
+      maximum: 0.0009,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl250: {
+      minimum: -0.0021,
+      maximum: 0.0012,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl300: {
+      minimum: -0.0026,
+      maximum: 0.0017,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl400: {
+      minimum: -0.0031,
+      maximum: 0.0019,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl50: {
+      minimum: -0.0010,
+      maximum: 0.0011,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl500: {
+      minimum: -0.0033,
+      maximum: 0.0022,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl600: {
+      minimum: -0.0033,
+      maximum: 0.0022,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl700: {
+      minimum: -0.0038,
+      maximum: 0.0022,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl850: {
+      minimum: -0.0039,
+      maximum: 0.0023,
+      'gee:estimated_range': true,
+    },
+    vorticity_pl925: {
+      minimum: -0.0045,
+      maximum: 0.0025,
+      'gee:estimated_range': true,
+    },
+    volumetric_soil_moisture_sol1: {
+      minimum: 0,
+      maximum: 0.77,
+      'gee:estimated_range': true,
+    },
+    volumetric_soil_moisture_sol2: {
+      minimum: 0,
+      maximum: 0.77,
+      'gee:estimated_range': true,
+    },
+    volumetric_soil_moisture_sol3: {
+      minimum: 0,
+      maximum: 0.77,
+      'gee:estimated_range': true,
+    },
+    volumetric_soil_moisture_sol4: {
+      minimum: 0,
+      maximum: 0.77,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl100: {
+      minimum: -5.59,
+      maximum: 3.23,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl1000: {
+      minimum: -5.17,
+      maximum: 11.18,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl150: {
+      minimum: -13.48,
+      maximum: 4.36,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl200: {
+      minimum: -17.38,
+      maximum: 5.35,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl250: {
+      minimum: -19.85,
+      maximum: 5.28,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl300: {
+      minimum: -21.45,
+      maximum: 6.63,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl400: {
+      minimum: -21.25,
+      maximum: 14.18,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl50: {
+      minimum: -2.38,
+      maximum: 1.92,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl500: {
+      minimum: -23.23,
+      maximum: 15.84,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl600: {
+      minimum: -27.57,
+      maximum: 15.58,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl700: {
+      minimum: -27.71,
+      maximum: 14.34,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl850: {
+      minimum: -20.67,
+      maximum: 15.34,
+      'gee:estimated_range': true,
+    },
+    vertical_velocity_pl925: {
+      minimum: -12.33,
+      maximum: 12.63,
+      'gee:estimated_range': true,
+    },
+    sea_surface_height_sfc: {
+      minimum: -2.12,
+      maximum: 9999,
+      'gee:estimated_range': true,
+    },
+    max_10m_wind_gust_since_last_post_processing_sfc: {
+      minimum: 0,
+      maximum: 72.95,
+      'gee:estimated_range': true,
+    },
+    max_10m_wind_gust_last_3h_sfc: {
+      minimum: 0,
+      maximum: 76.40,
+      'gee:estimated_range': true,
+    },
+    min_2m_temperature_last_3h_sfc: {
+      minimum: -273.15,
+      maximum: 44.05,
+      'gee:estimated_range': true,
+    },
+    min_2m_temperature_last_6h_sfc: {
+      minimum: -79.94,
+      maximum: 44.01,
+      'gee:estimated_range': true,
+    },
+    max_2m_temperature_last_3h_sfc: {
+      minimum: -273.15,
+      maximum: 47.31,
+      'gee:estimated_range': true,
+    },
+    max_2m_temperature_last_6h_sfc: {
+      minimum: -77.58,
+      maximum: 50.39,
+      'gee:estimated_range': true,
+    },
 
     'gee:visualizations': [
       {
