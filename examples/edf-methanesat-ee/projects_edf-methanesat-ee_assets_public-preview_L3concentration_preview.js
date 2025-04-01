@@ -1,6 +1,6 @@
 // Request access to this data by filling out the form at: https://forms.gle/jqw4Mvr63dsV1fUF8
 var methaneSATArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L3concentration")
-  .filterDate('2024-12-01', '2024-12-26');
+  .filterDate('2024-10-20', '2024-10-21');
 
 // Visualization
 var datasetVis = methaneSATArea.mosaic().visualize({
