@@ -52,11 +52,17 @@ local self_url = catalog_subdir_url + base_filename;
     **Note that this dataset has separate terms of use for commercial users of 
     Earth Engine.  Please see “Terms of Use” tab for details.**
 
-    This community data product is meant to evolve over time, as more data 
-    becomes available from the community and the model used to produce the 
-    maps continuously improves.  If you would like to provide feedback or 
-    additional data to improve these layers, please contact 
-    [https://goo.gle/fdap-data](https://goo.gle/fdap-data).
+    This community data product is meant to evolve over time, as more data
+    becomes available from the community and the model used to produce the
+    maps continuously improves. To provide map-based feedback on this
+    collection, please see our
+    [Collect Earth Online instance](https://app.collect.earth/collection?projectId=50778)
+    and follow
+    [these instructions](https://collect-earth-online-doc.readthedocs.io/en/latest/collection/simplified.html).
+
+    If you would like to provide general feedback or additional datasets to
+    improve these layers, please reach out through
+    [this form](https://goo.gle/fdap-data).
 
     **Limitations**: Model output is limited to selected countries as calendar
     year composites for 2020 and 2023. Not all regions of the output are
