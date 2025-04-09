@@ -43,14 +43,11 @@ publicly readable.
 1. Get a general confirmation from the Earth Engine Data team that the dataset
 will be accepted.
 
-1. Choose a public dataset id that the data will be mirrored to.
+1. **Only for mirrored datasets.** Choose a public dataset id that the data
+will be mirrored to.
 
-1. Wait until Earth Engine Data team configures asset mirroring.
-
-1. If your github account was created recently, the repo might not allow you
-to run tests on your pull requests (PRs) automatically. To address this,
-create and submit a trivial PR modifying [this file](spaces.md) (for example,
-add or remove a space).
+1. **Only for mirrored datasets.** Wait until Earth Engine Data team configures
+asset mirroring.
 
 1. Create a jsonnet file describing the dataset using any of the existing files
 as a starting point. See also [template files with field
@@ -137,4 +134,5 @@ a version map into a file named `dataset.libsonnet`, then use this map in
 every jsonnet file. Mark all but the most recent versions with `"gee_status":
 "deprecated"`.
 
-1. Don't create new single-use keywords. If you feel a new keyword would make sense, propose other existing datasets where it should also be added.
+1. Don't create new single-dataset keywords. If you feel a new keyword would
+make sense, propose other existing datasets where it should also be added.
