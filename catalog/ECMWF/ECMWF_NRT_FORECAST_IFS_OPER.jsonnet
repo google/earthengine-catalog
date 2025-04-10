@@ -1411,8 +1411,6 @@ local pressure_levels = [
 
   'sci:doi': '10.21957/open-data',
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-  // TODO(dpencosk): Remove gee:status when the dataset is ready.
-  'gee:status': 'incomplete',
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,
   links: ee.standardLinks(subdir, id),

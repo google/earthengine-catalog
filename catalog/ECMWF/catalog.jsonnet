@@ -26,7 +26,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('ECMWF_ERA5_LAND_MONTHLY_AGGR', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_MONTHLY_BY_HOUR', base_url),
     ee.link.child_collection('ECMWF_ERA5_MONTHLY', base_url),
-    // TODO(dpencosk): Uncomment when ready.
-    // ee.link.child_collection('ECMWF_NRT_FORECAST_IFS_OPER', base_url),
+    ee.link.child_collection('ECMWF_NRT_FORECAST_IFS_OPER', base_url),
   ],
 }
