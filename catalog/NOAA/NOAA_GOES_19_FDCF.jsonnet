@@ -1,4 +1,4 @@
-local id = 'NOAA/GOES/19/FDCC';
+local id = 'NOAA/GOES/19/FDCF';
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,10 +20,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'GOES-19 FDCC Series ABI Level 2 Fire/Hot Spot Characterization CONUS',
+  title: 'GOES-19 FDCF Series ABI Level 2 Fire/Hot Spot Characterization Full Disk',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-
     [GOES](https://www.goes.noaa.gov) satellites are geostationary weather satellites run by NOAA.
 
     The Fire (HSC) product contains four images: one in the form
@@ -37,9 +36,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     can still be false alarms.
 
     Operational data production for GOES-19 began April 7, 2025. Any data prior
-    to this date is provisional only.
+    to this date is provisional.
 
-    [README](https://www.ncei.noaa.gov/products/satellite/goes-r)
+    [README](https://www.ncei.noaa.gov/products/goes-terrestrial-weather-abi-glm)
 
     NOAA provides the following scripts for suggested categories,
     color maps, and visualizations:
@@ -51,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.source,
-      href: 'https://console.cloud.google.com/storage/browser/gcp-public-data-goes-19/ABI-L2-FDCC/',
+      href: 'https://console.cloud.google.com/storage/browser/gcp-public-data-goes-19/ABI-L2-FDCF/',
     },
   ],
   'gee:categories': ['fire'],
@@ -73,9 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('NOAA', 'https://data.noaa.gov/onestop/collections/details/d9303237-8672-4917-a251-29c3f7640684'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  // TODO - b/402751929: Update start time once NOAA responds whether to
-  // backfill or start at 2025-04-04.
-  extent: ee.extent(-180.0, 14.57, 180.0, 53.51, '2025-04-07T00:00:00Z', null),
+  extent: ee.extent_global('2025-04-07T00:00:00Z', null),
   summaries: {
     gsd: [
       2000.0,
@@ -221,8 +218,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         display_name: 'Data Quality Flags (DQF)',
         lookat: {
           lon: -137.0,
-          lat: 43.0,
-          zoom: 5,
+          lat: 13,
+          zoom: 3,
         },
         image_visualization: {
           band_vis: {
