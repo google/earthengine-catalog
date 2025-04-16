@@ -73,9 +73,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     under agricultural use.
 
     For direct access and metadata, please consult the JRC
-    data catalogue ([JRC 2024](https://data.jrc.ec.europa.eu/dataset/e554d6fb-6340-45d5-9309-332337e5bc26)). A technical report ([Bourgoin et al 2024](https://op.europa.eu/en/publication-detail/-/publication/f9baaa45-e73f-11ee-9ea8-01aa75ed71a1/language-en))
-    describes the mapping approach for the first version; a technical report for
-    version 2 is forthcoming. The global map of forest cover may be revised if
+    data catalogue ([JRC 2024](https://data.jrc.ec.europa.eu/dataset/e554d6fb-6340-45d5-9309-332337e5bc26)). A technical report ([Bourgoin et al 2025](https://op.europa.eu/en/publication-detail/-/publication/e2c286ac-14e9-11f0-b1a3-01aa75ed71a1/language-en))
+    describes the mapping approach for the second version. The accuracy
+    assessment of the Global Forest Cover map is described in a
+    [separate report](https://op.europa.eu/en/publication-detail/-/publication/e86f56dd-15b5-11f0-b1a3-01aa75ed71a1/language-en).
+
+    The global map of forest cover may be revised if
     new information, additional large-scale data layers, or revised global
     spatial data layers will be made available for year 2020.
 
@@ -104,6 +107,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Centre (JRC) [Dataset]
     PID: [http://data.europa.eu/89h/e554d6fb-6340-45d5-9309-332337e5bc26](http://data.europa.eu/89h/e554d6fb-6340-45d5-9309-332337e5bc26)
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Bourgoin, C., Verhegghen, A., Carboni, S., Degreve, L., Ameztoy Aramendi, I., Ceccherini, G., Colditz, R. and Achard, F., Global Forest Maps for the Year 2020 to Support the EU Regulation on Deforestation-free Supply Chains, Publications Office of the European Union, Luxembourg, 2025, [https://data.europa.eu/doi/10.2760/1975879](https://data.europa.eu/doi/10.2760/1975879), JRC141702.
+      |||,
+    },
+    {
+      citation: |||
+        Colditz, R., Verhegghen, A., Carboni, S., Bourgoin, C., Duerauer, M., Mansuy, N., De Marzo, T., Beuchle, R., Janouskova, K., Armada Bras, T., Desclée, B., Orlowski, K., Mutendeudzi, M., Ameztoy Aramendi, I., Fritz, S., Lesiv, M., Oom, D., Carreiras, J., San-Miguel, J., Herold, M., Berger, K., Nepomshina, O., Gond, V., Defourny, P., Lamarche, C., Bos, A., Collet, T., Delhez, B., Mollicone, D., Bastin, J.-F., De Haulleville, T., Brink, A., Lupi, A., Tsendbazar, N.E., Stehman, S.V. and Achard, F., Accuracy Assessment of the Global Forest Cover Map for the Year 2020: Assessment Pro-tocol and Analysis, Publications Office of the European Union, Luxembourg, 2025, [https://data.europa.eu/doi/10.2760/7632707](https://data.europa.eu/doi/10.2760/7632707), JRC141231.
+      |||
+    }
+  ],
   'gee:user_uploaded': true,
   'gee:terms_of_use': |||
       The data may be used by anyone, anywhere, anytime without permission,
