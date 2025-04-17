@@ -82,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     new information, additional large-scale data layers, or revised global
     spatial data layers will be made available for year 2020.
 
-    For a list of known issues please refer to [this website](https://forobs.jrc.ec.europa.eu/GFC)
+    For a list of known issues please refer to [this website](https://forobs.jrc.ec.europa.eu/GFC).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
