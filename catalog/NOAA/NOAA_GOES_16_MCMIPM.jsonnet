@@ -34,6 +34,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The locations of domains 1 and 2 change over time.
 
+    Formerly known as "GOES East"; replaced by
+    [GOES-19](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GOES_19_MCMIPM)
+    as of April 7, 2025.
+
     [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
   ||| + importstr 'general_satellite_messages_description.md',
   license: license.id,
