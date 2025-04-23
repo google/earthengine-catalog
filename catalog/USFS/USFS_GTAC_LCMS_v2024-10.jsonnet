@@ -115,7 +115,6 @@ local license = spdx.proprietary;
     'landsat-derived',
     'sentinel-derived',
     'time_series',
-    'fsic-go',
     'gtac',
     'redcastle_resources',
   ],
