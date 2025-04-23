@@ -105,6 +105,7 @@ local license = spdx.proprietary;
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
   ] + version_config.version_links,
+  'gee:categories': ['landuse-landcover']
   keywords: [
     'usda',
     'usfs',
