@@ -56,6 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ],
+  'gee:categories': ['ecosystems'],
   keywords: [
     'ecosystem',
     'global',
@@ -111,7 +112,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 250,
       thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: ['Shape_Area DESC'],
+      thinning_ranking: ['.minZoomLevel DESC'],
     },
   },
   'gee:terms_of_use': |||

@@ -35,6 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:publications': utils.publication,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'climate_change',
     'disturbance',

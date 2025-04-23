@@ -86,6 +86,7 @@ local version = 'V1';
       href: 'https://doi.org/10.3334/ORNLDAAC/2345',
     },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'aboveground',
     'biomass',

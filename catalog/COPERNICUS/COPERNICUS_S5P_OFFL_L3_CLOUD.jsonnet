@@ -22,7 +22,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     ee_const.ext_eo,
   ],
   id: id,
-  title: 'Sentinel-5P OFFL CLOUD: Near Real-Time Cloud',
+  title: 'Sentinel-5P OFFL CLOUD: Offline Cloud Properties',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     ### OFFL/L3_CLOUD
@@ -72,8 +72,8 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
   ||| + s5p_desc,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['atmosphere'],
   keywords: [
-    'climate',
     'cloud',
     'copernicus',
     'dlr',
@@ -187,9 +187,9 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'SPATIAL_RESOLUTION',
         description: |||
-          Spatial resolution at nadir. For most products this is `3.5x7km2`,
+          Spatial resolution at nadir. For most products this is `3.5x7 km2`,
           except for `L2__O3__PR`, which uses `28x21km2`, and
-          `L2__CO____` and `L2__CH4___`, which both use `7x7km2`.
+          `L2__CO____` and `L2__CH4___`, which both use `7x7 km2`.
           This attribute originates from the CCI standard.
         |||,
         type: ee_const.var_type.string,
@@ -226,7 +226,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
           for Medium-Range Weather Forecasts.  If the ECMWF data was used, this
           field will have the value 'Nominal'.  If the ECMWF data was not used, a
           fallback solution was used, and this field will have the value of
-          \"Fallback\".
+          "Fallback".
         |||,
         type: ee_const.var_type.string,
       },
@@ -269,7 +269,6 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       {
         name: 'cloud_optical_depth',
         description: 'Retrieved cloud optical depth',
-        'gee:units': units.meter,
       },
       {
         name: 'surface_albedo',

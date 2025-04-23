@@ -28,6 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + gedi,
   license: gedi_l4a.license,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['forest-biomass'],
   keywords: gedi_l4a.keywords,
   // Because Google is not changing vector data, the first parameter should be empty.
   providers: gedi_l4a.providers('', self_ee_catalog_url),

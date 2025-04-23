@@ -71,6 +71,7 @@ local template = import 'templates/MODIS_006_MOD16A2.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MOD16A2.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['water-vapor'],
   keywords: [
     '8_day',
     'evapotranspiration',

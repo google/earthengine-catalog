@@ -57,6 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://www.dropbox.com/s/6fist8jby0uwwgo/lucas_harmo_pack_uf_final_th_gee_noNAs_noQuo.csv',
     },
   ],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'eu',
     'jrc',

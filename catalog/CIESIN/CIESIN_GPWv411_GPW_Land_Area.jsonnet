@@ -27,7 +27,7 @@ local license = spdx.cc_by_4_0;
   description: |||
     This dataset contains the estimate of the surface area of land
     in square kilometers per pixel, excluding permanent ice and water,
-    within each pixel, and was used to calculate the GPWv4 population density
+    within each pixel, and was used to calculate the GPW v4.11 population density
     datasets.
 
     [General Documentation](https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-quality-indicators/docs)
@@ -40,6 +40,7 @@ local license = spdx.cc_by_4_0;
       href: 'https://doi.org/10.7927/H4Z60M4Z',
     },
   ] + version_config.version_links,
+  'gee:categories': ['population'],
   keywords: [
     'ciesin',
     'gpw',

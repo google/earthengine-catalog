@@ -50,6 +50,7 @@ local template = import 'templates/MODIS_006_MCD43A3.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MCD43A3.006',
     },
   ] + version_config.version_links,
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'albedo',
     'black_sky',

@@ -54,6 +54,7 @@ local license = spdx.cc_by_4_0;
           href: 'https://figshare.com/ndownloader/files/20087237',
         },
       ],
+      'gee:categories': ['surface-ground-water'],
       keywords: [
         'geophysical',
         'hydroatlas',

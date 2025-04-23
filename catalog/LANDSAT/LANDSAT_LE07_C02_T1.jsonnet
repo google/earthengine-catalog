@@ -29,6 +29,7 @@ local version = version_config.version;
   ||| + landsat.tier1 + landsat.l7_drift,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'c2',
     'etm',

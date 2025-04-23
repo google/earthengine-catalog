@@ -81,6 +81,7 @@ local self_ee_catalog_url = worldcereal.link(id).href;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference)
   ],
+  'gee:categories': ['agriculture'],
   keywords: [
     'agriculture', 'copernicus', 'crop', 'esa', 'global', 'landcover',
     'landsat', 'sentinel1_derived', 'sentinel2_derived'

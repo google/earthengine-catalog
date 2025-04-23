@@ -89,8 +89,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/)
   |||,
 
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
-    'climate',
     'methane',
     'emissions',
     'ghg',

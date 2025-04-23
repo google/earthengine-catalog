@@ -39,6 +39,7 @@ local template = import 'templates/MODIS_061_MOD17A3HGF.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MOD17A3HGF.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['plant-productivity'],
   keywords: [
     'global',
     'gpp',

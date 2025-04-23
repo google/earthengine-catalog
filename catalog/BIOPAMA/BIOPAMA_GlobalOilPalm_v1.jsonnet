@@ -37,6 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5281/zenodo.4473715',
     },
   ],
+  'gee:categories': ['agriculture'],
   keywords: [
     'biodiversity',
     'biopama',
@@ -108,8 +109,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5281/zenodo.4473715',
   'sci:citation': |||
-    Adrià, Descals, Serge, Wich, Erik, Meijaard, David, Gaveau, Stephen, Peedell, & Zoltan, Szantoi. (2021, January 27).
-    High resolution global industrial and smallholder oil palm map for 2019 (Version v1). *Zenodo.*
+    Adrià, D., Serge, W., Erik, M., David, G., Stephen, P., & Zoltan, S. (2021). High resolution global industrial and smallholder oil palm map for 2019 (Version v1) [Data set]. Zenodo.
     [doi:10.5281/zenodo.4473715](https://doi.org/10.5281/zenodo.4473715)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),

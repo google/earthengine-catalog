@@ -76,6 +76,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
   ||| + s5p_desc,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['atmosphere'],
   keywords: [
     'air_quality',
     'copernicus',
@@ -128,13 +129,13 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
       },
       {
         name: 'tropopause_pressure',
-        description: 'topopause pressure',
+        description: 'tropopause pressure',
         'gee:units': units.pascal,
       },
       {
         name: 'absorbing_aerosol_index',
         description: |||
-          Aerosol index (at wavelengths 354/388, i.e. the OMI pair) from the AER_AI
+          Aerosol index (at wavelengths 354/388 nm, i.e. the OMI pair) from the AER_AI
           level 2 product.  See [Level 2 Algorithms - Ultraviolet Aerosol Index](https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-ultraviolet-aerosol-index).
         |||,
         'gee:units': units.dimensionless,

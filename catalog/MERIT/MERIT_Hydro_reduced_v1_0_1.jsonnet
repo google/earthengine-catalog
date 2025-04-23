@@ -32,6 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.license(
       'http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro/index.html'),
   ],
+  'gee:categories': ['surface-ground-water'],
   keywords: [
     'dem',
     'elevation',

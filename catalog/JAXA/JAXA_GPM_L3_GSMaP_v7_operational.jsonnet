@@ -28,6 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + gsmap.description_footer,
   license: gsmap.license,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['precipitation'],
   keywords: gsmap.keywords,
   providers: gsmap.providers + [ee.host_provider(self_ee_catalog_url)],
   extent: gsmap.extent,

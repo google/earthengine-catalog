@@ -162,6 +162,6 @@ class Check(stac.NodeCheck):
               if size < 5:
                 yield cls.new_issue(
                     node, f'{CITATION} too short: {size} - "{citation}"')
-              if size > 700:
+              if size > 2000:
                 yield cls.new_issue(
                     node, f'{CITATION} too long: {size} - "{citation[:50]}..."')

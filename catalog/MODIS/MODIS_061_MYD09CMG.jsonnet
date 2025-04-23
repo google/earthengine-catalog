@@ -36,6 +36,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This product is based on a Climate Modeling Grid (CMG) for use in climate
     simulation models.
 
+    This dataset has a striping issue originating from Band 5’s dead
+    detector 20. The MYD09/Band 5 show the dead detector striping in band 5, but
+    it has been properly flagged in the QA layer. The science team has been
+    notified and the issue will be addressed in the Collection 7.
+    More details can be found on
+    [the known issue page](https://landweb.modaps.eosdis.nasa.gov/displayissue?id=939).
+
     Documentation:
 
     * [User's Guide](https://lpdaac.usgs.gov/documents/925/MOD09_User_Guide_V61.pdf)
@@ -51,6 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MODIS/MYD09CMG.061',
     },
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'brightness_temperature',
     'ozone',

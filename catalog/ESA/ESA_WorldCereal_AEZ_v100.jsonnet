@@ -71,6 +71,7 @@ local self_ee_catalog_url = worldcereal.link(id).href;
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(license.reference)
   ],
+  'gee:categories': ['agriculture'],
   keywords: ['agriculture', 'boundaries', 'crop', 'esa', 'global'],
   providers: [
     ee.producer_provider(

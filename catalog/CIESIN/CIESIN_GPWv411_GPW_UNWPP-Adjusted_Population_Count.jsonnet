@@ -44,6 +44,7 @@ local license = spdx.cc_by_4_0;
       href: 'https://doi.org/10.7927/H4PN93PB',
     },
   ] + version_config.version_links,
+  'gee:categories': ['population'],
   keywords: [
     'ciesin',
     'gpw',

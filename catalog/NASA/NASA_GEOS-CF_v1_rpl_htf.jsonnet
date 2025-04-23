@@ -39,6 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id),
   extent: ee.extent_global('2018-01-01T00:00:00Z', null),
+  'gee:categories': ['atmosphere'],
   keywords: [
     'composition',
     'forecast',

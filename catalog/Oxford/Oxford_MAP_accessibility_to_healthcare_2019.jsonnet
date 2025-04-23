@@ -69,6 +69,7 @@ local license = spdx.cc_by_4_0;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['population'],
   keywords: [
     'accessibility',
     'jrc',

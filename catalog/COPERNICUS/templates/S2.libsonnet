@@ -26,7 +26,7 @@ local license = spdx.proprietary;
       ],
       id: id,
       version: version,
-      title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-1C',
+      title: 'Sentinel-2 MSI: MultiSpectral Instrument, Level-1C (TOA)',
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
         Sentinel-2 is a wide-swath, high-resolution, multi-spectral
@@ -62,6 +62,7 @@ local license = spdx.proprietary;
       |||,
       license: license.id,
       links: ee.standardLinks(subdir, id) + version_config.version_links,
+      'gee:categories': ['satellite-imagery'],
       keywords: [
         'copernicus',
         'esa',

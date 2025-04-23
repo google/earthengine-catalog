@@ -45,7 +45,7 @@ local license = spdx.proprietary;
     These consistent Land Cover maps (v3.0.1) are provided for the period
     2015-2019 over the entire Globe, derived from the PROBA-V 100 m time-series, a
     database of high quality land cover training sites and several ancillary
-    datasets, reaching an accuracy of 80% at Level1 over al years.  It is planned
+    datasets, reaching an accuracy of 80% at Level1 over all years.  It is planned
     to provide yearly updates from 2020 through the use of a Sentinel time-series.
 
     See also:
@@ -83,6 +83,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5281/zenodo.3939050',
     },
   ] + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'copernicus',
     'eea',

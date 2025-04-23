@@ -20,5 +20,6 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('USDA_NAIP_DOQQ', base_url),
     ee.link.child_collection('USDA_NASS_CDL', base_url),
+    ee.link.child_collection('USDA_WRC_v0', base_url),
   ],
 }

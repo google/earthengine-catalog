@@ -35,6 +35,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     "saturated" categories (mask codes 10, 11, 30, and 31), but within these categories there
     can still be false alarms.
 
+    Formerly known as "GOES East"; replaced by
+    [GOES-19](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GOES_19_FDCC)
+    as of April 7, 2025.
+
     [README](https://www.ncei.noaa.gov/products/satellite/goes-r)
 
     NOAA provides the following scripts for suggested categories,
@@ -50,9 +54,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://console.cloud.google.com/storage/browser/gcp-public-data-goes-16/ABI-L2-FDCC/',
     },
   ],
+  'gee:categories': ['fire'],
   keywords: [
     'abi',
-    'climate',
     'fdc',
     'fire',
     'goes',

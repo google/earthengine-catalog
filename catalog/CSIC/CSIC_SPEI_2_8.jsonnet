@@ -32,7 +32,7 @@ local license = spdx.cc_by_4_0;
     about drought conditions at the global scale, with a 0.5 degree pixel size
     and monthly cadence. It provides SPEI time scales from 1 to 48 months.
 
-    The Standardized Precipitatin-Evapotranspiration Index (SPEI) expresses,
+    The Standardized Precipitation-Evapotranspiration Index (SPEI) expresses,
     as a standardized variate (mean zero and unit variance), the deviations of
     the current climatic balance (precipitation minus evapotranspiration
     potential) with respect to the long-term balance. The reference period for
@@ -45,7 +45,7 @@ local license = spdx.cc_by_4_0;
     estimation of potential evapotranspiration.
     This is a major difference with respect to the SPEI Global Drought Monitor,
     that uses the Thornthwaite PET estimation.
-    The Penman-Montheith method is considered a superior method, so the
+    The Penman-Monteith method is considered a superior method, so the
     SPEIbase is recommended for most uses including long-term climatological
     analysis.
   |||,
@@ -56,6 +56,7 @@ local license = spdx.cc_by_4_0;
       href: 'https://doi.org/10.20350/digitalCSIC/15121',
     },
   ] + version_config.version_links,
+  'gee:categories': ['water-vapor'],
   keywords: [
     'climate',
     'climate_change',

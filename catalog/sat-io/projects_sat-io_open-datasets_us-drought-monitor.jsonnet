@@ -26,6 +26,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['precipitation'],
   keywords: [
     'drought',
     'ndmc',
@@ -43,7 +44,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'eo:bands': [
       {
-        name: 'b1',
+        name: 'DM',
         description: 'Drought classes',
       },
     ],
@@ -64,14 +65,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               4,
             ],
             bands: [
-              'b1',
+              'DM',
             ],
             palette:["FFFF00","FCD37F", "FFAA00","E60000", "730000"],
           },
         },
       },
     ],
-    b1: {
+    DM: {
       minimum: 0.0,
       maximum: 4.0,
       'gee:estimated_range': false,

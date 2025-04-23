@@ -105,12 +105,8 @@ local license = spdx.proprietary;
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
-    },
-  ] + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'lcms',
     'usda',

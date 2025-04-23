@@ -26,6 +26,7 @@ local self_ee_catalog_url(id) =
     ||| + description_detail,
     license: license.id,
     links: ee.standardLinks(subdir, id),
+    'gee:categories': ['elevation-topography'],
     keywords: [
       'ahn',
       'dem',

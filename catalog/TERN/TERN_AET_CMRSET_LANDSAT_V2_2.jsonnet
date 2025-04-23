@@ -71,13 +71,13 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee.link.predecessor(
       predecessor_id, catalog_subdir_url + predecessor_basename + '.json'),
   ],
+  'gee:categories': ['water-vapor'],
   keywords: [
     'agriculture',
     'australia',
     'csiro',
     'evaporation',
     'evapotranspiration',
-    'hydrology',
     'landsat_derived',
     'tern',
     'viirs_derived',

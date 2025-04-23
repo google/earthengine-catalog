@@ -37,6 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + gedi,
   license: gedi_l2a.license,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['forest-biomass'],
   keywords: gedi_l2a.keywords,
   providers: gedi_l2a.providers('', self_ee_catalog_url),
   extent: ee.extent(-180,

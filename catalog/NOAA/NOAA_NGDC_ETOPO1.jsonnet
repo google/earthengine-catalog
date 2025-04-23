@@ -39,6 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.7289/V5C8276M',
     },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     // TODO(schwehr): Include bathymetry when it is used more than once.
     // 'bathymetry',

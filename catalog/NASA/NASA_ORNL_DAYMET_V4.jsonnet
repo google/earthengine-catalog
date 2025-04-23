@@ -59,6 +59,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.3334/ORNLDAAC/1840',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     'climate',
     'daily',

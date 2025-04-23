@@ -54,6 +54,7 @@ local template = import 'templates/MODIS_006_MCD12Q2.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MCD12Q2.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'evi',
     'global',

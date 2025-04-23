@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * gathering and processing facilities,
     * tank batteries,
     * offshore platforms,
-    * liquified natural gas (LNG) facilities,
+    * liquefied natural gas (LNG) facilities,
     * crude oil refineries,
     * petroleum terminals,
     * injection and disposal facilities,
@@ -78,8 +78,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset will be updated in-place with the new versions.
   |||,
 
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: [
-    'climate',
     'methane',
     'emissions',
     'ghg',

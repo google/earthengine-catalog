@@ -45,6 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/HLS/HLSL30.002',
     },
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: hls.keywords,
   providers: [
     ee.producer_provider('NASA LP DAAC', 'https://lpdaac.usgs.gov/products/hlsl30v002/'),

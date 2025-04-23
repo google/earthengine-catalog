@@ -5,7 +5,7 @@ local description_type = 'Raw Samples';
 local description_detail = |||
   This version contains both ground level samples and items above ground level
   (such as buildings, bridges, trees etc). The point cloud was converted to a
-  0.5m grid using an squared inverse distance weighting method.
+  0.5m grid using a squared inverse distance weighting method.
 |||;
 
 ahn.ahn_dataset(id, description_type, description_detail)

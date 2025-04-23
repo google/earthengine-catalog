@@ -45,6 +45,7 @@ local template = import 'templates/MODIS_006_MCD19A2_GRANULES.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MCD19A2.006',
     },
   ] + version_config.version_links,
+  'gee:categories': ['atmosphere'],
   keywords: [
     'aerosol',
     'aod',

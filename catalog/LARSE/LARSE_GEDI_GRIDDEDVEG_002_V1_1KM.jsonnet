@@ -27,6 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:user_uploaded': true,
   license: gedi_vegetation.license,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['forest-biomass'],
   keywords: gedi_vegetation.keywords,
   providers: gedi_vegetation.providers(
     'Rasterization: Google and ', self_ee_catalog_url),

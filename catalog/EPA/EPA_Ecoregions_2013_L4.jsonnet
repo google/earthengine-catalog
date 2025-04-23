@@ -67,6 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['ecosystems'],
   keywords: [
     'ecoregions',
     'epa',
@@ -229,7 +230,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         Omernik, J.M. 1995. Ecoregions: A spatial framework for environmental
         management. In: Biological Assessment and Criteria: Tools for Water
         Resource Planning and Decision Making. Davis, W.S. and T.P. Simon
-        (eds.),   Lewis Publishers, Boca Raton, FL. p. 49-62.
+        (eds.), Lewis Publishers, Boca Raton, FL. p. 49-62.
       |||,
     },
     {

@@ -30,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     approach) or using inverted allometric equations to model age where there
     is no evidence of disturbance (allometric approach). The disturbance
     approach is based upon satellite data and mapped changes and is the most
-    accurate. The recovery approach also avails upon satellite data plus logic
+    accurate. The recovery approach also relies upon satellite data plus logic
     regarding forest succession, with an accuracy that is greater than pure
     modeling.
 
@@ -47,6 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://opendata.nfis.org/downloads/forest_change/CA_forest_age_2019.zip',
     },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'canada',
     'forest',

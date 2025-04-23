@@ -150,6 +150,7 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php')
   ] + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'change',
     'change_detection',

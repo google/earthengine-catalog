@@ -58,6 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 's3://prd-tnm/StagedProducts/Elevation/1m/Projects',
     }
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     '3dep',
     'dem',

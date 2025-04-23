@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This dataset represents the Census data source used to produce
-    the GPWv4 populations estimates. Pixels that have the same value reflect the same
+    the GPW v4.11 populations estimates. Pixels that have the same value reflect the same
     data source, most often a country or territory.
 
     [General Documentation](https://sedac.ciesin.columbia.edu/data/set/gpw-v4-national-identifier-grid-rev11/docs)
@@ -38,6 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.7927/H4TD9VDP',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'ciesin',
     'gpw',

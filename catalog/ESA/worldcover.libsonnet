@@ -48,6 +48,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           href: 'https://esa-worldcover.org/en/data-access',
         },
       ],
+      'gee:categories': ['landuse-landcover'],
       keywords: [
         'esa',
         'landcover',
@@ -57,7 +58,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       ],
       providers: [
         ee.producer_provider(
-          'ESA/VITO/Brockmann Consult/CS/GAMMA Remote Sensing/IIASA/WUR',
+          'ESA WorldCover Consortium',
           'https://esa-worldcover.org/en'),
         ee.host_provider(self_ee_catalog_url(version)),
       ],

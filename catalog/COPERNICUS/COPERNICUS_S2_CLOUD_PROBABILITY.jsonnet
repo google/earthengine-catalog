@@ -27,7 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     All bands are upsampled using bilinear interpolation to 10m resolution
     before the gradient boost base algorithm is applied.  The resulting
     `0..1` floating point probability is scaled to `0..100` and stored as
-    a UINT8.  Areas missing any or all of the bands are masked out.
+    an UINT8.  Areas missing any or all of the bands are masked out.
     Higher values are more likely to be clouds or highly reflective surfaces
     (e.g. roof tops or snow).
 
@@ -47,6 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'cloud',
     'copernicus',

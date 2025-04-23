@@ -45,12 +45,13 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
     [More information.](http://www.tropomi.eu/data-products/tropospheric-ozone-column).
 
     Unlike all other S5P products, this product was ingested directly without using
-    `harpconvert`, as it is already a gridded product. Pixels with qa_value<70
+    `harpconvert`, as it is already a gridded product. Pixels with qa_value<=70
     are masked out.
 
   ||| + s5p_desc,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['atmosphere'],
   keywords: [
     'air_quality',
     'copernicus',

@@ -52,6 +52,7 @@ local template = import 'templates/MODIS_006_MOD08_M3.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MYD08_M3.006',
     },
   ] + version_config.version_links,
+  'gee:categories': ['climate'],
   keywords: [
     'aqua',
     'atmosphere',

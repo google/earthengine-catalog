@@ -62,6 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/VIIRS/VNP43IA1.001',
     },
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'land',
     'nasa',

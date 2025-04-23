@@ -50,6 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
+  'gee:categories': ['climate'],
   keywords: [
     'climate',
     'g_portal',

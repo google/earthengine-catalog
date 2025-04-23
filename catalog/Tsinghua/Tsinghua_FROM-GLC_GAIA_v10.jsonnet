@@ -41,6 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'http://data.ess.tsinghua.edu.cn/fromglc2017v1.html',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'built',
     'development',

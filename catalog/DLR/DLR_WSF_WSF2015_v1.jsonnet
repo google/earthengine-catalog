@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     To quantitatively assess the high accuracy and reliability of the
     layer, an extensive validation exercise has been carried out in collaboration
     with Google based on a huge amount of ground-truth samples (i.e., 900,000)
-    labeled by crow-sourcing photo-interpretation. A statistically
+    labeled by crowd-sourcing photo-interpretation. A statistically
     robust and transparent protocol has been defined following the state-of-the-art
     practices currently recommended in the literature.
 
@@ -68,6 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.1038/s41597-020-00580-5',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'landcover',
     'landsat_derived',

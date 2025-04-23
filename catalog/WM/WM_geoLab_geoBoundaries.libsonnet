@@ -39,7 +39,7 @@ local units = import 'units.libsonnet';
   citation: |||
     Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. [https://doi.org/10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
   |||,
-  regular_bands: [
+  regular_properties: [
     {
         name: 'shapeGroup',
         description: 'Unique country code',
@@ -63,7 +63,7 @@ local units = import 'units.libsonnet';
         type: ee_const.var_type.string,
       }
   ],
-  shapeid_band: [
+  shapeid_property: [
     {
       name: 'shapeID',
       description: 'Unique ID assigned to the shape',

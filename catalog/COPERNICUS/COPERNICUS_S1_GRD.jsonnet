@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for details of collection use and preprocessing. Each scene contains
     either 1 or 2 out of 4 possible polarization bands, depending
     on the instrument's polarization settings.  The possible combinations
-    are single band VV or HH, and dual band VV+VH and HH+HV:
+    are single band VV, single band HH, dual band VV+VH, and dual band HH+HV:
 
       1. VV: single co-polarization, vertical transmit/vertical receive
       2. HH: single co-polarization, horizontal transmit/horizontal receive
@@ -79,6 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'backscatter',
     'copernicus',

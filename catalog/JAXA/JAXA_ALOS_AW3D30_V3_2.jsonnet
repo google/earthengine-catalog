@@ -67,6 +67,7 @@ local license = spdx.proprietary {
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ] + version_config.version_links,
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'alos',
     'dem',

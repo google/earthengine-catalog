@@ -31,10 +31,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['orthophotos'],
   keywords: [
     'estonia',
     'low_flying',
-    'orthophoto',
   ],
   providers: estonia_orthos.providers('', self_ee_catalog_url),
   extent: estonia_orthos.extent,

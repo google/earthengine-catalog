@@ -1,6 +1,33 @@
 local units = import 'units.libsonnet';
 
 {
+  description: |||
+    The Terra MODIS Vegetation Continuous Fields (VCF)
+    product is a sub-pixel-level representation of surface vegetation
+    cover estimates globally. Designed to continuously represent
+    Earth's terrestrial surface as a proportion of basic vegetation
+    traits, it provides a gradation of three surface cover components:
+    percent tree cover, percent non-tree cover, and percent bare.
+    VCF products provide a continuous, quantitative portrayal of
+    land surface cover with improved spatial detail, and hence, are
+    widely used in environmental modeling and monitoring applications.
+
+    Generated yearly, the VCF product is produced using monthly
+    composites of Terra MODIS 250 and 500 meters Land Surface Reflectance
+    data, including all seven bands, and Land Surface Temperature.
+  |||,
+  'gee:categories': ['landuse-landcover'],
+  keywords: [
+    'annual',
+    'geophysical',
+    'global',
+    'mod44b',
+    'modis',
+    'nasa',
+    'terra',
+    'tree_cover',
+    'vegetation',
+  ],
   summaries: {
     gsd: [
       250.0,
@@ -28,7 +55,7 @@ local units = import 'units.libsonnet';
         name: 'Quality',
         description: |||
           Describes those inputs that had poor quality (cloudy,
-          high aerosol, cloud shadow, or view zenith >45°). Each bit
+          high aerosol, cloud shadow, or view zenith >45&deg;). Each bit
           in the field represents 1 out of 8 input surface reflectance
           files to the model.
         |||,
@@ -363,4 +390,17 @@ local units = import 'units.libsonnet';
       'gee:estimated_range': false,
     },
   },
+  sci_citation: |||
+    Please visit [LP DAAC 'Citing Our Data' page](https://lpdaac.usgs.gov/citing_our_data)
+    for information on citing LP DAAC datasets.
+  |||,
+  gee_interval: {
+    type: 'cadence',
+    unit: 'year',
+    interval: 1,
+  },
+  gee_terms_of_use: |||
+    MODIS data and products acquired through the LP DAAC
+    have no restrictions on subsequent use, sale, or redistribution.
+  |||,
 }

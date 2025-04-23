@@ -17,6 +17,7 @@ CATALOG_ALLOWED_FIELDS = [
 COLLECTION_ALLOWED_FIELDS = [
     'description',
     'extent',
+    'gee:categories',
     'gee:interval',
     'gee:is_derived',
     'gee:min_zoom_level',

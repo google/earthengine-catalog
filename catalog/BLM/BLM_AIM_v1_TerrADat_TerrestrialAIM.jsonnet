@@ -32,8 +32,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     indicators inform biotic integrity, soil and site stability, and hydrologic
     function. The terrestrial plot measurements include fractional bare ground
     cover, vegetation composition and height, plants of management concern,
-    Non-native invasive species, plant canopy gaps, species richness, and soil
-    aggregate stability. AIM represents one of the most extensive, publicly
+    non-native invasive species, plant canopy gaps, species richness, and soil
+    aggregate stability. AIM represents one of the most extensive publicly
     available plot measurement datasets across Western US federal lands, which can
     be integrated with remotely sensed imagery and other geospatial information for
     a range of analysis, classification, and validation purposes.
@@ -41,7 +41,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset was created to monitor the status, condition and trend
     of national BLM resources in accordance with BLM policies.  The
     methodology used for the collection of these data can be found on
-    https://landscapetoolbox.org and the Monitoring Manual, 2nd Edition.  These
+    [the Landscape Toolbox](https://landscapetoolbox.org)
+    and the Monitoring Manual, 2nd Edition.  These
     data should not be used for statistical or spatial inferences without
     knowledge of how the sample design was drawn or without calculating
     spatial weights for the points based on the sample design.
@@ -79,6 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://gis.blm.gov/AIMdownload/layerpackages/BLM_AIM_Terrestrial.zip',
     },
   ],
+  'gee:categories': ['ecosystems', 'soil'],
   keywords: [
     'aim',
     'biota',
@@ -541,7 +543,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.double,
       },
       {
-        name: 'SageabrushHgt_Avg',
+        name: 'SagebrushHgt_Avg',
         description: |||
           Average height of sagebrush in the plot. This
           was collected using the Vegetation Height Method (30 points on 3

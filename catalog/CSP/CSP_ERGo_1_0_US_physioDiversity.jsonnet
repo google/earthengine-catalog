@@ -26,7 +26,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     The Physiographic Diversity dataset provides an index of the diversity of
     physiographic types. It was calculated using the Shannon diversity index at
-    multiple-scales (km): 115.8, 89.9, 35.5, 13.1, 5.6, 2.8, and 1.2. It is
+    multiple scales (km): 115.8, 89.9, 35.5, 13.1, 5.6, 2.8, and 1.2. It is
     based on the USGS's 10m NED DEM (available in EE as USGS/NED).
 
     The Conservation Science Partners (CSP) Ecologically Relevant Geomorphology
@@ -45,6 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'aspect',
     'csp',

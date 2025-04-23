@@ -114,6 +114,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treemap/',
     },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'biomass',
     'carbon',

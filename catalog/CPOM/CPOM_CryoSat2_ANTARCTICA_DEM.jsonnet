@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The DEM is formed from spatio-temporal fits to elevation
     measurements accumulated within 1, 2, and 5 km grid cells,
     and is posted at the modal resolution of 1 km. The median
-    and root mean square difference between the DEM and 2.3*10&#8311;
+    and root mean square difference between the DEM and 2.3*10<sup>7</sup>;
     airborne laser altimeter measurements acquired during
     NASA Operation IceBridge campaigns are -0.30 and 13.50 m,
     respectively.
@@ -50,6 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5194/tc-2017-223',
     },
   ],
+  'gee:categories': ['elevation-topography'],
   keywords: [
     'antarctica',
     'cpom',

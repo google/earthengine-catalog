@@ -27,6 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + landsat.tier1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'c2',
     'global',

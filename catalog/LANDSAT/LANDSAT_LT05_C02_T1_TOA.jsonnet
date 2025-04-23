@@ -32,6 +32,7 @@ local license = spdx.pddl_1_0;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'global',
     'landsat',

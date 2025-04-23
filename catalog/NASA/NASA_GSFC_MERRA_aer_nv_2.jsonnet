@@ -50,6 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'https://earthdata.nasa.gov/collaborate/open-data-services-and-software/data-information-policy'
     ),
   ],
+  'gee:categories': ['atmosphere'],
   keywords: [
     'aerosol',
     'dust',

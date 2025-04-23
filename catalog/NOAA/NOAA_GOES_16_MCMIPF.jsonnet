@@ -32,6 +32,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Top-Of-Atmosphere (TOA) is measured in Kelvin. These bands support the characterization of the
     surface, clouds, water vapor, ozone, volcanic ash, and dust based on emissive properties.
 
+    Formerly known as "GOES East"; replaced by
+    [GOES-19](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GOES_19_MCMIPF)
+    as of April 7, 2025.
+
     [README](https://www.ncei.noaa.gov/products/satellite/goes-r-series)
   ||| + importstr 'general_satellite_messages_description.md',
   license: license.id,
@@ -41,9 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://console.cloud.google.com/storage/browser/gcp-public-data-goes-16/ABI-L2-MCMIPF/',
     },
   ],
+  'gee:categories': ['atmosphere', 'satellite-imagery'],
   keywords: [
     'abi',
-    'climate',
     'goes',
     'goes_16',
     'goes_east',

@@ -58,6 +58,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.7289/V5M043BX',
     },
   ] + version_config.version_links,
+  'gee:categories': ['plant-productivity'],
   keywords: [
     'avhrr',
     'cdr',

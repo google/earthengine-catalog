@@ -62,6 +62,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5067/MODIS/MCD43A1.006',
     },
   ] + version_config.version_links,
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'albedo',
     'brdf',

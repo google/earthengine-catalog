@@ -18,6 +18,19 @@ To add a new dataset:
 See also
 [dataset acceptance criteria](https://developers.google.com/earth-engine/help_collection_criteria).
 
+## Timelines
+
+Large-scale data uploads and writing good dataset descriptions can be
+complicated, so please follow these timing rules if you have a dataset
+launch deadline:
+
+* 4 weeks before the launch: notify the Earth Engine Data team
+  about the upcoming dataset
+* 2 weeks before the launch: upload test data to Earth Engine
+  and send them for a review
+* 1 week before the launch: create a pull request for the dataset
+  description and send it for review
+
 ## Detailed steps for adding a new dataset:
 
 1. File a bug
@@ -30,14 +43,11 @@ publicly readable.
 1. Get a general confirmation from the Earth Engine Data team that the dataset
 will be accepted.
 
-1. Choose a public dataset id that the data will be mirrored to.
+1. **Only for mirrored datasets.** Choose a public dataset id that the data
+will be mirrored to.
 
-1. Wait until Earth Engine Data team configures asset mirroring.
-
-1. If your github account was created recently, the repo might not allow you
-to run tests on your pull requests (PRs) automatically. To address this,
-create and submit a trivial PR modifying [this file](spaces.md) (for example,
-add or remove a space).
+1. **Only for mirrored datasets.** Wait until Earth Engine Data team configures
+asset mirroring.
 
 1. Create a jsonnet file describing the dataset using any of the existing files
 as a starting point. See also [template files with field
@@ -57,8 +67,10 @@ to preview your markdown content.
 licensing terms.
 
 1. New dataset will not be activated at first. To indicate that, set
-`'gee:status': 'incomplete'` at the top level. Don't yet add the new dataset
-to the `catalog.jsonnet` file.
+`'gee:status': 'beta'` at the top level.
+
+1. Add a pointer to the new file to the `catalog.jsonnet` file in the same
+directory.
 
 1. In the examples/ directory, create a JavaScript file that will be used as
 the main example.
@@ -122,4 +134,5 @@ a version map into a file named `dataset.libsonnet`, then use this map in
 every jsonnet file. Mark all but the most recent versions with `"gee_status":
 "deprecated"`.
 
-1. Don't create new single-use keywords. If you feel a new keyword would make sense, propose other existing datasets where it should also be added.
+1. Don't create new single-dataset keywords. If you feel a new keyword would
+make sense, propose other existing datasets where it should also be added.

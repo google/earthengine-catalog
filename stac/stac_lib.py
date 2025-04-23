@@ -406,8 +406,14 @@ class Collection:
   def title(self) -> str:
     return self.stac_json['title']
 
+  def description(self) -> str:
+    return self.stac_json.get('description', '')
+
   def dataset_type(self) -> stac_checker.GeeType:
     return stac_checker.GeeType(self.stac_json['gee:type'])
+
+  def terms_of_use(self) -> str:
+    return self.stac_json.get('gee:terms_of_use', '')
 
   def bbox(self) -> bboxes.BBox:
     return self.bbox_list()[0]
@@ -465,9 +471,39 @@ class Collection:
 
       yield Link.from_stac(link)
 
+  def _populate_file_links(self) -> list[str]:
+    """Extracts file links from the STAC JSON."""
+    file_links = []
+    for link in self.links(Rel.SOURCE):
+      if link.href:
+        file_links.append(link.href)
+    return file_links
+
   def providers(self) -> Iterator[Provider]:
-    for provider in self.stac_json['providers']:
-      yield Provider.from_stac(provider)
+    """Returns a list of Provider objects."""
+    first_valid_provider_found = False
+
+    if 'providers' in self.stac_json:
+      for stac_provider in self.stac_json['providers']:
+        provider = Provider.from_stac(stac_provider)
+        if provider.name == 'Google Earth Engine':
+          roles = set(provider.roles)
+          # Ignore GEE unless it does more than just host the data.
+          roles.discard(Role.HOST)
+          if not roles:
+            continue
+
+        if not first_valid_provider_found:
+          provider.instruments = self.stac_json['summaries'].get(
+              'instruments', []
+          )
+          provider.platforms = self.stac_json['summaries'].get('platform', [])
+          provider.file_links = self._populate_file_links()
+          first_valid_provider_found = True
+
+        yield provider
+    else:
+      return
 
   def dois(self) -> list[str]:
     """Returns all the DOIs found in links and the doi fields."""

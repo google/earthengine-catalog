@@ -52,6 +52,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.7289/V5TM782M',
     },
   ] + version_config.version_links,
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'avhrr',
     'cdr',

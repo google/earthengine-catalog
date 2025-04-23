@@ -69,6 +69,7 @@ local version = version_config.version;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
   ] + version_config.version_links,
+  'gee:categories': ['oceans'],
   keywords: [
     'crs',
     'gfz',

@@ -47,14 +47,21 @@ local license = spdx.proprietary;
     More information on the model is in "[Learning skillful
     medium-range global weather forecasting](https://www.science.org/stoken/author-tokens/ST-1550/full)".
     The model used to produce this experimental dataset is an operational
-    version derived from that research model. Please note that the accuracy of
-    this operational model may not directly correspond to the accuracy reported
-    for the research model, and that additional variables may be included in
-    this forecast dataset.
+    version derived from that research model (formerly known as GraphCast).
+    Please note that the accuracy of this operational model may not directly
+    correspond to the accuracy reported for the research model, and that
+    additional variables may be included in this forecast dataset.
 
     If you have any questions on using this experimental dataset, or would
     like to use it for purposes not currently permitted under the terms of use
     set out below, please contact weathernext@google.com.
+
+    **Accessing Raw Data (.zarr)**
+
+    A bucket containing the raw .zarr files for the historical dataset
+    ("Historic Experimental Data") is available at `gs://weathernext/59572747_4_0/zarr`. To gain access to
+    the bucket, please request access through the same [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform?usp=preview),
+    and note your interest in receiving access to the raw .zarr files.
 
     **Acknowledgements**
 
@@ -79,10 +86,12 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['climate'],
   keywords: [
     'weather',
     'weathernext',
     'forecast',
+    'graphcast',
     'temperature',
     'precipitation',
     'wind',
@@ -107,7 +116,7 @@ local license = spdx.proprietary;
         name: 'end_time',
         description: |||
           The valid time for this specific forecast. Calculated as
-          start_time + forecast_hour
+          start_time + forecast_hour.
         |||,
         type: ee_const.var_type.string,
       },
@@ -133,7 +142,7 @@ local license = spdx.proprietary;
         description: |||
           Total precipitation over a 6-hour period
         |||,
-        'gee:units': units.millimeter,
+        'gee:units': units.meter,
       },
       {
         name: '10m_u_component_of_wind',

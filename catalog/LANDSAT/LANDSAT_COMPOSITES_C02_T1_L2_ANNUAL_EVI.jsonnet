@@ -42,6 +42,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   license: license.id,
     links: ee.standardLinks(subdir, id) + [
   ],
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'evi',
     'landsat',

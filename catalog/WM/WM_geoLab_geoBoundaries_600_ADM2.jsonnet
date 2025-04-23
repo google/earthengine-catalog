@@ -28,13 +28,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ],
+  'gee:categories': ['infrastructure-boundaries'],
   keywords: geoBoundaries.keywords,
   providers: geoBoundaries.providers('', self_ee_catalog_url),
   extent: geoBoundaries.extent,
   summaries: {
     'gee:schema': [
-      { name: band.name, description: band.description, type: band.type }
-      for band in (geoBoundaries.regular_bands + geoBoundaries.shapeid_band)
+      { name: property.name, description: property.description, type: property.type }
+      for property in (geoBoundaries.regular_properties + geoBoundaries.shapeid_property)
     ],
     'gee:visualizations': [
       {
@@ -50,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:feature_view_ingestion_params': {
       max_features_per_tile: 250,
       thinning_strategy: 'HIGHER_DENSITY',
-      thinning_ranking: ['Shape_Area DESC'],
+      thinning_ranking: ['shapeName DESC'],
     },
   },
   'gee:terms_of_use': geoBoundaries.terms_of_use,

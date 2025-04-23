@@ -36,6 +36,13 @@ class BboxeslTest(unittest.TestCase):
     ):
       bboxes.BBox.from_list([0, 90, 0, -45])
 
+  def test_bbox_union(self):
+    a = bboxes.BBox(west=10, south=20, east=30, north=40)
+    b = bboxes.BBox(west=12, south=18, east=35, north=36)
+    self.assertEqual(
+        bboxes.BBox(west=10, south=18, east=35, north=40), a.union(b)
+    )
+
 
 if __name__ == '__main__':
   unittest.main()

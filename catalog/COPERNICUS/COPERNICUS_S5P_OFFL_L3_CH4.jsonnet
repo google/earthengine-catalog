@@ -32,7 +32,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
 
     Methane (CH<sub>4</sub>) is, after carbon dioxide (CO<sub>2</sub>), the most
     important contributor to the anthropogenically enhanced greenhouse effect.
-    Roughly three-quarters of methane emissions are anthropogenic and as such it
+    Roughly three-quarters of methane emissions are anthropogenic and as such, it
     is important to continue the record of satellite based measurements. TROPOMI
     aims at providing CH<sub>4</sub> column concentrations with high sensitivity
     to the Earth's surface, good spatiotemporal coverage, and sufficient
@@ -98,6 +98,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
   ||| + s5p_desc,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
     'copernicus',

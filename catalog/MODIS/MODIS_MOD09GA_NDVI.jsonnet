@@ -29,10 +29,16 @@ local license = spdx.proprietary;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'modis',
     'ndvi',
     'usgs',
+    'daily',
+    'global',
+    'mod09ga',
+    'surface_reflectance',
+    'terra',
   ],
   providers: [
     ee.producer_provider('Google', 'https://earthengine.google.com/'),

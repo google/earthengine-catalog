@@ -47,6 +47,7 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.7289/V5SQ8XB5',
     },
   ] + version_config.version_links,
+  'gee:categories': ['oceans'],
   keywords: [
     'avhrr',
     'cdr',

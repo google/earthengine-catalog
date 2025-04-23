@@ -26,7 +26,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     current baseline conditions and future projections in 2030, 2050, and 2080.
     In addition to providing hazard maps and assessing risks, Aqueduct Floods
     helps to conduct comprehensive cost-benefit analysis to evaluate the value
-    of dike food protection strategies.
+    of dike flood protection strategies.
 
     Aqueduct Floods aims to empower disaster risk analysts and managers with
     quantitative information on food risks and adaptation strategy costs, and to
@@ -38,6 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['surface-ground-water'],
   keywords: [
     'flood',
     'monitoring',

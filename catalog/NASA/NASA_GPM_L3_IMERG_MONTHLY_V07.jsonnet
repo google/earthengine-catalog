@@ -74,6 +74,7 @@ local version = version_config.version;
       href: 'https://doi.org/10.5067/GPM/IMERG/3B-MONTH/07',
     },
   ],
+  'gee:categories': ['precipitation'],
   keywords: [
     'climate',
     'geophysical',

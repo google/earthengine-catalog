@@ -66,6 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MEaSUREs/GFCC/GFCC30TC.003',
     },
   ],
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'forest',
     'glcf',

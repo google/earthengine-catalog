@@ -60,6 +60,7 @@ local template = import 'templates/MODIS_006_MCD12Q1.libsonnet';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/MODIS/MCD12Q1.061',
     },] + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'landcover',
     'modis',

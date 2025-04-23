@@ -48,6 +48,7 @@ local template = import 'templates/MODIS_006_MCD15A3H.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MCD15A3H.006',
     },
   ] + version_config.version_links,
+  'gee:categories': ['plant-productivity'],
   keywords: [
     '4_day',
     'fpar',

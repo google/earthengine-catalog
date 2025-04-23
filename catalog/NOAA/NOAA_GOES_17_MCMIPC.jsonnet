@@ -43,9 +43,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://console.cloud.google.com/storage/browser/gcp-public-data-goes-17/ABI-L2-MCMIPC/',
     },
   ],
+  'gee:categories': ['atmosphere', 'satellite-imagery'],
   keywords: [
     'abi',
-    'climate',
     'goes',
     'goes_17',
     'goes_s',

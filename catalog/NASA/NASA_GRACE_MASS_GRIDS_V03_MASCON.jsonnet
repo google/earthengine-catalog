@@ -22,7 +22,8 @@ local version = version_config.version;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'GRACE Monthly Mass Grids Release 6.1 Version 3 - Global Mascons',
+  title: 'GRACE Monthly Mass Grids Release 6.1 Version 3 - Global Mascons [deprecated]',
+  'gee:status': 'deprecated',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -59,6 +60,7 @@ local version = version_config.version;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
   ] + version_config.version_links,
+  'gee:categories': ['surface-ground-water'],
   keywords: [
     'grace',
     'gravity',

@@ -11,6 +11,7 @@ from checker.node import extent
 from checker.node import feature_view
 from checker.node import file_path
 from checker.node import gee_bitmask
+from checker.node import gee_categories
 from checker.node import gee_classes
 from checker.node import gee_is_derived
 from checker.node import gee_provider_ids
@@ -69,6 +70,7 @@ _CHECKS = [
     version_extension.Check,
     # gee extensions
     gee_bitmask.Check,
+    gee_categories.Check,
     gee_classes.Check,
     gee_is_derived.Check,
     gee_provider_ids.Check,

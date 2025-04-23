@@ -71,6 +71,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       successor_id,
       ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
   ],
+  'gee:categories': ['satellite-imagery'],
   keywords: [
     'daily',
     'nasa',

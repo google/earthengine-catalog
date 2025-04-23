@@ -120,9 +120,15 @@
   // https://en.wikipedia.org/wiki/Foot_(unit)
   foot: 'ft',
 
+  // https://en.wikipedia.org/wiki/Geopotential_height
+  geopotential_meter: 'gpm',
+
   // https://en.wikipedia.org/wiki/Kilogram
   // Unused: kilogram: 'kg',
   gigagrams: 'Gg',
+
+  // https://en.wikipedia.org/wiki/Inverse_second
+  inverse_second: '1/s',
 
   // https://en.wikipedia.org/wiki/Convective_available_potential_energy (CAPE)
   // https://en.wikipedia.org/wiki/Specific_energy
@@ -162,6 +168,9 @@
   hectopascal: 'hPa',
   kilopascal: 'kPa',
 
+  // https://en.wikipedia.org/wiki/Viscosity#Dynamic_viscosity
+  pascal_seconds: 'Pa s',
+
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
   percent: '%',
@@ -190,6 +199,9 @@
 
   // https://en.wikipedia.org/wiki/Standard_deviation
   standard_deviation: 'Standard deviation',
+
+  // https://en.wikipedia.org/wiki/Viscosity#Kinematic_viscosity
+  squared_meter_per_second: 'm^2/s',
 
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
@@ -235,6 +247,7 @@
 
   // https://en.wikipedia.org/wiki/Volume_fraction
   volume_fraction: 'Volume fraction',
+  volumetric_content: 'cm^3/cm^3',
 
   // https://en.wikipedia.org/wiki/Watt
   // Unused: watt: 'w',

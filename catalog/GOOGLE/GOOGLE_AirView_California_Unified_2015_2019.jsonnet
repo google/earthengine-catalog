@@ -70,6 +70,7 @@ local overrange_description = |||
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['atmosphere'],
   keywords: [
     'air_quality',
     'nitrogen_dioxide',

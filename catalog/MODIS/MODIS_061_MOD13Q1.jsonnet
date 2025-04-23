@@ -54,6 +54,7 @@ local template = import 'templates/MODIS_006_MOD13Q1.libsonnet';
       href: 'https://doi.org/10.5067/MODIS/MOD13Q1.061',
     },
   ] + version_config.version_links,
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     '16_day',
     'evi',

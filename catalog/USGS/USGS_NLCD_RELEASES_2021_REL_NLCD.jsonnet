@@ -55,6 +55,7 @@ local self_ee_catalog_url = nlcd.provider_url(id);
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'blm',
     'landcover',

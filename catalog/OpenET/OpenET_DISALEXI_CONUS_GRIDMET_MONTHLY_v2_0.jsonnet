@@ -41,6 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
     'gridmet_derived',
@@ -53,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126, 25, -66, 50, '2008-01-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '2001-01-01T00:00:00Z', null),
   summaries: {
     'gee:schema': [
       {

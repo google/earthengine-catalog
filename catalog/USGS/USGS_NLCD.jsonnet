@@ -67,6 +67,7 @@ local license = spdx.cc0_1_0;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
+  'gee:categories': ['landuse-landcover'],
   keywords: [
     'blm',
     'landcover',

@@ -49,6 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://gdra-tnc.org/current/',
     },
   ],
+  'gee:categories': ['population'],
   keywords: [
     'csp',
     'fragmentation',
@@ -112,7 +113,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
-    Kennedy, C.M., J.R. Oakleaf, D.M. Theobald, S. Baurch-Murdo, and J. Kiesecker. 2019. Managing
+    Kennedy, C.M., J.R. Oakleaf, D.M. Theobald, S. Baruch-Murdo, and J. Kiesecker. 2019. Managing
     the middle: A shift in conservation priorities based on the global human modification gradient.
     Global Change Biology 00:1-16. [doi:10.1111/gcb.14549](https://doi.org/10.1111/gcb.14549)
   |||,

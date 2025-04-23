@@ -37,6 +37,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       href: 'https://doi.org/10.5067/MODIS/MYD13C1.061',
     },
   ],
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'global',
     'nasa',

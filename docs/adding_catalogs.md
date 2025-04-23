@@ -38,6 +38,32 @@ following changes:
     }
     ```
 
+## Reporting usage statistics
+
+If a data provider supplies EE Data team with a Google group name, we can start
+reporting daily usage stats showing 30DA counts for each of of the provider's
+datasets. "30DA" means the count of unique users over 30 days who accessed
+the datasets (when the number of users is over 50).
+
+They will be named like this:
+```
+gs://earthengine-stats/providers/provider-name/earthengine_stats_2025-02-03.csv
+```
+and will be shared with the supplied Google group.
+
+The full list of files will be in
+gs://earthengine-stats/providers/provider-name/index.txt
+
+File contents will look like this:
+```
+Interval,Dataset,30-day active users
+2025-01-05/2025-02-03,projects/provider-name/assets/dataset1,110
+2025-01-05/2025-02-03,projects/provider-name/assets/dataset2,66
+```
+
+To read the files, use [gsutil](https://cloud.google.com/storage/docs/gsutil).
+There are no charges for reading these files.
+
 ## Dataset deletion protection
 
 To safeguard datasets added to publisher and community catalogs, Earth Engine
