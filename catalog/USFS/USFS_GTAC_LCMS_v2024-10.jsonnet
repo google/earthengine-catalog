@@ -106,7 +106,6 @@ local license = spdx.proprietary;
     },
   ] + version_config.version_links,
   keywords: [
-    'lcms',
     'usda',
     'usfs',
     'change_detection',
