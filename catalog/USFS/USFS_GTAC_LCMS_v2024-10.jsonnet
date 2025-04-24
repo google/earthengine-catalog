@@ -30,7 +30,9 @@ local license = spdx.proprietary;
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
-    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). 
+    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI 
+    v2024.10 data will be released late summer 2025. For now v2023.9 PRUSVI and HI LCMS data can 
+    be used (USFS/GTAC/LCMS/v2023-9). 
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -93,7 +95,8 @@ local license = spdx.proprietary;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    * PRUSVI and HI data will be released late summer 2025. 
+    * PRUSVI and HI data will be released late summer 2025. Previously released v2023.9 PRUSVI and HI LCMS data are available 
+    (USFS/GTAC/LCMS/v2023-9) 
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
@@ -831,8 +834,8 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J.,
-        2023. Comprehensive Quality Assessment of Optical Satellite Imagery Using 
+        Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J., 2023. 
+        Comprehensive Quality Assessment of Optical Satellite Imagery Using 
         Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
         on Computer Vision and Pattern Recognition. 2124-2134.
       |||,
