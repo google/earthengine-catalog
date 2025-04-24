@@ -3,8 +3,8 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
-local version = 'v2021-4';
+local id = 'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5';
+local version = 'v2023-5';
 local subdir = 'USGS';
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -20,8 +20,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  'gee:status': 'deprecated',
-  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS) [deprecated]',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -33,18 +32,18 @@ local license = spdx.proprietary;
     The Science TCC product and NLCD TCC are remote sensing-based map output produced by the USFS. The objecive of TCC Science 
     and NLCD TCC are to develop a consistent approach using the latest technology and advancements in TCC mapping to produce a 
     "best available" map of TCC across the Conterminous United States (CONUS) and southeast Alaska, Hawaii and 
-    Puerto Rico-US Virgin Islands (OCONUS).
+    Puerto Rico-US Virgin Islands (OCONUS). OCONUS v2023.5 data will be released late summer 2025. For now v2021.4 OCONUS TCC data can 
+    be used (USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4). 
 
-    Model outputs include Science TCC, Science SE and NLCD TCC. Science TCC and SE include data from 2008 through 2021. 
-    NLCD TCC include data from 2011 through 2021, with data fully masked in 2008, 2009 and 2010. 
+    Model outputs include Science TCC, Science SE and NLCD TCC from 1985 through 2023. 
 
     *Science TCC is the raw direct model outputs.
 
     *Science SE is the model standard deviation of the predicted values from all regression trees. 
     
     *The NLCD TCC product undergoes further post processing applied to the annual Science TCC images, 
-    which includes several masking (water and non-tree agriculture), filtering, and minimum-mapping unit (MMU) routines, 
-    as well as processes that reduce interannual noise and return longer duration trends.  
+    which includes several masking (water and non-tree agriculture), as well as processes that reduce 
+    interannual noise and return longer duration trends.  
 
     Each image includes a data mask band that has three values representing areas of no data (0), mapped tree canopy cover(1), 
     and non-processing area (2). The non-processing areas are pixels in the study area with no cloud or cloud shadow-free data. No data
@@ -82,10 +81,13 @@ local license = spdx.proprietary;
 
     **Additional Resources**
 
-    Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2021-4_Methods.pdf)
+    Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2023-5_Methods.pdf)
     for more detailed information regarding methods and accuracy assessment, or the
     [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
+
+    AK, PRUSVI, and HI data will be released late summer 2025. Previously released v2021.4 AK, PRUSVI, and HI TCC data are available 
+    (USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4)
 
     Contact [sm.fs.tcc@usda.gov](mail to:sm.fs.tcc@usda.gov) with any
     questions or specific data requests.
@@ -143,10 +145,10 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
   ],
-  'gee:categories': ['forest-biomass'],
   keywords: [
     'forest',
     'gtac',
+    'fsic-go',
     'landsat_derived',
     'redcastle_resources',
     'usda',
@@ -154,27 +156,28 @@ local license = spdx.proprietary;
     'usgs',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 
+    ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 
     'https://www.fs.usda.gov/about-agency/gtac'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
-                    '2008-06-01T00:00:00Z', '2021-09-30T00:00:00Z'),
+                    '1985-06-01T00:00:00Z', '2023-09-30T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
         name: 'study_area',
         description: |||
           TCC currently covers CONUS, Southeastern Alaska, Puerto Rico-US
-          Virgin Islands and Hawaii. This version contains all study areas.
-          Possible values: 'CONUS, SEAK, PRUSVI, HI'
+          Virgin Islands and Hawaii. This version contains CONUS. The 
+          data for SEAK, PRUSVI, and HI will be released late summer 2025.
+          Possible values: 'CONUS'
         |||,
         type: ee_const.var_type.string,
       },
       {
         name: 'version',
         description: |||
-          This is the fourth version of the TCC product released in the MRLC consortium 
+          This is the fifth version of the TCC product released in the MRLC consortium 
           that is part of the National Land Cover Database (NLCD)'
         |||,
         type: ee_const.var_type.string,
@@ -224,7 +227,7 @@ local license = spdx.proprietary;
         description: |||
           To produce NLCD tree canopy cover, a post-processing workflow is applied to the direct 
           model output that identifies and sets non-treed pixel values to zero percent 
-          tree canopy cover. NLCD tree canopy cover data are fully masked in 2008, 2009 and 2010. 
+          tree canopy cover. 
         |||,
         'gee:units': units.percent,
       },
@@ -364,8 +367,8 @@ local license = spdx.proprietary;
     ],
   },
   'sci:citation': |||
-    USDA Forest Service. 2023. USFS Tree Canopy Cover v2021.4
-    (Conterminous United States and Southeastern Alaska).
+    USDA Forest Service. 2025. USFS Tree Canopy Cover v2023.5
+    (Conterminous United States and Outer Conterminous United States).
     Salt Lake City, Utah.
   |||,
   'gee:terms_of_use': |||
@@ -384,8 +387,8 @@ local license = spdx.proprietary;
     without additional permissions or fees. If you use these data in a publication, presentation, or
     other research product please use the following citation:
 
-    USDA Forest Service. 2023. USFS Tree Canopy Cover v2021.4
-    (Conterminous United States and Southeastern Alaska). Salt Lake City, Utah.
+    USDA Forest Service. 2025. USFS Tree Canopy Cover v2023.5
+    (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
   'gee:user_uploaded': true,
 }
