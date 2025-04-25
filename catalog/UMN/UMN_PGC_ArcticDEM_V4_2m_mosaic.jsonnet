@@ -1,4 +1,4 @@
-local id = 'UMN/PGC/ArcticDEM/V3/2m_mosaic';
+local id = 'UMN/PGC/ArcticDEM/V4/2m_mosaic';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/ArcticDEM_5m_versions.libsonnet';
 
@@ -22,9 +22,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ArcticDEM V3 2m Mosaic [deprecated]',
+  title: 'ArcticDEM Mosaic V4.1',
   version: version,
-  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     ArcticDEM is a National Geospatial-Intelligence Agency (NGA) and National
@@ -39,6 +38,10 @@ local license = spdx.proprietary;
     which have been blended and feathered to reduce void areas and edge-matching
     artifacts. Filtered IceSAT altimetry data has been applied to the raster
     files to improve absolute accuracy.
+
+    These version (V4.1) mosaics include additional raster bands:
+    'count', 'mad','mindate', and 'maxdate' to provide
+    information on data provenance and uncertainty.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -60,7 +63,8 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-180.0, 50.0, 180.0, 90.0,
-                    '2016-09-21T00:00:00Z', '2016-09-21T00:00:00Z'),
+                    '2012-06-03T00:00:00Z', '2020-09-03T23:59:59Z'),
+
   summaries: {
     gsd: [
       2.0,
@@ -76,6 +80,34 @@ local license = spdx.proprietary;
         name: 'elevation',
         description: 'Elevation',
         'gee:units': units.meter,
+      },
+      {
+        name: 'count',
+        description: 'Number of source DEMs used to calculate the elevation value at that pixel.',
+      },
+      {
+        name: 'mad',
+        description: 'Median absolute deviation of the stack of source datasets from the median elevation value.',
+        'gee:units': units.meter,
+      },
+      {
+        name: 'mindate',
+        description: 'Earliest date of the source DEMs used to build the mosaic, as the number of days since January 1, 2000.',
+      },
+      {
+        name: 'maxdate',
+        description: 'Latest date of the source DEMs used to build the mosaic, as the number of days since January 1, 2000.',
+      },
+       {
+        name: 'datamask',
+        description: |||
+          Data mask indicates whether the elevation was 0 or 1.
+          where 0 indicates , Filled/merged with another dataset or
+          masked out as NoData in quality control steps.
+          1 indicates output by SETSM, the Ohio State University’s
+          Surface Extraction with TIN-based Search-space
+          Minimization software package.
+        |||
       },
     ],
     'gee:visualizations': [
@@ -105,6 +137,89 @@ local license = spdx.proprietary;
           },
         },
       },
+      {
+        display_name: 'Data Count',
+        lookat: {
+          lat: 66.368,
+          lon: -63.402,
+          zoom: 7,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              0,
+            ],
+            max: [
+              10,
+            ],
+            palette: [
+              'black',
+              'blue',
+              'purple',
+              'cyan',
+              'green',
+              'yellow',
+              'red',
+            ],
+            bands: [
+              'count',
+            ],
+          },
+        },
+      },
+       {
+        display_name: 'MAD',
+        lookat: {
+          lat: 66.368,
+          lon: -63.402,
+          zoom: 7,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              0,
+            ],
+            max: [
+              50,
+            ],
+            palette: [
+              '006633',
+              'E69800',
+              'D4E157',
+              'FFF59D',
+            ],
+            bands: [
+              'mad',
+            ],
+          },
+        },
+      },
+      {
+        display_name: 'Data Mask',
+        lookat: {
+          lat: 66.368,
+          lon: -63.402,
+          zoom: 7,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              0,
+            ],
+            max: [
+              1,
+            ],
+            palette: [
+              'black',
+              'white',
+            ],
+            bands: [
+              'datamask',
+            ],
+          },
+        },
+      },
+
     ],
     elevation: {
       minimum: -416.45,
