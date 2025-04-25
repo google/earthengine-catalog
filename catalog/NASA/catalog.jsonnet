@@ -95,6 +95,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_SMAP_SPL3SMP_E_005', base_url),
     ee.link.child_collection('NASA_SMAP_SPL3SMP_E_006', base_url),
 
+    ee.link.child_collection('NASA_TEMPO_NO2_L3', base_url),
+
     ee.link.child_collection('NASA_VIIRS_002_VNP09GA', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP09H1', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP13A1', base_url),
