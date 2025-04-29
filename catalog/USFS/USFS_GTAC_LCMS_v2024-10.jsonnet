@@ -117,8 +117,6 @@ local license = spdx.proprietary;
     'landcover',
     'landuse',
     'forest',
-    'landsat-derived',
-    'sentinel-derived',
     'gtac',
     'redcastle_resources',
   ],
