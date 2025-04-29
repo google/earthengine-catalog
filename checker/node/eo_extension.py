@@ -225,6 +225,7 @@ UNITS = units.UNITS.union({
     'mm/hr',
     'mm/pentad',
     'mol/m^2',
+    'molecules/cm^2',
     'molec cm-2 s-1',
     'ms',
     'occurrence',

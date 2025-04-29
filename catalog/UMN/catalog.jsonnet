@@ -22,6 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('UMN_PGC_ArcticDEM_V2_5m', base_url),
     ee.link.child_collection('UMN_PGC_ArcticDEM_V3_2m', base_url),
     ee.link.child_collection('UMN_PGC_ArcticDEM_V3_2m_mosaic', base_url),
+    ee.link.child_collection('UMN_PGC_ArcticDEM_V4_2m_mosaic', base_url),
     ee.link.child_collection('UMN_PGC_REMA_V1_1_8m', base_url),
     ee.link.child_collection('UMN_PGC_REMA_V1_2m', base_url),
     ee.link.child_collection('UMN_PGC_REMA_V1_8m', base_url),

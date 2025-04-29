@@ -144,6 +144,7 @@
   // a.k.a. molar fraction
   // See also: https://en.wikipedia.org/wiki/Mixing_ratio
   mole_fraction: 'Mol fraction',
+  molecules_per_cm2: 'molecules/cm^2',
 
   // https://en.wikipedia.org/wiki/Metre
   meter: 'm',

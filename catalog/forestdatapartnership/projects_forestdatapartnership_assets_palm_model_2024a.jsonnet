@@ -58,7 +58,7 @@ local self_url = catalog_subdir_url + base_filename;
     becomes available from the community and the model used to produce the
     maps continuously improves. To provide map-based feedback on this
     collection, please see our
-    [Collect Earth Online instance](https://app.collect.earth/collection?projectId=50778)
+    [Collect Earth Online instance](https://app.collect.earth/collection?projectId=50862)
     and follow
     [these instructions](https://collect-earth-online-doc.readthedocs.io/en/latest/collection/simplified.html).
 
