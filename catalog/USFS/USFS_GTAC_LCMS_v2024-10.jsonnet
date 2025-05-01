@@ -5,7 +5,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'USFS_GTAC_LCMS_versions.libsonnet';
 
 local subdir = 'USFS';
-local id = 'USFS/GTAC/LCMS/v2023-9';
+local id = 'USFS/GTAC/LCMS/v2024-10';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local basename = std.strReplace(id, '/', '_');
@@ -22,47 +22,45 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  'gee:status': 'deprecated',
-  title: 'USFS Landscape Change Monitoring System ' + version + ' ' +
-    '(CONUS and OCONUS) [deprecated]',
+  title: 'USFS Landscape Change Monitoring System ' + ' ' + version + ' ' +
+    '(CONUS and OCONUS)',
   version: version,
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
-    It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the Conterminous United States (CONUS) and areas outside the CONUS (OCONUS) that 
-    include Southeastern Alaska (SEAK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). 
+    It shows LCMS-modeled change, land cover, and/or land use classes for each year and
+    covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
+    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI 
+    v2024.10 data will be released late summer 2025. For now v2023.9 PRUSVI and HI LCMS data can 
+    be used (USFS/GTAC/LCMS/v2023-9). 
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
     and advancements in change detection to produce a "best available" map of landscape change.
 
-    Outputs include three annual products: change, land cover, and land use.
-    Change relates specifically to vegetation cover and includes slow loss, fast loss (which also
-    includes hydrologic changes such as inundation or desiccation), and gain. These values are
-    predicted for each year of the Landsat time series and serve as the foundational products for
-    LCMS. Land cover and land use maps depict life-form level land cover and broad-level land use
-    for each year.
+    Outputs include three annual products: change, land cover, and land use. The change model output relates specifically to vegetation cover and includes slow loss, fast loss (which also includes hydrologic changes such as inundation or desiccation), and gain. These values are predicted for each year of the Landsat time series and serve as the foundational products for LCMS. We apply a ruleset based on ancillary datasets to create the final change product, which is a
+    refinement/reclassification of the modeled change to 15 classes that explicitly provide information on the cause of landscape change (e.g., Tree Removal, Wildfire, Wind damage). Land cover and land use maps depict life-form level land cover and broad-level land use for each year.
 
     Because no algorithm performs best in all situations, LCMS uses an ensemble of models as
     predictors, which improves map accuracy across a range of ecosystems and change processes
     (Healey et al., 2018). The resulting suite of LCMS change, land cover, and land use maps offer
     a holistic depiction of landscape change across the United States since 1985.
 
-    Predictor layers for the LCMS model include outputs
-    from the LandTrendr and CCDC change detection algorithms, and terrain information. These
-    components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
+    Predictor layers for the LCMS model include outputs from the LandTrendr and CCDC change detection 
+    algorithms, and terrain information. These components are all accessed and processed using Google 
+    Earth Engine (Gorelick et al., 2017).
 
-    For CCDC, United States Geological Survey (USGS) Collection 2 Landsat Tier 1 surface reflectance
-    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK, PRUSVI 
-    and HI. To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
+    To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), s2cloudless
     (Sentinel-Hub, 2021) and Cloud Score plus (Pasquarella et al., 2023) (Sentinel 2-only) are 
     used to mask clouds, while TDOM (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
-    2). For LandTrendr, the annual medoid is then computed to summarize cloud
-    and cloud shadow-free values from each year into a single composite.
+    2). For LandTrendr, the annual medoid is then computed to summarize cloud and cloud shadow-free values 
+    from each year into a single composite. For CCDC, United States Geological Survey (USGS) Collection 2 
+    Landsat Tier 1 surface reflectance data were used for the CONUS, and Landsat Tier 1 top of atmosphere 
+    reflectance data for AK, PRUSVI, and HI. 
 
     The composite time series is temporally segmented using LandTrendr
     (Kennedy et al., 2010; Kennedy et al., 2018; Cohen et al., 2018).
@@ -80,9 +78,9 @@ local license = spdx.proprietary;
     Reference data are collected using TimeSync, a web-based tool that helps
     analysts visualize and interpret the Landsat data record from 1984-present (Cohen et al., 2010).
 
-    Random Forests models (Breiman, 2001) were trained using reference data from TimeSync and predictor data 
+    Random Forest models (Breiman, 2001) were trained using reference data from TimeSync and predictor data 
     from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes. 
-    Following modeling, we instituted a series of probability thresholds and rulesets using ancillary datasets 
+    Following modeling, we institute a series of probability thresholds and rulesets using ancillary datasets 
     to improve qualitative map outputs and reduce commission and omission. More information can be found in 
     the LCMS Methods Brief included in the Description. 
 
@@ -93,20 +91,24 @@ local license = spdx.proprietary;
     * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
       provides users the ability to view, analyze, summarize and download LCMS data.
 
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2023-9_Methods.pdf)
+    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2024-10_Methods.pdf)
       for more detailed information regarding methods and accuracy assessment, or the
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    * The CONUS land use product was updated on July 2nd 2024, to correct an issue with the developed class.
-
-    * PRUSVI and HI data were released October 1st 2024. 
+    * PRUSVI and HI data will be released late summer 2025. Previously released v2023.9 PRUSVI and HI LCMS data are available 
+    (USFS/GTAC/LCMS/v2023-9) 
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + [
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
+    },
+  ] + version_config.version_links,
   'gee:categories': ['landuse-landcover'],
   keywords: [
     'lcms',
@@ -116,30 +118,41 @@ local license = spdx.proprietary;
     'landcover',
     'landuse',
     'forest',
-    'landsat-derived',
-    'sentinel-derived',
-    'time_series',
     'gtac',
     'redcastle_resources',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/'),
+    ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 'https://apps.fs.usda.gov/lcms-viewer/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
-                    '1985-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
+                    '1985-01-01T00:00:00Z', '2024-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       { 
         name: 'study_area',
         description: |||
-          LCMS currently covers the conterminous United States, Southeastern Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
-          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, 
-          and Hawaii.
-          Possible values: 'CONUS, SEAK, PRUSVI, HI'
+          LCMS currently covers the conterminous United States, Alaska, 
+          Puerto Rico-US Virgin Islands, and Hawaii. This version contains CONUS. The 
+          data for AK, PRUSVI, and HI will be released late summer 2025.
+          Possible values: 'CONUS, AK'
         |||,
         type: ee_const.var_type.string,
+      },
+      {
+        name: 'version',
+        description: 'Version of the product',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'startYear',
+        description: 'Start year of the product',
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'endYear',
+        description: 'End year of the product',
+        type: ee_const.var_type.int,
       },
       {
         name: 'year',
@@ -152,38 +165,86 @@ local license = spdx.proprietary;
       {
         name: 'Change',
         description: |||
-          Final thematic LCMS change product. A total of three change classes (slow loss, fast loss,
-          and gain) are mapped for each year. Each class is predicted using a separate Random Forest
-          model, which outputs a probability (proportion of the trees within the Random Forest model)
-          that the pixel belongs to that class. Because of this, individual pixels have three different
-          model outputs for each year. Final classes are assigned to the change class with the highest
-          probability that is also above a specified threshold. Any pixel that does not have any value
-          above each class's respective threshold is assigned to the Stable class. Prior to assigning the 
-          change class, a rule was applied to all study areas to prevent change in non-vegetated land cover. 
+          Final thematic LCMS change product. A total of fifteen change classes are mapped for each year. Foundationally, change is modeled with three separate binary Random Forest models for each study area: slow loss, fast loss, and gain. Each pixel is assigned to the modeled change class with the highest probability that is also above a specified threshold. Any pixel that does not have any value above each class's respective threshold is assigned to the Stable class. Following a ruleset using the modeled change class, ancillary datasets (such as TCC, MTBS, and IDS), and LCMS Land Cover data, one of the 15 refined, cause of change classes is assigned to each pixel. See the LCMS Methods Brief linked to in the Description for full details on the ruleset and the ancillary datasets used. 
         |||,
         'gee:classes': [
           {
             value: 1,
+            color: 'ff09f3',
+            description: 'Wind',
+          },
+          {
+            value: 2,
+            color: '541aff',
+            description: 'Hurricane',
+          },
+          {
+            value: 3,
+            color: 'e4f5fd',
+            description: 'Snow or Ice Transition',
+          },
+                    {
+            value: 4,
+            color: 'cc982e',
+            description: 'Desiccation',
+          },
+                    {
+            value: 5,
+            color: '0adaff',
+            description: 'Inundation',
+          },
+                    {
+            value: 6,
+            color: 'a10018',
+            description: 'Prescribed Fire',
+          },
+                    {
+            value: 7,
+            color: 'd54309',
+            description: 'Wildfire',
+          },
+                    {
+            value: 8,
+            color: 'fafa4b',
+            description: 'Mechanical Land Transformation',
+          },
+                    {
+            value: 9,
+            color: 'afde1c',
+            description: 'Tree Removal',
+          },
+                    {
+            value: 10,
+            color: 'ffc80d',
+            description: 'Defoliation',
+          },
+                    {
+            value: 11,
+            color: 'a64c28',
+            description: 'Southern Pine Beetle',
+          },
+                    {
+            value: 12,
+            color: 'f39268',
+            description: 'Insect, Disease, or Drought Stress',
+          },
+                    {
+            value: 13,
+            color: 'c291d5',
+            description: 'Other Loss',
+          },         
+          {
+            value: 14,
+            color: '00a398',
+            description: 'Vegetation Successional Growth',
+          },
+          {
+            value: 15,
             color: '3d4551',
             description: 'Stable',
           },
           {
-            value: 2,
-            color: 'f39268',
-            description: 'Slow Loss',
-          },
-          {
-            value: 3,
-            color: 'd54309',
-            description: 'Fast Loss',
-          },
-          {
-            value: 4,
-            color: '00a398',
-            description: 'Gain',
-          },
-          {
-            value: 5,
+            value: 16,
             color: '1b1716',
             description: 'Non-Processing Area Mask',
           },
@@ -194,86 +255,77 @@ local license = spdx.proprietary;
         description: |||
           Final thematic LCMS land cover product. A total of 14 land cover classes are mapped on an
           annual basis using TimeSync reference data and spectral information derived from Landsat
-          imagery. Each class is predicted using a separate Random Forest model, which outputs a
-          probability (proportion of the trees within the Random Forest model) that the pixel belongs
-          to that class. Because of this, individual pixels have 14 different model outputs for each
-          year, and final classes are assigned to the land cover with the highest probability. For Southeastern 
-          Alaska, prior to assigning the land cover class with the highest probability, a land cover rule was 
-          implemented to limit tree and snow landcover class commission in the large intertidal zones at sea level. 
-          No land cover rules were applied to CONUS, Puerto Rico-US Virgin Islands or Hawaii. Seven of the 14 land 
-          cover classes indicate a single land cover, where that land cover type covers most of the pixel's area and 
-          no other class covers more than 10% of the pixel. There are also seven mixed classes. These represent pixels 
-          in which an additional land cover class covers at least 10% of the pixel.
+          imagery. Land cover is predicted using a single multiclass Random Forest model, which outputs an array of the probabilities of each class (proportion of the trees within the Random Forest model that 'chose' each class). Final classes are assigned to the land use with the highest probability. Prior to assigning the land cover class with the highest probability, depending on the study area, one to several probability thresholds and rulesets using ancillary datasets were applied. More information on the probability thresholds and rulesets can be found in the LCMS Methods Brief linked to in the Description. Seven land cover classes indicate a single land cover, where that land cover type covers most of the pixel's area and no other class covers more than 10% of the pixel. There are also seven mixed classes. These represent pixels in which an additional land cover class covers at least 10% of the pixel.
         |||,
         'gee:classes': [
           {
             value: 1,
-            color: '005e00',
+            color: '004e2b',
             description: 'Trees',
           },
           {
             value: 2,
-            color: '008000',
-            description: 'Tall Shrubs & Trees Mix (SEAK Only)',
+            color: '009344',
+            description: 'Tall Shrubs & Trees Mix (AK Only)',
           },
           {
             value: 3,
-            color: '00cc00',
+            color: '61bb46',
             description: 'Shrubs & Trees Mix',
           },
           {
             value: 4,
-            color: 'b3ff1a',
+            color: 'acbb67',
             description: 'Grass/Forb/Herb & Trees Mix',
           },
           {
             value: 5,
-            color: '99ff99',
+            color: '8b8560',
             description: 'Barren & Trees Mix',
           },
           {
             value: 6,
-            color: 'b30088',
-            description: 'Tall Shrubs (SEAK Only)',
+            color: 'cafd4b',
+            description: 'Tall Shrubs (AK Only)',
           },
           {
             value: 7,
-            color: 'e68a00',
+            color: 'f89a1c',
             description: 'Shrubs',
           },
           {
             value: 8,
-            color: 'ffad33',
+            color: '8fa55f',
             description: 'Grass/Forb/Herb & Shrubs Mix',
           },
           {
             value: 9,
-            color: 'ffe0b3',
+            color: 'bebb8e',
             description: 'Barren & Shrubs Mix',
           },
           {
             value: 10,
-            color: 'ffff00',
+            color: 'e5e98a',
             description: 'Grass/Forb/Herb',
           },
           {
             value: 11,
-            color: 'aa7700',
+            color: 'ddb925',
             description: 'Barren & Grass/Forb/Herb Mix',
           },
           {
             value: 12,
-            color: 'd3bf9b',
+            color: '893f54',
             description: 'Barren or Impervious',
           },
           {
             value: 13,
-            color: 'ffffff',
+            color: 'e4f5fd',
             description: 'Snow or Ice',
           },
           {
             value: 14,
-            color: '4780f3',
+            color: '00b6f0',
             description: 'Water',
           },
           {
@@ -286,50 +338,36 @@ local license = spdx.proprietary;
       {
         name: 'Land_Use',
         description: |||
-          Final thematic LCMS land use product. A total of 6 land use classes are mapped on an annual
-          basis using TimeSync reference data and spectral information derived from Landsat imagery.
-          Each class is predicted using a separate Random Forest model, which outputs a probability
-          (proportion of the trees within the Random Forest model) that the pixel belongs to that class.
-          Because of this, individual pixels have 6 different model outputs for each year, and final
-          classes are assigned to the land use with the highest probability. Prior to assigning the land 
-          use class with the highest probability, a series of probability thresholds and rulesets using 
-          ancillary datasets land use rules were applied. More information on the probability thresholds 
-          and rulesets can be found in the LCMS Methods Brief included in the Description. The CONUS land use 
-          product was updated on July 2nd 2024, to correct an issue with the developed class.  
+          Final thematic LCMS land use product. A total of 5 land use classes are mapped on an annual basis using TimeSync reference data and spectral information derived from Landsat imagery. Land use is predicted using a single multiclass Random Forest model, which outputs an array of the probabilities of each class (proportion of the trees within the Random Forest model that 'chose' each class). Final classes are assigned to the land use with the highest probability. Prior to assigning the land use class with the highest probability, a series of probability thresholds and rulesets using ancillary datasets were applied. More information on the probability thresholds and rulesets can be found in the LCMS Methods Brief linked to in the Description.
         |||,
         'gee:classes': [
           {
             value: 1,
-            color: 'efff6b',
+            color: 'fbff97',
             description: 'Agriculture',
           },
           {
             value: 2,
-            color: 'ff2ff8',
+            color: 'e6558b',
             description: 'Developed',
           },
           {
             value: 3,
-            color: '1b9d0c',
+            color: '004e2b',
             description: 'Forest',
           },
           {
             value: 4,
-            color: '97ffff',
-            description: 'Non-Forest Wetland',
-          },
-          {
-            value: 5,
-            color: 'a1a1a1',
+            color: '9dbac5',
             description: 'Other',
           },
           {
-            value: 6,
-            color: 'c2b34a',
+            value: 5,
+            color: 'a6976a',
             description: 'Rangeland or Pasture',
           },
           {
-            value: 7,
+            value: 6,
             color: '1b1716',
             description: 'Non-Processing Area Mask',
           },
@@ -338,8 +376,8 @@ local license = spdx.proprietary;
       {
         name: 'Change_Raw_Probability_Slow-Loss',
         description: |||
-          Raw LCMS modeled probability of Slow Loss. Defined as: Slow Loss includes the following
-          classes from the TimeSync change process interpretation-
+          Raw LCMS modeled probability of Slow Loss. Slow Loss includes the following
+          classes from the TimeSync change process interpretation:
 
             * Structural Decline - Land where trees or other woody vegetation is physically altered by
             unfavorable growing conditions brought on by non-anthropogenic or non-mechanical factors.
@@ -364,8 +402,8 @@ local license = spdx.proprietary;
       {
         name: 'Change_Raw_Probability_Fast-Loss',
         description: |||
-          Raw LCMS modeled probability of Fast Loss. Defined as: Fast Loss includes the following
-          classes from the TimeSync change process interpretation-
+          Raw LCMS modeled probability of Fast Loss. Fast Loss includes the following
+          classes from the TimeSync change process interpretation:
 
           * Fire - Land altered by fire, regardless of the cause of the ignition (natural or
           anthropogenic), severity, or land use.
@@ -422,7 +460,7 @@ local license = spdx.proprietary;
       {
         name: 'Land_Cover_Raw_Probability_Tall-Shrubs-and-Trees-Mix',
         description: |||
-          Raw LCMS modeled probability of Tall Shrubs and Trees Mix (SEAK Only). Defined
+          Raw LCMS modeled probability of Tall Shrubs and Trees Mix (AK Only). Defined
           as: The majority of the pixel is comprised of shrubs greater than 1m in height and is also
           comprised of at least 10% live or standing dead trees.
         |||,
@@ -456,7 +494,7 @@ local license = spdx.proprietary;
       {
         name: 'Land_Cover_Raw_Probability_Tall-Shrubs',
         description: |||
-          Raw LCMS modeled probability of Tall Shrubs (SEAK Only). Defined as: The majority of the
+          Raw LCMS modeled probability of Tall Shrubs (AK Only). Defined as: The majority of the
           pixel is comprised of shrubs greater than 1m in height.
         |||,
       },
@@ -559,18 +597,6 @@ local license = spdx.proprietary;
           vegetated and which contains (or is likely to contain) 10% or greater tree cover at some
           time during a near-term successional sequence. This may include deciduous, evergreen and/or
           mixed categories of natural forest, forest plantations, and woody wetlands.
-        |||,
-      },
-      {
-        name: 'Land_Use_Raw_Probability_Non-Forest-Wetland',
-        description: |||
-          Raw LCMS modeled probability of Non-Forest Wetland. Defined as: Lands adjacent to or within
-          a visible water table (either permanently or seasonally saturated) dominated by shrubs or
-          persistent emergents. These wetlands may be situated shoreward of lakes, river channels, or
-          estuaries; on river floodplains; in isolated catchments; or on slopes. They may also occur
-          as prairie potholes, drainage ditches and stock ponds in agricultural landscapes and may
-          also appear as islands in the middle of lakes or rivers. Other examples also include marshes,
-          bogs, swamps, quagmires, muskegs, sloughs, fens, and bayous.
         |||,
       },
       {
@@ -734,8 +760,8 @@ local license = spdx.proprietary;
     ],
   },
   'sci:citation': |||
-    USDA Forest Service. 2024. USFS Landscape Change Monitoring System
-    v2023.9 (Conterminous United States and  Outer Conterminous United States).
+    USDA Forest Service. 2025. USFS Landscape Change Monitoring System
+    v2024.10 (Conterminous United States and  Outer Conterminous United States).
     Salt Lake City, Utah.
   |||,
   'sci:publications': [
@@ -825,8 +851,8 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J.,
-        2023. Comprehensive Quality Assessment of Optical Satellite Imagery Using 
+        Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J., 2023. 
+        Comprehensive Quality Assessment of Optical Satellite Imagery Using 
         Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
         on Computer Vision and Pattern Recognition. 2124-2134.
       |||,
@@ -880,7 +906,7 @@ local license = spdx.proprietary;
     without additional permissions or fees. If you use these data in a publication, presentation, or
     other research product please use the following citation:
 
-    USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9
+    USDA Forest Service. 2025. USFS Landscape Change Monitoring System v2024.10
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
   'gee:user_uploaded': true,

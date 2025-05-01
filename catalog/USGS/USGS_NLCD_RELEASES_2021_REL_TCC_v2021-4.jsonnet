@@ -148,8 +148,6 @@ local license = spdx.proprietary;
     'gtac',
     'landsat_derived',
     'redcastle_resources',
-    'sentinel2_derived',
-    'time_series',
     'usda',
     'usfs',
     'usgs',
