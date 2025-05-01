@@ -1,4 +1,4 @@
-local id = 'ISRIC/SoilGrids250m/v20';
+local id = 'ISRIC/SoilGrids250m/v2_0';
 local subdir = 'ISRIC';
 local version = 'v1';
 local latest_id = id;
@@ -37,6 +37,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     This dataset includes predictions for three different suction levels,
     providing insights into soil water availability.
 
+    The dataset is organized into three main assets: `/wv0010`, `/wv0033`,
+    and `/wv1500`. Each of these assets contains bands representing soil
+    properties at different depths and quantiles. The band names follow the
+    pattern `val_<depth>_<quantile>`, where `depth` represents a soil depth
+    range (e.g., 0-5cm, 5-15cm, 15-30cm, 30-60cm, 60-100cm, 100-200cm) and
+    `quantile` represents a statistical measure (e.g., mean, Q0.05, Q0.5,
+    Q0.95).
+
     Documentation:
 
     * [Scientific Paper](https://www.sciencedirect.com/science/article/pii/S2095633922000636?via%3Dihub)
@@ -63,93 +71,123 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     gsd:[250],
     'eo:bands': [
       {
-        name: 'wv0010_0-5cm',
-        description: 'Volumetric Water Content at 10kPa (0-5cm depth)',
+        name: 'val_0_5cm_mean',
+        description: 'Mean Volumetric Water Content (0-5cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0010_5-15cm',
-        description: 'Volumetric Water Content at 10kPa (5-15cm depth)',
+        name: 'val_0_5cm_Q0_05',
+        description: 'Q0.05 Volumetric Water Content (0-5cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0010_15-30cm',
-        description: 'Volumetric Water Content at 10kPa (15-30cm depth)',
+        name: 'val_0_5cm_Q0_5',
+        description: 'Q0.5 Volumetric Water Content (0-5cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0010_30-60cm',
-        description: 'Volumetric Water Content at 10kPa (30-60cm depth)',
+        name: 'val_0_5cm_Q0_95',
+        description: 'Q0.95 Volumetric Water Content (0-5cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0010_60-100cm',
-        description: 'Volumetric Water Content at 10kPa (60-100cm depth)',
+        name: 'val_5_15cm_mean',
+        description: 'Mean Volumetric Water Content (5-15cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0010_100-200cm',
-        description: 'Volumetric Water Content at 10kPa (100-200cm depth)',
+        name: 'val_5_15cm_Q0_05',
+        description: 'Q0.05 Volumetric Water Content (5-15cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0033_0-5cm',
-        description: 'Volumetric Water Content at 33kPa (0-5cm depth)',
+        name: 'val_5_15cm_Q0_5',
+        description: 'Q0.5 Volumetric Water Content (5-15cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0033_5-15cm',
-        description: 'Volumetric Water Content at 33kPa (5-15cm depth)',
+        name: 'val_5_15cm_Q0_95',
+        description: 'Q0.95 Volumetric Water Content (5-15cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0033_15-30cm',
-        description: 'Volumetric Water Content at 33kPa (15-30cm depth)',
+        name: 'val_15_30cm_mean',
+        description: 'Mean Volumetric Water Content (15-30cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0033_30-60cm',
-        description: 'Volumetric Water Content at 33kPa (30-60cm depth)',
+        name: 'val_15_30cm_Q0_05',
+        description: 'Q0.05 Volumetric Water Content (15-30cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0033_60-100cm',
-        description: 'Volumetric Water Content at 33kPa (60-100cm depth)',
+        name: 'val_15_30cm_Q0_5',
+        description: 'Q0.5 Volumetric Water Content (15-30cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv0033_100-200cm',
-        description: 'Volumetric Water Content at 33kPa (100-200cm depth)',
+        name: 'val_15_30cm_Q0_95',
+        description: 'Q0.95 Volumetric Water Content (15-30cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv1500_0-5cm',
-        description: 'Volumetric Water Content at 1500kPa (0-5cm depth)',
+        name: 'val_30_60cm_mean',
+        description: 'Mean Volumetric Water Content (30-60cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv1500_5-15cm',
-        description: 'Volumetric Water Content at 1500kPa (5-15cm depth)',
+        name: 'val_30_60cm_Q0_05',
+        description: 'Q0.05 Volumetric Water Content (30-60cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv1500_15-30cm',
-        description: 'Volumetric Water Content at 1500kPa (15-30cm depth)',
+        name: 'val_30_60cm_Q0_5',
+        description: 'Q0.5 Volumetric Water Content (30-60cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv1500_30-60cm',
-        description: 'Volumetric Water Content at 1500kPa (30-60cm depth)',
+        name: 'val_30_60cm_Q0_95',
+        description: 'Q0.95 Volumetric Water Content (30-60cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv1500_60-100cm',
-        description: 'Volumetric Water Content at 1500kPa (60-100cm depth)',
+        name: 'val_60_100cm_mean',
+        description: 'Mean Volumetric Water Content (60-100cm depth)',
         'gee:units': units.volumetric_content,
       },
       {
-        name: 'wv1500_100-200cm',
-        description: 'Volumetric Water Content at 1500kPa (100-200cm depth)',
+        name: 'val_60_100cm_Q0_05',
+        description: 'Q0.05 Volumetric Water Content (60-100cm depth)',
+        'gee:units': units.volumetric_content,
+      },
+      {
+        name: 'val_60_100cm_Q0_5',
+        description: 'Q0.5 Volumetric Water Content (60-100cm depth)',
+        'gee:units': units.volumetric_content,
+      },
+      {
+        name: 'val_60_100cm_Q0_95',
+        description: 'Q0.95 Volumetric Water Content (60-100cm depth)',
+        'gee:units': units.volumetric_content,
+      },
+      {
+        name: 'val_100_200cm_mean',
+        description: 'Mean Volumetric Water Content (100-200cm depth)',
+        'gee:units': units.volumetric_content,
+      },
+      {
+        name: 'val_100_200cm_Q0_05',
+        description: 'Q0.05 Volumetric Water Content (100-200cm depth)',
+        'gee:units': units.volumetric_content,
+      },
+      {
+        name: 'val_100_200cm_Q0_5',
+        description: 'Q0.5 Volumetric Water Content (100-200cm depth)',
+        'gee:units': units.volumetric_content,
+      },
+      {
+        name: 'val_100_200cm_Q0_95',
+        description: 'Q0.95 Volumetric Water Content (100-200cm depth)',
         'gee:units': units.volumetric_content,
       },
     ],
@@ -162,7 +200,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           zoom: 3,
         },
         image_visualization: {
-          band_vis: {bands: ['wv0010_0-5cm']},
+          band_vis: {bands: ['val_0_5cm_mean']},
         },
       },
     ],
