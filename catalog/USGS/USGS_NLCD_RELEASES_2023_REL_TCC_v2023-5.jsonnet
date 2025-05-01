@@ -150,7 +150,6 @@ local license = spdx.proprietary;
   keywords: [
     'forest',
     'gtac',
-    'landsat_derived',
     'redcastle_resources',
     'usda',
     'usfs',
