@@ -25,6 +25,7 @@ local license = spdx.proprietary;
   title: 'USFS Landscape Change Monitoring System ' + ' ' + version + ' ' +
     '(CONUS and OCONUS)',
   version: version,
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
@@ -137,6 +138,21 @@ local license = spdx.proprietary;
           Possible values: 'CONUS, AK'
         |||,
         type: ee_const.var_type.string,
+      },
+      {
+        name: 'version',
+        description: 'Version of the product',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'startYear',
+        description: 'Start year of the product',
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'endYear',
+        description: 'End year of the product',
+        type: ee_const.var_type.int,
       },
       {
         name: 'year',
