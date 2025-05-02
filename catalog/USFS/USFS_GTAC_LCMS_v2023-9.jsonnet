@@ -22,9 +22,8 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  'gee:status': 'deprecated',
   title: 'USFS Landscape Change Monitoring System ' + version + ' ' +
-    '(CONUS and OCONUS) [deprecated]',
+    '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
