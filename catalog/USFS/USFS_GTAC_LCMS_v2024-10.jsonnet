@@ -25,7 +25,6 @@ local license = spdx.proprietary;
   title: 'USFS Landscape Change Monitoring System ' + ' ' + version + ' ' +
     '(CONUS and OCONUS)',
   version: version,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
@@ -91,7 +90,7 @@ local license = spdx.proprietary;
     * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
       provides users the ability to view, analyze, summarize and download LCMS data.
 
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2024-10_Methods.pdf)
+    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2023-9_Methods.pdf)
       for more detailed information regarding methods and accuracy assessment, or the
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
@@ -105,7 +104,7 @@ local license = spdx.proprietary;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
-      rel: ee_const.rel.cite_as,
+      rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
   ] + version_config.version_links,
@@ -374,7 +373,7 @@ local license = spdx.proprietary;
         ],
       },
       {
-        name: 'Change_Raw_Probability_Slow-Loss',
+        name: 'Change_Raw_Probability_Slow_Loss',
         description: |||
           Raw LCMS modeled probability of Slow Loss. Slow Loss includes the following
           classes from the TimeSync change process interpretation:
@@ -400,7 +399,7 @@ local license = spdx.proprietary;
         |||,
       },
       {
-        name: 'Change_Raw_Probability_Fast-Loss',
+        name: 'Change_Raw_Probability_Fast_Loss',
         description: |||
           Raw LCMS modeled probability of Fast Loss. Fast Loss includes the following
           classes from the TimeSync change process interpretation:
