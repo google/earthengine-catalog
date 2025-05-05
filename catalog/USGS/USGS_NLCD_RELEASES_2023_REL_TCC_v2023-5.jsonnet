@@ -149,10 +149,10 @@ local license = spdx.proprietary;
   'gee:categories': ['landuse-landcover'],
   keywords: [
     'forest',
-    'gtac',
-    'redcastle_resources',
     'usda',
     'usfs',
+    'gtac',
+    'redcastle_resources',
     'usgs',
   ],
   providers: [
