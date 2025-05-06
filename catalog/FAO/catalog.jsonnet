@@ -26,6 +26,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('FAO_GAUL_SIMPLIFIED_500m_2015_level2', base_url),
     ee.link.child_collection('FAO_GHG_1_DROSA_A', base_url),
     ee.link.child_collection('FAO_GHG_1_DROSE_A', base_url),
+    ee.link.child_collection('FAO_GHG_1_DROS_A', base_url),
+    ee.link.child_collection('FAO_GHG_1_DROS_E', base_url),
     ee.link.child_collection('FAO_SOFO_1_FPP', base_url),
     ee.link.child_collection('FAO_SOFO_1_TPP', base_url),
     ee.link.child_collection('FAO_WAPOR_2_L1_AETI_D', base_url),
