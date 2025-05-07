@@ -215,52 +215,52 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'Balsam_fir',
         description: 'Balsam fir (%): estimated as the proportion of the canopy covered by Abies balsamea',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Black_spruce',
         description: 'Black spruce (%): estimated as the proportion of the canopy covered by Picea mariana',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Douglas_fir',
         description: 'Douglas fir (%): estimated as the proportion of the canopy covered by Pseudotsuga menziesii',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Jack_pine',
         description: 'Jack pine (%): estimated as the proportion of the canopy covered by Pinus banksiana',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Lodgepole_pine',
         description: 'Lodgepole pine (%): estimated as the proportion of the canopy covered by Pinus contorta',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Ponderosa_pine',
         description: 'Ponderosa pine (%): estimated as the proportion of the canopy covered by Pinus ponderosa',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Tamarack',
         description: 'Tamarack_tree (%): estimated as the proportion of the canopy covered by Larix laricina',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'White_and_red_pine',
         description: 'White and red pine (%): estimated as the proportion of the canopy covered by Pinus strobus and Pinus resinosa',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Broadleaf',
         description: 'Broadleaf tree cover in percentage (PrcB)',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'Other_coniferous',
         description: 'Other coniferous tree cover in percentage (PrcC)',
-        'gee:units': ee_const.percent,
+        'gee:units': units.percent,
       },
       {
         name: 'articExtrapolationArea',
