@@ -1,49 +1,5 @@
-// This is a generic template for an Earth Engine ee.Image dataset
-// STAC Collection entry. After replacing all the values, remove the
-// explanatory comments, but keep the "TODO" comment.
-//
-// This template covers the basic case with just one Jsonnet file defining
-// the dataset. For more complex examples with templating, look for directories
-// with `.libsonnet` files.
-//
-// See https://jsonnet.org/ for more documentation on the Jsonnet language used
-// here to create STAC JSON.
-//
-// Coding style:
-// - Indenting should be two spaces.
-// - Do not use tabs.
-// - Limit line length to around 80 characters unless it breaks URL strings.
-// - Use only ASCII characters. \n and 32..176 decimal range.
-// - Use American English.
-//
-// STAC Specifications:
-//   - Overall: https://github.com/radiantearth/stac-spec
-//   - Extensions: https://github.com/stac-extensions/stac-extensions.github.io
-//     - Electro-Optical: https://github.com/stac-extensions/eo
-//     - Synthetic Aperture Radar: https://github.com/stac-extensions/sar
-//     - Scientific: https://github.com/stac-extensions/scientific
-//     - Version: https://github.com/stac-extensions/version
-
-// This jsonnet file has to be named using the following convention:
-//   <subdir>/<id_with_slashes_replaced_with_underbars>.jsonnet.
-
-// The asset id as used in Earth Engine:
-//   ee.Image('TEMPLATE/IMAGE_V2_1');
-local id = 'scanfi_v12/SCANFI_v1_2';
-
-// The directory under 'catalog' that contains the dataset.
-// For datasets under 'projects', leave off the 'projects' component.
-//   E.g., the 'projects/planet-nicfi/assets/basemaps/africa' asset is in the
-//   'planet-nicfi' subdirectory.
+local id = 'gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
 local subdir = 'gcpm041u-lemur';
-
-// The version field can be any string. However, it is best to use
-// the exact string that the data provider uses.
-// Do not include a leading `V` in the version string.
-// Prefer Semantic Versioning: https://semver.org/, which uses
-// one to three numeric fields separated by decimal points.
-// The version string might be different than the version portion of the `id`
-// field, as the `id` field cannot have `.` characters.
 local version = '1.2';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -51,30 +7,13 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-// Change this to one of the licenses in:
-// https://github.com/google/earthengine-catalog/blob/main/catalog/spdx.libsonnet
-//
-// - Least restrictive licenses (public domain or atribution-only licenses like
-//   CC-BY-4) are preferred.
-// - If the license is not in spdx.libsonnet, but is available in SPDX, you
-//   can add it to spdx.libsonnet. See: https://spdx.org/licenses/
-// - All other licenses should use spdx.proprietary. Here "proprietary" just
-//   means that the license is not in SPDX.
-// - If multiple licenses apply at the same time, use 'spdx.various'.
-// - If there is a choice of more than one license, pick the most permissive
-//   license.
-// - Non-commercial and share-alike licenses are strongly discouraged, but if
-//   they have to be used, add the dataset to
-//   https://github.com/google/earthengine-catalog/blob/main/non_commercial_datasets.jsonnet
 local license = spdx.ogl_canada_2_0;
 
-// These are helper variables used below. Most files will just leave them as-is.
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  // Do not end the title with punctuation. Include version if it is known.
   title: 'SCANFI: the Spatialized CAnadian National Forest Inventory data product' + version,
   version: version,
 
@@ -115,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // One or more category keywords. For the current list, see
   // https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_categories.py
   // All categories will also be added as keywords.
-  'gee:categories': ['climate', 'soil'],
+  'gee:categories': ['ecosystems', 'forest-biomass', 'landuse-landcover'],
 
   // Please look through the list of existing keywords and pick two or more
   // that match the dataset.
@@ -124,13 +63,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
   keywords: [
-    'ecosystems',
-    'forest-biomass',
-    'landuse-landcover',
-    //'forests',
+    'forest',
+    'tree-cover',
+    'canada',
     //'forest attributes',
     //'tree species',
-    //'Canada',
   ],
 
   // Who created the data.
