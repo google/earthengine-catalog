@@ -29,7 +29,7 @@
 
 // The asset id as used in Earth Engine:
 //   ee.Image('TEMPLATE/IMAGE_V2_1');
-local id = 'projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
+local id = 'scanfi_v12/SCANFI_v1_2';
 
 // The directory under 'catalog' that contains the dataset.
 // For datasets under 'projects', leave off the 'projects' component.
@@ -173,90 +173,135 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: 'band_name_1',
-        description: 'Describe the band',
-        gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
+        name: 'Landcover',
+        description: 'NFI land cover class values: Land cover classes include Bryoid (1), Herbs (2), Rock (3), Shrub (4), 
+                        Treed broadleaf (5), Treed conifer (6), Treed mixed (7) and  Water (8)',
+        // Only for bands with enumerated values.
+        'gee:classes': [
+          { value: 1, color: 'e64bfa', description: 'Bryoid' },
+          { value: 2, color: 'e7e56c', description: 'Herbs' },
+          { value: 3, color: '000000', description: 'Rock' },
+          { value: 4, color: 'bd0006', description: 'Shrub' },
+          { value: 5, color: '95ea4b', description: 'Treed broadleaf' },
+          { value: 6, color: '048e4e', description: 'Coniferous' },
+          { value: 7, color: '16d132', description: 'Treed mixed' },
+          { value: 8, color: '3be5ff', description: 'Water' },
+        ],
+      },
+      {
+        name: 'Biomass',
+        description: 'Aboveground tree biomass (tons/ha): biomass derived from total merchantable volume estimates produced by provincial agencies',
+        // gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
                   // If the pixel size is in degrees, multiply by 111,195.
-        center_wavelength: 0.56,  // in nm
+        // center_wavelength: 0.56,  // in nm
         // Note that gee:wavelength is more expressive than 'center_wavelength',
         // as it allows value ranges and units.
-        'gee:wavelength': '0.520-0.600 &mu;m',
+        // 'gee:wavelength': '0.520-0.600 &mu;m',
         // See here for predefined units and prefer those over using a custom
         // units string.
         // https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
-        'gee:units': units.dn,
+        'gee:units': units.tonnes_per_hectare,
       },
       {
-        name: 'band_name_2',
-        description: 'Describe the band',
-        gsd: 20,
-        // For units without dimensions.
-        'gee:units': units.dimensionless,
+        name: 'Height',
+        description: 'Height (meters): vegetation height',
+        'gee:units': units.meter,
       },
       {
-        name: 'band_name_3',
-        description: 'Describe the band',
-        gsd: 41,
+        name: 'Crown_closure',
+        description: 'Crown closure (%): percentage of pixel covered by the tree canopy',
         'gee:units': units.percent,
       },
       {
-        name: 'band_name_4',
-        description: 'Example of gee:classes',
-        gsd: 1.2,
+        name: 'Balsam_fir',
+        description: 'Balsam fir (%): estimated as the proportion of the canopy covered by Abies balsamea',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Black_spruce',
+        description: 'Black spruce (%): estimated as the proportion of the canopy covered by Picea mariana',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Douglas_fir',
+        description: 'Douglas fir (%): estimated as the proportion of the canopy covered by Pseudotsuga menziesii',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Jack_pine',
+        description: 'Jack pine (%): estimated as the proportion of the canopy covered by Pinus banksiana',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Lodgepole_pine',
+        description: 'Lodgepole pine (%): estimated as the proportion of the canopy covered by Pinus contorta',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Ponderosa_pine',
+        description: 'Ponderosa pine (%): estimated as the proportion of the canopy covered by Pinus ponderosa',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Tamarack',
+        description: 'Tamarack_tree (%): estimated as the proportion of the canopy covered by Larix laricina',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'White_and_red_pine',
+        description: 'White and red pine (%): estimated as the proportion of the canopy covered by Pinus strobus and Pinus resinosa',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Broadleaf',
+        description: 'Broadleaf tree cover in percentage (PrcB)',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'Other_coniferous',
+        description: 'Other coniferous tree cover in percentage (PrcC)',
+        'gee:units': ee_const.percent,
+      },
+      {
+        name: 'articExtrapolationArea',
+        description: 'Flag for marking Artic unreliable extrapolated pixels',
         // Only for bands with enumerated values.
         'gee:classes': [
-          {value: 10, color: 'ff0000', description: 'Red thing'},
-          {value: 11, color: '00ff00', description: 'Green thing'},
-          {value: 20, color: '0000ff', description: 'Blue thing'},
-          {value: 99, color: 'ffffff', description: 'White thing'},
+          {value: 1, color: '000000', description: 'Artic Extrapolation Area'},
         ],
       },
     ],
 
     // Optional band statistics - one entry per band.
     // If the exact statistics are known, then set gee:estimated_range to true.
-    band_name_1: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
-    band_name_2: {minimum: 0, maximum: 1e8, 'gee:estimated_range': false},
-    band_name_3: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
-    band_name_4: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    // band_name_1: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
+    // band_name_2: {minimum: 0, maximum: 1e8, 'gee:estimated_range': false},
+    // band_name_3: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    // band_name_4: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
 
     // One or more band visualizations.
     'gee:visualizations': [
-      // Example with three bands, but only one value for min and max.
-      {
-        // Give units when possible.
-        display_name: 'Describe what is shown 1',
-        // Do not use too many significant digits.
-        lookat: {lon: -122.03, lat: 39.67, zoom: 11},
-        // See for details:
-        // https://developers.google.com/earth-engine/guides/image_visualization
-        image_visualization: {
-          band_vis: {
-            min: [0],
-            max: [255],
-            // Which bands to map to red, green, and blue rgb channels.
-            bands: ['band_name_1', 'band_name_2', 'band_name_3'],
-          }
-        },
-      },
-      // Example with one band.
-      {
-        display_name: 'Describe what is shown 2',
-        lookat: {lon: -122, lat: 39, zoom: 4},
-        image_visualization: {band_vis: {bands: ['band_name_4']}},
-      },
       // Example with one band and a palette for the colors.
       {
-        display_name: 'Describe what is shown 3',
+        display_name: 'SCANFI land cover',
         lookat: {lon: -122, lat: 39, zoom: 14},
         image_visualization: {
           band_vis: {
-            min: [0],
-            max: [100],
+            min: [1],
+            max: [8],
             // Use W3C color names or 6-character hex (e.g., green is 00ff00).
             // https://www.w3.org/wiki/CSS/Properties/color/keywords
-            palette: ['blue', 'red'],
-            bands: ['band_name_3'],
+            palette: [
+              'e64bfa',
+              'e7e56c',
+              '000000',
+              'bd0006',
+              '95ea4b',
+              '048e4e',
+              '16d132',
+              '3be5ff'
+            ],
+            bands: ['Landcover'],
           },
         },
       },
@@ -285,7 +330,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   // For standard SPDX licenses, use:
-  'gee:terms_of_use': ee.gee_terms_of_use(license),
+  // 'gee:terms_of_use': ee.gee_terms_of_use(license),
   // If there is a custom license (the license is set to spdx.proprietary, set
   // gee:terms_of_use to enough text that a reader has a sense of what they are
   // getting into. Be sure to add a link to the license in this Markdown text
@@ -293,6 +338,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // 'gee:terms_of_use': |||
   //   Put the custom license here.
   // |||,
+  'gee:terms_of_use': |||
+    Licensed under the
+    [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
+  |||,
 
   // The fields below generally don't need to be changed.
 
