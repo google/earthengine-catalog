@@ -1,9 +1,7 @@
-local id = 'EDF/OGIM/current';
-local successor_id = 'projects/edf-methanesat-ee/assets/OGIM/current';
-local subdir = 'EDF';
-local successor_subdir = 'projects/edf-methanesat-ee/assets';
-local version = '2.5.1';
-local latest_id = successor_id;
+
+local id = 'projects/edf-methanesat-ee/assets/OGIM/current';
+local subdir = 'edf-methanesat-ee';
+local version = '2.7.1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -13,15 +11,11 @@ local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + successor_subdir + '/';
 
 {
   id: id,
-  title: 'OGIM: Oil and Gas Infrastructure Mapping Database v' + version + 
-    ' [deprecated]',
+  title: 'OGIM: Oil and Gas Infrastructure Mapping Database v' + version,
   version: version,
 
   description: |||
@@ -59,7 +53,7 @@ local catalog_subdir_url = ee_const.catalog_base + successor_subdir + '/';
 
     Records in the OGIM are consolidated from numerous publicly-available
     governmental and academic sources. This list of sources is available [in the
-    OGIM_v2.5.1_Data_Source_References.pdf](https://zenodo.org/records/13259749)
+    OGIM_v2.7_Data_Source_References.pdf](https://zenodo.org/records/15103476)
     document. For more information on each source, refer to the "Data_Catalog"
     table that accompanies [Omara et al (2023)](https://doi.org/10.5194/essd-15-3761-2023).
 
@@ -98,7 +92,7 @@ local catalog_subdir_url = ee_const.catalog_base + successor_subdir + '/';
     ee.producer_provider('Environmental Defense Fund - MethaneSAT', 'https://methanesat.org'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2024-05-15T00:00:00Z', '2024-05-15T00:00:00Z'),
+  extent: ee.extent_global('2025-02-10T00:00:00Z', '2025-02-10T00:00:00Z'),
 
   summaries: {
 
@@ -255,10 +249,7 @@ local catalog_subdir_url = ee_const.catalog_base + successor_subdir + '/';
 
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.example(id, subdir, basename + '_FeatureView'),
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + ".json"),
-    ee.link.successor(
-      successor_id, catalog_subdir_url + successor_basename + ".json"),
+    ee.link.example(id, subdir, basename + '_FeatureView')
   ],
 
   type: ee_const.stac_type.collection,
@@ -267,5 +258,4 @@ local catalog_subdir_url = ee_const.catalog_base + successor_subdir + '/';
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
-  'gee:status': "deprecated",
 }
