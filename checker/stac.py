@@ -57,6 +57,7 @@ class Status(*_StrEnum):
   BETA = 'beta'
   DEPRECATED = 'deprecated'
   INCOMPLETE = 'incomplete'
+  READY = 'ready'
 
   @classmethod
   def allowed_statuses(cls):
