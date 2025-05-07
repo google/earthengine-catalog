@@ -279,7 +279,7 @@ filled_vars_byte = [
 ]
 
 
-def extract_values(input_paths: str, output_path: str) -> None:
+def extract_values(input_paths: Sequence[str], output_path: str) -> None:
   """Extracts all variables from all algorithms.
 
   Args:
@@ -333,12 +333,13 @@ def write_csv(l4a_hdf_fh, csv_file):
         index=False,
         header=is_first,
         mode='a',
-        line_terminator='\n')
+        lineterminator='\n',
+    )
     is_first = False
 
 
 def main(argv):
-  extract_values(argv[1], argv[2])
+  extract_values([argv[1]], argv[2])
 
 if __name__ == '__main__':
   app.run(main)
