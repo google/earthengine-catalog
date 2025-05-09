@@ -76,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent(
       -180.0, 19, -64.435, 71.567,
-      '1984-01-01T00:00:00Z', '2022-06-01T00:00:00Z'),
+      '1984-01-01T00:00:00Z', '2024-12-31T00:00:00Z'),
   'sci:citation': |||
     USDA Forest Service;US Geological Survey. Monitoring Trends in Burn
     Severity Thematic Burn Severity. Salt Lake City, Utah;Sioux Falls,
