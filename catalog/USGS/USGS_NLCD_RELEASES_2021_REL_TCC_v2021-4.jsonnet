@@ -20,8 +20,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  'gee:status': 'deprecated',
-  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS) [deprecated]',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

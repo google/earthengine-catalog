@@ -82,7 +82,7 @@ local license = spdx.proprietary;
 
     **Additional Resources**
 
-    Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2023-5_Methods.pdf)
+    Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2021-4_Methods.pdf)
     for more detailed information regarding methods and accuracy assessment, or the
     [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
