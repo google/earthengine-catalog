@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('projects_edf-methanesat-ee_assets_OGIM_current', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L3concentration', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L4area', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L4point', base_url),

@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2025-01-17T00:00:00Z'),
+  extent: ee.extent_global('2006-01-24T00:00:00Z', null),
   summaries: {
     'gsd': [10.2],
     'eo:bands': [
