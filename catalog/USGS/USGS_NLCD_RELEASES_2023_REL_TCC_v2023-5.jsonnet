@@ -1,11 +1,14 @@
-local ee_const = import 'earthengine_const.libsonnet'; 
+local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local versions_table = import 'templates/TCC_versions.libsonnet';
 
 local id = 'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5';
-local version = 'v2023-5';
 local subdir = 'USGS';
+local version_config = versions(subdir, versions_table, id);
+local version = version_config.version;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -22,7 +25,6 @@ local license = spdx.proprietary;
   id: id,
   title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Tree Canopy Cover (TCC) data suite. It includes modeled TCC, standard error (SE), and 
@@ -95,7 +97,7 @@ local license = spdx.proprietary;
   |||,
 
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id)  + version_config.version_links + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
   ],
   'gee:categories': ['landuse-landcover'],
