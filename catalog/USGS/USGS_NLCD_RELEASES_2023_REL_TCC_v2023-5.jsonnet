@@ -93,6 +93,7 @@ local license = spdx.proprietary;
     Contact [sm.fs.tcc@usda.gov](mail to:sm.fs.tcc@usda.gov) with any
     questions or specific data requests.
   |||,
+
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
@@ -323,89 +324,89 @@ local license = spdx.proprietary;
     Salt Lake City, Utah.
   |||,
    'sci:publications': [
-   {
-    citation: |||
-    * **Breiman, L., 2001.**
-    Random Forests. In Machine Learning. *Springer*,
-    45: 5-32
-    [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
-     |||,
-    doi:'10.1023/A:1010933404324',
-    },
-    {
-    citation: |||
-    * **Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.**
-    Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, and Landsat-7 ETM
-    top of atmosphere spectral characteristics over the conterminous United States. In Remote
-    Sensing of Environment. *Science Direct*,
-    221: 274-285
-    [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
-    |||,
-    doi:'10.1016/j.rse.2018.11.012',
-    },
-    {
-    citation: |||
-    * **Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 2018.**
-    A LandTrendr multispectral ensemble for forest disturbance detection. In Remote Sensing of
-    Environment. *Science Direct*,
-    205: 131-140
-    [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
-    |||,
-    doi:'10.1016/j.rse.2017.11.015',
-    },
-    {
-    citation: |||
-    * **Foga, S., Scaramuzza, P.L., Guo, S., Zhu, Z., Dilley, R.D., Beckmann,
-    T., Schmidt, G.L., Dwyer, J.L., Hughes, M.J., Laue, B., 2017.** Cloud
-    detection algorithm comparison and validation for operational Landsat data
-    products. In Remote Sensing of Environment.  *Science Direct*, 194: 379-390
-    [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
-    |||,
-    doi:'10.1016/j.rse.2017.03.026',
-    },
-    {
-    citation: |||
-    * **U.S. Geological Survey, 2019.** USGS 3D Elevation Program Digital Elevation 
-    Model, accessed August 2022 at https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
-    |||,
-    },
-    {
-    citation: |||
-    * **Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010.**
-    Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1.
-    LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment.
-    *Science Direct*,
-    114(12): 2897-2910
-    [doi:10.1016/j.rse.2010.07.008](https://doi.org/10.1016/j.rse.2010.07.008)
-    |||,
-    doi:'10.1016/j.rse.2010.07.008',
-    },
-    {
-    citation: |||
-    * **Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., Cohen, W., and Healey, S., 2018.**
-    Implementation of the LandTrendr Algorithm on Google Earth Engine. In Remote Sensing. *MDPI*,
-    10(5): 691
-    [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
-    |||,
-    doi:'10.3390/rs10050691',
-    },
-    {
-    citation: |||
-    * **Sentinel-Hub, 2021.**
-    Sentinel 2 Cloud Detector. [Online].
-    Available at: [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
-    |||,
-    },
-    {
-    citation: |||
-    * **Zhu, Z., and Woodcock, C. E., 2012.**. 
-    Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
-    Environment. *Science Direct*, 
-    118: 83-94
-    [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
-     |||,
-    doi:'10.1016/j.rse.2011.10.028',
-    },
+       {
+        citation: |||
+            Breiman, L., 2001.
+            Random Forests. In Machine Learning. Springer,
+            45: 5-32
+            [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
+        |||,
+         doi:'10.1023/A:1010933404324',
+        },
+        {
+        citation: |||
+            Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.
+            Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, and Landsat-7 ETM
+            top of atmosphere spectral characteristics over the conterminous United States. In Remote
+            Sensing of Environment. Science Direct,
+            221: 274-285
+            [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
+        |||,
+        doi:'10.1016/j.rse.2018.11.012',
+        },
+        {
+        citation: |||
+            Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 2018.
+            A LandTrendr multispectral ensemble for forest disturbance detection. In Remote Sensing of
+            Environment. Science Direct,
+            205: 131-140
+            [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
+        |||,
+        doi:'10.1016/j.rse.2017.11.015',
+        },
+        {
+        citation: |||
+            Foga, S., Scaramuzza, P.L., Guo, S., Zhu, Z., Dilley, R.D., Beckmann,
+            T., Schmidt, G.L., Dwyer, J.L., Hughes, M.J., Laue, B., 2017. Cloud
+            detection algorithm comparison and validation for operational Landsat data
+            products. In Remote Sensing of Environment.  Science Direct, 194: 379-390
+            [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
+        |||,
+        doi:'10.1016/j.rse.2017.03.026',
+        },
+        {
+        citation: |||
+            U.S. Geological Survey, 2019. USGS 3D Elevation Program Digital Elevation 
+            Model, accessed August 2022 at https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
+        |||,
+        },
+        {
+        citation: |||
+            Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010.
+            Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1.
+            LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment.
+            *Science Direct,
+            114(12): 2897-2910
+            [doi:10.1016/j.rse.2010.07.008](https://doi.org/10.1016/j.rse.2010.07.008)
+        |||,
+        doi:'10.1016/j.rse.2010.07.008',
+        },
+        {
+        citation: |||
+            Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., Cohen, W., and Healey, S., 2018.
+            Implementation of the LandTrendr Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
+            10(5): 691
+            [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
+        |||,
+        doi:'10.3390/rs10050691',
+        },
+        {
+        citation: |||
+            Sentinel-Hub, 2021.
+            Sentinel 2 Cloud Detector. [Online].
+            Available at: [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
+        |||,
+        },
+        {
+        citation: |||
+            Zhu, Z., and Woodcock, C. E., 2012. 
+            Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
+            Environment. Science Direct, 
+            118: 83-94
+            [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
+        |||,
+        doi:'10.1016/j.rse.2011.10.028',
+        },
    ],
 
   'gee:terms_of_use': |||
