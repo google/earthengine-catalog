@@ -20,7 +20,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2022 v' + version,
   version: version,
-  'gee:status': 'deprecated',
 
   description: |||
     This dataset maps the dominant driver of tree cover loss from 2001-2022 globally at 1 km resolution. 
