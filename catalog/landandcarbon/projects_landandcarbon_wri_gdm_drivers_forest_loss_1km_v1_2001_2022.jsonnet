@@ -166,7 +166,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             bands: ['classification'],
           }
         },
-        {
         display_name: 'Probability of permanent agriculture class',
         lookat: {lon: -9.22, lat: 20.65, zoom: 3},
         image_visualization: {
@@ -177,9 +176,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             bands: ['probability_1'],
             }
           },  
-        }
-      },
-    ],
+        },
+      ],
   },
 
   'sci:citation': |||
