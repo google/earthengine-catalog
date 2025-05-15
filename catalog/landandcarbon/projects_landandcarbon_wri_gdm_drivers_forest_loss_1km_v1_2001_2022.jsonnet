@@ -164,18 +164,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [7],
             palette: ['E39D29','E58074','e9d700','51a44e','895128','a354a0','3a209a'],
             bands: ['classification'],
-          }
-        },
-        display_name: 'Probability of permanent agriculture class',
-        lookat: {lon: -9.22, lat: 20.65, zoom: 3},
-        image_visualization: {
-          band_vis: {
-            min: [0],
-            max: [250],
-            palette: ['#440154','#481567','#482677','#453781','#3b528b','#2c728e','#21908d','#27ad81','#5ec962','#aadc32','#fde725'],
-            bands: ['probability_1'],
             }
-          },  
+          }, 
         },
       ],
   },
