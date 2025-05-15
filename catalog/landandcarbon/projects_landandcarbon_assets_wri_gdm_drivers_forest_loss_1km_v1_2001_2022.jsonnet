@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2022 v' + version,
+  title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2022 v1.0 [deprecated]',
   version: version,
 
   description: |||
