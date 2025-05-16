@@ -6,7 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local version = '1.1'
+local version = '1.1',
 
 local license = spdx.cc_by_4_0;
 
