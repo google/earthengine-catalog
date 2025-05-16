@@ -6,11 +6,8 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local versions = import 'versions.libsonnet';
-local version_table = import 'projects_landandcarbon_wri_gdm_drivers_forest_loss_versions.libsonnet';
+local version = '1.1'
 
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
@@ -18,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2023 v' + version,
+  title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2023 v1.1',
   version: version,
 
   description: |||
@@ -59,16 +56,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (e.g., landslides, insect outbreaks, river meandering). If loss due to natural causes is followed 
     by salvage or sanitation logging, it is classified as forest management.
 
-    **Limitations**: This product does not distinguish between the loss of natural forest and planted 
-    trees (e.g., plantations, tree crops, or agroforestry systems). While tree cover loss associated 
-    with the permanent agriculture, hard commodities, and settlements & infrastructure classes represent 
-    a close approximation of deforestation, they do not always represent the conversion of natural
-    forests to other land uses and in some cases may represent loss of planted trees. Similarly,
-    replacement of natural forest with wood fiber plantations is not distinguished from routine harvesting 
-    within existing plantations established before 2000, as these are both included in the logging class. 
+    **Limitations**: This product does not distinguish between the loss of *natural forest* and *planted 
+    trees* (e.g., plantations, tree crops, or agroforestry systems). While tree cover loss associated 
+    with the *permanent agriculture*, *hard commodities*, and *settlements and infrastructure* classes represent 
+    a close approximation of deforestation (permanent conversion of forest to another land use), these 
+    classes may sometimes include the clearing of planted trees. For example, clearing and replanting an 
+    orchard would be included in the *permanent agriculture* class, but is not deforestation of a natural forest. 
+    Similarly, replacement of natural forest with wood fiber plantations is not distinguished from routine 
+    harvesting within existing plantations established before 2000, as these are both included in the logging 
+    class. 
 
-    These data are limited in scope to attributing drivers to tree cover loss as mapped by the 
-    [Global Forest Change](https://www.science.org/doi/10.1126/science.1244693) tree cover loss product, 
+    This product shows the dominant driver in each 1km cell over the entire period. It does not show 
+    multiple drivers if they occur in the same cell at smaller scales, nor does it detail the sequence of 
+    drivers if multiple occurred at different times within the period. Additionally, these data are limited 
+    in scope to attributing drivers to tree cover loss as mapped by the 
+    [Global Forest Change v1.11](https://www.science.org/doi/10.1126/science.1244693) tree cover loss product, 
     and therefore the detection of loss is subject to the accuracy of that product. 
     
     **For a full description of the methods, technical specifications, definitions, accuracy, and 
@@ -185,7 +187,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
 
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
