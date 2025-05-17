@@ -81,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||, 
 
 
-  'gee:categories': ['agriculture', 'ecosystems','fire','landuse-landcover','forest-biomass'],
+  'gee:categories': ['forest-biomass'],
 
   keywords: [
     'agriculture',
@@ -93,7 +93,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
 
   providers: [
-    ee.producer_provider('World Resources Institute', 'https://www.wri.org/'),
+    ee.producer_provider('World Resources Institute', 'https://zenodo.org/records/15225267'),
     ee.producer_provider('Google DeepMind', 'https://deepmind.google/'),
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -119,30 +119,37 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'probability_1',
         description: 'Probability of "Permanent agriculture" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
       {
         name: 'probability_2',
         description: 'Probability of "Hard commodities" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
       {
         name: 'probability_3',
         description: 'Probability of "Shifting cultivation" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
       {
         name: 'probability_4',
         description: 'Probability of "Logging" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
       {
         name: 'probability_5',
         description: 'Probability of "Wildfire" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
       {
         name: 'probability_6',
         description: 'Probability of "Settlements and infrastructure" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
       {
         name: 'probability_7',
         description: 'Probability of "Other natural disturbances" class (scaled to [0-250]).',
+        gee:scale=0.004,
       },
     ],
 
