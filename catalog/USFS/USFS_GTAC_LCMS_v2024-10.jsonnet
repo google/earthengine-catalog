@@ -90,7 +90,7 @@ local license = spdx.proprietary;
     * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
       provides users the ability to view, analyze, summarize and download LCMS data.
 
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2023-9_Methods.pdf)
+    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2024-10_Methods.pdf)
       for more detailed information regarding methods and accuracy assessment, or the
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
