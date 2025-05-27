@@ -23,6 +23,7 @@ local license = spdx.cc_by_4_0;
   id: id,
   title: 'Hansen Global Forest Change v1.12 (2000-2024)',
   version: version,
+  'gee:status': 'beta'
   'gee:type': ee_const.gee_type.image,
   description: |||
     Results from time-series analysis of Landsat images in characterizing
@@ -123,6 +124,16 @@ local license = spdx.cc_by_4_0;
           ],
           total_bit_count: 1,
         },
+      },
+      {
+        name: 'lossyear',
+        description: |||
+          Year of gross forest cover loss event. Forest loss during the study
+          period, defined as a stand-replacement disturbance, or a change from a
+          forest to non-forest state. Encoded as either 0 (no loss) or else a value
+          in the range 1-24, representing loss detected primarily in the year
+          2001-2024, respectively.
+        |||,
       },
       {
         name: 'first_b30',
@@ -231,16 +242,6 @@ local license = spdx.cc_by_4_0;
           ],
           total_bit_count: 2,
         },
-      },
-      {
-        name: 'lossyear',
-        description: |||
-          Year of gross forest cover loss event. Forest loss during the study
-          period, defined as a stand-replacement disturbance, or a change from a
-          forest to non-forest state. Encoded as either 0 (no loss) or else a value
-          in the range 1-24, representing loss detected primarily in the year
-          2001-2024, respectively.
-        |||,
       },
     ],
     'gee:visualizations': [
