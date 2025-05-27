@@ -128,8 +128,8 @@ local license = spdx.cc_by_4_0;
         name: 'first_b30',
         description: |||
           Landsat Red cloud-free image composite (corresponding to Landsat 5/7 
-		  band 3 and Landsat 8/9 band 4). Reference multispectral imagery from 
-		  the first available year, typically 2000.
+          band 3 and Landsat 8/9 band 4). Reference multispectral imagery from 
+          the first available year, typically 2000.
         |||,
         center_wavelength: 0.66,
         'gee:wavelength': '0.63-0.69&micro;m',
@@ -138,8 +138,8 @@ local license = spdx.cc_by_4_0;
         name: 'first_b40',
         description: |||
           Landsat NIR cloud-free image composite (corresponding to Landsat 5/7 
-		  band 4 and Landsat 8/9 band 5). Reference multispectral imagery from 
-		  the first available year, typically 2000.
+          band 4 and Landsat 8/9 band 5). Reference multispectral imagery from 
+          the first available year, typically 2000.
         |||,
         center_wavelength: 0.835,
         'gee:wavelength': '0.77-0.90&micro;m',
@@ -148,8 +148,8 @@ local license = spdx.cc_by_4_0;
         name: 'first_b50',
         description: |||
           Landsat SWIR1 cloud-free image composite (corresponding to Landsat 5/7 
-		  band 5 and Landsat 8/9 band 6). Reference multispectral imagery from 
-		  the first available year, typically 2000.
+          band 5 and Landsat 8/9 band 6). Reference multispectral imagery from 
+          the first available year, typically 2000.
         |||,
         center_wavelength: 1.65,
         'gee:wavelength': '1.55-1.75&micro;m',
@@ -158,8 +158,8 @@ local license = spdx.cc_by_4_0;
         name: 'first_b70',
         description: |||
           Landsat SWIR2 cloud-free image composite (corresponding to Landsat 5/7 
-		  band 7 and Landsat 8/9 band 7). Reference multispectral imagery from 
-		  the first available year, typically 2000.
+          band 7 and Landsat 8/9 band 7). Reference multispectral imagery from 
+          the first available year, typically 2000.
         |||,
         center_wavelength: 2.22,
         'gee:wavelength': '2.09-2.35&micro;m',
@@ -168,8 +168,8 @@ local license = spdx.cc_by_4_0;
         name: 'last_b30',
         description: |||
           Landsat Red cloud-free image composite (corresponding to Landsat 5/7 
-		  band 3 and Landsat 8/9 band 4). Reference multispectral imagery from 
-		  the last available year, typically the last year of the study period.
+          band 3 and Landsat 8/9 band 4). Reference multispectral imagery from 
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 0.66,
         'gee:wavelength': '0.63-0.69&micro;m',
@@ -178,8 +178,8 @@ local license = spdx.cc_by_4_0;
         name: 'last_b40',
         description: |||
           Landsat NIR cloud-free image composite (corresponding to Landsat 5/7 
-		  band 4 and Landsat 8/9 band 5). Reference multispectral imagery from 
-		  the last available year, typically the last year of the study period.
+          band 4 and Landsat 8/9 band 5). Reference multispectral imagery from 
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 0.835,
         'gee:wavelength': '0.77-0.90&micro;m',
@@ -188,8 +188,8 @@ local license = spdx.cc_by_4_0;
         name: 'last_b50',
         description: |||
           Landsat SWIR1 cloud-free image composite (corresponding to Landsat 5/7 
-		  band 5 and Landsat 8/9 band 6). Reference multispectral imagery from 
-		  the last available year, typically the last year of the study period.
+          band 5 and Landsat 8/9 band 6). Reference multispectral imagery from 
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 1.65,
         'gee:wavelength': '1.55-1.75&micro;m',
@@ -198,8 +198,8 @@ local license = spdx.cc_by_4_0;
         name: 'last_b70',
         description: |||
           Landsat SWIR2 cloud-free image composite (corresponding to Landsat 5/7 
-		  band 7 and Landsat 8/9 band 7). Reference multispectral imagery from 
-		  the last available year, typically the last year of the study period.
+          band 7 and Landsat 8/9 band 7). Reference multispectral imagery from 
+          the last available year, typically the last year of the study period.
         |||,
         center_wavelength: 2.22,
         'gee:wavelength': '2.09-2.35&micro;m',
