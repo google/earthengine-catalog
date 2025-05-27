@@ -57,6 +57,21 @@ local license = spdx.proprietary;
     like to use it for purposes not currently permitted under the terms of use
     set out below, please contact weathernext@google.com.
 
+    **Dissemination Schedule**
+
+    All 50 members of the ensemble forecast are released to BigQuery and Earth
+    Engine. All members are released at the same time. All times are in the UTC
+    time zone and are rough estimates (with typical ± 15 minutes variance). On
+    occasion, times may vary up to ± 60 minutes or more. If data delivery
+    exceeds +60 minutes, please inform us via weathernext@google.com.
+
+    Forecast runs (init time) | Forecast dissemination schedule
+    :------------------------ | :------------------------------
+    00:00                     | 08:05
+    06:00                     | 14:05
+    12:00                     | 20:05
+    18:00                     | 02:05
+
     **Accessing Raw Data (.zarr)**
 
     A bucket containing the raw .zarr files for the 2020-present historical dataset
