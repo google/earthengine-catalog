@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     reference system, to match gridMET. The surfaces were then used to
     correct daily and monthly gridMET ETo images.
 
-    [Additional information](https://openetdata.org/methodologies/)
+    [Additional information](https://etdata.org/methodologies/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -68,7 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'water',
   ],
   providers: [
-    ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
+    ee.producer_provider('OpenET, Inc.', 'https://etdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-126, 25, -66, 50, '2016-01-01T00:00:00Z', null),
