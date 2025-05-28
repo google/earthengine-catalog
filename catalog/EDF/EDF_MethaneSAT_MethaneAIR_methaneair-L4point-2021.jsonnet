@@ -121,7 +121,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
   'gee:terms_of_use': |||
     Use of this data is subject to [MethaneSAT's Content License Terms of
-    Use](https://www.edf.org/sites/default/files/2024-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%202024_0.pdf).
+    Use](https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf).
   |||,
   'gee:unusual_terms_of_use': true,
 
@@ -132,7 +132,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(
-      'https://www.edf.org/sites/default/files/2024-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%202024_0.pdf'),
+      'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf'),
     ee.link.latest(latest_id, catalog_subdir_url + latest_basename + ".json"),
     ee.link.successor(
       successor_id, catalog_subdir_url + successor_basename + ".json"),

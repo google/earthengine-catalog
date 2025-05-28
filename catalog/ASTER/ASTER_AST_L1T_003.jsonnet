@@ -25,9 +25,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
 
     **Note:**
-    Data collection has been paused as of November 28, 2024, due to
-    technical issues with the ASTER instrument. See the USGS
-    [announcement](https://lpdaac.usgs.gov/news/terra-aster-safe-mode-alert/)
+    There is a gap in data collection between November 28, 2024 and January 16,
+    2025 due to technical issues with the ASTER instrument. See the USGS
+    [announcement](https://lpdaac.usgs.gov/news/aster-resumes-limited-operations/)
     for more information.
 
     The Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER)
@@ -359,7 +359,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ORIGINAL_BANDS_PRESENT',
         description: 'List of bands that are present in each scene',
-        type: ee_const.var_type.double,
+        type: ee_const.var_type.string_list,
       },
       {
         name: 'PGE_VERSION',

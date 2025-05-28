@@ -80,8 +80,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     1. The Global Forest Canopy Height dataset in 2019
     1. global tree cover in 2000 and loss from 2001 to 2020.
 
-    The global input layers and mapping approach will be described in a separate
-    report expected to be released by December 2024.
+    The global input layers and mapping approach are described in
+    [this technical report](https://op.europa.eu/en/publication-detail/-/publication/e2c286ac-14e9-11f0-b1a3-01aa75ed71a1/language-en).
 
     For a list of known issues please refer to
     [this website](https://forobs.jrc.ec.europa.eu/GFC).
@@ -111,6 +111,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (JRC) [Dataset] PID:
     [http://data.europa.eu/89h/037ca376-ba92-49db-a8f7-0c277c1e5436](http://data.europa.eu/89h/037ca376-ba92-49db-a8f7-0c277c1e5436).
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Bourgoin, C., Verhegghen, A., Carboni, S., Degreve, L., Ameztoy Aramendi, I., Ceccherini, G., Colditz, R. and Achard, F., Global Forest Maps for the Year 2020 to Support the EU Regulation on Deforestation-free Supply Chains, Publications Office of the European Union, Luxembourg, 2025, [https://data.europa.eu/doi/10.2760/1975879](https://data.europa.eu/doi/10.2760/1975879), JRC141702.
+      |||
+    }
+  ],
   'gee:user_uploaded': true,
   'gee:terms_of_use': |||
       The data may be used by anyone, anywhere, anytime without permission,
@@ -144,7 +151,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               20
             ],
             bands: [
-              'GFT',
+              'Map',
             ],
             palette: [
               '78c679', '000000', '000000', '000000', '000000', '000000', '000000', '000000', '000000',
@@ -157,7 +164,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'eo:bands': [
       {
-        name: 'GFT',
+        name: 'Map',
         description: 'Global forest types 2020',
         'gee:classes': [
           {

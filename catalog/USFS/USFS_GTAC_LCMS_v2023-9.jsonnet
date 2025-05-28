@@ -22,8 +22,9 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Landscape Change Monitoring System ' + ' ' + version + ' ' +
-    '(CONUS and OCONUS)',
+  'gee:status': 'deprecated',
+  title: 'USFS Landscape Change Monitoring System ' + version + ' ' +
+    '(CONUS and OCONUS) [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -108,16 +109,18 @@ local license = spdx.proprietary;
   links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['landuse-landcover'],
   keywords: [
+    'lcms',
+    'usda',
+    'usfs',
     'change_detection',
     'landcover',
     'landuse',
     'forest',
-    'landsat',
-    'sentinel',
+    'landsat-derived',
+    'sentinel-derived',
     'time_series',
     'gtac',
-    'usda',
-    'usfs',
+    'redcastle_resources',
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and Applications Center (GTAC)', 'https://apps.fs.usda.gov/lcms-viewer/'),
@@ -333,7 +336,7 @@ local license = spdx.proprietary;
         ],
       },
       {
-        name: 'Change_Raw_Probability_Slow-Loss',
+        name: 'Change_Raw_Probability_Slow_Loss',
         description: |||
           Raw LCMS modeled probability of Slow Loss. Defined as: Slow Loss includes the following
           classes from the TimeSync change process interpretation-
@@ -359,7 +362,7 @@ local license = spdx.proprietary;
         |||,
       },
       {
-        name: 'Change_Raw_Probability_Fast-Loss',
+        name: 'Change_Raw_Probability_Fast_Loss',
         description: |||
           Raw LCMS modeled probability of Fast Loss. Defined as: Fast Loss includes the following
           classes from the TimeSync change process interpretation-
@@ -506,11 +509,11 @@ local license = spdx.proprietary;
         name: 'Land_Cover_Raw_Probability_Barren-or-Impervious',
         description: |||
           Raw LCMS modeled probability of Barren or Impervious. Defined as: The majority of the pixel
-          is comprised of 1) bare soil exposed by disturbance (e.g., soil uncovered by mechanical
+          is comprised of 1.) bare soil exposed by disturbance (e.g., soil uncovered by mechanical
           clearing or forest harvest), as well as perennially barren areas such as deserts, playas,
           rock outcroppings (including minerals and other geologic materials exposed by surface mining
           activities), sand dunes, salt flats, and beaches. Roads made of dirt and gravel are also
-          considered barren or 2) man-made materials that water cannot penetrate, such as paved roads,
+          considered barren or 2.) man-made materials that water cannot penetrate, such as paved roads,
           rooftops, and parking lots.
         |||,
       },
@@ -879,11 +882,6 @@ local license = spdx.proprietary;
 
     USDA Forest Service. 2024. USFS Landscape Change Monitoring System v2023.9
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
-
-    Note
-
-    * [https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) is the preferred link for citations
-
   |||,
   'gee:user_uploaded': true,
 }

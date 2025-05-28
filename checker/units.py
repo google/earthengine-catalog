@@ -9,6 +9,7 @@ https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
 UNITS = frozenset({
     '%',
     '% change/y',
+    '1/s',
     'Area fraction',
     'Dimensionless',
     'Mass fraction',
@@ -26,6 +27,7 @@ UNITS = frozenset({
     'Mg/ha',
     'N/m^2',
     'Pa',
+    'Pa s',
     'P-value',
     'W/m^2',
     'y',
@@ -43,6 +45,7 @@ UNITS = frozenset({
     'ft^2',
     'ft^2/acre',
     'ft^3/acre',
+    'gpm',
     'h',
     'h/km^2',
     'ha',

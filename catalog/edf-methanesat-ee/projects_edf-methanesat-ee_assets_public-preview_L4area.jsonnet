@@ -65,25 +65,25 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2025-01-17T00:00:00Z'),
+  extent: ee.extent_global('2006-01-24T00:00:00Z', null),
   summaries: {
     'eo:bands': [
       {
         name: 'flux',
-        description: 'Methane emissions traceable to a 1km^2 area.',
-        gsd: 1000,
-        'gee:units': units.kg_per_hour_per_square_km,
+        description: 'Methane emissions traceable to a 5km^2 area.',
+        gsd: 5000,
+        'gee:units': units.kg_per_hour,
       }
     ],
-    flux: {minimum: 0, maximum: 28.3, 'gee:estimated_range': true},
+    flux: {minimum: 0, maximum: 625, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
-        display_name: 'Methane area sources flux in kg/h/km^2',
+        display_name: 'Methane area sources flux in kg/h/',
         lookat: { lon: -102.5, lat: 31.85, zoom: 8 },
         image_visualization: {
           band_vis: {
             min: [0],
-            max: [18],
+            max: [625],
             bands: ['flux'],
             palette: ['navy', 'magenta', 'orange', 'yellow'],
           }

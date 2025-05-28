@@ -22,8 +22,9 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ArcticDEM Mosaic',
+  title: 'ArcticDEM V3 2m Mosaic [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     ArcticDEM is a National Geospatial-Intelligence Agency (NGA) and National

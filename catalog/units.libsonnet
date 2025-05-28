@@ -120,9 +120,15 @@
   // https://en.wikipedia.org/wiki/Foot_(unit)
   foot: 'ft',
 
+  // https://en.wikipedia.org/wiki/Geopotential_height
+  geopotential_meter: 'gpm',
+
   // https://en.wikipedia.org/wiki/Kilogram
   // Unused: kilogram: 'kg',
   gigagrams: 'Gg',
+
+  // https://en.wikipedia.org/wiki/Inverse_second
+  inverse_second: '1/s',
 
   // https://en.wikipedia.org/wiki/Convective_available_potential_energy (CAPE)
   // https://en.wikipedia.org/wiki/Specific_energy
@@ -138,6 +144,7 @@
   // a.k.a. molar fraction
   // See also: https://en.wikipedia.org/wiki/Mixing_ratio
   mole_fraction: 'Mol fraction',
+  molecules_per_cm2: 'molecules/cm^2',
 
   // https://en.wikipedia.org/wiki/Metre
   meter: 'm',
@@ -161,6 +168,9 @@
   pascal: 'Pa',
   hectopascal: 'hPa',
   kilopascal: 'kPa',
+
+  // https://en.wikipedia.org/wiki/Viscosity#Dynamic_viscosity
+  pascal_seconds: 'Pa s',
 
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign

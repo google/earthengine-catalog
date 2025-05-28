@@ -72,6 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'noaa',
     'surface',
     'viirs',
+    'brdf',
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP43IA4.002'),

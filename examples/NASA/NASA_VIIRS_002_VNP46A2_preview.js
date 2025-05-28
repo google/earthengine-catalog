@@ -1,36 +1,39 @@
-var dataset = ee.Image('NASA/VIIRS/002/VNP46A2/2013_01_01');
+var dataset = ee.ImageCollection('NASA/VIIRS/002/VNP46A2')
+                  .filter(ee.Filter.date('2013-01-01', '2013-03-01'));
 
-var lon = 103;
-var lat = 58;
-
-Map.setCenter(lon, lat, 6);
-Map.setOptions('SATELLITE');
-
-// Degrees in SR-ORG:6974
-var delta = 3.5;
-// Width and height of the thumbnail image.
-var pixels = 256;
-
-var DNB_BRDF_Corrected_NTL = dataset.select('DNB_BRDF_Corrected_NTL');
-
-var areaOfInterest = ee.Geometry.Rectangle(
-  [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
+var gap_filled_band =
+    dataset.select('Gap_Filled_DNB_BRDF_Corrected_NTL').first();
 
 var visParams = {
+  min: 0.0,
+  max: 1.0,
+};
+
+var image = gap_filled_band.visualize(visParams);
+
+var lon = -77.1056;
+var lat = 38.8904;
+
+var geometry = ee.Geometry.Polygon(
+    [[
+      [-130, 55],
+      [-130, -10],
+      [-55, -10],
+      [-55, 55],
+    ]],
+    null, false);
+var pixels = 256;
+
+var areaOfInterest = geometry;
+
+var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
-  crs: 'SR-ORG:6974',
+  crs: 'EPSG:3857',
   format: 'png',
 };
 
-var palette = [
-    '000080', '0000d9', '4000ff', '8000ff', '0080ff', '00ffff',
-    '00ff80', '80ff00', 'daff00', 'ffff00', 'fff500', 'ffda00',
-    'ffb000', 'ffa400', 'ff4f00', 'ff2500', 'ff0a00', 'ff00ff',
-];
+Map.setCenter(lon, lat, 3);
+Map.addLayer(image)
 
-var image = DNB_BRDF_Corrected_NTL.visualize({palette: palette, min: 0, max:1});
-
-Map.addLayer(image, {}, 'DNB_BRDF_Corrected_NTL');
-
-print(ui.Thumbnail({image: image, params: visParams}));
+print(ui.Thumbnail({image: image, params: imageParams}));

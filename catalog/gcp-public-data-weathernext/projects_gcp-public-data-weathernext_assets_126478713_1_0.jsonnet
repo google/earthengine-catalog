@@ -57,11 +57,27 @@ local license = spdx.proprietary;
     like to use it for purposes not currently permitted under the terms of use
     set out below, please contact weathernext@google.com.
 
+    **Dissemination Schedule**
+
+    All 50 members of the ensemble forecast are released to BigQuery and Earth
+    Engine. All members are released at the same time. All times are in the UTC
+    time zone and are rough estimates (with typical ± 15 minutes variance). On
+    occasion, times may vary up to ± 60 minutes or more. If data delivery
+    exceeds +60 minutes, please inform us via weathernext@google.com.
+
+    Forecast runs (init time) | Forecast dissemination schedule
+    :------------------------ | :------------------------------
+    00:00                     | 08:05
+    06:00                     | 14:05
+    12:00                     | 20:05
+    18:00                     | 02:05
+
     **Accessing Raw Data (.zarr)**
 
     A bucket containing the raw .zarr files for the 2020-present historical dataset
     ("Historic Experimental Data") is available at `gs://weathernext/126478713_1_0/zarr`.
     Additionally, 2019 historical forecasts, an extra year of forecasts evaluated in [“Probabilistic weather forecasting with machine learning”](https://www.nature.com/articles/s41586-024-08252-9), are available at `gs://weathernext/weathernext_gen_research_2019`.
+    The 2019 forecast dataset is an additional year of forecast data, complementing the 2020-2024 data available through this dataset listing. The 2019 forecasts are, as in the paper, ERA5 initialized forecasts for a model trained on ERA5.
     To gain access to those resources, please request access through the same [WeatherNext Data Request form](https://docs.google.com/forms/d/e/1FAIpQLSeCf1JY8G78UDWzbm0ly9kJxfSjUIJT5WyMR_HiNqCm-IHIBg/viewform?usp=preview).
 
     **Acknowledgements**

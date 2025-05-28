@@ -394,7 +394,7 @@ local license = spdx.proprietary;
         |||,
       },
       {
-        name: 'Change_Raw_Probability_Fast-Loss',
+        name: 'Change_Raw_Probability_Fast_Loss',
         description: |||
           Raw LCMS modeled probability of Fast Loss. Defined as: Fast Loss includes the following
           classes from the TimeSync change process interpretation-

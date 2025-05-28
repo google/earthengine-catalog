@@ -48,6 +48,18 @@ local self_url = catalog_subdir_url + base_filename;
     existing datasets selected for their ability to describe forest 
     disturbance and management history, consistent with the definition.  
 
+    This community data product is meant to evolve over time, as more data
+    becomes available from the community and the model used to produce the
+    maps continuously improves. To provide map-based feedback on this
+    collection, please see our
+    [Collect Earth Online instance](https://app.collect.earth/collection?projectId=50862)
+    and follow
+    [these instructions](https://collect-earth-online-doc.readthedocs.io/en/latest/collection/simplified.html).
+
+    If you would like to provide general feedback or additional datasets to
+    improve these layers, please reach out through
+    [this form](https://goo.gle/fdap-data).
+
     For more information about this dataset, see 
     [the README](https://github.com/google/forest-data-partnership/blob/main/models/forests/README.md) 
     on Google's Forest Data Partnership GitHub site. For more information about 

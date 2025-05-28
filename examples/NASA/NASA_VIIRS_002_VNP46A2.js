@@ -1,15 +1,8 @@
-var dataset = ee.ImageCollection('NASA/VIIRS/002/VNP46A2').filter(
-  ee.Filter.date('2013-01-01', '2013-07-01'));
+var dataset = ee.ImageCollection('NASA/VIIRS/002/VNP46A2')
+                  .filter(ee.Filter.date('2013-01-01', '2013-03-01'));
 
-// Bidirectional Reflectance Distribution Function (BRDF)
-var brdf = dataset.select('DNB_BRDF_Corrected_NTL');
-var brdfVis = {
-  min: 0,
-  max: 100,
-  palette: ['black', 'purple', 'cyan', 'green', 'yellow', 'red', 'white'],
-};
+var nighttime = dataset.select('Gap_Filled_DNB_BRDF_Corrected_NTL');
+var nighttimeVis = {min: 0.0, max: 1.0};
 
-Map.setCenter(-79.4, 43.1, 8);
-// Day/Night Band (DNB)
-// NightTime Light (NTL)
-Map.addLayer(brdf, brdfVis, 'DNB_BRDF_Corrected_NTL');
+Map.setCenter(-77.1056, 38.8904, 3);
+Map.addLayer(nighttime, nighttimeVis, 'Nighttime');

@@ -149,11 +149,11 @@ class ErrorSciExtTest(test_utils.NodeTest):
         'citation too short: 4 - "shrt"')
 
   def test_publications_bad_citation_too_long(self):
-    cite = 'c' * 701
+    cite = 'c' * 2001
     self.assert_collection(
         {'stac_extensions': [EXTENSION_URL],
          'sci:publications': [{'citation': cite}]},
-        f'citation too long: 701 - "{cite[:50]}..."')
+        f'citation too long: 2001 - "{cite[:50]}..."')
 
 
 if __name__ == '__main__':

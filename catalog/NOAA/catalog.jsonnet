@@ -69,6 +69,11 @@ local gsm_description = importstr 'general_satellite_messages_description.md';
     ee.link.child_collection('NOAA_GOES_18_MCMIPC', base_url),
     ee.link.child_collection('NOAA_GOES_18_MCMIPF', base_url),
     ee.link.child_collection('NOAA_GOES_18_MCMIPM', base_url),
+    ee.link.child_collection('NOAA_GOES_19_FDCC', base_url),
+    ee.link.child_collection('NOAA_GOES_19_FDCF', base_url),
+    ee.link.child_collection('NOAA_GOES_19_MCMIPC', base_url),
+    ee.link.child_collection('NOAA_GOES_19_MCMIPF', base_url),
+    ee.link.child_collection('NOAA_GOES_19_MCMIPM', base_url),
     ee.link.child_collection('NOAA_IBTrACS_v4', base_url),
 
     ee.link.child_collection(

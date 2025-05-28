@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     fluctuations that require noise-reduction techniques to be applied to bands
     before analysis.
 
-    Note that the available forecast hours and intervals have also changed:
+    Note that the available forecast hours and intervals have changed over time:
 
     * From 2015/04/01-2017/07/09: 36-hour forecasts, excluding hour 0, at
     3-hour intervals.
@@ -49,6 +49,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     from hours 240-384.
     * From 2021/06/12: 384-hour forecasts, at 1-hour intervals from hours 0-120
     and 3-hour intervals from hours 120-384.
+
+    Some bands are only available starting on 2025/01/15 as noted in the band
+    descriptions.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -111,7 +114,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'dew_point_temperature_2m_above_ground',
-        description: 'Dew point temperature 2m above ground (available starting from January 2025)',
+        description: 'Dew point temperature 2m above ground (available starting from 2025/01/15)',
         'gee:units': units.celsius,
       },
       {
@@ -121,12 +124,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'maximum_temperature_2m_above_ground',
-        description: 'Maximum temperature 2m above ground (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        description: 'Maximum temperature 2m above ground (available starting from 2025/01/15, but only for assets with forecast_hours > 0)',
         'gee:units': units.celsius,
       },
       {
         name: 'minimum_temperature_2m_above_ground',
-        description: 'Minimum temperature 2m above ground (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        description: 'Minimum temperature 2m above ground (available starting from 2025/01/15, but only for assets with forecast_hours > 0)',
         'gee:units': units.celsius,
       },
       {
@@ -163,36 +166,36 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'u_component_of_wind_planetary_boundary_layer',
-        description: 'U component of wind planetary boundary layer (available starting from January 2025)',
+        description: 'U component of wind planetary boundary layer (available starting from 2025/01/15)',
         'gee:units': units.velocity_si,
       },
       {
         name: 'v_component_of_wind_planetary_boundary_layer',
-        description: 'V component of wind planetary boundary layer (available starting from January 2025)',
+        description: 'V component of wind planetary boundary layer (available starting from 2025/01/15)',
         'gee:units': units.velocity_si,
       },
       {
         name: 'gust',
-        description: 'Wind Speed (Gust) (available starting from January 2025)',
+        description: 'Wind Speed (Gust) (available starting from 2025/01/15)',
         'gee:units': units.velocity_si,
       },
       {
         name: 'precipitation_rate',
-        description: 'Precipitation Rate (available starting from January 2025)',
+        description: 'Precipitation Rate (available starting from 2025/01/15)',
         'gee:units': units.rainfall_rate_kg_per_m2_per_s,
       },
       {
         name: 'haines_index',
-        description: 'Haines Index (available starting from January 2025)',
+        description: 'Haines Index (available starting from 2025/01/15)',
       },
       {
         name: 'ventilation_rate',
-        description: 'Ventilation Rate (available starting from January 2025)',
+        description: 'Ventilation Rate (available starting from 2025/01/15)',
         'gee:units': units.squared_meter_per_second,
       },
       {
         name: 'total_cloud_cover_entire_atmosphere',
-        description: 'Total cloud cover for entire atmosphere (previously only for assets with forecast_hours > 0, but available for those with forecast_hours == 0 starting from January 2025)',
+        description: 'Total cloud cover for entire atmosphere (previously only for assets with forecast_hours > 0, but available for those with forecast_hours == 0 starting from 2025/01/15)',
         'gee:units': units.percent,
       },
       {
@@ -202,22 +205,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'downward_longwave_radiation_flux',
-        description: 'Downward longwave radiation flux (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        description: 'Downward longwave radiation flux (available starting from 2025/01/15, but only for assets with forecast_hours > 0)',
         'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'upward_shortwave_radiation_flux',
-        description: 'Upward shortwave radiation flux (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        description: 'Upward shortwave radiation flux (available starting from 2025/01/15, but only for assets with forecast_hours > 0)',
         'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'upward_longwave_radiation_flux',
-        description: 'Upward longwave radiation flux (only for assets with forecast_hours > 0 and available starting from January 2025)',
+        description: 'Upward longwave radiation flux (available starting from 2025/01/15, but only for assets with forecast_hours > 0)',
         'gee:units': units.watt_per_meter_squared,
       },
       {
         name: 'planetary_boundary_layer_height',
-        description: 'Planetary boundary layer height (available starting from January 2025)',
+        description: 'Planetary boundary layer height (available starting from 2025/01/15)',
         'gee:units': units.meter,
       },
     ],

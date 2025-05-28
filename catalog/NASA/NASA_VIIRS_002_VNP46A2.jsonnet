@@ -1,4 +1,7 @@
 local id = 'NASA/VIIRS/002/VNP46A2';
+local version = '2';
+local predecessor_id = 'NOAA/VIIRS/001/VNP46A2';
+local latest_id = id;
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -8,8 +11,11 @@ local spdx = import 'spdx.libsonnet';
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -23,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title:
     'VNP46A2: VIIRS Lunar Gap-Filled BRDF Nighttime Lights Daily L3 ' +
     'Global 500m',
-  version: '2',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Suomi National Polar-orbiting Partnership (SNPP) Visible Infrared
@@ -57,6 +63,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP46A2.002',
     },
+    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
+    ee.link.predecessor(
+      predecessor_id,
+      ee_const.catalog_base + 'NOAA/' + predecessor_basename + '.json'),
   ],
   'gee:categories': ['population'],
   keywords: [
@@ -67,6 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'nasa',
     'noaa',
     'viirs',
+    'nighttime',
   ],
   providers: [
     ee.producer_provider('NASA LAADS DAAC', 'https://doi.org/10.5067/VIIRS/VNP46A2.002'),

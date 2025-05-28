@@ -56,6 +56,20 @@ local license = spdx.proprietary;
     like to use it for purposes not currently permitted under the terms of use
     set out below, please contact weathernext@google.com.
 
+    **Dissemination Schedule**
+
+    All steps are released at once. All times are in the UTC time zone and are
+    rough  estimates (with typical ± 15 minutes variance). On occasion, times
+    may vary up to ± 60 minutes or more. If data delivery exceeds +60 minutes,
+    please inform us via weathernext@google.com.
+
+    Forecast runs (init time) | Forecast dissemination schedule
+    :------------------------ | :------------------------------
+    00:00                     | 06:45
+    06:00                     | 12:45
+    12:00                     | 18:45
+    18:00                     | 00:45
+
     **Accessing Raw Data (.zarr)**
 
     A bucket containing the raw .zarr files for the historical dataset

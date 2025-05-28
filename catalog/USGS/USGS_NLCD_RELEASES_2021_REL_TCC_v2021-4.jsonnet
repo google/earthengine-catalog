@@ -1,11 +1,14 @@
-local ee_const = import 'earthengine_const.libsonnet'; 
+local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local versions_table = import 'templates/TCC_versions.libsonnet';
 
 local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
-local version = 'v2021-4';
 local subdir = 'USGS';
+local version_config = versions(subdir, versions_table, id);
+local version = version_config.version;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -20,8 +23,10 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' +
+  '(CONUS and OCONUS) [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Tree Canopy Cover (TCC) data suite. It includes modeled TCC, standard error (SE), and 
@@ -40,7 +45,6 @@ local license = spdx.proprietary;
     *Science TCC is the raw direct model outputs.
 
     *Science SE is the model standard deviation of the predicted values from all regression trees. 
-    
     *The NLCD TCC product undergoes further post processing applied to the annual Science TCC images, 
     which includes several masking (water and non-tree agriculture), filtering, and minimum-mapping unit (MMU) routines, 
     as well as processes that reduce interannual noise and return longer duration trends.  
@@ -139,7 +143,7 @@ local license = spdx.proprietary;
     [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
   ],
   'gee:categories': ['forest-biomass'],
@@ -148,8 +152,6 @@ local license = spdx.proprietary;
     'gtac',
     'landsat_derived',
     'redcastle_resources',
-    'sentinel2_derived',
-    'time_series',
     'usda',
     'usfs',
     'usgs',
