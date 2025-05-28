@@ -127,5 +127,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-  'gee:user_uploaded': true,
+  'gee:user_uploaded': true
 }
