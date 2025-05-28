@@ -26,7 +26,35 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    TODO: Write a description of the dataset
+    Gridded reference evapotranspiration (ETo) data from gridMET (https://www
+    .climatologylab.org/gridmet.html) and weather data from agriculturally
+    located weather stations were used to to create monthly bias correction
+    surfaces that can be used to correct or examine gridMET ETo bias. Like
+    other gridded weather datasets, gridMET may exhibit bias over irrigated
+    agriculture due to the cooling effects of irrigation and feedbacks
+    between the land surface and atmosphere that are not well accounted for
+    in the underlying data and methods of gridded weather data production.
+    For example, gridded datasets, including gridMET, incorporate data from
+    observational networks that include non agricultural observations.
+
+    To produce this asset, weather station data was collected from
+    approximately 800 agricultural weather stations that met the well-watered
+    criteria, their data were subject to quality assurance and quality
+    control using the agweather-qaqc Python package (https://github
+    .com/WSWUP/agweather-qaqc), and the American Society of Civil Engineers
+    (ASCE) standardized Penman-Monteith ETo equation was used to estimate
+    ETo for a grass reference crop. The station data were temporally paired
+    with gridMET ASCE ETo data at their respective locations and long-term
+    bias ratios were calculated using the gridwxcomp Python package
+    (https://github.com/WSWUP/gridwxcomp). The monthly bias ratios between
+    station and gridMET ETo were then spatially interpolated using an
+    exponential kriging model with a parameterized semivariogram with a 3
+    station minimum for each point. The kriging resolution was 12 km and was
+    performed in the Lambert Conformal Conic projected coordinate reference
+    system. The interpolated monthly correction surfaces were bilinearly
+    resampled to 4 km and reprojected to WGS 84 geographic coordinate
+    reference system, to match gridMET. The surfaces were then used to
+    correct daily and monthly gridMET ETo images.
 
     [Additional information](https://etdata.org/methodologies/)
   |||,
@@ -85,7 +113,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   # TODO: Add a DOI once we have a citation
-  'sci:doi': ,
+  'sci:doi': '',
   'sci:citation': |||
     TODO: Add a citation
   |||,
@@ -100,5 +128,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-  'gee:user_uploaded': true
+  'gee:user_uploaded': true,
 }
