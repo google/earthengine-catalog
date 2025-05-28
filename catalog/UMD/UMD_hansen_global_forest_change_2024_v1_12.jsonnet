@@ -6,7 +6,7 @@ local versions = import 'versions.libsonnet';
 local version_table = import 'UMD_hansen_global_forest_change_versions.libsonnet';
 
 local subdir = 'UMD';
-local id = 'UMD/hansen/global_forest_change_2023_v1_11';
+local id = 'UMD/hansen/global_forest_change_2024_v1_12';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
@@ -21,9 +21,9 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Hansen Global Forest Change v1.11 (2000-2023) [deprecated]',
+  title: 'Hansen Global Forest Change v1.12 (2000-2024)',
   version: version,
-  'gee:status': 'deprecated',
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
   description: |||
     Results from time-series analysis of Landsat images in characterizing
@@ -35,7 +35,7 @@ local license = spdx.cc_by_4_0;
     observations from a set of quality-assessed growing-season observations for
     each of these bands.
 
-    Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2023-v1.11/download.html)
+    Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2024-v1.12/download.html)
     for this Version 1.11 update, as well as the associated journal article:
     Hansen, Potapov, Moore, Hancher et al. "High-resolution global maps of
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
@@ -56,7 +56,7 @@ local license = spdx.cc_by_4_0;
     ee.producer_provider('Hansen/UMD/Google/USGS/NASA', 'https://glad.earthengine.app/view/global-forest-change'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
+  extent: ee.extent_global('2000-01-01T00:00:00Z', '2024-12-31T00:00:00Z'),
   summaries: {
     gsd: [
       30.92,
@@ -124,6 +124,16 @@ local license = spdx.cc_by_4_0;
           ],
           total_bit_count: 1,
         },
+      },
+      {
+        name: 'lossyear',
+        description: |||
+          Year of gross forest cover loss event. Forest loss during the study
+          period, defined as a stand-replacement disturbance, or a change from a
+          forest to non-forest state. Encoded as either 0 (no loss) or else a value
+          in the range 1-24, representing loss detected primarily in the year
+          2001-2024, respectively.
+        |||,
       },
       {
         name: 'first_b30',
@@ -233,16 +243,6 @@ local license = spdx.cc_by_4_0;
           total_bit_count: 2,
         },
       },
-      {
-        name: 'lossyear',
-        description: |||
-          Year of gross forest cover loss event. Forest loss during the study
-          period, defined as a stand-replacement disturbance, or a change from a
-          forest to non-forest state. Encoded as either 0 (no loss) or else a value
-          in the range 1-23, representing loss detected primarily in the year
-          2001-2023, respectively.
-        |||,
-      },
     ],
     'gee:visualizations': [
       {
@@ -283,7 +283,7 @@ local license = spdx.cc_by_4_0;
     },
     lossyear: {
       minimum: 0.0,
-      maximum: 23.0,
+      maximum: 24.0,
       'gee:estimated_range': false,
     },
   },
