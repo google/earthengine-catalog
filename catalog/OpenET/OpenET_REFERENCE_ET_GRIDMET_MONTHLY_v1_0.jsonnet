@@ -1,6 +1,6 @@
-local id = 'OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0';
+local id = 'OpenET/REFERENCE_ET/CONUS/GRIDMET/MONTHLY/v1_0';
 local subdir = 'OpenET';
-local version = '2.0';
+local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -22,216 +22,75 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET Ensemble Monthly Evapotranspiration v' + version,
+  title: 'OpenET Bias Corrected GRIDMET Monthly Reference Evapotranspiration v' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The OpenET dataset includes satellite-based data on the total amount of
-    water that is transferred from the land surface to the atmosphere through
-    the process of evapotranspiration (ET). OpenET provides ET data from
-    multiple satellite-driven models, and also calculates a single "ensemble
-    value" from the model ensemble. The models currently included in the OpenET
-    model ensemble are ALEXI/DisALEXI, eeMETRIC, geeSEBAL, PT-JPL, SIMS, and
-    SSEBop. The OpenET ensemble ET value is calculated as the mean of the
-    ensemble after filtering and removing outliers using the median absolute
-    deviation approach. All models currently use Landsat satellite data to
-    produce ET data at a pixel size of 30 meters by 30 meters (0.22 acres per
-    pixel). The monthly ET dataset provides data on total ET by month as an
-    equivalent depth of water in millimeters.
+    Gridded reference evapotranspiration (ETo) data from gridMET (https://www
+    .climatologylab.org/gridmet.html) and weather data from agriculturally
+    located weather stations were used to to create monthly bias correction
+    surfaces that can be used to correct or examine gridMET ETo bias. Like
+    other gridded weather datasets, gridMET may exhibit bias over irrigated
+    agriculture due to the cooling effects of irrigation and feedbacks
+    between the land surface and atmosphere that are not well accounted for
+    in the underlying data and methods of gridded weather data production.
+    For example, gridded datasets, including gridMET, incorporate data from
+    observational networks that include non agricultural observations.
 
-    [Additional information](https://openetdata.org/methodologies/)
+    To produce this asset, weather station data was collected from
+    approximately 800 agricultural weather stations that met the well-watered
+    criteria, their data were subject to quality assurance and quality
+    control using the agweather-qaqc Python package (https://github
+    .com/WSWUP/agweather-qaqc), and the American Society of Civil Engineers
+    (ASCE) standardized Penman-Monteith ETo equation was used to estimate
+    ETo for a grass reference crop. The station data were temporally paired
+    with gridMET ASCE ETo data at their respective locations and long-term
+    bias ratios were calculated using the gridwxcomp Python package
+    (https://github.com/WSWUP/gridwxcomp). The monthly bias ratios between
+    station and gridMET ETo were then spatially interpolated using an
+    exponential kriging model with a parameterized semivariogram with a 3
+    station minimum for each point. The kriging resolution was 12 km and was
+    performed in the Lambert Conformal Conic projected coordinate reference
+    system. The interpolated monthly correction surfaces were bilinearly
+    resampled to 4 km and reprojected to WGS 84 geographic coordinate
+    reference system, to match gridMET. The surfaces were then used to
+    correct daily and monthly gridMET ETo images.
+
+    [Additional information](https://etdata.org/methodologies/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  'gee:categories': ['water-vapor'],
   keywords: [
+    'conus',
     'evapotranspiration',
     'gridmet_derived',
-    'landsat_derived',
     'monthly',
     'openet',
     'water',
   ],
   providers: [
-    ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
+    ee.producer_provider('OpenET, Inc.', 'https://etdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '1999-10-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '2016-01-01T00:00:00Z', null),
   summaries: {
-    'gee:schema': [
-      {
-        name: 'build_date',
-        description: 'Date assets were built',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'core_version',
-        description: 'OpenET core library version',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'end_date',
-        description: 'End date of month',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'mgrs_tile',
-        description: 'MGRS grid zone ID',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'start_date',
-        description: 'Start date of month',
-        type: ee_const.var_type.string,
-      },
-    ],
-    gsd: [30],
+    gsd: [4000],
     'eo:bands': [
       {
-        name: 'et_ensemble_mad',
-        description: |||
-          Ensemble ET value, computed as the mean of the ensemble
-          after filtering outliers using the median absolute deviation (mad)
-        |||,
+        name: 'eto',
+        description: 'ASCE Standardized Grass Reference ET',
         'gee:units': units.millimeter,
       },
+
       {
-        name: 'et_ensemble_mad_min',
-        description: |||
-           The minimum value in the ensemble range, after filtering for
-           outliers using the median absolute deviation (mad)
-        |||,
-        'gee:units': units.millimeter,
-      },
-      {
-        name: 'et_ensemble_mad_max',
-        description: |||
-           The maximum value in the ensemble range, after filtering for
-           outliers using the median absolute deviation (mad)
-        |||,
-        'gee:units': units.millimeter,
-      },
-      {
-        name: 'et_ensemble_mad_count',
-        description: |||
-           The number of models used to compute the ensemble ET value, after
-           filtering for outliers using the median absolute deviation (mad)
-        |||,
-      },
-      {
-        name: 'et_ensemble_mad_index',
-        description: |||
-           Bitmask indicating which models were included in the ensemble ET
-           value, after filtering for outliers using the median absolute
-           deviation (mad)
-        |||,
-        'gee:bitmask': {
-          bitmask_parts: [
-            {
-              description: 'DisALEXI included in ensemble',
-              first_bit: 0,
-              bit_count: 1,
-              values: [
-                {
-                  value: 0,
-                  description: 'No',
-                },
-                {
-                  value: 1,
-                  description: 'Yes',
-                },
-              ],
-            },
-            {
-              description: 'EEMETRIC included in ensemble',
-              first_bit: 1,
-              bit_count: 1,
-              values: [
-                {
-                  value: 0,
-                  description: 'No',
-                },
-                {
-                  value: 1,
-                  description: 'Yes',
-                },
-              ],
-            },
-            {
-              description: 'GEESEBAL included in ensemble',
-              first_bit: 2,
-              bit_count: 1,
-              values: [
-                {
-                  value: 0,
-                  description: 'No',
-                },
-                {
-                  value: 1,
-                  description: 'Yes',
-                },
-              ],
-            },
-            {
-              description: 'PTJPL included in ensemble',
-              first_bit: 3,
-              bit_count: 1,
-              values: [
-                {
-                  value: 0,
-                  description: 'No',
-                },
-                {
-                  value: 1,
-                  description: 'Yes',
-                },
-              ],
-            },
-            {
-              description: 'SIMS included in ensemble',
-              first_bit: 4,
-              bit_count: 1,
-              values: [
-                {
-                  value: 0,
-                  description: 'No',
-                },
-                {
-                  value: 1,
-                  description: 'Yes',
-                },
-              ],
-            },
-            {
-              description: 'SSEBop included in ensemble',
-              first_bit: 5,
-              bit_count: 1,
-              values: [
-                {
-                  value: 0,
-                  description: 'No',
-                },
-                {
-                  value: 1,
-                  description: 'Yes',
-                },
-              ],
-            },
-          ],
-          total_bit_count: 6,
-        },
-      },
-      {
-        name: 'et_ensemble_sam',
-        description:
-           'The simple arithmetic mean (sam) of all six models in the OpenET' +
-           'model ensemble',
+        name: 'etr',
+        description: 'ASCE Standardized Alfalfa Reference ET',
         'gee:units': units.millimeter,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'OpenET Ensemble Monthly ET',
+        display_name: 'OpenET Bias Corrected GRIDMET Monthly Grass Reference ET',
         lookat: {
           lat: 38,
           lon: -100,
@@ -239,38 +98,30 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
         image_visualization: {
           band_vis: {
-            min: [0],
-            max: [1400],
+            min: [500],
+            max: [2200],
             palette: [
               '9e6212', 'ac7d1d', 'ba9829', 'c8b434', 'd6cf40', 'bed44b',
               '9fcb51', '80c256', '61b95c', '42b062', '45b677', '49bc8d',
               '4dc2a2', '51c8b8', '55cece', '4db4ba', '459aa7', '3d8094',
               '356681', '2d4c6e',
             ],
-            bands: ['et_ensemble_mad'],
+            bands: ['eto'],
           },
         },
       },
     ],
   },
-  'sci:doi': '10.1111/1752-1688.12956',
+  'sci:doi': '',
   'sci:citation': |||
-    Melton, F., Huntington, J., Grimm, R., Herring, J., Hall, M., Rollison, D.,
-    Erickson, T., Allen, R., Anderson, M., Fisher, J., Kilic, A., Senay, G.,
-    volk, J., Hain, C., Johnson, L., Ruhoff, A., Blankenau, P., Bromley, M.,
-    Carrara, W., Daudert, B., Doherty, C., Dunkerly, C., Friedrichs, M., Guzman,
-    A., Halverson, G., Hansen, J., Harding, J., Kang, Y., Ketchum, D., Minor,
-    B., Morton, C., Revelle, P., Ortega-Salazar, S., Ott, T., Ozdogon, M.,
-    Schull, M., Wang, T., Yang, Y., Anderson, R., 2021. OpenET: Filling a
-    Critical Data Gap in Water Management for the Western United States.
-    Journal of the American Water Resources Association, 2021 Nov 2.
-    [doi:10.1111/1752-1688.12956](https://doi.org/10.1111/1752-1688.12956)
+    ''
   |||,
+  'sci:publications': [''],
   'gee:interval': {
     type: 'cadence',
     unit: 'month',
     interval: 1,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-  'gee:user_uploaded': true,
+  'gee:user_uploaded': true
 }
