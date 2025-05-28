@@ -34,6 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     a non-forest land use (e.g., deforestation).  The *dominant* driver is defined as the 
     direct driver that caused the majority of tree cover loss within each 1 km cell over the time 
     period. Classes are defined as follows:
+
     * Permanent agriculture: Long-term, permanent tree cover loss for small- to large-scale agriculture. 
     This includes perennial tree crops, as well as pasture and seasonal crops and cropping systems, 
     which may include a fallow period. Agricultural activities are considered "permanent" if there 
@@ -190,8 +191,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 
-  // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
   license: license.id,
   links: ee.standardLinks(subdir, id),
