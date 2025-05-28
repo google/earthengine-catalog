@@ -111,14 +111,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  # TODO: Add a DOI once we have a citation
   'sci:doi': '',
   'sci:citation': |||
-    TODO: Add a citation
+    ''
   |||,
   'sci:publications': [
     {
-      TODO: Add some publications
+      ''
     },
    ],
   'gee:interval': {
