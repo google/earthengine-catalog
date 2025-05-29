@@ -24,6 +24,7 @@ local self_url = base_url + base_filename;
     // TODO(google): Enable link when changing gee:status
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_2001_2022', base_url),
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_1_2001_2023', base_url),
+    ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_2_2001_2024', base_url),
   ]
 } 
 
