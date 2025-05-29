@@ -190,6 +190,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 
+  'gee:status': 'beta',
+
   'gee:type': ee_const.gee_type.image,
   license: license.id,
   links: ee.standardLinks(subdir, id),
