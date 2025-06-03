@@ -1,4 +1,4 @@
-local id = 'JAXA/ALOS/AW3D30/V3_2';
+local id = 'JAXA/ALOS/AW3D30/V4_1';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/AW3D30_versions.libsonnet';
 
@@ -23,23 +23,47 @@ local license = spdx.proprietary {
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ALOS DSM: Global 30m  v' + version + ' [deprecated]',
+  title: 'ALOS DSM: Global 30m  v' + version,
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'deprecated',
   description: |||
     ALOS World 3D - 30m (AW3D30) is a global digital surface
     model (DSM) dataset with a horizontal resolution of approximately
     30 meters (1 arcsec mesh). The dataset is based on the DSM dataset
     (5-meter mesh version) of the [World 3D Topographic Data](https://www.aw3d.jp/en/).
-    More details are available in the dataset [documentation](https://www.eorc.jaxa.jp/ALOS/en/aw3d30/aw3d30v11_format_e.pdf).
+    More details are available in the dataset [documentation](https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/data/aw3d30v4.1_product_e_1.0.pdf).
 
-    Version 3.2, released in January 2021, is an improved version created by reconsidering
-    the format in the high latitude area, auxiliary data, and processing method. Different pixel
-    spacing for each latitude zone was adopted at high latitude area. Coastline data, which is one
-    of the auxiliary datasets, was changed, and new supplementary data was used. In addition, as a
-    source data for Japan, AW3D version 3 was also used. Furthermore, the method of detecting
-    anomalous values in the process was improved.
+    This ingested dataset combines data from versions 3.1, 4.0, and 4.1.
+
+    Version 4.1 (April 2024): This major update released 19,051 tiles covering
+    global regions (excluding Antarctica and Japan). It incorporates new
+    supplementary data for void filling and corrects partial anomalies found in
+    versions 3.1 and 3.2, along with re-filling voids. For specific tile updates
+    in v4.1, please use the v4.1 filter on map tiles or consult the latest
+    format description.
+
+    Version 4.0 (April 2023): This update released 1,886 tiles, improving low
+    and mid-latitude regions and areas south of 60 degrees latitude.
+
+    Key changes include:
+    1. New supplementary data for void filling.
+    2. Correction of partial anomalies and re-filling of voids (2 tiles).
+    3. Updated coastlines for regions south of 60 degrees latitude (44 tiles).
+    4. Disabled Caspian Sea water mask and supplemented with elevation data
+      (54 tiles).
+    5. Extracted and corrected new partial anomaly areas in South America
+      (1,786 tiles).
+    6. For detailed tile information for v4.0, please use the v4.0 filter on
+      map tiles or refer to the format description.
+
+    Version 3.2, released in January 2021, is an improved version created by
+    reconsidering the format in the high latitude area, auxiliary data, and
+    processing method. Different pixel spacing for each latitude zone was
+    adopted at high latitude area. Coastline data, which is one of the
+    auxiliary datasets, was changed, and new supplementary data was used. In
+    addition, as a source data for Japan, AW3D version 3 was also used.
+    Furthermore, the method of detecting anomalous values in the process was
+    improved.
 
     Note: See the code example for the recommended way of computing slope.
     Unlike most DEMs in Earth Engine, this is an image collection due to
@@ -52,17 +76,6 @@ local license = spdx.proprietary {
     mask information. However, mismatched points sometimes
     remain especially surrounding (or at the edges of) clouds, snow,
     and ice areas, which cause some height errors in the final DSM.
-
-    Here are some example areas with data values outside of valid elevation
-    range. Impossibly low negative values are concentrated in Antarctica around
-    (-63.77, -61.660), (-77.22, -150.27), and (-73.29, 168.14); in Indonesia
-    around (-5.36, 134.55); in Brazil around (-1.667113844, -50.6269684);
-    and in Peru around (-10.45048137, -75.39459876) with approximate values of
-    -1013, -998, -635, and -610 respectively. Impossibly high
-    positive values are found in several locations in the Arctic around
-    (79.83, -77.67) and (69.54, -75.42); in Fiji around (-16.58, 179.44)
-    and (-18.96, 178.39); and in Nepal around (28.50, 84.56) with
-    approximate values of 15369, 15213, and 10900 respectively.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -169,6 +182,14 @@ local license = spdx.proprietary {
                   description: 'Void filled with REMA v1.1 (valid).',
                 },
                 {
+                  value: 48,
+                  description: 'Void filled with Copernicus DEM GLO-30 (valid).',
+                },
+                {
+                  value: 52,
+                  description: 'Void filled with ArcticDEM v4 (valid).',
+                },
+                {
                   value: 252,
                   description: 'Void filled with applied IDW method (gdal_fillnodata) (valid)',
                 },
@@ -251,6 +272,14 @@ local license = spdx.proprietary {
         Surface Model Generated by ALOS PRISM, The International Archives
         of the Photogrammetry, Remote Sensing and Spatial Information Sciences,
         ISPRS, Vol. XLI-B4, pp.157-162, 2016. [PDF file](https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLI-B4/157/2016/isprs-archives-XLI-B4-157-2016.pdf)
+      |||,
+    },
+    {
+      citation: |||
+        J. Takaku, T. Tadono, M. Doutsu, F. Ohgushi, and H. Kai, : "Updates of
+        'AW3D30' ALOS Global Digital Surface Model in Antarctica with Other Open
+        Access Datasets", Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci.,
+        XLIII-B4-2021, 401-408, 2021. [PDF file](https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLIII-B4-2021/401/2021/isprs-archives-XLIII-B4-2021-401-2021.pdf)
       |||,
     },
   ],
