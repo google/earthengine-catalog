@@ -1,5 +1,5 @@
 // Request access to this data by filling out the form at: https://forms.gle/jqw4Mvr63dsV1fUF8
-var methaneSATArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L4area")
+var methaneSATArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L4area_v2")
   .filterDate('2024-12-25', '2024-12-26');
 
 // Visualization
