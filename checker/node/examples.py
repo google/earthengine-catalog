@@ -861,6 +861,10 @@ class Check(stac.NodeCheck):
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     if node.type == stac.StacType.CATALOG: return
     if node.id.startswith('TEMPLATE'): return
+    if node.stac.get(stac.GEE_STATUS) in (
+        stac.Status.DEPRECATED, stac.Status.INCOMPLETE
+    ):
+      return
 
     # CCDC is not planned to be made public so far, so it has
     # no examples.
