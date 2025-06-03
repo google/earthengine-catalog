@@ -20,6 +20,10 @@ local solar_zenith_angle_desc = |||
   Data is filtered to include only observations with solar zenith angle
   less than or equal to 80 degrees.
 |||;
+local qa_or_raw_link = |||
+
+  * A version of this dataset without QA filters applied is available as [NASA/TEMPO/NO2_L3](NASA_TEMPO_NO2_L3)
+|||;
 
 tempo_no2_l3_qa.nasa_tempo_no2_collection({
   id:id,
@@ -27,5 +31,6 @@ tempo_no2_l3_qa.nasa_tempo_no2_collection({
   qa_description: qa_description,
   quality_flag_desc: quality_flag_desc,
   effective_cloud_fraction_desc: effective_cloud_fraction_desc,
-  solar_zenith_angle_desc: solar_zenith_angle_desc
+  solar_zenith_angle_desc: solar_zenith_angle_desc,
+  qa_or_raw_link: qa_or_raw_link,
 })

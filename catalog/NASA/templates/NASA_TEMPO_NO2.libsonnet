@@ -76,8 +76,8 @@ local vertical_column_sample_bands() = [
         factor and stratospheric/tropospheric separation calculations, and
         retrieval quality flags. The re-gridding algorithm uses an area-weighted
         approach.
-      ||| + cfg.qa_description + |||
-
+      ||| + cfg.qa_description + cfg.qa_or_raw_link +
+      |||
         * [General Documentation](https://asdc.larc.nasa.gov/documents/tempo/guide/TEMPO_Level-2-3_trace_gas_clouds_user_guide_V1.2.pdf)
       |||,
       license: license.id,
