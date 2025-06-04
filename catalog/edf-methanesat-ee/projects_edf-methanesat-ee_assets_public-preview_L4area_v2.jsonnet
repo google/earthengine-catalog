@@ -165,6 +165,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 14,
   },
   'gee:terms_of_use': importstr 'terms_of_use.md',
+  'gee:status': 'beta',
   'gee:unusual_terms_of_use': true,
   'gee:type': ee_const.gee_type.image_collection,
   'gee:user_uploaded': true,
