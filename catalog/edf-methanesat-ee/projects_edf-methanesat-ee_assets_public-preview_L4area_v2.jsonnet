@@ -69,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [4000],
     'eo:bands': [
       {
-        name: 'flux',
+        name: 'mean_flux',
         description: 'Methane emissions traceable to a 4km^2 area.',
         'gee:units': units.kg_per_hour,
       },
@@ -84,19 +84,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.kg_per_hour,
       },
     ],
-    flux: {minimum: 0, maximum: 625, 'gee:estimated_range': true},
-    lower_bound_flux: {minimum: 0, maximum: 625, 'gee:estimated_range': true},
-    upper_bound_flux: {minimum: 0, maximum: 625, 'gee:estimated_range': true},
-    // TODO: make sure this visualization works with new dataset
+    flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
+    lower_bound_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
+    upper_bound_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
         display_name: 'Methane area sources flux in kg/hr',
-        lookat: { lon: -102.5, lat: 31.85, zoom: 8 },
+        lookat: { lon: -99.82, lat: 28.12, zoom: 9 },
         image_visualization: {
           band_vis: {
             min: [0],
             max: [625],
-            bands: ['flux'],
+            bands: ['B0'],
             palette: ['navy', 'magenta', 'orange', 'yellow'],
           }
         },
