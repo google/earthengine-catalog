@@ -98,6 +98,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('TRMM', base_url),
     ee.link.child_catalog('TUBerlin', base_url),
     ee.link.child_catalog('Tsinghua', base_url),
+    ee.link.child_catalog('UCSB', base_url),
     ee.link.child_catalog('UCSB-CHG', base_url),
     ee.link.child_catalog('UK', base_url),
     ee.link.child_catalog('UMD', base_url),
@@ -128,5 +129,6 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('planet-nicfi', base_url),
     ee.link.child_catalog('sat-io', base_url),
     ee.link.child_catalog('global-pasture-watch', base_url),
+    ee.link.child_catalog('landandcarbon', base_url)
   ],
 }
