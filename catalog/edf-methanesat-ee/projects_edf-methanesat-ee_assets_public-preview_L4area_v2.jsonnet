@@ -107,24 +107,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'mean_total_kg_hr',
         description: 'Total value of area emissions for this collection in ' +
         'kg/hr. Missing values are indicated by -1.',
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.double,
       },
       {
         name: 'total_flux_lower_bound_kg_hr',
         description: 'Lower bound on the 95% confidence interval of the total ' +
         'value of area emissions for this collection in kg/hr.',
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.double,
       },
       {
         name: 'total_flux_upper_bound_kg_hr',
         description: 'Upper bound on the 95% confidence interval of the total ' +
         'value of area emissions for this collection in kg/hr.',
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.double,
       },
       {
         name: 'flux_noise_floor_kg_hr',
         description: 'Below this value, we believe fluxes are indistinguishable from 0.',
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.double,
       },
       {
         name: 'collection_id',
@@ -161,10 +161,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:interval': {
     type: 'cadence',
-    // One of: second, minute, hour, day, week, month, year, custom_time_unit.
-    unit: 'week',
+    unit: 'day',
     // How long the interval is (expressed in units above).
-    interval: 2,
+    interval: 14,
   },
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
@@ -179,7 +178,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   stac_extensions: [
     ee_const.ext_eo,
-    ee_const.ext_sci,
     ee_const.ext_ver,
   ],
 }
