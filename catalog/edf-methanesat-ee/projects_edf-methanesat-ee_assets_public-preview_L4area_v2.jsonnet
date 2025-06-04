@@ -84,7 +84,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.kg_per_hour,
       },
     ],
-    flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
+    mean_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
     lower_bound_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
     upper_bound_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
     'gee:visualizations': [
@@ -95,7 +95,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             min: [0],
             max: [625],
-            bands: ['B0'],
+            bands: ['mean_flux'],
             palette: ['navy', 'magenta', 'orange', 'yellow'],
           }
         },

@@ -4,7 +4,7 @@ var methaneSATArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/publi
 
 // Visualization
 var datasetVis = methaneSATArea.mosaic().visualize({
-  bands: ['B0'],
+  bands: ['mean_flux'],
   min: 0,
   max: 625,
   palette: ['#070088','#a3069b','#cc4e64','#ffa826','#edfb59'],
