@@ -94,6 +94,13 @@ class ValidExamplesTest(test_utils.NodeTest):
         'TIGER/TIGER_2010_BG_preview.js',
         dataset_id=FEATUREVIEW_EXCEPTION_ID, gee_type=TABLE)
 
+  def test_missing_scripts_incomplete_exception(self):
+    self.assert_collection(
+        {'gee:status': 'incomplete'},
+        dataset_id=TABLE_WITHOUT_JS,
+        gee_type=TABLE,
+    )
+
 
 class ErrorExamplesTest(test_utils.NodeTest):
 
