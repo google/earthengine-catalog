@@ -1,14 +1,16 @@
 local id = 'projects/forestdatapartnership/assets/rubber/model_2024a';
 local subdir = 'forestdatapartnership';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/projects_forestdatapartnership_assets_rubber_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_nc_4_0;
-
-local version = '2024a';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -27,7 +29,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Rubber Tree Probability model ' + version,
+  'gee:status': 'deprecated',
+  title: 'Rubber Tree Probability model ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 
@@ -79,7 +82,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',
