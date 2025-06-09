@@ -107,9 +107,18 @@ VAR_LIST = [
     'free_surface_water_on_peat_flux', 'mwrtm_vegopacity'
 ]
 
+index_to_replace = VAR_LIST.index('depth_to_water_table_from_surface_in_peat')
+VAR_V8_LIST = (
+    VAR_LIST[:index_to_replace]
+    + ['depth_to_water_table_from_surface']
+    + VAR_LIST[index_to_replace + 1 :]
+)
 
-def convert(source_h5, target_tif):
+
+def convert(source_h5, target_tif, var_list=None):
   """Converts a SMAP L4 HDF file to a geotiff."""
+  if var_list is None:
+    var_list = VAR_LIST
 
   # Options for gdal_translate
   translate_options = gdal.TranslateOptions(
@@ -126,9 +135,9 @@ def convert(source_h5, target_tif):
   tif_list = []
 
   # convert individual variables to separate GeoTiff files
-  sizeoflist = len(VAR_LIST)
+  sizeoflist = len(var_list)
   for iband in range(0,sizeoflist):
-    var = VAR_LIST[iband]
+    var = var_list[iband]
     sds = smap_lib.gdal_safe_open('HDF5:'+source_h5+'://Geophysical_Data/'+var)
     sds_array = sds.ReadAsArray()
     dst_tmp = '/tmp/tmp'+str(iband+1)+'.tif'
