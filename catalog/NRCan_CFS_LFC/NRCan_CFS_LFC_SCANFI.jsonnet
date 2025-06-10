@@ -64,7 +64,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // add it but comment it out.
   keywords: [
     'forest',
-    'tree-cover',
+    //'tree-cover',
+    'forest_inventory_and_analysis',
+    'forest_type',
     'canada',
     //'forest attributes',
     //'tree species',
