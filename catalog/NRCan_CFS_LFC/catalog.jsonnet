@@ -19,7 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('NRCan_CFS_LFC_SCANFI_v1_2', base_url),
+    ee.link.child_collection('NRCan_CFS_LFC', base_url),
   ],
 }
 
