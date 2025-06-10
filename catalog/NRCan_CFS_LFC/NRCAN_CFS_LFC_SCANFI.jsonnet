@@ -1,5 +1,5 @@
-local id = 'NRCAN_CFS_LFC/SCANFI';
-local subdir = 'NRCAN_CFS_LFC';
+local id = 'NRCan_CFS_LFC/SCANFI';
+local subdir = 'NRCan_CFS_LFC';
 local version = '1.2';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -150,7 +150,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.percent,
       },
       {
-        name: 'Balsam_fir',
+        name: 'balsamFir',
         description: 'Balsam fir (%): estimated as the proportion of the canopy covered by Abies balsamea',
         'gee:units': units.percent,
       },
@@ -220,25 +220,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       // Example with one band and a palette for the colors.
       {
-        display_name: 'SCANFI land cover',
-        lookat: {lon: -122, lat: 39, zoom: 14},
+        display_name: 'SCANFI Balsam Fir Percentage',
+        lookat: {lon: -94, lat: 56, zoom: 5},
         image_visualization: {
           band_vis: {
-            min: [1],
-            max: [8],
-            // Use W3C color names or 6-character hex (e.g., green is 00ff00).
-            // https://www.w3.org/wiki/CSS/Properties/color/keywords
-            palette: [
-              'e64bfa',
-              'e7e56c',
-              '000000',
-              'bd0006',
-              '95ea4b',
-              '048e4e',
-              '16d132',
-              '3be5ff'
-            ],
-            bands: ['Landcover'],
+            min: [0],
+            max: [100],
+            palette: ['ffffff', '05ff09'],
+            bands: ['balsamFir'],
           },
         },
       },
@@ -247,24 +236,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // The scientific extension.
   // The best DOI that describes the *data*.
   // Only use a research paper DOI if there is no dataset or data paper DOI.
-  'sci:doi': '10.1234/TODO_DOI_STRING',
+  'sci:doi': '10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc',
   // Use APA style for citations and publications. https://apastyle.apa.org/
   'sci:citation': |||
-    AuthorLast, A. B., C. D., Author2Last and E. F. Author3Last: YEAR,
-    The Title of the Publication, Journal, Volume, Number, pages.
-    [doi:TODO_DOI_STRING](https://doi.org/TODO_DOI_STRING),
+     Guindon L., Villemaire P., Correia D.L.P., Manka F., Lacarte S., Smiley B. 2023. SCANFI: Spatialized CAnadian National Forest Inventory data product. Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada. https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc
   |||,
-  // Additional citations go here.
-  'sci:publications': [
-    {
-      citation: |||
-        AuthorLast, A. B., C. D., Author2Last and E. F. Author3Last: YEAR,
-        The Title of the Publication, Journal, Volume, Number, pages.
-        [doi:TODO_DOI_STRING](https://doi.org/TODO_DOI_STRING),
-      |||,
-      doi: '10.1234/TODO_DOI_STRING',
-    },
-  ],
 
   // For standard SPDX licenses, use:
   // 'gee:terms_of_use': ee.gee_terms_of_use(license),
