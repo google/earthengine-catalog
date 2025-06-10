@@ -86,17 +86,6 @@ class Raster:
 
 
 RASTERS = (
-    Raster('QCExtn', FLAG_FILL, QC_ALL),
-    Raster('QCTest', FLAG_FILL, QC_ALL),
-    Raster('QCInput', FLAG_FILL, QC_ALL),
-    Raster('QCPath', FLAG_FILL, QC_ALL),
-    Raster('QCRet', FLAG_FILL, QC_ALL),
-    Raster(QC_ALL, FLAG_FILL, QC_ALL),
-    Raster('QCAE', FLAG_FILL, QC_ALL),
-    Raster('FineMdlIdx', INDEX_FILL, AOD_550),
-    Raster('CoarseMdlIdx', INDEX_FILL, AOD_550),
-    Raster('FineModWgt', DATA_FILL, AOD_550),
-    Raster('AerMdl', INDEX_FILL, AOD_550),
     Raster(AOD_550, DATA_FILL, AOD_550),
     Raster('AOD_channel', DATA_FILL, AOD_550, SENSOR_CHANNELS),
     Raster('AngsExp1', DATA_FILL, AOD_550),
@@ -106,6 +95,17 @@ RASTERS = (
     Raster('Residual', DATA_FILL, AOD_550),
     Raster('AOD550LndMdl', DATA_FILL, AOD_550, LAND_AEROSOL_MODELS),
     Raster('ResLndMdl', DATA_FILL, AOD_550, LAND_AEROSOL_MODELS),
+    Raster('FineMdlIdx', INDEX_FILL, AOD_550),
+    Raster('CoarseMdlIdx', INDEX_FILL, AOD_550),
+    Raster('FineModWgt', DATA_FILL, AOD_550),
+    Raster('AerMdl', INDEX_FILL, AOD_550),
+    Raster(QC_ALL, FLAG_FILL, QC_ALL),
+    Raster('QCAE', FLAG_FILL, QC_ALL),
+    Raster('QCExtn', FLAG_FILL, QC_ALL),
+    Raster('QCTest', FLAG_FILL, QC_ALL),
+    Raster('QCInput', FLAG_FILL, QC_ALL),
+    Raster('QCPath', FLAG_FILL, QC_ALL),
+    Raster('QCRet', FLAG_FILL, QC_ALL),
 )
 
 

@@ -715,6 +715,7 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'UMD/UMD_hansen_global_forest_change_2021_v1_9',
     'UMD/UMD_hansen_global_forest_change_2022_v1_10',
     'UMD/UMD_hansen_global_forest_change_2023_v1_11',
+    'UMD/UMD_hansen_global_forest_change_2024_v1_12',
     'UMN/UMN_PGC_ArcticDEM_V2_2m',
     'UMN/UMN_PGC_ArcticDEM_V2_5m',
     'UMN/UMN_PGC_ArcticDEM_V3_2m',
@@ -861,6 +862,8 @@ class Check(stac.NodeCheck):
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     if node.type == stac.StacType.CATALOG: return
     if node.id.startswith('TEMPLATE'): return
+    if node.stac.get(stac.GEE_STATUS) == stac.Status.INCOMPLETE:
+      return
 
     # CCDC is not planned to be made public so far, so it has
     # no examples.
