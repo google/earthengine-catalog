@@ -80,6 +80,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('Netherlands', base_url),
     ee.link.child_catalog('NOAA', base_url),
     ee.link.child_catalog('NRCan', base_url),
+    ee.link.child_catalog('NRCan_CFS_LFC', base_url),
     ee.link.child_catalog('OREGONSTATE', base_url),
     ee.link.child_catalog('OSU', base_url),
     ee.link.child_catalog('OpenET', base_url),
