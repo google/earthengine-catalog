@@ -4,12 +4,8 @@ local subdir = 'GLIMS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local configs = import 'GLIMS_versions.libsonnet';
 
 local license = spdx.proprietary;
-
-local version = '20230607';
-local config = configs[version];
 
 local license = spdx.proprietary;
 
@@ -26,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'GLIMS Current: Global Land Ice Measurements From Space',
-  version: version,
+  version: 'current',
   'gee:type': ee_const.gee_type.table,
   description: |||
     Global Land Ice Measurements from Space (GLIMS) is
@@ -52,8 +48,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
-    ee.link.latest(config.latest_id, config.latest_url),
-    ee.link.predecessor(config.predecessor_id, config.predecessor_url),
     {
       rel: ee_const.rel.source,
       href: 'https://daacdata.apps.nsidc.org/pub/DATASETS/nsidc0272_GLIMS_v1/',
