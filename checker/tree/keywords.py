@@ -57,6 +57,7 @@ EXCEPTIONS = frozenset({
     'climatic_water_balance',
     'cloudtostreet',
     'cocoa',
+    'coffee',
     'coldest',
     'condensation',
     'coral',

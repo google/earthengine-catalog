@@ -52,6 +52,7 @@
   'Oxford/MAP/TCW_5km_Monthly',
   'projects/forestdatapartnership/assets/palm',
   'projects/forestdatapartnership/assets/cocoa',
+  'projects/forestdatapartnership/assets/coffee',
   'projects/forestdatapartnership/assets/rubber',
   'UN/Geodata/BNDA_simplified/current',
   'WCMC/WDOECM',
