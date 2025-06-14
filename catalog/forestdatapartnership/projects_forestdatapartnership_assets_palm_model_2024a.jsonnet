@@ -29,7 +29,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Palm Probability model ' + version,
+  'gee:status': 'deprecated',
+  title: 'Palm Probability model ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 
@@ -52,7 +53,7 @@ local self_url = catalog_subdir_url + base_filename;
     and restoration. 
 
     **Note that this dataset has separate terms of use for commercial users of 
-    Earth Engine.  Please see “Terms of Use” tab for details.**
+    Earth Engine.  Please see "Terms of Use" tab for details.**
 
     This community data product is meant to evolve over time, as more data
     becomes available from the community and the model used to produce the
@@ -112,14 +113,15 @@ local self_url = catalog_subdir_url + base_filename;
       },
     ],
   },
+  'sci:doi': '10.48550/arXiv.2405.09530',
   'sci:citation': |||
-    N. Clinton, et al. A community palm model. 2024. [Online](https://goo.gle/a_community_palm_model)
+    N. Clinton, et al. A community palm model. 2024. [Online](https://doi.org/10.48550/arXiv.2405.09530)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license) + |||
 
     For non-commercial users of Earth Engine, use of the dataset is subject to 
     CC-BY 4.0 NC license and requires the following attribution: 
-    “Produced by Google for the Forest Data Partnership”. 
+    "Produced by Google for the Forest Data Partnership". 
 
     For commercial use of the dataset you may request access using 
     [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform).
