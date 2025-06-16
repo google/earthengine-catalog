@@ -92,14 +92,7 @@ local self_url = catalog_subdir_url + base_filename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(
-    -11.35,
-    0.61,
-    18.17,
-    14.51,
-    '2020-01-01T00:00:00Z',
-    '2023-12-31T23:59:59Z'
-  ),
+  extent: ee.extent_global('2020-01-01T00:00:00Z', '2023-12-31T23:59:59Z'),
   summaries: {
     'eo:bands': [
       {
