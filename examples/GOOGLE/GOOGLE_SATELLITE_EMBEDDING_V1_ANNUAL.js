@@ -15,7 +15,7 @@ var image2 = dataset
       .filterBounds(point)
       .first();
 
-// Visualize three axes of the emedding space as an RGB.
+// Visualize three axes of the embedding space as an RGB.
 var visParams = {min: -0.3, max: 0.3, bands: ['A01', 'A16', 'A09']};
 
 Map.addLayer(image1, visParams, '2023 embeddings');
