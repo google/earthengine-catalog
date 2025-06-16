@@ -47,6 +47,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     data for two different configurations that can be differentiated by further
     filtering on the *grid_label* property.
 
+    Bands are updated based on version precedence: version 1.2 replaces any
+    existing version, version 1.1 is used if 1.2 is not present, otherwise the
+    existing version is kept.
+
     See also
     [the provider tech note](https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf).
 
@@ -198,6 +202,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           plus the midpoint day in leap years.
         |||,
         type: ee_const.var_type.string,
+      },
+      {
+        name: 'version',
+        description: |||
+          The version of the asset, possible values are 1.0, 1.1 and 1.2
+        |||,
+        type: ee_const.var_type.double,
       },
     ],
     gsd: [
