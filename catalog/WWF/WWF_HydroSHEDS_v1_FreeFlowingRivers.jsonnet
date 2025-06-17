@@ -122,7 +122,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CON_ID',
         description: |||
-          Identifier for the continent to which the reach beINTs. Continent boundaries are
+          Identifier for the continent to which the reach belongs. Continent boundaries are
           delineated based on HydroBASINS.
            * 1 = North America
            * 2 = South America
@@ -160,7 +160,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CSI_FF1',
         description: |||
-          Free-flowing status (two categories). Indicates river reaches that beINT to a
+          Free-flowing status (two categories). Indicates river reaches that belong to a
           river with "freeflowing" status (value = 1) or "non-free-flowing" status (value = 3).
           Note that the value 2 is reserved for river stretches with "good connectivity"
           status (see CSI_FF2).
@@ -170,7 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'CSI_FF2',
         description: |||
-          Free-flowing status (three categories). Indicates river reaches that beINT
+          Free-flowing status (three categories). Indicates river reaches that belong
           to a river with "free flowing" status (value = 1), or a river stretch with
           "good connectivity" status (value = 2) or a river or river stretch with
           "impacted" status(value = 3).
@@ -184,7 +184,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'DIS_AV_CMS',
-        description: 'Average INT-term (1971-2000) naturalized discharge in cubic meters per second (CMS).',
+        description: 'Average long-term (1971-2000) naturalized discharge in cubic meters per second (CMS).',
         type: ee_const.var_type.double,
       },
       {
@@ -202,7 +202,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Sum of erosion in tons per year per river reach. Calculated as the sum
           of sediment erosion within the river reach catchment (i.e., sediment erosion
-          is not accumulated aINT the river network).
+          is not accumulated along the river network).
         |||,
         type: ee_const.var_type.double,
       },
@@ -218,7 +218,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'HYFALL',
-        description: 'Indicates the presence (1) or absence (0) of one or more waterfalls\naINT the river reach.',
+        description: 'Indicates the presence (1) or absence (0) of one or more waterfalls\nalong the river reach.',
         type: ee_const.var_type.double,
       },
       {
@@ -275,7 +275,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'RIV_ORD',
         description: |||
-          River order. River order is here defined and calculated based on the INT-term
+          River order. River order is here defined and calculated based on the long-term
           average discharge (DIS_AV_CMS) using logarithmic progression:
            * 1 = > 100000
            * 2 = 10000 - 100000
