@@ -93,7 +93,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   // TODO - b/415819758: Update when all years are available.
-  extent: ee.extent_global('2021-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2020-01-01T00:00:00Z', null),
 
   summaries: {
     'gee:schema': [
