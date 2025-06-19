@@ -2,7 +2,7 @@
 var dataset = ee.ImageCollection('GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL');
 
 // Point of interest.
-var point = ee.Geometry.Point(-120.5122, 37.3596);
+var point = ee.Geometry.Point(-121.8036, 39.0372);
 
 // Get embedding images for two years.
 var image1 = dataset
@@ -21,19 +21,18 @@ var visParams = {min: -0.3, max: 0.3, bands: ['A01', 'A16', 'A09']};
 Map.addLayer(image1, visParams, '2023 embeddings');
 Map.addLayer(image2, visParams, '2024 embeddings');
 
-// Calculate dot product (cosine similarity) to highlight deviations
-// between embedding vectors.
+// Calculate dot product as a measure of similarity between embedding vectors.
+// Note for vectors with a magnitude of 1, this simplifies to the cosine of the
+// angle between embedding vectors.
 var dotProd = image1
     .multiply(image2)
-    .reduce(ee.Reducer.sum())
-    .multiply(-0.5) // scale, and flip sign so positive = more different
-    .add(0.5);      // shift so that 0 = no change, 1 = change
+    .reduce(ee.Reducer.sum());
 
 // Add dot product to the map.
 Map.addLayer(
   dotProd,
-  {min: 0, max: 0.3},
-  'Change between years (brighter=larger deviation)'
+  {min: 0, max: 1, palette: ['white', 'black']},
+  'Similarity between years (brighter = less similar)'
 );
 
 Map.centerObject(point, 12);

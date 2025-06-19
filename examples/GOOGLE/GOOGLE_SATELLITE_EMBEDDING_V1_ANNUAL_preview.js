@@ -8,7 +8,7 @@ var year = 2024;
 var roi = ee.Geometry.Rectangle([-74.3, 40.5, -73.7, 41], null, false);
 
 var image = dataset
-          .filterDate(year.toString() + "-01-01", (year + 1).toString() + "-01-01")
+          .filterDate(year + "-01-01", (year + 1) + "-01-01")
           .filterBounds(roi)
           .first();
 
@@ -23,7 +23,7 @@ var imageParams = {
 
 var thumbnailImage = image.visualize({
   min: -0.25,
-  max:0.25,
+  max: 0.25,
   bands: ['A03', 'A02', 'A04']
 });
 

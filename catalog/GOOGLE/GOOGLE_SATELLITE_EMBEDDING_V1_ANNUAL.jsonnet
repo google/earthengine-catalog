@@ -17,8 +17,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Satellite Embedding V' + version,
   version: version,
 
-  // TODO - b/407615327: Add model name and paper link.
-  // TODO - b/378102183 : Add tutorial link.
   description: |||
     The Google Satellite Embedding dataset is a global, analysis-ready
     collection of learned geospatial [embeddings](https://developers.google.com/machine-learning/crash-course/embeddings/embedding-space).
@@ -28,7 +26,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     pixel as measured by various Earth observation instruments and datasets,
     over a single calendar year. Unlike conventional spectral inputs and
     indices, where bands reflect physical measurements, embeddings are feature
-    vectors that summarize relationships across multi-source, multi-model
+    vectors that summarize relationships across multi-source, multi-modal
     observations in a less directly interpretable, but more powerful way.
 
     The dataset covers terrestrial land surfaces and shallow waters, including
@@ -92,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Google DeepMind', 'https://deepmind.google/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  // TODO - b/415819758: Update when all years are available.
+
   extent: ee.extent_global('2020-01-01T00:00:00Z', null),
 
   summaries: {
@@ -527,9 +525,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  // TODO - b/408074300: Add DOI
-  // 'sci:doi': '10.1234/TODO_DOI_STRING',
-  // TODO - b/408074300: Add citation
+
   // 'sci:citation': |||
   //   Brown, C.F., Kazmierski, M. R., Pasquarella, V. J. et. al. TITLE: 2025,
   //   The Title of the Publication, Journal, Volume, Number, pages.
@@ -572,7 +568,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_eo,
     // For synthetic aperture radar (SAR)
     // ee_const.ext_sar,
-    // TODO - b/408074300: Uncomment when we have a citation.
     // ee_const.ext_sci,
     // Include the version extension if the dataset uses any of:
     // - the deprecated fields
