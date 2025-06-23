@@ -1,4 +1,4 @@
-local id = 'projects/malariaatlasproject/assets/LST_Night_v061/5km/8-Daily';
+local id = 'projects/malariaatlasproject/assets/LST_Night_v061/1km/8-Daily';
 local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: '8-Daily LST Night: Malaria Atlas Project Gap-Filled Nighttime Land Surface Temperature',
+  title: '8-Daily 1km LST Night: Malaria Atlas Project Gap-Filled Nighttime Land Surface Temperature',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -30,6 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['climate'],
   keywords: [
     'map',
     'lst', 'surface_temperature'

@@ -1,4 +1,4 @@
-local id = 'projects/malariaatlasproject/assets/TCB_v061/5km/Annual';
+local id = 'projects/malariaatlasproject/assets/LST_Day_v061/1km/Annual';
 local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,29 +20,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Annual TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness',
+  title: 'Annual 1km LST Day: Malaria Atlas Project Gap-Filled Daytime Land Surface Temperature',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This gap-filled Tasseled Cap Brightness (TCB) dataset was created by
-    applying the tasseled-cap equations defined in Lobser and Cohen (2007) to
-    MODIS BRDF-corrected imagery (MCD43B4). The resulting data were gap-filled
-    using the approach outlined in Weiss et al. (2014) to eliminate missing
-    data caused by factors such as cloud cover, and then the data were
-    aggregated temporally and spatially to produce the monthly &asymp;5km product.
+    Daytime Land Surface Temperature (LST) are derived from the ~1km MODIS [MOD11A2 v6.1](https://lpdaac.usgs.gov/products/mod11a2v061/) products. The 8-daily composites are converted to degrees Celsius and then gap-filled using the approach outlined in [Weiss et al (2014)](https://doi.org/10.1016/j.isprsjprs.2014.10.001) to eliminate missing data caused by factors such as cloud cover.  
 
+    The gap-filled 8-daily ~1km outputs are then aggregated temporally and spatially to produce monthly and annual ~5km products.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['climate'],
   keywords: [
     'map',
-    'tcb', 'vegetation', 'tasseled_cap', 'brightness'
+    'lst', 'surface_temperature'
   ],
   providers: [
     ee.producer_provider('The Malaria Atlas Project', 'https://www.malariaatlas.org'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2001-02-01T00:00:00Z' , null),
+  extent: ee.extent_global('2001-03-01T00:00:00Z' , null),
   summaries: {
     gsd: [
       5000.0,
@@ -50,13 +47,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'Mean',
-        description: 'The mean value of Tasseled Cap Brightness for each aggregated pixel.',
+        description: 'The mean value of daytime land surface temperature for each aggregated pixel.',
         
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Tasseled Cap Brightness',
+        display_name: 'Daytime Land Surface Temperature',
         lookat: {
           lat: 26.4,
           lon: -88.6,
@@ -64,9 +61,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
         image_visualization: {
           band_vis: {
-            min: [0.0],
-            max: [1.3],
-            palette: ['011301','004c00','056201','207401','3e8601','66a000','99b718','fcd163','ffffff'],
+            min: [-20.0],
+            max: [50.0],
+            palette: ['800080','0000ab','0000ff','008000','19ff2b','a8f7ff','ffff00','d6d600','ffa500','ff6b01','ff0000'],
             bands: [
               'Mean',
             ],
@@ -75,8 +72,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
     Mean: {
-      minimum: 0.0,
-      maximum: 1.99,
+      minimum: -74.03,
+      maximum: 63.87,
       'gee:estimated_range': true,
     },
   },
@@ -86,15 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     sensed time-series. ISPRS Journal of Photogrammetry and Remote Sensing,
     98, 106-118.
   |||,
-  'sci:publications': [
-    {
-      citation: |||
-        Lobser, S.E. & Cohen, W.B. (2007) MODIS tasselled cap: land cover
-        characteristics expressed through transformed MODIS data. International
-        Journal of Remote Sensing, 28, 5079-5101.
-      |||,
-    },
-  ],
+  
   'gee:interval': {
     type: 'cadence',
     unit: 'year',

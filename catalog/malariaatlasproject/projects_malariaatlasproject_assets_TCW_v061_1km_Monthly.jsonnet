@@ -1,4 +1,4 @@
-local id = 'projects/malariaatlasproject/assets/TCW_v061/5km/Annual';
+local id = 'projects/malariaatlasproject/assets/TCW_v061/1km/Monthly';
 local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Annual TCW: Malaria Atlas Project Gap-Filled Tasseled Cap Wetness',
+  title: 'Monthly 1km TCW: Malaria Atlas Project Gap-Filled Tasseled Cap Wetness',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -34,6 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'map',
     'tcw', 'vegetation', 'tasseled_cap', 'wetness'
@@ -97,7 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'gee:interval': {
     type: 'cadence',
-    unit: 'year',
+    unit: 'month',
     interval: 1,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license),

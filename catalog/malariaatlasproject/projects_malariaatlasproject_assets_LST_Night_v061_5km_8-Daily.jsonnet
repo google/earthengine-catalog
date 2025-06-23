@@ -1,4 +1,4 @@
-local id = 'projects/malariaatlasproject/assets/LST_Day_v061/1km/Monthly';
+local id = 'projects/malariaatlasproject/assets/LST_Night_v061/5km/8-Daily';
 local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,16 +20,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Monthly LST Day: Malaria Atlas Project Gap-Filled Daytime Land Surface Temperature',
+  title: '8-Daily 5km LST Night: Malaria Atlas Project Gap-Filled Nighttime Land Surface Temperature',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Daytime Land Surface Temperature (LST) are derived from the ~1km MODIS [MOD11A2 v6.1](https://lpdaac.usgs.gov/products/mod11a2v061/) products. The 8-daily composites are converted to degrees Celsius and then gap-filled using the approach outlined in [Weiss et al (2014)](https://doi.org/10.1016/j.isprsjprs.2014.10.001) to eliminate missing data caused by factors such as cloud cover.  
+    Nighttime Land Surface Temperature (LST) are derived from the ~1km MODIS [MOD11A2 v6.1](https://lpdaac.usgs.gov/products/mod11a2v061/) products. The 8-daily composites are converted to degrees Celsius and then gap-filled using the approach outlined in [Weiss et al (2014)](https://doi.org/10.1016/j.isprsjprs.2014.10.001) to eliminate missing data caused by factors such as cloud cover.  
 
     The gap-filled 8-daily ~1km outputs are then aggregated temporally and spatially to produce monthly and annual ~5km products.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['climate'],
   keywords: [
     'map',
     'lst', 'surface_temperature'
@@ -46,13 +47,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'Mean',
-        description: 'The mean value of daytime land surface temperature for each aggregated pixel.',
+        description: 'The mean value of nighttime land surface temperature for each aggregated pixel.',
         
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Daytime Land Surface Temperature',
+        display_name: 'Nighttime Land Surface Temperature',
         lookat: {
           lat: 26.4,
           lon: -88.6,
@@ -85,8 +86,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   
   'gee:interval': {
     type: 'cadence',
-    unit: 'month',
-    interval: 1,
+    unit: 'day',
+    interval: 8,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,

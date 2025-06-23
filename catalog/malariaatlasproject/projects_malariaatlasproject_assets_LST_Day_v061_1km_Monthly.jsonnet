@@ -1,4 +1,4 @@
-local id = 'projects/malariaatlasproject/assets/LST_Day_v061/5km/Annual';
+local id = 'projects/malariaatlasproject/assets/LST_Day_v061/1km/Monthly';
 local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Annual LST Day: Malaria Atlas Project Gap-Filled Daytime Land Surface Temperature',
+  title: 'Monthly 1km LST Day: Malaria Atlas Project Gap-Filled Daytime Land Surface Temperature',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -30,6 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:categories': ['climate'],
   keywords: [
     'map',
     'lst', 'surface_temperature'
@@ -85,7 +86,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   
   'gee:interval': {
     type: 'cadence',
-    unit: 'year',
+    unit: 'month',
     interval: 1,
   },
   'gee:terms_of_use': ee.gee_terms_of_use(license),
