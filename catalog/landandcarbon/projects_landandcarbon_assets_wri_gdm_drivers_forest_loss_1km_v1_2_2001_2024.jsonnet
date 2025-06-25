@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     settlements, urban areas, or built infrastructure (not associated with other classes).
     * Other natural disturbances: Tree cover loss due to other non-fire natural disturbances 
     (e.g., landslides, insect outbreaks, river meandering). If loss due to natural causes is followed 
-    by salvage or sanitation logging, it is classified as forest management.
+    by salvage or sanitation logging, it is classified as logging.
 
     **Limitations**: This product does not distinguish between the loss of *natural forest* and *planted 
     trees* (e.g., plantations, tree crops, or agroforestry systems). While tree cover loss associated 
@@ -179,11 +179,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
 
   'sci:citation': |||
-   Sims, M., Stanimirova, R., Raichuk, A., Neumann, M., Richter, J., Follett, F., 
-   MacCarthy, J., Lister, K., Randle, C., Sloat, L., Esipova, E., Jupiter, J., Stanton, 
-   C., Morris, D., Slay, C. M., Purves, D., and Harris, N. (2025). 
-   Global drivers of forest loss at 1 km resolution. 
-   Environmental Research Letters. 
+   Sims, M.J., R. Stanimirova, A. Raichuk, M. Neumann, J. Richter, F. Follett, 
+   J. MacCarthy, K. Lister, C. Randle, L. Sloat, E. Esipova, J. Jupiter, C. Stanton, 
+   D. Morris, C.M. Slay, D. Purves, and N. Harris. 2025. 
+   “Global Drivers of Forest Loss at 1 Km Resolution.” 
+   Environmental Research Letters 20 (7): 074027. 
    [doi:10.1088/1748-9326/add606](https://doi.org/10.1088/1748-9326/add606)
   |||,
 
