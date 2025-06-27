@@ -24,9 +24,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Nighttime Land Surface Temperature (LST) are derived from the ~1km MODIS [MOD11A2 v6.1](https://lpdaac.usgs.gov/products/mod11a2v061/) products. The 8-daily composites are converted to degrees Celsius and then gap-filled using the approach outlined in [Weiss et al (2014)](https://doi.org/10.1016/j.isprsjprs.2014.10.001) to eliminate missing data caused by factors such as cloud cover.  
+    Nighttime Land Surface Temperature (LST) are derived from the ~1km MODIS [MOD11A2 v6.1](https://lpdaac.usgs.gov/products/mod11a2v061/) products.
+    The 8-daily composites are converted to degrees Celsius and then gap-filled using the approach outlined in [Weiss et al (2014)](https://doi.org/10.1016/j.isprsjprs.2014.10.001) 
+    to eliminate missing data caused by factors such as cloud cover. 
+    After gap-filling the data was clipped to thresholds of [-100, 100] to ensure valid values.  
 
-    The gap-filled 8-daily ~1km outputs are then aggregated temporally and spatially to produce monthly and annual ~5km products.
+    The gap-filled 8-daily ~1km outputs are then aggregated temporally to produce monthly and annual products, and aggregated spatially to produce ~5km products.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -81,7 +84,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Weiss, D.J., P.M. Atkinson, S. Bhatt, B. Mappin, S.I. Hay & P.W. Gething
     (2014) An effective approach for gap-filling continental scale remotely
     sensed time-series. ISPRS Journal of Photogrammetry and Remote Sensing,
-    98, 106-118.
+    98, 106-118. 
+    [doi:10.1016/j.isprsjprs.2014.10.001](https://doi.org/10.1016/j.isprsjprs.2014.10.001)
   |||,
   
   'gee:interval': {

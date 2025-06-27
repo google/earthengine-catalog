@@ -27,8 +27,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The underlying dataset for this Enhanced Vegetation Index (EVI)
     product is MODIS BRDF-corrected imagery (MCD43B4), which was gap-filled
     using the approach outlined in Weiss et al. (2014) to eliminate missing
-    data caused by factors such as cloud cover. Gap-free outputs were then
-    aggregated temporally and spatially to produce the monthly &asymp;5km product.
+    data caused by factors such as cloud cover. After gap-filling the data was clipped to thresholds of [0, 1] to ensure valid values. 
+
+    The gap-filled 8-daily ~1km outputs are then aggregated temporally to produce monthly and annual products, and aggregated spatially to produce ~5km products.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -83,7 +84,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Weiss, D.J., P.M. Atkinson, S. Bhatt, B. Mappin, S.I. Hay & P.W. Gething
     (2014) An effective approach for gap-filling continental scale remotely
     sensed time-series. ISPRS Journal of Photogrammetry and Remote Sensing,
-    98, 106-118.
+    98, 106-118. 
+    [doi:10.1016/j.isprsjprs.2014.10.001](https://doi.org/10.1016/j.isprsjprs.2014.10.001)
   |||,
   
   'gee:interval': {
