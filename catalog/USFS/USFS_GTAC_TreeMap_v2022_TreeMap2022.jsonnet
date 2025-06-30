@@ -2437,7 +2437,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
     ],
   },
-  'sci:doi': 'doi:10.2737/RDS-2025-0032',
   'sci:citation': ||| 
     Houtman, R. M., L. S. T. Leatherman, S. N. Zimmer, I. W. Housman, A. Shrestha,  
     J. D. Shaw, K. L. Riley:  2025. TreeMap 2022 CONUS: A tree-level model of the 
