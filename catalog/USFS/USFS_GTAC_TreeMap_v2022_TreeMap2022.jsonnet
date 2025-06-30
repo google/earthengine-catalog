@@ -2205,7 +2205,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
       },
       {
-        display_name: 'SDISum_Viz',
+        display_name: 'SDIsum_Viz',
         lookat: {
           lat: 38,
           lon: -95.712891,
@@ -2232,7 +2232,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
               '00404d',
             ],
             bands: [
-              'SDISum',
+              'SDIsum',
             ],
           },
         },
