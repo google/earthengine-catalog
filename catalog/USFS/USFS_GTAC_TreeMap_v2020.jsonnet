@@ -1,6 +1,6 @@
-local id = 'USFS/GTAC/TreeMap/v2022/TreeMap2022'; 
+local id = 'USFS/GTAC/TreeMap/v2020/TreeMap2020'; 
 local subdir = 'USFS';
-local version = '2022';
+local version = '2020';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -17,7 +17,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 {
   'gee:status': 'beta',
   'gee:user_uploaded': true,
-
+  
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -26,17 +26,17 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS TreeMap v2022',
-  version: '2022',
+  title: 'USFS TreeMap v2020',
+  version: '2020',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the TreeMap data suite. It provides detailed spatial
     information on forest characteristics including number of live and dead trees,
     biomass, and carbon across the entire forested extent of the United States in 
-    2022.
+    2020.
 
-    TreeMap v2022 contains 22-band 30 x 30m resolution gridded map images per study 
-    area, of the forests of the United States circa 2022, with each band
+    TreeMap v2020 contains 22-band 30 x 30m resolution gridded map images per study 
+    area, of the forests of the United States circa 2020, with each band
     representing an attribute derived from select Forest Inventory Analysis (FIA) 
     data (and one band representing the TreeMap ID). Examples of attributes include 
     forest type, canopy cover percent, live tree stocking, live/dead tree biomass, 
@@ -59,14 +59,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     for each tree and plot in the FIA DataMart, FIA's public repository of plot
     information (Forest Inventory Analysis 2022a).
 
-    The TreeMap 2022 CONUS dataset featured here updates the TreeMap 2016 dataset 
-    to landscape conditions circa 2022 and updates the methods by: 1) using a 
+    The TreeMap 2020 CONUS dataset featured here updates the TreeMap 2016 dataset 
+    to landscape conditions circa 2020 and updates the methods by: 1) using a 
     different suite of climate variables in the imputation and 2) improving species 
     composition assignments to prevent plots being imputed to areas where their 
     existing vegetation type was not present, an issue which affected a small number 
     of pixels in previous TreeMap versions. 
 
-    TreeMap v2022 was produced using the methods described in 
+    TreeMap v2020 was produced using the methods described in 
     [Riley et al. (2022)](https://doi.org/10.1093/jofore/fvac022 and https://research.fs.usda.gov/treesearch/65597) 
     but differ from TreeMap v2016 in that: 1) the climatic variables were obtained 
     from DayMet and included precipitation, shortwave radiation, soil water 
@@ -96,14 +96,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       is a web-based application that provides users the ability to view and
       download TreeMap attribute data.
 
-    * The [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032) 
+    * The [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031) 
       for the full dataset download, metadata, and support documents.
 
     * [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/)
       for TreeMap attribute data downloads, metadata, and support documents.
 
     * [FIA Database Manual version 9.3](https://research.fs.usda.gov/understory/forest-inventory-and-analysis-database-user-guide-nfi)
-      for more detailed information on the attributes included in TreeMap 2022.
+      for more detailed information on the attributes included in TreeMap 2020.
 
     Contact [sm.fs.treemaphelp@usda.gov](mailto:sm.fs.treemaphelp@usda.gov) with any
     questions or specific data requests.
@@ -144,12 +144,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'vegetation'
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS)  Field Services and Innovation 
+    ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation 
     Center – Geospatial Office (FSIC-GO)', 'https://data.fs.usda.gov/geodata/rastergateway/treemap/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-128.97722, 22.76862, -65.25445, 51.64968,
-                    '2022-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
+                    '2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -2437,13 +2437,13 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       },
     ],
   },
-  'sci:doi': 'doi:10.2737/RDS-2025-0032',
+  'sci:doi': 'doi:10.2737/RDS-2025-0031',
   'sci:citation': ||| 
-    Houtman, R. M., L. S. T. Leatherman, S. N. Zimmer, I. W. Housman, A. Shrestha,  
-    J. D. Shaw, K. L. Riley:  2025. TreeMap 2022 CONUS: A tree-level model of the 
-    forests of the conterminous United States circa 2022. Fort Collins, 
-    CO: Forest Service Research Data Archive. 
-    [doi:10.2737/RDS-2025-0032](https://doi.org/10.2737/RDS-2025-0032)
+    Zimmer, S. N., R. M. Houtman, L. S. T. Leatherman, I. W. Housman, A. Shrestha, 
+    J. D. Shaw, K. L. Riley: 2025, TreeMap 2020 CONUS: A tree-level model of the 
+    forests of the conterminous United States circa 2020. Fort Collins, CO: Forest 
+    Service Research Data Archive. 
+    [doi:10.2737/RDS-2025-0031](https://doi.org/10.2737/RDS-2025-0031)
 
   |||,
    'sci:publications': [
@@ -2513,20 +2513,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     without additional permissions or fees. If you use these data in a publication, 
     presentation, or other research product please use the appropriate citation:
 
-    Houtman, R. M., L. S. T. Leatherman, S. N. Zimmer, I. W. Housman, A. Shrestha,  
-    J. D. Shaw, K. L. Riley:  2025. TreeMap 2022 CONUS: A tree-level model of the 
-    forests of the conterminous United States circa 2022. Fort Collins, 
-    CO: Forest Service Research Data Archive. 
-    [doi:10.2737/RDS-2025-0032](https://doi.org/10.2737/RDS-2025-0032)
+    Zimmer, S. N., R. M. Houtman, L. S. T. Leatherman, I. W. Housman, A. Shrestha, 
+    J. D. Shaw, K. L. Riley: 2025, TreeMap 2020 CONUS: A tree-level model of the 
+    forests of the conterminous United States circa 2020. Fort Collins, CO: Forest 
+    Service Research Data Archive. 
+    [doi:10.2737/RDS-2025-0031](https://doi.org/10.2737/RDS-2025-0031)
 
-    See [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032) 
+    See [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031) 
     for additional information.
 
-  |||,
-  
+  |||
 }
-
-
-
-
-
