@@ -158,7 +158,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           Year of the product.
         |||,
         type: ee_const.var_type.int,
-        'gee:units': units.year,
       },
       {
         name: 'study_area',
@@ -166,7 +165,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           Study area of the product.
         |||,
         type: ee_const.var_type.string,
-        'gee:units': units.dimensionless,
       },
       {
         name: 'landfire_ver',
@@ -174,7 +172,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           Landfire version used as reference and target data for imputation.
         |||,
         type: ee_const.var_type.string,
-        'gee:units': units.dimensionless,
       },
     ],
     gsd: [30],
