@@ -141,8 +141,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'vegetation'
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Geospatial Technology and 
-    Applications Center (GTAC)', 'https://data.fs.usda.gov/geodata/rastergateway/treemap/'),
+    ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 'https://data.fs.usda.gov/geodata/rastergateway/treemap/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-128.97722, 22.76862, -65.25445, 51.64968,
