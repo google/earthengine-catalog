@@ -1,4 +1,4 @@
-local id = 'USFS/GTAC/TreeMap/v2020/TreeMap2020'; 
+local id = 'USFS/GTAC/TreeMap/v2020'; 
 local subdir = 'USFS';
 local version = '2020';
 
