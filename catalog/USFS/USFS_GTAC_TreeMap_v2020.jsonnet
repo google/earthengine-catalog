@@ -85,8 +85,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     Forest, 64,745 of these (92.7%) were utilized in the imputation to 2,687,805,994 
     forested pixels.
 
+    Other TreeMap vintages can be found at: 
     
-
     **Additional Resources**
 
     * Please see the [TreeMap 2016 Publication](https://www.fs.usda.gov/research/treesearch/65597)
@@ -96,14 +96,20 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       is a web-based application that provides users the ability to view and
       download TreeMap attribute data.
 
-    * The [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031) 
+    * Visit the [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031) 
       for the full dataset download, metadata, and support documents.
 
-    * [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/)
+    * Visit the [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/)
       for TreeMap attribute data downloads, metadata, and support documents.
 
-    * [FIA Database Manual version 9.3](https://research.fs.usda.gov/understory/forest-inventory-and-analysis-database-user-guide-nfi)
+    * See the [FIA Database Manual version 9.3](https://research.fs.usda.gov/understory/forest-inventory-and-analysis-database-user-guide-nfi)
       for more detailed information on the attributes included in TreeMap 2020.
+
+    * The [Treemap 2016 vintage](https://developers.google.com/earth-engine/datasets/catalog/USFS_GTAC_TreeMap_v2016)
+      contains landscape conditions of the forests of the United States circa 2016.
+
+    * The [Treemap 2022 vintage](https://developers.google.com/earth-engine/datasets/catalog/USFS_GTAC_TreeMap_v2022)
+      contains landscape conditions of the forests of the United States circa 2022.
 
     Contact [sm.fs.treemaphelp@usda.gov](mailto:sm.fs.treemaphelp@usda.gov) with any
     questions or specific data requests.
