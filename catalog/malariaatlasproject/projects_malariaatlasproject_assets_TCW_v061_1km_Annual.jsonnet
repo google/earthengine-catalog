@@ -37,7 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'map',
-    'tcw', 'vegetation', 'tasseled_cap', 'wetness'
+    'tcw', 'vegetation', 'tasseled_cap'
   ],
   providers: [
     ee.producer_provider('The Malaria Atlas Project', 'https://www.malariaatlas.org'),
