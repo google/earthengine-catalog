@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: '8-Daily 1km TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness',
+  title: 'TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness (8-Daily 1km)',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

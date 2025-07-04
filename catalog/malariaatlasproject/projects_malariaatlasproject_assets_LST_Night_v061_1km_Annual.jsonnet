@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Annual 1km LST Night: Malaria Atlas Project Gap-Filled Nighttime Land Surface Temperature',
+  title: 'LST Night: Malaria Atlas Project Gap-Filled Nighttime Land Surface Temperature (Annual 1km)',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

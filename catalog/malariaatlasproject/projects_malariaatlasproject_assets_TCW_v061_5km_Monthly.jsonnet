@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Monthly 5km TCW: Malaria Atlas Project Gap-Filled Tasseled Cap Wetness',
+  title: 'TCW: Malaria Atlas Project Gap-Filled Tasseled Cap Wetness (Monthly 5km)',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
