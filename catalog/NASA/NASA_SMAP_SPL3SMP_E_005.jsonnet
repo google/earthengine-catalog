@@ -233,7 +233,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           across years from 2015 to present, excluding asset year.
 
           See
-          [this script](https://github.com/google/earthengine-community/blob/master/datasets/smap_anomaly_l3.py)
+          [this script](https://github.com/google/earthengine-catalog/blob/main/pipelines/smap_convert_l3.py)
           for anomaly computations.
         |||
       },
@@ -245,7 +245,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           across years from 2015 to present, excluding asset year.
 
           See
-          [this script](https://github.com/google/earthengine-community/blob/master/datasets/smap_anomaly_l3.py)
+          [this script](https://github.com/google/earthengine-catalog/blob/main/pipelines/smap_convert_l3.py)
           for anomaly computations.
         |||
       }
