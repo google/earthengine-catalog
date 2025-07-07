@@ -1,26 +1,17 @@
-bazel_dep(name = "rules_jsonnet", version = "0.6.0")
-bazel_dep(name = "bazel_skylib", version = "1.7.1")
-bazel_dep(name = "rules_python", version = "0.35.0")
-
-# Temporary workaround
-# TODO(simonf): remove when https://github.com/google/jsonnet/pull/1189 is pushed
-# to rules_jsonnet
-git_override(
-	module_name = "jsonnet",
-	commit = "4487bfb8ba7ed7a3d91d79d4a1aa2205e7839558",
-	remote = "https://github.com/google/jsonnet.git",
-)
+bazel_dep(name = "rules_jsonnet", version = "0.7.2")
+bazel_dep(name = "bazel_skylib", version = "1.8.0")
+bazel_dep(name = "rules_python", version = "1.5.1")
 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(
-    python_version = "3.10"
+    python_version = "3.11"
 )
-use_repo(python, "python_3_10")
+use_repo(python)
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(
     hub_name = "pip",
-    python_version = "3.10",
+    python_version = "3.11",
     requirements_lock = "//:requirements.txt",
 )
 use_repo(pip, "pip")
