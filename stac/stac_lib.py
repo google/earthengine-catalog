@@ -415,6 +415,9 @@ class Collection:
   def terms_of_use(self) -> str:
     return self.stac_json.get('gee:terms_of_use', '')
 
+  def footer(self) -> str:
+    return self.stac_json.get('gee:footer', '')
+
   def bbox(self) -> bboxes.BBox:
     return self.bbox_list()[0]
 
