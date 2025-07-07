@@ -1,5 +1,6 @@
 # Checks that operate on only a single STAC node at a time.
 load("@pip//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_library", "py_test")
 
 py_library(
     name = "node",
