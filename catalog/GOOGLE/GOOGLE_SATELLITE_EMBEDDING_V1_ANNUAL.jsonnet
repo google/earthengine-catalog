@@ -91,7 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent_global('2019-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2017-01-01T00:00:00Z', null),
 
   summaries: {
     'gee:schema': [
