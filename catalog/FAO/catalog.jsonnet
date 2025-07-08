@@ -35,5 +35,12 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('FAO_WAPOR_2_L1_RET_D', base_url),
     ee.link.child_collection('FAO_WAPOR_2_L1_RET_E', base_url),
     ee.link.child_collection('FAO_WAPOR_2_L1_T_D', base_url),
+    ee.link.child_collection('FAO_WAPOR_3_L1_AETI_D', base_url),
+    ee.link.child_collection('FAO_WAPOR_3_L1_E_D', base_url),
+    ee.link.child_collection('FAO_WAPOR_3_L1_I_D', base_url),
+    ee.link.child_collection('FAO_WAPOR_3_L1_RET-E', base_url),
+    ee.link.child_collection('FAO_WAPOR_3_L1_RET_D', base_url),
+    ee.link.child_collection('FAO_WAPOR_3_L1_T_D', base_url),
+
   ],
 }
