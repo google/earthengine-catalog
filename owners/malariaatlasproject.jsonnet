@@ -5,7 +5,7 @@
   "homeBucket": "projects/malariaatlasproject",
   "id": "malariaatlasproject",
   "link": "https://data.malariaatlas.org",
-  "logo": "https://data.malariaatlas.org/assets/images/TKI_MAP_REVISED%20LOGO_MASTER.png",
+  "logo": "https://storage.googleapis.com/malariaatlasproject-ee-public/malariaatlasproject-logo.png",
   "name": "The Malaria Atlas Project",
   "type": "PUBLISHER",
 }
