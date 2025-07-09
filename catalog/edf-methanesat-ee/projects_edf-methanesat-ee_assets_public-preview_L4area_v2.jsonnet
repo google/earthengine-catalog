@@ -131,6 +131,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
+        name: 'ovr_resampling',
+        description: 'Resampling method used.',
+        type: ee_const.var_type.string,
+      },
+      {
         name: 'processing_id',
         description: |||
           (internal) Processing run identifier that represents the calculations

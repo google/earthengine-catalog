@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2006-01-24T00:00:00Z', null),
+  extent: ee.extent_global('2024-05-22T00:00:00Z', null),
   summaries: {
     'gsd': [10.2],
     'eo:bands': [
@@ -99,11 +99,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:schema': [
       {
-        name: 'area_or_point',
-        description: 'Designation if this is an area or point.',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'collection_id',
         description: 'Satellite Observation ID.',
         type: ee_const.var_type.string,
@@ -119,11 +114,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ovr_resampling',
         description: 'Resampling method used.',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'platform',
-        description: 'MethaneSAT or MethaneAIR',
         type: ee_const.var_type.string,
       },
       {

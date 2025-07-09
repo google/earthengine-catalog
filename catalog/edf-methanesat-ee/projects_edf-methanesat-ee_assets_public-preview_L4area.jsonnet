@@ -65,13 +65,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2006-01-24T00:00:00Z', null),
+  extent: ee.extent_global('2024-10-25T00:00:00Z', null),
   summaries: {
+    // Values that are true for all bands.
+    // gsd: pixel size (ground sample distance), in meters.
+    gsd: [5565.97],
     'eo:bands': [
       {
         name: 'flux',
-        description: 'Methane emissions traceable to a 5km^2 area.',
-        gsd: 5000,
+        description: 'Methane emissions traceable to a ~5km^2 area.',
         'gee:units': units.kg_per_hour,
       }
     ],

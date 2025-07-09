@@ -57,16 +57,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'flux',
-        description: 'Methane flux quantification.',
+        description: |||
+          Methane flux quantification. Note: this may be null in the case that we're confident
+          in the presence and location of the point but not its flux value.
+        |||,
         units: units.kg_per_hour,
         type: ee_const.var_type.int,
       },
       {
         name: 'flux_sd',
-        description: 'Standard deviation of methane flux quantification, in ' + 
-        'kg/h.',
+        description: |||
+          Standard deviation of methane flux quantification, in kg/h. Note: this may be null in
+          the case that we're confident in the presence and location of the point but not its
+          flux value.
+        |||,
         units: units.kg_per_hour,
         type: ee_const.var_type.int,
+      },
+      {
+        name: 'processing_id',
+        description: |||
+          (internal) Processing run identifier that represents the calculations
+          that led to the features. It is not an attribute describing the
+          flight, but the processing pipeline.
+        |||,
+        type: ee_const.var_type.string,
       },
       {
         name: 'plume_id',
