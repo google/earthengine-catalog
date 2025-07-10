@@ -18,13 +18,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     representative of a final product.*
 
     This early "Public Preview" dataset provides high precision data for methane
-    emissions over wide areas from the oil and gas sector. This includes total
-    emissions that come from discrete point sources and dispersed area sources.
-    These emissions data come from the Appalachian, Permian, and Uinta basins
-    in the United States; the Amu Darya and South Caspian basins in Turkmenistan;
-    and the Maturin basin in Venezuela. These novel measurements demonstrate the
-    importance of quantifying total methane emissions with high resolution to
-    meet global methane mitigation goals.
+    emissions from dispersed area sources. These emissions data come from the
+    Appalachian, Permian, and Uinta basins in the United States; the Amu Darya and
+    South Caspian basins in Turkmenistan; and the Maturin basin in Venezuela. These
+    novel measurements demonstrate the importance of quantifying total methane emissions
+    with high resolution to meet global methane mitigation goals.
+
+    Total emissions for a scene–from both dispersed area and point source emissions–may
+    be obtained by summing the area emissions and point source emissions for a given
+    collection ID (see L4 Point Sources Public Preview).
 
     Dispersed area emissions are estimated from methane concentration observations
     in the form of column-averaged dry-air mole fractions of methane (XCH4) using
@@ -37,12 +39,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - is used to link variations in observed XCH4 to potential upwind sources.
 
     These predictive linkages are used to invert an estimated set of emissions from the
-    observations of MethaneSat using a novel Markov Chain Monte Carlo technique nicknamed CORE
+    observations of MethaneSAT using a novel Markov Chain Monte Carlo technique nicknamed CORE
     (Conserved and Optimized Retrieval of Emissions). Inflow across the domain boundary and
     pre-existing background concentrations are estimated, but not reported. 
 
     This set of initial observations made by MethaneSAT are consistent with
-    independent empirical data where available from other sources.
+    independent empirical data where available from other sources. Not all data products
+    (L3 concentration, L4 area and L4 points) are available for all collection IDs.
     Contact the data provider for more information about the project at this
     link: [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
   |||,

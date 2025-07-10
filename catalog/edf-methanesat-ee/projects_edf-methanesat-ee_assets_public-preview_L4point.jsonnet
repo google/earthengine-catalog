@@ -16,14 +16,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'MethaneSAT L4 Point Sources Public Preview V' + version,
   version: version,
   description: |||
-    The methane emission fluxes were produced using a point source detection and
-    emissions quantification framework specialized to exploit the high spatial
-    resolution, wide spatial coverage, and high precision of MethaneSAT data
-    (methodology is described in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023).)
-    The point source quantification framework was extensively tested in blind
-    controlled-release experiments as detailed in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023)
-    and [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439). Not all
-    data products are available for all collections.
+    This early "Public Preview" dataset provides high precision data for methane emissions from
+    discrete point sources. These methane emission fluxes were produced using a point source
+    detection and emissions quantification framework specialized to exploit the high spatial
+    resolution, wide spatial coverage, and high precision of MethaneSAT data (methodology is
+    described in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023).)
+    The point source quantification framework was extensively tested in blind controlled-release
+    experiments as detailed in
+    [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023) and
+    [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439). 
+
+    Total emissions for a scene–from both dispersed area and point source emissions–may be
+    obtained by summing the area emissions and point source emissions for a given collection ID
+    (see L4 Area Sources Public Preview).
+
+    Not all data products (L3 concentration, L4 area and L4 points) are available for all
+    collection IDs. Contact the data provider for more information about the project at this link:
+    https://www.methanesat.org/contact/
   ||| + publications,
   'gee:categories': ['atmosphere'],
   keywords: [

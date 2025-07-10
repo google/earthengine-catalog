@@ -37,7 +37,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     sounding locations to a regular 45 m x 45 m grid using the approach detailed in
     [Sun et al. (2018)](https://doi.org/10.5194/amt-11-6679-2018).
 
-    Contact the data provider for more information about the project at this link:
+    Not all data products (L3 concentration, L4 area and L4 points) are available for all
+    collection IDs. Contact the data provider for more information about the project at this link:
     [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
   |||,
   'gee:categories': ['atmosphere'],
@@ -56,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2024-05-22T00:00:00Z', null),
   summaries: {
-    'gsd': [10.2],
+    'gsd': [46.38],
     'eo:bands': [
       {
         name: 'XCH4',
