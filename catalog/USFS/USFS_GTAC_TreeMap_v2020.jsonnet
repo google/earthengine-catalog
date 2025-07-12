@@ -15,7 +15,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
-  'gee:status': 'beta',
   'gee:user_uploaded': true,
   
   stac_version: ee_const.stac_version,
@@ -67,7 +66,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     of pixels in previous TreeMap versions. 
 
     TreeMap v2020 was produced using the methods described in 
-    [Riley et al. (2022)](https://doi.org/10.1093/jofore/fvac022 and https://research.fs.usda.gov/treesearch/65597) 
+    [Riley et al. (2022)](https://research.fs.usda.gov/treesearch/65597) 
     but differ from TreeMap v2016 in that: 1) the climatic variables were obtained 
     from DayMet and included precipitation, shortwave radiation, soil water 
     equivalent, maximum temperature, minimum temperature, vapor pressure, and vapor 
@@ -159,7 +158,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: |||
           Year of the product.
         |||,
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.string,
       },
       {
         name: 'study_area',
