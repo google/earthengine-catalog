@@ -30,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     using the approach outlined in Weiss et al. (2014) to eliminate missing
     data caused by factors such as cloud cover. After gap-filling the data was clipped to thresholds of [-1, 2] to ensure valid values. 
 
-    The gap-filled 8-daily ~1km outputs are then aggregated temporally to produce monthly and annual products, and aggregated spatially to produce ~5km products.
+    The gap-filled 8-daily ~1km outputs are then aggregated temporally to produce monthly and annual products.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
