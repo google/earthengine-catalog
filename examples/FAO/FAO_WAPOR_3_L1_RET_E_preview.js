@@ -1,11 +1,10 @@
-// FAO_WAPOR_3_L1_RET-E_preview.js
 var lon = 17.5;
 var lat = 0;
 var delta = 37;
 var areaOfInterest = ee.Geometry.Rectangle(
     [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
 
-var dataset = ee.ImageCollection('FAO/WAPOR/3/L1_RET-E').first();
+var dataset = ee.ImageCollection('FAO/WAPOR/3/L1_RET_E').first();
 var visParams = {min: 0, max: 100};
 
 var imageToDisplay = dataset.visualize(visParams).clip(areaOfInterest);

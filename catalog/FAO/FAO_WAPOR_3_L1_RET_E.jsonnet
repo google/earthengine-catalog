@@ -1,4 +1,4 @@
-local id = 'FAO/WAPOR/3/L1_RET-E';
+local id = 'FAO/WAPOR/3/L1_RET_E';
 local subdir = 'FAO';
 local version = '3.0';
 
