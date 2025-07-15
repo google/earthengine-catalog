@@ -18,13 +18,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     representative of a final product.*
 
     This early "Public Preview" dataset provides high precision data for methane
-    emissions over wide areas from the oil and gas sector. This includes total
-    emissions that come from discrete point sources and dispersed area sources.
-    These emissions data come from the Appalachian, Permian, and Uinta basins
-    in the United States; the Amu Darya and South Caspian basins in Turkmenistan;
-    and the Maturin basin in Venezuela. These novel measurements demonstrate the
-    importance of quantifying total methane emissions with high resolution to
-    meet global methane mitigation goals.
+    emissions from dispersed area sources. These emissions data come from the
+    Appalachian, Permian, and Uinta basins in the United States; the Amu Darya and
+    South Caspian basins in Turkmenistan; and the Maturin basin in Venezuela. These
+    novel measurements demonstrate the importance of quantifying total methane emissions
+    with high resolution to meet global methane mitigation goals.
 
     Dispersed area emissions are estimated from methane concentration observations
     in the form of column-averaged dry-air mole fractions of methane (XCH4) using
@@ -40,16 +38,44 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     2) discrete point sources, 3) inflow across the domain boundary, and
     4) the background concentration. Discrete point source emissions are
     determined individually using a divergence integral approach described by
-    [Chulakadaba et al. (2023)](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-822/)
+    [Chulakadabba et al. (2023)](https://egusphere.copernicus.org/preprints/2023/egusphere-2023-822/)
     and prescribed to the inverse model. XCH4 inflow across the domain boundary
     and dispersed area emissions are then estimated simultaneously using an
-    inverse model with an enforced non-negative solution. Total emissions are
-    the sum of dispersed area and point source emissions.
+    inverse model with an enforced non-negative solution.
+
+    Total emissions for a scene–from both dispersed area and point source emissions–may be
+    obtained by summing the area emissions and point source emissions for a given collection ID
+    (see L4 Point Sources Public Preview).
 
     This set of initial observations made by MethaneSAT are consistent with
-    independent empirical data where available from other sources.
+    independent empirical data where available from other sources. Not all data products
+    (L3 concentration, L4 area and L4 points) are available for all collection IDs.
     Contact the data provider for more information about the project at this
     link: [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
+
+    ---
+
+    7/2/2025 Important Update: 
+
+    As you may be aware, we recently lost contact with the satellite. After exploring all possible  
+    recovery options, we have now confirmed that it is no longer functioning, due to an
+    undetermined problem with the outer platform carrying our methane detector. While there is no
+    question this is a setback, we are undeterred in our efforts to drive down methane pollution.
+    Please see our official statement here:
+    [MethaneSAT Loses Contact with Satellite | MethaneSAT](https://www.methanesat.org/project-updates/methanesat-loses-contact-satellite).
+
+    What this means for the Public Preview data: The existing datasets will remain accessible on
+    Google platforms and on our web portal for the foreseeable future. Additionally, over the next
+    few months, we will release substantial new data collected by MethaneSAT prior to the loss of
+    contact. This will include hundreds of scenes (of targets that are roughly 200kmx200km). We
+    hope this will be useful for you. Should there be any changes to data availability, we will
+    notify you well in advance.
+
+    Looking ahead: While we don’t have all the answers yet, we plan to leverage our advanced Data
+    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will
+    also take the necessary time to evaluate the best next step in our efforts to enable methane
+    reductions. To stay up to date with further updates, feel free to sign up for our
+    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up).
   |||,
   'gee:categories': ['atmosphere'],
   keywords: [
@@ -65,13 +91,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2006-01-24T00:00:00Z', null),
+  extent: ee.extent_global('2024-10-25T00:00:00Z', null),
   summaries: {
+    // Values that are true for all bands.
+    // gsd: pixel size (ground sample distance), in meters.
+    gsd: [5565.97],
     'eo:bands': [
       {
         name: 'flux',
-        description: 'Methane emissions traceable to a 5km^2 area.',
-        gsd: 5000,
+        description: 'Methane emissions traceable to a ~5km^2 area.',
         'gee:units': units.kg_per_hour,
       }
     ],
