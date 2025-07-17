@@ -22,6 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('COPERNICUS_CORINE_V20_100m', base_url),
     ee.link.child_collection('COPERNICUS_Landcover_100m_Proba-V-C3_Global', base_url),
     ee.link.child_collection('COPERNICUS_Landcover_100m_Proba-V_Global', base_url),
+    ee.link.child_collection('COPERNICUS_MARINE_SATELLITE_OCEAN_COLOR_V6', base_url),
     ee.link.child_collection('COPERNICUS_S1_GRD', base_url),
     ee.link.child_collection('COPERNICUS_S2', base_url),
     ee.link.child_collection('COPERNICUS_S2_HARMONIZED', base_url),
