@@ -62,9 +62,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * [Remote-Sensing Reflectance](https://gpm1.gesdisc.eosdis.nasa.gov/data/GPM_L3/doc/README.GPM.pdf)
 
     * [Anomalies](https://gpmweb2https.pps.eosdis.nasa.gov/tsdis/AB/docs/gpm_anomalous.html)
-
-    This collection contains data from
-    [GPM_3IMERGM_06](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_V06/summary)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
