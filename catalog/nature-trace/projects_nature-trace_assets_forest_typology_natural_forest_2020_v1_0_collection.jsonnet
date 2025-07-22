@@ -39,29 +39,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Limitations: While this map provides a valuable global baseline, users
     should be aware of several limitations in our map (assessed at the OA
-    optimal probability threshold of 0.52). The model can have difficulty
-    distinguishing complex agroforestry systems (e.g., with shaded tree crops),
-    and smallholder agricultural mosaics can be difficult to distinguish from
-    natural forests. Differentiating planted forests from naturally regenerating
-    ones can be challenging, especially in boreal and some temperate zones,
-    where natural forests have lower species diversity and are harvested with
-    longer rotation times compared to the tropics. Sparse natural forests, such
-    as savanna, are often at the threshold of natural forest definition for the
-    tree canopy height and coverage ratios. Forest type assignment immediately
-    after a disturbance event (e.g., fire, logging) is inherently ambiguous. It
-    may not be clear from satellite imagery whether the forest will regenerate
-    naturally or if the land will be converted to another use (e.g., plantation,
-    agriculture). Other areas of potential confusion could include large parks
-    within urban areas, or planted tree belts that meet forest definition
-    criteria but are not natural. The accuracy of our natural forest map is
-    intrinsically linked to the quality and consistency of the various input
-    datasets used for training label generation. These datasets were created
-    using different methodologies, spatial resolutions, temporal ranges, and
-    definitions. Some label layers were the outputs of other models, and are
-    therefore limited by the quality of those models. While our approach aimed
-    to harmonize sources and mitigate the impact of individual dataset errors,
-    inconsistencies and inaccuracies in the underlying data could still
-    influence the final map.
+    optimal probability threshold of 0.52):
+
+    * The model can have difficulty distinguishing complex agroforestry systems
+    (e.g., with shaded tree crops), and smallholder agricultural mosaics can be
+    difficult to distinguish from natural forests.
+    * Differentiating planted forests from naturally regenerating ones can be
+    challenging, especially in boreal and some temperate zones, where natural
+    forests have lower species diversity and are harvested with longer rotation
+    times compared to the tropics.
+    * Sparse natural forests, such as savanna, are often at the threshold of
+    natural forest definition for the tree canopy height and coverage ratios.
+    Forest type assignment immediately after a disturbance event (e.g., fire,
+    logging) is inherently ambiguous. It may not be clear from satellite imagery
+    whether the forest will regenerate naturally or if the land will be
+    converted to another use (e.g., plantation, agriculture).
+    * Other areas of potential confusion could include large parks within urban
+    areas, or planted tree belts that meet forest definition criteria but are
+    not natural.
+    * The accuracy of our natural forest map is intrinsically linked to the
+    quality and consistency of the various input datasets used for training
+    label generation. These datasets were created using different methodologies,
+    spatial resolutions, temporal ranges, and definitions. Some label layers
+    were the outputs of other models, and are therefore limited by the quality
+    of those models. While our approach aimed to harmonize sources and mitigate
+    the impact of individual dataset errors, inconsistencies and inaccuracies in
+    the underlying data could still influence the final map.
   |||,
   'gee:categories': ['forest-biomass'], // From the fixed list of published categories.
   keywords: [
