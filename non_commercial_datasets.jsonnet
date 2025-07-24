@@ -54,6 +54,7 @@
   'projects/forestdatapartnership/assets/cocoa',
   'projects/forestdatapartnership/assets/coffee',
   'projects/forestdatapartnership/assets/rubber',
+  'projects/nature-trace/assets/farmscapes/england_v1_0',
   'UN/Geodata/BNDA_simplified/current',
   'WCMC/WDOECM',
   'WRI/SBTN/naturalLands/v1/2020',

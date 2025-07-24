@@ -66,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the impact of individual dataset errors, inconsistencies and inaccuracies in
     the underlying data could still influence the final map.
   |||,
-  'gee:categories': ['forest-biomass'], // From the fixed list of published categories.
+  'gee:categories': ['forest-biomass'],
   keywords: [
     'biodiversity',
     'conservation',
