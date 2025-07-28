@@ -15,9 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
-  'gee:status': 'beta',
   'gee:user_uploaded': true,
-  
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -159,7 +157,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         description: |||
           Year of the product.
         |||,
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.string,
       },
       {
         name: 'study_area',
