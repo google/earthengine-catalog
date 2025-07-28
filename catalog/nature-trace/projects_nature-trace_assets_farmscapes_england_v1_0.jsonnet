@@ -14,7 +14,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Farmscapes 2020',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   stac_extensions: [
     ee_const.ext_sci,
