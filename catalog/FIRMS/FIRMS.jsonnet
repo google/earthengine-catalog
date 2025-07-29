@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The data in the near-real-time dataset are not considered to be of science
     quality.
 
-    Additional information can be found [here](https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms/about-firms).
+    Additional information can be found [here](https://firms.modaps.eosdis.nasa.gov/).
 
     NOTE: VIIRS FIRMS datasets from NOAA20 and SUOMI are also available:
 

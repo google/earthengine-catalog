@@ -67,7 +67,7 @@ local license = spdx.proprietary;
     'sr',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/terrestrial/avhrr-surface-reflectance'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/climate-data-records/surface-reflectance'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1981-06-24T00:00:00Z', '2013-12-31T00:00:00Z'),

@@ -8,7 +8,7 @@ local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local version_table = import 'RUB_RUBCLIM_LCZ_global_lcz_map_versions.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.cc_by_4_0;
 
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
