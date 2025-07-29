@@ -14,9 +14,9 @@ import ee
 
 
 # pytype:disable=attribute-error
-
-def anomaly(image):
-  SMAPL4 = ee.ImageCollection('NASA/SMAP/SPL4SMGP/007_RAW')
+def anomaly(image, collection_id):
+  """Calculates a normalized anomaly with SMAP L4 data."""
+  smap_l4 = ee.ImageCollection(collection_id)
   current_date = ee.Date(datetime.datetime.now())
   image_date = ee.Date(image.get('system:time_start'))
 
@@ -34,7 +34,7 @@ def anomaly(image):
     date_object = image_date.update(year=year)
     begindate = ee.Date(date_object).advance(-15, 'day')
     enddate = ee.Date(date_object).advance(+16, 'day')
-    annual = SMAPL4.filter(ee.Filter.date(
+    annual = smap_l4.filter(ee.Filter.date(
         begindate, enddate)).select('sm_surface').mean()
     return annual.rename('soil_moisture_anomaly_15d')
 
@@ -50,6 +50,6 @@ def anomaly(image):
   return SM_anomaly
 
 
-def apply(image):
-  computed_anomaly = anomaly(image)
+def apply(image, collection_id):
+  computed_anomaly = anomaly(image, collection_id)
   return image.addBands([computed_anomaly])
