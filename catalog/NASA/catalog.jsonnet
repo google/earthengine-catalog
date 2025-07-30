@@ -92,6 +92,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_ORNL_biomass_carbon_density_v1', base_url),
     ee.link.child_collection('NASA_ORNL_global_forest_classification_2020_V1', base_url),
     ee.link.child_collection('NASA_SMAP_SPL4SMGP_007', base_url),
+    ee.link.child_collection('NASA_SMAP_SPL4SMGP_008', base_url),
     ee.link.child_collection('NASA_SMAP_SPL3SMP_E_005', base_url),
     ee.link.child_collection('NASA_SMAP_SPL3SMP_E_006', base_url),
 

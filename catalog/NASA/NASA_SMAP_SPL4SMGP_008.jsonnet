@@ -1,4 +1,4 @@
-local id = 'NASA/SMAP/SPL4SMGP/007';
+local id = 'NASA/SMAP/SPL4SMGP/008';
 local subdir = 'NASA';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/NASA_SMAP_versions.libsonnet';
@@ -29,9 +29,8 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     ee_const.ext_ver
   ],
   id: id,
-  title: 'SPL4SMGP.007 SMAP L4 Global 3-hourly 9-km Surface and Root Zone Soil Moisture [deprecated]',
+  title: 'SPL4SMGP.008 SMAP L4 Global 3-hourly 9-km Surface and Root Zone Soil Moisture',
   version: version,
-  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The SMAP Level-4 (L4) Soil Moisture product includes surface soil moisture
@@ -39,6 +38,10 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     average), and additional research products (not validated), including
     surface meteorological forcing variables, soil temperature,
     evapotranspiration, and net radiation.
+    This dataset, formally known as the
+    SMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil Moisture
+    Geophysical Data (SPL4SMGP), is considered the primary product of interest
+    for most users of the SMAP Level-4 (L4) soil moisture data.
 
     SMAP L4 provides uninterrupted soil moisture data.  During outages of the
     SMAP instrument, SMAP L4 soil moisture is based on land model simulations
@@ -67,7 +70,13 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     tutorials to learn how to use SMAP data in Earth Engine.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id)  + version_config.version_links,
+  links:
+    ee.standardLinks(subdir, id) + [
+    {
+      rel: 'cite-as',
+      href: 'https://doi.org/10.5067/T5RUATAQREF8',
+    },
+  ] + version_config.version_links,
   'gee:categories': ['soil'],
   keywords: [
     'drought',
@@ -78,13 +87,13 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     'weather'
   ],
   'gee:provider_ids': [
-    'C2531308461-NSIDC_ECS',
+    'C3480440870-NSIDC_CPRD',
   ],
   providers: [
-    ee.producer_provider('Google and NSIDC', 'https://nsidc.org/data/spl4smgp/versions/7'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.producer_provider('Google and NSIDC', 'https://nsidc.org/data/spl4smgp/versions/8'),
+      ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -84, 180.0, 84, '2015-03-31T12:00:00Z', null),
+  extent: ee.extent(-180.0, -85.044, 180.0, 85.044, '2015-03-31T00:00:00Z', null),
   summaries: {
     gsd: [
       11000.0,
@@ -107,11 +116,11 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
       },
       {
         name: 'sm_surface_wetness',
-        description: 'Top layer soil wetness (0-5 cm;wetness units). ' + UNITS,
+        description: 'Top layer soil wetness (0-5 cm; wetness units). ' + UNITS,
       },
       {
         name: 'sm_rootzone_wetness',
-        description: 'Root zone soil wetness (0-100 cm;wetness units). ' + UNITS,
+        description: 'Root zone soil wetness (0-100 cm; wetness units). ' + UNITS,
       },
       {
         name: 'sm_profile_wetness',
@@ -605,31 +614,14 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     },
 
   },
-  'sci:citation':|||
-      **Reichle, R.H., G. De Lannoy, R.D. Koster, W.T. Crow, J.S. Kimball,
-      Q. Liu, and M. Bechtold. 2022.**
-      SMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil
-      Moisture Analysis Update, Version 7. [Indicate subset used]. Boulder,
-      Colorado USA. NASA National Snow and Ice Data Center Distributed Active
-      Archive Center.
-      [doi:10.5067/LWJ6TF5SZRG3](https://doi.org/10.5067/LWJ6TF5SZRG3)
-
-      **Reichle, R.H., G. De Lannoy, R.D. Koster, W.T. Crow, J.S. Kimball,
-      Q. Liu, and M. Bechtold. 2022.**
-      SMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil
-      Moisture Analysis Update, Version 7. [Indicate subset used]. Boulder,
-      Colorado USA. NASA National Snow and Ice Data Center Distributed Active
-      Archive Center.
-      [doi:10.5067/EVKPQZ4AFC4D](https://doi.org/10.5067/EVKPQZ4AFC4D)
-
-      **Reichle, R.H., G. De Lannoy, R.D. Koster, W.T. Crow, J.S. Kimball,
-      Q. Liu, and M. Bechtold. 2022.**
-      SMAP L4 Global 3-hourly 9 km EASE-Grid Surface and Root Zone Soil
-      Moisture Analysis Update, Version 7. [Indicate subset used]. Boulder,
-      Colorado USA. NASA National Snow and Ice Data Center Distributed Active
-      Archive Center.
-      [doi:10.5067/EVKPQZ4AFC4D](https://doi.org/10.5067/EVKPQZ4AFC4D)
-    |||,
+  'sci:citation': |||
+    Reichle, R., De Lannoy, G., Koster, R. D., Crow, W. T., Kimball, J. S.,
+    Liu, Q. & Bechtold, M. (2025). SMAP L4 Global 3-hourly 9 km EASE-Grid
+    Surface and Root Zone Soil Moisture Geophysical Data. (SPL4SMGP, Version 8).
+    [Data Set]. Boulder, Colorado USA. NASA National Snow and Ice Data Center
+    Distributed Active Archive Center.
+    [doi:10.5067/T5RUATAQREF8](https://doi.org/10.5067/T5RUATAQREF8)
+  |||,
 
   'gee:interval': {
     type: 'cadence',
