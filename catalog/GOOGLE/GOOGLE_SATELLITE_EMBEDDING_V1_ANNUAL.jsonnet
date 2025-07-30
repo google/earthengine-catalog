@@ -25,9 +25,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     that encodes temporal trajectories of surface conditions at and around that
     pixel as measured by various Earth observation instruments and datasets,
     over a single calendar year. Unlike conventional spectral inputs and
-    indices, where bands reflect physical measurements, embeddings are feature
-    vectors that summarize relationships across multi-source, multi-modal
-    observations in a less directly interpretable, but more powerful way.
+    indices, where bands correspond to physical measurements, embeddings are
+    feature vectors that summarize relationships across multi-source,
+    multi-modal observations in a less directly interpretable, but more powerful
+    way.
 
     The dataset covers terrestrial land surfaces and shallow waters, including
     intertidal and reef zones, inland waterways, and coastal waterways.
@@ -60,9 +61,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     transformed with vector arithmetic, and still retain their semantic meaning
     and distance relationships.
 
-    The embeddings are produced by a geospatial model that assimilates multiple
-    sources including optical, radar, LiDAR, and other sources (Brown,
-    Kazmierski, Pasquarella et al., in review).
+    The embeddings are produced by AlphaEarth Foundations, a geospatial
+    embedding model that assimilates multiple datastreams including optical,
+    radar, LiDAR, and other sources (Brown, Kazmierski, Pasquarella et al., in
+    review).
 
     Because representations are learned across many sensors and images,
     embedding representations effectively mitigate common issues such as
