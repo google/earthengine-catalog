@@ -29,6 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     feature vectors that summarize relationships across multi-source,
     multi-modal observations in a less directly interpretable, but more powerful
     way.
+    [See usage examples and more detailed explanations](https://medium.com/google-earth/ai-powered-pixels-introducing-googles-satellite-embedding-dataset-31744c1f4650).
 
     The dataset covers terrestrial land surfaces and shallow waters, including
     intertidal and reef zones, inland waterways, and coastal waterways.
