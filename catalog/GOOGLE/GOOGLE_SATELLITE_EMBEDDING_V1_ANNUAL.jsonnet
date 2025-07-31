@@ -528,11 +528,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
 
-  // 'sci:citation': |||
-  //   Brown, C.F., Kazmierski, M. R., Pasquarella, V. J. et. al. TITLE: 2025,
-  //   The Title of the Publication, Journal, Volume, Number, pages.
-  //   [doi:TODO_DOI_STRING](https://doi.org/TODO_DOI_STRING),
-  // |||,
+  'sci:citation': |||
+    Brown, C. F., Kazmierski, M. R., Pasquarella, V J., Rucklidge, W. J.,
+    Samsikova, M., Zhang, C., Shelhamer, E., Lahera, E.,  Wiles, O.,
+    Ilyushchenko, S., Gorelick, N., Zhang, L. L., Alj, S.,  Schechter, E.,
+    Askay, S., Guinan, O., Moore, R., Boukouvalas, A., & Kohli, P.(2025).
+    AlphaEarth Foundations: An embedding field model for accurate and
+    efficient global mapping from sparse label data. arXiv preprint
+    arXiv.2507.22291. [doi:10.48550/arXiv.2507.22291](https://doi.org/10.48550/arXiv.2507.22291)
+  |||,
 
   'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
     This dataset is licensed under
@@ -570,7 +574,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_eo,
     // For synthetic aperture radar (SAR)
     // ee_const.ext_sar,
-    // ee_const.ext_sci,
+    ee_const.ext_sci,
     // Include the version extension if the dataset uses any of:
     // - the deprecated fields
     // - the version fields
