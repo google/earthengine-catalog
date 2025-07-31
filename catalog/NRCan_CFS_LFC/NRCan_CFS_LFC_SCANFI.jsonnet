@@ -110,7 +110,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: 'Landcover',
+        name: 'nfiLandCover',
         description: 'NFI land cover class values: Land cover classes include Bryoid (1), Herbs (2), Rock (3), Shrub (4), 
                         Treed broadleaf (5), Treed conifer (6), Treed mixed (7) and  Water (8)',
         // Only for bands with enumerated values.
@@ -126,7 +126,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         ],
       },
       {
-        name: 'Biomass',
+        name: 'biomass',
         description: 'Aboveground tree biomass (tons/ha): biomass derived from total merchantable volume estimates produced by provincial agencies',
         // gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
                   // If the pixel size is in degrees, multiply by 111,195.
@@ -140,16 +140,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.tonnes_per_hectare,
       },
       {
-        name: 'height',
-        description: 'Height (meters): vegetation height',
-        'gee:units': units.meter,
-      },
-      {
         name: 'closure',
         description: 'Crown closure (%): percentage of pixel covered by the tree canopy',
         'gee:units': units.percent,
       },
       {
+        name: 'height',
+        description: 'Height (meters): vegetation height',
+        'gee:units': units.meter,
+      },
+      {
+                        
+                                                                                         
+                                   
+        
+       
         name: 'balsamFir',
         description: 'Balsam fir (%): estimated as the proportion of the canopy covered by Abies balsamea',
         'gee:units': units.percent,
