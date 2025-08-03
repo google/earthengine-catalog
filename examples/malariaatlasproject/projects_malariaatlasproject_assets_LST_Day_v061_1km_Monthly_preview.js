@@ -1,10 +1,11 @@
 var dataset = ee.ImageCollection('projects/malariaatlasproject/assets/LST_Day_v061/1km/Monthly')
                   .filter(ee.Filter.date('2022-01-01', '2022-12-31'));
 var means = dataset.select('Mean');
+var palette =['800080','0000ab','0000ff','008000','19ff2b','a8f7ff','ffff00','d6d600','ffa500','ff6b01','ff0000']; 
 var visParams = {
   min: -20.0,
   max: 50.0,
-  palette: ['800080','0000ab','0000ff','008000','19ff2b','a8f7ff','ffff00','d6d600','ffa500','ff6b01','ff0000'],
+  palette: palette,
 };
 Map.setCenter(0, 0, 2);
 Map.addLayer(means, visParams, 'Monthly LST Day: Malaria Atlas Project Gap-Filled Daytime Land Surface Temperature');
