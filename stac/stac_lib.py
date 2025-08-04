@@ -270,7 +270,7 @@ class Band:
   )  # gee:classes
   polarization: Optional[str] = None  # gee:polarization - HH, HV, VV, VH
   scale: Optional[float] = None  # gee:scale
-  units: Optional[str] = None  # gee:units
+  units: str = ''  # gee:units
   wavelength: Optional[str] = None  # gee:wavelength
   center_frequency: Optional[float] = None  # sar:center_frequency
   bitmask: Optional[Bitmask] = None  # gee:bitmask

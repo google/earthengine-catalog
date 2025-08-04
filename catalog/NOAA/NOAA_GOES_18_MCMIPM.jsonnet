@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'GOES-18 MCMIPM Series ABI Level 2 Cloud and Moisture Imagery Full Disk',
+  title: 'GOES-18 MCMIPM Series ABI Level 2 Cloud and Moisture Imagery Mesoscale',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     [GOES](https://www.goes.noaa.gov) satellites are geostationary weather satellites run by NOAA.
@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('NOAA', 'https://data.noaa.gov/onestop/collections/details/385d4d38-267e-40c1-859d-b5d8a079c5df'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2018-12-04T16:30:38Z', null),
+  extent: ee.extent_global('2022-05-11T20:42:54Z', null),
   summaries: {
     'gee:schema': [
       {

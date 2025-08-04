@@ -30,7 +30,7 @@ local license = spdx.cc_by_4_0;
     match the 2015 Revision of UN World Population Prospects country totals.
     There is one image for each modeled year.
 
-    [General Documentation](https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-rev11/docs)
+    [General Documentation](https://www.earthdata.nasa.gov/data/catalog/esdis-ciesin-sedac-gpwv4-popdens-r11-4.11)
 
     Note: Because this collection has a pyramid policy of MEAN, zooming out
     results in information loss. Calculations need to be performed at native
@@ -51,6 +51,7 @@ local license = spdx.cc_by_4_0;
     'nasa',
     'population',
   ],
+  // TODO: Update DOI once the dataset migrates to the Nasa Earthdata
   providers: [
     ee.producer_provider('NASA SEDAC at the Center for International Earth Science Information Network', 'https://doi.org/10.7927/H4PN93PB'),
     ee.host_provider(version_config.ee_catalog_url),
@@ -106,6 +107,8 @@ local license = spdx.cc_by_4_0;
       'gee:estimated_range': true,
     },
   },
+  // TODO: Update DOI here and in the citation section after the dataset
+  // migration to the Nasa Earthdata
   'sci:doi': '10.7927/H4PN93PB',
   'sci:citation': |||
     Center for International Earth Science Information Network - CIESIN -

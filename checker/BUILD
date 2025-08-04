@@ -1,5 +1,7 @@
 # Earth Engine Public Data Catalog STAC checker.
 load("@pip//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_binary", "py_library", "py_test")
+
 package(default_visibility = ["//visibility:public"])
 
 py_binary(

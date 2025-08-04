@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('NASA/EMIT/L1B/RAD');
+var dataset = ee.ImageCollection('NASA/EMIT/L1B/RAD').select('radiance.*');
 var emitRadVis = {
   min: 0,
   max: 10.0,

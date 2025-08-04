@@ -194,6 +194,7 @@
   // radiance: 'Watts/sr/m^2',
   radiance_nanowatts_cm2: 'nanoWatts/sr/cm^2',
   radiance_nanowatts_cm2_nanometers: 'nanoWatts/sr/cm^2/nm',
+  per_steradian: 'sr^-1',
 
   // https://en.wikipedia.org/wiki/Reflectance
   spectral_reflectance: 'Spectral reflectance',

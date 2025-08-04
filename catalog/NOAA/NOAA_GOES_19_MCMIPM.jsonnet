@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'GOES-19 MCMIPM Series ABI Level 2 Cloud and Moisture Imagery Full Disk',
+  title: 'GOES-19 MCMIPM Series ABI Level 2 Cloud and Moisture Imagery Mesoscale',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     [GOES](https://www.goes.noaa.gov) satellites are geostationary weather satellites run by NOAA.

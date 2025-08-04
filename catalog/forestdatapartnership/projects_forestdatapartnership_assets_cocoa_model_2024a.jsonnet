@@ -1,14 +1,16 @@
 local id = 'projects/forestdatapartnership/assets/cocoa/model_2024a';
 local subdir = 'forestdatapartnership';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/projects_forestdatapartnership_assets_cocoa_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_nc_4_0;
-
-local version = '2024a';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -27,7 +29,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Cocoa Probability model ' + version,
+  'gee:status': 'deprecated',
+  title: 'Cocoa Probability model ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 
@@ -50,7 +53,7 @@ local self_url = catalog_subdir_url + base_filename;
     and restoration.
 
     **Note that this dataset has separate terms of use for commercial users of
-    Earth Engine.  Please see “Terms of Use” tab for details.**
+    Earth Engine.  Please see "Terms of Use" tab for details.**
 
     This community data product is meant to evolve over time, as more data
     becomes available from the community and the model used to produce the
@@ -77,7 +80,7 @@ local self_url = catalog_subdir_url + base_filename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',
@@ -134,7 +137,7 @@ local self_url = catalog_subdir_url + base_filename;
 
     For non-commercial users of Earth Engine, use of the dataset is subject to
     CC-BY 4.0 NC license and requires the following attribution:
-    “Produced by Google for the Forest Data Partnership”.
+    "Produced by Google for the Forest Data Partnership".
 
     For commercial use of the dataset you may request access using
     [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform?resourcekey=0-db8WFCPwr2AZRhnrnH2SFg).

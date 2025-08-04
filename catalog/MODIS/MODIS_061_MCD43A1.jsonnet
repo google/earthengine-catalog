@@ -45,7 +45,7 @@ local license = spdx.proprietary;
 
     Documentation:
 
-    * [User's Guide](https://www.umb.edu/spectralmass/v006/)
+    * [User's Guide](https://www.umb.edu/spectralmass/modis-user-guide-v006-and-v0061/mcd43a1-brdfalbedo-model-parameters-product/)
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/97/MCD43_ATBD.pdf)
 

@@ -233,6 +233,7 @@ UNITS = units.UNITS.union({
     'ppm m',
     'seconds',
     'sr-1',
+    'sr^-1',
     'ug m-3',
     'tonnes/hectare',
 })
