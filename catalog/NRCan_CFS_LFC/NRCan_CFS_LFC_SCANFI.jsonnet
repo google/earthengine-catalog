@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     regions were predicted using a single random forest model. The vegetation attributes in these 
     arctic areas could not be rigorously validated. The raster file 
     « SCANFI_aux_arcticExtrapolationArea.tif » identifies these zones.
-
+    
     Full metadata, download links, layers description and data constraints, that should be known 
     before usage, can be found on Canada Open:
     [https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)
