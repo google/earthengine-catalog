@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     is particularly true for less abundant tree species, such as ponderosa pine and tamarack. The tree species 
     layers are therefore suitable for regional and coarser scale studies. Also, the broadleaf proportion are 
     slightly underestimated in this product version.
-
+    
     4- Our validation indicates that the areas in Yukon exhibit a notably lower R2 value. Consequently, estimates 
     within these regions are less dependable.
     
@@ -56,11 +56,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     also contain trees. Forested urban parks are usually classified as forested areas. Vegetation attributes are 
     also predicted for forested areas in agricultural regions.
     
-    This dataset can also be downloaded from Canada's "[Open Government](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)" website.
+    This dataset can also be downloaded from Canada's ["Open Government"](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc) website.
     
     Contains information licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada)
-    |||,
+  |||,
   
   
   // One or more category keywords. For the current list, see
