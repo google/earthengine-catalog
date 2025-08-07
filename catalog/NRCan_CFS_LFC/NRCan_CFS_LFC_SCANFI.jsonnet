@@ -1,4 +1,4 @@
-local id = 'NRCan_CFS_LFC/SCANFI';
+local id = 'projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
 local subdir = 'NRCan_CFS_LFC';
 local version = '1.2';
 
@@ -28,24 +28,36 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     winter Landsat spectral imagery along with hundreds of tile-level regional models based on 
     a novel k-nearest neighbours and random forest imputation method.
     
-    A full description of all methods and validation analyses can be found in Guindon et al. (2024). 
+    A full description of all methods and validation analyses can be found in [Guindon et al. (2024)](https://doi.org/10.1139/cjfr-2023-0118). 
     As the Arctic ecozones are outside NFI’s covered areas, the vegetation attributes in these 
     regions were predicted using a single random forest model. The vegetation attributes in these 
-    arctic areas could not be rigorously validated. The raster file 
-    « SCANFI_aux_arcticExtrapolationArea.tif » identifies these zones.
+    arctic areas could not be rigorously validated. The "articExtrapolationArea" band identifies these zones.
     
-    Full metadata, download links, layers description and data constraints, that should be known 
-    before usage, can be found on Canada Open:
-    [https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)
+    Data limitations:
+    1- The spectral disturbances of some areas disturbed by pests are not comprehensively represented in the 
+    training set, thus making it impossible to predict all defoliation cases. One such area, severely impacted by 
+    the recent eastern spruce budworm outbreak, is located on the North Shore of the St-Lawrence River. These 
+    forests are misrepresented in our training data, there is therefore an imprecision in the estimates.
+    
+    2- Attributes of open stand classes, namely shrub, herbs, rock and bryoid, are more difficult to estimate 
+    through the photointerpretation of aerial images. Therefore, these estimates could be less reliable than the 
+    forest attribute estimates.
+    
+    3- As reported in the [manuscript](https://doi.org/10.1139/cjfr-2023-0118), the uncertainty of tree species cover predictions is relatively high. This 
+    is particularly true for less abundant tree species, such as ponderosa pine and tamarack. The tree species 
+    layers are therefore suitable for regional and coarser scale studies. Also, the broadleaf proportion are 
+    slightly underestimated in this product version.
 
-    Details on the product development and validation can be found in the following publication:
-    Guindon, L., Manka, F., Correia, D.L.P., Villemaire, P., Smiley, B., Bernier, P., Gauthier, S., 
-    Beaudoin, A., Boucher, J., and Boulanger, Y. 2024. A new approach for Spatializing the Canadian 
-    National Forest Inventory (SCANFI) using Landsat dense time series. Can. J. For. Res. [https://doi.org/10.1139/cjfr-2023-0118](https://doi.org/10.1139/cjfr-2023-0118)
-
-    Please cite this dataset as:
-    Guindon L., Villemaire P., Correia D.L.P., Manka F., Lacarte S., Smiley B. 2023. SCANFI: Spatialized CAnadian National Forest Inventory data product. Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada. https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc
-
+    4- Our validation indicates that the areas in Yukon exhibit a notably lower R2 value. Consequently, estimates 
+    within these regions are less dependable.
+    
+    5- Urban areas and roads are classified as rock, according to the 2020 Agriculture and Agri-Food Canada 
+    land-use classification map. Even though those areas contain mostly buildings and infrastructure, they may 
+    also contain trees. Forested urban parks are usually classified as forested areas. Vegetation attributes are 
+    also predicted for forested areas in agricultural regions.
+    
+    This dataset can also be downloaded from Canada's "[Open Government](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)" website.
+    
     Contains information licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada)
   |||,
@@ -54,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // One or more category keywords. For the current list, see
   // https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_categories.py
   // All categories will also be added as keywords.
-  'gee:categories': ['ecosystems', 'forest-biomass', 'landuse-landcover'],
+  'gee:categories': ['forest-biomass'],
 
   // Please look through the list of existing keywords and pick two or more
   // that match the dataset.
@@ -65,6 +77,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'forest',
     'tree_cover',
+    'ecosystems', 
+    'landuse-landcover',
     'canada',
     //'forest attributes',
     //'tree species',
@@ -150,11 +164,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.meter,
       },
       {
-                        
-                                                                                         
-                                   
-        
-       
         name: 'balsamFir',
         description: 'Balsam fir (%): estimated as the proportion of the canopy covered by Abies balsamea',
         'gee:units': units.percent,
@@ -241,10 +250,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // The scientific extension.
   // The best DOI that describes the *data*.
   // Only use a research paper DOI if there is no dataset or data paper DOI.
-  'sci:doi': '10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc',
+  // 'sci:doi': '10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc',
   // Use APA style for citations and publications. https://apastyle.apa.org/
   'sci:citation': |||
-     Guindon L., Villemaire P., Correia D.L.P., Manka F., Lacarte S., Smiley B. 2023. SCANFI: Spatialized CAnadian National Forest Inventory data product. Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada. https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc
+     Guindon L., Villemaire P., Correia D.L.P., Manka F., Lacarte S., Smiley B. 2023. SCANFI: Spatialized CAnadian National Forest Inventory data product. Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada. [https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)
+  
+     Guindon, L., Manka, F., Correia, D.L.P., Villemaire, P., Smiley, B., Bernier, P., Gauthier, S., Beaudoin, A., Boucher, J., and Boulanger, Y. 2024. A new approach for Spatializing the Canadian National Forest Inventory (SCANFI) using Landsat dense time series. Can. J. For. Res. [https://doi.org/10.1139/cjfr-2023-0118](https://doi.org/10.1139/cjfr-2023-0118)
   |||,
 
   // For standard SPDX licenses, use:
@@ -253,10 +264,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // gee:terms_of_use to enough text that a reader has a sense of what they are
   // getting into. Be sure to add a link to the license in this Markdown text
   // and add the link to the license section with ee.link.license(url).
-  // 'gee:terms_of_use': |||
-  //   Put the custom license here.
-  // |||,
-  'gee:terms_of_use': |||
+  'gee:terms_of_use': ee.gee_terms_of_use(license) |||
     Licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
   |||,
@@ -276,8 +284,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   // The standard links cover the basic locations of the dataset, catalog
   // entries, code examples, etc.
-  links: ee.standardLinks(subdir, id),
-
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.license(license.reference),
+  ],
   // Here are some of the other links that are sometimes needed. Add by
   // concatenating a Jsonnet array like this:
   //   links: ee.standardLinks(subdir, id) + [more links here],
