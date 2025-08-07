@@ -269,7 +269,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // gee:terms_of_use to enough text that a reader has a sense of what they are
   // getting into. Be sure to add a link to the license in this Markdown text
   // and add the link to the license section with ee.link.license(url).
-  'gee:terms_of_use': ee.gee_terms_of_use(license) |||
+  'gee:terms_of_use': |||
     Licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
   |||,
