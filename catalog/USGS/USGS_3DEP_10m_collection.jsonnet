@@ -1,6 +1,6 @@
-local id = 'USGS/3DEP/10m';
+local id = 'USGS/3DEP/10m_collection';
 local versions = import 'versions.libsonnet';
-local version_table = import 'templates/NED_versions.libsonnet';
+local version_table = import 'templates/USGS_3DEP_versions.libsonnet';
 
 local subdir = 'USGS';
 
@@ -26,10 +26,9 @@ local license = spdx.proprietary {
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USGS 3DEP 10m National Map Seamless (1/3 Arc-Second) [deprecated]',
+  title: 'USGS 3DEP 10m National Map Seamless (1/3 Arc-Second)',
   version: version,
-  'gee:status': 'deprecated',
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This is the seamless 3DEP DEM dataset for the U.S.
     with full coverage of the 48 conterminous states, Hawaii, and
@@ -43,6 +42,8 @@ local license = spdx.proprietary {
 
     The 1m dataset is ingested
     as [USGS_3DEP_1m](USGS_3DEP_1m).
+
+    The 10m dataset is re-ingested as [USGS_3DEP_10m_collection](USGS_3DEP_10m_collection).
 
     Dataset uploaded by [Farmers Business Network](https://fbn.com).
   |||,
