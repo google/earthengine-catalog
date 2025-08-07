@@ -18,6 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
+    
     This data publication contains a set of 30m resolution raster files representing 2020 
     Canadian wall-to-wall maps of broad land cover type, forest canopy height, degree of 
     crown closure and aboveground tree biomass, along with species composition of several 
@@ -60,9 +61,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     
     Contains information licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada)
-  |||,
-
-
+    |||,
+  
+  
   // One or more category keywords. For the current list, see
   // https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_categories.py
   // All categories will also be added as keywords.
@@ -258,13 +259,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
      SCANFI: Spatialized CAnadian National Forest Inventory data product. 
      Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada. 
      [https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)
-  
+     
      Guindon, L., Manka, F., Correia, D.L.P., Villemaire, P., Smiley, B., Bernier, P., Gauthier, S., Beaudoin, A., Boucher, J., and Boulanger, Y. 2024. 
      A new approach for Spatializing the Canadian National Forest Inventory (SCANFI) using Landsat dense time series. Can. J. For. Res. 
      [https://doi.org/10.1139/cjfr-2023-0118](https://doi.org/10.1139/cjfr-2023-0118)
   
   |||,
-
+  
   // For standard SPDX licenses, use:
   // 'gee:terms_of_use': ee.gee_terms_of_use(license),
   // If there is a custom license (the license is set to spdx.proprietary, set
@@ -272,10 +273,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // getting into. Be sure to add a link to the license in this Markdown text
   // and add the link to the license section with ee.link.license(url).
   'gee:terms_of_use': ee.gee_terms_of_use(license) |||
+    
     Licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
+  
   |||,
-
+  
   // The fields below generally don't need to be changed.
 
   // TODO(google): Remove gee:status when the dataset is ready.
