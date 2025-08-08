@@ -1,4 +1,5 @@
-local id = 'projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
+//local id = 'projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
+local id = projects/gcpm041u-lemur/assets/SCANFI_v1_2';
 //local subdir = 'gcpm041u-lemur';
 local subdir = 'NRCan_CFS_LFC';
 local version = '1.2';
