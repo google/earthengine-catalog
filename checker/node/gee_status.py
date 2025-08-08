@@ -58,7 +58,7 @@ def get_added_filenames():
         return []
     event_name = os.environ.get('GITHUB_EVENT_NAME')
     if event_name != 'pull_request':
-        logging.error('Wrong event %s', event_name)
+        #logging.error('Wrong event %s', event_name)
         return []
     github_ref = os.environ.get('GITHUB_REF', '')
     if not github_ref.startswith('refs/pull/'):
@@ -86,7 +86,9 @@ class Check(stac.NodeCheck):
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     # TODO(simonf): add a github-only check that new datasets
     # must have status 'incompete' or 'beta'
-    logging.info('Files added in this PR: %s', get_added_filenames())
+    filenames =  get_added_filenames()
+    if filenames:
+      logging.info('Files added in this PR: %s', filenames)
       
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
