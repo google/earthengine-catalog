@@ -91,13 +91,18 @@ class Check(stac.NodeCheck):
         logging.info('GITHUB_EVENT_PATH: %s', event_path)
         if event_path:
             with open(event_path, 'r') as f:
-              pr_number = json.load(f).get('pull_request', {}).get('number')        
-              repo = os.environ.get("GITHUB_REPOSITORY")      
-              if pr_number and repo:
-                logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
-              else:
-                logging.error('Could not read GITHUB_EVENT_PATH or GITHUB_REPOSITORY values')
+              try:  
+                  pr_number = json.load(f).get('pull_request', {}).get('number')        
+                  repo = os.environ.get("GITHUB_REPOSITORY")      
+                  
+                  if pr_number and repo:
+                    logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
+                  else:
+                    logging.error('Could not read GITHUB_EVENT_PATH or GITHUB_REPOSITORY values')
+              except json.decoder.JSONDecodeError:
+                logging.exception('Failed to parse github event path file as JSON')  
 
+      
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
         yield cls.new_issue(
