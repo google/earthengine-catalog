@@ -81,7 +81,6 @@ def get_added_filenames():
         return []
     event_name = os.environ.get('GITHUB_EVENT_NAME')
     if event_name != 'pull_request':
-        logging.info('Not a pull request eventL %s', event_name)
         return []
     github_ref = os.environ.get('GITHUB_REF', '')
     if not github_ref.startswith('refs/pull/'):
