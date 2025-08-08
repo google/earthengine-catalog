@@ -95,7 +95,7 @@ def get_added_filenames():
     repo = os.environ.get("GITHUB_REPOSITORY")      
     if repo:
         logging.info('REPO %s', repo)
-      else:
+    else:
         logging.error('Could not read GITHUB_REPOSITORY value')
         return []  
     return get_added_filenames_for_pr_repo(pr_number, repo)
