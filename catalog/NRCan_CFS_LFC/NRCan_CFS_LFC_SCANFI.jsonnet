@@ -1,7 +1,5 @@
-//local id = 'projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
-//local subdir = 'gcpm041u-lemur';
-local id = 'NRCan_CFS_LFC/SCANFI';
-local subdir = 'NRCan_CFS_LFC';
+local id = 'projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2';
+local subdir = 'gcpm041u-lemur';
 local version = '1.2';
 
 local ee_const = import 'earthengine_const.libsonnet';
