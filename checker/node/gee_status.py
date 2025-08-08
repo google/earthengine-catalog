@@ -87,27 +87,19 @@ class Check(stac.NodeCheck):
     # TODO(simonf): add a github-only check that new datasets
     # must have status 'incompete' or 'beta'
     if os.environ.get('GITHUB_ACTIONS') == 'true':
-        event_path = os.environ.get('GITHUB_EVENT_PATH', '')
-        logging.info('GITHUB_EVENT_PATH: %s', event_path)
-        if event_path:
-            with open(event_path, 'r') as f:
-              try:  
-                  event_data = json.load(f)
-                  logging.info('Event data: %s', event_data)
-                  logging.info('pull_request: %s', event_data.get('pull_request', {}))
-                  pr_number = event_data.get('pull_request', {}).get('number')
-                  if not pr_number:
-                    logging.error('Could not get PR number from GITHUB_EVENT_PATH')
-                  repo = os.environ.get("GITHUB_REPOSITORY")      
-                  if  repo:
-                    logging.info('REPO %s', repo)
-                  else:
-                    logging.error('Could not read GITHUB_REPOSITORY value')
-                  if pr_number and repo:
-                    logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
-              except json.decoder.JSONDecodeError:
-                logging.exception('Failed to parse github event path file as JSON')  
-
+        github_ref = os.environ.get('GITHUB_REF', '')
+        if github_ref.startswith('refs/pull/'):
+            # Format: refs/pull/123/merge
+            pr_number = github_ref.split('/')[2]        
+          if not pr_number:
+            logging.error('Could not get PR number from GITHUB_EVENT_PATH')
+          repo = os.environ.get("GITHUB_REPOSITORY")      
+          if  repo:
+            logging.info('REPO %s', repo)
+          else:
+            logging.error('Could not read GITHUB_REPOSITORY value')
+          if pr_number and repo:
+            logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
       
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
