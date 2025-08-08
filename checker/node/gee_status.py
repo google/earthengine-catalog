@@ -28,9 +28,11 @@ def get_added_filenames_for_pr_repo(pr_number: int, repo: str) -> list[str]:
         A list of filenames that were added in the PR.
     """
     try:
+        env = os.environ.copy()
+        env['GH_TOKEN'] = os.environ.get('GITHUB_TOKEN', '')
         result = subprocess.run(
             ['gh', 'api', f'repos/:owner/:repo/pulls/{pr_number}/files'],
-            capture_output=True, text=True
+            capture_output=True, text=True,  env=env 
         )
         
         if result.returncode != 0:
