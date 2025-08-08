@@ -89,17 +89,17 @@ class Check(stac.NodeCheck):
     if os.environ.get('GITHUB_ACTIONS') == 'true':
         github_ref = os.environ.get('GITHUB_REF', '')
         if github_ref.startswith('refs/pull/'):
-            # Format: refs/pull/123/merge
-            pr_number = github_ref.split('/')[2]        
-          if not pr_number:
-            logging.error('Could not get PR number from GITHUB_EVENT_PATH')
-          repo = os.environ.get("GITHUB_REPOSITORY")      
-          if  repo:
-            logging.info('REPO %s', repo)
-          else:
-            logging.error('Could not read GITHUB_REPOSITORY value')
-          if pr_number and repo:
-            logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
+              # Format: refs/pull/123/merge
+              pr_number = github_ref.split('/')[2]        
+              if not pr_number:
+                logging.error('Could not get PR number from GITHUB_EVENT_PATH')
+              repo = os.environ.get("GITHUB_REPOSITORY")      
+              if repo:
+                logging.info('REPO %s', repo)
+              else:
+                logging.error('Could not read GITHUB_REPOSITORY value')
+              if pr_number and repo:
+                logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
       
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
