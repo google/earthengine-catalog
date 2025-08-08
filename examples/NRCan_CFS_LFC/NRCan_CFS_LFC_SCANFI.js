@@ -1,4 +1,4 @@
-var dataset = ee.Image('NRCan_CFS_LFC/NRCan_CFS_LFC_SCANFI');
+var dataset = ee.Image("projects/gcpm041u-lemur/assets/scanfi_v12/SCANFI_v1_2");
 var balsamFir = dataset.select('balsamFir').selfMask();
 var vis = {
   min: 0,
