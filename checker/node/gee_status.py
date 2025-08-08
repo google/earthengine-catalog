@@ -27,54 +27,27 @@ def get_added_filenames_for_pr_repo(pr_number: int, repo: str) -> list[str]:
     Returns:
         A list of filenames that were added in the PR.
     """
-    print(f"Fetching added files for PR #{pr_number} in repo {repo}...")
-    
-    # Construct the command to get the file status (Added, Modified, Deleted)
-    command = [
-        "gh",
-        "pr",
-        "diff",
-        str(pr_number),
-        "--repo",
-        repo,
-        "--name-status"
-    ]
-
     try:
-        # Execute the 'gh' command. It will use the GITHUB_TOKEN from the environment.
         result = subprocess.run(
-            command,
-            capture_output=True,
-            text=True,
-            check=True  # Raise an exception if the command fails
+            ['gh', 'api', f'repos/:owner/:repo/pulls/{pr_number}/files'],
+            capture_output=True, text=True
         )
-
-        # Process the output
-        added_files = []
-        output_lines = result.stdout.strip().split('\n')
-
-        for line in output_lines:
-            if not line:
-                continue
-            
-            # The output is tab-separated: "A\tpath/to/file.txt"
-            parts = line.split('\t')
-            status = parts[0]
-            filename = parts[1]
-
-            # We only care about added files
-            if status == 'A':
-                added_files.append(filename)
-
-        return added_files
+        
+        if result.returncode != 0:
+            logging.error(f"Failed to get PR files: {result.stderr}")
+            return []
+        
+        files = json.loads(result.stdout)
+        
+        return [f['filename'] for f in files if f['status'] == 'added']
 
     except FileNotFoundError:
         logging.error("Error: 'gh' command not found. Ensure the GitHub CLI is installed.")
-        raise
+        return []
     except subprocess.CalledProcessError as e:
         logging.error(f"Error executing 'gh' command. Exit code: {e.returncode}")
         logging.error(f"Stderr: {e.stderr}")
-        raise
+        return []
 
 def get_added_filenames():
     if os.environ.get('GITHUB_ACTIONS') != 'true':
