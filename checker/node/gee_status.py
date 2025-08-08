@@ -38,6 +38,7 @@ def get_added_filenames_for_pr_repo(pr_number: int, repo: str) -> list[str]:
             return []
         
         files = json.loads(result.stdout)
+        logging.info('API response: %s', files)
         
         return [f['filename'] for f in files if f['status'] == 'added']
 
