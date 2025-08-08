@@ -52,9 +52,11 @@ def get_added_filenames_for_pr_repo(pr_number: int, repo: str) -> list[str]:
 
 def get_added_filenames():
     if os.environ.get('GITHUB_ACTIONS') != 'true':
+        logging.error('Not in an action')
         return []
     event_name = os.environ.get('GITHUB_EVENT_NAME')
     if event_name != 'pull_request':
+        logging.error('Wrong event %s', event_name)
         return []
     github_ref = os.environ.get('GITHUB_REF', '')
     if not github_ref.startswith('refs/pull/'):
