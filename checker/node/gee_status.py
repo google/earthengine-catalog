@@ -17,7 +17,7 @@ from absl import logging
 from checker import stac
 
 
-def get_added_filenames(pr_number: int, repo: str) -> list[str]:
+def get_added_filenames(pr_number: str, repo: str) -> list[str]:
     """
     Uses the GitHub CLI ('gh') to fetch a list of ONLY newly added files in a PR.
 
@@ -35,7 +35,7 @@ def get_added_filenames(pr_number: int, repo: str) -> list[str]:
         "gh",
         "pr",
         "diff",
-        str(pr_number),
+        pr_number,
         "--repo",
         repo,
         "--name-status"
@@ -87,12 +87,15 @@ class Check(stac.NodeCheck):
     # TODO(simonf): add a github-only check that new datasets
     # must have status 'incompete' or 'beta'
     if os.environ.get('GITHUB_ACTIONS') == 'true':
-      pr_number = os.environ.get("GITHUB_EVENT_PULL_REQUEST_NUMBER")
-      repo = os.environ.get("GITHUB_REPOSITORY")      
-      if pr_number and repo:
-        logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
-      else:
-        logging.error('Could not read GITHUB_EVENT_PULL_REQUEST_NUMBER or GITHUB_REPOSITORY values')
+        event_path = os.environ.get('GITHUB_EVENT_PATH', '')
+        if event_path:
+            with open(event_path) as f:
+              pr_number = json.load(f).get('pull_request', {}).get('number')        
+              repo = os.environ.get("GITHUB_REPOSITORY")      
+              if pr_number and repo:
+                logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
+              else:
+                logging.error('Could not read GITHUB_EVENT_PATH or GITHUB_REPOSITORY values')
 
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
