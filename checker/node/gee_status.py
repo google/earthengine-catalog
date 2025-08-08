@@ -16,8 +16,7 @@ from absl import logging
 
 from checker import stac
 
-
-def get_added_filenames(pr_number: int, repo: str) -> list[str]:
+def get_added_filenames_for_pr_repo(pr_number: int, repo: str) -> list[str]:
     """
     Uses the GitHub CLI ('gh') to fetch a list of ONLY newly added files in a PR.
 
@@ -77,7 +76,31 @@ def get_added_filenames(pr_number: int, repo: str) -> list[str]:
         logging.error(f"Stderr: {e.stderr}")
         raise
 
-
+def get_added_filenames():
+    if os.environ.get('GITHUB_ACTIONS') != 'true':
+        return []
+    event_name = os.environ.get('GITHUB_EVENT_NAME')
+    if event_name != 'pull_request':
+        logging.info('Not a pull request eventL %s', event_name)
+        return []
+    github_ref = os.environ.get('GITHUB_REF', '')
+    if not github_ref.startswith('refs/pull/'):
+        logging.error('Unexpected ref format %s', github_ref)
+        return []
+    # Format: refs/pull/123/merge
+    pr_number = github_ref.split('/')[2]        
+    if not pr_number:
+        logging.error('Could not get PR number from GITHUB_EVENT_PATH')
+        return []
+    repo = os.environ.get("GITHUB_REPOSITORY")      
+    if repo:
+        logging.info('REPO %s', repo)
+      else:
+        logging.error('Could not read GITHUB_REPOSITORY value')
+        return []  
+    return get_added_filenames_for_pr_repo(pr_number, repo)
+    
+    
 class Check(stac.NodeCheck):
   """Checks for gee:status."""
   name = 'gee_status'
@@ -86,20 +109,7 @@ class Check(stac.NodeCheck):
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     # TODO(simonf): add a github-only check that new datasets
     # must have status 'incompete' or 'beta'
-    if os.environ.get('GITHUB_ACTIONS') == 'true':
-        github_ref = os.environ.get('GITHUB_REF', '')
-        if github_ref.startswith('refs/pull/'):
-              # Format: refs/pull/123/merge
-              pr_number = github_ref.split('/')[2]        
-              if not pr_number:
-                logging.error('Could not get PR number from GITHUB_EVENT_PATH')
-              repo = os.environ.get("GITHUB_REPOSITORY")      
-              if repo:
-                logging.info('REPO %s', repo)
-              else:
-                logging.error('Could not read GITHUB_REPOSITORY value')
-              if pr_number and repo:
-                logging.info('Files added in this PR: %s', get_added_filenames(pr_number, repo))
+    logging.info('Files added in this PR: %s', get_added_filenames())
       
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
