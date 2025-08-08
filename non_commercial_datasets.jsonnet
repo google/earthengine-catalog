@@ -58,4 +58,9 @@
   'UN/Geodata/BNDA_simplified/current',
   'WCMC/WDOECM',
   'WRI/SBTN/naturalLands/v1/2020',
+  'projects/malariaatlasproject/assets/LST_Day_v061',
+  'projects/malariaatlasproject/assets/LST_Night_v061',
+  'projects/malariaatlasproject/assets/EVI_v061',
+  'projects/malariaatlasproject/assets/TCB_v061',
+  'projects/malariaatlasproject/assets/TCW_v061',
 ]
