@@ -17,7 +17,7 @@ from absl import logging
 from checker import stac
 
 
-def get_added_filenames(pr_number: str, repo: str) -> list[str]:
+def get_added_filenames(pr_number: int, repo: str) -> list[str]:
     """
     Uses the GitHub CLI ('gh') to fetch a list of ONLY newly added files in a PR.
 
@@ -35,7 +35,7 @@ def get_added_filenames(pr_number: str, repo: str) -> list[str]:
         "gh",
         "pr",
         "diff",
-        pr_number,
+        str(pr_number),
         "--repo",
         repo,
         "--name-status"
@@ -88,8 +88,9 @@ class Check(stac.NodeCheck):
     # must have status 'incompete' or 'beta'
     if os.environ.get('GITHUB_ACTIONS') == 'true':
         event_path = os.environ.get('GITHUB_EVENT_PATH', '')
+        logging.info('GITHUB_EVENT_PATH: %s', event_path)
         if event_path:
-            with open(event_path) as f:
+            with open(event_path, 'r') as f:
               pr_number = json.load(f).get('pull_request', {}).get('number')        
               repo = os.environ.get("GITHUB_REPOSITORY")      
               if pr_number and repo:
