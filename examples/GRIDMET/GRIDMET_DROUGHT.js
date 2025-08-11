@@ -20,7 +20,7 @@ var Z = filtered.select('z');
 // Here we choose 2years = 48 months
 var SPI2y = filtered.select('spi2y');
 var SPEI2y = filtered.select('spei2y');
-var EDDI2y = filtered.select('spei2y');
+var EDDI2y = filtered.select('eddi2y');
 
 // Make a color palette that is similar to USDM drought classification
 var usdmColors = '0000aa,0000ff,00aaff,00ffff,aaff55,ffffff,ffff00,fcd37f,ffaa00,e60000,730000';
