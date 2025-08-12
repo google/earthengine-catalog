@@ -235,6 +235,7 @@ UNITS = units.UNITS.union({
     'sr-1',
     'sr^-1',
     'ug m-3',
+    'tonnes/hectare',
 })
 
 
