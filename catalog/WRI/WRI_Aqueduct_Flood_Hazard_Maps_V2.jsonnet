@@ -32,9 +32,34 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     quantitative information on food risks and adaptation strategy costs, and to
     help inform policy and investment decision-making.
 
-    [This](https://files.wri.org/d8/s3fs-public/aqueduct-floods-methodology.pdf)
-    technical note explains in detail the framework, methodology, and data used
-    in developing Aqueduct Floods.
+    Google Earth Engine team recommendation:
+
+    This dataset can be used for:
+
+    * Larger scale regional analysis: what is the broad risk to the big area of
+      the size of a US county level / large city?
+    * Preliminary assessments: when you need a quick, regional-scale "first
+      look" at potential changes in river discharge without needing precise
+      floodplain inundation maps.
+    * Relative changes: This looks at different climate scenarios so can be
+      used for generalized changes in magnitude of impacts
+
+    This dataset should not be used for:
+
+    * Detailed flood inundation mapping: such as looking at properties specific
+      risk
+    * Flat, lowland rivers: the simplification of the equations do not take
+      into account backwater effects (water flowing backwards) which happens a
+      lot in flood plains
+    * Analyzing hydraulic structures: it is not suitable for assessing the
+      specific impact of structures like bridges, levees, or weirs that cause
+      significant backwater effects
+
+    Please see
+    [the technical note](https://files.wri.org/d8/s3fs-public/aqueduct-floods-methodology.pdf)
+    from data provider for full details on the methods used and to
+    understand if this data is right for your application.
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
