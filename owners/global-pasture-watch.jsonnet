@@ -7,6 +7,6 @@
   "link": "https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring",
   "imageLink": "https://storage.googleapis.com/wri-globalpasturewatch/gee-publisher/image.png",
   "logo": "https://storage.googleapis.com/wri-globalpasturewatch/gee-publisher/logo.png",
-  "name": "Land & Carbon Lab Global Pasture Watch",
+  "name": "Global Pasture Watch",
   "type": "PUBLISHER",
 }

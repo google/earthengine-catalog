@@ -8,7 +8,7 @@ var lat = 5.93254056;
 var domi_grassland_2020 = domi_grassland.filterDate('2020-01-01', '2021-01-01').first();
 domi_grassland_2020 = domi_grassland_2020.selfMask()
 
-var palette = [ 'ff9916', 'ffcd73'];
+var palette = [ 'ffcd73', 'ff9916'];
 var vis = {min: 1, max: 2, palette: palette};
 
 // Add a white background image to the map.
