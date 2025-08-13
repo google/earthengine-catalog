@@ -14,7 +14,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual Uncalibrated EO-based Gross Primary Productivity (UGPP) v' + version,
+  title: 'GPW Annual uncalibrated Gross Primary Productivity (uGPP) v' + version,
   version: version,
   description: |||
     This dataset provides global uncalibrated EO-based Gross Primary Productivity 
