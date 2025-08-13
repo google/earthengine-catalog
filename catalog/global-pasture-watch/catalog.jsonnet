@@ -24,6 +24,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_global-pasture-watch_assets_ggc-30m_v1_grassland_c', base_url),
     ee.link.child_collection('projects_global-pasture-watch_assets_ggc-30m_v1_cultiv-grassland_p', base_url),
     ee.link.child_collection('projects_global-pasture-watch_assets_ggc-30m_v1_nat-semi-grassland_p', base_url),
-    ee.link.child_collection('projects_global-pasture-watch_assets_ugpp-30m_v1_lue.model_m', base_url)
+    ee.link.child_collection('projects_global-pasture-watch_assets_ugpp-30m_v1_lue-model_m', base_url)
   ],
 }
