@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   description: |||
     This dataset provides global uncalibrated EO-based Gross Primary Productivity 
-    from 2000 to 2024 at 30-m spatial resolution. 
+    from 2000 at 30-m spatial resolution. 
   ||| + ugpp30m_v1,
   'gee:categories': ['plant-productivity'],
   keywords: [
@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Land and Carbon Lab Global Pasture Watch', 'https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-01T00:00:00Z', '2025-01-01T00:00:00Z'),
+  extent: ee.extent_global('2000-01-01T00:00:00Z', null),
   summaries: {
     'eo:bands': [
       {
