@@ -13,6 +13,8 @@ Bi-monthly uncalibrated Gross Primary Productivity (uGPP) values (available in [
 are averated by each year and accumulated over the full 365-day period to produce
 global annual uGPP values, expressed in units of gC/m²/year.
 
+Grassland GPP values are computed on-the-fly using [GEE App](https://global-pasture-watch.projects.earthengine.app/view/ggpp-30m).
+
 **Limitations:** Cloud cover, snow, and atmospheric artifacts can cause data gaps in satellite imagery inputs, 
 which affects the quality of GPP values. While gap-filling techniques can help, they may introduce their 
 own issues, such as stripe effects from sensor malfunctions (Landsat 7 Scan Line Corrector failure) or 
