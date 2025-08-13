@@ -21,13 +21,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (cultivated and natural/semi-natural) from 2000 to 2022 at 30-m spatial 
     resolution. 
   ||| + ggc30m_v1,
-  'gee:categories': ['forest-biomass'],
+  'gee:categories': ['grassland'],
   keywords: [
+    'pasture',
+    'rangeland',
+    'vegetation',
     'land',
     'landcover',
     'landuse',
     'global',
-    'vegetation'
   ],
 
   providers: [
