@@ -1,4 +1,4 @@
-local id = 'projects/global-pasture-watch/assets/ggc-30m/v1/cultiv-grassland_p';
+local id = 'projects/global-pasture-watch/assets/ggpp-30m/v1/ugpp_m';
 local subdir = 'global-pasture-watch';
 local version = '1';
 
