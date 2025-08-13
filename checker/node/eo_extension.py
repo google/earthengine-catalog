@@ -235,6 +235,8 @@ UNITS = units.UNITS.union({
     'sr-1',
     'sr^-1',
     'ug m-3',
+    '1/m',
+    'mg/day/m^2',
 })
 
 

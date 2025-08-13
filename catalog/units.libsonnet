@@ -263,4 +263,10 @@
   // https://rock.geosociety.org/net/gsatoday/archive/22/2/pdf/i1052-5173-22-2-28.pdf
   // We pick 'y' for consistency with 'd' and 'h'
   year: 'y',
+
+  // https://en.wikipedia.org/wiki/Reciprocal_length
+  inverse_length: '1/m',
+
+  // https://en.wikipedia.org/wiki/Flux#Flux_as_flow_rate_per_unit_area
+  mg_per_day_per_square_meter: 'mg/day/m^2',
 }
