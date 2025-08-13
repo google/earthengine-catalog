@@ -22,12 +22,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ||| + ugpp30m_v1,
   'gee:categories': ['plant-productivity'],
   keywords: [
-    'global',
     'vegetation',
-    'ecosystems',
     'land',
     'landcover',
-    'landuse'
+    'landuse',
+    'global',
   ],
 
   providers: [
