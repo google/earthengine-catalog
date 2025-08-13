@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset provides global uncalibrated EO-based Gross Primary Productivity 
     from 2000 to 2024 at 30-m spatial resolution. 
   ||| + ugpp30m_v1,
-  'gee:categories': ['productivity'],
+  'gee:categories': ['plant-productivity'],
   keywords: [
     'global',
     'vegetation',
