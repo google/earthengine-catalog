@@ -1,11 +1,11 @@
 
-local id = 'NRCan_CFS_LFC';
+local id = 'gcpm041u-lemur';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
 local basename = 'catalog';
 local base_filename = basename + '.json';
-local base_url = ee_const.catalog_base + 'NRCan_CFS_LFC/';
+local base_url = ee_const.catalog_base + 'gcpm041u-lemur/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
@@ -19,7 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('NRCan_CFS_LFC', base_url),
+    ee.link.child_collection('gcpm041u-lemur', base_url),
   ],
 }
 
