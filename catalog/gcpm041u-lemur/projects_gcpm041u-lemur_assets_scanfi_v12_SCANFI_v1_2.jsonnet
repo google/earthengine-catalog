@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     slightly underestimated in this product version.
     
     4- Our validation indicates that the areas in Yukon exhibit a notably lower R2 value. Consequently, estimates 
-    within these regions are less dependable.
+    within these regions are less dependable. 
     
     5- Urban areas and roads are classified as rock, according to the 2020 Agriculture and Agri-Food Canada 
     land-use classification map. Even though those areas contain mostly buildings and infrastructure, they may 
