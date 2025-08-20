@@ -76,17 +76,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The embeddings in this image collection were generated using v2.1 of the
     AlphaEarth Foundations model, which includes a number of improvements over
-    the v2.0 model evaluated in the  AlphaEarth Foundations paper. Namely, the
-    USDA NASS Cropland Data Layer was included as an addition target during
-    training; loss weights for NLCD and CDL were lowered from 0.50 to 0.25; the
+    the v2.0 model evaluated in the AlphaEarth Foundations paper. Namely, the
     training dataset was re-generated to include a large number of samples from
     Antarctica that had previously been dropped due to limited sensor coverage,
     effectively increasing the count of training video sequences from over 8.4
-    million to over 10.1 million sequences; and a number other minor changes to
-    mitigate visual artifacts associated with input sensor swaths, tiling, and
-    multi-resolution pixel targets. These changes did not notably affect the
-    model's performance in terms of evaluation metrics, but generally improved
-    the quality of the resulting embeddings.
+    million to over 10.1 million sequences; and the USDA NASS Cropland Data
+    Layer was included as an additional target during training; loss weights for
+    NLCD and CDL were lowered from 0.50 to 0.25; and several other minor changes
+    were implemented to better mitigate visual artifacts associated with input
+    sensor swaths, tiling, and multi-resolution pixel targets. These changes did
+    not notably affect the model's performance in terms of evaluation metrics,
+    but generally improved the quality of the resulting embeddings.
 
     While some large scale swath and data availability artifacts remain, these
     typically represent minor vector offsets and generally do not significantly
