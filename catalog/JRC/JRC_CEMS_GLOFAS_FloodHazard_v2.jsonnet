@@ -1,13 +1,13 @@
-local id = 'JRC/CEMS_GLOFAS/FloodHazard/v1';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/jrc_cems_glofas_floodhazard_versions.libsonnet';
-
+local id = 'JRC/CEMS_GLOFAS/FloodHazard/v2';
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/jrc_cems_glofas_floodhazard_versions.libsonnet';
 
 local license = spdx.cc_by_4_0;
 
@@ -27,10 +27,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'JRC Global River Flood Hazard Maps Version 1 [deprecated]',
+  title: 'JRC Global River Flood Hazard Maps Version 2',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'deprecated',
   description: |||
     The global river flood hazard maps are a gridded data set representing
     inundation along the river network, for seven different flood return periods
@@ -46,8 +45,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     perform flood risk assessments. The dataset is created as part of the
     Copernicus Emergency Management Service.
 
-    Note: This dataset may have missing tiles. This collection will be
-    eventually be replaced by v2.1 once it's updated by the provider.
+    This version also includes additional datasets. For each tile, a flood
+    hazard map is available with water depth categorized according to the GloFAS
+    "Flood hazard 100 year return period" static layer. Furthermore, the
+    "spurious_depth_category" band identifies areas where depths greater than
+    10m are predicted in small channels (less than 3,000km^2) for the 10-year
+    return period, including a 2km buffer.
+
+    Note: The band structure has been updated in this version (v2). Each return
+    period now has separate bands for depth and depth category. Additionally,
+    bands for permanent water class and spurious depth category are included.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -65,16 +72,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   summaries: {
     'gee:schema': [
       {
-        name: 'return_period',
-        description: |||
-          Return period of flood in years.
-
-          Note: This property is not present for images that just show the
-          permanent water bodies.
-        |||,
-        type: ee_const.var_type.int,
-      },
-      {
         name: 'id',
         description: |||
           Unique identifier for the latitude/longitude grid cell.
@@ -87,9 +84,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'eo:bands': [
       {
-        name: 'depth',
-        description: 'Flood inundation depth',
+        name: 'RP' + rp + '_depth',
+        description: 'Flood inundation depth for return period ' + rp + ' years',
         'gee:units': units.meter,
+      }
+      for rp in ['10', '20', '50', '75', '100', '200', '500']
+    ] + [
+      {
+        name: 'RP' + rp + '_depth_category',
+        description: |||
+          Water depth categorized as the GloFAS Flood hazard 100 year return
+          period static layer for return period
+        |||  + rp + ' years',
+      }
+      for rp in ['10', '20', '50', '75', '100', '200', '500']
+    ] + [
+      {
+        name: 'permanent_water_class',
+        description: |||
+          Permanent water bodies used to patch the flood hazard maps
+        |||,
+      },
+      {
+        name: 'spurious_depth_category',
+        description: |||
+          Identifies areas where depths >10m are predicted in small channels
+          (<3,000km^2) for the 10-year return period, plus a 2km buffer
+        |||,
       },
     ],
     'gee:visualizations': [
@@ -113,15 +134,90 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '0000ff',
             ],
             bands: [
-              'depth',
+              'RP100_depth',
             ],
           },
         },
       },
     ],
-    depth: {
+    RP10_depth: {
       minimum: 0.1,
-      maximum: 9494.89,
+      maximum: 160.0,
+      'gee:estimated_range': false,
+    },
+    RP20_depth: {
+      minimum: 0.1,
+      maximum: 199.0,
+      'gee:estimated_range': false,
+    },
+    RP50_depth: {
+      minimum: 0.1,
+      maximum: 258.1,
+      'gee:estimated_range': false,
+    },
+    RP75_depth: {
+      minimum: 0.1,
+      maximum: 283.6,
+      'gee:estimated_range': false,
+    },
+    RP100_depth: {
+      minimum: 0.1,
+      maximum: 301.6,
+      'gee:estimated_range': false,
+    },
+    RP200_depth: {
+      minimum: 0.1,
+      maximum: 344.8,
+      'gee:estimated_range': false,
+    },
+    RP500_depth: {
+      minimum: 0.1,
+      maximum: 401.3,
+      'gee:estimated_range': false,
+    },
+    RP10_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    RP20_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    RP50_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    RP75_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    RP100_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    RP200_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    RP500_depth_category: {
+      minimum: 2,
+      maximum: 4,
+      'gee:estimated_range': false,
+    },
+    permanent_water_class: {
+      minimum: 1,
+      maximum: 1,
+      'gee:estimated_range': false,
+    },
+    spurious_depth_category: {
+      minimum: 1,
+      maximum: 1,
       'gee:estimated_range': false,
     },
   },
