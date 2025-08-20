@@ -32,6 +32,52 @@ reflectance_multi_description: |||
   other biogeochemical properties like chlorophyll-a concentration and total
   suspended matter.
 |||,
+reflectance_olci_description: |||
+  This dataset is a global product from the Copernicus Marine Service (CMEMS).
+  It provides Remote-Sensing Reflectance (Rrs), a fundamental optical property
+  of the water that represents the light leaving the ocean surface.
+  Derived from the Ocean and Land Colour Instrument (OLCI), this L4 dataset is
+  processed into a ready-to-use format. With an exceptionally high spatial
+  resolution of 300 meters, this dataset is particularly valuable for detailed
+  coastal and regional studies of water quality and marine constituents.
+|||,
+transparency_olci_description: |||
+  This dataset provides global-scale data on ocean transparency.
+  Its primary layer is the Diffuse Attenuation Coefficient at 490nm (KD490)),
+  a key indicator of water clarity. Higher KD490values signify lower
+  transparency due to the rapid absorption of blue-green light by constituents
+  like phytoplankton or sediments. This L4 dataset, derived from the Ocean and
+  Land Colour Instrument (OLCI), is a valuable resource for monitoring marine
+  bio-geochemical processes and assessing water quality.
+|||,
+transparency_multi_description: |||
+  This dataset is a global product from the Copernicus Marine Service that
+  provides key information on ocean transparency. It's a gap-free multi-sensor
+  dataset that includes two primary layers: KD490, which measures light
+  absorption, and ZSD, a traditional measure of water clarity.
+  This comprehensive, daily product is vital for monitoring marine ecosystems,
+  water quality, and light availability.
+|||,
+plankton_multi_description: |||
+  This dataset provides key bio-geochemical information about ocean plankton.
+  This L4 dataset is unique for its "gap-free" nature, meaning it uses a
+  space-time interpolation to fill in data gaps caused by clouds or other
+  obstructions, providing a complete daily image.
+  It is derived from multiple satellite sensors, including SeaWiFS, MODIS, and
+  OLCI. The primary layer is chlorophyll-a concentration (CHL), which serves as
+  a proxy for the biomass of phytoplankton, a crucial component of the marine
+  food web. The dataset is used to monitor phytoplankton blooms, assess ocean
+  productivity, and study marine ecosystems.
+|||,
+plankton_olci_description: |||
+  This dataset is a global product from the Copernicus Marine Service (CMEMS)
+  focused on ocean plankton. This dataset is derived specifically from the
+  Ocean and Land Colour Instrument (OLCI) on the Sentinel-3 satellites and
+  provides a very high spatial resolution of 300 meters, making it ideal for
+  coastal and regional-scale analysis.The primary layer is chlorophyll-a
+  concentration (CHL), which serves as a proxy for the biomass of phytoplankton,
+  a crucial component of the marine food web.
+|||,
 documentation: |||
 
    Documentation:
