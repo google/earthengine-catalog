@@ -62,19 +62,35 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     transformed with vector arithmetic, and still retain their semantic meaning
     and distance relationships.
 
-    The embeddings are produced by AlphaEarth Foundations, a geospatial
-    embedding model that assimilates multiple datastreams including optical,
-    radar, LiDAR, and other sources (Brown, Kazmierski, Pasquarella et al., in
-    review).
+    The Satellite Embedding dataset was produced by [AlphaEarth Foundations](https://deepmind.google/discover/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/),
+    a geospatial embedding model that assimilates multiple datastreams including
+    optical, radar, LiDAR, and other sources (Brown, Kazmierski, Pasquarella et
+    al., in review; preprint available [here](https://arxiv.org/abs/2507.22291)).
 
     Because representations are learned across many sensors and images,
-    embedding representations effectively mitigate common issues such as
+    embedding representations generally overcome common issues such as
     clouds, scan lines, sensor artifacts, or missing data, providing seamless
     analysis-ready features that can be directly substituted for other Earth
     Observation image sources in classification, regression, and change
-    detection analyses. While some large scale swath and data availability
-    artifacts may be noticeable, these typically represent minor vector offsets
-    and generally do not significantly affect downstream processing or results.
+    detection analyses.
+
+    The embeddings in this image collection were generated using v2.1 of the
+    AlphaEarth Foundations model, which includes a number of improvements over
+    the v2.0 model evaluated in the  AlphaEarth Foundations paper. Namely, the
+    USDA NASS Cropland Data Layer was included as an addition target during
+    training; loss weights for NLCD and CDL were lowered from 0.50 to 0.25; the
+    training dataset was re-generated to include a large number of samples from
+    Antarctica that had previously been dropped due to limited sensor coverage,
+    effectively increasing the count of training video sequences from over 8.4
+    million to over 10.1 million sequences; and a number other minor changes to
+    mitigate visual artifacts associated with input sensor swaths, tiling, and
+    multi-resolution pixel targets. These changes did not notably affect the
+    model's performance in terms of evaluation metrics, but generally improved
+    the quality of the resulting embeddings.
+
+    While some large scale swath and data availability artifacts remain, these
+    typically represent minor vector offsets and generally do not significantly
+    affect downstream processing or results.
   |||,
 
   keywords: [
