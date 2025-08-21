@@ -9,7 +9,7 @@ To keep the dataset flexible, the maximum light use efficiency (LUEmax) is set t
 for **all land cover types**, allowing the users to later calibrate the 
 GPP values according to specific land cover maps or regional conditions.
 
-**Bi-monthly uncalibrated Gross Primary Productivity (uGPP)** values (available in [OpenLandMap STAC](https://stac.openlandmap.org/gpw_ugpp.daily-30m/collection.json)) are averated by each year and accumulated over the full 365-day period to produce
+**Bi-monthly uncalibrated Gross Primary Productivity (uGPP)** values (available in [OpenLandMap STAC](https://stac.openlandmap.org/gpw_ugpp.daily-30m/collection.json)) are averaged by each year and accumulated over the full 365-day period to produce
 global annual uGPP values, expressed in units of gC/m²/year.
 
 **Grassland GPP** values are computed on-the-fly using [GEE App](https://global-pasture-watch.projects.earthengine.app/view/ggpp-30m).
