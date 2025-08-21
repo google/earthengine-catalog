@@ -9,4 +9,4 @@ var ugpp2024 = ugpp.filterDate('2024-01-01', '2025-01-01').first();
 Map.addLayer(ugpp2024, ugppVis, 'Uncalibrated GPP (2024)');
 
 var ugpp2000 = ugpp.filterDate('2000-01-01', '2001-01-01').first();
-Map.addLayer(ugpp2000, ugppVis, 'Cultivated grassland prob. (2000)');
+Map.addLayer(ugpp2000, ugppVis, 'Uncalibrated GPP (2000)');
