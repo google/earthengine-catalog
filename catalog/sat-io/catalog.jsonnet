@@ -32,5 +32,7 @@ local self_url = base_url + base_filename;
         'projects_sat-io_open-datasets_ORNL_LANDSCAN_GLOBAL', base_url),
     ee.link.child_collection(
         'projects_sat-io_open-datasets_us-drought-monitor', base_url),
+    ee.link.child_collection(
+        'projects_sat-io_open-datasets_USGS_ANNUAL_NLCD_LANDCOVER', base_url),
   ],
 }
