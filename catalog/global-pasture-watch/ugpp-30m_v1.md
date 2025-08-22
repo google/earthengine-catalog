@@ -41,4 +41,4 @@ lead to corresponding errors in the GPP estimates for those locations.
 
 **For more information see [Isik et. al, 2025](https://doi.org/10.7717/peerj.19774),
 [Zenodo](https://doi.org/10.5281/zenodo.15675358) and 
-[https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)**
+[Global Pasture Watch GitHub site](https://github.com/wri/global-pasture-watch)**
