@@ -558,8 +558,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': ee.gee_terms_of_use(license) + '\n\n' + |||
     This dataset is licensed under
     [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires
-    the following attribution text: "This dataset is produced by Google and
-    Google DeepMind."
+    the following attribution text: "The AlphaEarth Foundations Satellite
+    Embedding [dataset](https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL)
+    is produced by Google and Google DeepMind."
   |||,
 
   // The fields below generally don't need to be changed.
