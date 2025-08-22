@@ -25,5 +25,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('OpenET_PTJPL_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
     ee.link.child_collection('OpenET_SIMS_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
     ee.link.child_collection('OpenET_SSEBOP_CONUS_GRIDMET_MONTHLY_v2_0', base_url),
+    ee.link.child_collection('OpenET_REFERENCE_ET_GRIDMET_DAILY_v1_0', base_url),
+    ee.link.child_collection('OpenET_REFERENCE_ET_GRIDMET_MONTHLY_v1_0', base_url),
   ],
 }

@@ -1,1 +1,1 @@
-[OpenET](https://openetdata.org) Datasets.
+[OpenET](https://etdata.org) Datasets.
