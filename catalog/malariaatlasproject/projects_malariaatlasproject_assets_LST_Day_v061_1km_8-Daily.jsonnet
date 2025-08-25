@@ -21,7 +21,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'LST Day: Malaria Atlas Project Gap-Filled Daytime Land Surface Temperature (8-Daily 1km)',
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Daytime Land Surface Temperature (LST) are derived from the ~1km MODIS [MOD11A2 v6.1](https://lpdaac.usgs.gov/products/mod11a2v061/) products. 

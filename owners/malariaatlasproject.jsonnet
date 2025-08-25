@@ -6,6 +6,7 @@
   "id": "malariaatlasproject",
   "link": "https://data.malariaatlas.org",
   "logo": "https://storage.googleapis.com/malariaatlasproject-ee-public/malariaatlasproject-logo.png",
+  "imageLink": "https://storage.googleapis.com/malariaatlasproject-ee-public/malariaatlasproject-logo.png",
   "name": "The Malaria Atlas Project",
   "type": "PUBLISHER",
 }

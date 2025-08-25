@@ -21,7 +21,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness (Monthly 1km)',
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This gap-filled Tasseled Cap Brightness (TCB) dataset was created by

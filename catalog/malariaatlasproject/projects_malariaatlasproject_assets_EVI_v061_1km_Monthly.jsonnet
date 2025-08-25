@@ -21,7 +21,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'EVI: Malaria Atlas Project Gap-Filled Enhanced Vegetation Index (Monthly 1km)',
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The underlying dataset for this Enhanced Vegetation Index (EVI)
