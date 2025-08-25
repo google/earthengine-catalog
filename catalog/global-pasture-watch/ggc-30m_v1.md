@@ -1,4 +1,4 @@
-Produced by Land &#38;
+Produced by the Land &#38;
 Carbon Lab Global Pasture Watch initiative, the mapped grassland extent
 includes any land cover type, which contains at least 30% of dry or wet
 low vegetation, dominated by grasses and forbs (less than 3 meters) 
