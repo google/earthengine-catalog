@@ -13,6 +13,8 @@ should not be interpreted as top of canopy. For comparison with other existing c
 
 Estimates of **90% prediction interval values** (5th & 95th percentiles) are available in  [OpenLandMap STAC](https://stac.openlandmap.org/gpw_gsvh-30m/collection.json).
 
+**Per-pixel trend analysis** are computed on-the-fly using [GEE App](https://global-pasture-watch.projects.earthengine.app/view/gsvh-30m).
+
 **Limitations:** 
 
 - **Vegetation heterogeneity**: The median height is sensitive to shrubs and trees within landscapes dominated by herbaceous cover. 
