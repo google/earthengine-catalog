@@ -53,4 +53,4 @@ and improve future versions of the dataset.
 
 **For more information see [Parente et. al, 2024](http://doi.org/10.1038/s41597-024-04139-6),
 [Zenodo](https://zenodo.org/records/13890401) and 
-[https://github.com/wri/global-pasture-watch](https://github.com/wri/global-pasture-watch)**
+[Global Pasture Watch GitHub site](https://github.com/wri/global-pasture-watch)**
