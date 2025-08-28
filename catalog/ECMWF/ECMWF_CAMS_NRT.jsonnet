@@ -38,13 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Note that system:time_start refers to forecast time.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.license,
-      href: 'https://ads.atmosphere.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf',
-      type: ee_const.media_type.pdf,
-    },
-  ],
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['atmosphere'],
   keywords: [
     'aerosol',
@@ -298,7 +292,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     programme, i.e., Sentinel mission data and Copernicus service information.
 
     See the
-    [full COPERNICUS data license](https://ads.atmosphere.copernicus.eu/api/v2/terms/static/licence-to-use-copernicus-products.pdf).
+    [full COPERNICUS data license](https://ads.atmosphere.copernicus.eu/disclaimer-privacy).
 
     The license clauses with attribution requirements are shown below:
 
