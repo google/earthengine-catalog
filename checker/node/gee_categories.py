@@ -12,6 +12,7 @@ from checker import stac
 CATEGORIES = frozenset([
     'agriculture',
     'atmosphere',
+    'biodiversity',
     'climate',
     'cryosphere',
     'ecosystems',
