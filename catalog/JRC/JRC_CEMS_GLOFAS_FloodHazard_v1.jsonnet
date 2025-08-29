@@ -45,12 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the exposure of population and economic assets to river floods, and to
     perform flood risk assessments. The dataset is created as part of the
     Copernicus Emergency Management Service.
-
-    Note: This dataset may have missing tiles. This collection will be
-    eventually be replaced by v2.1 once it's updated by the provider.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['surface-ground-water'],
   keywords: [
     'flood',
@@ -59,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Joint Research Centre', 'https://data.jrc.ec.europa.eu/dataset/jrc-floods-floodmapgl_rp50y-tif'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2024-03-16T00:00:00Z', '2024-03-16T23:59:59Z'),
   summaries: {

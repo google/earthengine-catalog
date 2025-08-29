@@ -1,4 +1,4 @@
-local id = 'JRC/CEMS_GLOFAS/FloodHazard/v2';
+local id = 'JRC/CEMS_GLOFAS/FloodHazard/v2_1';
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -27,7 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'JRC Global River Flood Hazard Maps Version 2',
+  title: 'JRC Global River Flood Hazard Maps Version 2.1',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     bands for permanent water class and spurious depth category are included.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['surface-ground-water'],
   keywords: [
     'flood',
@@ -66,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Joint Research Centre', 'https://data.jrc.ec.europa.eu/dataset/jrc-floods-floodmapgl_rp50y-tif'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2024-03-16T00:00:00Z', '2024-03-16T23:59:59Z'),
   summaries: {

@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('JRC/CEMS_GLOFAS/FloodHazard/v2');
+var dataset = ee.ImageCollection('JRC/CEMS_GLOFAS/FloodHazard/v2_1');
 var temp = dataset.select('RP100_depth').mean();
 var tempVis = {
   min: 0,
