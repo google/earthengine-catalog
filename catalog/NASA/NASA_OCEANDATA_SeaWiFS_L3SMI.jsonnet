@@ -62,15 +62,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018',
+      href: 'https://doi.org/10.5067/ORBVIEW-2/SeaWiFS/L3B/CHL/2022.0',
     },
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L3M/POC/2018',
+      href: 'https://doi.org/10.5067/ORBVIEW-2/SeaWiFS/L3B/POC/2022.0',
     },
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L3M/RRS/2018',
+      href: 'https://doi.org/10.5067/ORBVIEW-2/SeaWiFS/L3B/RRS/2022.0',
     },
   ],
   'gee:categories': ['oceans'],
@@ -336,13 +336,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': true,
     },
   },
-  'sci:doi': '10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018',
+  'sci:doi': '10.5067/ORBVIEW-2/SEAWIFS/L3B/CHL/2022.0',
   'sci:citation': |||
     NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology
     Processing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data,
     NASA OB.DAAC, Greenbelt, MD, USA.
-    [doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](
-      https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)
+    [SeaWiFS-ORBVIEW-2 Citations](
+      https://oceancolor.gsfc.nasa.gov/resources/how-to-cite/)
   |||,
   'sci:publications': [
     {
@@ -351,7 +351,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         3 Mapped Particulate Organic Carbon Data Version R2018.0</i> [Data
         set]. NASA Ocean Biology DAAC.
       |||,
-      doi: '10.5067/ORBVIEW-2/SEAWIFS/L3M/POC/2018',
+      doi: '10.5067/ORBVIEW-2/SEAWIFS/L3B/POC/2022.0',
     },
     {
       citation: |||
@@ -359,7 +359,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         3 Mapped Remote-Sensing Reflectance Data Version R2018.0</i> [Data
         set]. NASA Ocean Biology DAAC.
       |||,
-      doi: '10.5067/ORBVIEW-2/SEAWIFS/L3M/RRS/2018'
+      doi: '10.5067/ORBVIEW-2/SEAWIFS/L3B/RRS/2022.0'
     },
   ],
   'gee:interval': {
