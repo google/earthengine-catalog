@@ -126,11 +126,8 @@ local self_url = catalog_subdir_url + base_filename;
     CC-BY 4.0 NC license and requires the following attribution:
     "Produced by Google for the Forest Data Partnership".
 
-    For commercial use of the dataset you may request access using
-    [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform?resourcekey=0-db8WFCPwr2AZRhnrnH2SFg).
-    Access will be granted or denied on a case-by-case basis. Commercial use of
-    the dataset is subject to the [Forest Data Partnership Datasets Commercial
-    Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
+    Commercial use of the dataset is subject to the [Forest Data Partnership
+    Datasets Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
 
     Contains modified Copernicus Sentinel data [2015-present]. See the
     [Sentinel Data Legal Notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice).
