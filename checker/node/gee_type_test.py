@@ -39,8 +39,9 @@ class GeeTypeTest(test_utils.NodeTest):
   def test_bogus(self):
     self.assert_collection(
         {'gee:type': 'bogus'},
-         'gee:type must be one of '
-        '[\'image\', \'image_collection\', \'table\', \'table_collection\']')
+        "gee:type must be one of ['bigquery_table', 'image',"
+        " 'image_collection', 'table', 'table_collection']",
+    )
 
 
 if __name__ == '__main__':
