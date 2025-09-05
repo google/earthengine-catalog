@@ -27,7 +27,9 @@ more frequent snapshots, which would improve monitoring of intra-annual changes 
 
 - **Data restrictions and uncertainty**: The training data was restricted to strong-beam, night-time measurements to minimize 
 signal noise, and additional filters were applied, but this does not fully account for all sources of data uncertainty 
-in the ICESat-2 mission. Furthermore, cloud cover and smoke hinder signal penetration, increasing uncertainty in some regions.
+in the ICESat-2 mission. Furthermore, cloud cover and smoke hinder signal penetration, increasing uncertainty in some regions. 
+Specifically for 2019, the model presented slightly poorer performance compared to more recent years, which might be 
+related to differences in data availability and quality at the beginning of the ICESat-2 mission.
 
 - **Difficulty detecting very short vegetation**: Lidar sensors, including ICESat-2, struggle to accurately measure very 
 low canopies, especially with sparse cover or partial ground occlusion. The training data does not identify vegetation 
@@ -40,8 +42,7 @@ Due to the underestimation of vegetation height in the upper extremes, care shou
 values in regions with very tall forests, but relative patterns and trends are still informative.
 
 - **Limited independent validation**: While validated against ICESat-2 data (testing set), broader validation using airborne 
-or drone Lidar would be necessary to fully assess the quality of the dataset at regional level.
-
+or drone Lidar would be necessary to fully assess the quality of the dataset at regional level.	
 
 **For more information see [Hunter et. al, 2025](https://doi.org/10.1038/s41597-025-05739-6),
 [Zenodo](https://doi.org/10.5281/zenodo.15198654) and 
