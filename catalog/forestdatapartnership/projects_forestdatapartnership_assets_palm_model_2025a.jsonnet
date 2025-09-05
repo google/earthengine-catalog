@@ -10,7 +10,7 @@ local units = import 'units.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
-local license = spdx.cc_by_nc_4_0;
+local license = spdx.various;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -73,9 +73,7 @@ local self_url = catalog_subdir_url + base_filename;
 
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.license(license.reference),
-  ] + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',
@@ -120,17 +118,14 @@ local self_url = catalog_subdir_url + base_filename;
   'sci:citation': |||
     Forest Data Partnership. 2025. Community models 2025a. [Online](https://github.com/google/forest-data-partnership/tree/main/models/README.md)
   |||,
-  'gee:terms_of_use': ee.gee_terms_of_use(license) + |||
+  'gee:terms_of_use': |||
 
     For non-commercial users of Earth Engine, use of the dataset is subject to
     CC-BY 4.0 NC license and requires the following attribution:
     "Produced by Google for the Forest Data Partnership".
 
-    For commercial use of the dataset you may request access using
-    [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform?resourcekey=0-db8WFCPwr2AZRhnrnH2SFg).
-    Access will be granted or denied on a case-by-case basis. Commercial use of
-    the dataset is subject to the [Forest Data Partnership Datasets Commercial
-    Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
+    Commercial use of the dataset is subject to the
+    [Forest Data Partnership Datasets Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
 
     Contains modified Copernicus Sentinel data [2015-present]. See the
     [Sentinel Data Legal Notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice).
