@@ -30,9 +30,7 @@ local license = spdx.proprietary;
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
-    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI 
-    v2024.10 data will be released late summer 2025. For now v2023.9 PRUSVI and HI LCMS data can 
-    be used (USFS/GTAC/LCMS/v2023-9). 
+    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). 
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -95,9 +93,6 @@ local license = spdx.proprietary;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    * PRUSVI and HI data will be released late summer 2025. Previously released v2023.9 PRUSVI and HI LCMS data are available 
-    (USFS/GTAC/LCMS/v2023-9) 
-
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
   |||,
@@ -131,10 +126,9 @@ local license = spdx.proprietary;
       { 
         name: 'study_area',
         description: |||
-          LCMS currently covers the conterminous United States, Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii. This version contains CONUS. The 
-          data for AK, PRUSVI, and HI will be released late summer 2025.
-          Possible values: 'CONUS, AK'
+          This LCMS version covers the conterminous United States, Alaska, 
+          Puerto Rico-US Virgin Islands, and Hawaii.
+          Possible values: 'CONUS, AK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
       },
