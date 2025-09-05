@@ -35,14 +35,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', null),
-  'gee:units': units.meter,
   summaries: {
     'eo:bands': [
       {
         name: 'height',
         description: 'Median vegetation height',
         gsd: 30,
-        'gee:scale': 0.1
+        'gee:scale': 0.1,
+        'gee:units': units.meter
       }
     ],
     height: {minimum: 0, maximum: 10, 'gee:estimated_range': false},
