@@ -62,8 +62,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://www.clw.csiro.au/aclep/soilandlandscapegrid/'),
-    ee.link.license('https://www.clw.csiro.au/aclep/soilandlandscapegrid/About-Disclaimer.html'),
+    ee.link.license('https://creativecommons.org/licenses/by/4.0/'),
+    ee.link.license('https://www.csiro.au/en/about/Policies/Legal/Legal-notice'),
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.4225/08/546ED604ADD8A',
@@ -125,7 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'tern',
   ],
   providers: [
-    ee.producer_provider('CSIRO/SLGA', 'https://www.clw.csiro.au/aclep/soilandlandscapegrid/'),
+    ee.producer_provider('CSIRO/SLGA', 'https://data.csiro.au/collection/63383'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(113.0, -44.15, 154.0, -9.97,
@@ -1312,6 +1312,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     available at no cost under a
     [Creative Commons Attribution License](https://creativecommons.org/licenses/by/4.0/)
     (CC BY) and users should read the
-    [Disclaimer](https://www.clw.csiro.au/aclep/soilandlandscapegrid/About-Disclaimer.html).
+    [Disclaimer](https://www.csiro.au/en/about/Policies/Legal/Legal-notice).
   |||,
 }
