@@ -45,6 +45,7 @@ class GeeType(*_StrEnum):
   IMAGE_COLLECTION = 'image_collection'
   TABLE = 'table'
   TABLE_COLLECTION = 'table_collection'
+  BIGQUERY_TABLE = 'bigquery_table'
   # For catalogs
   NONE = 'none'
 
@@ -201,3 +202,27 @@ def is_in_non_commercial(dataset_id: str) -> bool:
     if dataset_id.startswith(pattern):
       return True
   return False
+
+
+class BqTableCheck(NodeCheck):
+  """Checks for BigQueryTable."""
+  name = 'bq_table_check'
+
+  @classmethod
+  def run(cls, node: Node) -> Iterator[Issue]:
+    if node.gee_type != GeeType.BIGQUERY_TABLE:
+      return
+
+    summaries = node.stac.get('summaries')
+    if summaries is None:
+      yield cls.new_issue(node, '"summaries" is required')
+      return
+
+    if not isinstance(summaries, dict):
+      yield cls.new_issue(node, '"summaries" must be a dictionary')
+      return
+
+    if 'gee:schema' not in summaries:
+      yield cls.new_issue(
+          node, '"gee:schema" is missing from "summaries"',
+          level=IssueLevel.WARNING)

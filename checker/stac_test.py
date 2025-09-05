@@ -10,7 +10,7 @@ COLLECTION = stac.StacType.COLLECTION
 IMAGE = stac.GeeType.IMAGE
 
 ID = 'id'
-EMPTY_PATH = pathlib.Path('')
+DUMMY_PATH = pathlib.Path('a/path.json')
 
 
 class IssueTest(absltest.TestCase):
@@ -76,7 +76,7 @@ class CheckTest(absltest.TestCase):
 
   def test_not_implemented(self):
     node = stac.Node(
-        ID, EMPTY_PATH, stac.StacType.COLLECTION, stac.GeeType.TABLE, {})
+        ID, DUMMY_PATH, stac.StacType.COLLECTION, stac.GeeType.TABLE, {})
 
     with self.assertRaises(NotImplementedError):
       stac.NodeCheck.run(node)
@@ -90,6 +90,63 @@ class LoadTest(absltest.TestCase):
     stac_root = stac.stac_root()
     nodes = stac.load(stac_root)
     self.assertGreater(len(nodes), 200)
+
+
+class BqTableCheckTest(absltest.TestCase):
+
+  def test_missing_summaries(self):
+    node = stac.Node(
+        ID,
+        DUMMY_PATH,
+        COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE,
+        {'gee:bq_table_name': 'a'},
+    )
+    issues = list(stac.BqTableCheck.run(node))
+    self.assertLen(issues, 1)
+    self.assertEqual(issues[0].message, '"summaries" is required')
+
+  def test_summaries_not_dict(self):
+    node = stac.Node(
+        ID,
+        DUMMY_PATH,
+        COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE,
+        {'gee:bq_table_name': 'a', 'summaries': 'b'},
+    )
+    issues = list(stac.BqTableCheck.run(node))
+    self.assertLen(issues, 1)
+    self.assertEqual(issues[0].message, '"summaries" must be a dictionary')
+
+  def test_missing_gee_schema(self):
+    node = stac.Node(
+        ID,
+        DUMMY_PATH,
+        COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE,
+        {'gee:bq_table_name': 'a', 'summaries': {}},
+    )
+    issues = list(stac.BqTableCheck.run(node))
+    self.assertLen(issues, 1)
+    self.assertEqual(
+        issues[0].message, '"gee:schema" is missing from "summaries"'
+    )
+    self.assertEqual(issues[0].level, stac.IssueLevel.WARNING)
+
+  def test_valid_bq_table(self):
+    node = stac.Node(
+        ID,
+        DUMMY_PATH,
+        COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE,
+        {
+            'gee:bq_table_name': 'a',
+            'summaries': {'gee:schema': []},
+        },
+    )
+    issues = list(stac.BqTableCheck.run(node))
+    self.assertEqual(0, len(issues))
+
 
 class NoncommercialTest(absltest.TestCase):
   def test_is_in_noncommercial_evaluates_prefix(self):
