@@ -267,7 +267,9 @@ class Check(stac.NodeCheck):
       return
 
     if has_eo_extension:
-      if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+      if node.gee_type in (
+          stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
+          stac.GeeType.BIGQUERY_TABLE):
         yield cls.new_issue(
             node, f'{node.gee_type} must not have the eo extension')
         return
@@ -310,7 +312,9 @@ class Check(stac.NodeCheck):
                   node,
                   f'unreasonably large {SUMMARIES} {GSD}: {gsd} m')
 
-    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+    if node.gee_type in (
+        stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE):
       if EO_BANDS in summaries:
         yield cls.new_issue(node, f'{EO_BANDS} cannot be in {node.gee_type}')
       return

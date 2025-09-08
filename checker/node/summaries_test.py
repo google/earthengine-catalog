@@ -8,6 +8,7 @@ from absl.testing import absltest
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+BIGQUERY_TABLE = stac.GeeType.BIGQUERY_TABLE
 
 
 class ValidSummariesTest(test_utils.NodeTest):
@@ -45,6 +46,13 @@ class ValidSummariesTest(test_utils.NodeTest):
             'gee:schema': 'does not matter',
             'gee:visualizations': 'does not matter'}},
         gee_type=TABLE_COLLECTION)
+
+  def test_bigquery_table(self):
+    self.assert_collection(
+        {'summaries': {
+            'gee:schema': 'does not matter',
+            'gee:visualizations': 'does not matter'}},
+        gee_type=BIGQUERY_TABLE)
 
   def test_with_band(self):
     self.assert_collection(
@@ -148,6 +156,14 @@ class ErrorSummariesTest(test_utils.NodeTest):
             'gee:visualizations': 'does not matter'}},
         'table_collection must have gee:schema in summaries',
         gee_type=TABLE_COLLECTION)
+
+  def test_bigquery_table_missing_schema(self):
+    self.assert_collection(
+        {'summaries': {
+            'gee:visualizations': 'does not matter'}},
+        '"gee:schema" is missing from "summaries"',
+        gee_type=BIGQUERY_TABLE,
+        issue_level=stac.IssueLevel.WARNING)
 
   def test_extra_key(self):
     self.assert_collection(
