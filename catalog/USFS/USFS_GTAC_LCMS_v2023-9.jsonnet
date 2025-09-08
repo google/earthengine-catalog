@@ -102,7 +102,7 @@ local license = spdx.proprietary;
 
     * PRUSVI and HI data were released October 1st 2024. 
 
-    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    Contact [sm.fs.lcms@usda.gov] with any
     questions or specific data requests.
   |||,
   license: license.id,

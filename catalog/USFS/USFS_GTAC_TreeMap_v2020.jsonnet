@@ -110,7 +110,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     * The [Treemap 2022 vintage](https://developers.google.com/earth-engine/datasets/catalog/USFS_GTAC_TreeMap_v2022)
       contains landscape conditions of the forests of the United States circa 2022.
 
-    Contact [sm.fs.treemaphelp@usda.gov](mailto:sm.fs.treemaphelp@usda.gov) with any
+    Contact [sm.fs.treemaphelp@usda.gov] with any
     questions or specific data requests.
 
   |||,
