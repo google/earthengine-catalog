@@ -126,9 +126,11 @@ class Check(stac.NodeCheck):
           yield cls.new_issue(node, f'"{NAME}" must be a str')
         # iSDA, LANDFIRE, and DLR/WSF are currently the only exceptions to the
         # naming rules.  Please try to avoid making more exceptions.
-        elif (name != 'iSDA' and
-              'LANDFIRE' not in node.id and
-              'DLR/WSF' not in node.id):
+        elif (
+            name not in ['iSDA', 'iNaturalist']
+            and 'LANDFIRE' not in node.id
+            and 'DLR/WSF' not in node.id
+        ):
           # Restrict the validnames to start with capital letter.
           # Then letters, numbers, and a few more characters
           if not re.fullmatch(r'[A-Z][-_ \'.,:a-zA-Z0-9\(\)/]{1,180}', name):

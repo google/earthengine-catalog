@@ -42,6 +42,7 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
     image_collection: 'image_collection',
     table: 'table',
     table_collection: 'table_collection',
+    bigquery_table: 'bigquery_table',
   },
 
   ext_base: 'https://stac-extensions.github.io/',
