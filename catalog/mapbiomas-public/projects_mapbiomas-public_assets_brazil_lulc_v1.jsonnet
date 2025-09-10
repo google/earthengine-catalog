@@ -73,19 +73,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ),
 
   summaries: {
-    platform: [
-      'landsat-5',
-      'landsat-7',
-      'landsat-8',
-      'landsat-9',
-    ],
-
-    instruments: [
-      'tm',
-      'etm+',
-      'oli',
-      'tirs',
-    ],
 
     gsd: [30],
 
@@ -104,7 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [69],
+            max: [75],
             palette: [
               '#ffffff',  // [0] Not Observed
               '#32a65e',  // [1] --
