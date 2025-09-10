@@ -86,7 +86,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Land Use and Cover - MapBiomas',
-        lookat: { lon: -54, lat: -14, zoom: 5 },
+        lookat: {
+          lon: -54, 
+          lat: -14, 
+          zoom: 5
+        },
         image_visualization: {
           band_vis: {
             bands: ['classification'],
