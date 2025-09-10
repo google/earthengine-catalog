@@ -22,7 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('projects_mapbiomas-public_assets_brazil_lulc_collection9_mapbiomas_collection90_integration_v1', base_url),
+    ee.link.child_collection('projects_mapbiomas-public_assets_brazil_lulc_v1', base_url),
     // Você pode adicionar links para outras coleções MapBiomas aqui, como Collection 8, MapBiomas Chaco, etc.
   ],
 }
