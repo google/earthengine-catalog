@@ -173,6 +173,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [73] --
               '000000',  // [74] --
               'c12100',  // [75] Photovoltaic Power Plant
+              
             ],
           },
         },
