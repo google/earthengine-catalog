@@ -1,6 +1,6 @@
 local id = 'projects/mapbiomas-public/assets/brazil/lulc/v1';
 
-local subdir = 'mapbiomas-public';
+local subdir = 'MAPBIOMAS';
 
 local version = '1.0';
 
@@ -173,7 +173,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [73] --
               '000000',  // [74] --
               'c12100',  // [75] Photovoltaic Power Plant
-              
+
             ],
           },
         },

@@ -1,5 +1,5 @@
 // catalog.jsonnet
-local id = 'mapbiomas-public';
+local id = 'MAPBIOMAS';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
@@ -13,7 +13,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: 'MapBiomas',
+  title: 'MAPBIOMAS',
   description: |||
     This catalog contains land use and land cover datasets provided by the [MapBiomas Project](https://mapbiomas.org).
     These datasets include annual land cover classifications derived from satellite imagery, covering Brazil and other countries.
