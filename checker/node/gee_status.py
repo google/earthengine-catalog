@@ -7,8 +7,10 @@ Requirements and specification:
 - If the field is set, its value must be one of several enum values.
 """
 
+import os
 from typing import Iterator
 
+from absl import logging
 from checker import stac
 
 
@@ -18,6 +20,18 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
+    # TODO(simonf): add a github-only check that new datasets
+    # must have status 'incompete' or 'beta'
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+      logging.info('Running in GitHub Actions')
+    else:
+      logging.info('Running outside of GitHub Actions')
+    event_path = os.environ.get('GITHUB_EVENT_PATH')
+    if event_path:
+      logging.info('GITHUB_EVENT_PATH: %s', event_path)
+    else:
+      logging.info('No GITHUB_EVENT_PATH')
+
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
         yield cls.new_issue(

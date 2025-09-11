@@ -10,7 +10,7 @@ local units = import 'units.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
-local license = spdx.cc_by_nc_4_0;
+local license = spdx.various;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -29,7 +29,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Palm Probability model ' + version,
+  'gee:status': 'deprecated',
+  title: 'Palm Probability model ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 
@@ -52,7 +53,7 @@ local self_url = catalog_subdir_url + base_filename;
     and restoration. 
 
     **Note that this dataset has separate terms of use for commercial users of 
-    Earth Engine.  Please see “Terms of Use” tab for details.**
+    Earth Engine.  Please see "Terms of Use" tab for details.**
 
     This community data product is meant to evolve over time, as more data
     becomes available from the community and the model used to produce the
@@ -68,9 +69,7 @@ local self_url = catalog_subdir_url + base_filename;
 
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.license(license.reference),
-  ] + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',
@@ -112,20 +111,18 @@ local self_url = catalog_subdir_url + base_filename;
       },
     ],
   },
+  'sci:doi': '10.48550/arXiv.2405.09530',
   'sci:citation': |||
-    N. Clinton, et al. A community palm model. 2024. [Online](https://goo.gle/a_community_palm_model)
+    N. Clinton, et al. A community palm model. 2024. [Online](https://doi.org/10.48550/arXiv.2405.09530)
   |||,
-  'gee:terms_of_use': ee.gee_terms_of_use(license) + |||
+  'gee:terms_of_use': |||
 
     For non-commercial users of Earth Engine, use of the dataset is subject to 
     CC-BY 4.0 NC license and requires the following attribution: 
-    “Produced by Google for the Forest Data Partnership”. 
+    "Produced by Google for the Forest Data Partnership". 
 
-    For commercial use of the dataset you may request access using 
-    [this form](https://docs.google.com/forms/d/e/1FAIpQLSe7L3eh6t2JIPqEtAQwXwY7ZmW52v8W5vrIi4QN_XYgTNJZLw/viewform).
-    Access will be granted or denied on a case by case basis. Commercial use 
-    of the dataset is subject to the [Forest Data Partnership Datasets 
-    Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
+    Commercial use of the dataset is subject to the
+    [Forest Data Partnership Datasets Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
 
     Contains modified Copernicus Sentinel data [2015-present].
     See the [Sentinel Data Legal Notice](

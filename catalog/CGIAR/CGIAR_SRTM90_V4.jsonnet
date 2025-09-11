@@ -98,7 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     publications, new datasets, derived products, or services resulting from the
     use of this dataset. CIAT also request reprints of any publications and
     notification of any redistributing efforts. For commercial access to
-    the data, send requests to [Andy Jarvis](mailto:a.jarvis@cgiar.org).
+    the data, send requests to Andy Jarvis [a.jarvis@cgiar.org].
 
     NO WARRANTY OR LIABILITY. CIAT provides these data without any warranty of
     any kind whatsoever, either express or implied, including warranties of

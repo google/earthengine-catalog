@@ -90,7 +90,7 @@ local license = spdx.proprietary;
     * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
       provides users the ability to view, analyze, summarize and download LCMS data.
 
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2023-9_Methods.pdf)
+    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2024-10_Methods.pdf)
       for more detailed information regarding methods and accuracy assessment, or the
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
@@ -98,7 +98,7 @@ local license = spdx.proprietary;
     * PRUSVI and HI data will be released late summer 2025. Previously released v2023.9 PRUSVI and HI LCMS data are available 
     (USFS/GTAC/LCMS/v2023-9) 
 
-    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    Contact [sm.fs.lcms@usda.gov] with any
     questions or specific data requests.
   |||,
   license: license.id,

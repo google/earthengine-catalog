@@ -54,7 +54,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     end of 2022.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.license(license.reference),
+  ],
   'gee:categories': ['fire'],
   keywords: [
     'fire',
@@ -136,17 +138,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [doi:10.2737/RDS-2020-0016-2](https://doi.org/10.2737/RDS-2020-0016-2)
 
   |||,
-
-  'gee:terms_of_use': |||
-    Data publications are made freely available to the public under our data
-    use agreement outlining conditions of use such as redistribution,
-    citation, notification, and distribution liability. The 
-    [Open Access - Data Use Agreement](https://www.fs.usda.gov/rds/archive/datauseinfo/open)
-    is implicitly agreed to by anyone acquiring data from this repository.
-    Formally, Archive-published datasets are released under the Creative Commons
-    CC-BY license structure. This allows for broad use and re-use, while
-    preserving the expectation of citation of the data publication to document
-    that use and credit the intellectual work of the author(s).
-
-  |||,
+  'gee:terms_of_use': ee.gee_terms_of_use(license),
 }

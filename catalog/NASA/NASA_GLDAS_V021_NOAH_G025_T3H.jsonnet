@@ -515,7 +515,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Science Mission Directorate (SMD). Consistent with NASA [Earth
     Science Data and Information Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy/),
     data from the GES DISC archive are available free to the user community.
-    For more information visit the GES DISC [Data Policy](https://disc.sci.gsfc.nasa.gov/citing)
+    For more information visit the GES DISC [Data Policy](https://www.earthdata.nasa.gov/engage/open-data-services-and-software/data-and-information-policy)
     page.
   |||,
 }

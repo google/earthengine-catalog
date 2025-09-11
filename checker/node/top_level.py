@@ -17,6 +17,7 @@ CATALOG_ALLOWED_FIELDS = [
 COLLECTION_ALLOWED_FIELDS = [
     'description',
     'extent',
+    'gee:bq_table_name',
     'gee:categories',
     'gee:interval',
     'gee:is_derived',

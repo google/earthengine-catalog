@@ -77,10 +77,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         citation: |||
-          Ghassemi, B., Dujakovic, A., Żółtak, M., Immitzer, M., Atzberger, C. and Vuolo, F., 2022. Designing a European-wide crop type mapping approach based on machine learning algorithms using LUCAS field survey and Sentinel-2 data. Remote sensing, 14(3), p.541.
-          [10.3390/rs14030541](https://doi.org/10.3390/rs14030541)
+          Ghassemi, B., Izquierdo-Verdiguier, E., Verhegghen, A., Yordanov, M., Lemoine, G., Moreno Martínez, Á., De Marchi, D., van der Velde, M., Vuolo, F. and d’Andrimont, R., 2024. European Union crop map 2022: Earth observation’s 10-meter dive into Europe’s crop tapestry. Scientific Data, 11(1), p.1048.
+          [10.1038/s41597-024-03884-y](https://doi.org/10.1038/s41597-024-03884-y)
         |||,
-        doi: '10.3390/rs14030541',
+        doi: '10.1038/s41597-024-03884-y',
       },
     ],
   'gee:user_uploaded': true,

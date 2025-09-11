@@ -1,5 +1,11 @@
 {
   description: |||
+    Landsat Collection 2 files are publicly available in a [Google Cloud Storage
+    bucket](https://console.cloud.google.com/storage/browser/gee-public-data-landsat)
+    on requester-pays basis. The files are indexed in a regularly updated
+    BigQuery table for ease of analysis:
+    [earth-engine-public-data.geo_index.landsat_c2_index](https://console.cloud.google.com/bigquery?project=earth-engine-public-data&earth-engine-public-data!2sgeo_index=&inv=1&invt=Ab4V5A&ws=!1m5!1m4!4m3!1searth-engine-public-data!2sgeo_index!3slandsat_c2_index).
+
     Data provider notes:
 
     * Data products must contain both optical and thermal data to be

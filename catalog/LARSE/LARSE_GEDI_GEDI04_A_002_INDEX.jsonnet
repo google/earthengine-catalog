@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     spatial: gedi_l4a.extent.spatial,
     // TODO(b/229788379): figure out what to do about the end date of table
     // collections.
-    temporal: { interval: [['2019-04-18T00:00:00Z', '2022-06-09T00:00:00Z']] }
+    temporal: { interval: [['2019-04-18T00:00:00Z', '2024-11-28T00:00:00Z']] }
   },
   summaries: {
     'gee:schema': [

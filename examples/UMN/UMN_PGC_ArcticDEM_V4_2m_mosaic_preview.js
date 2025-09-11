@@ -8,11 +8,12 @@ var elevationVis = {
 
 var lon = -63.402;
 var lat = 66.368;
-var delta = 1.1;
+var delta = 0.66;
+var delta2 = 1.43;
 
 var pixels = 256;
 var areaOfInterest = ee.Geometry.Rectangle(
-    [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
+    [lon - delta2, lat - delta, lon + delta2, lat + delta], null, false);
 
 var visParams = {
   dimensions: [pixels, pixels],

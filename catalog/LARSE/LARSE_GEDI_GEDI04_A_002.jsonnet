@@ -35,12 +35,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: {
     spatial: gedi_l4a.extent.spatial,
     // TODO(b/229788379): figure out what to do about the end date of table collections.
-    temporal: { interval: [['2019-04-18T00:00:00Z', '2022-06-09T00:00:00Z']] },
+    temporal: { interval: [['2019-04-18T00:00:00Z', '2024-11-28T00:00:00Z']] },
   },
   summaries: {
     // GEDI tables are rasterized as bands in the MONTHLY collection, so the
     // table properties here and the raster bands in the MONTHLY collection
     // are the same.
+    // TODO(google): Fix property mismatch issues.
     'gee:schema': [
       // TODO(b/225852120): Add gee:units field after adding support for units in table schema.
       { name: band.name, description: band.description, type: band.type }

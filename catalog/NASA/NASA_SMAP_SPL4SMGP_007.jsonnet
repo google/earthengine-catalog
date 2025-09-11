@@ -1,11 +1,14 @@
 local id = 'NASA/SMAP/SPL4SMGP/007';
 local subdir = 'NASA';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/NASA_SMAP_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
@@ -26,8 +29,9 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     ee_const.ext_ver
   ],
   id: id,
-  title: 'SPL4SMGP.007 SMAP L4 Global 3-hourly 9-km Surface and Root Zone Soil Moisture',
-  version: '7',
+  title: 'SPL4SMGP.007 SMAP L4 Global 3-hourly 9-km Surface and Root Zone Soil Moisture [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The SMAP Level-4 (L4) Soil Moisture product includes surface soil moisture
@@ -63,7 +67,7 @@ local DISCLAIMER = "Excluding areas of open water and permanent ice";
     tutorials to learn how to use SMAP data in Earth Engine.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id)  + version_config.version_links,
   'gee:categories': ['soil'],
   keywords: [
     'drought',

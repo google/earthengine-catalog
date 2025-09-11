@@ -20,6 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('ECMWF_CAMS_NRT', base_url),
     ee.link.child_collection('ECMWF_ERA5_DAILY', base_url),
+    ee.link.child_collection('ECMWF_ERA5_HOURLY', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_DAILY_AGGR', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_HOURLY', base_url),
     ee.link.child_collection('ECMWF_ERA5_LAND_MONTHLY', base_url),
@@ -27,5 +28,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('ECMWF_ERA5_LAND_MONTHLY_BY_HOUR', base_url),
     ee.link.child_collection('ECMWF_ERA5_MONTHLY', base_url),
     ee.link.child_collection('ECMWF_NRT_FORECAST_IFS_OPER', base_url),
+    ee.link.child_collection('ECMWF_NRT_FORECAST_IFS_WAVE', base_url),
+    ee.link.child_collection('ECMWF_NRT_FORECAST_IFS_SCWV', base_url),
   ],
 }
