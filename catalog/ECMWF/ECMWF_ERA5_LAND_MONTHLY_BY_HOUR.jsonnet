@@ -241,7 +241,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'snow_depth',
-        description: 'Instantaneous grib-box average of the snow thickness on the ground (excluding snow on canopy).',
+        description: 'Instantaneous grid-box average of the snow thickness on the ground (excluding snow on canopy).',
         'gee:units': units.meter,
       },
       {

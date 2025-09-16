@@ -13,7 +13,6 @@ local units = import 'units.libsonnet';
         name: 'LST_1KM',
         description: 'Land Surface Temperature',
         'gee:units': units.kelvin,
-        'gee:scale': 0.02,
       },
       {
         name: 'QC',
@@ -211,32 +210,24 @@ local units = import 'units.libsonnet';
       {
         name: 'Emis_29',
         description: 'Band 29 emissivity',
-        'gee:scale': 0.002,
-        'gee:offset': 0.49,
       },
       {
         name: 'Emis_31',
         description: 'Band 31 emissivity',
-        'gee:scale': 0.002,
-        'gee:offset': 0.49,
       },
       {
         name: 'Emis_32',
         description: 'Band 32 emissivity',
-        'gee:scale': 0.002,
-        'gee:offset': 0.49,
       },
       {
         name: 'View_Angle',
         description: 'MODIS view zenith angle',
         'gee:units': units.degree,
-        'gee:offset': -65.0,
       },
       {
         name: 'View_Time',
         description: 'Time of MODIS observation',
         'gee:units': units.hour,
-        'gee:scale': 0.1,
       },
     ],
     'gee:visualizations': [

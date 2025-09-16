@@ -172,6 +172,7 @@ POLARIZATIONS = frozenset({'HH', 'HV', 'VH', 'VV'})
 # added to units.libsonnet.
 UNITS = units.UNITS.union({
     '% (kg / kg)',
+    'm^-1',
     '(kg/m^3)/(m/s)',
     '1.0e15 molec cm-2',
     'AU',
@@ -180,6 +181,7 @@ UNITS = units.UNITS.union({
     'J/m^2/day',
     'Julian Day',
     'MJ m^-2 day^-1',
+    'N/m^2*s',
     'NFDRS fire danger index',
     'Number of people/ha',
     'Number of upstream pixels',
@@ -189,6 +191,7 @@ UNITS = units.UNITS.union({
     'Reflectance factor',
     'Spectral reflectance',
     'Standard deviation',
+    'W/m',
     'W m^-2 sr^-1 &micro;m^-1',
     'W/(m^2*sr*um)/ DN',
     'W/m^2 SR&mu;m',
@@ -201,6 +204,8 @@ UNITS = units.UNITS.union({
     'gC m-2 d-1',
     'gpm',
     'index',
+    'K*m^2/kg/s',
+    'K/kg/m^2',
     'kg m^-2 s^-2',
     'kg*C/m^2',
     'kg*C/m^2/16-day',
@@ -216,6 +221,7 @@ UNITS = units.UNITS.union({
     'm^2/s^2',
     'm^2/m^3',
     'm^2/s',
+    'm^2/s^2',
     'm^3',
     'meq/100g',
     'meter/year',
@@ -233,7 +239,10 @@ UNITS = units.UNITS.union({
     'ppm m',
     'seconds',
     'sr-1',
+    'sr^-1',
     'ug m-3',
+    '1/m',
+    'mg/day/m^2',
 })
 
 
@@ -258,7 +267,9 @@ class Check(stac.NodeCheck):
       return
 
     if has_eo_extension:
-      if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+      if node.gee_type in (
+          stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
+          stac.GeeType.BIGQUERY_TABLE):
         yield cls.new_issue(
             node, f'{node.gee_type} must not have the eo extension')
         return
@@ -301,7 +312,9 @@ class Check(stac.NodeCheck):
                   node,
                   f'unreasonably large {SUMMARIES} {GSD}: {gsd} m')
 
-    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+    if node.gee_type in (
+        stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE):
       if EO_BANDS in summaries:
         yield cls.new_issue(node, f'{EO_BANDS} cannot be in {node.gee_type}')
       return

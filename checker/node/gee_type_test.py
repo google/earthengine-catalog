@@ -33,14 +33,20 @@ class GeeTypeTest(test_utils.NodeTest):
     self.assert_collection(
         {'gee:type': 'table_collection'}, gee_type=TABLE_COLLECTION)
 
+  def test_bigquery_table(self):
+    self.assert_collection(
+        {'gee:type': 'bigquery_table'}, gee_type=stac.GeeType.BIGQUERY_TABLE
+    )
+
   def test_not_a_str(self):
     self.assert_collection({'gee:type': 77}, 'gee:type must be a str')
 
   def test_bogus(self):
     self.assert_collection(
         {'gee:type': 'bogus'},
-         'gee:type must be one of '
-        '[\'image\', \'image_collection\', \'table\', \'table_collection\']')
+        "gee:type must be one of ['bigquery_table', 'image',"
+        " 'image_collection', 'table', 'table_collection']",
+    )
 
 
 if __name__ == '__main__':

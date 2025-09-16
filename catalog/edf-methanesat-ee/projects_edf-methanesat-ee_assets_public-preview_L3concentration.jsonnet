@@ -37,8 +37,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     sounding locations to a regular 45 m x 45 m grid using the approach detailed in
     [Sun et al. (2018)](https://doi.org/10.5194/amt-11-6679-2018).
 
-    Contact the data provider for more information about the project at this link:
+    Not all data products (L3 concentration, L4 area and L4 points) are available for all
+    collection IDs. Contact the data provider for more information about the project at this link:
     [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
+
+    ---
+
+    7/2/2025 Important Update: 
+
+    As you may be aware, we recently lost contact with the satellite. After exploring all possible  
+    recovery options, we have now confirmed that it is no longer functioning, due to an
+    undetermined problem with the outer platform carrying our methane detector. While there is no
+    question this is a setback, we are undeterred in our efforts to drive down methane pollution.
+    Please see our official statement here:
+    [MethaneSAT Loses Contact with Satellite | MethaneSAT](https://www.methanesat.org/project-updates/methanesat-loses-contact-satellite).
+
+    What this means for the Public Preview data: The existing datasets will remain accessible on
+    Google platforms and on our web portal for the foreseeable future. Additionally, over the next
+    few months, we will release substantial new data collected by MethaneSAT prior to the loss of
+    contact. This will include hundreds of scenes (of targets that are roughly 200kmx200km). We
+    hope this will be useful for you. Should there be any changes to data availability, we will
+    notify you well in advance.
+
+    Looking ahead: While we don’t have all the answers yet, we plan to leverage our advanced Data
+    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will
+    also take the necessary time to evaluate the best next step in our efforts to enable methane
+    reductions. To stay up to date with further updates, feel free to sign up for our
+    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up).
   |||,
   'gee:categories': ['atmosphere'],
   keywords: [
@@ -54,9 +79,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2025-01-17T00:00:00Z'),
+  extent: ee.extent_global('2024-05-22T00:00:00Z', null),
   summaries: {
-    'gsd': [10.2],
+    'gsd': [46.38],
     'eo:bands': [
       {
         name: 'XCH4',
@@ -99,11 +124,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:schema': [
       {
-        name: 'area_or_point',
-        description: 'Designation if this is an area or point.',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'collection_id',
         description: 'Satellite Observation ID.',
         type: ee_const.var_type.string,
@@ -119,11 +139,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'ovr_resampling',
         description: 'Resampling method used.',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'platform',
-        description: 'MethaneSAT or MethaneAIR',
         type: ee_const.var_type.string,
       },
       {

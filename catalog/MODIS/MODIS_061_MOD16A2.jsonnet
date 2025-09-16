@@ -41,6 +41,16 @@ local template = import 'templates/MODIS_006_MOD16A2.libsonnet';
     Class assignment in fill values 32761 through 32767 might be inaccurate. 
     They are not included in the EE assets.
 
+    The Version 6.1 Level-1B (L1B) products have been improved by undergoing
+    various calibration changes that include: changes to the
+    response-versus-scan angle (RVS) approach that affects reflectance bands
+    for Aqua and Terra MODIS, corrections to adjust for the optical crosstalk
+    in Terra MODIS infrared (IR) bands, and corrections to the Terra MODIS
+    forward look-up table (LUT) update for the period 2012 - 2017.
+    A polarization correction has been applied to the L1B Reflective Solar
+    Bands (RSB). The product uses Climatology LAI/FPAR as back up to the
+    operational LAI/FPAR.
+
     According to [the MODIS Science Team]
     (https://forum.earthdata.nasa.gov/viewtopic.php?p=15070#p15070),
     The MOD16A2 6.1 product will not have data prior to 2021. The MODIS Science 
@@ -88,10 +98,17 @@ local template = import 'templates/MODIS_006_MOD16A2.libsonnet';
   'gee:provider_ids': [
     'C1000000524-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2001-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2021-01-01T00:00:00Z', null),
   summaries: template.summaries {
     platform: [
       'Terra',
+    ],
+    'gee:schema'+: [
+      {
+        name: 'num_tiles',
+        description: 'The number of source tiles that were mosaicked to create this image.',
+        type: 'INT',
+      },
     ],
   },
   'sci:doi': '10.5067/MODIS/MOD16A2.061',

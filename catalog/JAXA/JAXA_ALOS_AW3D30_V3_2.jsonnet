@@ -23,9 +23,10 @@ local license = spdx.proprietary {
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'ALOS DSM: Global 30m  v' + version,
+  title: 'ALOS DSM: Global 30m  v' + version + ' [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'deprecated',
   description: |||
     ALOS World 3D - 30m (AW3D30) is a global digital surface
     model (DSM) dataset with a horizontal resolution of approximately

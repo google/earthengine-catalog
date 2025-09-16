@@ -110,6 +110,7 @@
 
   // https://en.wikipedia.org/wiki/Kelvin
   kelvin: 'K',
+  kilo_kelvin: 'K/kg/m^2',
 
   // https://en.wikipedia.org/wiki/Mass_flux
   kg_per_hour: 'kg/h',
@@ -171,6 +172,7 @@
 
   // https://en.wikipedia.org/wiki/Viscosity#Dynamic_viscosity
   pascal_seconds: 'Pa s',
+  pascal_per_second: 'Pa/s',
 
   // https://en.wikipedia.org/wiki/Percentage
   // https://en.wikipedia.org/wiki/Percent_sign
@@ -185,7 +187,9 @@
 
   // https://en.wikipedia.org/wiki/Pressure
   pressure_si: 'N/m^2',
-
+  pressure_per_second: 'N/m^2*s',
+  // https://en.wikipedia.org/wiki/Reciprocal_length
+  reciprocal_metre: 'm^-1',
   // https://en.wikipedia.org/wiki/Radians
   radian: 'rad',
 
@@ -194,6 +198,7 @@
   // radiance: 'Watts/sr/m^2',
   radiance_nanowatts_cm2: 'nanoWatts/sr/cm^2',
   radiance_nanowatts_cm2_nanometers: 'nanoWatts/sr/cm^2/nm',
+  per_steradian: 'sr^-1',
 
   // https://en.wikipedia.org/wiki/Reflectance
   spectral_reflectance: 'Spectral reflectance',
@@ -203,9 +208,12 @@
 
   // https://en.wikipedia.org/wiki/Viscosity#Kinematic_viscosity
   squared_meter_per_second: 'm^2/s',
+  squared_meter_per_squared_second: 'm^2/s^2',
 
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
+  rainfall_rate_kg_per_m_per_s: 'kg/m/s',
+  pvu: 'K*m^2/kg/s',
   // TODO(kumaraashutosh): Temporarily added, we need to double-check with the
   // provider about unit for confidence and slope.
   // https://en.wikipedia.org/wiki/P-value
@@ -225,6 +233,7 @@
   sawlog_board_ft_per_acre: 'sawlog-board-ft/acre',
 
   seconds:'seconds',
+  reciprocal_second: 's^-1',
 
   // https://en.wikipedia.org/wiki/Square_foot
   square_ft: 'ft^2',
@@ -256,10 +265,16 @@
 
   // https://en.wikipedia.org/wiki/Irradiance
   // https://en.wikipedia.org/wiki/Flux
+  watt_per_meter: 'W/m',
   watt_per_meter_squared: 'W/m^2',
-
   // 'Year' is controversial:
   // https://rock.geosociety.org/net/gsatoday/archive/22/2/pdf/i1052-5173-22-2-28.pdf
   // We pick 'y' for consistency with 'd' and 'h'
   year: 'y',
+
+  // https://en.wikipedia.org/wiki/Reciprocal_length
+  inverse_length: '1/m',
+
+  // https://en.wikipedia.org/wiki/Flux#Flux_as_flow_rate_per_unit_area
+  mg_per_day_per_square_meter: 'mg/day/m^2',
 }

@@ -25,6 +25,10 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_forestdatapartnership_assets_palm_model_2024a', base_url),
     ee.link.child_collection('projects_forestdatapartnership_assets_rubber_model_2024a', base_url),
     ee.link.child_collection('projects_forestdatapartnership_assets_cocoa_model_2024a', base_url),
+    ee.link.child_collection('projects_forestdatapartnership_assets_palm_model_2025a', base_url),
+    ee.link.child_collection('projects_forestdatapartnership_assets_rubber_model_2025a', base_url),
+    ee.link.child_collection('projects_forestdatapartnership_assets_cocoa_model_2025a', base_url),
+    ee.link.child_collection('projects_forestdatapartnership_assets_coffee_model_2025a', base_url),
     ee.link.child_collection('projects_forestdatapartnership_assets_community_forests_ForestPersistence_2020', base_url),
   ],
 }

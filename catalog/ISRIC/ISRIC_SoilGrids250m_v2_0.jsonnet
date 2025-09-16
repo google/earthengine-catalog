@@ -45,6 +45,10 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     `quantile` represents a statistical measure (e.g., mean, Q0.05, Q0.5,
     Q0.95).
 
+    The uncertainty band is not yet included. It is possible to calculate
+    the uncertainty from the ratio between the inter-quantile range
+    (90% prediction interval width) and the median: (Q0.95-Q0.05)/Q0.50.
+
     Documentation:
 
     * [Scientific Paper](https://www.sciencedirect.com/science/article/pii/S2095633922000636?via%3Dihub)
