@@ -5,7 +5,7 @@ local subdir = 'mapbiomas-public';
 local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
-local ee = import 'earthengine.Zlibsonnet';
+local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
