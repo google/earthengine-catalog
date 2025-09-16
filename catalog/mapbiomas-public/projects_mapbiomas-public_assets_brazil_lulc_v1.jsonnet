@@ -1,11 +1,11 @@
 local id = 'projects/mapbiomas-public/assets/brazil/lulc/v1';
 
-local subdir = 'MAPBIOMAS';
+local subdir = 'mapbiomas-public';
 
 local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
-local ee = import 'earthengine.libsonnet';
+local ee = import 'earthengine.Zlibsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
@@ -50,9 +50,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   keywords: [
-    'agriculture',
-    'forest-biomass',
-    'surface-ground-water',
     'landcover',
     'landuse',
     'landsat',

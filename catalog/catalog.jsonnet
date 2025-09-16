@@ -72,7 +72,6 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('LANDSAT', base_url),
     ee.link.child_catalog('LARSE', base_url),
     ee.link.child_catalog('Latvia', base_url),
-    ee.link.child_catalog('MAPBIOMAS', base_url),
     ee.link.child_catalog('MERIT', base_url),
     ee.link.child_catalog('MODIS', base_url),
     ee.link.child_catalog('NASA', base_url),
@@ -129,5 +128,6 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('planet-nicfi', base_url),
     ee.link.child_catalog('sat-io', base_url),
     ee.link.child_catalog('global-pasture-watch', base_url),
+    ee.link.child_catalog('mapbiomas-public', base_url)
   ],
 }
