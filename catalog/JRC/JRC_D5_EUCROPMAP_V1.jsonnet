@@ -29,15 +29,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // with two images for 2022 - one for EU27, and another for Ukraine.
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    European crop type map based on Sentinel-1 and LUCAS Copernicus 2018 in-situ
-    observations for 2018; and one based on Sentinel-2 and LUCAS Copernicus 2022 for 2022.
+    European crop type maps based on Sentinel-1 and LUCAS Copernicus 2018 in-situ 
+    observations for 2018, and a combination of Sentinel-1, Sentinel-2, 
+    and auxiliary data with LUCAS Copernicus 2022 observations for 2022.
 
-    Capitalizing on the unique
-    [LUCAS 2018 Copernicus in-situ survey](JRC_LUCAS_HARMO_THLOC_V1),
-    the 2018 dataset is the first continental crop type map with 10m
-    pixel size for the EU based on S1A and S1B Synthetic Aperture Radar
-    observations for the year 2018; the 2022 dataset is a continuation of
-    the work and is based on optical S2 observations for the year 2022.
+    Based on the unique [LUCAS 2018 Copernicus in-situ survey](JRC_LUCAS_HARMO_THLOC_V1), this dataset 
+    represents the first EU-scale crop type map at 10m resolution, 
+    which was derived exclusively from S1A and S1B synthetic aperture radar observations. 
+    The 2022 dataset continues this effort using a multi-source approach that combines 
+    Sentinel-1 and Sentinel-2 imagery with temperature and elevation data, supported by LUCAS 2022 observations.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
