@@ -16,7 +16,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   'gee:user_uploaded': true,
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
