@@ -243,6 +243,8 @@ UNITS = units.UNITS.union({
     'ug m-3',
     '1/m',
     'mg/day/m^2',
+    'mg/m^3/day',
+    'mmol/m^3',
 })
 
 
