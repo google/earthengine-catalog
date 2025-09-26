@@ -10,8 +10,9 @@
     GEOS-CF expands on the GEOS weather and aerosol modeling system by
     introducing the [GEOS-Chem](http://wiki.seas.harvard.edu/geos-chem/)
     chemistry module to provide hindcasts and 5-days forecasts of atmospheric
-    constituents including ozone (O~3~), carbon monoxide (CO), nitrogen dioxide
-    (NO~2~), sulfur dioxide (SO~2~), and fine particulate matter (PM~2.5~). The
+    constituents including ozone (O<sub>3</sub>), carbon monoxide (CO), nitrogen dioxide
+    (NO<sub>2</sub>), sulfur dioxide (SO<sub>2</sub>), coarse particulate matter 
+    (PM<sub>10</sub>), and fine particulate matter (PM<sub>2.5</sub>). The
     chemistry module integrated in GEOS-CF is identical to the offline GEOS-Chem
     model and readily benefits from the innovations provided by the GEOS-Chem
     community.
@@ -19,13 +20,13 @@
     In October 2025, a major update to the GEOS-CF system was introduced as 
     GEOS-CF v2. This change included updates to the GEOS atmospheric general 
     circulation model and the GEOS-Chem chemical model, replaying meteorology to 
-    [GEOS IT](https://gmao.gsfc.nasa.gov/gmao-products/geos-it/), direct assimilation of stratospheric profiles and column ozone from 
-    NASA Aura OMI and MLS instruments, and updates to the anthropogenic emission 
-    source. Evaluation of these updates is ongoing; results will be added into this 
-    description as they become avaialble.
+    [GEOS IT](https://gmao.gsfc.nasa.gov/gmao-products/geos-it/), direct assimilation 
+    of stratospheric profiles and column ozone from NASA Aura OMI and MLS instruments, 
+    and updates to the anthropogenic emission source. Evaluation of these updates is 
+    ongoing; results will be added into this description as they become available.
 
     Users of GEOS-CF are encouraged to treat outputs from the original system (v1) 
-    and the new system (v2) sperately in their analysis, due to the extensive changes 
+    and the new system (v2) separately in their analysis, due to the extensive changes 
     between the systems.
   |||,
   sci_citation: |||
@@ -40,6 +41,9 @@
     System GEOS‐CF v1.0: Stratospheric Composition. Journal of Advances in Modeling
     Earth Systems, 14, e2021MS002852. 
     [doi:10.1029/2021MS002852](https://doi.org/10.1029/2021MS002852)
+
+    Note: these citations refer to the original GEOS-CF (v1) system; citations describing 
+    the new (v2) system will be added following publication.
   |||,
   gee_terms_of_use: |||
     Unless otherwise noted, all NASA-produced data may be used for any purpose
