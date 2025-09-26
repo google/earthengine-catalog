@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('NASA/GEOS-CF/v2/fcst/tavg1hr')
+var dataset = ee.ImageCollection('NASA/GEOS-CF/v2/ana/tavg1hr')
                   .filter(ee.Filter.date('2025-08-04', '2025-08-11'));
 var NO2 = dataset.select('NO2').median();
 var NO2Vis = {
