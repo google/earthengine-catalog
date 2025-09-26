@@ -19,7 +19,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('gcpm041u-lemur', base_url),
+    ee.link.child_collection('projects_gcpm041u-lemur_assets_scanfi_v12_SCANFI_v1_2', base_url),
   ],
 }
 
