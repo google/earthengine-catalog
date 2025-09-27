@@ -278,7 +278,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // The fields below generally don't need to be changed.
 
   // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'incomplete',
+  'gee:status': 'beta',
 
   // This says that the dataset is an ee.Image.
   //   https://developers.google.com/earth-engine/apidocs/ee-image
