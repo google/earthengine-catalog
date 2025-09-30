@@ -13,7 +13,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
   version: 'September 2025',
-  title: 'WDKBA: World Database of Key Biodiversity Areas (KBAS) + version',
+  title: 'WDKBA: World Database of Key Biodiversity Areas (KBAS)' + version,
   
   description: |||
     **If you are interested in accessing the KBA dataset please complete the 
