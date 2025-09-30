@@ -1,4 +1,4 @@
-local id = 'projects/ee-kbas-in-gee/assets/KBAs_September_2025';
+local id = 'projects/ee-kbas-in-gee/assets/current';
 local subdir = 'ee-kbas-in-gee';
 
 local ee_const = import 'earthengine_const.libsonnet';
