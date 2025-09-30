@@ -248,7 +248,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
    |||,
 
   // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'incomplete',
+  'gee:status': 'beta',
  
   'gee:type': ee_const.gee_type.table,
 
