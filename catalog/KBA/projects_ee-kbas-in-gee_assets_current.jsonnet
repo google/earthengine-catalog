@@ -12,9 +12,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'WDKBA: World Database of Key Biodiversity Areas (KBAS)',
   version: 'September 2025',
-
+  title: 'WDKBA: World Database of Key Biodiversity Areas (KBAS) + version',
+  
   description: |||
     **If you are interested in accessing the KBA dataset please complete the 
 	[KBA data request form](https://www.keybiodiversityareas.org/kba-data/request) 
@@ -81,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent_global('2016-01-01T00:00:00Z', '2025-04-01T00:00:00Z'),
+  extent: ee.extent_global('2016-01-01T00:00:00Z', '2025-09-01T00:00:00Z'),
 
   summaries: {
 
