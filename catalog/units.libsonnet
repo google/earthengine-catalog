@@ -250,10 +250,6 @@
   // https://en.wikipedia.org/wiki/Hectare
   tonnes_per_hectare: 'tonnes/hectare',
 
-  // https://en.wikipedia.org/wiki/Tonne
-  // https://en.wikipedia.org/wiki/Hectare
-  tonnes_per_hectare: 'tonnes/hectare',
-
   // https://en.wikipedia.org/wiki/Fraction
   unspecified_fraction: 'Fraction',
 
