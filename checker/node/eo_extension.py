@@ -241,6 +241,7 @@ UNITS = units.UNITS.union({
     'sr-1',
     'sr^-1',
     'ug m-3',
+    'tonnes/hectare',
     '1/m',
     'mg/day/m^2',
     'mg/m^3/day',

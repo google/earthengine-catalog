@@ -245,6 +245,10 @@
   // https://en.wikipedia.org/wiki/Short_ton
   // https://en.wikipedia.org/wiki/Acre
   tons_per_acre: 'tons/acre',
+  
+  // https://en.wikipedia.org/wiki/Tonne
+  // https://en.wikipedia.org/wiki/Hectare
+  tonnes_per_hectare: 'tonnes/hectare',
 
   // https://en.wikipedia.org/wiki/Fraction
   unspecified_fraction: 'Fraction',
