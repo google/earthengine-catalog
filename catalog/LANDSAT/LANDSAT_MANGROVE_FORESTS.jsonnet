@@ -41,7 +41,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ecosystems. The database serves as a baseline for mangrove
     monitoring.
 
-    [General Documentation](https://sedac.ciesin.columbia.edu/data/set/lulc-global-mangrove-forests-distribution-2000/docs)
+    [General Documentation](https://www.earthdata.nasa.gov/data/catalog/sedac-ciesin-sedac-lulc-mangroves-2000-1.0#documents-and-resources)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -61,7 +61,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'usgs',
   ],
   providers: [
-    ee.producer_provider('NASA SEDAC at the Center for International Earth Science Information Network', 'https://doi.org/10.7927/H4J67DW8'),
+    ee.producer_provider('NASA SEDAC at the Center for International Earth Science Information Network', 'https://www.earthdata.nasa.gov/data/catalog/sedac-ciesin-sedac-lulc-mangroves-2000-1.0'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [

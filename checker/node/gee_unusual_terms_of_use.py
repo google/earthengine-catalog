@@ -30,7 +30,7 @@ MUST_BE_UNUSUAL = frozenset({
     'ODbL-1.0',
     'proprietary_non_commercial'
 })
-POSSIBLY_UNUSUAL = MUST_BE_UNUSUAL.union({'proprietary'})
+POSSIBLY_UNUSUAL = MUST_BE_UNUSUAL.union({'proprietary', 'various'})
 
 
 class Check(stac.NodeCheck):

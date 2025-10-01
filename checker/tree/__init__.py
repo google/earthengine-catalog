@@ -3,6 +3,7 @@
 from typing import Iterator
 
 from checker import stac
+from checker.tree import dangling_pointer
 from checker.tree import keywords
 from checker.tree import parent_child
 from checker.tree import title
@@ -10,6 +11,7 @@ from checker.tree import url_id
 from checker.tree import version_links
 
 _CHECKS = [
+    dangling_pointer.Check,
     keywords.Check,
     parent_child.Check,
     title.Check,

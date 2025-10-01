@@ -21,13 +21,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (cultivated and natural/semi-natural) from 2000 to 2022 at 30-m spatial 
     resolution. 
   ||| + ggc30m_v1,
-  'gee:categories': ['forest-biomass'],
+  'gee:categories': ['landuse-landcover'],
   keywords: [
+    'pasture',
+    'rangeland',
+    'vegetation',
     'land',
     'landcover',
     'landuse',
     'global',
-    'vegetation'
   ],
 
   providers: [
@@ -43,8 +45,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         gsd: 30,
         'gee:classes': [
           {value: 0, color: 'ffffff', description: 'Other'},
-          {value: 1, color: 'ff9916', description: 'Cultivated grassland '},
-          {value: 2, color: 'ffcd73', description: 'Natural/Semi-natural grassland'},
+          {value: 1, color: 'ffcd73', description: 'Cultivated grassland '},
+          {value: 2, color: 'ff9916', description: 'Natural/Semi-natural grassland'},
         ],
       }
     ],
@@ -59,8 +61,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [2],
             palette: [
               'ffffff',
-              'ff9916',
-              'ffcd73'
+              'ffcd73',
+              'ff9916'
             ],
             bands: ['dominant_class'],
           }

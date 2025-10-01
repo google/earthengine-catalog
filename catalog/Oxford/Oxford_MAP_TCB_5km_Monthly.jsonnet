@@ -18,9 +18,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
-  title: 'Oxford MAP TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness',
+  version: ee_const.version_unknown,
+  'gee:status': 'deprecated',
+  title: 'Oxford MAP TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This gap-filled Tasseled Cap Brightness (TCB) dataset was created by
@@ -34,7 +37,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Malaria Atlas Project](https://malariaatlas.org/).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id)  + [
+  ee.link.successor(
+        'projects/malariaatlasproject/assets/TCB_v061/1km/Monthly',
+        ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_TCB_v061_1km_Monthly.json'),
+  ],
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'brightness',

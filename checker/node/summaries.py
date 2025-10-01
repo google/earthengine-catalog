@@ -97,6 +97,14 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(
             node, f'{node.gee_type} cannot have {EO_BANDS} in {SUMMARIES}')
 
+    if node.gee_type == stac.GeeType.BIGQUERY_TABLE:
+      if GEE_SCHEMA not in summaries:
+        yield cls.new_issue(
+            node,
+            f'"{GEE_SCHEMA}" is missing from "{SUMMARIES}"',
+            level=stac.IssueLevel.WARNING,
+        )
+
     # These are called 'Range Objects' fields in STAC.
     keys_from_bands = set()
     if EO_BANDS in summaries:

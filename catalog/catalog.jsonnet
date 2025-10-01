@@ -61,6 +61,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('HYCOM', base_url),
     ee.link.child_catalog('IDAHO_EPSCOR', base_url),
     ee.link.child_catalog('IGN', base_url),
+    ee.link.child_catalog('iNaturalist', base_url),
     ee.link.child_catalog('IPCC', base_url),
     ee.link.child_catalog('ISDASOIL', base_url),
     ee.link.child_catalog('ISRIC', base_url),
@@ -131,6 +132,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('sat-io', base_url),
     ee.link.child_catalog('global-pasture-watch', base_url),
     ee.link.child_catalog('landandcarbon', base_url),
+    ee.link.child_catalog('malariaatlasproject', base_url),
     ee.link.child_catalog('nature-trace', base_url)
   ],
 }

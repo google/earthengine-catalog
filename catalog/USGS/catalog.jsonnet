@@ -27,6 +27,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('USGS_SRTMGL1_003', base_url),
 
     ee.link.child_collection('USGS_3DEP_10m', base_url),
+    ee.link.child_collection('USGS_3DEP_10m_collection', base_url),
     ee.link.child_collection('USGS_3DEP_10m_metadata', base_url),
     ee.link.child_collection('USGS_3DEP_1m', base_url),
 

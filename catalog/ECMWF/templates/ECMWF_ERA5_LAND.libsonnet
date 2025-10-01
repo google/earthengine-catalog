@@ -282,7 +282,7 @@ local meters_eq = 'm of water equivalent';
     },
     {
       name: 'snow_depth',
-      description: 'Instantaneous grib-box average of the snow thickness on\n          the ground (excluding snow on canopy).',
+      description: 'Instantaneous grid-box average of the snow thickness on\n          the ground (excluding snow on canopy).',
       units: units.meter,
     },
     {
