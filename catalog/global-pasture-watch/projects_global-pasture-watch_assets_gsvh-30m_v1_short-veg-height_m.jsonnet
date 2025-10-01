@@ -16,7 +16,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GPW Annual short vegetation height v' + version,
   version: version,
-  'gee:status': 'beta',
   description: |||
     This dataset provides global median vegetation height
     from 2000 at 30-m spatial resolution. 
