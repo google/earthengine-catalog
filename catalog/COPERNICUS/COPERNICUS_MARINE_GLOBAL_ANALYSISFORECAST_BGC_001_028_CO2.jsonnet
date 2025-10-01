@@ -1,18 +1,18 @@
-local id = 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_001_028/BIO';
 local template = import 'templates/copernicus_marine_bgc.libsonnet';
 local units = import 'units.libsonnet';
 
+local id = 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_001_028/CO2';
 
 {
   stac_version: template.stac_version,
   type: template.type,
   stac_extensions: template.stac_extensions,
   id: id,
-  title: 'Copernicus Global Ocean Bio-Geo-Chemical Forecast - BIO',
+  title: 'Copernicus Global Ocean Bio-Geo-Chemical Forecast - CO2',
   'gee:type': 'image_collection',
   description: template.description + |||
-                    <br><br> This dataset mainly consists of total primary production
-                    of phytos, and dissolved oxygen.
+                    <br><br> This dataset consists of surface partial pressure
+                    of carbon dioxide.
                   |||,
   license: template.license,
   links: template.links(id),
@@ -27,17 +27,13 @@ local units = import 'units.libsonnet';
     gsd: [
       27750.0, // Approximately 0.25 degrees at the equator
     ],
-    'eo:bands': template.gen_bands('nppv',
-                                    'Total Primary Production of Phyto',
-                                    units.mg_per_cubic_meter_per_day,
-                                    50) +
-                template.gen_bands('o2',
-                                     'Dissolved Oxygen',
-                                     units.mmol_per_cubic_meter,
-                                     50),
+    'eo:bands': template.gen_bands('spco2',
+                                    'Surface Partial Pressure of Carbon Dioxide',
+                                    units.pascal,
+                                    1),
     'gee:visualizations': [
       {
-        display_name: 'Global BGC BIO Forecast',
+        display_name: 'Global BGC CO2 Forecast',
         lookat: {
           lat: 73.63,
           lon: -140.5,
@@ -46,10 +42,10 @@ local units = import 'units.libsonnet';
         image_visualization: {
           band_vis: {
             min: [
-              1.0,
+              20.0,
             ],
             max: [
-              50.0,
+              40.0,
             ],
             palette: [
               'black',
@@ -61,14 +57,13 @@ local units = import 'units.libsonnet';
               'white'
             ],
             bands: [
-              'nppv_depth1',
+              'spco2_depth1',
             ],
           },
         },
       },
     ],
-  } + template.gen_summaries('nppv', 0, 2729.2, 50) +
-     template.gen_summaries('o2', 0.1, 516.16, 50),
+  } + template.gen_summaries('spco2', -14, 1460, 1),
   'sci:citation': template.citation,
   'gee:interval': template.interval,
   'gee:terms_of_use': template.terms_of_use,
