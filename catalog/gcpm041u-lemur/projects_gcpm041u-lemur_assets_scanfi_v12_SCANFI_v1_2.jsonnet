@@ -35,6 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     arctic areas could not be rigorously validated. The "articExtrapolationArea" band identifies these zones.
     
     Data limitations:
+
     1. The spectral disturbances of some areas disturbed by pests are not comprehensively represented in the 
     training set, thus making it impossible to predict all defoliation cases. One such area, severely impacted by 
     the recent eastern spruce budworm outbreak, is located on the North Shore of the St-Lawrence River. These 
@@ -210,9 +211,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
   |||,
   
-
-  // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'beta',
 
   'gee:type': ee_const.gee_type.image,
 
