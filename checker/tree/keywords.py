@@ -27,7 +27,6 @@ EXCEPTIONS = frozenset({
     'aura',
     'avnir_2',
     'backscatter',
-    'bathymetry',
     'belowground',
     'bigquery',
     'bioclim',
