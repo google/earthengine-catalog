@@ -1,21 +1,21 @@
-local id = 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_001_028/BIO';
 local template = import 'templates/copernicus_marine_bgc.libsonnet';
 local units = import 'units.libsonnet';
 
+local id = 'COPERNICUS/MARINE/GLOBAL_ANALYSISFORECAST_BGC_001_028/CAR';
 
 {
   stac_version: template.stac_version,
   type: template.type,
   stac_extensions: template.stac_extensions,
   id: id,
-  title: 'Copernicus Global Ocean Bio-Geo-Chemical Forecast - BIO',
+  title: 'Copernicus Global Ocean Bio-Geo-Chemical Forecast - CAR',
   'gee:type': 'image_collection',
   description: template.description + |||
-                    These products are provided on 50 vertical levels with
-                    depths ranging from 0.49m to 5727.92m.
-                    <br><br> This dataset mainly consists of total primary
-                    production of phytos, and dissolved oxygen.
-                  |||,
+                  These products are provided on 50 vertical levels with
+                  depths ranging from 0.49m to 5727.92m.
+                  <br><br> This dataset consists of pH and dissolved
+                  inorganic carbon.
+                |||,
   license: template.license,
   links: template.links(id),
   'gee:categories': ['oceans'],
@@ -30,17 +30,15 @@ local units = import 'units.libsonnet';
       27750.0, // Approximately 0.25 degrees at the equator
     ],
     'eo:bands':
-        template.gen_bands('nppv',
-                           'Total Primary Production of Phyto',
-                           units.mg_per_cubic_meter_per_day,
-                           template.ALL_DEPTHS) +
-        template.gen_bands('o2',
-                           'Dissolved Oxygen',
-                           units.mmol_per_cubic_meter,
-                           template.ALL_DEPTHS),
+        template.gen_bands('ph',
+                           'Ocean pH',
+                           units.dimensionless, template.ALL_DEPTHS) +
+        template.gen_bands('dissic',
+                           'Dissolved Inorganic Carbon',
+                           units.mol_per_cubic_meter, template.ALL_DEPTHS),
     'gee:visualizations': [
       {
-        display_name: 'Global BGC BIO Forecast',
+        display_name: 'Global BGC CAR Forecast',
         lookat: {
           lat: 73.63,
           lon: -140.5,
@@ -49,10 +47,10 @@ local units = import 'units.libsonnet';
         image_visualization: {
           band_vis: {
             min: [
-              1.0,
+              8.0,
             ],
             max: [
-              50.0,
+              8.2,
             ],
             palette: [
               'black',
@@ -64,15 +62,15 @@ local units = import 'units.libsonnet';
               'white'
             ],
             bands: [
-              'nppv_depth1',
+              'ph_depth1',
             ],
           },
         },
       },
     ],
   } +
-  template.gen_summaries('nppv', 0, 2729.2, template.ALL_DEPTHS) +
-  template.gen_summaries('o2', 0.1, 516.16, template.ALL_DEPTHS),
+  template.gen_summaries('ph', 6.1, 8.6, template.ALL_DEPTHS) +
+  template.gen_summaries('dissic', 0.1, 10.358, template.ALL_DEPTHS),
   'sci:citation': template.citation,
   'gee:interval': template.interval,
   'gee:terms_of_use': template.terms_of_use,

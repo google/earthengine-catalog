@@ -287,4 +287,5 @@
 
   // https://en.wikipedia.org/wiki/Molar_concentration
   mmol_per_cubic_meter: 'mmol/m^3',
+  mol_per_cubic_meter: 'mol/m^3',
 }
