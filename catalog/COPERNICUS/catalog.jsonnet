@@ -39,6 +39,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('COPERNICUS_MARINE_OC_GLO_BGC_TRANSPARENCY_OLCI_4KM', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_SATELLITE_OCEAN_COLOR_V6', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_WAV_ANFC_0_083DEG_PT3H', base_url),
+    ee.link.child_collection('COPERNICUS_MARINE_WAV_ANFC_0_083DEG_STATIC', base_url),
     ee.link.child_collection('COPERNICUS_S1_GRD', base_url),
     ee.link.child_collection('COPERNICUS_S2', base_url),
     ee.link.child_collection('COPERNICUS_S2_HARMONIZED', base_url),
