@@ -105,12 +105,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string_list,
       },
       {
-        name: 'status',
+        name: 'PRISM_DATASET_RELEASE_NUMBER',
         description: |||
-          Data generated within 30 days of observation have
-          the status "early". Data generated within 1-6 months of observation
-          may have the status "provisional" and data older than 6 months
-          are marked as "permanent".
+          An integer (1-7), stored as a string, indicating how many times a
+          grid has been re-modeled in the 6-month window. Grids are
+          considered stable after 6 months.
         |||,
         type: ee_const.var_type.string,
       },
