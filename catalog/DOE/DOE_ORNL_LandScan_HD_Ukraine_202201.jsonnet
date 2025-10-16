@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
         'Oak Ridge National Laboratory',
-        'https://landscan.ornl.gov/ukraine-landscan-hd-data'
+        'https://landscan.ornl.gov/about'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],

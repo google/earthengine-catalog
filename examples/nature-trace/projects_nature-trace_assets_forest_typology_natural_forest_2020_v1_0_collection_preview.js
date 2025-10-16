@@ -2,10 +2,9 @@ var probabilities =
     ee.ImageCollection(
           'projects/nature-trace/assets/forest_typology/natural_forest_2020_v1_0_collection')
         .mosaic()
-        .select('B0')
-        .divide(250);
+        .select('B0');
 var image = probabilities.mask(probabilities.neq(0));
-var vis = {min: 0, max: 1, palette: ['white', 'green']}
+var vis = {min: 0, max: 250, palette: ['white', 'green']}
 
           Map.addLayer(image, vis, 'Natural forests 2020')
 

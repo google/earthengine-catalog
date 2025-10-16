@@ -18,9 +18,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
-  title: 'Oxford MAP EVI: Malaria Atlas Project Gap-Filled Enhanced Vegetation Index',
+  version: ee_const.version_unknown,
+  'gee:status': 'deprecated',
+  title: 'Oxford MAP EVI: Malaria Atlas Project Gap-Filled Enhanced Vegetation Index [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The underlying dataset for this Enhanced Vegetation Index (EVI)
@@ -34,7 +37,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     United Kingdom, [https://malariaatlas.org/](https://malariaatlas.org/)).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+   ee.link.successor(
+        'projects/malariaatlasproject/assets/EVI_v061/1km/Monthly',
+        ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_EVI_v061_1km_Monthly.json'),
+  ],
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'evi',

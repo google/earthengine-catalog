@@ -45,6 +45,7 @@ class GeeType(*_StrEnum):
   IMAGE_COLLECTION = 'image_collection'
   TABLE = 'table'
   TABLE_COLLECTION = 'table_collection'
+  BIGQUERY_TABLE = 'bigquery_table'
   # For catalogs
   NONE = 'none'
 

@@ -86,7 +86,7 @@ local license = spdx.proprietary;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    Contact [sm.fs.lcms@usda.gov] with any
     questions or specific data requests.
 
     * **Breiman, L., 2001.**

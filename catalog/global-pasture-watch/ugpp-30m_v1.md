@@ -1,4 +1,4 @@
-Produced by Land &#38; Carbon Lab Global Pasture Watch initiative, the current dataset provides 
+Produced by the Land &#38; Carbon Lab Global Pasture Watch initiative, the current dataset provides 
 Gross Primary Productivity (GPP) values globally at 30-m spatial resolution from 2000 onwards. 
 GPP values are modeled via a **light use efficiency (LUE)** approach, 
 where [**GLAD Landsat ARD** (collection-2)](https://glad.umd.edu/ard/home) are aggregated every two months 

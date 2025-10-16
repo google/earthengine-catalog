@@ -1,6 +1,6 @@
 local id = 'JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH';
 local subdir = 'JAXA';
-local version = '2';
+local version = '2.5.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         backscattering intensity caused by freezing trees in winter.
 
     More information is available in the provider's
-    [Dataset Description](https://www.eorc.jaxa.jp/ALOS/en/dataset/pdf/DatasetDescription_PALSAR2_Mosaic_ver212.pdf).
+    [Dataset Description](https://www.eorc.jaxa.jp/ALOS/en/dataset/pdf/DatasetDescription_PALSAR2_Mosaic_ver250.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

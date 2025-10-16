@@ -7,12 +7,10 @@ Requirements and specification:
 - If the field is set, its value must be one of several enum values.
 """
 
-import json
 import os
 from typing import Iterator
 
 from absl import logging
-
 from checker import stac
 
 
@@ -25,16 +23,14 @@ class Check(stac.NodeCheck):
     # TODO(simonf): add a github-only check that new datasets
     # must have status 'incompete' or 'beta'
     if os.environ.get('GITHUB_ACTIONS') == 'true':
-      event_path = os.environ.get('GITHUB_EVENT_PATH')
-      if event_path:
-        logging.info('GITHUB_EVENT_PATH: %s', event_path)
-
-        with open(event_path, 'r') as f:
-          try:
-            event_data = json.load(f)
-            logging.info('Github event data: %s', event_data)
-          except json.decoder.JSONDecodeError:
-            logging.exception('Failed to parse github event path file as JSON')
+      logging.info('Running in GitHub Actions')
+    else:
+      logging.info('Running outside of GitHub Actions')
+    event_path = os.environ.get('GITHUB_EVENT_PATH')
+    if event_path:
+      logging.info('GITHUB_EVENT_PATH: %s', event_path)
+    else:
+      logging.info('No GITHUB_EVENT_PATH')
 
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:

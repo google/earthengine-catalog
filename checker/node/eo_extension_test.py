@@ -7,6 +7,7 @@ from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+BIGQUERY_TABLE = stac.GeeType.BIGQUERY_TABLE
 
 EO_URL = 'https://stac-extensions.github.io/eo/v1.0.0/schema.json'
 
@@ -98,6 +99,12 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         'table_collection must not have the eo extension',
         gee_type=TABLE_COLLECTION)
 
+  def test_bigquery_table_with_eo(self):
+    self.assert_collection(
+        {'stac_extensions': [EO_URL]},
+        'bigquery_table must not have the eo extension',
+        gee_type=BIGQUERY_TABLE)
+
   def test_image_empty_summaries(self):
     self.assert_collection({'summaries': {}}, 'Missing eo:bands')
 
@@ -118,6 +125,12 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         {'summaries': {'eo:bands': MINIMUM_BANDS}},
         'eo:bands cannot be in table_collection',
         gee_type=TABLE_COLLECTION)
+
+  def test_bigquery_table_with_bands(self):
+    self.assert_collection(
+        {'summaries': {'eo:bands': MINIMUM_BANDS}},
+        'eo:bands cannot be in bigquery_table',
+        gee_type=BIGQUERY_TABLE)
 
   def test_bands_not_list(self):
     self.assert_collection(
