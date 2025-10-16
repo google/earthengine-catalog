@@ -105,7 +105,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0
             ],
             max: [
-              1,
+              250,
             ],
             palette: ['white', 'green'],
             bands: [

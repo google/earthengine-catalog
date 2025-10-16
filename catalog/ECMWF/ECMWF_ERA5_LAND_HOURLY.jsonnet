@@ -28,8 +28,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     with that for ERA5. The accumulations are treated the same as those in
     ERA-Interim or ERA-Interim/Land, i.e., they are accumulated from the
     beginning of the forecast to the end of the forecast step. This happens
-    within every day and gets reset on midnight. The Earth Engine Data team
-    added 19 additional bands,
+    within every day and gets reset on midnight.
+    [See this page for more information](https://confluence.ecmwf.int/display/CKB/ERA5-Land%3A+data+documentation#ERA5Land:datadocumentation-accumulationsAccumulations).
+    The Earth Engine Data team added 19 additional bands,
     one for each of the accumulation bands, with the hourly values computed as
     the difference between two consecutive forecast steps.
   |||,
