@@ -83,14 +83,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B0',
         description: |||
-          Natural forest probabilities (scaled to [0-1]).
+          Natural forest probabilities (scaled to [0-250]).
         |||,
       },
     ],
     gsd: [
       10.0,
     ],
-    B0: { minimum: 0, maximum: 1, 'gee:estimated_range': false },
+    B0: { minimum: 0, maximum: 250, 'gee:estimated_range': false },
     'gee:visualizations':[
       {
         display_name: 'Natural forests 2020',
