@@ -134,7 +134,9 @@ local license = spdx.proprietary;
 
     * **Weiss, A.D., 2001.**
     Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
-    San Diego, CAZhu, Z., and Woodcock, C. E. (2012).
+    San Diego, CA.
+
+    * **Zhu, Z., and Woodcock, C. E. (2012).**
     Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
     Environment. *Science Direct*,
     118: 83-94
