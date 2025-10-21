@@ -853,9 +853,10 @@ local license = spdx.proprietary;
         Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J., 2023.
         Comprehensive Quality Assessment of Optical Satellite Imagery Using
         Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference
-        on Computer Vision and Pattern Recognition. 2124-2134.
+        on Computer Vision and Pattern Recognition. 2125-2135.
+        [doi:10.1109/CVPRW59228.2023.00206](https://doi.org/10.1109/CVPRW59228.2023.00206)
       |||,
-      doi:'10.3390/rs10050691',
+      doi: '10.1109/CVPRW59228.2023.00206',
     },
     {
       citation: |||
