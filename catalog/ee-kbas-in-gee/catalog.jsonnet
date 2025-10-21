@@ -1,10 +1,10 @@
-local id = 'KBA';
+local id = 'ee-kbas-in-gee';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
 local basename = 'catalog';
 local base_filename = basename + '.json';
-local base_url = ee_const.catalog_base + 'KBA/';
+local base_url = ee_const.catalog_base + 'ee-kbas-in-gee/';
 local parent_url = ee_const.catalog_base + 'catalog.json';
 local self_url = base_url + base_filename;
 
