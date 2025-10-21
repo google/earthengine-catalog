@@ -30,7 +30,7 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
-    It shows LCMS-modeled change, land cover, and/or land use classes for each year. This 
+    It shows LCMS-modeled change, land cover, and/or land use classes for each year. This
     LCMS version covers the conterminous United States (CONUS) and Southeastern Alaska (SEAK).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
