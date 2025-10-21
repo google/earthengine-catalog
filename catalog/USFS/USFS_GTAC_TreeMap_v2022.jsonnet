@@ -2487,9 +2487,9 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             Forest Inventory Analysis: 2024, Forest Inventory Analysis DataMart. Forest
             Inventory Analysis DataMart FIADB_1.9.1. 2024.
             Accessed February 2024 at [https://apps.fs.usda.gov/fia/datamart/datamart.html](https://apps.fs.usda.gov/fia/datamart/datamart.html)
-            [doi: 10.2737/DS-2001-FIADB](https://doi.org/10.2737/RDS-2001-FIADB)
+            [doi: 10.2737/RDS-2001-FIADB](https://doi.org/10.2737/RDS-2001-FIADB)
         |||,
-        doi:'10.2737/DS-2001-FIADB',
+        doi:'10.2737/RDS-2001-FIADB',
         },
    ],
   'gee:terms_of_use': |||
