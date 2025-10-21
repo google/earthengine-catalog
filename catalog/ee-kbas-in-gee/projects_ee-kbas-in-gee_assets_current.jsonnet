@@ -203,8 +203,8 @@ local version = 'September 2025';
           zoom: 4,
         },
          table_visualization: {
-           color: '#FFD700',
-           fill_color: '#FFD70066',
+           color: 'FFD700',
+           fill_color: 'FFD70066',
          },
       },
     ],
