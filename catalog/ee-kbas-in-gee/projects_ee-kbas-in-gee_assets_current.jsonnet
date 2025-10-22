@@ -244,7 +244,9 @@ local version = 'September 2025';
 
   'gee:type': ee_const.gee_type.table,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, subdir, basename + '_FeatureView'),
+  ],
   // This refers to a STAC term 'collection', not to Earth Engine collections.
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
