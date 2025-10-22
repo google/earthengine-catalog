@@ -13,7 +13,7 @@ local version = 'September 2025';
 
 {
   id: id,
-  version: 'September 2025',
+  version: version,
   title: 'WDKBA: World Database of Key Biodiversity Areas (KBAs) - ' + version,
 
   description: |||
@@ -68,12 +68,10 @@ local version = 'September 2025';
   keywords: [
     'biodiversity',
     'boundaries',
-	'ecosystems',
 	'global',
 	'iucn',
 	'management',
-	'marine',
-	'publisher-dataset'
+	'marine'
   ],
 
   providers: [

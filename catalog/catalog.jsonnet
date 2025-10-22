@@ -133,6 +133,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('global-pasture-watch', base_url),
     ee.link.child_catalog('landandcarbon', base_url),
     ee.link.child_catalog('malariaatlasproject', base_url),
-    ee.link.child_catalog('nature-trace', base_url)
+    ee.link.child_catalog('nature-trace', base_url),
+    ee.link.child_catalog('ee-kbas-in-gee, base_url')
   ],
 }
