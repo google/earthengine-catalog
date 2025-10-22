@@ -35,6 +35,10 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_GEOS-CF_v1_fcst_tavg1hr', base_url),
     ee.link.child_collection('NASA_GEOS-CF_v1_rpl_htf', base_url),
     ee.link.child_collection('NASA_GEOS-CF_v1_rpl_tavg1hr', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_fcst_htf', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_fcst_tavg1hr', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_ana_htf', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_ana_tavg1hr', base_url),
 
     ee.link.child_collection('NASA_GIMMS_3GV0', base_url),
 

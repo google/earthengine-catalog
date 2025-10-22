@@ -1,13 +1,13 @@
-local id = 'NASA/GEOS-CF/v1/fcst/tavg1hr';
+local id = 'NASA/GEOS-CF/v2/fcst/tavg1hr';
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local template = import 'NASA_GEOS-CF_v1.libsonnet';
+local template = import 'NASA_GEOS-CF_v2.libsonnet';
 local units = import 'units.libsonnet';
 
-local tavg1hr_bands = import 'NASA_GEOS-CF_tavg1hr.libsonnet';
+local tavg1hr_bands = import 'NASA_GEOS-CF_v2_tavg1hr.libsonnet';
 
 local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
@@ -23,11 +23,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   'gee:type': ee_const.gee_type.image_collection,
-  title: 'GEOS-CF fcst tavg1hr v1: Goddard Earth Observing System Composition Forecast',
-  version: 'v1',
+  title: 'GEOS-CF fcst tavg1hr v2: Goddard Earth Observing System Composition Forecast',
+  version: 'v2',
   description: |||
-    This dataset contains meteorological forecast (fcst) of time-averaged
-    frequency data (tavg1hr). Use the 'creation_time' and 'forecast_time' properties
+    This dataset contains forecast (fcst) of time-averaged
+    frequency data (tavg1hr). It is built by merging the original GEOS-CF collections
+    chm_tavg_1hr_glo_L1440x721_slv, met_tavg_1hr_glo_L1440x721_slv, and
+    xgc_tavg_1hr_glo_L1440x721_slv. Use the 'creation_time' and 'forecast_time' properties
     to select data of interest.
   ||| + template.description,
   'sci:citation': template.sci_citation,
@@ -41,12 +43,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  extent: ee.extent_global('2022-10-01T00:00:00Z', null),
+  extent: ee.extent_global('2025-08-04T00:00:00Z', null),
   'gee:categories': ['atmosphere'],
   keywords: [
     'composition',
     'forecast',
     'geos',
+    'geos-cf',
     'gmao',
     'nasa',
   ],
@@ -98,7 +101,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
       {
-        display_name: 'NO2',
+        display_name: 'Nitrogen Dioxide',
         lookat: {
           lat: 20.0,
           lon: 100.0,
