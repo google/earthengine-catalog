@@ -102,9 +102,9 @@ local version = 'September 2025';
       {
         name: 'IbaStatus',
         description: |||
-          The Important Bird and Biodiversity Area (IBA) status of the KBA, taking one
-          of the following values: candidate, confirmed, de-listed, does not qualify,
-          superseded or "".
+              The Important Bird and Biodiversity Area (IBA) status of the KBA, taking one
+              of the following values: candidate, confirmed, de-listed, does not qualify,
+              superseded or "".
             |||,
         type: ee_const.var_type.string,
       },
@@ -121,13 +121,13 @@ local version = 'September 2025';
       {
         name: 'KbaClass',
         description: |||
-	      The classification of KBAs as one of the following:
-	      
-	      * Global — KBAs that meet KBA criteria.
-	      * Regional - KBAs identified prior to the KBA Standard that meet other pre-existing criteria.
-	      * Global/Regional TBD - KBAs identified prior to the KBA Standard using pre-existing criteria
-	      but with insufficient evidence to show whether they continue to meet criteria. Sites in this
-	      group are prioritised for reassessment.
+	          The classification of KBAs as one of the following:
+	          
+	          * Global — KBAs that meet KBA criteria.
+	          * Regional - KBAs identified prior to the KBA Standard that meet other pre-existing criteria.
+	          * Global/Regional TBD - KBAs identified prior to the KBA Standard using pre-existing criteria
+	          but with insufficient evidence to show whether they continue to meet criteria. Sites in this
+	          group are prioritised for reassessment.
             |||,
         type: ee_const.var_type.string,
       },
