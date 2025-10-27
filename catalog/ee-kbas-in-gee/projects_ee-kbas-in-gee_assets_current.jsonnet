@@ -85,107 +85,104 @@ local version = 'September 2025';
 
     'gee:schema': [
       {
-        name: 'SitRecID',
-        description: 'Unique identifier for a KBA.',
-        type: ee_const.var_type.double,
-      },
-	  {
-        name: 'Region',
-        description: 'Name of region containing the KBA.',
+        name: 'AzeStatus',
+        description: 'Whether or not the KBA is an Alliance for Zero Extinction (AZE) site (confirmed or "").',
         type: ee_const.var_type.string,
-      },
-	  {
+      },  
+      {
         name: 'Country',
         description: 'Name of country/territory containing the KBA.',
         type: ee_const.var_type.string,
       },
-	  {
-        name: 'ISO3',
-        description: 'ISO3 code of country/territory containing the KBA.',
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'NatName',
-        description: 'Name of KBA used nationally, typically in the language of its country.',
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'IntName',
-        description: 'Name of KBA to be used internationally, typically in English.',
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'SitLat',
-        description: 'Latitude coordinate of centroid.',
-        type: ee_const.var_type.double,
-      },
-	  {
-        name: 'SitLong',
-        description: 'Longitude coordinate of centroid.',
-        type: ee_const.var_type.double,
-      },
-	  {
-        name: 'SitAreaKM2',
-        description: 'Calculated site area in KM2.',
-        type: ee_const.var_type.double,
-      },
-	  {
-        name: 'KbaStatus',
-        description: "Current state of the KBA's assessment.",
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'KbaClass',
-        description: |||
-          The classification of all KBAs is assigned as Global (KBAs that meet
-          KBA criteria), Regional (KBAs identified prior to the KBA Standard
-          that meet other pre-existing criteria) or Global/Regional TBD (KBAs
-          identified prior to the KBA Standard using pre-existing criteria but
-          with insufficient evidence to show whether they continue to meet
-          criteria. Sites in this latter group are prioritised for reassessment).
-		    |||,
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'IbaStatus',
-        description: 'Whether or not the KBA is an Important Bird and Biodiversity Area (IBA).',
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'LegacyKba',
-        description: |||
-		      Whether the KBA was identified using KBA criteria from before the publication
-		      of the [KBA standard](https://www.keybiodiversityareas.org/working-with-kbas/proposing-updating/criteria).
-		    |||,
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'AzeStatus',
-        description: 'Whether or not the KBA is an Alliance for Zero Extinction (AZE) site.',
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'LastUpdate',
-        description: 'Year in which the underlying KBA data was last updated.',
-        type: ee_const.var_type.string,
-      },
-	  {
-        name: 'Source',
-        description: 'Origin of the spatial data.',
-        type: ee_const.var_type.string,
-      },
-	  {
+      {
         name: 'DelTxt',
         description: 'Notes relating to the digitisation of the polygon.',
         type: ee_const.var_type.string,
       },
-	  {
-        name: 'RepAreaKM2',
+      {
+        name: 'IbaStatus',
         description: |||
-		  Reported site area in KM2, this only applies to KBAs with no polygon boundary.
-		  These are represented by a buffer around a central point.
-		|||,
+          The Important Bird and Biodiversity Area (IBA) status of the KBA, taking one
+          of the following values: candidate, confirmed, de-listed, does not qualify,
+          superseded or "".
+            |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'IntName',
+        description: 'Name of KBA to be used internationally, typically in English.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'ISO3',
+        description: 'ISO3 code of country/territory containing the KBA.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'KbaClass',
+        description: |||
+	      The classification of KBAs as one of the following:
+	      
+	      * Global — KBAs that meet KBA criteria.
+	      * Regional - KBAs identified prior to the KBA Standard that meet other pre-existing criteria.
+	      * Global/Regional TBD - KBAs identified prior to the KBA Standard using pre-existing criteria
+	      but with insufficient evidence to show whether they continue to meet criteria. Sites in this
+	      group are prioritised for reassessment.
+            |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'KbaStatus',
+        description: "Current state of the KBA's assessment, this field equals confirmed for all published sites",
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'LastUpdate',
+        description: 'Year in which the underlying KBA data was last updated.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'LegacyKba',
+        description: |||
+              Whether the KBA was identified using KBA criteria from before the publication
+              of the [KBA standard](https://www.keybiodiversityareas.org/working-with-kbas/proposing-updating/criteria).
+            |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'NatName',
+        description: 'Name of KBA used nationally, typically in the language of its country.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'Region',
+        description: 'Name of region containing the KBA.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'SitAreaKM2',
+        description: 'Calculated site area in KM2.',
         type: ee_const.var_type.double,
+      },
+      {
+        name: 'SitLat',
+        description: 'Latitude coordinate of centroid.',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'SitLong',
+        description: 'Longitude coordinate of centroid.',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'SitRecID',
+        description: 'Unique identifier for a KBA.',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'Source',
+        description: 'Origin of the spatial data.',
+        type: ee_const.var_type.string,
       }
     ],
     'gee:feature_view_ingestion_params': {
@@ -239,6 +236,7 @@ local version = 'September 2025';
       and citation (which includes reference to the version of the KBA Data used)
       in any materials or publications derived in part or in whole from the data.
   |||,
+  'gee:unusual_terms_of_use': true,
   // TODO(google): Remove gee:status when the dataset is ready.
   'gee:status': 'beta',
 
