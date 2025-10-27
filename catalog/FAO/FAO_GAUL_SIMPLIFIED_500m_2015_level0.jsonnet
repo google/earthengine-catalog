@@ -36,7 +36,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     to the global layer based on the last country boundaries map provided by
     the UN Cartographic Unit (UNCS), d) generating codes using GAUL Coding
     System, and e) distribute data to the users
-    (see [Technical Aspects of the GAUL Distribution Set](https://sgst.wr.usgs.gov/gfsad30/FAO_GUAL/TechnicalAspectsGAUL2015_Doc1.pdf)).
+    (see [Technical Aspects of the GAUL Distribution Set](https://openknowledge.fao.org/items/aebf0333-a0e3-4177-9d4a-bb2472d0367e)).
     Note that some administrative units are multipolygon features.
   |||,
   license: license.id,
@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'FAO UN',
-      'http://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
+      'https://openknowledge.fao.org/items/aebf0333-a0e3-4177-9d4a-bb2472d0367e'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-12-19T16:45:00Z', '2014-12-19T16:45:00Z'),
