@@ -91,7 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sentinel',
   ],
   providers: [
-    ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/'),
+    ee.producer_provider('European Union/ESA/Copernicus', 'https://browser.stac.dataspace.copernicus.eu/collections/sentinel-1-grd?.language=en'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-10-03T00:00:00Z', null),
@@ -111,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'GRD_Post_Processing_facility_organisation',
+        name: 'GRD_Post_Processing_facility_org',
         description: 'Name of the organisation responsible for the facility.\nThis element is configurable within the IPF.',
         type: ee_const.var_type.string,
       },
@@ -154,7 +154,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'SLC_Processing_facility_organisation',
+        name: 'SLC_Processing_facility_org',
         description: 'Name of the organisation responsible for the facility.\nThis element is configurable within the IPF.',
         type: ee_const.var_type.string,
       },
@@ -184,17 +184,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.double,
       },
       {
-        name: 'S1TBX_Calibration_Operator_version',
+        name: 'S1TBX_Calibration_vers',
         description: 'Sentinel-1 Toolbox calibration tool version.',
         type: ee_const.var_type.string,
       },
       {
-        name: 'S1TBX_SAR_Processing_version',
+        name: 'S1TBX_SAR_Processing_vers',
         description: 'Sentinel-1 Toolbox SAR processing tool version.',
         type: ee_const.var_type.string,
       },
       {
-        name: 'SNAP_Graph_Processing_Framework_GPF_version',
+        name: 'SNAP_Graph_Processing_Framework_GPF_vers',
         description: 'Sentinel Application Platform (SNAP) version.',
         type: ee_const.var_type.string,
       },
@@ -248,9 +248,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'instrumentMode',
         description: |||
-          IW ([Interferometric Wide Swath](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes/interferometric-wide-swath)),
-          EW ([Extra Wide Swath](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes/extra-wide-swath))
-          or SM ([Strip Map](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes/stripmap))
+          IW ([Interferometric Wide Swath](https://browser.stac.dataspace.copernicus.eu/collections/sentinel-1-grd/items/S1A_IW_GRDH_1SSV_20251027T083316_20251027T083341_061608_07B223_FF76_COG)),
+          EW ([Extra Wide Swath](https://browser.stac.dataspace.copernicus.eu/collections/sentinel-1-grd/items/S1C_EW_GRDM_1SDH_20251027T081710_20251027T081810_004745_0095E8_ABE0_COG))
         |||,
         type: ee_const.var_type.string,
       },
@@ -409,7 +408,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sar:resolution_azimuth': [10],
     'sar:instrument_mode': ['EW', 'IW', 'SM'],
     'sar:product_type': ['GRD'],
-    'sar:polarizations': ['HH', 'HV', 'VH', 'VV'],
+    'sar:polarizations': ['HH', 'HV'],
     platform: [
       'Sentinel-1A',
       'Sentinel-1B',
@@ -427,25 +426,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'HV',
-        description: 'Dual-band cross-polarization, horizontal transmit/vertical receive',
+        description: 'Cross-polarization, horizontal transmit/vertical receive',
         gsd: 10.0,
         'gee:units': units.decibel,
         'gee:polarization': 'HV',
       },
-      {
-        name: 'VV',
-        description: 'Single co-polarization, vertical transmit/vertical receive',
-        gsd: 10.0,
-        'gee:units': units.decibel,
-        'gee:polarization': 'VV',
-      },
-      {
-        name: 'VH',
-        description: 'Dual-band cross-polarization, vertical transmit/horizontal receive',
-        gsd: 10.0,
-        'gee:units': units.decibel,
-        'gee:polarization': 'VH',
-      },
+
       {
         name: 'angle',
         description: 'Approximate incidence angle from ellipsoid',
@@ -470,7 +456,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0.0,
             ],
             bands: [
-              'VV',
+              'HH',
             ],
           },
         },
@@ -486,16 +472,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       maximum: 1.0,
       'gee:estimated_range': true,
     },
-    VV: {
-      minimum: -50.0,
-      maximum: 1.0,
-      'gee:estimated_range': true,
-    },
-    VH: {
-      minimum: -50.0,
-      maximum: 1.0,
-      'gee:estimated_range': true,
-    },
+
     angle: {
       minimum: 0.0,
       maximum: 90.0,
@@ -510,6 +487,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:terms_of_use': |||
     The use of Sentinel data is governed by the [Copernicus
-    Sentinel Data Terms and Conditions.](https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf)
+    Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice))
   |||,
 }
