@@ -18,15 +18,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     representative of a final product.*
 
     This early "Public Preview" dataset provides high precision data for methane
-    emissions from dispersed area sources. These emissions data come from the
-    Appalachian, Permian, and Uinta basins in the United States; the Amu Darya and
-    South Caspian basins in Turkmenistan; and the Maturin basin in Venezuela. These
-    novel measurements demonstrate the importance of quantifying total methane emissions
-    with high resolution to meet global methane mitigation goals.
+    emissions from dispersed area sources. These novel measurements demonstrate
+    the importance of quantifying total methane emissions with high resolution
+    to meet global methane mitigation goals.
 
-    Total emissions for a scene–from both dispersed area and point source emissions–may
-    be obtained by summing the area emissions and point source emissions for a given
-    collection ID (see L4 Point Sources Public Preview).
+    Total emissions for a scene may be obtained by summing the area emissions
+    for a given collection ID.
 
     Dispersed area emissions are estimated from methane concentration observations
     in the form of column-averaged dry-air mole fractions of methane (XCH4) using
@@ -38,39 +35,44 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ([GFS](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php))
     - is used to link variations in observed XCH4 to potential upwind sources.
 
-    These predictive linkages are used to invert an estimated set of emissions from the
-    observations of MethaneSAT using a novel Markov Chain Monte Carlo technique nicknamed CORE
-    (Conserved and Optimized Retrieval of Emissions). Inflow across the domain boundary and
-    pre-existing background concentrations are estimated, but not reported. 
+    These predictive linkages are used to invert an estimated set of emissions
+    from the observations of MethaneSAT using a novel Markov Chain Monte Carlo
+    technique nicknamed CORE (Conserved and Optimized Retrieval of Emissions).
+    Inflow across the domain boundary and pre-existing background concentrations
+    are estimated, but not reported. 
 
     This set of initial observations made by MethaneSAT are consistent with
-    independent empirical data where available from other sources. Not all data products
-    (L3 concentration, L4 area and L4 points) are available for all collection IDs.
-    Contact the data provider for more information about the project at this
-    link: [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
+    independent empirical data where available from other sources. Not all data
+    products (L3 concentration, L4 area and L4 points) are available for all
+    collection IDs. Contact the data provider for more information about the
+    project at this link:
+    [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
 
     ---
 
     7/2/2025 Important Update: 
 
-    As you may be aware, we recently lost contact with the satellite. After exploring all possible  
-    recovery options, we have now confirmed that it is no longer functioning, due to an
-    undetermined problem with the outer platform carrying our methane detector. While there is no
-    question this is a setback, we are undeterred in our efforts to drive down methane pollution.
+    As you may be aware, we recently lost contact with the satellite. After
+    exploring all possible recovery options, we have now confirmed that it is
+    no longer functioning, due to an undetermined problem with the outer
+    platform carrying our methane detector. While there is no question this is
+    a setback, we are undeterred in our efforts to drive down methane pollution.
     Please see our official statement here:
     [MethaneSAT Loses Contact with Satellite | MethaneSAT](https://www.methanesat.org/project-updates/methanesat-loses-contact-satellite).
 
-    What this means for the Public Preview data: The existing datasets will remain accessible on
-    Google platforms and on our web portal for the foreseeable future. Additionally, over the next
-    few months, we will release substantial new data collected by MethaneSAT prior to the loss of
-    contact. This will include hundreds of scenes (of targets that are roughly 200kmx200km). We
-    hope this will be useful for you. Should there be any changes to data availability, we will
-    notify you well in advance.
+    What this means for the Public Preview data: The existing datasets will
+    remain accessible on Google platforms and on our web portal for the
+    foreseeable future. Additionally, over the next few months, we will release
+    substantial new data collected by MethaneSAT prior to the loss of contact.
+    This will include hundreds of scenes (of targets that are roughly
+    200kmx200km). We hope this will be useful for you. Should there be any
+    changes to data availability, we will notify you well in advance.
 
-    Looking ahead: While we don’t have all the answers yet, we plan to leverage our advanced Data
-    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will
-    also take the necessary time to evaluate the best next step in our efforts to enable methane
-    reductions. To stay up to date with further updates, feel free to sign up for our
+    Looking ahead: While we don’t have all the answers yet, we plan to leverage
+    our advanced Data Processing Platform (DPP) to quantify other streams of
+    satellite and/or aerial data. We will also take the necessary time to
+    evaluate the best next step in our efforts to enable methane reductions. To
+    stay up to date with further updates, feel free to sign up for our
     [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up).
   |||,
   'gee:categories': ['atmosphere'],
@@ -87,8 +89,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  // Setting an end date of 'null' because this value will change often as more data is added
-  // to the dataset regularly. Earth Engine will compute our end date for us instead.
+  // Setting an end date of 'null' because this value will change often as more
+  // data is added to the dataset regularly. Earth Engine will compute our end
+  // date for us instead.
   extent: ee.extent_global('2024-05-01T00:00:00Z', null),
   summaries: {
     // Values that are true for all bands.
@@ -109,6 +112,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'upper_bound_flux',
         description: 'Upper bound on the 95% confidence interval of flux.',
         'gee:units': units.kg_per_hour,
+      },
+      {
+        name: 'l4_retained_emitter',
+        description: |||
+          U0: Emitter that is likely non-emitting and below noise threshold of
+          1 kg/hr/km^2. Emitter not included in emission totals. 1: Emitter
+          that is likely emitting and above noise threshold of 1 kg/hr/km^2.
+          Emitter included in emission totals. Only present on two step CORE
+          products.
+        |||,
+        'gee:units': units.count,
       },
     ],
     mean_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
@@ -186,6 +200,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'time_coverage_start',
         description: 'Data collection start time in YYYY-MM-DDThh:mm:ssZ ' +
         'format STRING (ISO 8601).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'two_step_core',
+        description: 'Only present on two step CORE products.',
         type: ee_const.var_type.string,
       },
     ],
