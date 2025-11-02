@@ -116,11 +116,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'l4_retained_emitter',
         description: |||
-          U0: Emitter that is likely non-emitting and below noise threshold of
-          1 kg/hr/km^2. Emitter not included in emission totals. 1: Emitter
-          that is likely emitting and above noise threshold of 1 kg/hr/km^2.
-          Emitter included in emission totals. Only present on two step CORE
-          products.
+          * 0: Emitter that is likely non-emitting and below noise threshold of
+            1 kg/hr/km^2. Emitter not included in emission totals.
+          * 1: Emitter that is likely emitting and above noise threshold of 1
+            kg/hr/km^2. Emitter included in emission totals.
+          * Only present on two step CORE products.
         |||,
         'gee:units': units.count,
       },
