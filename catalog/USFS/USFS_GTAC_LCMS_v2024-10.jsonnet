@@ -93,7 +93,7 @@ local license = spdx.proprietary;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    * HAWAII will be updated to HI in the upcoming v2025.11 data release.
+    * The string HAWAII will be updated to HI in the upcoming v2025.11 data release.
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
