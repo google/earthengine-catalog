@@ -52,7 +52,7 @@ local license = spdx.proprietary;
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), s2cloudless
-    (Sentinel-Hub, 2021) and Cloud Score plus (Pasquarella et al., 2023) (Sentinel 2-only) are 
+    (Sentinel-Hub, 2021) and Cloud Score+ (Pasquarella et al., 2023) (Sentinel 2-only) are 
     used to mask clouds, while TDOM (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
     2). For LandTrendr, the annual medoid is then computed to summarize cloud and cloud shadow-free values 
     from each year into a single composite. For CCDC, United States Geological Survey (USGS) Collection 2 
