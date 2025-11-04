@@ -176,7 +176,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
             }
         },
         [
-            f'name "{name}" contains character "{c}" not in [a-zA-Z0-9_-]'
+            f'name "{name}" contains character "{c}" not in [a-zA-Z0-9_-:]'
             for c in ' *'
         ],
         gee_type=IMAGE_COLLECTION,
