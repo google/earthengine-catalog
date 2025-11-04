@@ -116,7 +116,7 @@ local license = spdx.proprietary;
   ],
   extent: ee.extent_global('2020-01-01T00:00:00Z', null),
   summaries: {
-    gsd: [27750],
+    gsd: [27830],
     'gee:schema': [
       {
         name: 'start_time',
