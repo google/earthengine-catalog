@@ -45,6 +45,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landuse-landcover'
   ],
 
+  keywords: [
+    'landsat-derived'
+  ],
+
   providers: [
     ee.producer_provider('MapBiomas', 'https://mapbiomas.org'),
     ee.host_provider(self_ee_catalog_url),
