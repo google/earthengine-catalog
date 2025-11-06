@@ -13,7 +13,7 @@ var year = 2024;
 // Load the classified image for the year 2024 from Collection 10
 var collection = ee.ImageCollection(assetPath)
 	.filter(ee.Filter.eq('collection_id', 10.0))
-	.filter(ee.Filter.eq('version', 'v2'))
+	.filter(ee.Filter.eq('version', 'v1'))
 	.filter(ee.Filter.eq('year', year));
 
 // Define visualization parameters
