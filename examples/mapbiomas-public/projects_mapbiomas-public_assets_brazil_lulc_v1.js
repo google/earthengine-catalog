@@ -2,10 +2,10 @@
   MapBiomas Collection 10 - LULC Visualization for 2024
 */
 
-// Define the asset path for MapBiomas Collection 9
+// Define the asset path for MapBiomas Collection 10
 var assetPath = 'projects/mapbiomas-public/assets/brazil/lulc/v1';
 
-// Import the official MapBiomas palette for Collection 9
+// Import the official MapBiomas palette for Collection 10
 var palette = require('users/mapbiomas/modules:Palettes.js').get('brazil');
 
 var year = 2024;

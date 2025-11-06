@@ -31,10 +31,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9 (OLI/TIRS) surface reflectance data, preprocessed and mosaicked to generate cloud-free composites for each year.
     The classification process includes automated decision trees trained with reference samples, along with manual validation by regional experts.
 
-    Images in this collection follow the naming format:
-
-    ee.ImageCollection('projects/mapbiomas-public/assets/brazil/lulc/v1')
-
     Each image contains one band named classification, representing the land cover classification for that specific year, version and collection id.
 
     For more information, classification legend, methodology, and accuracy assessments, visit the [MapBiomas website](https://mapbiomas.org/en).
@@ -50,9 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   keywords: [
-    'landcover',
-    'landuse',
-    'landsat',
+    'landsat-derived',
   ],
 
   providers: [
@@ -170,7 +164,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [73] --
               '000000',  // [74] --
               'c12100',  // [75] Photovoltaic Power Plant
-
             ],
           },
         },
@@ -192,7 +185,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:status': 'beta',
 
-  'gee:type': ee_const.gee_type.image,
+  'gee:type': ee_const.gee_type.image_collection,
 
   license: license.id,
 
