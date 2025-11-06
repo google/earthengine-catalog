@@ -42,11 +42,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
 
   'gee:categories': [
-    'landuse-landcover',
+    'landuse-landcover'
   ],
 
   keywords: [
-    'landsat-derived',
+    'landsat-derived'
   ],
 
   providers: [
