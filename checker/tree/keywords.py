@@ -207,7 +207,6 @@ EXCEPTIONS = frozenset({
     'persiann',
     'phosphorus',
     'planet_derived',
-    'pre-review',
     'pnoa',
     'poes',
     'polarization',
