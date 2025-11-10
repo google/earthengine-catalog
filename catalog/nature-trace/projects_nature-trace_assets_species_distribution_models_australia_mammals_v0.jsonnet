@@ -83,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       bbox: [[112.9, -43.7, 153.7, -10.4]], // Approx. min lon, min lat, max lon, max lat for Australia
     },
     temporal: {
-      interval: [['2025-11-05T00:00:00Z', null]],
+      interval: [['2017-01-01T00:00:00Z', '2025-01-01T00:00:00Z']],
     },
   },
   summaries: {
