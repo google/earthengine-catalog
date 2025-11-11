@@ -4,6 +4,30 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
 {
+  params:: {
+    period: 'daily',
+  },
+  local period = self.params.period,
+  local ranges = {
+    daily: {
+      ppt: { minimum: 0.0, maximum: 731.65 },
+      tmean: { minimum: -40.37, maximum: 45.98 },
+      tmin: { minimum: -47.56, maximum: 39.59 },
+      tmax: { minimum: -38.38, maximum: 54.13 },
+      tdmean: { minimum: -46.18, maximum: 31.61 },
+      vpdmin: { minimum: 0.0, maximum: 69.86 },
+      vpdmax: { minimum: 0.0, maximum: 142.42 },
+    },
+    monthly: {
+      ppt: { minimum: 0.0, maximum: 2639.82 },
+      tmean: { minimum: -30.8, maximum: 41.49 },
+      tmin: { minimum: -35.11, maximum: 34.72 },
+      tmax: { minimum: -29.8, maximum: 49.74 },
+      tdmean: { minimum: -30.7, maximum: 26.76 },
+      vpdmin: { minimum: 0.0, maximum: 44.79 },
+      vpdmax: { minimum: 0.009, maximum: 110.06 },
+    },
+  },
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -44,13 +68,15 @@ local units = import 'units.libsonnet';
       have elapsed, when they are considered permanent. A [release
       schedule is available](https://www.prism.oregonstate.edu/calendar/).
   |||,
+  description: self.description_intro + self.description_outro,
   license: spdx.proprietary.id,
   links: ee.standardLinks('OREGONSTATE', self.id),
   'gee:categories': ['climate'],
   keywords: [
     'climate',
-    'daily',
+  ] + (if period == 'daily' then ['daily'] else []) + [
     'geophysical',
+  ] + (if period == 'monthly' then ['monthly'] else []) + [
     'oregonstate',
     'precipitation',
     'pressure',
@@ -107,37 +133,51 @@ local units = import 'units.libsonnet';
     'eo:bands': [
       {
         name: 'ppt',
-        description: 'Daily total precipitation (including rain and melted snow)',
+        description: if period == 'monthly'
+                     then 'Monthly total precipitation (including rain and melted snow)'
+                     else 'Daily total precipitation (including rain and melted snow)',
         'gee:units': units.millimeter,
       },
       {
         name: 'tmean',
-        description: 'Daily mean temperature (calculated as (tmin+tmax)/2)',
+        description: if period == 'monthly'
+                     then 'Monthly average of daily mean temperature (calculated as (tmin+tmax)/2)'
+                     else 'Daily mean temperature (calculated as (tmin+tmax)/2)',
         'gee:units': units.celsius,
       },
       {
         name: 'tmin',
-        description: 'Daily minimum temperature',
+        description: if period == 'monthly'
+                     then 'Monthly minimum temperature'
+                     else 'Daily minimum temperature',
         'gee:units': units.celsius,
       },
       {
         name: 'tmax',
-        description: 'Daily maximum temperature',
+        description: if period == 'monthly'
+                     then 'Monthly average of daily maximum temperature'
+                     else 'Daily maximum temperature',
         'gee:units': units.celsius,
       },
       {
         name: 'tdmean',
-        description: 'Daily mean dew point temperature',
+        description: if period == 'monthly'
+                     then 'Monthly average of daily mean dew point temperature'
+                     else 'Daily mean dew point temperature',
         'gee:units': units.celsius,
       },
       {
         name: 'vpdmin',
-        description: 'Daily minimum vapor pressure deficit',
+        description: if period == 'monthly'
+                     then 'Monthly average of daily minimum vapor pressure deficit'
+                     else 'Daily minimum vapor pressure deficit',
         'gee:units': units.hectopascal,
       },
       {
         name: 'vpdmax',
-        description: 'Daily maximum vapor pressure deficit',
+        description: if period == 'monthly'
+                     then 'Monthly average of daily maximum vapor pressure deficit'
+                     else 'Daily maximum vapor pressure deficit',
         'gee:units': units.hectopascal,
       },
     ],
@@ -154,9 +194,7 @@ local units = import 'units.libsonnet';
             min: [
               0.0,
             ],
-            max: [
-              50.0,
-            ],
+            max: [if period == 'monthly' then 300.0 else 50.0],
             palette: [
               'red',
               'yellow',
@@ -171,41 +209,13 @@ local units = import 'units.libsonnet';
         },
       },
     ],
-    ppt: {
-      minimum: 0.0,
-      maximum: 731.65,
-      'gee:estimated_range': true,
-    },
-    tmean: {
-      minimum: -40.37,
-      maximum: 45.98,
-      'gee:estimated_range': true,
-    },
-    tmin: {
-      minimum: -47.56,
-      maximum: 39.59,
-      'gee:estimated_range': true,
-    },
-    tmax: {
-      minimum: -38.38,
-      maximum: 54.13,
-      'gee:estimated_range': true,
-    },
-    tdmean: {
-      minimum: -46.18,
-      maximum: 31.61,
-      'gee:estimated_range': true,
-    },
-    vpdmin: {
-      minimum: 0.0,
-      maximum: 69.86,
-      'gee:estimated_range': true,
-    },
-    vpdmax: {
-      minimum: 0.0,
-      maximum: 142.42,
-      'gee:estimated_range': true,
-    },
+    ppt: ranges[period].ppt + { 'gee:estimated_range': true },
+    tmean: ranges[period].tmean + { 'gee:estimated_range': true },
+    tmin: ranges[period].tmin + { 'gee:estimated_range': true },
+    tmax: ranges[period].tmax + { 'gee:estimated_range': true },
+    tdmean: ranges[period].tdmean + { 'gee:estimated_range': true },
+    vpdmin: ranges[period].vpdmin + { 'gee:estimated_range': true },
+    vpdmax: ranges[period].vpdmax + { 'gee:estimated_range': true },
   },
   'sci:citation': |||
     [Daly, C., Halbleib, M., Smith, J.I., Gibson, W.P., Doggett, M.K.,
@@ -226,7 +236,7 @@ local units = import 'units.libsonnet';
   ],
   'gee:interval': {
     type: 'cadence',
-    unit: 'day',
+    unit: if period == 'monthly' then 'month' else 'day',
     interval: 1,
   },
   'gee:terms_of_use': |||

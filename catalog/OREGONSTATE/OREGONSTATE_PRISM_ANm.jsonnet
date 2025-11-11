@@ -1,22 +1,25 @@
 local prism = import 'prism.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
+local ee = import 'earthengine.libsonnet';
 
 prism {
-  id: 'OREGONSTATE/PRISM/ANd',
+  params+:: { period: 'monthly' },
+  id: 'OREGONSTATE/PRISM/ANm',
   version: '81_91',
-  title: 'PRISM Daily Spatial Climate Dataset ANd',
-  description: prism.description_intro +
+  title: 'PRISM Monthly Spatial Climate Dataset ANm',
+  description: super.description_intro +
               |||
                 This collection contains both AN81 and AN91
-                data, indicated by the 'dataset_type' property.
+                data, as indicated by the 'dataset_type' property.
               ||| +
-                prism.description_outro,
+                super.description_outro,
+  extent: ee.extent(-125.0, 24.0, -66.0, 50.0, '1895-01-01T00:00:00Z', null),
   summaries+: {
     'gee:schema': super['gee:schema'] + [
       {
         name: 'PRISM_DATASET_RELEASE_NUMBER',
         description: |||
-          An integer (1-8) per band, indicating how many times
+          An integer (1-7) per band, indicating how many times
           a grid has been re-modeled within the 6-month window. Grids are
           considered stable after 6 months. This property is not present on
           AN81 data.
