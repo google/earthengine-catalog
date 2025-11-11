@@ -46,6 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     generated from 2004 with a spatial resolution of 5km.
 
     Limitations:
+
     * Geographic Decline: Retrieval accuracy is highest in tropical zones and
       degrades at higher latitudes. This is attributed to geostationary satellite
       viewing angle effects, specifically limb darkening and parallax shift.
