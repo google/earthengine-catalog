@@ -22,6 +22,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'Global Friction Surface 2015 [deprecated]',
+  'gee:status': 'beta',
   version: version,
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,

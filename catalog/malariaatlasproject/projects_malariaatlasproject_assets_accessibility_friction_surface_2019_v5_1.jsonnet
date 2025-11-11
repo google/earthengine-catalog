@@ -22,6 +22,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'Global Friction Surface 2019',
+  'gee:status': 'beta',
   version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
