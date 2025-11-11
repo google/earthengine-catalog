@@ -1,6 +1,6 @@
 var dataset = ee.ImageCollection('projects/malariaatlasproject/assets/TCB_v061/1km/Monthly')
                   .filter(ee.Filter.date('2022-01-01', '2022-12-31'));
-var means = dataset.select('Mean').mean();
+var means = dataset.select('Mean').mosaic();
 var palette = ['011301','004c00','056201','207401','3e8601','66a000','99b718','fcd163','ffffff'];
 var visParams = {
   min: 0.0,
