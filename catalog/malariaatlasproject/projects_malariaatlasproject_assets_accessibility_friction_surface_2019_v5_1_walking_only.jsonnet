@@ -39,11 +39,7 @@ local license = spdx.cc_by_4_0;
   'gee:categories': ['population'],
   keywords: [
     'accessibility',
-    'friction',
-    'jrc',
     'map',
-    'oxford',
-    'twente',
   ],
   providers: [
     ee.producer_provider('Malaria Atlas Project', 'https://malariaatlas.org/project-resources/accessibility-to-healthcare/'),
