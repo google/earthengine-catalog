@@ -1,14 +1,11 @@
 local id = 'projects/malariaatlasproject/assets/accessibility/friction_surface/2015_v1_0';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/friction_surface_versions.libsonnet';
 
 local subdir = 'Oxford';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 local license = spdx.cc_by_4_0;
 
@@ -23,7 +20,7 @@ local license = spdx.cc_by_4_0;
   id: id,
   title: 'Global Friction Surface 2015 [deprecated]',
   'gee:status': 'beta',
-  version: version,
+  version: '1,0',
   'gee:type': ee_const.gee_type.image,
   description: |||
     This global friction surface enumerates land-based travel
@@ -56,7 +53,7 @@ local license = spdx.cc_by_4_0;
     'Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['population'],
   keywords: [
     'accessibility',
@@ -68,7 +65,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('Malaria Atlas Project', 'https://malariaatlas.org/project-resources/accessibility-to-healthcare/'),
-    ee.host_provider(version_config.ee_catalog_url),
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2015-01-01T00:00:00Z', '2016-01-01T00:00:00Z'),
