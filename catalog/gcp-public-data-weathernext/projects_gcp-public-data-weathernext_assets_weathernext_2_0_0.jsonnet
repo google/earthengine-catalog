@@ -55,11 +55,13 @@ local license = spdx.proprietary;
     included in this forecast dataset.
 
     To learn more about WeatherNext, including model specifications and
-    technical documentation, please visit our [project landing page](TODO(mahrsee): Add link here).
+    technical documentation, please visit our [WeatherNext developer's guide](http://developers.google.com/weathernext).
 
     If you have any questions on using this experimental dataset, or would
     like to use it for purposes not currently permitted under the terms of use
-    set out below, please contact weathernext@google.com.
+    set out below, please contact weathernext@google.com. Any information collected
+    via email will be used in accordance with [Google's privacy policy](https://policies.google.com/privacy).
+
 
     **Dissemination Schedule**
 
@@ -113,15 +115,16 @@ local license = spdx.proprietary;
     'temperature',
     'precipitation',
     'wind',
+    'fgn',
+    'cyclones',
   ],
   providers: [
-    # TODO(mahrsee): Update this link when the blog post is ready.
-    ee.producer_provider('Google', 'https://deepmind.google/discover/blog/gencast-predicts-weather-and-the-risks-of-extreme-conditions-with-sota-accuracy/'),
+    ee.producer_provider('Google', 'https://blog.google/technology/google-deepmind/weathernext-2'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2022-01-01T00:00:00Z', null),
   summaries: {
-    gsd: [27750],
+    gsd: [27830],
     'gee:schema': [
       {
         name: 'start_time',
