@@ -16,8 +16,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Oya: 5km Quasi-Global Precipitation Estimates',
   description: |||
-    **Note: The associated paper "Oya: Deep Learning for Accurate Global
-    Precipitation Estimation" has not yet gone through formal peer review. It
+    **Note: The associated paper, Oya: Deep Learning for Accurate Global
+    Precipitation Estimation, has not yet gone through formal peer review. It
     would be released on arxiv soon.**
 
     Oya is a quasi-global, high-resolution precipitation estimation dataset
@@ -115,7 +115,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,
   links: ee.standardLinks(subdir, id),
