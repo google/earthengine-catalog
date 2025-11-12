@@ -44,8 +44,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This set of initial observations made by MethaneSAT are consistent with
     independent empirical data where available from other sources. Not all data
     products (L3 concentration, L4 area and L4 points) are available for all
-    collection IDs. Contact the data provider for more information about the
-    project at this link:
+    collection IDs. For more about definitions and limitations, see our
+    [technical explanation](https://www.methanesat.org/sites/default/files/2025-11/MethaneSAT%20Dispersed%20Area%20Emissions_Definitions%20and%20Limitations.pdf).
+    Contact the data provider for more information about the project at this
+    link:
     [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
 
     ---
@@ -120,7 +122,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             1 kg/hr/km^2. Emitter not included in emission totals.
           * 1: Emitter that is likely emitting and above noise threshold of 1
             kg/hr/km^2. Emitter included in emission totals.
-          * Only present on two step CORE products.
+          
+          Only present on two step CORE products.
         |||,
         'gee:units': units.count,
       },
