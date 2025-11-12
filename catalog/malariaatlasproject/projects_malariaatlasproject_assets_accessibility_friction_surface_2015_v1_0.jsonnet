@@ -1,11 +1,15 @@
 local id = 'projects/malariaatlasproject/assets/accessibility/friction_surface/2015_v1_0';
 
-local subdir = 'Oxford';
+local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+
+local basename = std.strReplace(id, '/', '_');
+local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+
 
 local license = spdx.cc_by_4_0;
 

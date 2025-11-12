@@ -1,6 +1,6 @@
 local id = 'projects/malariaatlasproject/assets/accessibility/friction_surface/2019_v5_1_walking_only';
 
-local subdir = 'Oxford';
+local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
