@@ -165,6 +165,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.double,
       },
       {
+        name: 'target_mean_total_kg_hr',
+        description: 'Total value of area emissions in the target for this ' +
+        'collection in kg/hr. Missing values are indicated by -1.',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'target_total_flux_lower_bound_kg_hr',
+        description: 'Lower bound on the 95% confidence interval of the total ' +
+        'value of area emissions in the target for this collection in kg/hr.',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'target_total_flux_upper_bound_kg_hr',
+        description: 'Upper bound on the 95% confidence interval of the total ' +
+        'value of area emissions in the target for this collection in kg/hr.',
+        type: ee_const.var_type.double,
+      },
+      {
         name: 'flux_noise_floor_kg_hr',
         description: 'Below this value, we believe fluxes are indistinguishable from 0.',
         type: ee_const.var_type.double,
@@ -203,6 +221,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'time_coverage_start',
         description: 'Data collection start time in YYYY-MM-DDThh:mm:ssZ ' +
         'format STRING (ISO 8601).',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'notes',
+        description: 'Notes about the data.',
         type: ee_const.var_type.string,
       },
       {
