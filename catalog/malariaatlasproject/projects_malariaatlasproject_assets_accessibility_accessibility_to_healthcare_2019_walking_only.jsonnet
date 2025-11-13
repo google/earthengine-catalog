@@ -110,7 +110,7 @@ local license = spdx.cc_by_4_0;
               4.0,
             ],
             bands: [
-              'accessibility',
+              'accessibility_walking_only',
             ],
           },
         },

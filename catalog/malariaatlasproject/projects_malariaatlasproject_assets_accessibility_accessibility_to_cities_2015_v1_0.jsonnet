@@ -19,7 +19,6 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_sci,
   ],
   id: id,
-  version: '1,0',
   title: 'Malaria Atlas Project Accessibility to Cities 2015',
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
