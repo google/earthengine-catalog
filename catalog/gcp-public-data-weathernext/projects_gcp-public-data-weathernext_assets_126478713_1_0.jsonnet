@@ -113,7 +113,7 @@ local license = spdx.proprietary;
     'wind',
   ],
   providers: [
-    ee.producer_provider('Google', 'https://deepmind.google/discover/blog/gencast-predicts-weather-and-the-risks-of-extreme-conditions-with-sota-accuracy/'),
+    ee.producer_provider('Google', 'https://developers.google.com/weathernext'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2020-01-01T00:00:00Z', null),

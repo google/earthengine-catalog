@@ -116,7 +116,7 @@ local license = spdx.proprietary;
     'cyclones',
   ],
   providers: [
-    ee.producer_provider('Google', 'https://blog.google/technology/google-deepmind/weathernext-2'),
+    ee.producer_provider('Google', 'https://developers.google.com/weathernext'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2022-01-01T00:00:00Z', null),
