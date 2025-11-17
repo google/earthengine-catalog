@@ -78,7 +78,6 @@ EXCEPTIONS = frozenset({
     'diurnal',
     'driest',
     'ecological-connectivity',
-    'ecostress',
     'eddi',
     'emc',
     'endangered',
