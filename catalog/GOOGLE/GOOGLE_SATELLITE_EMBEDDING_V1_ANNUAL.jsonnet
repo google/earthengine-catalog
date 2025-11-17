@@ -91,6 +91,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     While some large scale swath and data availability artifacts remain, these
     typically represent minor vector offsets and generally do not significantly
     affect downstream processing or results.
+
+    Update: As of 2025-11-17, embedding layers for the year 2017 have been
+    regenerated and updated in place to incorporate additional Sentinel-1
+    acquisitions. The `DATASET_VERSION` property for these updated layers has
+    been incremented from 1.0 to 1.1.
   |||,
 
   keywords: [
