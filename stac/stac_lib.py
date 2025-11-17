@@ -540,13 +540,22 @@ class Collection:
     for band in bands:
       yield Band.from_stac(band)
 
-  def schemas(self) -> Iterator[Property]:
+  @listify
+  def schemas(self) -> Iterable[Property]:
+    """Returns an iterable of Property objects from the STAC summaries."""
     summaries = self.stac_json.get('summaries')
     if not summaries:
       return
+    range_stats = {}
+    for key, entry in summaries.items():
+      if 'gee:estimated_range' in entry:
+        range_stats[key] = entry
+
     schemas = summaries.get('gee:schema', [])
     for schema in schemas:
-      yield Property.from_stac(schema)
+      a_property = Property.from_stac(schema)
+      a_property.set_range_stats(range_stats)
+      yield a_property
 
   # See also datetime_interval(), which returns a pair of datetimes
   def interval(self) -> Optional[Interval]:
