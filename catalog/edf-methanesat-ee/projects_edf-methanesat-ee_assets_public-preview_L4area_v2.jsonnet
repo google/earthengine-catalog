@@ -224,11 +224,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'notes',
-        description: 'Notes about the data.',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'two_step_core',
         description: 'Only present on two step CORE products.',
         type: ee_const.var_type.string,
