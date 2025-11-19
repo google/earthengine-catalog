@@ -66,6 +66,7 @@ class SchemaType(str, enum.Enum):
   INT_LIST = 'INT_LIST'
   STRING_LIST = 'STRING_LIST'
   DOUBLE_LIST = 'DOUBLE_LIST'
+  DATETIME = 'DATETIME'
   PROPERTY_TYPE_UNSPECIFIED = 'PROPERTY_TYPE_UNSPECIFIED'  # No longer allowed
   UNKNOWN = 'not a valid schema'  # For bad values.
 
@@ -152,11 +153,11 @@ class Check(stac.NodeCheck):
               yield cls.new_issue(
                   node, f'{NAME} "{name}" does not start with an ascii letter'
               )
-            elif not (c.isascii() and (c.isalnum() or c in '_-')):
+            elif not (c.isascii() and (c.isalnum() or c in '_-:')):
               yield cls.new_issue(
                   node,
                   f'{NAME} "{name}" contains character "{c}" not in'
-                  ' [a-zA-Z0-9_-]',
+                  ' [a-zA-Z0-9_-:]',
               )
       if DESCRIPTION in entry:
         description = entry[DESCRIPTION]
