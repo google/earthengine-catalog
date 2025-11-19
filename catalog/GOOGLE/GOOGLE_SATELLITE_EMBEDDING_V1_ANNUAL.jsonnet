@@ -65,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The Satellite Embedding dataset was produced by [AlphaEarth Foundations](https://deepmind.google/discover/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/),
     a geospatial embedding model that assimilates multiple datastreams including
     optical, radar, LiDAR, and other sources (Brown, Kazmierski, Pasquarella et
-    al., in review; preprint available [here](https://arxiv.org/abs/2507.22291)).
+    al., 2025; preprint available [here](https://arxiv.org/abs/2507.22291)).
 
     Because representations are learned across many sensors and images,
     embedding representations generally overcome common issues such as
