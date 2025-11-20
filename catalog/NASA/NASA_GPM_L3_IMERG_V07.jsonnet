@@ -117,7 +117,7 @@ local version = version_config.version;
   'gee:provider_ids': [
     'C2723754847-GES_DISC',
   ],
-  extent: ee.extent_global('2000-06-01T00:00:00Z', null),
+  extent: ee.extent_global('1998-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,

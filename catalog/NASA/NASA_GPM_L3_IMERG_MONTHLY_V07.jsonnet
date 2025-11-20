@@ -90,7 +90,7 @@ local version = version_config.version;
     ee.producer_provider('NASA GES DISC at NASA Goddard Space Flight Center', 'https://doi.org/10.5067/GPM/IMERG/3B-MONTH/07'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-06-01T00:00:00Z', null),
+  extent: ee.extent_global('1998-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,
