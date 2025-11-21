@@ -71,7 +71,7 @@ local license = spdx.cc_by_4_0;
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2015-01-01T00:00:00Z', '2016-01-01T00:00:00Z'),
   summaries: {
-    gsd: 927.67,
+    gsd: [927.67],
     'eo:bands': [
       {
         name: 'accessibility',
