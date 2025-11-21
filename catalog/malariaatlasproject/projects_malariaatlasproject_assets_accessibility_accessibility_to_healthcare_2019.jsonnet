@@ -50,7 +50,7 @@ local license = spdx.cc_by_4_0;
     Least-cost-path algorithms (run in Google Earth Engine and, for
     high-latitude areas, in R) were used in conjunction with this friction
     surface to calculate the time of travel from all locations to the nearest
-    (in time) healthcare facility. The healthcare facilities dataset utilized
+    (in time) healthcare facility. The healthcare facilities dataset utilised
     location data from two of the largest global databases: (1) OSM data that
     was collated and made available for download at
     [www.healthsites.io](https://www.healthsites.io/); and (2) data
