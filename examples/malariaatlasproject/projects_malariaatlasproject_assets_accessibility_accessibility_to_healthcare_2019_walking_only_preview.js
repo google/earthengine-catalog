@@ -19,5 +19,8 @@ var parameters = {
   format: 'png'
 };
 
+var background = ee.Image.rgb(95, 158, 160).visualize({min: 0, max: 255});
+
 var image = accessibility.visualize(accessibilityVis);
-print(ui.Thumbnail({image: image, params: parameters}));
+var imageWithBg = background.blend(image);
+print(ui.Thumbnail({image: imageWithBg, params: parameters}));
