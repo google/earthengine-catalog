@@ -1,4 +1,4 @@
-local id = 'JRC/GFC2020/V2';
+local id = 'JRC/GFC2020/V3';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/jrc_gfc2020_versions.libsonnet';
 
@@ -25,10 +25,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'EC JRC global map of forest cover 2020, V2',
+  title: 'EC JRC global map of forest cover 2020, V3',
   version: version,
   // The collection contains tiles for a global mosaic.
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
   description: |||
     The global map of forest cover provides a spatially explicit representation
     of forest presence and absence for the year 2020 at 10m spatial resolution.
@@ -54,33 +54,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     commodities other than wood, that is cattle, cocoa, coffee, oil palm,
     rubber, soya are excluded from the forest definition.
 
-    The global map of forest cover was created by combining existing global
-    spatial layers (wall-to-wall or global in their scope), e.g. on land cover,
-    land use, and tree height. The map aims to represent the state of forest
-    cover by 31 December 2020. The global land cover from the ESA World Cover
-    project serves as one baseline layer to define the extent of tree cover for
-    year 2020 at 10 m spatial resolution. In 2024, the global map of forest
-    cover 2020 was improved by integrating user feedback, and new or revised
-    spatial data layers.
+    In a first step, the workflow identifies the maximum potential extent of forest
+    cover circa 2020 by integrating global tree- and mangrove cover data for the year 2020 
+    (e.g. [Copernicus global land cover map](https://land.copernicus.eu/en/products/global-dynamic-land-cover/land-cover-2020-raster-10-m-global-annual)).
+    In addition, this delineation uses historical time-series of tree cover and loss to
+    identify areas of potentially unstocked forest due to e.g., natural disturbances or
+    forest management practices. In a second step, this maximum potential forest extent
+    is intersected with various other data layers on tree height, deforestation, cropland,
+    agroforestry, and other land uses. The application of a series of complex Boolean decision 
+    rules excludes areas that are not forest according to the definition of the FAO-FRA and EUDR. 
 
-    It now better captures temporally unstocked forests, low-density
-    tropical forests, and secondary tropical forests that have regrown for at
-    least five years. Additionally, the exclusion criteria have been enhanced
-    to more effectively exclude trees in urban areas, mining sites, wetlands,
-    areas with shifting cultivation, and tree plantations. This is achieved by
-    utilizing multiple global maps of canopy height, crop area, and specific
-    crop commodity maps to more accurately distinguish forests from trees
-    under agricultural use.
+    The global input layers, mapping approach, and accuracy of GFC 2020 version 3 will be
+    described in a separate technical report, expected to be released by March 2026. A technical
+    report ([Bourgoin et al 2024](https://op.europa.eu/en/publication-detail/-/publication/f9baaa45-e73f-11ee-9ea8-01aa75ed71a1/language-en)) describes the mapping approach for the first version; methodological
+    changes in version 2 and comparisons with other maps are described in [Bourgoin et al. (2025)](https://op.europa.eu/en/publication-detail/-/publication/e2c286ac-14e9-11f0-b1a3-01aa75ed71a1/language-en).
+    [Colditz et al. (2025)](https://op.europa.eu/en/publication-detail/-/publication/e86f56dd-15b5-11f0-b1a3-01aa75ed71a1/language-en) describe the accuracy assessment protocol and results for GFC 2020 version 2.
+    [Bourgoin et al. 2025](https://essd.copernicus.org/preprints/essd-2025-351/) present the mapping methodology and accuracy and compare the map to other
+    global products. A comparative study between GFC 2020 version 1 and a national map was carried
+    out over Ivory Coast ([Verhegghen et al, 2024](https://op.europa.eu/en/publication-detail/-/publication/ff3a48df-7957-11ef-bbbe-01aa75ed71a1/language-en)). A user guide explains how to visualize and interact
+    with GFC2020 to support the EUDR risk assessment ([Simonetti et al. 2025](https://op.europa.eu/en/publication-detail/-/publication/a9ec1c5d-3780-11f0-8a44-01aa75ed71a1/language-en)). 
 
-    For direct access and metadata, please consult the JRC
-    data catalogue ([JRC 2024](https://data.jrc.ec.europa.eu/dataset/e554d6fb-6340-45d5-9309-332337e5bc26)). A technical report ([Bourgoin et al 2025](https://op.europa.eu/en/publication-detail/-/publication/e2c286ac-14e9-11f0-b1a3-01aa75ed71a1/language-en))
-    describes the mapping approach for the second version. The accuracy
-    assessment of the Global Forest Cover map is described in a
-    [separate report](https://op.europa.eu/en/publication-detail/-/publication/e86f56dd-15b5-11f0-b1a3-01aa75ed71a1/language-en).
-
-    The global map of forest cover may be revised if
-    new information, additional large-scale data layers, or revised global
-    spatial data layers will be made available for year 2020.
+   The GFC 2020 map may be revised if new information, additional large-scale data layers
+   or revised global spatial data layers for year 2020 will be made available.
 
     For a list of known issues please refer to [this website](https://forobs.jrc.ec.europa.eu/GFC).
   |||,
@@ -101,22 +96,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2020-12-31T00:00:00Z', '2020-12-31T00:00:01Z'),
   'sci:citation': |||
-    Bourgoin, Clement; Verhegghen, Astrid; Degreve, Lucas; Ameztoy, Iban;
-    Carboni, Silvia; Colditz, Rene; Achard, Frederic (2024): Global map of
-    forest cover 2020 - version 2. European Commission, Joint Research
+    Bourgoin, Clement; Verhegghen, Astrid; Ameztoy, Iban;
+    Carboni, Silvia; Achard, Frederic; Colditz, Rene (2024): Global map of
+    forest cover 2020 - version 3. European Commission, Joint Research
     Centre (JRC) [Dataset]
-    PID: [http://data.europa.eu/89h/e554d6fb-6340-45d5-9309-332337e5bc26](http://data.europa.eu/89h/e554d6fb-6340-45d5-9309-332337e5bc26)
+    PID: [http://data.europa.eu/89h/8c561543-31df-4e1b-9994-e529afecaf54](http://data.europa.eu/89h/8c561543-31df-4e1b-9994-e529afecaf54)
   |||,
   'sci:publications': [
     {
       citation: |||
-        Bourgoin, C., Verhegghen, A., Carboni, S., Degreve, L., Ameztoy Aramendi, I., Ceccherini, G., Colditz, R. and Achard, F., Global Forest Maps for the Year 2020 to Support the EU Regulation on Deforestation-free Supply Chains, Publications Office of the European Union, Luxembourg, 2025, [https://data.europa.eu/doi/10.2760/1975879](https://data.europa.eu/doi/10.2760/1975879), JRC141702.
+        Bourgoin, C., Verhegghen, A., Carboni, S., Ameztoy, I., Degreve, L., Fritz, S., Herold, M., Tsendbazar, N., Lesiv, M., Achard, F., and Colditz, R.: GFC2020: A Global Map of Forest Land Use for year 2020 to Support the EU Deforestation Regulation, Earth Syst. Sci. Data Discuss. [https://doi.org/10.5194/essd-2025-351](https://doi.org/10.5194/essd-2025-351), 2025.
       |||,
-    },
-    {
-      citation: |||
-        Colditz, R., Verhegghen, A., Carboni, S., Bourgoin, C., Duerauer, M., Mansuy, N., De Marzo, T., Beuchle, R., Janouskova, K., Armada Bras, T., Desclée, B., Orlowski, K., Mutendeudzi, M., Ameztoy Aramendi, I., Fritz, S., Lesiv, M., Oom, D., Carreiras, J., San-Miguel, J., Herold, M., Berger, K., Nepomshina, O., Gond, V., Defourny, P., Lamarche, C., Bos, A., Collet, T., Delhez, B., Mollicone, D., Bastin, J.-F., De Haulleville, T., Brink, A., Lupi, A., Tsendbazar, N.E., Stehman, S.V. and Achard, F., Accuracy Assessment of the Global Forest Cover Map for the Year 2020: Assessment Pro-tocol and Analysis, Publications Office of the European Union, Luxembourg, 2025, [https://data.europa.eu/doi/10.2760/7632707](https://data.europa.eu/doi/10.2760/7632707), JRC141231.
-      |||
     }
   ],
   'gee:user_uploaded': true,
