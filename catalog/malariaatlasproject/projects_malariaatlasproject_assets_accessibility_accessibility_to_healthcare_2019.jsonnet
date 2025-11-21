@@ -36,7 +36,7 @@ local license = spdx.cc_by_4_0;
 
     This project builds on previous work published by Weiss et al 2018
     ([doi:10.1038/nature25181](https://doi.org/10.1038/nature25181)).
-    Weiss et al (2018) utilised datasets for roads
+    Weiss et al (2018) utilising datasets for roads
     (comprising the first ever global-scale use of Open Street Map and Google
     roads datasets), railways, rivers, lakes, oceans, topographic conditions
     (slope and elevation), landcover types, and national borders. These

@@ -38,7 +38,7 @@ local license = spdx.cc_by_4_0;
 
     This project builds on previous work published by Weiss et al 2018
     ([doi:10.1038/nature25181](https://doi.org/10.1038/nature25181)).
-    Weiss et al (2018) utilised datasets for roads
+    Weiss et al (2018) utilising datasets for roads
     (comprising the first ever global-scale use of Open Street Map and Google
     roads datasets), railways, rivers, lakes, oceans, topographic conditions
     (slope and elevation), landcover types, and national borders. These
@@ -52,7 +52,7 @@ local license = spdx.cc_by_4_0;
     Least-cost-path algorithms (run in Google Earth Engine and, for
     high-latitude areas, in R) were used in conjunction with this friction
     surface to calculate the time of travel from all locations to the nearest
-    (in time) healthcare facility. The healthcare facilities dataset utilized
+    (in time) healthcare facility. The healthcare facilities dataset utilised
     location data from two of the largest global databases: (1) OSM data that
     was collated and made available for download at
     [www.healthsites.io](https://www.healthsites.io/); and (2) data

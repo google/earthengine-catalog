@@ -43,7 +43,7 @@ local license = spdx.cc_by_4_0;
 
     These datasets were each allocated a speed or speeds of travel in terms
     of time to cross each pixel of that type. The datasets were then
-    combined to produce a &ldquo;friction surface&rdquo;, a map where
+    combined to produce a "friction surface": a map where
     every pixel is allocated a nominal overall speed of travel based
     on the types occurring within that pixel. Least-cost-path algorithms
     (running in Google Earth Engine and, for high-latitude areas, in
@@ -52,8 +52,8 @@ local license = spdx.cc_by_4_0;
     time). Cities were determined using the high-density-cover product
     created by the Global Human Settlement Project.
 
-    Each pixel in the resultant accessibility map thus represents the modeled shortest
-    time from that location to a city.
+    Each pixel in the resultant accessibility map thus represents the modeled 
+    shortest time from that location to a city.
 
     Source dataset credits are as described in the accompanying paper.
   |||,
@@ -71,12 +71,12 @@ local license = spdx.cc_by_4_0;
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2015-01-01T00:00:00Z', '2016-01-01T00:00:00Z'),
   summaries: {
+    gsd: 927.67,
     'eo:bands': [
       {
         name: 'accessibility',
         description: 'Travel time to the nearest densely-populated area.',
         'gee:units': units.minute,
-        gsd: 927.67,
       },
     ],
     'gee:visualizations': [

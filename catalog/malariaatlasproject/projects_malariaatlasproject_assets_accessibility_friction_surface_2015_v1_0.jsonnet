@@ -42,7 +42,7 @@ local license = spdx.cc_by_4_0;
 
     These datasets were each allocated a speed or speeds of travel in terms
     of time to cross each pixel of that type. The datasets were then
-    combined to produce this &ldquo;friction surface&rdquo;, a map
+    combined to produce this "friction surface": a map
     where every pixel is allocated a nominal overall speed of travel
     based on the types occurring within that pixel, with the fastest
     travel mode intersecting the pixel being used to determine the
@@ -70,12 +70,12 @@ local license = spdx.cc_by_4_0;
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2015-01-01T00:00:00Z', '2016-01-01T00:00:00Z'),
   summaries: {
+    gsd: 927.67,
     'eo:bands': [
       {
         name: 'friction',
         description: 'Land-based travel speed.',
-        'gee:units': 'minutes/meter',
-        gsd: 927.67,
+        'gee:units': 'min/m',
       },
     ],
     'gee:visualizations': [
