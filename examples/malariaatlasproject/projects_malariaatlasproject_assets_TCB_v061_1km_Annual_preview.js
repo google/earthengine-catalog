@@ -1,6 +1,6 @@
 var dataset = ee.ImageCollection('projects/malariaatlasproject/assets/TCB_v061/1km/Annual')
                   .filter(ee.Filter.date('2018-01-01', '2023-01-01'));
-var means = dataset.select('Mean').mean();
+var means = dataset.select('Mean').mosaic();
 var palette = ['011301','004c00','056201','207401','3e8601','66a000','99b718','fcd163','ffffff'];
 var visParams = {
   min: 0.0,
@@ -21,5 +21,5 @@ var parameters = {
   format: 'png'
 };
 
-var image = means.visualize({palette: palette});
+var image = means.visualize(visParams);
 print(ui.Thumbnail({image: image, params: parameters}));

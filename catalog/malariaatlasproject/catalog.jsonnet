@@ -35,5 +35,11 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_malariaatlasproject_assets_TCW_v061_1km_8-Daily', base_url),
     ee.link.child_collection('projects_malariaatlasproject_assets_TCW_v061_1km_Annual', base_url),
     ee.link.child_collection('projects_malariaatlasproject_assets_TCW_v061_1km_Monthly', base_url),
+    ee.link.child_collection('projects_malariaatlasproject_assets_accessibility_friction_surface_2015_v1_0', base_url),
+    ee.link.child_collection('projects_malariaatlasproject_assets_accessibility_friction_surface_2019_v5_1_walking_only', base_url),
+    ee.link.child_collection('projects_malariaatlasproject_assets_accessibility_friction_surface_2019_v5_1', base_url),
+    ee.link.child_collection('projects_malariaatlasproject_assets_accessibility_accessibility_to_cities_2015_v1_0', base_url),
+    ee.link.child_collection('projects_malariaatlasproject_assets_accessibility_accessibility_to_healthcare_2019_walking_only', base_url),
+    ee.link.child_collection('projects_malariaatlasproject_assets_accessibility_accessibility_to_healthcare_2019', base_url),
   ],
 }
