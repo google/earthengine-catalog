@@ -66,6 +66,7 @@ EXCEPTIONS = frozenset({
     'corine_derived',
     'cpom',
     'cryosat_2',
+    'currents',
     'cyclones',
     'dartmouth',
     'daymet',

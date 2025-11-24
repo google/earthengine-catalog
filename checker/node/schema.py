@@ -66,6 +66,7 @@ class SchemaType(str, enum.Enum):
   INT_LIST = 'INT_LIST'
   STRING_LIST = 'STRING_LIST'
   DOUBLE_LIST = 'DOUBLE_LIST'
+  DATETIME = 'DATETIME'
   PROPERTY_TYPE_UNSPECIFIED = 'PROPERTY_TYPE_UNSPECIFIED'  # No longer allowed
   UNKNOWN = 'not a valid schema'  # For bad values.
 
