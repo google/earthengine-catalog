@@ -29,13 +29,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     given survey methodology and given survey effort, compared to lower values).
 
     They were generated using a multi-species
-    [heterogenous graph neural network model](https://ar5iv.labs.arxiv.org/html/2503.11900)
+    heterogenous graph neural network model
     trained jointly on species observation data from the
     [Global Biodiversity Information Facility](https://www.gbif.org/) for 174
     Australian mammals from 2017 - 2024 (inclusive), combined with species
     [trait](https://figshare.com/articles/dataset/COMBINE_a_Coalesced_Mammal_Database_of_Intrinsic_and_extrinsic_traits/13028255/4) and taxonomy data for the same species from COMBINE,
     and satellite and environmental as embedded by
     [AlphaEarth Foundations](https://deepmind.google/discover/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/).
+    [A previous phase of this work and the model architechture are described here](https://ar5iv.labs.arxiv.org/html/2503.11900).
     Estimates of species’ geographical distributions are made at c. 1km resolution (S2 cells level 13).
 
     These distributions are intended to support conservation initiatives like
@@ -48,8 +49,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * Experimental Status: These results are intended as demonstrations of early
       research and have not yet been peer-reviewed.
-    * Aggregate vs. Specific Validation: Model outputs have been evaluated
-      collectively against expert-produced Area of Habitation maps (mean ROC AUC
+    * Aggregate vs. Specific Validation: Model outputs for an earlier run described in the paper have been evaluated
+      collectively against expert-produced Area of Habitation maps (mean [ROC AUC](https://bookdown.org/pjhanly/fw840hanly/week-4-species-distribution-models.html#area-under-the-curve-auc)
       = 0.89 over all species,  AUC ROC > 0.9 for each of the released
       species), but have not been vetted by species experts on a
       species-by-species basis.
