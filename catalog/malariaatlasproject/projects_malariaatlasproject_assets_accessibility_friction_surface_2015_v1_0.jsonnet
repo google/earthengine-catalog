@@ -22,11 +22,14 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Malaria Atlas Project Global Friction Surface 2015 [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'Malaria Atlas Project Global Friction Surface 2015',
+  'gee:status': 'beta',
   version: '1,0',
   'gee:type': ee_const.gee_type.image,
   description: |||
+    Note: this surface is replaced by "Malaria Atlas Project Global 
+    Friction Surface 2019".
+
     This global friction surface enumerates land-based travel
     speed for all land pixels between 85 degrees north and 60 degrees
     south for a nominal year 2015.
@@ -54,7 +57,7 @@ local license = spdx.cc_by_4_0;
     underlying dataset behind the global accessibility map described
     in the referenced paper.
 
-    'Source dataset credits are as described in the accompanying paper.
+    Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
