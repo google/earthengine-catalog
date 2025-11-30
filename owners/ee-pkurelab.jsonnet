@@ -1,7 +1,7 @@
 {
     "id": "ee-pkurelab",
     "homeBucket": "projects/ee-pkurelab",
-    "name": "PKURE",
+    "name": "PKURELAB",
     "description": "The PKURE lab is an official academic research group at Peking University, focusing on the development and application of remote sensing techniques — including LiDAR, Radar, and optical imagery — to understand and investigate the 3D structures and functions of ecosystems (forest, urban, water).",
     "type": "PUBLISHER",
     "link": "https://pkurelab.github.io",

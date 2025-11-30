@@ -136,6 +136,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('landandcarbon', base_url),
     ee.link.child_catalog('malariaatlasproject', base_url),
     ee.link.child_catalog('nature-trace', base_url),
-    ee.link.child_catalog('global-precipitation-nowcast', base_url)
+    ee.link.child_catalog('global-precipitation-nowcast', base_url),
+    ee.link.child_catalog('ee-pkurelab', base_url)
   ],
 }
