@@ -3,7 +3,7 @@ var dataset = ee.ImageCollection('USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5');
 
 //Filter collection to 2023 and CONUS study area 
 var tcc = dataset.filter(ee.Filter.calendarRange(2023, 2023,'year'))  // range: [1985, 2023]
-               .filter('study_area == "CONUS"')  
+               .filter('study_area == "CONUS"')  // CONUS, AK, HAWAII, PRUSVI
                .first();
                
 // TCC palette

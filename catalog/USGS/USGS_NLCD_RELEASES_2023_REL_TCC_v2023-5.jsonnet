@@ -27,73 +27,66 @@ local license = spdx.proprietary;
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product is part of the Tree Canopy Cover (TCC) data suite. It includes modeled TCC, standard error (SE), and 
-    National Land Cover Database's (NLCD) TCC data for each year. TCC data produced by the the United States Department 
-    of Agriculture, Forest Service (USFS) are included in the Multi-Resolution Land Characteristics (MRLC) consortium 
-    that is part of the National Land Cover Database (NLCD) project managed by the United States (US) Geological Survey (USGS).
-
-    The Science TCC product and NLCD TCC are remote sensing-based map output produced by the USFS. The objecive of TCC Science 
-    and NLCD TCC are to develop a consistent approach using the latest technology and advancements in TCC mapping to produce a 
-    "best available" map of TCC across the Conterminous United States (CONUS) and southeast Alaska, Hawaii and 
-    Puerto Rico-US Virgin Islands (OCONUS). OCONUS v2023.5 data will be released late summer 2025. For now v2021.4 OCONUS TCC data can 
-    be used (USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4). 
-
-    Model outputs include Science TCC, Science SE and NLCD TCC from 1985 through 2023. 
-
-    *Science TCC is the raw direct model outputs.
-
-    *Science SE is the model standard deviation of the predicted values from all regression trees. 
+    **Overview**
     
-    *The NLCD TCC product undergoes further post processing applied to the annual Science TCC images, 
-    which includes several masking (water and non-tree agriculture), as well as processes that reduce 
-    interannual noise and return longer duration trends.  
+    The Tree Canopy Cover (TCC) data suite, produced by the United States Department of Agriculture, Forest Service (USFS), 
+    are annual remote sensing-based map outputs spanning from 1985-2023.
+    These data support the National Land Cover Database (NLCD) project, 
+    which is managed by the US Geological Survey (USGS) as part of the Multi-Resolution Land Characteristics (MRLC) consortium. 
+    The project aims to use the latest technology to create a consistent, "best available" map of tree canopy cover. 
+    The geographic scope includes the Conterminous United States (CONUS) and OCONUS regions (Southeast Alaska (SEAK), Hawaii, 
+    Puerto Rico, and the US Virgin Islands (PRUSVI)). 
+
+    **Products**
+
+    The TCC data suite includes three products:
+
+    * **Science TCC:** The raw, direct outputs from the model.
+
+    * **Science standard error (SE):** The model standard deviation of the predicted values from all regression trees. 
+    
+    * **NLCD TCC:** A refined product derived from the annual Science TCC images. It undergoes post-processing to 
+    reduce interannual noise, highlight long-term trends, and mask specific features (such as water and non-tree agriculture).  
 
     Each image includes a data mask band that has three values representing areas of no data (0), mapped tree canopy cover(1), 
     and non-processing area (2). The non-processing areas are pixels in the study area with no cloud or cloud shadow-free data. No data
     and non-processing area pixels are masked in TCC and SE images.
 
-    Due to CONUS size and wide variety of ecotones, CONUS modeling was broken up into 54 480x480 km tiles. For each tile, 
-    a unique random forest model was built using 2011 fitted LandTrendr, 2011 CDL, and terrain data. All reference data 
-    that were part of the 70% available for model calibration that intersected tiles within a 5x5 window around the center 
-    tile were used to train the random forest model. That model was then applied to the center tile. For OCONUS, one model 
-    was applied to each study area, and no tiles were used. 
+    **Data and Methods**
 
-    Predictor layers for the TCC model include outputs from the LandTrendr and terrain information. These
-    components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
+    We developed training data and random forest models for CONUS, SEAK, PRUSVI and HAWAII using the 
+    USFS Forest Inventory and Analysis (FIA) photo-interpreted TCC as reference data. We leveraged Google Earth Engine (GEE) 
+    (Gorelick et al., 2017) to process fitted LandTrendr and terrain predictors. Terrain data from the 3D Elevation Program (3DEP) 
+    (U.S. Geological Survey, 2019) include elevation, slope, sine of aspect, and cosine of aspect. 
+    For CONUS, we also included the Crop Data Layer (CDL) as a predictor (Lin et al., 2022). 
 
-    To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A, 
-    2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm 
-    (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012) 
-    (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), and s2cloudless
-    (Sentinel-Hub, 2021) (Sentinel 2-only) are used to mask clouds, while TDOM
-    (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
-    2). For LandTrendr, the annual medoid is then computed to summarize cloud
-    and cloud shadow-free values from each year into a single composite.
+    We utilized USGS Collection 2 Landsat Tier 1 and Sentinel 2A/2B Level-1C top of atmosphere reflectance imagery to 
+    produce annual medoid composites. To ensure data quality, we applied various algorithms to mask clouds and shadows, 
+    including cFmask (Foga et al., 2017; Zhu and Woodcock, 2012), cloudScore (Chastain et al., 2019), s2cloudless (Sentinel-Hub, 2021), 
+    Cloud Score+ (Pasquarella et al., 2023), and TDOM (Chastain et al., 2019). Once masked, we computed annual medoids to create 
+    a single cloud-free composite for each year. Finally, the composite time series was temporally segmented using LandTrendr 
+    (Kennedy et al., 2010, 2018; Cohen et al., 2018). 
 
-    The composite time series is temporally segmented using LandTrendr
-    (Kennedy et al., 2010; Kennedy et al., 2018; Cohen et al., 2018).
-
-    The raw composite values, LandTrendr fitted values, pair-wise differences,
-    segment duration, change magnitude, and slope, along with elevation, slope, sine of 
-    aspect, and cosine of aspect from the 10 m USGS 3D. Elevation Program (3DEP) data 
-    (U.S. Geological Survey, 2019), are used as independent predictor variables in a Random 
-    Forest (Breiman, 2001) model.
-
-    Reference data are collected from USFS Forest Inventory and Analysis (FIA) photo-interpreted 
-    TCC data, and used to make wall-to wall TCC predictions on a pixel-wise basis. 
+    For CONUS, we used 70% of the reference data for calibration and 30% for independent error assessment. 
+    Given the ecological diversity of CONUS, we divided the modeling area into 54 tiles (480 km × 480 km). 
+    On local computers we built a unique random forest model for each tile (Breiman, 2001), training it on reference data intersecting a 
+    5×5 window around the center tile. The models were then deployed in GEE to predict wall-to-wall TCC. For OCONUS regions, 
+    we used an 80/20 split and developed a single random forest model for each region.
 
     **Additional Resources**
 
-    Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2021-4_Methods.pdf)
-    for more detailed information regarding methods and accuracy assessment, or the
-    [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
+    * Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2023-5_Methods.pdf) or 
+    [Science of Remote Sensing journal article](https://www.sciencedirect.com/science/article/pii/S2666017225001075)
+    for detailed information regarding methods and accuracy assessment. 
+    
+    * Please see the [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
 
-    AK, PRUSVI, and HI data will be released late summer 2025. Previously released v2021.4 AK, PRUSVI, and HI TCC data are available 
-    (USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4)
+    * The string HAWAII will be updated to HI in the upcoming v2025.6 data release.
 
-    Contact [sm.fs.tcc@usda.gov](mail to:sm.fs.tcc@usda.gov) with any
+    Contact [sm.fs.tcc@usda.gov] with any
     questions or specific data requests.
+
   |||,
 
   license: license.id,
@@ -122,9 +115,9 @@ local license = spdx.proprietary;
         name: 'study_area',
         description: |||
           TCC currently covers CONUS, Southeastern Alaska, Puerto Rico-US
-          Virgin Islands and Hawaii. This version contains CONUS. The 
-          data for SEAK, PRUSVI, and HI will be released late summer 2025.
-          Possible values: 'CONUS'
+          Virgin Islands and Hawaii. This version contains data for CONUS, 
+          AK, PRUSVI, and HAWAII.
+          Possible values: 'CONUS, AK, PRUSVI, HAWAII'
         |||,
         type: ee_const.var_type.string,
       },
@@ -326,80 +319,97 @@ local license = spdx.proprietary;
     Salt Lake City, Utah.
   |||,
    'sci:publications': [
-       {
+      {
         citation: |||
-            Breiman, L., 2001.
-            Random Forests. In Machine Learning. Springer,
-            45: 5-32
-            [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
+          Breiman, L., 2001.
+          Random Forests. In Machine Learning. Springer,
+          45: 5-32
+          [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
         |||,
-         doi:'10.1023/A:1010933404324',
-        },
-        {
+          doi:'10.1023/A:1010933404324',
+      },
+      {
         citation: |||
-            Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.
-            Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, and Landsat-7 ETM
-            top of atmosphere spectral characteristics over the conterminous United States. In Remote
-            Sensing of Environment. Science Direct,
-            221: 274-285
-            [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
+          Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.
+          Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, and Landsat-7 ETM
+          top of atmosphere spectral characteristics over the conterminous United States. In Remote
+          Sensing of Environment. Science Direct,
+          221: 274-285
+          [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
         |||,
-        doi:'10.1016/j.rse.2018.11.012',
-        },
-        {
+          doi:'10.1016/j.rse.2018.11.012',
+      },
+      {
         citation: |||
-            Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 2018.
-            A LandTrendr multispectral ensemble for forest disturbance detection. In Remote Sensing of
-            Environment. Science Direct,
-            205: 131-140
-            [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
+          Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 2018.
+          A LandTrendr multispectral ensemble for forest disturbance detection. In Remote Sensing of
+          Environment. Science Direct,
+          205: 131-140
+          [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
         |||,
         doi:'10.1016/j.rse.2017.11.015',
-        },
-        {
+      },
+      {
         citation: |||
-            Foga, S., Scaramuzza, P.L., Guo, S., Zhu, Z., Dilley, R.D., Beckmann,
-            T., Schmidt, G.L., Dwyer, J.L., Hughes, M.J., Laue, B., 2017. Cloud
-            detection algorithm comparison and validation for operational Landsat data
-            products. In Remote Sensing of Environment.  Science Direct, 194: 379-390
-            [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
+          Foga, S., Scaramuzza, P.L., Guo, S., Zhu, Z., Dilley, R.D., Beckmann,
+          T., Schmidt, G.L., Dwyer, J.L., Hughes, M.J., Laue, B., 2017. Cloud
+          detection algorithm comparison and validation for operational Landsat data
+          products. In Remote Sensing of Environment.  Science Direct, 194: 379-390
+          [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
         |||,
         doi:'10.1016/j.rse.2017.03.026',
-        },
-        {
+      },
+      {
+        citation: |||
+          Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010.
+          Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1.
+          LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment. Science Direct,
+          114(12): 2897-2910
+          [doi:10.1016/j.rse.2010.07.008](https://doi.org/10.1016/j.rse.2010.07.008)
+        |||,
+        doi:'10.1016/j.rse.2010.07.008',
+      },
+      {
+        citation: |||
+          Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., Cohen, W., and Healey, S., 2018.
+          Implementation of the LandTrendr Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
+          10(5): 691
+          [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
+        |||,
+        doi:'10.3390/rs10050691',
+      },
+      {
+        citation: |||
+          Lin, L.; Di, L.; Zhang, C.; Guo, L.; Di, Y.; Li, H.; Yang, A. 2022. Validation and refinement of cropland
+          data layer using a spatial-temporal decision tree algorithm. Scientific Data. 9(1): 63.
+          [doi:10.3390/rs10050691](https://doi.org/10.1038/s41597-022-01169-w)
+        |||,
+        doi:'10.1038/s41597-022-01169-w',
+      },
+      {
+        citation: |||
+          Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J., 2023. 
+          Comprehensive Quality Assessment of Optical Satellite Imagery Using 
+          Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
+          on Computer Vision and Pattern Recognition. 2124-2134. 
+          [doi:10.1109/cvprw59228.2023.00206](https://doi.org/10.1109/cvprw59228.2023.00206)
+        |||,
+        doi:'10.3390/rs10050691',
+      },
+      {
+        citation: |||
+          Sentinel-Hub, 2021.
+          Sentinel 2 Cloud Detector. [Online].
+          Available at: [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
+        |||,
+      },
+      {
         citation: |||
             U.S. Geological Survey, 2019. USGS 3D Elevation Program Digital Elevation 
             Model, accessed August 2022 at https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
         |||,
-        },
-        {
-        citation: |||
-            Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010.
-            Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1.
-            LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment.
-            *Science Direct,
-            114(12): 2897-2910
-            [doi:10.1016/j.rse.2010.07.008](https://doi.org/10.1016/j.rse.2010.07.008)
-        |||,
-        doi:'10.1016/j.rse.2010.07.008',
-        },
-        {
-        citation: |||
-            Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., Cohen, W., and Healey, S., 2018.
-            Implementation of the LandTrendr Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
-            10(5): 691
-            [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
-        |||,
-        doi:'10.3390/rs10050691',
-        },
-        {
-        citation: |||
-            Sentinel-Hub, 2021.
-            Sentinel 2 Cloud Detector. [Online].
-            Available at: [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
-        |||,
-        },
-        {
+      },
+      {
         citation: |||
             Zhu, Z., and Woodcock, C. E., 2012. 
             Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
@@ -408,7 +418,7 @@ local license = spdx.proprietary;
             [doi:10.1016/j.rse.2011.10.028](https://doi.org/10.1016/j.rse.2011.10.028)
         |||,
         doi:'10.1016/j.rse.2011.10.028',
-        },
+      },
    ],
 
   'gee:terms_of_use': |||
