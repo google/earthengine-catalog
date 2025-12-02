@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CHIRPS Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
+  title: 'CHIRPS Daily Precipitation: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -29,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     is a 30+ year quasi-global rainfall dataset. CHIRPS incorporates
     0.05° resolution satellite imagery with in-situ station data
     to create gridded rainfall time series for trend analysis and seasonal
-    drought monitoring.
+    drought monitoring. *Note to users: A new version of CHIRPS (version 3.0) is available; please see https://chc.ucsb.edu/data and the Earth Engine catalog to transition to CHIRPS v3.0.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
