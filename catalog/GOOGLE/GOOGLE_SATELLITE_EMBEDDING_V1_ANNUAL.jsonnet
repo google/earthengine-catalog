@@ -92,6 +92,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     typically represent minor vector offsets and generally do not significantly
     affect downstream processing or results.
 
+    The dataset is also available on Google Cloud Storage (GCS) in the bucket
+    `gs://alphaearth_foundations`. You can
+    browse the bucket contents via the [Google Cloud
+    Console](https://console.cloud.google.com/storage/browser/alphaearth_foundations).
+    Please note that this bucket is configured as "Requester Pays," meaning you
+    must include a billing project with your API requests to cover data retrieval
+    and egress charges. Refer to the GCS documentation on [Requester
+    Pays](https://docs.cloud.google.com/storage/docs/requester-pays) and the
+    bucket
+    [README](https://developers.google.com/earth-engine/guides/aef_on_gcs_readme)
+    for full details on the data structure.
+
     Update: As of 2025-11-17, embedding layers for the year 2017 have been
     regenerated and updated in place to incorporate additional Sentinel-1
     acquisitions. The `DATASET_VERSION` property for these updated layers has
