@@ -106,7 +106,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     {
       citation: |||
         Bourgoin, C., Verhegghen, A., Carboni, S., Ameztoy, I., Degreve, L., Fritz, S., Herold, M., Tsendbazar, N., Lesiv, M., Achard, F., and Colditz, R.: GFC2020: A Global Map of Forest Land Use for year 2020 to Support the EU Deforestation Regulation, Earth Syst. Sci. Data Discuss. [https://doi.org/10.5194/essd-2025-351](https://doi.org/10.5194/essd-2025-351), 2025.
-      |||,
+      |||
     }
   ],
   'gee:user_uploaded': true,
