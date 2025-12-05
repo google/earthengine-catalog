@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [Algorithm Theoretical Basis Document (ATBD)](https://lpdaac.usgs.gov/documents/194/VNP43_ATBD_V1.pdf)
 
-    * [General Documentation](https://lpdaac.usgs.gov/products/vnp43ia4v002/)
+    * [General Documentation](https://ladsweb.modaps.eosdis.nasa.gov/filespec/VIIRS/2/VNP43IA4)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
