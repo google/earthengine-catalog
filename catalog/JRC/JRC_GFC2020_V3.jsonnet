@@ -1,11 +1,6 @@
 local id = 'JRC/GFC2020/V3';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/jrc_gfc2020_versions.libsonnet';
-[
-  { "V1": "JRC/GFC2020/V1" },
-  { "V2": "JRC/GFC2020/V2" },
-  { "V3": "JRC/GFC2020/V3" },
-]
 
 local subdir = 'JRC';
 
