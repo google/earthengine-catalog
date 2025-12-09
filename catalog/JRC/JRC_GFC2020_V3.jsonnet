@@ -1,6 +1,11 @@
 local id = 'JRC/GFC2020/V3';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/jrc_gfc2020_versions.libsonnet';
+[
+  { "V1": "JRC/GFC2020/V1" },
+  { "V2": "JRC/GFC2020/V2" },
+  { "V3": "JRC/GFC2020/V3" },
+]
 
 local subdir = 'JRC';
 
@@ -29,6 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   // The collection contains tiles for a global mosaic.
   'gee:type': ee_const.gee_type.image,
+  'gee:status':'beta',
   description: |||
     The global map of forest cover provides a spatially explicit representation
     of forest presence and absence for the year 2020 at 10m spatial resolution.
@@ -74,8 +80,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     out over Ivory Coast ([Verhegghen et al, 2024](https://op.europa.eu/en/publication-detail/-/publication/ff3a48df-7957-11ef-bbbe-01aa75ed71a1/language-en)). A user guide explains how to visualize and interact
     with GFC2020 to support the EUDR risk assessment ([Simonetti et al. 2025](https://op.europa.eu/en/publication-detail/-/publication/a9ec1c5d-3780-11f0-8a44-01aa75ed71a1/language-en)). 
 
-   The GFC 2020 map may be revised if new information, additional large-scale data layers
-   or revised global spatial data layers for year 2020 will be made available.
+    The GFC 2020 map may be revised if new information, additional large-scale data layers
+    or revised global spatial data layers for year 2020 will be made available.
 
     For a list of known issues please refer to [this website](https://forobs.jrc.ec.europa.eu/GFC).
   |||,
