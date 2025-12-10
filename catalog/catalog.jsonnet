@@ -50,6 +50,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('FIRMS', base_url),
     ee.link.child_catalog('FORMA', base_url),
     ee.link.child_catalog('Germany', base_url),
+    ee.link.child_catalog('gcpm041u-lemur', base_url),
     ee.link.child_catalog('GFW', base_url),
     ee.link.child_catalog('GLCF', base_url),
     ee.link.child_catalog('GLIMS', base_url),
@@ -81,6 +82,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('Netherlands', base_url),
     ee.link.child_catalog('NOAA', base_url),
     ee.link.child_catalog('NRCan', base_url),
+    ee.link.child_catalog('OPERA', base_url),
     ee.link.child_catalog('OREGONSTATE', base_url),
     ee.link.child_catalog('OSU', base_url),
     ee.link.child_catalog('OpenET', base_url),
@@ -100,6 +102,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('TUBerlin', base_url),
     ee.link.child_catalog('Tsinghua', base_url),
     ee.link.child_catalog('UCSB', base_url),
+    ee.link.child_catalog('UCSB-CHC', base_url),
     ee.link.child_catalog('UCSB-CHG', base_url),
     ee.link.child_catalog('UK', base_url),
     ee.link.child_catalog('UMD', base_url),
@@ -134,5 +137,6 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('malariaatlasproject', base_url),
     ee.link.child_catalog('nature-trace', base_url),
     ee.link.child_catalog('mapbiomas-public', base_url)
+    ee.link.child_catalog('global-precipitation-nowcast', base_url)
   ],
 }

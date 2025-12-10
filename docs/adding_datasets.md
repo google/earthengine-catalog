@@ -136,3 +136,27 @@ every jsonnet file. Mark all but the most recent versions with `"gee_status":
 
 1. Don't create new single-dataset keywords. If you feel a new keyword would
 make sense, propose other existing datasets where it should also be added.
+
+## Common errors.
+
+1. If you are getting the error "text block not terminated with |||”.",the
+problem is with indentation. You can temporarily fix it by switching,
+e.g.,
+
+```
+description: |||
+ Badly
+indented
+         text
+|||
+```
+to
+
+```
+description: |||
+  one good line
+|||,
+```
+and then gradually reintroducing the real lines. Make sure to strip
+trailing whitespaces on empty lines and watch out for tab characters.
+

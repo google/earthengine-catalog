@@ -28,7 +28,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Aqua Moderate Resolution Imaging Spectroradiometer (MODIS) Vegetation Indices 16-Day (MYD13C1) Version 6.1 product provides a Vegetation Index (VI) value at a per pixel basis. There are two primary vegetation layers. The first is the Normalized Difference Vegetation Index (NDVI), which maintains continuity with the existing National Oceanic and Atmospheric Administration-Advanced Very High Resolution Radiometer (NOAA-AVHRR) derived NDVI. The second vegetation layer is the Enhanced Vegetation Index (EVI), which has improved sensitivity over high biomass regions.
-    The Climate Modeling Grid (CMG) consists of 3,600 rows and 7,200 columns of 5,600 meter (m) pixels. Global MYD13C1 data are cloud-free spatial composites of the gridded 16-day 1 kilometer MYD13A2 data, and are provided as a Level 3 product projected on a 0.05 degree (5,600 m) geographic CMG. The MYD13C1 has data fields for NDVI, EVI, VI QA, reflectance data, angular information, and spatial statistics such as mean, standard deviation, and number of used input pixels at the 0.05 degree CMG resolution. 
+
+    The Climate Modeling Grid (CMG) consists of 3,600 rows and 7,200 columns of 5,600 meter (m) pixels. Global MYD13C1 data are cloud-free spatial composites of the gridded 16-day 1 kilometer MYD13A2 data, and are provided as a Level 3 product projected on a 0.05 degree (5,600 m) geographic CMG. The MYD13C1 has data fields for NDVI, EVI, VI QA, reflectance data, angular information, and spatial statistics such as mean, standard deviation, and number of used input pixels at the 0.05 degree CMG resolution.
+
+    Note that scale factors and offsets described in the MODIS documentation
+    for MYD13C1 bands are already applied to assets ingested into Earth
+    Engine.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

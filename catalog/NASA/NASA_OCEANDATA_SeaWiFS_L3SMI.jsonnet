@@ -59,20 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       [SeaWiFS OceanData](https://oceancolor.gsfc.nasa.gov/about/missions/seawifs)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L3M/POC/2018',
-    },
-    {
-      rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L3M/RRS/2018',
-    },
-  ],
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['oceans'],
   keywords: [
     'biology',
@@ -336,30 +323,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'gee:estimated_range': true,
     },
   },
-  'sci:doi': '10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018',
   'sci:citation': |||
     NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology
-    Processing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data,
-    NASA OB.DAAC, Greenbelt, MD, USA.
-    [doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](
-      https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)
+    Processing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Level 3
+    Binned Chlorophyll Data, NASA OB.DAAC, Greenbelt, MD, USA.
+    [SeaWiFS-ORBVIEW-2 Citations](https://oceancolor.gsfc.nasa.gov/resources/how-to-cite/)
+    The old DOI for this publication was
+    10.5067/ORBVIEW-2/SEAWIFS/L3B/CHL/2018.0.
   |||,
   'sci:publications': [
     {
       citation: |||
-        NASA Ocean Biology Processing Group. (2018). <i>SEAWIFS-ORBVIEW-2 Level
-        3 Mapped Particulate Organic Carbon Data Version R2018.0</i> [Data
-        set]. NASA Ocean Biology DAAC.
+        NASA Goddard Space Flight Center, Ocean Ecology Laboratory,
+        Ocean Biology Processing Group. Sea-viewing Wide Field-of-view Sensor
+        (SeaWiFS) Level 3 Binned Particulate Organic Carbon Data,
+        NASA OB.DAAC, Greenbelt, MD, USA. The old DOI for this publication was
+        10.5067/ORBVIEW-2/SEAWIFS/L3B/POC/2018.0.
       |||,
-      doi: '10.5067/ORBVIEW-2/SEAWIFS/L3M/POC/2018',
     },
     {
       citation: |||
-        NASA Ocean Biology Processing Group. (2018). <i>SEAWIFS-ORBVIEW-2 Level
-        3 Mapped Remote-Sensing Reflectance Data Version R2018.0</i> [Data
-        set]. NASA Ocean Biology DAAC.
+        NASA Goddard Space Flight Center, Ocean Ecology Laboratory,
+        Ocean Biology Processing Group. Sea-viewing Wide Field-of-view Sensor
+        (SeaWiFS) Remote-Sensing Reflectance Data,
+        NASA OB.DAAC, Greenbelt, MD, USA. The old DOI for this publication was
+        10.5067/ORBVIEW-2/SEAWIFS/L3B/RRS/2018.0.
       |||,
-      doi: '10.5067/ORBVIEW-2/SEAWIFS/L3M/RRS/2018'
     },
   ],
   'gee:interval': {

@@ -3363,17 +3363,17 @@ local units = import 'units.libsonnet';
       name: 'Weather_Quality_Indicator',
         'gee:classes': [
             {
-            value: 0,
+            value: 1,
             color: '239e2f',
             description: 'mostly clear: <10% cloud cover',
             },
             {
-            value: 1,
+            value: 2,
             color: 'f5ee1d',
             description: 'partly cloudy: 10-50% cloud cover',
             },
             {
-            value: 2,
+            value: 3,
             color: 'c40a0a',
             description: 'mostly cloudy: >50% cloud cover',
             },

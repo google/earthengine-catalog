@@ -59,12 +59,13 @@ class ErrorSchemaTest(test_utils.NodeTest):
         gee_type=IMAGE_COLLECTION)
 
   def test_bad_too_many_entries(self):
+    max_entries = 316
     entries = [
         {'description': f'A thing {i}', 'name': f'a{i}', 'type': 'INT'}
-        for i in range(301)]
+        for i in range(max_entries)]
     self.assert_collection(
         {'summaries': {'gee:schema': entries}},
-        'Too many schema entries: 301',
+        f'Too many schema entries: {max_entries}',
         gee_type=IMAGE_COLLECTION)
 
   def test_bad_entry_not_a_dict(self):

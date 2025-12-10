@@ -111,12 +111,12 @@ local license = spdx.proprietary;
     'wind',
   ],
   providers: [
-    ee.producer_provider('Google', 'https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/'),
+    ee.producer_provider('Google', 'https://developers.google.com/weathernext'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2020-01-01T00:00:00Z', null),
   summaries: {
-    gsd: [27750],
+    gsd: [27830],
     'gee:schema': [
       {
         name: 'start_time',

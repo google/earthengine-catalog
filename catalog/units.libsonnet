@@ -245,6 +245,10 @@
   // https://en.wikipedia.org/wiki/Short_ton
   // https://en.wikipedia.org/wiki/Acre
   tons_per_acre: 'tons/acre',
+  
+  // https://en.wikipedia.org/wiki/Tonne
+  // https://en.wikipedia.org/wiki/Hectare
+  tonnes_per_hectare: 'tonnes/hectare',
 
   // https://en.wikipedia.org/wiki/Fraction
   unspecified_fraction: 'Fraction',
@@ -277,4 +281,11 @@
 
   // https://en.wikipedia.org/wiki/Flux#Flux_as_flow_rate_per_unit_area
   mg_per_day_per_square_meter: 'mg/day/m^2',
+
+  // https://www.safeopedia.com/definition/90/milligram-per-cubic-meter-mgm3
+  mg_per_cubic_meter_per_day: 'mg/m^3/day',
+
+  // https://en.wikipedia.org/wiki/Molar_concentration
+  mmol_per_cubic_meter: 'mmol/m^3',
+  mol_per_cubic_meter: 'mol/m^3',
 }

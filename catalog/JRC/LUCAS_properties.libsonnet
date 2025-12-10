@@ -10,7 +10,7 @@ local ee_const = import 'earthengine_const.libsonnet';
     {
       name: 'point_id',
       description: |||
-        8-digit unique point identifier, point ID according to the LUCAS grid.
+        8-digit unique point identifier, point id according to the LUCAS grid.
         Such a point ID can either be part or not of a particular yearly
         LUCAS survey.
 
@@ -208,9 +208,9 @@ local ee_const = import 'earthengine_const.libsonnet';
         Values:
 
         * On the point: Point regularly observed
-        * Look to the North: "Look to the North" rule is applied id the point is
+        * Look to the North: "Look to the North" rule is applied if the point is
             located on a boundary/ e.g., or a small linear feature (<3 m wide)
-        * Look to the East: "Look to the East" rule is applied if he point is
+        * Look to the East: "Look to the East" rule is applied if the point is
             located on a boundary/e.g., or a small linear feature (<3 m wide)
         * empty if not relevant
 

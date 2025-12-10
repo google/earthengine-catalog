@@ -5,7 +5,7 @@ local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local license = spdx.cc_by_nc_4_0;
+local license = spdx.cc_by_4_0;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -149,8 +149,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:terms_of_use': |||
     This dataset is licensed under
-    [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) and requires
-    the following attribution: "This dataset is produced by Google".
+    [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
+    following attribution: "This dataset is produced by Google".
   |||,
-  'gee:unusual_terms_of_use': true,
 }

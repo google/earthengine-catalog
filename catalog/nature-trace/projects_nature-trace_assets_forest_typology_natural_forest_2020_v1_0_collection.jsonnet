@@ -5,7 +5,7 @@ local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local license = spdx.cc_by_sa_4_0;
+local license = spdx.cc_by_4_0;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -83,14 +83,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'B0',
         description: |||
-          Natural forest probabilities (scaled to [0-1]).
+          Natural forest probabilities (scaled to [0-250]).
         |||,
       },
     ],
     gsd: [
       10.0,
     ],
-    B0: { minimum: 0, maximum: 1, 'gee:estimated_range': false },
+    B0: { minimum: 0, maximum: 250, 'gee:estimated_range': false },
     'gee:visualizations':[
       {
         display_name: 'Natural forests 2020',
@@ -105,7 +105,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0
             ],
             max: [
-              1,
+              250,
             ],
             palette: ['white', 'green'],
             bands: [
@@ -130,8 +130,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'gee:terms_of_use': |||
     This dataset is licensed under
-    [CC-BY 4.0 ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/) and requires the
+    [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
     following attribution: "This dataset is produced by Google".
   |||,
-  'gee:unusual_terms_of_use': true,
 }

@@ -6,7 +6,7 @@ defines the columns in the table(s).
 
 The rules for schemas:
 
-- The gee:schema field is a list with 1 to 300 property entries that are each
+- The gee:schema field is a list with 1 to 315 property entries that are each
   a dict
 - Each entry must have 3 fields: description, name, type
 - Each entry can optionally have a units field
@@ -49,7 +49,7 @@ REQUIRED_KEYS = frozenset({DESCRIPTION, NAME, TYPE})
 OPTIONAL_KEYS = frozenset({UNITS})
 ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
-MAX_SCHEMA_SIZE = 300
+MAX_SCHEMA_SIZE = 315
 MIN_NAME_SIZE = 2
 MAX_NAME_SIZE = 110
 MIN_DESCRIPTION_SIZE = 3
@@ -66,6 +66,7 @@ class SchemaType(str, enum.Enum):
   INT_LIST = 'INT_LIST'
   STRING_LIST = 'STRING_LIST'
   DOUBLE_LIST = 'DOUBLE_LIST'
+  DATETIME = 'DATETIME'
   PROPERTY_TYPE_UNSPECIFIED = 'PROPERTY_TYPE_UNSPECIFIED'  # No longer allowed
   UNKNOWN = 'not a valid schema'  # For bad values.
 

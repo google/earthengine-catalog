@@ -40,20 +40,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [NASA SRTM3 DEM v2.1](https://dds.cr.usgs.gov/srtm/version2_1/SRTM3)
     * [JAXA AW3D - 30 m DEM v1](https://www.eorc.jaxa.jp/ALOS/en/aw3d30/index.htm)
-    * [Viewfinder Panoramas DEM](http://www.viewfinderpanoramas.org/dem3.html)
+    * [Viewfinder Panoramas DEM](https://www.viewfinderpanoramas.org/dem3.html)
 
     In addition to the above baseline dems, these products were used as supplementary data:
 
     * [NASA-NSIDC ICESat/GLAS GLA14 data](https://nsidc.org/data/gla14)
     * [U-Maryland Landsat forest cover data](https://glad.earthengine.app/view/global-forest-change)
     * [NASA Global Forest height data](https://www.nasa.gov/topics/earth/features/forest-height-map.html)
-    * [JAMSTEC/U-Tokyo G3WBM water body data](http://hydro.iis.u-tokyo.ac.jp/~yamadai/G3WBM/index.html)
+    * [JAMSTEC/U-Tokyo G3WBM water body data](https://hydro.iis.u-tokyo.ac.jp/~yamadai/G3WBM/index.html)
   |||,
   // Choice of ODbL-1.0 or CC-BY-NC-4.0
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(
-      'http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/index.html'),
+      'https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/index.html'),
   ],
   'gee:categories': ['elevation-topography'],
   keywords: [
@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'topography',
   ],
   providers: [
-    ee.producer_provider('Dai Yamazaki (University of Tokyo)', 'http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/index.html'),
+    ee.producer_provider('Dai Yamazaki (University of Tokyo)', 'https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/index.html'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 90.0,
