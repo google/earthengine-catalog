@@ -138,5 +138,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('nature-trace', base_url),
     ee.link.child_catalog('global-precipitation-nowcast', base_url),
     ee.link.child_catalog('overture-maps', base_url)
+    ee.link.child_catalog('mapbiomas-public', base_url),
+    ee.link.child_catalog('global-precipitation-nowcast', base_url)
   ],
 }
