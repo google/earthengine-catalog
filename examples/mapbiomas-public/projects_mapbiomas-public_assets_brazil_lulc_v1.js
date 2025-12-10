@@ -18,7 +18,6 @@ var collection = ee.ImageCollection(assetPath)
 var visParams = {
 	min: 0,
 	max: 75,  // Maximum class value in Collection 10
-	format: "png",
 	palette: [
 		'ffffff',  // [0] Not Observed
 		'32a65e',  // [1] --
