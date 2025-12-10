@@ -1,5 +1,6 @@
 // Overture Maps - Places: Place
 // BigQuery table: bigquery-public-data.overture_maps.place
+
 local id = 'overture-maps/places_place';
 local subdir = 'overture-maps';
 
@@ -7,17 +8,22 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
-// Overture Maps uses multiple licenses: ODbL, CDLA Permissive 2.0
 local license = spdx.odbl_1_0;
 
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.collection,
+  stac_extensions: [
+    ee_const.ext_ver,
+  ],
   id: id,
   title: 'Overture Maps - Places: Place',
   version: 'latest',
-
+  'gee:type': ee_const.gee_type.bigquery_table,
+  'gee:bq_table_name': 'bigquery-public-data.overture_maps.place',
   description: |||
     The Overture Maps Places theme contains more than 64 million point
     representations of real-world entities: businesses, schools, hospitals,
@@ -37,23 +43,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     by CARTO.
 
     Data source: [Overture Maps Foundation](https://overturemaps.org/)
+
     Documentation: [Places Theme Guide](https://docs.overturemaps.org/guides/places/)
+
     BigQuery table: `bigquery-public-data.overture_maps.place`
   |||,
-
+  license: license.id,
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.license(license.reference),
+    {
+      rel: ee_const.rel.source,
+      href: 'https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=overture_maps&t=place',
+    },
+  ],
   'gee:categories': [
     'infrastructure-boundaries',
   ],
-
   keywords: [
+    'bigquery',
     'overture',
     'places',
     'poi',
-    'points-of-interest',
+    'points_of_interest',
     'businesses',
     'landmarks',
   ],
-
   providers: [
     ee.producer_provider(
       'Overture Maps Foundation',
@@ -65,9 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-
   extent: ee.extent_global('2023-07-01T00:00:00Z', null),
-
   summaries: {
     'gee:schema': [
       {
@@ -77,11 +89,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Reference System (GERS).
         |||,
         type: ee_const.var_type.string,
-      },
-      {
-        name: 'do_date',
-        description: 'Release date of the data.',
-        type: ee_const.var_type.datetime,
       },
       {
         name: 'bbox',
@@ -173,15 +180,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'basic_category',
-        description: |||
-          The basic level category of a place - a simplified mapping of
-          the categories.primary entry.
-        |||,
-        type: ee_const.var_type.string,
+        name: 'geometry',
+        description: 'Point geometry in WGS84 (EPSG:4326).',
+        type: ee_const.var_type.geometry,
       },
     ],
-
     'gee:visualizations': [
       {
         display_name: 'Overture Places',
@@ -191,42 +194,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           zoom: 12,
         },
         table_visualization: {
-          color: '4285F4',
+          color: '4285f4',
           point_size: 2,
-        },
-      },
-      {
-        display_name: 'Overture Places FeatureView',
-        visualize_as: 'FeatureView',
-        lookat: {
-          lat: 40.7128,
-          lon: -74.006,
-          zoom: 12,
         },
       },
     ],
   },
-
-  'gee:status': 'beta'
+  'gee:skip_featureview_generation': true,
+  'gee:unusual_terms_of_use': true,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-
-  'gee:type': ee_const.gee_type.bigquery_table,
-  
-  license: license.id,
-
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.license('https://docs.overturemaps.org/attribution/'),
-    {
-      rel: 'source',
-      title: 'BigQuery Public Dataset',
-      href: 'https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=overture_maps&t=place',
-      type: 'text/html',
-    },
-  ],
-
-  type: ee_const.stac_type.collection,
-  stac_version: ee_const.stac_version,
-  stac_extensions: [
-    ee_const.ext_ver,
-  ],
 }
