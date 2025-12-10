@@ -60,11 +60,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'infrastructure-boundaries',
   ],
   keywords: [
-    'places',
-    'poi',
-    'points_of_interest',
-    'businesses',
-    'landmarks',
+    'global',
+    'map',
+    'urban',
   ],
   providers: [
     ee.producer_provider(
