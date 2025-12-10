@@ -31,7 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9 (OLI/TIRS) surface reflectance data, preprocessed and mosaicked to generate cloud-free composites for each year.
     The classification process includes automated decision trees trained with reference samples, along with manual validation by regional experts.
 
-    Each image contains one band named classification, representing the land cover classification for that specific year, version and collection id.
+    Each image contains one band named "classification", representing the land cover classification for that specific year, version and collection id.
 
     For more information, classification legend, methodology, and accuracy assessments, visit the [MapBiomas website](https://mapbiomas.org/en).
 
@@ -64,7 +64,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ),
 
   summaries: {
-
+    'gee:schema': [
+      {
+        name: 'year',
+        description: |||
+          Year of the land use and land cover classification.
+        |||,
+        type: ee_const.var_type.int
+      },
+      {
+        name: 'version',
+        description: |||
+          Version of the land use and land cover classification.
+        |||,
+        type: ee_const.var_type.string
+      },
+      {
+        name: 'collection_id',
+        description: |||
+          Collection identifier of the land use and land cover classification.
+        |||,
+        type: ee_const.var_type.double
+      },
+    ],
     gsd: [30],
 
     'eo:bands': [
