@@ -60,8 +60,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'infrastructure-boundaries',
   ],
   keywords: [
-    'bigquery',
-    'overture',
     'places',
     'poi',
     'points_of_interest',
