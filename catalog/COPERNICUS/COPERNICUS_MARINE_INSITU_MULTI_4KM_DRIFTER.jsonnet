@@ -1,11 +1,7 @@
 local id = 'COPERNICUS/MARINE/INSITU_MULTI_4KM/DRIFTER';
-local subdir = 'COPERNICUS';
-
+local insitu = import 'templates/copernicus_marine_insitu.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
-local spdx = import 'spdx.libsonnet';
-
-local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
@@ -17,12 +13,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Copernicus Global In-situ Observations of Ocean Currents - Drifter',
   'gee:type': ee_const.gee_type.bigquery_table,
   'gee:bq_table_name': 'earth-engine-public-data.insitu_nrt_currents.drifter_latest',
-  description: |||
-    The In Situ TAC is a distributed centre organized around 7 oceanographic
-    regions: the global ocean and the 6 EUROGOOS regional alliances. It involves
-    14 partners from 11 countries in Europe. It doesn't deploy any observing
-    system and relies on data, exclusively funded by other sources than
-    Copernicus Marine Service.
+  description: insitu.description + |||
 
     Regarding the production of global ocean products like the present one,
     activities among partners are organized according to the expertise and
@@ -35,20 +26,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     techniques described in Menna et al. (2017, 2018). The drifters have
     varying drogue depths, mostly between 0 and 15 m, but ranging from 0 to
     300 m.
+
+    For more details refer to this
+    [user manual](https://documentation.marine.copernicus.eu/PUM/CMEMS-INS-PUM-013-048.pdf)
   |||,
-  license: license.id,
-  links: ee.standardLinks(subdir, id),
+  license: insitu.license.id,
+  links: ee.standardLinks(insitu.subdir, id),
   'gee:categories': ['oceans'],
-  keywords: [
-    'copernicus',
-    'currents',
-    'marine',
-    'ocean',
-  ],
-  providers: [
-    ee.producer_provider('Copernicus', 'https://marine.copernicus.eu/'),
-    ee.host_provider(self_ee_catalog_url),
-  ],
+  keywords: insitu.keywords,
+  providers: insitu.providers(self_ee_catalog_url),
   extent: ee.extent_global('2025-03-28T00:00:00Z', null),
   summaries: {
     'gee:schema': [
@@ -59,23 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'TIME_QC',
-        description: |||
-          Quality control flag for TIME
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('TIME'),
         type: ee_const.var_type.int,
       },
       {
@@ -90,23 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'DEPH_QC',
-        description: |||
-          Quality control flag for DEPH.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('DEPH'),
         type: ee_const.var_type.int,
       },
       {
@@ -118,23 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'TEMP_QC',
-        description: |||
-          Quality control flag for TEMP.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('TEMP'),
         type: ee_const.var_type.int,
       },
       {
@@ -147,23 +85,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'EWCT_QC',
-        description: |||
-          Quality control flag for EWCT.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('EWCT'),
         type: ee_const.var_type.int,
       },
       {
@@ -176,23 +98,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'NSCT_QC',
-        description: |||
-          Quality control flag for NSCT.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('NSCT'),
         type: ee_const.var_type.int,
       },
       {
@@ -205,23 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'WSTN_MODEL_QC',
-        description: |||
-          Quality control flag for WSTN_MODEL.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('WSTN_MODEL'),
         type: ee_const.var_type.double,
       },
       {
@@ -234,23 +124,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'WSTE_MODEL_QC',
-        description: |||
-          Quality control flag for WSTE_MODEL.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('WSTE_MODEL'),
         type: ee_const.var_type.int,
       },
       {
@@ -263,23 +137,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'WSPN_MODEL_QC',
-        description: |||
-          Quality control flag for WSPN_MODEL.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('WSPN_MODEL'),
         type: ee_const.var_type.int,
       },
       {
@@ -292,23 +150,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'WSPE_MODEL_QC',
-        description: |||
-          Quality control flag for WSPE_MODEL.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('WSPE_MODEL'),
         type: ee_const.var_type.int,
       },
       {
@@ -318,23 +160,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'EWCT_WS_QC',
-        description: |||
-          Quality control flag for EWCT_WS.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('EWCT_WS'),
         type: ee_const.var_type.int,
       },
       {
@@ -344,23 +170,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'NSCT_WS_QC',
-        description: |||
-          Quality control flag for NSCT_WS.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('NSCT_WS'),
         type: ee_const.var_type.double,
       },
       {
@@ -404,22 +214,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'CURRENT_TEST_QC',
-        description: |||
-          Quality control flag for CURRENT_TEST.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('CURRENT_TEST'),
         type: ee_const.var_type.int,
       },
       {
@@ -429,22 +224,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'POSITION_QC',
-        description: |||
-          Quality control flag for the position.
-
-          * 0: No QC was performed
-          * 1: good
-          * 2: probably good
-          * 3: Bad data that are potentially correctable
-          * 4: Bad data
-          * 5: value changed
-          * 6: Not used
-          * 7: nominal
-          * 8: interpolated
-          * 9: Missing value
-          Note that a valid value for the corresponding variable has a QC bit
-          equal to 1, 2, 5, 7, or 8.
-        |||,
+        description: insitu.quality_control_flag_description('POSITION'),
         type: ee_const.var_type.int,
       },
       {
@@ -476,10 +256,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'gee:skip_featureview_generation': true,
-  'gee:terms_of_use': |||
-    The data is provided free of charge by the Copernicus Marine Service.
-    Users must acknowledge the Copernicus Marine Service as the data source
-    when using the data. More details on the terms of use can be found on
-    the [Copernicus Marine Service website](https://marine.copernicus.eu/user-corner/service-commitments-and-licence).
-  |||,
+  'gee:terms_of_use': insitu.terms_of_use,
 }
