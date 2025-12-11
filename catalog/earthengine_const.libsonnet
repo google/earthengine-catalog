@@ -107,5 +107,6 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
     int_list: 'INT_LIST',
     double_list: 'DOUBLE_LIST',
     geometry: 'GEOMETRY',
+    datetime: 'DATETIME',
   },
 }

@@ -30,9 +30,7 @@ local license = spdx.proprietary;
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
-    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI 
-    v2024.10 data will be released late summer 2025. For now v2023.9 PRUSVI and HI LCMS data can 
-    be used (USFS/GTAC/LCMS/v2023-9). 
+    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HAWAII). 
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -54,12 +52,12 @@ local license = spdx.proprietary;
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), s2cloudless
-    (Sentinel-Hub, 2021) and Cloud Score plus (Pasquarella et al., 2023) (Sentinel 2-only) are 
+    (Sentinel-Hub, 2021) and Cloud Score+ (Pasquarella et al., 2023) (Sentinel 2-only) are 
     used to mask clouds, while TDOM (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
     2). For LandTrendr, the annual medoid is then computed to summarize cloud and cloud shadow-free values 
     from each year into a single composite. For CCDC, United States Geological Survey (USGS) Collection 2 
     Landsat Tier 1 surface reflectance data were used for the CONUS, and Landsat Tier 1 top of atmosphere 
-    reflectance data for AK, PRUSVI, and HI. 
+    reflectance data for AK, PRUSVI, and HAWAII. 
 
     The composite time series is temporally segmented using LandTrendr
     (Kennedy et al., 2010; Kennedy et al., 2018; Cohen et al., 2018).
@@ -95,10 +93,9 @@ local license = spdx.proprietary;
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
 
-    * PRUSVI and HI data will be released late summer 2025. Previously released v2023.9 PRUSVI and HI LCMS data are available 
-    (USFS/GTAC/LCMS/v2023-9) 
+    * The string HAWAII will be updated to HI in the upcoming v2025.11 data release.
 
-    Contact [sm.fs.lcms@usda.gov] with any
+    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
   |||,
   license: license.id,
@@ -131,10 +128,9 @@ local license = spdx.proprietary;
       { 
         name: 'study_area',
         description: |||
-          LCMS currently covers the conterminous United States, Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii. This version contains CONUS. The 
-          data for AK, PRUSVI, and HI will be released late summer 2025.
-          Possible values: 'CONUS, AK'
+          This LCMS version covers the conterminous United States, Alaska, 
+          Puerto Rico-US Virgin Islands, and Hawaii.
+          Possible values: 'CONUS, AK, PRUSVI, HAWAII'
         |||,
         type: ee_const.var_type.string,
       },

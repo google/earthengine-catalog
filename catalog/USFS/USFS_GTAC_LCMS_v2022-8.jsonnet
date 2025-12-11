@@ -53,7 +53,7 @@ local license = spdx.proprietary;
     components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
 
     For CCDC, United States Geological Survey (USGS) Collection 2 Landsat Tier 1 surface reflectance
-    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK, PRUSVI 
+    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK, PRUSVI
     and HI. To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
@@ -157,10 +157,10 @@ local license = spdx.proprietary;
     * **Weiss, A.D., 2001.**
     Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
     San Diego, CAZhu, Z., and Woodcock, C. E. (2012).
-    Object-based cloud and cloud shadow detection in Landsat imagery. 
+    Object-based cloud and cloud shadow detection in Landsat imagery.
     118: 83-94
 
-    * **Zhu, Z., and Woodcock, C. E., 2012.**. 
+    * **Zhu, Z., and Woodcock, C. E., 2012.**
     Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
     Environment. *Science Direct*,
     118: 83-94
@@ -201,11 +201,11 @@ local license = spdx.proprietary;
                     '1985-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
-      { 
+      {
         name: 'study_area',
         description: |||
-          LCMS currently covers the conterminous United States, Southeastern Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
+          LCMS currently covers the conterminous United States, Southeastern Alaska,
+          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across
           conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, and Hawaii.
           Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,

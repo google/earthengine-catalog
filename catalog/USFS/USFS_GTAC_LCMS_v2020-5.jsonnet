@@ -30,7 +30,7 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
-    It shows LCMS-modeled change, land cover, and/or land use classes for each year. This 
+    It shows LCMS-modeled change, land cover, and/or land use classes for each year. This
     LCMS version covers the conterminous United States (CONUS) and Southeastern Alaska (SEAK).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
@@ -134,7 +134,9 @@ local license = spdx.proprietary;
 
     * **Weiss, A.D., 2001.**
     Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
-    San Diego, CAZhu, Z., and Woodcock, C. E. (2012).
+    San Diego, CA.
+
+    * **Zhu, Z., and Woodcock, C. E. (2012).**
     Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
     Environment. *Science Direct*,
     118: 83-94

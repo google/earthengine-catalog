@@ -30,8 +30,8 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year that
-    covers the Conterminous United States (CONUS) and areas outside the CONUS (OCONUS) that 
-    include Southeastern Alaska (SEAK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). 
+    covers the Conterminous United States (CONUS) and areas outside the CONUS (OCONUS) that
+    include Southeastern Alaska (SEAK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -54,12 +54,12 @@ local license = spdx.proprietary;
     components are all accessed and processed using Google Earth Engine (Gorelick et al., 2017).
 
     For CCDC, United States Geological Survey (USGS) Collection 2 Landsat Tier 1 surface reflectance
-    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK, PRUSVI 
+    data were used for the CONUS, and Landsat Tier 1 top of atmosphere reflectance data for SEAK, PRUSVI
     and HI. To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
     2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), s2cloudless
-    (Sentinel-Hub, 2021) and Cloud Score plus (Pasquarella et al., 2023) (Sentinel 2-only) are 
+    (Sentinel-Hub, 2021) and Cloud Score plus (Pasquarella et al., 2023) (Sentinel 2-only) are
     used to mask clouds, while TDOM (Chastain et al., 2019) is used to mask cloud shadows (Landsat and Sentinel
     2). For LandTrendr, the annual medoid is then computed to summarize cloud
     and cloud shadow-free values from each year into a single composite.
@@ -80,11 +80,11 @@ local license = spdx.proprietary;
     Reference data are collected using TimeSync, a web-based tool that helps
     analysts visualize and interpret the Landsat data record from 1984-present (Cohen et al., 2010).
 
-    Random Forests models (Breiman, 2001) were trained using reference data from TimeSync and predictor data 
-    from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes. 
-    Following modeling, we instituted a series of probability thresholds and rulesets using ancillary datasets 
-    to improve qualitative map outputs and reduce commission and omission. More information can be found in 
-    the LCMS Methods Brief included in the Description. 
+    Random Forests models (Breiman, 2001) were trained using reference data from TimeSync and predictor data
+    from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes.
+    Following modeling, we instituted a series of probability thresholds and rulesets using ancillary datasets
+    to improve qualitative map outputs and reduce commission and omission. More information can be found in
+    the LCMS Methods Brief included in the Description.
 
     **Additional Resources**
 
@@ -100,7 +100,7 @@ local license = spdx.proprietary;
 
     * The CONUS land use product was updated on July 2nd 2024, to correct an issue with the developed class.
 
-    * PRUSVI and HI data were released October 1st 2024. 
+    * PRUSVI and HI data were released October 1st 2024.
 
     Contact [sm.fs.lcms@usda.gov] with any
     questions or specific data requests.
@@ -130,12 +130,12 @@ local license = spdx.proprietary;
                     '1985-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
-      { 
+      {
         name: 'study_area',
         description: |||
-          LCMS currently covers the conterminous United States, Southeastern Alaska, 
-          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across 
-          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands, 
+          LCMS currently covers the conterminous United States, Southeastern Alaska,
+          Puerto Rico-US Virgin Islands, and Hawaii. This version contains outputs across
+          conterminous United States, Southeastern Alaska, Puerto Rico-US Virgin Islands,
           and Hawaii.
           Possible values: 'CONUS, SEAK, PRUSVI, HI'
         |||,
@@ -158,8 +158,8 @@ local license = spdx.proprietary;
           that the pixel belongs to that class. Because of this, individual pixels have three different
           model outputs for each year. Final classes are assigned to the change class with the highest
           probability that is also above a specified threshold. Any pixel that does not have any value
-          above each class's respective threshold is assigned to the Stable class. Prior to assigning the 
-          change class, a rule was applied to all study areas to prevent change in non-vegetated land cover. 
+          above each class's respective threshold is assigned to the Stable class. Prior to assigning the
+          change class, a rule was applied to all study areas to prevent change in non-vegetated land cover.
         |||,
         'gee:classes': [
           {
@@ -197,12 +197,12 @@ local license = spdx.proprietary;
           imagery. Each class is predicted using a separate Random Forest model, which outputs a
           probability (proportion of the trees within the Random Forest model) that the pixel belongs
           to that class. Because of this, individual pixels have 14 different model outputs for each
-          year, and final classes are assigned to the land cover with the highest probability. For Southeastern 
-          Alaska, prior to assigning the land cover class with the highest probability, a land cover rule was 
-          implemented to limit tree and snow landcover class commission in the large intertidal zones at sea level. 
-          No land cover rules were applied to CONUS, Puerto Rico-US Virgin Islands or Hawaii. Seven of the 14 land 
-          cover classes indicate a single land cover, where that land cover type covers most of the pixel's area and 
-          no other class covers more than 10% of the pixel. There are also seven mixed classes. These represent pixels 
+          year, and final classes are assigned to the land cover with the highest probability. For Southeastern
+          Alaska, prior to assigning the land cover class with the highest probability, a land cover rule was
+          implemented to limit tree and snow landcover class commission in the large intertidal zones at sea level.
+          No land cover rules were applied to CONUS, Puerto Rico-US Virgin Islands or Hawaii. Seven of the 14 land
+          cover classes indicate a single land cover, where that land cover type covers most of the pixel's area and
+          no other class covers more than 10% of the pixel. There are also seven mixed classes. These represent pixels
           in which an additional land cover class covers at least 10% of the pixel.
         |||,
         'gee:classes': [
@@ -291,11 +291,11 @@ local license = spdx.proprietary;
           Each class is predicted using a separate Random Forest model, which outputs a probability
           (proportion of the trees within the Random Forest model) that the pixel belongs to that class.
           Because of this, individual pixels have 6 different model outputs for each year, and final
-          classes are assigned to the land use with the highest probability. Prior to assigning the land 
-          use class with the highest probability, a series of probability thresholds and rulesets using 
-          ancillary datasets land use rules were applied. More information on the probability thresholds 
-          and rulesets can be found in the LCMS Methods Brief included in the Description. The CONUS land use 
-          product was updated on July 2nd 2024, to correct an issue with the developed class.  
+          classes are assigned to the land use with the highest probability. Prior to assigning the land
+          use class with the highest probability, a series of probability thresholds and rulesets using
+          ancillary datasets land use rules were applied. More information on the probability thresholds
+          and rulesets can be found in the LCMS Methods Brief included in the Description. The CONUS land use
+          product was updated on July 2nd 2024, to correct an issue with the developed class.
         |||,
         'gee:classes': [
           {
@@ -749,8 +749,8 @@ local license = spdx.proprietary;
     {
       citation: |||
         Chastain, R., Housman, I., Goldstein, J., Finco, M., and Tenneson, K., 2019.
-        Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI, 
-        and Landsat-7 ETM top of atmosphere spectral characteristics over the 
+        Empirical cross sensor comparison of Sentinel-2A and 2B MSI, Landsat-8 OLI,
+        and Landsat-7 ETM top of atmosphere spectral characteristics over the
         conterminous United States. In Remote Sensing of Environment. Science Direct,
         221: 274-285. [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
       |||,
@@ -758,8 +758,8 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Cohen, W. B., Yang, Z., and Kennedy, R., 2010. Detecting trends in forest 
-        disturbance and recovery using yearly Landsat time series: 2. TimeSync - 
+        Cohen, W. B., Yang, Z., and Kennedy, R., 2010. Detecting trends in forest
+        disturbance and recovery using yearly Landsat time series: 2. TimeSync -
         Tools for calibration and validation. In Remote Sensing of Environment.
         Science Direct, 114(12): 2911-2924. [doi:10.1016/j.rse.2010.07.010]
         (https://doi.org/10.1016/j.rse.2010.07.010)
@@ -768,8 +768,8 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N., 
-        2018. A LandTrendr multispectral ensemble for forest disturbance detection. 
+        Cohen, W. B., Yang, Z., Healey, S. P., Kennedy, R. E., and Gorelick, N.,
+        2018. A LandTrendr multispectral ensemble for forest disturbance detection.
         In Remote Sensing of Environment. Science Direct, 205: 131-140.
         [doi:10.1016/j.rse.2017.11.015](https://doi.org/10.1016/j.rse.2017.11.015)
       |||,
@@ -788,7 +788,7 @@ local license = spdx.proprietary;
     {
       citation: |||
         U.S. Geological Survey, 2019. USGS 3D Elevation Program Digital Elevation
-        Model, accessed August 2022 at 
+        Model, accessed August 2022 at
         https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m
       |||,
     },
@@ -797,8 +797,8 @@ local license = spdx.proprietary;
         Healey, S. P., Cohen, W. B., Yang, Z., Kenneth Brewer, C., Brooks, E. B.,
         Gorelick, N., Hernandez, A. J., Huang, C., Joseph Hughes, M., Kennedy,
         R. E., Loveland, T. R., Moisen, G. G., Schroeder, T. A., Stehman, S. V.,
-        Vogelmann, J. E., Woodcock, C. E., Yang, L., and Zhu, Z., 2018. Mapping 
-        forest change using stacked generalization: An ensemble approach. In 
+        Vogelmann, J. E., Woodcock, C. E., Yang, L., and Zhu, Z., 2018. Mapping
+        forest change using stacked generalization: An ensemble approach. In
         Remote Sensing of Environment. Science Direct, 204: 717-728.
         [doi:10.1016/j.rse.2017.09.029](https://doi.org/10.1016/j.rse.2017.09.029)
       |||,
@@ -806,9 +806,9 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010. Detecting trends 
-        in forest disturbance and recovery using yearly Landsat time series: 1. 
-        LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment. 
+        Kennedy, R. E., Yang, Z., and Cohen, W. B., 2010. Detecting trends
+        in forest disturbance and recovery using yearly Landsat time series: 1.
+        LandTrendr - Temporal segmentation algorithms. In Remote Sensing of Environment.
         Science Direct, 114(12): 2897-2910. [doi:10.1016/j.rse.2010.07.008]
         (https://doi.org/10.1016/j.rse.2010.07.008)
       |||,
@@ -816,8 +816,8 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L., 
-        Cohen, W., and Healey, S. 2018. Implementation of the LandTrendr 
+        Kennedy, R., Yang, Z., Gorelick, N., Braaten, J., Cavalcante, L.,
+        Cohen, W., and Healey, S. 2018. Implementation of the LandTrendr
         Algorithm on Google Earth Engine. In Remote Sensing. MDPI,
         10(5): 691. [doi:10.3390/rs10050691](https://doi.org/10.3390/rs10050691)
       |||,
@@ -826,23 +826,24 @@ local license = spdx.proprietary;
     {
       citation: |||
         Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J.,
-        2023. Comprehensive Quality Assessment of Optical Satellite Imagery Using 
-        Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
-        on Computer Vision and Pattern Recognition. 2124-2134.
+        2023. Comprehensive Quality Assessment of Optical Satellite Imagery Using
+        Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference
+        on Computer Vision and Pattern Recognition. 2125-2135.
+        [doi:10.1109/CVPRW59228.2023.00206](https://doi.org/10.1109/CVPRW59228.2023.00206)
       |||,
-      doi:'10.3390/rs10050691',
+      doi: '10.1109/CVPRW59228.2023.00206',
     },
     {
       citation: |||
-        Sentinel-Hub, 2021. Sentinel 2 Cloud Detector. [Online]. Available at: 
+        Sentinel-Hub, 2021. Sentinel 2 Cloud Detector. [Online]. Available at:
         [https://github.com/sentinel-hub/sentinel2-cloud-detector](https://github.com/sentinel-hub/sentinel2-cloud-detector)
       |||,
     },
     {
       citation: |||
-        Weiss, A.D., 2001. Topographic position and landforms analysis 
-        Poster Presentation, ESRI Users Conference, San Diego, CAZhu, Z., 
-        and Woodcock, C. E. 2012. Object-based cloud and cloud shadow 
+        Weiss, A.D., 2001. Topographic position and landforms analysis
+        Poster Presentation, ESRI Users Conference, San Diego, CAZhu, Z.,
+        and Woodcock, C. E. 2012. Object-based cloud and cloud shadow
         detection in Landsat imagery. 118: 83-94.
       |||,
     },
@@ -856,7 +857,7 @@ local license = spdx.proprietary;
     },
     {
       citation: |||
-        Zhu, Z., and Woodcock, C. E., 2014. Continuous change detection 
+        Zhu, Z., and Woodcock, C. E., 2014. Continuous change detection
         and classification of land cover using all available Landsat data.
         In Remote Sensing of Environment. Science Direct, 144: 152-171.
         [doi:10.1016/j.rse.2014.01.011](https://doi.org/10.1016/j.rse.2014.01.011)

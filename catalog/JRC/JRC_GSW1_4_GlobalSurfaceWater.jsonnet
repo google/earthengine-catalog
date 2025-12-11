@@ -30,6 +30,11 @@ local license = spdx.proprietary;
     It maps different facets of the spatial and temporal distribution of
     surface water over the last 38 years. Areas where water has
     never been detected are masked.
+
+    **Note:**: the mask value for the occurrence band is equal to the band
+    value. That is, if the occurrence band is 0.5, the mask is also 0.5,
+    so the dataset is double-counting the partial occurrence.
+    This is probably not the intuitively expected behavior.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) +

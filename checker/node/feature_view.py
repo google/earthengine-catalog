@@ -1,7 +1,7 @@
 """Checks for gee feature_views.
 
 gee:feature_view_ingestion_params triggers generation of a FeatureView for
-an EarthEngine table dataset.
+an Earth Engine table dataset.
 
 The requirements and specification are:
 

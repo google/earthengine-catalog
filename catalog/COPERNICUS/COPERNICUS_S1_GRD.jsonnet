@@ -55,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of the 'geolocationGridPoint' gridded field provided with each asset.
 
     Each scene was pre-processed with
-    [Sentinel-1 Toolbox](https://sentinel.esa.int/web/sentinel/toolboxes/sentinel-1)
+    [Sentinel-1 Toolbox](https://earth.esa.int/eogateway/tools/sentinel-1-toolbox)
     using the following steps:
 
       1. Thermal noise removal
@@ -91,7 +91,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sentinel',
   ],
   providers: [
-    ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/'),
+    ee.producer_provider('European Union/ESA/Copernicus', 'https://docs.sentinel-hub.com/api/latest/data/sentinel-1-grd/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-10-03T00:00:00Z', null),
@@ -248,9 +248,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'instrumentMode',
         description: |||
-          IW ([Interferometric Wide Swath](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes/interferometric-wide-swath)),
-          EW ([Extra Wide Swath](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes/extra-wide-swath))
-          or SM ([Strip Map](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-1-sar/acquisition-modes/stripmap))
+          IW (Interferometric Wide Swath), SM (Strip Map), or EW (Extra Wide Swath).
+          See [product details](https://sentiwiki.copernicus.eu/web/s1-products).
         |||,
         type: ee_const.var_type.string,
       },
@@ -510,6 +509,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:terms_of_use': |||
     The use of Sentinel data is governed by the [Copernicus
-    Sentinel Data Terms and Conditions.](https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf)
+    Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice))
   |||,
 }
