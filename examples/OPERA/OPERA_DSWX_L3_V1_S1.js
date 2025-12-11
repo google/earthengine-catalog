@@ -1,0 +1,41 @@
+Map.setCenter(13.1921, 55.7069, 10);
+var dswx_s1_collection = ee.ImageCollection('OPERA/DSWX/L3_V1/S1')
+                 .filterDate('2025-03-01', '2025-10-01');
+
+// Mask out values >= 252 before calculating the mode we don't
+// want to have clouds or snow/ice be included.
+var masked_collection = dswx_s1_collection.map(function(image) {
+  var wtr = image.select('WTR_Water_classification');
+  return wtr.updateMask(wtr.lt(252));
+});
+
+var dswx_s1 = masked_collection
+  .reduce(ee.Reducer.max())
+  .rename('WTR_Water_classification');
+
+var wtr_class_values = [
+  0,    // Not water
+  1,    // Open water
+  2,    //Partial surface water
+  252,  // Snow/ice
+  253,  // Cloud/cloud shadow
+  254   // Ocean masked
+];
+
+var wtr_palette = [
+  'ffffff',  // Not water
+  '0000ff',  // Open water
+  '0088ff',  // Partial surface water
+  'f2f2f2',  // Snow/ice
+  'dfdfdf',  // Cloud/cloud shadow
+  'da00ff',  // Ocean masked
+];
+
+// Select the water classification band and remap to make have palette vis.
+var wtr_band = dswx_s1.select('WTR_Water_classification');
+var to = [0, 1, 2, 3, 4, 5];
+var wtr_remapped = wtr_band.remap(wtr_class_values, to);
+
+Map.addLayer(
+    wtr_remapped,
+    {min: 0, max: 5, palette: wtr_palette}, 'Water Classification (Remapped)');
