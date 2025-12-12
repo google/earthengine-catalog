@@ -88,6 +88,12 @@ documentation: |||
 
     * [Copernicus Marine Datastore](https://data.marine.copernicus.eu/products)
 
+   NOTE: The provider may remove Copernicus Marine data (especially Near
+    Real-Time, NRT, observations) from their repository after some time,
+    possibly aggregating that data into different (e.g., monthly) products.
+    However, the corresponding assets remain available in the Earth Engine
+    collection.
+
 |||,
 citation: |||
   Copernicus Global Ocean Colour:  Global Ocean Satellite Observations,
