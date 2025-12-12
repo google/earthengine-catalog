@@ -22,6 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Overture Maps - Places: Place',
   version: 'latest',
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.bigquery_table,
   'gee:bq_table_name': 'bigquery-public-data.overture_maps.place',
   description: |||
@@ -37,10 +38,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset is part of the Overture Maps Foundation's collaborative
     effort to develop interoperable open map data. The data is released
     monthly and always reflects the most recent release.
-
-    Overture data is accessible in Google BigQuery as part of the Google
-    Cloud Public Dataset Program, with the data being listed and maintained
-    by CARTO.
 
     Data source: [Overture Maps Foundation](https://overturemaps.org/)
 
@@ -62,6 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'global',
     'map',
+    'population',
     'urban',
   ],
   providers: [
@@ -79,11 +77,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   summaries: {
     'gee:schema': [
       {
-        name: 'geoid',
-        description: |||
-          A feature ID. This may be an ID associated with the Global Entity
-          Reference System (GERS).
-        |||,
+        name: 'addresses',
+        description: 'The addresses of the place. RECORD type.',
         type: ee_const.var_type.string,
       },
       {
@@ -95,26 +90,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'names',
+        name: 'brand',
         description: |||
-          The names used when referring to a feature. The first entry must
-          have language of 'local'. RECORD type with nested name entries.
-        |||,
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'version',
-        description: |||
-          Version number of the feature, incremented in each Overture release
-          where geometry or attributes changed.
-        |||,
-        type: ee_const.var_type.int,
-      },
-      {
-        name: 'sources',
-        description: |||
-          Array of source information for properties of a given feature,
-          listing property in JSON Pointer notation. RECORD type.
+          The brand of the place. Locations with multiple brands are
+          considered as separate places. RECORD type.
         |||,
         type: ee_const.var_type.string,
       },
@@ -135,36 +114,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.double,
       },
       {
-        name: 'websites',
-        description: 'The websites of the place. RECORD type.',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'socials',
-        description: 'The social media URLs of the place. RECORD type.',
-        type: ee_const.var_type.string,
-      },
-      {
         name: 'emails',
         description: 'The email addresses of the place. RECORD type.',
         type: ee_const.var_type.string,
       },
       {
-        name: 'phones',
-        description: 'The phone numbers of the place. RECORD type.',
-        type: ee_const.var_type.string,
+        name: 'geometry',
+        description: 'Point geometry in WGS84 (EPSG:4326).',
+        type: ee_const.var_type.geometry,
       },
       {
-        name: 'brand',
+        name: 'id',
         description: |||
-          The brand of the place. Locations with multiple brands are
-          considered as separate places. RECORD type.
+          A feature ID. This may be an ID associated with the Global Entity
+          Reference System (GERS).
         |||,
         type: ee_const.var_type.string,
       },
       {
-        name: 'addresses',
-        description: 'The addresses of the place. RECORD type.',
+        name: 'names',
+        description: |||
+          The names used when referring to a feature. The first entry must
+          have language of 'local'. RECORD type with nested name entries.
+        |||,
         type: ee_const.var_type.string,
       },
       {
@@ -176,9 +148,35 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'geometry',
-        description: 'Point geometry in WGS84 (EPSG:4326).',
-        type: ee_const.var_type.geometry,
+        name: 'phones',
+        description: 'The phone numbers of the place. RECORD type.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'socials',
+        description: 'The social media URLs of the place. RECORD type.',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'sources',
+        description: |||
+          Array of source information for properties of a given feature,
+          listing property in JSON Pointer notation. RECORD type.
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'version',
+        description: |||
+          Version number of the feature, incremented in each Overture release
+          where geometry or attributes changed.
+        |||,
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'websites',
+        description: 'The websites of the place. RECORD type.',
+        type: ee_const.var_type.string,
       },
     ],
     'gee:visualizations': [
