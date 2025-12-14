@@ -78,32 +78,42 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       {
         name: 'addresses',
-        description: 'The addresses of the place. RECORD type.',
-        type: ee_const.var_type.string,
+        description: |||
+          The addresses of the place. Array of address records, each containing:
+          freeform (street address text), locality (city/town name), postcode,
+          region (administrative region code, e.g., "US-NY"), and country
+          (ISO country code, e.g., "US").
+        |||,
+        type: ee_const.var_type.record_list,
       },
       {
         name: 'bbox',
         description: |||
-          Bounding box defined by two longitudes and two latitudes.
-          RECORD type with fields: xmin, xmax, ymin, ymax.
+          Bounding box of the feature geometry. Record with fields: xmin
+          (minimum longitude), xmax (maximum longitude), ymin (minimum
+          latitude), ymax (maximum latitude).
         |||,
-        type: ee_const.var_type.string,
+        type: ee_const.var_type.record,
       },
       {
         name: 'brand',
         description: |||
-          The brand of the place. Locations with multiple brands are
-          considered as separate places. RECORD type.
+          The brand of the place. Record containing: names (brand name
+          container with primary and common names) and wikidata (Wikidata
+          identifier for the brand). Places with multiple brands are
+          represented as separate place entries.
         |||,
-        type: ee_const.var_type.string,
+        type: ee_const.var_type.record,
       },
       {
         name: 'categories',
         description: |||
-          The categories of the place. Complete list available on GitHub.
-          RECORD type with primary and alternate categories.
+          The categories of the place. Record containing: primary (the main
+          category of the place) and alternate (array of additional applicable
+          categories). Complete list available on
+          [GitHub](https://github.com/OvertureMaps/schema/blob/main/docs/schema/concepts/by-theme/places/overture_categories.csv).
         |||,
-        type: ee_const.var_type.string,
+        type: ee_const.var_type.record,
       },
       {
         name: 'confidence',
@@ -115,8 +125,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'emails',
-        description: 'The email addresses of the place. RECORD type.',
-        type: ee_const.var_type.string,
+        description: |||
+          The email addresses associated with the place. Array of records
+          containing email address strings.
+        |||,
+        type: ee_const.var_type.record_list,
       },
       {
         name: 'geometry',
@@ -134,10 +147,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'names',
         description: |||
-          The names used when referring to a feature. The first entry must
-          have language of 'local'. RECORD type with nested name entries.
+          The names of the place. Record containing: primary (main name),
+          common (translations by language code, e.g., "es" for Spanish),
+          and rules (array of naming variants such as short forms or
+          abbreviations).
         |||,
-        type: ee_const.var_type.string,
+        type: ee_const.var_type.record,
       },
       {
         name: 'operating_status',
@@ -149,21 +164,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'phones',
-        description: 'The phone numbers of the place. RECORD type.',
-        type: ee_const.var_type.string,
+        description: |||
+          The phone numbers associated with the place. Array of records
+          containing phone number strings.
+        |||,
+        type: ee_const.var_type.record_list,
       },
       {
         name: 'socials',
-        description: 'The social media URLs of the place. RECORD type.',
-        type: ee_const.var_type.string,
+        description: |||
+          The social media profiles of the place. Array of records containing
+          URLs to social media pages.
+        |||,
+        type: ee_const.var_type.record_list,
       },
       {
         name: 'sources',
         description: |||
-          Array of source information for properties of a given feature,
-          listing property in JSON Pointer notation. RECORD type.
+          Source attribution for the feature properties. Array of records,
+          each containing: property (property name in JSON Pointer notation),
+          dataset (source dataset name), and record_id (identifier in the
+          source dataset).
         |||,
-        type: ee_const.var_type.string,
+        type: ee_const.var_type.record_list,
       },
       {
         name: 'version',
@@ -175,8 +198,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'websites',
-        description: 'The websites of the place. RECORD type.',
-        type: ee_const.var_type.string,
+        description: |||
+          The websites associated with the place. Array of records containing
+          URLs to the place's websites.
+        |||,
+        type: ee_const.var_type.record_list,
       },
     ],
     'gee:visualizations': [
