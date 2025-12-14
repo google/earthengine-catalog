@@ -25,6 +25,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_2001_2022', base_url),
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_1_2001_2023', base_url),
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_2_2001_2024', base_url),
+    ee.link.child_collection('projects_landandcarbon_assets_wvsc_latam_v1', base_url),	
   ]
 } 
 
