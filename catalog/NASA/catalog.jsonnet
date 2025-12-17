@@ -20,6 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
 
     ee.link.child_collection('NASA_ASTER_GED_AG100_003', base_url),
+    ee.link.child_collection('NASA_ECOSTRESS_L2T_LSTE_V2', base_url),
     ee.link.child_collection('NASA_ECOSTRESS_L2T_STARS_V2', base_url),
     ee.link.child_collection('NASA_EMIT_L2B_CH4ENH', base_url),
     ee.link.child_collection('NASA_EMIT_L2B_CH4PLM', base_url),
