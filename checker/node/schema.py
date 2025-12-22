@@ -59,6 +59,7 @@ MAX_UNIT_SIZE = 20
 
 
 class SchemaType(str, enum.Enum):
+  """Enum for field types."""
   DOUBLE = 'DOUBLE'
   GEOMETRY = 'GEOMETRY'
   INT = 'INT'
@@ -67,6 +68,8 @@ class SchemaType(str, enum.Enum):
   STRING_LIST = 'STRING_LIST'
   DOUBLE_LIST = 'DOUBLE_LIST'
   DATETIME = 'DATETIME'
+  RECORD = 'RECORD'
+  RECORD_LIST = 'RECORD_LIST'
   PROPERTY_TYPE_UNSPECIFIED = 'PROPERTY_TYPE_UNSPECIFIED'  # No longer allowed
   UNKNOWN = 'not a valid schema'  # For bad values.
 
@@ -116,6 +119,15 @@ class Check(stac.NodeCheck):
 
         if schema_type == SchemaType.UNKNOWN:
           yield cls.new_issue(node, f'Schema type unknown: "{entry_type}"')
+
+        if (
+            schema_type in (SchemaType.RECORD, SchemaType.RECORD_LIST)
+            and node.stac.get('gee:type') != 'bigquery_table'
+        ):
+          yield cls.new_issue(
+              node,
+              f'Schema type "{entry_type}" only allowed for bigquery_table',
+          )
 
         if schema_type == SchemaType.STRING and UNITS in entry:
           yield cls.new_issue(node, 'Units not allowed for a string type')

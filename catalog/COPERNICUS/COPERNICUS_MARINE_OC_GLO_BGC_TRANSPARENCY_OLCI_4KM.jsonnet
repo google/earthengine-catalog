@@ -37,7 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Copernicus', 'https://doi.org/10.48670/moi-00279'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2023-04-01T00:00:00Z', null),
+  extent: ee.extent_global('2025-03-01T00:00:00Z', null),
   summaries: {
     gsd: [
       4000.0,

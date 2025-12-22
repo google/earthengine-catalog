@@ -288,6 +288,62 @@ class ErrorSchemaTest(test_utils.NodeTest):
              'units': 'bogus'}]}},
         'Schema units unknown: bogus')
 
+  def test_valid_record(self):
+    self.assert_collection(
+        {
+            'gee:type': 'bigquery_table',
+            'summaries': {
+                'gee:schema': [
+                    {'description': 'A thing', 'name': 'ab', 'type': 'RECORD'}
+                ]
+            },
+        },
+        gee_type=stac.GeeType.BIGQUERY_TABLE,
+    )
+
+  def test_valid_record_list(self):
+    self.assert_collection(
+        {
+            'gee:type': 'bigquery_table',
+            'summaries': {
+                'gee:schema': [{
+                    'description': 'A thing',
+                    'name': 'ab',
+                    'type': 'RECORD_LIST',
+                }]
+            },
+        },
+        gee_type=stac.GeeType.BIGQUERY_TABLE,
+    )
+
+  def test_invalid_record_for_image(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'gee:schema': [
+                    {'description': 'A thing', 'name': 'ab', 'type': 'RECORD'}
+                ]
+            }
+        },
+        'Schema type "RECORD" only allowed for bigquery_table',
+        gee_type=stac.GeeType.IMAGE,
+    )
+
+  def test_invalid_record_list_for_image(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'gee:schema': [{
+                    'description': 'A thing',
+                    'name': 'ab',
+                    'type': 'RECORD_LIST',
+                }]
+            }
+        },
+        'Schema type "RECORD_LIST" only allowed for bigquery_table',
+        gee_type=stac.GeeType.IMAGE,
+    )
+
 
 if __name__ == '__main__':
   absltest.main()
