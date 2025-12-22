@@ -58,6 +58,10 @@ MIN_UNIT_SIZE = 1
 MAX_UNIT_SIZE = 20
 
 
+
+# copybara:strip_begin(internal)
+# LINT.IfChange(SchemaType_enum)
+# copybara:strip_end
 class SchemaType(str, enum.Enum):
   """Enum for field types."""
   DOUBLE = 'DOUBLE'
@@ -72,6 +76,9 @@ class SchemaType(str, enum.Enum):
   RECORD_LIST = 'RECORD_LIST'
   PROPERTY_TYPE_UNSPECIFIED = 'PROPERTY_TYPE_UNSPECIFIED'  # No longer allowed
   UNKNOWN = 'not a valid schema'  # For bad values.
+# copybara:strip_begin(internal)
+# LINT.ThenChange(//depot/google3/geo/gestalt/proto/dataset.proto:PropertyType_enum)
+# copybara:strip_end
 
 
 class Check(stac.NodeCheck):
