@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CHIRPS Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
+  title: 'CHIRPS Precipitation Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
