@@ -53,7 +53,7 @@ local license = spdx.proprietary;
   providers: [
     ee.producer_provider(
       'United States Department of State, Office of the Geographer',
-      'https://geonode.state.gov/layers/catalog:geonode:LSIB'),
+      'https://geonode.org/'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2017-12-29T00:00:00Z', '2017-12-29T00:00:00Z'),
