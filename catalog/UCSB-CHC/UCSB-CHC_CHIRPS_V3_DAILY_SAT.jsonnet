@@ -1,5 +1,5 @@
-local id = 'UCSB-CHG/CHIRPS/DAILY';
-local subdir = 'UCSB-CHG';
+local id = 'UCSB-CHC/CHIRPS/V3/DAILY_SAT';
+local subdir = 'UCSB-CHC';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -21,21 +21,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CHIRPS Precipitation Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
-  version: '2.0',
+  title: 'CHIRPS Precipitation Daily Near-Real-Time: Climate Hazards Center InfraRed Precipitation With Station Data (Version 3.0, IMERG-based)',
+  version: '3.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Climate Hazards Center InfraRed Precipitation with Station data (CHIRPS)
-    is a 30+ year quasi-global rainfall dataset. CHIRPS incorporates
-    0.05° resolution satellite imagery with in-situ station data
-    to create gridded rainfall time series for trend analysis and seasonal
-    drought monitoring.
+    The Climate Hazards Center Infrared Precipitation with Stations (CHIRPS v3)
+    is a 40+ year, high-resolution quasi-global rainfall dataset. It spans
+    60&deg;N to 60&deg;S and covers all longitudes, providing data from 1981 to
+    near-present. CHIRPS v3 combines satellite-based thermal infrared rainfall
+    estimates with in-situ station observations to produce a 0.05&deg; gridded
+    rainfall time series over land. This is version 3.0 of the dataset, for more
+    information see [the CHC page](https://www.chc.ucsb.edu/data/chirps3).
+
+    CHIRPS is fundamentally a pentad and monthly product from which other
+    time steps are derived. This daily dataset ('sat') uses daily precipitation
+    from the NASA IMERG Late V07 data product (IMERG) to partition pentadal
+    CHIRPS-v3 precipitation totals into daily amounts.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['precipitation'],
   keywords: [
-    'chg',
+    'chc',
     'climate',
     'geophysical',
     'precipitation',
@@ -43,11 +50,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'weather',
   ],
   providers: [
-    ee.producer_provider('UCSB/CHG', 'https://chc.ucsb.edu/data/chirps'),
+    ee.producer_provider('UCSB/CHC', 'https://www.chc.ucsb.edu/data/chirps3'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -50.0, 180.0, 50.0, '1981-01-01T00:00:00Z', null),
+  extent: ee.extent(-180.0, -60.0, 180.0, 60.0, '1981-01-01T00:00:00Z', null),
   summaries: {
+    'gee:schema': [
+      {
+        name: 'year',
+        description: 'Year',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'month',
+        description: 'Month',
+        type: ee_const.var_type.double,
+      },
+      {
+        name: 'day',
+        description: 'Day',
+        type: ee_const.var_type.double,
+      },
+    ],
     gsd: [
       5566.0,
     ],
@@ -78,8 +102,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '001137',
               '0aab1e',
               'e7eb05',
-              'ff4a2d',
-              'e90000',
+              '2c7fb8',
+              '253494',
             ],
             bands: [
               'precipitation',
@@ -95,12 +119,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     },
   },
   'sci:citation': |||
-    Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James
-    Verdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison,
-    Andrew Hoell & Joel Michaelsen. "The climate hazards infrared precipitation
-    with stations-a new environmental record for monitoring extremes".
-    Scientific Data 2, 150066. [doi:10.1038/sdata.2015.66](https://doi.org/10.1038/sdata.2015.66)
-    2015.
+    Climate Hazards Center Infrared Precipitation with Stations version 3.
+    CHIRPS3 Data Repository [doi:10.15780/G2JQ0P](https://doi.org/10.15780/G2JQ0P) (2025).
   |||,
   'gee:interval': {
     type: 'cadence',

@@ -49,7 +49,6 @@ EXCEPTIONS = frozenset({
     'cdem',
     'cdl',
     'cgiar',
-    'chc',
     'change',
     'china',
     'chip',
