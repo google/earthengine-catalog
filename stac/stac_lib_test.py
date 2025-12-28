@@ -4,7 +4,7 @@ import copy
 import pathlib
 import unittest
 
-from absl.testing import absltest
+from absl.testing import parameterized
 import iso8601
 
 from stac import bboxes
@@ -71,7 +71,7 @@ def _valid_stac():
   return copy.deepcopy(VALID_STAC)
 
 
-class CollectionTest(absltest.TestCase):
+class CollectionTest(parameterized.TestCase):
 
   def test_get_attribute(self):
     collection_id = 'a/b/c'
@@ -573,6 +573,21 @@ class CollectionTest(absltest.TestCase):
 
     self.assertEqual(providers, expected_providers)
 
+  @parameterized.named_parameters(
+      ('instruments', 'instruments', ['i1', 'i2']),
+      ('platforms', 'platforms', ['p1', 'p2']),
+      (
+          'file_links',
+          'file_links',
+          ['https://example.com/a.tar.xz', 'https://example.com/b.zip'],
+      ),
+  )
+  def test_providers_attributes(self, attribute_name, expected_value):
+    stac_json = _valid_stac()
+    collection = stac.Collection(stac_json)
+    providers = list(collection.providers())
+    self.assertEqual(expected_value, getattr(providers[0], attribute_name))
+
   def test_providers_empty_providers_list(self):
     stac_json = _valid_stac()
     stac_json.update({'providers': []})
@@ -603,6 +618,33 @@ class CollectionTest(absltest.TestCase):
         ),
     ]
     self.assertEqual(providers, expected_providers)
+
+  def test_schemas(self):
+    stac_json = _valid_stac()
+    stac_json['summaries'].update({
+        'gee:schema': [
+            {'name': 'prop1', 'description': 'prop desc', 'type': 'DOUBLE'},
+            {'name': 'prop2', 'description': 'prop desc2', 'type': 'STRING'},
+        ],
+        'prop1': {
+            'gee:estimated_range': True,
+            'minimum': -5.6,
+            'maximum': 7.8,
+        },
+    })
+    collection = stac.Collection(stac_json)
+    schemas = collection.schemas()
+    self.assertLen(schemas, 2)
+    prop1 = schemas[0]
+    self.assertEqual(prop1.name, 'prop1')
+    self.assertTrue(prop1.estimated_range)
+    self.assertEqual(prop1.minimum, -5.6)
+    self.assertEqual(prop1.maximum, 7.8)
+    prop2 = schemas[1]
+    self.assertEqual(prop2.name, 'prop2')
+    self.assertIsNone(prop2.estimated_range)
+    self.assertIsNone(prop2.minimum)
+    self.assertIsNone(prop2.maximum)
 
 
 class CatalogTest(unittest.TestCase):
