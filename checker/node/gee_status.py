@@ -7,14 +7,16 @@ Requirements and specification:
 - If the field is set, its value must be one of several enum values.
 """
 
+from functools import lru_cache
+import json
 import os
 import subprocess
-import json
 from typing import Iterator
 
 from absl import logging
 from checker import stac
 
+@lru_cache(maxsize=1)
 def get_added_jsonnet_files():
     """Returns list of newly added .jsonnet files in the PR, empty list otherwise."""
     
