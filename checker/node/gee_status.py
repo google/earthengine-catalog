@@ -71,17 +71,6 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    logging.info('Added files: %s', get_added_jsonnet_files())
-    if os.environ.get('GITHUB_ACTIONS') == 'true':
-      logging.info('Running in GitHub Actions')
-    else:
-      logging.info('Running outside of GitHub Actions')
-    event_path = os.environ.get('GITHUB_EVENT_PATH')
-    if event_path:
-      logging.info('GITHUB_EVENT_PATH: %s', event_path)
-    else:
-      logging.info('No GITHUB_EVENT_PATH')
-
     if stac.GEE_STATUS in node.stac:
       if node.type == stac.StacType.CATALOG:
         yield cls.new_issue(
@@ -95,3 +84,7 @@ class Check(stac.NodeCheck):
               f'{stac.GEE_STATUS}, if set, must be one of'
               f' {sorted(stac.Status.allowed_statuses())}',
           )
+        jsonnet_suffix = node.id.replace('/', '_')
+        if field_value == stac.Status.READY:
+            github_added_files = get_added_jsonnet_files())
+            logging.info('Matching %s vs %s: %s', jsonnet_suffix, github_added_files, any(x for x in github_added_files if x.endswith('/'+jsonnet_suffix)))
