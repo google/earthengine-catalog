@@ -8,11 +8,60 @@ Requirements and specification:
 """
 
 import os
+import subprocess
+import json
 from typing import Iterator
 
 from absl import logging
 from checker import stac
 
+def get_added_jsonnet_files():
+    """Returns list of newly added .jsonnet files in the PR, empty list otherwise."""
+    
+    # Only works in GitHub Actions pull_request events
+    if os.environ.get('GITHUB_ACTIONS') != 'true':
+        return []
+    
+    if os.environ.get('GITHUB_EVENT_NAME') != 'pull_request':
+        return []  # Not a PR, skip
+    
+    # Skip for copybara sync PRs
+    if os.environ.get('GITHUB_ACTOR') == 'copybara-service[bot]':
+        return []  # Skip internal Google syncs
+    
+    # Extract PR number from GITHUB_REF (format: refs/pull/123/merge)
+    github_ref = os.environ.get('GITHUB_REF', '')
+    if not github_ref.startswith('refs/pull/'):
+        return []
+    
+    pr_number = github_ref.split('/')[2]
+    repo = os.environ.get('GITHUB_REPOSITORY')  # e.g., 'google/earthengine-catalog'
+    
+    # Call GitHub API using gh CLI
+    env = os.environ.copy()
+    env['GH_TOKEN'] = os.environ.get('GITHUB_TOKEN', '')
+    
+    result = subprocess.run(
+        ['gh', 'api', f'repos/{repo}/pulls/{pr_number}/files'],
+        capture_output=True, 
+        text=True,
+        env=env
+    )
+    
+    if result.returncode != 0:
+        logging.error(f"Failed to get PR files: {result.stderr}")
+        return []
+    
+    files = json.loads(result.stdout)
+    
+    # Filter for only ADDED .jsonnet files
+    added_jsonnet_files = [
+        f['filename'] 
+        for f in files 
+        if f['status'] == 'added' and f['filename'].endswith('.jsonnet')
+    ]
+    
+    return added_jsonnet_files
 
 class Check(stac.NodeCheck):
   """Checks for gee:status."""
@@ -20,8 +69,7 @@ class Check(stac.NodeCheck):
 
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
-    # TODO(simonf): add a github-only check that new datasets
-    # must have status 'incompete' or 'beta'
+    logging.info('Added files: %s', get_added_jsonnet_files())
     if os.environ.get('GITHUB_ACTIONS') == 'true':
       logging.info('Running in GitHub Actions')
     else:
