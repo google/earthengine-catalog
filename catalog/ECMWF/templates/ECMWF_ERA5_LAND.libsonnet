@@ -49,7 +49,7 @@ local meters_eq = 'm of water equivalent';
     'vegetation',
     'wind',
   ],
-  // this means bands describing quantities descried via continuous accumulation
+  // this means bands describing quantities described via continuous accumulation
   flow_bands: [
     'snowfall',
     'snowmelt',
