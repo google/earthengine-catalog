@@ -35,4 +35,7 @@ jobs:
       - name: Test Checker
         run: bazel test  --define jsonnet_port=cpp --test_output=errors //...
       - name: Checker
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for GitHub API
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      # Required for gh CLI
         run: bazel-bin/checker/ee_stac_check
