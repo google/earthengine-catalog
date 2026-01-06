@@ -239,6 +239,7 @@ local version = 'September 2025';
   'gee:unusual_terms_of_use': true,
   // TODO(google): Remove gee:status when the dataset is ready.
   'gee:status': 'beta',
+  'gee:skip_featureview_generation': true,
 
   'gee:type': ee_const.gee_type.table,
   license: license.id,
