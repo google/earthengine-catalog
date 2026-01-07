@@ -16,7 +16,7 @@ var visParams = {
   bands: ['fall_hh_COH06'],
   min: 0,
   max: 0.75,
-  palette: [['blue', 'green', 'yellow', 'orange', 'red']],
+  palette: ['blue', 'green', 'yellow', 'orange', 'red'],
 };
 var image = dataset.visualize(visParams);
 var imageParams = {
