@@ -166,9 +166,25 @@ class Property:
     if not stats:
       return
 
-    self.estimated_range = stats['gee:estimated_range']
-    self.minimum = stats['minimum']
-    self.maximum = stats['maximum']
+    self.estimated_range = stats.get('gee:estimated_range')
+    self.minimum = stats.get('minimum')
+    self.maximum = stats.get('maximum')
+
+  @property
+  def estimated_min_value(self) -> Optional[float]:
+    return self.minimum if self.estimated_range else None
+
+  @property
+  def estimated_max_value(self) -> Optional[float]:
+    return self.maximum if self.estimated_range else None
+
+  @property
+  def provider_min_value(self) -> Optional[float]:
+    return self.minimum if not self.estimated_range else None
+
+  @property
+  def provider_max_value(self) -> Optional[float]:
+    return self.maximum if not self.estimated_range else None
 
 
 @dataclasses.dataclass
@@ -540,13 +556,18 @@ class Collection:
     for band in bands:
       yield Band.from_stac(band)
 
-  def schemas(self) -> Iterator[Property]:
+  @listify
+  def schemas(self) -> Iterable[Property]:
+    """Returns an iterable of Property objects from the STAC summaries."""
     summaries = self.stac_json.get('summaries')
     if not summaries:
       return
+
     schemas = summaries.get('gee:schema', [])
     for schema in schemas:
-      yield Property.from_stac(schema)
+      a_property = Property.from_stac(schema)
+      a_property.set_range_stats(summaries)
+      yield a_property
 
   # See also datetime_interval(), which returns a pair of datetimes
   def interval(self) -> Optional[Interval]:
