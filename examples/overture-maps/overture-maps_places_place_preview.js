@@ -3,40 +3,42 @@ var query = "SELECT geometry FROM `bigquery-public-data.overture_maps.place` " +
            "WHERE ST_INTERSECTS(geometry, ST_GEOGFROMTEXT('POLYGON((" +
            "-74.02 40.7, -73.97 40.7, -73.97 40.78, -74.02 40.78, -74.02 40.7))'))";
 
-// Load collection.
-var places = ee.FeatureCollection.runBigQuery(query);
+// Load collection, buffer 10m for visualization and add a dummy column.
+var places = ee.FeatureCollection.runBigQuery(query)
+  .map(function(f) {return f.buffer(10).set("1", 1)});;
 
+var lon = -74.02;
+var lat = 40.7;
 var delta = 0.05;
-var pixels = 256;
-
-var lon = -74.006;
-var lat = 40.7128;
-
-var areaOfInterest = ee.Geometry.Rectangle(
-    [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
+var areaOfInterest = ee.Geometry.BBox(lon, lat, lon + delta, lat + delta);
 
 // Reduce the FeatureCollection to an image.
 var placesImage = places.reduceToImage({
-  properties: [],
+  properties: ["1"],
   reducer: ee.Reducer.count()
 });
+placesImage = placesImage.updateMask(placesImage.gt(0));
 
 var placesVisParams = {
   min: 0,
-  max: 10,
-  palette: ['ffffff', '4285f4'],
-  opacity: 0.8
+  max: 20,
+  palette: ['#9ADDFC', '#3B45B8', '#B609D9'],
+  opacity: 0.9
 };
 var placesImageVisualized = placesImage.visualize(placesVisParams);
 
 // Create a background image.
-var gray = 150;
-var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
+var background = ee.Image(1).visualize({"palette": ["#ddd"]});
+
+// Create a water mask to show the land a bit better.
+var water = ee.Image("JRC/GSW1_4/GlobalSurfaceWater")
+  .select(0).visualize({"palette": ["#444"]});
 
 // Mosaic the background and the feature collection image.
-var imageWithBackground = ee.ImageCollection([background, placesImageVisualized]).mosaic();
+var imageWithBackground = ee.ImageCollection([background, water, placesImageVisualized]).mosaic();
 
 // Define the parameters for the thumbnail.
+var pixels = 256;
 var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
