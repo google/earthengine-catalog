@@ -1,13 +1,13 @@
-local id = 'NASA/GEOS-CF/v1/fcst/tavg1hr';
+local id = 'NASA/GEOS-CF/v2/ana/tavg1hr';
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local template = import 'NASA_GEOS-CF_v1.libsonnet';
+local template = import 'NASA_GEOS-CF_v2.libsonnet';
 local units = import 'units.libsonnet';
 
-local tavg1hr_bands = import 'NASA_GEOS-CF_tavg1hr.libsonnet';
+local tavg1hr_bands = import 'NASA_GEOS-CF_v2_tavg1hr.libsonnet';
 
 local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
@@ -23,12 +23,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   'gee:type': ee_const.gee_type.image_collection,
-  title: 'GEOS-CF fcst tavg1hr v1: Goddard Earth Observing System Composition Forecast',
-  version: 'v1',
+  title: 'GEOS-CF ana tavg1hr v2: Goddard Earth Observing System Composition Forecast',
+  version: 'v2',
   description: |||
-    This dataset contains meteorological forecast (fcst) of time-averaged
-    frequency data (tavg1hr). Use the 'creation_time' and 'forecast_time' properties
-    to select data of interest.
+    This dataset contains meteorological analysis (ana) of time-average one hour
+    data (tavg1hr). It is built by merging the original GEOS-CF collections
+    chm_tavg_1hr_glo_L1440x721_slv, met_tavg_1hr_glo_L1440x721_slv, and
+    xgc_tavg_1hr_glo_L1440x721_slv.
   ||| + template.description,
   'sci:citation': template.sci_citation,
   'sci:doi': '10.1029/2020MS002413',
@@ -41,29 +42,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  extent: ee.extent_global('2022-10-01T00:00:00Z', null),
+  extent: ee.extent_global('2025-08-04T00:00:00Z', null),
   'gee:categories': ['atmosphere'],
   keywords: [
     'composition',
     'forecast',
     'geos',
+    'geos-cf',
     'gmao',
     'nasa',
   ],
   'gee:terms_of_use': template.gee_terms_of_use,
   summaries: {
-    'gee:schema': [
-      {
-        name: 'creation_time',
-        description: 'Time of creation',
-        type: ee_const.var_type.double,
-      },
-      {
-        name: 'forecast_time',
-        description: 'Forecast time',
-        type: ee_const.var_type.double,
-      },
-    ],
     gsd: [
       27750.0,
     ],
@@ -84,6 +74,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [
               320,
             ],
+            // We may want to use a more visually distinct palette. Here and in
+            // the JS example as well.
             palette: [
               'd7191c',
               'fdae61',
