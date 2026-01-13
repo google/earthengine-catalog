@@ -18,7 +18,7 @@ local version = 'September 2025';
 
   description: |||
     **If you are interested in accessing the KBA dataset please complete the
-    [KBA data request form](https://www.keybiodiversityareas.org/kba-data/request)
+    [KBA data request form](https://www.keybiodiversityareas.org/request-gis-data)
     which will allow access directly in GEE once approved.**
 
     Key Biodiversity Areas (KBAs) are 'sites contributing
