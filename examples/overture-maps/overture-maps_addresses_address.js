@@ -1,4 +1,4 @@
-var dataset = ee.FeatureCollection(
+var dataset = ee.FeatureCollection.loadBigQueryTable(
     'bigquery-public-data.overture_maps.address');
 
 // Filter to a specific area (New York City area)
