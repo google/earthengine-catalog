@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       similar biotic traits that characterise the group. Derived from the
       top-down by subdivision of biomes.
 
-      NOTE: Due to the size of some geometries, a simpification algorithm was
+      NOTE: Due to the size of some geometries, a simplification algorithm was
       applied to each one to reduce their complexity. As many vertices as
       possible were discarded without moving the distance from the original
       shape more than 100 m. As a result, approximately two dozen rows in the

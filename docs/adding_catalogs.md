@@ -23,7 +23,7 @@ following changes:
 1.  At least one dataset description. See the docs on [adding new datasets](adding_datasets.md) for details of
         writing a new dataset description.
 1.  A new JSON file in the owners/ directory named `<yourproject>.jsonnet`
-        with the followng fields:
+        with the following fields:
 
     ```
       {

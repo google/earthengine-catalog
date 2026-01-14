@@ -616,7 +616,7 @@ class Collection:
       return True
     if self.latest_successor():
       logging.info(
-          'Skipping superseded collecton: %s (%s)',
+          'Skipping superseded collection: %s (%s)',
           self.public_id(),
           self.latest_successor(),
       )

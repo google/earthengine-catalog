@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     over time. The parameters are:
 
     * **rho**: Represents the long-term coherence, the value that the model
-      predicts as the repeat interval increses to infinity. It is a measure of
+      predicts as the repeat interval increases to infinity. It is a measure of
       the temporal stability of the scattering elements in the target area.
 
     * **tau**: Represents the rate of coherence decay, a measure of how quickly
@@ -79,7 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent(-180, -79, 180, 82, '2019-12-01T00:00:00Z', 
+  extent: ee.extent(-180, -79, 180, 82, '2019-12-01T00:00:00Z',
                     '2020-12-01T00:00:00Z'),
 
   summaries: {

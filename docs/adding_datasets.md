@@ -112,7 +112,7 @@ Here is some advice for data normalization.
 1. For global datasets, prefer single assets over tiled mosaics.
 
 1. Images with the same band signatures should be in the same image collection.
-However, collections should be homogenous - if not all assets in a collection
+However, collections should be homogeneous - if not all assets in a collection
 have the same band names and types, either reingest the assets to make the
 bands the same or use multiple collections.
 
