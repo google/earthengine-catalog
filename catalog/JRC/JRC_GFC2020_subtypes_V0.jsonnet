@@ -104,11 +104,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2020-01-01T00:00:00Z', '2020-12-31T23:59:59Z'),
   'sci:citation': |||
-    Bourgoin, Clement; Verhegghen, Astrid; Carboni, Silvia; Ameztoy, Iban;
-    Ceccherini, Guido; Colditz, Rene; Achard, Frederic (2024): Global map
-    of forest types 2020 - version 0. European Commission, Joint Research Centre
+    Bourgoin, Clement; Ameztoy, Iban; Verhegghen, Astrid; Carboni, Silvia; 
+    Achard, Frederic; Colditz, Rene (2026): Global map
+    of forest types 2020 - version 1. European Commission, Joint Research Centre
     (JRC) [Dataset] PID:
-    [http://data.europa.eu/89h/037ca376-ba92-49db-a8f7-0c277c1e5436](http://data.europa.eu/89h/037ca376-ba92-49db-a8f7-0c277c1e5436).
+    [http://data.europa.eu/89h/45182662-3015-4a25-8d1e-aa857d75235d](http://data.europa.eu/89h/45182662-3015-4a25-8d1e-aa857d75235d).
   |||,
   'sci:publications': [
     {
