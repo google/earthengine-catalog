@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Resources Assessment. The year 2020 corresponds to the cut-off date of the
     EUDR.
 
-    In the context of the EUDR, the global forest types map can be used as a
+    In the context of the EUDR, the global forest type map can be used as a
     non-mandatory, non-exclusive and not legally binding source of information,
     namely in the phase of risk assessment by operators and traders. Further
     information about the map and its use can be found on the EU Observatory on
