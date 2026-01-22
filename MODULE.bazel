@@ -2,6 +2,15 @@ bazel_dep(name = "rules_jsonnet", version = "0.7.2")
 bazel_dep(name = "bazel_skylib", version = "1.8.0")
 bazel_dep(name = "rules_python", version = "1.5.1")
 
+# Temporary workaround to deal with Bazel 9
+# TODO(simonf): remove when https://github.com/google/jsonnet/pull/1260 is pushed
+# to rules_jsonnet (Feb/Mar 2026)
+git_override(
+  module_name = "jsonnet",
+  commit = "f78b55384b3c08658118cea4ac5ea7bde124a72d",
+  remote = "https://github.com/google/jsonnet.git",
+)
+
 jsonnet = use_extension("@rules_jsonnet//jsonnet:extensions.bzl", "jsonnet")
 jsonnet.compiler(name = "cpp")
 
