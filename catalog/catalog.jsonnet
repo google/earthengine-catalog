@@ -61,6 +61,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('HU_BERLIN', base_url),
     ee.link.child_catalog('HYCOM', base_url),
     ee.link.child_catalog('IDAHO_EPSCOR', base_url),
+    ee.link.child_catalog('IAHS', base_url),
     ee.link.child_catalog('IGN', base_url),
     ee.link.child_catalog('iNaturalist', base_url),
     ee.link.child_catalog('IPCC', base_url),
