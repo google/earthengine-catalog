@@ -21,8 +21,9 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global Friction Surface 2019',
+  title: 'Global Friction Surface 2019 [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     This global friction surface enumerates land-based travel speed for all land pixels between 85 degrees north and 60 degrees south for a nominal year 2019.  It also includes "walking-only" travel speed, using non-motorized means of transportation only.
@@ -34,7 +35,11 @@ local license = spdx.cc_by_4_0;
     Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
+    ee.link.successor(
+      'projects/malariaatlasproject/assets/accessibility/friction_surface/2019_v5_1',
+      ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_accessibility_friction_surface_2019_v5_1.json'),
+  ],
   'gee:categories': ['population'],
   keywords: [
     'accessibility',

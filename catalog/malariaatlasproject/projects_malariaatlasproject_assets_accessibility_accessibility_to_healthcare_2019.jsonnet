@@ -20,7 +20,6 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'Malaria Atlas Project Accessibility to Healthcare 2019',
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
   description: |||
     This global accessibility map enumerates land-based travel time (in

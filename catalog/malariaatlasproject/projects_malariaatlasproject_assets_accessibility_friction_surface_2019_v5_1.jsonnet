@@ -22,7 +22,6 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'Malaria Atlas Project Global Friction Surface 2019',
-  'gee:status': 'beta',
   version: '5.1',
   'gee:type': ee_const.gee_type.image,
   description: |||
