@@ -1,4 +1,4 @@
-local id = 'NOAA/CFSV2/FOR6H';
+local id = 'NOAA/CFSV2/FOR6H_HARMONIZED';
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -24,7 +24,8 @@ local base_filename = basename + '.json';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products',
+  title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products Harmonized',
+  'gee:status': 'beta',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -41,6 +42,8 @@ local base_filename = basename + '.json';
     cdas1.t??z.sfluxgrbf**06**.grib2.
 
     For more information about CFS, please see the [CFS NOAA site](https://cfs.ncep.noaa.gov/).
+
+    This dataset harmonizes all temperature bands to Kelvin.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -48,9 +51,7 @@ local base_filename = basename + '.json';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5065/D61C1TXF',
     },
-  ],
-  // TODO: b/457564434 - Add version links once the new version is ready.
-  // version_config.version_links,
+  ] + version_config.version_links,
   'gee:categories': ['climate'],
   keywords: [
     'climate',
@@ -118,8 +119,7 @@ local base_filename = basename + '.json';
       },
       {
         name: 'Maximum_temperature_height_above_ground_6_Hour_Interval',
-        description: 'Maximum temperature 2m above ground, 6-hour interval.
-        Note that the units switched from Kelvin to Celsius on 2025-10-20:18:00:00.',
+        description: 'Maximum temperature 2m above ground, 6-hour interval',
         'gee:units': units.kelvin,
       },
       {
@@ -129,8 +129,7 @@ local base_filename = basename + '.json';
       },
       {
         name: 'Minimum_temperature_height_above_ground_6_Hour_Interval',
-        description: 'Minimum temperature 2m above ground, 6-hour interval.
-        Note that the units switched from Kelvin to Celsius on 2025-10-20:18:00:00.',
+        description: 'Minimum temperature 2m above ground, 6-hour interval',
         'gee:units': units.kelvin,
       },
       {
@@ -160,8 +159,7 @@ local base_filename = basename + '.json';
       },
       {
         name: 'Temperature_height_above_ground',
-        description: 'Temperature 2m above ground.
-        Note that the units switched from Kelvin to Celsius on 2025-10-20:18:00:00.',
+        description: 'Temperature 2m above ground',
         'gee:units': units.kelvin,
       },
       {

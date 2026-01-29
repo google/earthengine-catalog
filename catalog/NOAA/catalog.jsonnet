@@ -46,6 +46,7 @@ local gsm_description = importstr 'general_satellite_messages_description.md';
     ee.link.child_collection('NOAA_CDR_VIIRS_NDVI_V1', base_url),
 
     ee.link.child_collection('NOAA_CFSV2_FOR6H', base_url),
+    ee.link.child_collection('NOAA_CFSV2_FOR6H_HARMONIZED', base_url),
     ee.link.child_collection('NOAA_CPC_Precipitation', base_url),
     ee.link.child_collection('NOAA_CPC_Temperature', base_url),
 
