@@ -105,6 +105,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     for full details on the data structure.
 
     Updates:
+
     * As of 2025-11-17, embedding layers have DATASET_VERSION 1.1. This
     includes a regenerated 2017 layer that incorporates additional Sentinel-1
     acquisitions.
