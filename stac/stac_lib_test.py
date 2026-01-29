@@ -40,6 +40,7 @@ VALID_STAC = {
     ],
     'providers': [
         {'name': 'provider 1', 'roles': ['producer'], 'url': 'url 1'},
+        {'name': 'processor', 'roles': ['processor'], 'url': 'url 2'},
         {'name': 'Google Earth Engine', 'roles': ['host']},
         {'name': 'provider 3', 'roles': ['licensor'], 'url': 'url 3'},
     ],
@@ -559,6 +560,15 @@ class CollectionTest(parameterized.TestCase):
                 'https://example.com/a.tar.xz',
                 'https://example.com/b.zip',
             ],
+        ),
+        stac.Provider(
+            name='processor',
+            description=None,
+            roles=[stac.Role.PROCESSOR],
+            url='url 2',
+            instruments=[],
+            platforms=[],
+            file_links=[],
         ),
         stac.Provider(
             name='provider 3',
