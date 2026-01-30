@@ -24,10 +24,17 @@ local base_filename = basename + '.json';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products',
+  title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+
+    Note: Starting October 20, 2025, this dataset switched to using Celsius
+    instead of Kelvin units for temperature bands. Please use
+    [NOAA/CFSV2/FOR6H_HARMONIZED](https://developers.google.com/earth-engine/datasets/catalog/NOAA_CFSV2_FOR6H_HARMONIZED)
+    for consistent temperature units (Kelvin).
+
     The National Centers for Environmental Prediction (NCEP) Climate Forecast
     System (CFS) is a fully coupled model representing the interaction between
     the Earth's atmosphere, oceans, land, and sea ice. CFS was developed at the
@@ -48,9 +55,7 @@ local base_filename = basename + '.json';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5065/D61C1TXF',
     },
-  ],
-  // TODO: b/457564434 - Add version links once the new version is ready.
-  // version_config.version_links,
+  ] + version_config.version_links,
   'gee:categories': ['climate'],
   keywords: [
     'climate',

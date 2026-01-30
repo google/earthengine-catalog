@@ -25,7 +25,6 @@ local base_filename = basename + '.json';
   ],
   id: id,
   title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products Harmonized',
-  'gee:status': 'beta',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
