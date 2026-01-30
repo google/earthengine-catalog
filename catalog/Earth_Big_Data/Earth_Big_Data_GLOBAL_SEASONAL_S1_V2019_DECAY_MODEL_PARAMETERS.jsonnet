@@ -239,16 +239,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-
-  // TODO(dpencosk): Remove gee:status when the dataset is ready.
-  'gee:status': 'beta',
-
   'gee:type': ee_const.gee_type.image_collection,
-
   license: license.id,
-
   links: ee.standardLinks(subdir, id),
-
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [
