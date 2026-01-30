@@ -18,6 +18,8 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('OPERA_DSWX_L3_V1_HLS', base_url),
+    ee.link.child_collection('OPERA_DSWX_L3_V1_S1', base_url),
     ee.link.child_collection('OPERA_RTC_L2_V1_S1', base_url),
     ee.link.child_collection('OPERA_RTC_L2_V1_S1_STATIC', base_url),
   ],
