@@ -14,6 +14,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
+  'gee:status': 'beta',
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
@@ -47,8 +48,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'evapotranspiration',
     'gpp',
-    'pml',
-    'water-carbon',
+    //'pml',
+    //'water-carbon',
   ],
   providers: [
     ee.producer_provider('Large Scale Hydrology Lab', 'https://scholar.google.com/citations?user=t5iGFeAAAAAJ&hl=en'),

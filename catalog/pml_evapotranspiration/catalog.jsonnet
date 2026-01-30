@@ -12,7 +12,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: 'Large Scale Hydrology Lab',
+  title: id,
   description: |||
     The Large Scale Hydrology Lab specializes in advancing global and regional water cycle research 
     through big data analytics and advanced hydrological modeling. We are widely recognized 
