@@ -73,7 +73,6 @@ _FEATURE_VIEW_EXCEPTIONS = frozenset({
 
 # TODO(schwehr): Remove entries as they are backfilled.
 _PREVIEW_EXCEPTIONS_LIST = [
-    'AAFC/AAFC_ACI',
     'ACA/ACA_reef_habitat_v1_0',
     'AHN/AHN_AHN2_05M_INT',
     'AHN/AHN_AHN2_05M_NON',
