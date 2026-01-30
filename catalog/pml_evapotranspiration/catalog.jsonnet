@@ -1,4 +1,4 @@
-local id = 'large-scale-hydrology-lab';
+local id = 'pml_evapotranspiration';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 

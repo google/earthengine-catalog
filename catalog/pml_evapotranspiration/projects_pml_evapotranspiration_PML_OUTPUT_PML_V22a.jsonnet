@@ -1,5 +1,5 @@
 local id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a';
-local subdir = 'large-scale-hydrology-lab';
+local subdir = 'pml_evapotranspiration';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
