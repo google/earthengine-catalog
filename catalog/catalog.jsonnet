@@ -141,6 +141,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('overture-maps', base_url),
     ee.link.child_catalog('mapbiomas-public', base_url),
     ee.link.child_catalog('global-precipitation-nowcast', base_url),
-    ee.link.child_catalog('ee-kbas-in-gee', base_url)
+    ee.link.child_catalog('ee-kbas-in-gee', base_url),
+    ee.link.child_catalog('pml_evapotranspiration', base_url)
   ],
 }
