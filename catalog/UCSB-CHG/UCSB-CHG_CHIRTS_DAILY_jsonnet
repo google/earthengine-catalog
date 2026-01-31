@@ -1,0 +1,158 @@
+local id = 'UCSB-CHG/CHIRTS/daily';
+local subdir = 'UCSB-CHG';
+
+local ee_const = import 'earthengine_const.libsonnet';
+local ee = import 'earthengine.libsonnet';
+local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
+
+local license = spdx.proprietary;
+
+local basename = std.strReplace(id, '/', '_');
+local base_filename = basename + '.json';
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+
+{
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.collection,
+  stac_extensions: [
+    ee_const.ext_eo,
+    ee_const.ext_sci,
+    ee_const.ext_ver,
+  ],
+  id: id,
+  title: 'CHIRTS-daily: Climate Hazards Center InfraRed Temperature with Stations daily temperature data product',
+  version: 'v1',
+  'gee:type': ee_const.gee_type.image_collection,
+  description: |||
+The Climate Hazards Center InfraRed Temperature with Stations daily temperature data  product (CHIRTS-daily; Verdin et al. 2020) is a quasi global, high resolution gridded dataset (0.05° × 0.05° resolution, 60°S–70°N) that provides daily minimum (Tmin) and maximum 2-meter temperatures (Tmax) and four derived variables: Saturation vapor pressure (SVP), vapor pressure deficit (VPD), relative humidity (RH), and Heat Index (HI). CHIRTS temperature products are designed to support analysis of temperature extremes and variability, especially in regions with a low density of station observations. 
+
+CHIRTS-daily is created by merging a high quality, high resolution monthly maximum temperature dataset— the Climate Hazards Center InfraRed Temperature with Stations monthly maximum temperature climate record (CHIRTSmax; Funk et al. 2019)— with daily temperatures from the European Centre for Medium-Range Weather Forecasts (ECMWF) Reanalysis v5 (ERA5). The result is a high resolution, daily temperature dataset that maintains spatio-temporal information from monthly CHIRTSmax and the daily and diurnal temperature variability from ERA5. Monthly CHIRTSmax are based on (1) a Tmax climatology constructed using geostatistical regressions and long-term averages of FAO station observations, ERA5 temperatures, and several other geographic predictors; and (2) estimates of Tmax variability using ~15,000 in situ observations and high resolution (0.05° × 0.05°) satellite observations. These are from Berkeley Earth and Global Telecommunication System (GTS) station reports and cloud-screened GridSat geostationary satellite thermal infrared brightness temperatures.
+
+Daily Tmax are produced using downscaled ERA5 Tmax anomalies and high resolution CHIRTSmax; daily Tmin is created by removing the downscaled ERA5 diurnal temperature range (Tmax-Tmin). Daily SVP, VPD, RH, and HI are computed using CHIRTS-daily Tmin and Tmax and hourly ERA5 for other meteorological variable inputs (see Williams et al. 2024 for details). CHIRTS-daily, version 1, covers the period 1983-2016. 
+  |||,
+  license: license.id,
+  links: ee.standardLinks(subdir, id),
+  keywords: [
+    'CHC',
+    'CHG',
+    'UCSB',
+    'climate',
+    'weather',
+    'hazards',
+    'daily'
+    'observations',
+    'reanalysis',
+    'ERA5',
+    'gridded',
+    'minimum temperature',
+    'maximum temperature',
+    'saturation vapor pressure'’
+    'vapor pressure deficit',
+    'relative humidity',
+    'Heat Index',
+  ],
+  providers: [
+    ee.producer_provider('UCSB/CHG', 'https://chc.ucsb.edu/data/chirtsdaily'),
+    ee.host_provider(self_ee_catalog_url),
+  ],
+  extent: ee.extent(-180.0, -60.0, 180.0, 70.0, '1983-01-01T00:00:00Z', null),
+  summaries: {
+    gsd: [
+      5566.0,
+    ],
+    'eo:bands': [
+      {
+        name: 'minimum_temperature',
+        description: 'Minimum_temperature_2m',
+        'gee:units': units.degrees_Celsius,
+      },
+      {
+        name: 'maximum_temperature',
+        description: 'Maximum_temperature_2m',
+        'gee:units': units.degrees_Celsius,
+      },
+      {
+        name: 'saturation_vapor_pressure',
+        description: 'Saturation_vapor_pressure_2m',
+        'gee:units': units.kPa,
+      },
+      {
+        name: 'vapor_pressure_deficit',
+        description: 'Vapor_pressure_deficit_2m',
+        'gee:units': units.kPa,
+      },
+      {
+        name: 'relative_humidity',
+        description: 'Relative_humidity_2m',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'heat_index',
+        description: 'Heat_Index',
+        'gee:units': units.degrees_Fahrenheit,
+      },
+    ],
+    'gee:visualizations': [
+      {
+        display_name: 'CHIRTS-daily 2m Maximum Temperature',
+        lookat: {
+          lat: 0.00,
+          lon: 0.00,
+          zoom: 1,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              10,
+            ],
+            max: [
+              40,
+            ],
+            palette: [
+              '313695',
+              '4575b4',
+              '74add1',
+              'abd9e9',
+              'e0f3f8', 
+              'ffffbf', 
+              'fee090', 
+              'fdae61',
+              'f46d43', 
+              'd73027', 
+              'a50026', 
+              '8c2d04', 
+              '67001f', 
+              'bd0026', 
+              '800026',
+            ],
+            bands: [
+              'maximum_temperature',
+            ],
+          },
+        },
+      },
+    ],
+    maximum_temperature: {
+      minimum: 10,
+      maximum: 40,
+      'gee:estimated_range': true,
+    },
+  },
+  'sci:citation': |||
+Verdin, A., C. Funk, P. Peterson, M. Landsfeld, C. Tuholske, and Grace, K., 2020: Development and validation of the CHIRTS-daily quasi-global high-resolution daily temperature data set. Scientific Data, 7(1), 303. [doi: 10.1038/s41597-020-00643-7](https://doi.org/10.1038/s41597-020-00643-7)
+
+Funk, C., P. Peterson, S. Peterson, S. Shukla, F. Davenport, J. Michaelsen, K.R. Knapp, M. Landsfeld, G. Husak, L. Harrison, J. Rowland, M. Budde, A. Meiburg, T. Dinku, D. Pedreros, and N. Mata, 2019: A High-Resolution 1983–2016 Tmax Climate Data Record Based on Infrared Temperatures and Stations by the Climate Hazard Center. J. Climate, 32, 5639–5658. [doi:10.1175/JCLI-D-18-0698.1](https://doi.org/10.1175/JCLI-D-18-0698.1)
+
+Williams, E., C. Funk, P. Peterson, and C. Tuholske (2024). High resolution climate change observations and projections for the evaluation of heat-related extremes. Scientific Data, 11(1), 261. [doi: 10.1038/s41597-024-03074-w](https://doi.org/10.1038/s41597-024-03074-w) 
+  |||,
+  'gee:interval': {
+    type: 'cadence',
+    unit: 'day',
+    interval: 1,
+  },
+  'gee:terms_of_use': |||
+    This datasets are in the public domain. To the extent possible under law,
+    [Chris Funk](https://chc.ucsb.edu/people/chris-funk) has waived all copyright and related or neighboring rights to Climate Hazards InfraRed Temperature with Stations daily temperature data product (CHIRTS-daily).
+  |||,
+}
