@@ -23,8 +23,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title:
-    'PML_V2 ' + version +
-    ': Coupled Evapotranspiration and Gross Primary Product (GPP)',
+    'PML_V2.1.8: Coupled Evapotranspiration and Gross Primary Product (GPP)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -45,8 +44,9 @@ local license = spdx.cc_by_4_0;
     major state-of-the-art ET and GPP products widely used by water and ecology
     research communities (Zhang et al., 2019).
 
-    Key changes in v0.1.8 compared with the original v0.1.4:
-
+    Note on versioning: For consistency in naming conventions, PML-V2.1.8 replaces the previous PML-V2 0.1.8.
+    
+    Key changes in V2.1.8 compared with the original V2.0 (Zhang et al., 2019):
     1. Temporal coverage is lengthened to the latest (may update annually) with the MODIS C6.1 data.
     2. MODIS Terra LAI (MOD15A2H) is used rather than the composite LAI (MCD15A3H).
     3. Parameters are recalibrated with the change in LAI, while other forcings remain the same.

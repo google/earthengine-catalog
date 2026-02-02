@@ -24,7 +24,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title:
-    'PML_V2 ' + version +
+    'PML_V2.1.7' +
     ': Coupled Evapotranspiration and Gross Primary Product (GPP) [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
@@ -45,6 +45,9 @@ local license = spdx.cc_by_4_0;
     at 95 flux sites across the globe, and are similar to or noticeably better than
     major state-of-the-art ET and GPP products widely used by water and ecology
     research communities (Zhang et al., 2019).
+
+    Note on versioning: For consistency in naming conventions, PML-V2.1.7 replaces the previous PML-V2 0.1.7.
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
