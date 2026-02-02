@@ -29,7 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     This product is the temperature of terrestrial land surface.
 
-    For data after 2021-11-28, see [the V3 dataset](JAXA/GCOM-C/L3/LAND/LST/V3).
+    For data after 2021-11-28, see [the V3 dataset](https://code.earthengine.google.com/?scriptPath=Examples:Datasets/JAXA/JAXA_GCOM-C_L3_LAND_LST_V3).
 
     GCOM-C conducts long-term and continuous global observation and data collection to elucidate the
     mechanism behind fluctuations in radiation budget and carbon cycle needed to make accurate
