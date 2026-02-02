@@ -25,7 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '2.2a',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The Large Scale Hydrology Lab specializes in advancing global and regional water cycle research 
+    The dataset is produced by the Large Scale Hydrology Lab, which specializes in advancing global and regional water cycle research 
     through big data analytics and advanced hydrological modeling. 
 
     The PML-V2.2a product provides 500m 8-day resolution global terrestrial evapotranspiration (ET) 

@@ -44,7 +44,7 @@ local license = spdx.cc_by_4_0;
     major state-of-the-art ET and GPP products widely used by water and ecology
     research communities (Zhang et al., 2019).
 
-    Note on versioning: For consistency in naming conventions, PML-V2.1.8 succeeds the previous PML-V2 0.1.8.
+    Note on versioning: For consistency in naming conventions, PML-V2.1.8 replaces the previous PML-V2 0.1.8.
     
     Key changes in V2.1.8 compared with the original V2.0 (Zhang et al., 2019):
     1. Temporal coverage is lengthened to the latest (may update annually) with the MODIS C6.1 data.

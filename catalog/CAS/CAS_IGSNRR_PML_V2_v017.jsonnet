@@ -46,7 +46,7 @@ local license = spdx.cc_by_4_0;
     major state-of-the-art ET and GPP products widely used by water and ecology
     research communities (Zhang et al., 2019).
 
-    Note on versioning: For consistency in naming conventions, PML-V2.1.7 succeeds the previous PML-V2 0.1.7.
+    Note on versioning: For consistency in naming conventions, PML-V2.1.7 replaces the previous PML-V2 0.1.7.
 
   |||,
   license: license.id,
