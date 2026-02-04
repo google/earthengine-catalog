@@ -27,12 +27,11 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   description: |||
     These Landsat Collection 2 Tier 1 Level 2 composites are made from Tier 1 Level 2 orthorectified scenes.
 
-    The Normalized Difference Water Index (NDWI) is sensitive
-    to changes in liquid water content of vegetation canopies.  It is
-    derived from the Near-IR band and a second IR band, &approx;1.24&mu;m when
-    available and the nearest available IR band otherwise.  It ranges in
-    value from -1.0 to 1.0.  See
-    [Gao (1996)](https://www.sciencedirect.com/science/article/pii/S0034425796000673)
+    The Normalized Difference Water Index (NDWI) is designed to delineate open
+    water features and enhance their presence in imagery while eliminating soil
+    and terrestrial vegetation features. It is derived from the Green band and
+    the Near-Infrared (NIR) band. It ranges in value from -1.0 to 1.0. See
+    [McFeeters (1996)](https://doi.org/10.1080/01431169608948714)
     for details.
 
     These composites are created from
