@@ -4,7 +4,39 @@ import ee
 
 
 class C2SRExpressions:
-  """Computations for the merged, masked Landsat C2 SR collection."""
+  """Computations for the merged, masked Landsat C2 SR collection.
+
+  Algorithm references:
+
+    NDVI (Normalized Difference Vegetation Index):
+      Rouse, J. W., et al. (1974). Monitoring vegetation systems in the Great
+      Plains with ERTS. Third Earth Resources Technology Satellite-1
+      Symposium.
+      https://ntrs.nasa.gov/citations/19740022614
+
+    EVI (Enhanced Vegetation Index):
+      Huete, A., et al. (2002). Overview of the radiometric and biophysical
+      performance of the MODIS vegetation indices. Remote Sensing of
+      Environment.
+      https://doi.org/10.1016/S0034-4257(02)00096-2
+
+    NBR (Normalized Burn Ratio):
+      Key, C. H., & Benson, N. C. (2006). Landscape assessment (LA).
+      FIREMON: Fire Effects Monitoring and Inventory System.
+      https://www.fs.usda.gov/rm/pubs_series/rmrs/gtr/rmrs_gtr164/rmrs_gtr164_13_land_assess.pdf
+
+    NDWI (Normalized Difference Water Index):
+      McFeeters, S. K. (1996). The use of the Normalized Difference Water
+      Index (NDWI) in the delineation of open water features. International
+      Journal of Remote Sensing.
+      https://doi.org/10.1080/01431169608948714
+
+    BAI (Burn Area Index):
+      Chuvieco, E., Martin, M. P., & Palacios, A. (2002). Assessment of
+      different spectral indices in the red-near-infrared spectral domain for
+      burned land discrimination. International Journal of Remote Sensing.
+      https://doi.org/10.1080/01431160210153129
+  """
 
   # A set of band indices corresponding to the renaming used in this collection.
   # Note: No NDSI; snow is already masked in Level 2 products.
