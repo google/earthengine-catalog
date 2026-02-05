@@ -1,4 +1,4 @@
-local id = 'TIGER/2010/ZCTA5';
+local id = 'TIGER/2020/ZCTA5';
 local versions = import 'versions.libsonnet';
 local version_table = import 'TIGER_ZCTA_versions.libsonnet';
 
@@ -26,8 +26,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'TIGER: US Census 5-digit ZIP Code Tabulation Areas 2010 [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'TIGER: US Census 5-digit ZIP Code Tabulation Areas 2020',
+  'gee:status': 'beta',
   version: version,
   'gee:type': ee_const.gee_type.table,
   description: |||
@@ -52,8 +52,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     delineation process uses primarily residential addresses, resulting in a
     bias towards ZIP Codes used for city-style mail delivery.
 
-    For full technical details on all TIGER 2010 products, see the [TIGER
-    technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2010/TGRSHP10SF1.pdf).
+    For full technical details on all TIGER 2020 products, see the [TIGER
+    technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2020/TGRSHP2020_TechDoc_Ch5.pdf)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -72,54 +72,54 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -14.69, -64.435, 71.567,
-                    '2010-01-01T00:00:00Z', '2010-01-02T00:00:00Z'),
+                    '2020-01-01T00:00:00Z', '2020-01-02T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
-        name: 'ALAND10',
-        description: '2010 Census Land area',
+        name: 'ALAND20',
+        description: '2020 Census Land area',
         type: ee_const.var_type.double,
         units: units.square_m,
       },
       {
-        name: 'AWATER10',
-        description: '2010 Census Water area',
+        name: 'AWATER20',
+        description: '2020 Census Water area',
         type: ee_const.var_type.double,
         units: units.square_m,
       },
       {
-        name: 'CLASSFP10',
-        description: '2010 Census FIPS 55 class code',
+        name: 'CLASSFP20',
+        description: '2020 Census FIPS 55 class code',
         type: ee_const.var_type.string,
       },
       {
-        name: 'FUNCSTAT10',
-        description: '2010 Census functional status\n(Always "S", for "Statistical entity".)',
+        name: 'FUNCSTAT20',
+        description: '2020 Census functional status\n(Always "S", for "Statistical entity".)',
         type: ee_const.var_type.string,
       },
       {
-        name: 'GEOID10',
-        description: '2010 Census 5-digit ZIP Code Tabulation Area identifier',
+        name: 'GEOID20',
+        description: '2020 Census 5-digit ZIP Code Tabulation Area identifier',
         type: ee_const.var_type.string,
       },
       {
-        name: 'INTPTLAT10',
-        description: '2010 Census latitude of the internal point',
+        name: 'INTPTLAT20',
+        description: '2020 Census latitude of the internal point',
         type: ee_const.var_type.string,
       },
       {
-        name: 'INTPTLON10',
-        description: '2010 Census longitude of the internal point',
+        name: 'INTPTLON20',
+        description: '2020 Census longitude of the internal point',
         type: ee_const.var_type.string,
       },
       {
-        name: 'MTFCC10',
+        name: 'MTFCC20',
         description: 'MAF/TIGER feature class code (Always "G6350".)',
         type: ee_const.var_type.string,
       },
       {
-        name: 'ZCTA5CE10',
-        description: '2010 Census 5-digit ZIP Code Tabulation Area code',
+        name: 'ZCTA5CE20',
+        description: '2020 Census 5-digit ZIP Code Tabulation Area code',
         type: ee_const.var_type.string,
       },
     ],
@@ -132,7 +132,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           zoom: 5,
         },
         polygon_visualization: {
-          property_name: 'ALAND10',
+          property_name: 'ALAND20',
           property_vis: {
             min: [
               500000.0,
