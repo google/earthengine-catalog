@@ -25,6 +25,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('JRC_GFC2020_V2', base_url),
     ee.link.child_collection('JRC_GFC2020_V3', base_url),
     ee.link.child_collection('JRC_GFC2020_subtypes_V0', base_url),
+    ee.link.child_collection('JRC_GFC2020_subtypes_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_BUILT_LDSMT_GLOBE_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_POP_GPW_GLOBE_V1', base_url),
     ee.link.child_collection('JRC_GHSL_P2016_SMOD_POP_GLOBE_V1', base_url),
