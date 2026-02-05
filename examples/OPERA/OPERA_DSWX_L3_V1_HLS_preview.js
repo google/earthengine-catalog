@@ -33,7 +33,11 @@ var wtr_palette = [
 // Select the water classification band and remap to make have palette vis.
 var wtr_band = dswx_hls.select('WTR_Water_classification');
 var to = [0, 1, 2, 3, 4, 5];
-var wtr_remapped = wtr_band.remap(wtr_class_values, to);
+var image = wtr_band.remap(wtr_class_values, to).visualize({
+  min: 0,
+  max: 5,
+  palette: wtr_palette,
+});
 var lat = 29.56;
 var lon = -89.94;
 var delta = 0.3;
@@ -44,8 +48,5 @@ var thumbnailParams = {
   region: bbox,
   crs: 'EPSG:4326',
   format: 'png',
-  min: 0,
-  max: 5,
-  palette: wtr_palette,
-}
-print(ui.Thumbnail({image: wtr_remapped, params: thumbnailParams}));
+};
+print(ui.Thumbnail({image: image, params: thumbnailParams}));
