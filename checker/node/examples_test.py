@@ -101,6 +101,18 @@ class ValidExamplesTest(test_utils.NodeTest):
         gee_type=TABLE,
     )
 
+  def test_table_missing_featureview_beta(self):
+    self.assert_collection(
+        {'gee:status': 'beta'},
+        dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
+        gee_type=TABLE)
+
+  def test_table_missing_featureview_deprecated(self):
+    self.assert_collection(
+        {'gee:status': 'deprecated'},
+        dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
+        gee_type=TABLE)
+
 
 class ErrorExamplesTest(test_utils.NodeTest):
 
@@ -121,6 +133,13 @@ class ErrorExamplesTest(test_utils.NodeTest):
   def test_table_missing_featureview(self):
     self.assert_collection(
         {},
+        'Missing FeatureView script: A/A_B_FeatureView.js',
+        dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
+        gee_type=TABLE)
+
+  def test_table_missing_featureview_ready(self):
+    self.assert_collection(
+        {'gee:status': 'ready'},
         'Missing FeatureView script: A/A_B_FeatureView.js',
         dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
         gee_type=TABLE)
