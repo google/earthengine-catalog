@@ -1,4 +1,4 @@
-local id = 'WCMC/WDOECM/current/points';
+local id = 'WCMC/WDPCA/current/points';
 local subdir = 'WCMC';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -18,56 +18,51 @@ local s = wcmc.schema_fields;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'WDOECM: Other Effective Area-based Conservation Measures (points) [deprecated]',
-  version: 'July 2024',
+  title: 'WDPCA: World Database on Protected and Conserved Areas (points)',
+  version: 'January 2026',
   'gee:type': ee_const.gee_type.table,
-  'gee:status': 'deprecated',
-  description: wcmc.wdoecm_description,
+  description: wcmc.wdpca_description,
   license: wcmc.license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
-    ee.link.successor(
-      'WCMC/WDPCA/current/points',
-      ee_const.catalog_base + 'WCMC/WCMC_WDPCA_current_points.json'
-    ),
   ],
   'gee:categories': ['ecosystems'],
   keywords: wcmc.keywords,
   providers: wcmc.providers(self_ee_catalog_url),
-  // TODO(b/229788379): how to represent an ongoing end date?
-  extent: ee.extent_global('2024-05-01T00:00:00Z', '2030-01-01T00:00:00Z'),
+  extent: ee.extent_global('2026-01-01T00:00:00Z', '2030-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
-      s.CONS_OBJ, s.DESIG, s.DESIG_ENG, s.DESIG_TYPE, s.GOV_TYPE, s.INT_CRIT,
-      s.ISO3, s.IUCN_CAT, s.MANG_AUTH, s.MANG_PLAN, s.MARINE, s.METADATAID,
-      s.NAME, s.NO_TAKE, s.NO_TK_AREA, s.ORIG_NAME, s.OWN_TYPE, s.PRNT_ISO3,
-      s.PA_DEF, s.REP_AREA, s.REP_M_AREA, s.STATUS, s.STATUS_YR, s.SUB_LOC,
-      s.SUPP_INFO, s.VERIF, s.WDPAID, s.WDPA_PID,
+      s.CONS_OBJ, s.DESIG, s.DESIG_ENG, s.DESIG_TYPE, s.GOVSUBTYPE, s.GOV_TYPE,
+      s.INLND_WTRS, s.INT_CRIT, s.ISO3, s.IUCN_CAT, s.MANG_AUTH, s.MANG_PLAN,
+      s.METADATAID, s.NAME, s.NAME_ENG, s.NO_TAKE, s.NO_TK_AREA, s.OECM_ASMT,
+      s.OWNSUBTYPE, s.OWN_TYPE, s.PRNT_ISO3, s.REALM, s.REP_AREA, s.REP_M_AREA,
+      s.SITE_ID, s.SITE_PID, s.SITE_TYPE, s.STATUS, s.STATUS_YR, s.SUPP_INFO,
+      s.VERIF,
     ],
     'gee:visualizations': [
       {
-        display_name: 'WDOECMs Points',
+        display_name: 'Site Points',
         lookat: {
-          lat: 11.63,
-          lon: 124.49,
-          zoom: 6,
+          lat: 0.88,
+          lon: 110.57,
+          zoom: 4,
         },
         table_visualization: {
-          color: '0000ff',
-          point_size: 6,
+          color: '4285f4',
+          point_size: 3,
         },
       },
       {
-        display_name: 'WDOECMs Points',
+        display_name: 'Site Points',
         visualize_as: 'FeatureView',
         lookat: {
-          lat: 11.63,
-          lon: 124.49,
-          zoom: 6,
+          lat: 0.88,
+          lon: 110.57,
+          zoom: 4,
         },
         feature_view_visualization: {
-          color: '0000FF',
-          point_size: 10,
+          color: '4285F4',
+          point_size: 14,
           point_shape: 'hexagon',
         },
       },
