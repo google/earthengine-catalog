@@ -22,6 +22,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('WCMC_WDOECM_current_polygons', base_url),
     ee.link.child_collection('WCMC_WDPA_current_points', base_url),
     ee.link.child_collection('WCMC_WDPA_current_polygons', base_url),
+    ee.link.child_collection('WCMC_WDPCA_current_points', base_url),
+    ee.link.child_collection('WCMC_WDPCA_current_polygons', base_url),
     ee.link.child_collection('WCMC_biomass_carbon_density_v1_0', base_url),
   ],
 }
