@@ -24,7 +24,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     The Copernicus DEM is a Digital Surface Model (DSM) which represents the
     surface of the Earth including buildings, infrastructure and vegetation.
-    This DEM is derived from an edited DSM named WorldDEM&trade, i.e. flattening of
+    This DEM is derived from an edited DSM named WorldDEM&trade;, i.e., flattening of
     water bodies and consistent flow of rivers has been included. Editing of
     shore- and coastlines, special features such as airports and implausible
     terrain structures has also been applied.
@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the TanDEM-X Mission, which is funded by a Public Private Partnership
     between the German State, represented by the German Aerospace Centre (DLR)
     and Airbus Defence and Space. More details are available in the dataset
-    [documentation](https://spacedata.copernicus.eu/documents/20123/121239/GEO1988-CopernicusDEM-SPE-002_ProductHandbook_I4.0.pdf).
+    [documentation](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf).
 
     Earth Engine asset has been ingested from the DGED files.
 
