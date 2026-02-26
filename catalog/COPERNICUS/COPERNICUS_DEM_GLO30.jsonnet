@@ -272,5 +272,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The GLO-30 dataset is available worldwide with a free license with the
     exception of two countries (Armenia and Azerbaijan). [License for Copernicus
     DEM](https://docs.sentinel-hub.com/api/latest/static/files/data/dem/resources/license/License-COPDEM-30.pdf).
+
+    © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided
+    under COPERNICUS by the European Union and ESA; all rights reserved.
   |||,
 }
