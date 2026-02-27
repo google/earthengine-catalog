@@ -35,6 +35,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and Airbus Defence and Space. More details are available in the dataset
     [documentation](https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf).
 
+    The DSM uses the EGM2008 vertical datum:
+    [EPSG:3855](https://spatialreference.org/ref/epsg/3855/). This means a 0
+    elevation at a location does not imply the location is at a mean sea level.
+
     Earth Engine asset has been ingested from the DGED files.
 
     Note: See the code example for the recommended way of computing slope.
