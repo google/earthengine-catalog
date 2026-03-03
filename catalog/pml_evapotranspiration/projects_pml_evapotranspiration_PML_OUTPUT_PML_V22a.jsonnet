@@ -70,25 +70,25 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       { 
         name: 'ET', 
         description: 'Evapotranspiration', 
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
         name: 'Ec', 
         description: 'Transpiration', 
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
         name: 'Es', 
         description: 'Soil evaporation', 
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
         name: 'Ei', 
         description: 'Interception evaporation', 
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
@@ -97,7 +97,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Potential evapotranspiration (PET), which is estimated using the Shuttleworth-simplified 
           Penman equation.
         |||, 
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01
       },
       { 
@@ -106,7 +106,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           Evaporation from water bodies, snow, and ice, which is estimated using the
           Penman equation with unlimited water supply.
         |||, 
-        'gee:units': 'mm d-1',
+        'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01
       },
     ],
