@@ -41,8 +41,7 @@ class Check(stac.NodeCheck):
   name = 'extent'
 
   @classmethod
-  def check_spatial(
-      cls: ..., node: stac.Node, extent: ...) -> Iterator[stac.Issue]:
+  def check_spatial(cls, node: stac.Node, extent) -> Iterator[stac.Issue]:
     if SPATIAL not in extent:
       yield cls.new_issue(node, f'Extent must have "{SPATIAL}"')
       return
@@ -100,8 +99,7 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'y1 >= y2: {y1} >= {y2}')
 
   @classmethod
-  def check_temporal(
-      cls: ..., node: stac.Node, extent: ...) -> Iterator[stac.Issue]:
+  def check_temporal(cls, node: stac.Node, extent) -> Iterator[stac.Issue]:
     if TEMPORAL not in extent:
       yield cls.new_issue(node, f'Extent must have "{TEMPORAL}"')
       return
