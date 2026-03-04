@@ -216,7 +216,7 @@ local units = import 'units.libsonnet';
           band_vis: {
             min: [0.4],
             max: [1.4],
-            palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921'],
+            palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921'], 
             bands: ['Nitrogen_Uncertainty'],
           },
         },

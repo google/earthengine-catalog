@@ -19,7 +19,7 @@ var cnc_uncertainty = cnc_harv2019.select('Nitrogen_Uncertainty');
 // Define the visualization parameters
 // Note: The min/max values below use a 98% stretch
 var visParamsNit = {bands: ['Nitrogen_Percent'], min: 1.38, max: 2.76, palette: ['#440154', '#3b528b', '#21908c', '#5dc963', '#fde725']};
-var visParamsUnc = {min: 0.44, max: 1.5, palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921']};
+var visParamsUnc = {min: 0.44, max: 1.5, palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921']}; 
 
 // Add the nitrogen and uncertainty layers to the map and center on the site
 // Note that the masked areas in the nitrogen layer have higher uncertainty
