@@ -23,6 +23,7 @@ local units = import 'units.libsonnet';
   id: id,
   title: 'NEON Canopy Nitrogen Content (CNC)',
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'beta',
   description: |||
     Modelled canopy nitrogen concentration calibrated with NEON plant foliar chemistry observations and
     predicted with L1 surface directional reflectance, derived from the [NEON Imaging Spectrometer (NIS)](
@@ -57,18 +58,11 @@ local units = import 'units.libsonnet';
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-    // TODO(bhass-neon): Add doi link.
-    // {
-    //   rel: ee_const.rel.cite_as,
-    //   href: '',
-    //   type: ee_const.media_type.html,
-    // },
   ],
   'gee:categories': [''],
   keywords: [
     'airborne',
     'canopy',
-    'foliar',
     'forest',
     'hyperspectral',
     'neon',
@@ -205,37 +199,37 @@ local units = import 'units.libsonnet';
     'gee:visualizations': [
       {
         display_name: 'Canopy Nitrogen Content',
-        lookat: { lon: -119.25, lat: 37.06, zoom: 12 },
+        lookat: { lon: -78.125, lat: 38.846, zoom: 12 },
         image_visualization: {
           band_vis: {
-            min: [0],
-            max: [1],
-            palette: ['blue', 'green', 'yellow', 'red'],
+            min: [1.7],
+            max: [2.5],
+            palette: ['#440154', '#3b528b', '#21908c', '#5dc963', '#fde725'],
             bands: ['Nitrogen'],
           },
         },
       },
       {
         display_name: 'Canopy Nitrogen Uncertainty',
-        lookat: { lon: -119.25, lat: 37.06, zoom: 12 },
+        lookat: { lon: -78.125, lat: 38.846, zoom: 12 },
         image_visualization: {
           band_vis: {
-            min: [0],
-            max: [1],
-            palette: ['blue', 'green', 'yellow', 'red'],
+            min: [0.4],
+            max: [1.4],
+            palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921'],
             bands: ['Nitrogen_Uncertainty'],
           },
         },
       },
     ],
-    DTM: {
+    Nitrogen_Percent: {
       minimum: 0,
-      maximum: 3500,
+      maximum: 5,
       'gee:estimated_range': false,
     },
-    DSM: {
+    Nitrogen_Uncertainty: {
       minimum: 0,
-      maximum: 3500,
+      maximum: 5,
       'gee:estimated_range': false,
     },
   },
