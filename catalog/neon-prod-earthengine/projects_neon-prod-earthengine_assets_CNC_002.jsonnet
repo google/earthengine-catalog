@@ -206,7 +206,7 @@ local units = import 'units.libsonnet';
             min: [1.7],
             max: [2.5],
             palette: ['440154', '3b528b', '21908c', '5dc963', 'fde725'],
-            bands: ['Nitrogen'],
+            bands: ['Nitrogen_Percent'],
           },
         },
       },
