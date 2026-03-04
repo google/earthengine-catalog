@@ -182,7 +182,7 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'Valid_Pixel_Classification',
-      description: 'A binary mask based on NDVI threshold of 0.2, where pixels with NDVI < 0.2 are set to 0 (invalid). Intended to enable exclusion of non-vegetated areas, such as roads, water bodies, built-up areas, and so forth.',
+      description: 'A binary map based on NDVI threshold of 0.2, where pixels with NDVI < 0.2 are set to 0 (invalid). Intended to enable exclusion of non-vegetated areas, such as roads, water bodies, built-up areas, and so forth.',
       'gee:classes': [
          {
           value: 0,
