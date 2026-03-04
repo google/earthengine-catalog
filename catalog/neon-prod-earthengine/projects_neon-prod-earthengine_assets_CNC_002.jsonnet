@@ -160,12 +160,12 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'Nitrogen_Uncertainty',
-        description: 'Canopy Nitrogen Model Uncertainty',
+        description: 'Uncertainty associated with the %N predictions; calculated by taking the standard deviation of the %N predictions from each decision tree in the random forest model.',
         'gee:units': units.percent,
       },
      {
       name: 'Needle_Classification',
-      description: 'Classification result for needle vs. non-needle model',
+      description: 'A binary map created using Support Vector Machine (SVM) classification. The non-needle class includes all vegetation types that are not needle leaf, such as broadleaf trees, shrubs, herbaceous cover, and so forth. Separate random forest regression models were developed to predict foliar nitrogen values for needle and non-needle vegetation types.',
       'gee:classes': [
          {
           value: 0,
@@ -181,7 +181,7 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'Valid_Pixel_Classification',
-      description: 'Valid pixel mask based on NDVI threshold',
+      description: 'Valid pixel mask based on NDVI threshold of 0.2, where pixels with NDVI < 0.2 are set to 0 (invalid). Intended to enable exclusion of non-vegetated areas, such as roads, water bodies, built-up areas, and so forth.',
       'gee:classes': [
          {
           value: 0,
