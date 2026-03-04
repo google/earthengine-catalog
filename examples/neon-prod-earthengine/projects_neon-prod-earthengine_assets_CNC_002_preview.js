@@ -20,7 +20,7 @@ var visParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest, crs: 'EPSG:3857', format: 'png'};
 
-var vis = {min: 1.7, max: 2.5, palette: ['#440154', '#3b528b', '#21908c', '#5dc963', '#fde725']};
+var vis = {min: 1.7, max: 2.5, palette: ['440154', '3b528b', '21908c', '5dc963', 'fde725']};
 
 var image = scbiSite.visualize(vis);
 var imageClip = scbiSite.visualize(vis).clip(areaOfInterest);

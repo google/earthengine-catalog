@@ -19,8 +19,8 @@ var cnc_unc_masked = cnc_unc.updateMask(cnc_valid);
 
 // Define the visualization parameters
 // The min/max values below use a 2 sigma (~95%) stretch
-var visParamsNit = {bands: ['Nitrogen_Percent'], min: 1.6, max: 2.14, palette: ['#440154', '#3b528b', '#21908c', '#5dc963', '#fde725']};
-var visParamsUnc = {min: 0.4, max: 0.7, palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921']};
+var visParamsNit = {bands: ['Nitrogen_Percent'], min: 1.6, max: 2.14, palette: ['440154', '3b528b', '21908c', '5dc963', 'fde725']};
+var visParamsUnc = {min: 0.4, max: 0.7, palette: ['0d0887', '7e03a8', 'cc4778', 'f89540', 'f0f921']};
 
 // Add the masked nitrogen and uncertainty layers to the map and center on the site
 Map.addLayer(cnc_unc_masked, visParamsUnc, 'HARV 2019 Nitrogen Uncertainty (%)');

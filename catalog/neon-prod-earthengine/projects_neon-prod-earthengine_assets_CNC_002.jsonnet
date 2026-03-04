@@ -59,11 +59,12 @@ local units = import 'units.libsonnet';
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
   ],
-  'gee:categories': [''],
+  'gee:categories': ['plant-productivity'],
   keywords: [
     'airborne',
     'canopy',
     'forest',
+    'highres',
     'hyperspectral',
     'neon',
     'nitrogen',
@@ -164,7 +165,7 @@ local units = import 'units.libsonnet';
         'gee:units': units.percent,
       },
      {
-      name: 'Needle_Classification',
+      name: 'Needle_Non-needle_Classification',
       description: 'A binary map created using Support Vector Machine (SVM) classification. The non-needle class includes all vegetation types that are not needle leaf, such as broadleaf trees, shrubs, herbaceous cover, and so forth. Separate random forest regression models were developed to predict foliar nitrogen values for needle and non-needle vegetation types.',
       'gee:classes': [
          {
@@ -181,7 +182,7 @@ local units = import 'units.libsonnet';
      },
      {
       name: 'Valid_Pixel_Classification',
-      description: 'Valid pixel mask based on NDVI threshold of 0.2, where pixels with NDVI < 0.2 are set to 0 (invalid). Intended to enable exclusion of non-vegetated areas, such as roads, water bodies, built-up areas, and so forth.',
+      description: 'A binary mask based on NDVI threshold of 0.2, where pixels with NDVI < 0.2 are set to 0 (invalid). Intended to enable exclusion of non-vegetated areas, such as roads, water bodies, built-up areas, and so forth.',
       'gee:classes': [
          {
           value: 0,
@@ -204,7 +205,7 @@ local units = import 'units.libsonnet';
           band_vis: {
             min: [1.7],
             max: [2.5],
-            palette: ['#440154', '#3b528b', '#21908c', '#5dc963', '#fde725'],
+            palette: ['440154', '3b528b', '21908c', '5dc963', 'fde725'],
             bands: ['Nitrogen'],
           },
         },
@@ -216,7 +217,7 @@ local units = import 'units.libsonnet';
           band_vis: {
             min: [0.4],
             max: [1.4],
-            palette: ['#0d0887', '#7e03a8', '#cc4778', '#f89540', '#f0f921'],
+            palette: ['0d0887', '7e03a8', 'cc4778', 'f89540', 'f0f921'],
             bands: ['Nitrogen_Uncertainty'],
           },
         },

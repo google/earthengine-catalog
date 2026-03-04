@@ -67,6 +67,7 @@ local units = import 'units.libsonnet';
     'airborne',
     'canopy',
     'forest',
+    'highres',
     'lidar',
     'neon',
     'vegetation',
