@@ -70,7 +70,6 @@ local units = import 'units.libsonnet';
     'forest',
     'highres',
     'neon',
-    'low-flying',
     'orthophoto',
     'rgb',
     'vegetation',
