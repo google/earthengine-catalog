@@ -39,8 +39,8 @@ local catalog_base_url = ee_const.catalog_base;
     and reliable basin-scale water-balance performance (NSE: 0.89–0.91). This MODIS-based 
     record is optimized for high-resolution near-present monitoring.
 
-    This dataset is part of the broader PML-V2.2 suite. For the long-term and consolidated record 
-    (1982-near present, PML-V2.2a/b/c at 0.1° resolution with different remote sensing forcings), 
+    This dataset is part of the broader PML-V2.2 suite, where the description preprint is available at [Earth System Science Data](https://essd.copernicus.org/preprints/essd-2026-94/). 
+    For the long-term and consolidated record (1982-near present, PML-V2.2a/b/c at 0.1° resolution with different remote sensing forcings), 
     please visit the [TPDC data repository](https://doi.org/10.11888/Terre.tpdc.303314).
   |||,
   license: license.id,
@@ -58,6 +58,7 @@ local catalog_base_url = ee_const.catalog_base;
   ],
   providers: [
     ee.producer_provider('Large Scale Hydrology Lab', 'https://zhang-hydrolab.github.io/'),
+    ee.producer_provider('PML_V2', 'https://github.com/gee-hydro/gee_PML'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-03-05T00:00:00Z', null),
@@ -72,13 +73,13 @@ local catalog_base_url = ee_const.catalog_base;
       },
       { 
         name: 'ET', 
-        description: 'Actual evapotranspiration', 
+        description: 'Evapotranspiration', 
         'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
         name: 'Ec', 
-        description: 'Vegetation transpiration', 
+        description: 'Transpiration', 
         'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
@@ -90,14 +91,14 @@ local catalog_base_url = ee_const.catalog_base;
       },
       { 
         name: 'Ei', 
-        description: 'Interception from vegetation canopy', 
+        description: 'Interception evaporation', 
         'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
         name: 'PET', 
         description: |||
-          Potential evapotranspiration (PET) estimated using the Shuttleworth-simplified 
+          Potential evapotranspiration (PET), which is estimated using the Shuttleworth-simplified 
           Penman equation.
         |||, 
         'gee:units': units.millimeter_per_day,
@@ -106,7 +107,7 @@ local catalog_base_url = ee_const.catalog_base;
       { 
         name: 'Ew', 
         description: |||
-          Evaporation from water bodies, snow, and ice, estimated using the
+          Evaporation from water bodies, snow, and ice, which is estimated using the
           Penman equation with unlimited water supply.
         |||, 
         'gee:units': units.millimeter_per_day,
