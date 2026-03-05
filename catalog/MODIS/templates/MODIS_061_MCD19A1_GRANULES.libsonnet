@@ -305,7 +305,7 @@ local units = import 'units.libsonnet';
       },
       {
         name: 'cosSZA',
-        description: 'Cosine of Solar zenith angle (5 km resulution)',
+        description: 'Cosine of Solar zenith angle (5 km resolution)',
         'gee:scale': 0.0001,
       },
       {

@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CHIRTS-daily: Climate Hazards Center InfraRed Temperature with Stations daily temperature data product',
+  title: 'CHIRTS Temperature Daily: Climate Hazards Center InfraRed Temperature with Stations daily data product',
   version: 'v1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

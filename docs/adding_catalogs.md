@@ -23,7 +23,7 @@ following changes:
 1.  At least one dataset description. See the docs on [adding new datasets](adding_datasets.md) for details of
         writing a new dataset description.
 1.  A new JSON file in the owners/ directory named `<yourproject>.jsonnet`
-        with the followng fields:
+        with the following fields:
 
     ```
       {
@@ -61,7 +61,7 @@ Interval,Dataset,30-day active users
 2025-01-05/2025-02-03,projects/provider-name/assets/dataset2,66
 ```
 
-To read the files, use [gsutil](https://cloud.google.com/storage/docs/gsutil).
+To read the files, use [gcloud storage](https://docs.cloud.google.com/sdk/docs/install-sdk).
 There are no charges for reading these files.
 
 ## Dataset deletion protection

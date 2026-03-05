@@ -8,26 +8,28 @@ from google3.third_party.earthengine_catalog.pipelines import geocorrect
 from stac import bboxes
 
 
-class S1IntervalTest(unittest.TestCase):
-  """Tests the S1Interval dataclass."""
+class LatLonToXyzTest(unittest.TestCase):
+  """Tests the geocorrect.latlon_to_xyz function."""
 
-  def test_add_latitudes_around_prime_meridian(self):
-    interval = geocorrect.S1Interval.empty()
-    for lat in (1, -1, 2, -2, 0.5, -0.5):
-      interval = interval.add_longitude(lat)
+  def test_latlon_to_xyz(self):
+    coords = {
+        'equator_prime': (0, 0, (1, 0, 0)),
+        'equator_90e': (0, 90, (0, 1, 0)),
+        'north_pole': (90, 0, (0, 0, 1)),
+        'south_pole': (-90, 0, (0, 0, -1)),
+        'equator_antimeridian': (0, 180, (-1, 0, 0)),
+    }
+    for name, (lat, lon, expected) in coords.items():
+      with self.subTest(coord=name):
+        xyz = geocorrect.latlon_to_xyz(lat, lon)
+        numpy.testing.assert_allclose(xyz, expected, atol=1e-7)
 
-    self.assertLess(interval.low, interval.high)
-    self.assertEqual(interval.low, -2)
-    self.assertEqual(interval.high, 2)
-
-  def test_add_latitudes_around_antimeridian(self):
-    interval = geocorrect.S1Interval.empty()
-    for lat in (179, -179, 178, -178, 179.5, -179.5):
-      interval = interval.add_longitude(lat)
-
-    self.assertGreater(interval.low, interval.high)
-    self.assertEqual(interval.low, 178)
-    self.assertEqual(interval.high, -178)
+  def test_latlon_to_xyz_array(self):
+    lat = numpy.array([0, 90])
+    lon = numpy.array([0, 0])
+    expected = numpy.array([[1, 0, 0], [0, 0, 1]])
+    xyz = geocorrect.latlon_to_xyz(lat, lon)
+    numpy.testing.assert_allclose(xyz, expected, atol=1e-7)
 
 
 class CoordinateIndexTest(unittest.TestCase):
@@ -78,7 +80,7 @@ class CoordinateIndexTest(unittest.TestCase):
     mask = numpy.array([[0] * 3 for _ in range(0, 3)])
     self.assertRaisesRegex(
         geocorrect.EmptyInputError,
-        'No points mapped by CoordinateIndex',
+        'The input grid had no unmasked points',
         geocorrect.CoordinateIndex.from_arrays,
         lat,
         lon,
@@ -144,9 +146,9 @@ class CoordinateIndexTest(unittest.TestCase):
             lat, lon, lat_fill_value=fill_value, lon_fill_value=fill_value
         )
 
-        # Because all pairs in the second column have at least one fill value,
-        # the point_index shouldn't have anything pointing there.
-        self.assertNotIn(1, set(pt[0] for pt in index.point_index.values()))
+        # Verify that only the points expected are included in the source_indices.
+        # Pairs in the second row/column that were fill values are ignored.
+        self.assertNotIn(1, set(index.source_indices[:, 0]))
 
   def test_ignore_mask_position(self):
     lat = numpy.array([[1, 2, 3], [2, 3, 4], [3, 4, 5]])
@@ -154,9 +156,15 @@ class CoordinateIndexTest(unittest.TestCase):
     mask = numpy.array([[1, 1, 1], [0, 0, 0], [1, 1, 1]])
     index = geocorrect.CoordinateIndex.from_arrays(lat, lon, mask=mask)
 
-    # Because all pairs in the second column are masked out, the point_index
+    # Because all pairs in the second row are masked out, the source_indices
     # shouldn't have anything pointing there.
-    self.assertNotIn(1, set(pt[0] for pt in index.point_index.values()))
+    self.assertNotIn(1, set(index.source_indices[:, 0]))
+
+  def test_single_longitude(self):
+    lat = numpy.array([[1], [2]])
+    lon = numpy.array([[10], [10]])
+    index = geocorrect.CoordinateIndex.from_arrays(lat, lon)
+    self.assertEqual([bboxes.BBox(10, 1, 10, 2)], index.bbox_list)
 
 
 class GeoLookupTableTest(unittest.TestCase):
@@ -177,30 +185,35 @@ class GeoLookupTableTest(unittest.TestCase):
     Returns:
       geocorrect.CoordinateIndex
     """
-    return geocorrect.CoordinateIndex(
+    points = numpy.array([
+        (0, 1),
+        (1, 0),
+        (1, 1),
+        (1, 2),
+        (2, 1),
+        (2, 2),
+        (2, 3),
+        (3, 2),
+        (3, 3),
+    ])
+    source_indices = numpy.array(
         [
-            (0, 1),
+            (2, 0),
+            (0, 0),
             (1, 0),
-            (1, 1),
-            (1, 2),
             (2, 1),
+            (0, 1),
+            (1, 1),
             (2, 2),
-            (2, 3),
-            (3, 2),
-            (3, 3),
+            (0, 2),
+            (1, 2),
         ],
-        {
-            (1, 0): (0, 0),
-            (2, 1): (0, 1),
-            (3, 2): (0, 2),
-            (1, 1): (1, 0),
-            (2, 2): (1, 1),
-            (3, 3): (1, 2),
-            (0, 1): (2, 0),
-            (1, 2): (2, 1),
-            (2, 3): (2, 2),
-        },
+        dtype=numpy.int64,
+    )
+    return geocorrect.CoordinateIndex(
+        points,
         [bboxes.BBox(0, 0, 3, 3)],
+        source_indices,
     )
 
   def test_geotransform(self):
@@ -261,8 +274,8 @@ class GeoLookupTableTest(unittest.TestCase):
             [-1, 2, 2, 3, 5, 3, 9],
             [-1, 2, 2, 5, 5, 5, 9],
             [1, 2, 2, 5, 5, 5, 9],
+            [1, 4, 4, 8, 8, 8, -1],
             [1, 1, 4, 8, 8, 8, -1],
-            [1, 1, 7, 8, 8, 8, -1],
             [-1, 7, 7, 7, -1, -1, -1],
         ],
         2: [
@@ -270,9 +283,9 @@ class GeoLookupTableTest(unittest.TestCase):
             [2, 2, 2, 3, 5, 3, 9],
             [2, 2, 2, 5, 5, 5, 9],
             [1, 2, 2, 5, 5, 5, 9],
+            [1, 4, 4, 8, 8, 8, 8],
             [1, 1, 4, 8, 8, 8, 8],
-            [1, 1, 7, 8, 8, 8, 8],
-            [7, 7, 7, 7, 7, 8, 8],
+            [7, 7, 7, 7, 8, 8, 8],
         ],
     }
     for max_nn_distance, expected in projections.items():
@@ -282,8 +295,12 @@ class GeoLookupTableTest(unittest.TestCase):
         )
         self.assertEqual(len(glts), 1)
 
-        projected = glts[0].apply_to(raster, -1, numpy.int64)
-        self.assertTrue(numpy.all(numpy.array(expected) == projected))
+        for dtype in (numpy.int64, numpy.float32, numpy.int8):
+          with self.subTest(dtype=dtype):
+            projected = glts[0].apply_to(raster.astype(dtype), -1, dtype)
+            numpy.testing.assert_array_equal(
+                numpy.array(expected, dtype=dtype), projected
+            )
 
 
 if __name__ == '__main__':

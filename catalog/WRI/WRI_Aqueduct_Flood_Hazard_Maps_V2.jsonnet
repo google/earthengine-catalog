@@ -145,7 +145,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'year',
-        description: 'Flood occurence year',
+        description: 'Flood occurrence year',
         type: ee_const.var_type.int,
       },
     ],

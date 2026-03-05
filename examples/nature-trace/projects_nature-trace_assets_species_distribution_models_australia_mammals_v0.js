@@ -1,7 +1,7 @@
 var dataset = ee.Image(
     'projects/nature-trace/assets/species_distribution_models/australia_mammals/v0');
 var species = dataset.select('GreaterGlider');
-var occurenceVis = {
+var occurrenceVis = {
   min: 0,
   max: 250,
   palette: [
@@ -10,4 +10,4 @@ var occurenceVis = {
   ]
 };
 Map.setCenter(133.4, -26.6, 5);
-Map.addLayer(species, occurenceVis, 'GreaterGlider');
+Map.addLayer(species, occurrenceVis, 'GreaterGlider');

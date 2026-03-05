@@ -73,7 +73,6 @@ _FEATURE_VIEW_EXCEPTIONS = frozenset({
 
 # TODO(schwehr): Remove entries as they are backfilled.
 _PREVIEW_EXCEPTIONS_LIST = [
-    'AAFC/AAFC_ACI',
     'ACA/ACA_reef_habitat_v1_0',
     'AHN/AHN_AHN2_05M_INT',
     'AHN/AHN_AHN2_05M_NON',
@@ -897,7 +896,8 @@ class Check(stac.NodeCheck):
     if node.gee_type == stac.GeeType.TABLE:
       if (featureview_filename not in cls.scripts and
           _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac and
-          str(featureview_filename) not in _FEATURE_VIEW_EXCEPTIONS):
+          str(featureview_filename) not in _FEATURE_VIEW_EXCEPTIONS and
+          node.stac.get(stac.GEE_STATUS) in (stac.Status.READY.value, None)):
         yield cls.new_issue(
             node, f'Missing FeatureView script: {featureview_filename}')
     else:

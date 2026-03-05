@@ -66,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     and aspect) to represent the effects of topographic features on the
     model’s endmember selection algorithm and ET estimates.
 
-    [Additional information](https://openetdata.org/methodologies/)
+    [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

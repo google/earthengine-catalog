@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CHIRPS Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
+  title: 'CHIRPS Precipitation Daily: Climate Hazards Center InfraRed Precipitation With Station Data (Version 2.0 Final)',
   version: '2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -108,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': |||
-    This datasets are in the public domain. To the extent possible under law,
+    This dataset is in the public domain. To the extent possible under law,
     [Pete Peterson](https://chc.ucsb.edu/people/pete-peterson)
     has waived all copyright and related or neighboring rights to
     Climate Hazards Center Infrared Precipitation with Stations (CHIRPS).

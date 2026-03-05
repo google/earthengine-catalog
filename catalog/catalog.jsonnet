@@ -39,6 +39,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('CSP', base_url),
     ee.link.child_catalog('DLR', base_url),
     ee.link.child_catalog('DOE', base_url),
+    ee.link.child_catalog('Earth_Big_Data', base_url),
     ee.link.child_catalog('ECMWF', base_url),
     ee.link.child_catalog('EDF', base_url),
     ee.link.child_catalog('EO1', base_url),
@@ -60,6 +61,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('HU_BERLIN', base_url),
     ee.link.child_catalog('HYCOM', base_url),
     ee.link.child_catalog('IDAHO_EPSCOR', base_url),
+    ee.link.child_catalog('IAHS', base_url),
     ee.link.child_catalog('IGN', base_url),
     ee.link.child_catalog('iNaturalist', base_url),
     ee.link.child_catalog('IPCC', base_url),
@@ -125,7 +127,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('WWF', base_url),
     ee.link.child_catalog('WorldPop', base_url),
     ee.link.child_catalog('YALE', base_url),
-    ee.link.child_catalog('edf-methanesat-ee', base_url),    
+    ee.link.child_catalog('edf-methanesat-ee', base_url),
     ee.link.child_catalog('forestdatapartnership', base_url),
     ee.link.child_catalog('gcp-public-data-weathernext', base_url),
     ee.link.child_catalog('neon-prod-earthengine', base_url),
@@ -136,7 +138,10 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('landandcarbon', base_url),
     ee.link.child_catalog('malariaatlasproject', base_url),
     ee.link.child_catalog('nature-trace', base_url),
+    ee.link.child_catalog('overture-maps', base_url),
     ee.link.child_catalog('mapbiomas-public', base_url),
-    ee.link.child_catalog('global-precipitation-nowcast', base_url)
+    ee.link.child_catalog('global-precipitation-nowcast', base_url),
+    ee.link.child_catalog('ee-kbas-in-gee', base_url),
+    ee.link.child_catalog('pml_evapotranspiration', base_url)
   ],
 }

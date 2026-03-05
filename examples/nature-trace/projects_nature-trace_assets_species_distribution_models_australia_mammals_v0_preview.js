@@ -2,7 +2,7 @@ var dataset = ee.Image(
     'projects/nature-trace/assets/species_distribution_models/australia_mammals/v0');
 var species = dataset.select('GreaterGlider');
 
-var occurenceVis = {
+var occurrenceVis = {
   min: 0,
   max: 250,
   palette: [
@@ -48,7 +48,7 @@ var waterLandBackground = waterLand.visualize(
     {palette: ['#E0E0E0', '#B0B0B0']});  // Ocean, Land in shades of gray
 
 // Visualize the species layer
-var speciesImage = species.visualize(occurenceVis);
+var speciesImage = species.visualize(occurrenceVis);
 
 // Composite the image: background -> land masses -> species data
 // Mask the waterLandBackground so only land is opaque

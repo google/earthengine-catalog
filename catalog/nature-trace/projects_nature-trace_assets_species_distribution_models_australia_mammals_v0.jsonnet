@@ -36,7 +36,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [trait](https://figshare.com/articles/dataset/COMBINE_a_Coalesced_Mammal_Database_of_Intrinsic_and_extrinsic_traits/13028255/4) and taxonomy data for the same species from COMBINE,
     and satellite and environmental as embedded by
     [AlphaEarth Foundations](https://deepmind.google/discover/blog/alphaearth-foundations-helps-map-our-planet-in-unprecedented-detail/).
-    [A previous phase of this work and the model architechture are described here](https://ar5iv.labs.arxiv.org/html/2503.11900).
+    [A previous phase of this work and the model architecture are described here](https://ar5iv.labs.arxiv.org/html/2503.11900).
     Estimates of species’ geographical distributions are made at c. 1km resolution (S2 cells level 13).
 
     These distributions are intended to support conservation initiatives like

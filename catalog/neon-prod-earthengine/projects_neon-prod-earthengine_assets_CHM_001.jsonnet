@@ -43,7 +43,7 @@ local units = import 'units.libsonnet';
     https://data.neonscience.org/data-products/DP3.30015.001) for
     more details.
 
-    Documentation: [NEON Ecosystem structure (DP3.30015.001) Quick StartGuide](
+    Documentation: [NEON Ecosystem structure (DP3.30015.001) Quick Start Guide](
     https://data.neonscience.org/api/v0/documents/quick-start-guides/NEON.QSG.DP3.30015.001v1?inline=true&fallback=html)
 
     Get started by exploring the [Intro to AOP Data in Google Earth Engine Tutorial Series](
@@ -67,6 +67,7 @@ local units = import 'units.libsonnet';
     'airborne',
     'canopy',
     'forest',
+    'highres',
     'lidar',
     'neon',
     'vegetation',

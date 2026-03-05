@@ -94,6 +94,7 @@ local vertical_column_sample_bands() = [
         'nitrogen_dioxide',
         'pollution',
         'tropomi',
+        'tempo',
       ],
       providers: (
         if cfg.qa_description == '' then

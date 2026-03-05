@@ -17,9 +17,12 @@ local license = spdx.cc_by_4_0;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
-  title: 'Accessibility to Cities 2015',
+  title: 'Accessibility to Cities 2015 [deprecated]',
+  version: '1.0',
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     This global accessibility map enumerates land-based
@@ -57,7 +60,11 @@ local license = spdx.cc_by_4_0;
     Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.successor(
+      'projects/malariaatlasproject/assets/accessibility/accessibility_to_cities/2015_v1_0',
+      ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_accessibility_accessibility_to_cities_2015_v1_0.json'),
+  ],
   'gee:categories': ['population'],
   keywords: [
     'accessibility',

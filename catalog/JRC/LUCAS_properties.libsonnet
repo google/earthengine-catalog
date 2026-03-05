@@ -941,7 +941,7 @@ local ee_const = import 'earthengine_const.libsonnet';
     {
       name: 'inspire_plcc8',
       description: |||
-        Difference between the sum of all inspire persentage classes and 100%.
+        Difference between the sum of all inspire percentage classes and 100%.
 
         Source: C1(Instructions), p.151, sec.9.1.10.2
 
