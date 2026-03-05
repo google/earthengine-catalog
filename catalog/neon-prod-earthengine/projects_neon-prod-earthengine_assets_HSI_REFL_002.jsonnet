@@ -57,6 +57,7 @@ local units = import 'units.libsonnet';
   keywords: [
     'airborne',
     'forest',
+    'highres',
     'hyperspectral',
     'neon',
     'surface_reflectance',
