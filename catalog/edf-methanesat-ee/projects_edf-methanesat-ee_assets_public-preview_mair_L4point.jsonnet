@@ -78,7 +78,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'plume_id',
         description: 'Plume id (unique per flight).',
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.string,
       },
       {
         name: 'flux',
