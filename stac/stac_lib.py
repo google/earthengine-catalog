@@ -108,6 +108,34 @@ class Rel(enum.Enum):
     return self._value_
 
 
+def _propagate_gsd_to_bands(stac_collection_dict: dict[str, Any]) -> None:
+  """Propagates a global 'gsd' from summaries to individual bands.
+
+  If a global 'gsd' is present in 'summaries' and bands in 'eo:bands'
+  don't have one, it's copied to them. Modifies the dict in place.
+
+  Args:
+    stac_collection_dict: The STAC Collection dictionary to modify.
+  """
+  summaries = stac_collection_dict.get('summaries')
+  if not isinstance(summaries, dict):
+    return
+
+  global_gsd = summaries.get('gsd')
+  if not isinstance(global_gsd, (int, float, list)):
+    return
+
+  bands = summaries.get('eo:bands')
+  if not isinstance(bands, list):
+    return
+
+  if not bands:
+    return
+  for band in bands:
+    if 'gsd' not in band:
+      band['gsd'] = global_gsd
+
+
 @dataclasses.dataclass
 class Link:
   """Represents a STAC Link."""
@@ -405,6 +433,7 @@ class Collection:
 
   def __init__(self, stac_json: dict[str, Any]):
     self.stac_json = stac_json
+    _propagate_gsd_to_bands(stac_json)
     if stac_json.get(stac_checker.GEE_STATUS) == stac_checker.Status.DEPRECATED:
       # Set the STAC 'deprecated' field that we don't set in the jsonnet files
       stac_json['deprecated'] = True
