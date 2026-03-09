@@ -21,13 +21,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the east, plus three urban areas (New York City, Phoenix, and Salt Lake
     City).
 
-    Methane is a potent greenhouse gas that has more than 80 times the warming power
-    of carbon dioxide over the first 20 years after it reaches the atmosphere. At
-    least 30% of today's global warming is driven by methane from human actions.
-    Cutting methane emissions associated with human activities - including avoidable
-    emissions from oil and gas operations, agriculture, and waste management - is
-    the single fastest way to slow the rate of global warming.
-
     This dataset was generated using MethaneAIR measurements taken on flights
     between 09 July 2025 and 10 October 2025. MethaneAIR is managed by
     [MethaneSAT LLC](https://www.methanesat.org/), a wholly owned subsidiary of
