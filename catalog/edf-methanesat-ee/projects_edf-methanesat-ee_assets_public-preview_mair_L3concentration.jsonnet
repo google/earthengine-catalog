@@ -23,13 +23,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Additional data layers are provided for reference: observed albedo at 1622
     nm, surface pressure, and terrain height.
 
-    Methane is a potent greenhouse gas that has more than 80 times the warming power
-    of carbon dioxide over the first 20 years after it reaches the atmosphere. At
-    least 30% of today's global warming is driven by methane from human actions.
-    Cutting methane emissions associated with human activities - including avoidable
-    emissions from oil and gas operations, agriculture, and waste management - is
-    the single fastest way to slow the rate of global warming.
-
     The aircraft was flown at 11.5 - 13 km altitude (37,000 - 43,000 feet),
     acquiring 10 frames per second with a swath of 4.5 - 4.8 km with a 25 degree
     field of view and 896 pixels across track, giving a native pixel size at
