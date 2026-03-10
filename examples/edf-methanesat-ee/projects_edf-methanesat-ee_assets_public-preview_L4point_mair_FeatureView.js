@@ -1,5 +1,5 @@
 // Request access to this data by filling out the form at: https://forms.gle/jqw4Mvr63dsV1fUF8
-var fvLayer = ui.Map.FeatureViewLayer('FeatureViews/projects_edf-methanesat-ee_assets_public-preview_mair_L4point_FeatureView');
+var fvLayer = ui.Map.FeatureViewLayer('FeatureViews/projects_edf-methanesat-ee_assets_public-preview_L4point_mair_FeatureView');
 
 var visParams = {
   color: 'red',
