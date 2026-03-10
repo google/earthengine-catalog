@@ -1,5 +1,5 @@
 // Request access to this data by filling out the form at: https://forms.gle/jqw4Mvr63dsV1fUF8
-var methaneAIRArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/mair/L3concentration")
+var methaneAIRArea = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L3concentration/mair")
   .filterDate('2025-07-11', '2025-07-12');
 
 // Visualization
