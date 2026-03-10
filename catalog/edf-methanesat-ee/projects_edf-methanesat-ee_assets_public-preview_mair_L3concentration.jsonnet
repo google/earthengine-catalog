@@ -1,4 +1,4 @@
-local id = 'projects/edf-methanesat-ee/assets/public-preview/mair/L3concentration';
+local id = 'projects/edf-methanesat-ee/assets/public-preview/L3concentration/mair';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
 local ee_const = import 'earthengine_const.libsonnet';
