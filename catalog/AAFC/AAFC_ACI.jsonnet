@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'Canada AAFC Annual Crop Inventory',
+  title: 'Canada AAFC Annual Crop Inventory test',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Starting in 2009, the Earth Observation Team of the Science and Technology
