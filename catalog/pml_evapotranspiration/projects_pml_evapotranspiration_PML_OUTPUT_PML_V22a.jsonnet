@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       { 
         name: 'PET', 
         description: |||
-          Potential evapotranspiration (PET), estimated using the Shuttleworth-simplified 
+          Potential evapotranspiration (PET) estimated using the Shuttleworth-simplified 
           Penman equation.
         |||, 
         'gee:units': units.millimeter_per_day,
