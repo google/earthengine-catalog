@@ -15,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET Ensemble Monthly Evapotranspiration v' + version,
+  title: 'OpenET Ensemble Monthly Evapotranspiration v' + version + ' (publisher catalog)',
   version: version,
   description: |||
     The OpenET dataset includes satellite-based data on the total amount of

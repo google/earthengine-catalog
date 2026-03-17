@@ -15,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET PT-JPL Monthly Evapotranspiration v' + version,
+  title: 'OpenET PT-JPL Monthly Evapotranspiration v' + version + ' (publisher catalog)',
   version: version,
   description: |||
     Priestley-Taylor Jet Propulsion Laboratory (PT-JPL)
