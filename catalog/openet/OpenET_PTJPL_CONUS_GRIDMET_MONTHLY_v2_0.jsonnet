@@ -1,5 +1,5 @@
 local id = 'OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0';
-local subdir = 'OpenET';
+local subdir = 'openet';
 local version = '2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
