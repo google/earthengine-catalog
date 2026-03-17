@@ -1,6 +1,6 @@
-local id = 'projects/edf-methanesat-ee/assets/public-preview/L3concentration/mair';
+local id = 'projects/edf-methanesat-ee/assets/mair/L3concentration';
 local subdir = 'edf-methanesat-ee';
-local version = '1.0.0';
+local version = '1.1.0';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -11,7 +11,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneAIR L3 Concentration Public Preview V' + version,
+  title: 'MethaneAIR L3 Concentration V' + version,
   version: version,
   description: |||
     This dataset provides geospatial data for the total column dry air mole
