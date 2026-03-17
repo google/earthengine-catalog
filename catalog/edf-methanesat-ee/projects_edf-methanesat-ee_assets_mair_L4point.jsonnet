@@ -1,4 +1,4 @@
-local id = 'projects/edf-methanesat-ee/assets/public-preview/L4point/mair';
+local id = 'projects/edf-methanesat-ee/assets/mair/L4point';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
 local ee_const = import 'earthengine_const.libsonnet';
@@ -12,7 +12,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneAIR L4 Point Sources Public Preview V' + version,
+  title: 'MethaneAIR L4 Point Sources V' + version,
   version: version,
   description: |||
     This dataset provides data for high-emitting methane point source detections
