@@ -4,9 +4,11 @@ for pointers on creating pull requests in GitHub.
 
 ## Overview
 
-Currently, adding user-uploaded assets to the public catalog
+[Publisher catalogs](https://developers.google.com/earth-engine/datasets/publisher) should be used whenever possible.
+
+Previously, adding user-uploaded assets to the public catalog
 involves mirroring these assets into public Earth Engine folders.
-However, the source user-uploaded assets still need to be kept in user folders
+However, the source user-uploaded assets still needed to be kept in user folders
 for as long as the dataset is present in the catalog.
 
 To add a new dataset:
@@ -16,7 +18,7 @@ To add a new dataset:
 * Create and submit a GitHub pull request with these files.
 
 See also
-[dataset acceptance criteria](https://developers.google.com/earth-engine/help_collection_criteria).
+[dataset acceptance criteria](https://developers.google.com/earth-engine/publisher_data_catalogs_eligibility).
 
 ## Timelines
 
