@@ -83,14 +83,14 @@ class IdFieldCollectionTest(test_utils.NodeTest):
 
   def test_too_deep(self):
     dataset_id = '1/2/3/4/5/6/7/8/9'
-    message = 'id length greater than 8 for collection: 1/2/3/4/5/6/7/8: 8'
+    message = 'id length greater than 8 for collection: 1/2/3/4/5/6/7/8: 9'
     self.assert_collection({ID: dataset_id}, message, dataset_id=dataset_id)
 
   def test_multiple_issues(self):
     dataset_id = '1/2/3/4/5/6/7/8/9/$'
     messages = [
         'id part not valid: "$"',
-        'id length greater than 8 for collection: 1/2/3/4/5/6/7/8/9/$: 9']
+        'id length greater than 8 for collection: 1/2/3/4/5/6/7/8/9/$: 10']
     self.assert_collection({ID: dataset_id}, messages, dataset_id=dataset_id)
 
 
