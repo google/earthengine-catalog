@@ -153,9 +153,23 @@ FEATURE_VIEW_EXCEPTIONS = frozenset({
     'TIGER/2010/BG',
 })
 
+EXAMPLE_EXCEPTIONS = frozenset({
+    'OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/DISALEXI/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/EEMETRIC/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/GEESEBAL/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/SIMS/CONUS_GRIDMET/MONTHLY/v2_0',
+    'OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0',
+})
+
 
 def feature_view_exception(dataset_id: str) -> bool:
   return dataset_id in FEATURE_VIEW_EXCEPTIONS
+
+
+def example_exception(dataset_id: str) -> bool:
+  return dataset_id in EXAMPLE_EXCEPTIONS
 
 
 class Check(stac.NodeCheck):
@@ -372,6 +386,8 @@ class Check(stac.NodeCheck):
     if not example_links:
       yield cls.new_issue(node, f'Missing example {RELATED} link')
     else:
+      if example_exception(node.id):
+        yield cls.new_issue(node, 'Remove node from example exceptions')
       num_example_links = len(example_links)
       if num_example_links > 1:
         yield cls.new_issue(
