@@ -14,7 +14,7 @@ COLLECTION_EXCEPTION_IDS = frozenset({
     'OpenET/EEMETRIC/CONUS/GRIDMET/MONTHLY/v2_0',
     'OpenET/GEESEBAL/CONUS/GRIDMET/MONTHLY/v2_0',
     'OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0',
-    'OpenET/SIMS/CONUS_GRIDMET/MONTHLY/v2_0',
+    'OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0',
     'OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0',
     'projects/openet/assets/ensemble/conus/gridmet/monthly/v2_0',
     'projects/openet/assets/disalexi/conus/gridmet/monthly/v2_0',
