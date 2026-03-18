@@ -8,6 +8,23 @@ from typing import Iterator
 
 from checker import stac
 
+COLLECTION_EXCEPTION_IDS = frozenset({
+    'OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/DISALEXI/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/EEMETRIC/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/GEESEBAL/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0',
+    'OpenET/SIMS/CONUS_GRIDMET/MONTHLY/v2_0',
+    'OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0',
+    'projects/openet/assets/ensemble/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/disalexi/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/eemetric/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/geesebal/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/ptjpl/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/sims/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/ssebop/conus/gridmet/monthly/v2_0',
+})
+
 TITLE = 'title'
 
 
@@ -27,6 +44,8 @@ class Check(stac.TreeCheck):
         node for node in nodes if str(node.stac[TITLE]) in duplicate_titles]
 
     for node in duplicate_nodes:
+      if node.id in COLLECTION_EXCEPTION_IDS:
+        return
       title = str(node.stac[TITLE])
       if title in duplicate_titles:
         yield cls.new_issue(node, f'Non-unique title: "{title}"')
