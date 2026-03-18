@@ -384,8 +384,6 @@ class Check(stac.NodeCheck):
     elif node.id in EXAMPLE_EXCEPTIONS:
       pass
     else:
-      if example_exception(node.id):
-        yield cls.new_issue(node, 'Remove node from example exceptions')
       num_example_links = len(example_links)
       if num_example_links > 1:
         yield cls.new_issue(
