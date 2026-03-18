@@ -1,0 +1,3 @@
+This collection contains the raw panchromatic (PAN) bands from the SPOT 2, 4, and 5 satellites. The panchromatic sensor provides the highest native spatial resolution of the missions, capturing light across a broad visible spectrum (0.51-0.73 µm for SPOT 2; 0.48-0.71 µm for SPOT 5). These bands are intended for advanced photogrammetric analysis and custom fusion workflows.
+
+**Access Note (Non-activated):** This dataset is currently in an internal review phase. Access is restricted to approved investigators. To request access for Earth Engine, please complete the [Brazil Forest Imagery data request form](https://forms.gle/jQmCbWgarjENQBYz6).
