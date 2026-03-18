@@ -15,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET DisALEXI Monthly Evapotranspiration v' + version + ' (publisher catalog)',
+  title: 'OpenET DisALEXI Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
     Atmosphere-Land Exchange Inverse / Disaggregation of the Atmosphere-Land

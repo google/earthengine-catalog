@@ -23,6 +23,16 @@ GEE_CATALOG = 'GEE_catalog'
 CATALOG_NAME = 'catalog.json'
 GEE_CATALOG_PATH = pathlib.Path(CATALOG_NAME)
 
+COLLECTION_EXCEPTION_IDS = frozenset({
+    'OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_DISALEXI_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_EEMETRIC_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_GEESEBAL_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_PTJPL_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_SIMS_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_SSEBOP_CONUS_GRIDMET_MONTHLY_v2_0',
+})
+
 
 class Check(stac.NodeCheck):
   """Checks file paths."""
@@ -70,6 +80,9 @@ class Check(stac.NodeCheck):
               node, f'expected path: {expected_path} found: {node.path}')
 
       return  # Done with catalog
+
+    if node.id in COLLECTION_EXCEPTION_IDS:
+      return
 
     # Collection
     # Datasets ids starting with 'projects' lose their first directory part.

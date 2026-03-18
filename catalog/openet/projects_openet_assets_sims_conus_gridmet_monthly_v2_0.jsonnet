@@ -15,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET SIMS Monthly Evapotranspiration v' + version + ' (publisher catalog)',
+  title: 'OpenET SIMS Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
     Satellite Irrigation Management Support

@@ -13,6 +13,20 @@ from checker import stac
 CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP'})
 COLLECTION_EXCEPTION_IDS = frozenset({
     'OSU/GIMP/2000_IMAGERY_MOSAIC',
+    'OpenET_ENSEMBLE_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_DISALEXI_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_EEMETRIC_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_GEESEBAL_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_PTJPL_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_SIMS_CONUS_GRIDMET_MONTHLY_v2_0',
+    'OpenET_SSEBOP_CONUS_GRIDMET_MONTHLY_v2_0',
+    'projects/openet/assets/ensemble/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/disalexi/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/eemetric/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/geesebal/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/ptjpl/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/sims/conus/gridmet/monthly/v2_0',
+    'projects/openet/assets/ssebop/conus/gridmet/monthly/v2_0',
 })
 
 DEPRECATED = ' [deprecated]'

@@ -15,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET eeMETRIC Monthly Evapotranspiration v' + version + ' (publisher catalog)',
+  title: 'OpenET eeMETRIC Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
     Google Earth Engine implementation of the Mapping Evapotranspiration

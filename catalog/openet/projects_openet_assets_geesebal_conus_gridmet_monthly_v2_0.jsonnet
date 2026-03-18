@@ -15,7 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET geeSEBAL Monthly Evapotranspiration v' + version + ' (publisher catalog)',
+  title: 'OpenET geeSEBAL Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
     Implementation of geeSEBAL was recently completed within the OpenET
