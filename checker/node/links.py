@@ -168,10 +168,6 @@ def feature_view_exception(dataset_id: str) -> bool:
   return dataset_id in FEATURE_VIEW_EXCEPTIONS
 
 
-def example_exception(dataset_id: str) -> bool:
-  return dataset_id in EXAMPLE_EXCEPTIONS
-
-
 class Check(stac.NodeCheck):
   """Checks the keywords field."""
   name = 'links'
@@ -385,6 +381,8 @@ class Check(stac.NodeCheck):
 
     if not example_links:
       yield cls.new_issue(node, f'Missing example {RELATED} link')
+    elif node.id in EXAMPLE_EXCEPTIONS:
+      pass
     else:
       if example_exception(node.id):
         yield cls.new_issue(node, 'Remove node from example exceptions')
