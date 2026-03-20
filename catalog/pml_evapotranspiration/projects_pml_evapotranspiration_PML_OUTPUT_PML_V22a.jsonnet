@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       { 
         name: 'PET', 
         description: |||
-          Potential evapotranspiration (PET), estimated using the Shuttleworth-simplified 
+          Potential evapotranspiration (PET), which is estimated using the Shuttleworth-simplified 
           Penman equation.
         |||, 
         'gee:units': units.millimeter_per_day,
@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       { 
         name: 'Ew', 
         description: |||
-          Evaporation from water bodies, snow, and ice, estimated using the
+          Evaporation from water bodies, snow, and ice, which is estimated using the
           Penman equation with unlimited water supply.
         |||, 
         'gee:units': units.millimeter_per_day,
