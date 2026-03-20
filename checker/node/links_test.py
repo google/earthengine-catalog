@@ -208,6 +208,17 @@ class CatalogLinkTest(test_utils.NodeTest):
             child_link, self.PARENT_LINK, self.ROOT_LINK, self.SELF_LINK]},
         'child title must be "thing"')
 
+  def test_child_case_mismatch(self):
+    child_link = {
+        'title': 'openet',
+        'href': BASE_URL + 'OpenET/catalog.json',
+        'rel': 'child',
+        'type': JSON,
+    }
+    self.assert_catalog({
+        'links': [child_link, self.PARENT_LINK, self.ROOT_LINK, self.SELF_LINK]
+    })
+
   def test_children_with_same_url(self):
     self.assert_catalog(
         {'links': [
@@ -359,6 +370,15 @@ class CollectionLinkTest(test_utils.NodeTest):
         {'links': stac_links}, message,
         dataset_id=self.node_id, file_path=self.node_path)
 
+  def test_preview_case_mismatch(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'preview']
+    preview = dict(self.preview)
+    preview['href'] = preview['href'].replace('AHN', 'ahn')
+    stac_links.append(preview)
+    self.assert_collection(
+        {'links': stac_links}, dataset_id=self.node_id, file_path=self.node_path
+    )
+
   def test_preview_extra_key(self):
     preview = self.preview | {'title': 'should not have a title'}
     stac_links = [l for l in self.required_links if l['rel'] != 'preview']
@@ -394,6 +414,15 @@ class CollectionLinkTest(test_utils.NodeTest):
         'datasets/catalog/AHN_AHN2_05M_RUW#terms-of-use. '
         'Found: https://example.test#terms-of-use',
         dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_case_mismatch(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    terms = dict(self.terms_of_use)
+    terms['href'] = terms['href'].replace('AHN', 'ahn')
+    stac_links.append(terms)
+    self.assert_collection(
+        {'links': stac_links}, dataset_id=self.node_id, file_path=self.node_path
+    )
 
   def test_terms_missing_type(self):
     stac_links = [l for l in self.required_links if l['rel'] != 'license']
@@ -447,6 +476,15 @@ class CollectionLinkTest(test_utils.NodeTest):
         'code href must be https://code.earthengine.google.com/?scriptPath='
         'Examples:Datasets/AHN/AHN_AHN2_05M_RUW. Found: https://example.test',
         dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_case_mismatch(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    example = dict(self.example)
+    example['href'] = example['href'].replace('AHN', 'ahn')
+    stac_links.append(example)
+    self.assert_collection(
+        {'links': stac_links}, dataset_id=self.node_id, file_path=self.node_path
+    )
 
   def test_example_title_missing(self):
     example = dict(self.example)
@@ -508,6 +546,16 @@ class CollectionLinkTest(test_utils.NodeTest):
         'Examples:Datasets/AHN/AHN_AHN2_05M_RUW_FeatureView. '
         'Found: https://example.test/foo_FeatureView',
         dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+  def test_feature_view_case_mismatch(self):
+    feature_view = dict(self.feature_view)
+    feature_view['href'] = feature_view['href'].replace('AHN', 'ahn')
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]},
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+        gee_type=TABLE,
+    )
 
   def test_feature_view_title_missing(self):
     feature_view = dict(self.feature_view)
