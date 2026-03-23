@@ -401,6 +401,10 @@ class GeoLookupTable:
     ]
     return new_raster
 
+  def dimensions(self) -> tuple[int, int]:
+    """Returns the dimensions of the GLT as (width, height)."""
+    return (self._glt.shape[1], self._glt.shape[0])
+
   def geotransform(self) -> list[float]:
     """Returns the geotransform for this bounding box in gdal order."""
     return [

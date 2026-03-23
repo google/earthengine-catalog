@@ -238,6 +238,14 @@ class GeoLookupTableTest(unittest.TestCase):
         geotransform = glts[0].geotransform()
         self.assertEqual(expected, geotransform)
 
+  def test_dimensions(self):
+    index = self.generate_test_index()
+    scale_lat = -0.5
+    scale_lon = 0.5
+    glts = geocorrect.GeoLookupTable.from_index(index, scale_lat, scale_lon)
+    self.assertEqual(len(glts), 1)
+    self.assertEqual((7, 7), glts[0].dimensions())
+
   def test_bad_scale_factors(self):
     index = self.generate_test_index()
 
