@@ -166,6 +166,41 @@ class CoordinateIndexTest(unittest.TestCase):
     index = geocorrect.CoordinateIndex.from_arrays(lat, lon)
     self.assertEqual([bboxes.BBox(10, 1, 10, 2)], index.bbox_list)
 
+  def test_allowed_extent(self):
+    lat = numpy.array([[-10, 0, 10], [-10, 0, 10], [-10, 0, 10]])
+    lon = numpy.array([[-10, -10, -10], [0, 0, 0], [10, 10, 10]])
+    # Points:
+    # (-10,-10) (0,-10) (10,-10)
+    # (-10,0)   (0,0)   (10,0)
+    # (-10,10)  (0,10)  (10,10)
+
+    # Restrict to lat [-15, 15] and lon [-5, 15]
+    extent = bboxes.BBox(west=-5, south=-15, east=15, north=15)
+    index = geocorrect.CoordinateIndex.from_arrays(
+        lat, lon, allowed_extent=extent
+    )
+
+    expected_points = numpy.array(
+        [[-10, 0], [0, 0], [10, 0], [-10, 10], [0, 10], [10, 10]]
+    )
+    numpy.testing.assert_array_equal(index.points, expected_points)
+    self.assertEqual([bboxes.BBox(0, -10, 10, 10)], index.bbox_list)
+
+  def test_allowed_extent_anti_meridian(self):
+    lat = numpy.array([[0, 0, 0]])
+    lon = numpy.array([[170, 180, -170]])
+    # allowed_extent crosses antimeridian: [175, -175]
+    extent = bboxes.BBox(west=175, south=-10, east=-175, north=10)
+    index = geocorrect.CoordinateIndex.from_arrays(
+        lat, lon, allowed_extent=extent
+    )
+
+    # longitude 170 is outside.
+    # longitude 180 is inside.
+    # longitude -170 is outside.
+    numpy.testing.assert_array_equal(index.points, [[0, 180]])
+    self.assertEqual([bboxes.BBox(180, 0, 180, 0)], index.bbox_list)
+
 
 class GeoLookupTableTest(unittest.TestCase):
   """Tests the geocorrect.GeoLookupTableTest dataclass."""
