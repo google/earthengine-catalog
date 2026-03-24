@@ -19,7 +19,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
   description: |||
     Google Earth Engine implementation of the Mapping Evapotranspiration
-    at high Resolution with Internalized Calibration model (eeMETRIC)
+    at high Resolution with Internalized Calibration model (eeMETRIC).
 
     eeMETRIC applies the advanced METRIC algorithms and process of Allen
     et al. (2007; 2015) and Allen et al. (2013b), where a singular

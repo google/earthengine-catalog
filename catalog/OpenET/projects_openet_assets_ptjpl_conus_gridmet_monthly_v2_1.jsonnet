@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'OpenET PT-JPL Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
-    Priestley-Taylor Jet Propulsion Laboratory (PT-JPL)
+    Priestley-Taylor Jet Propulsion Laboratory (PT-JPL).
 
     The core formulation of the PT-JPL model within the OpenET framework has
     not changed from the original formulation detailed in Fisher et al. (2008).

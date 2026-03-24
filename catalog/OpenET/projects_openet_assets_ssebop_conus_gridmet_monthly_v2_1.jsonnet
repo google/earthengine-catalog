@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'OpenET SSEBop Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
-    Operational Simplified Surface Energy Balance (SSEBop)
+    Operational Simplified Surface Energy Balance (SSEBop).
 
     The Operational Simplified Surface Energy Balance (SSEBop) model by Senay
     et al. (2013, 2017) is a thermal-based simplified surface energy model for

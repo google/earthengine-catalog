@@ -18,7 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'OpenET SIMS Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
-    Satellite Irrigation Management Support
+    Satellite Irrigation Management Support (SIMS).
 
     The NASA Satellite Irrigation Management Support (SIMS) model was originally
     developed to support satellite mapping of crop coefficients and
@@ -27,28 +27,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     agricultural water needs (Melton et al., 2012). SIMS uses a reflectance
     based approach and incorporates the density coefficient described by Allen
     and Pereira (2009) and Pereira et al. (2020) to compute basal crop
-    coefficients for each 30 x 30 m pixel. The primary change from the most
-    recent SIMS publication (Pereira et al., 2020) for implementation in OpenET
-    is the integration of a gridded soil water balance model to account for soil
-    evaporation following precipitation events. Results of the OpenET Phase I
-    intercomparison and accuracy assessment (Melton et al., 2022) showed that
-    SIMS generally performed well for cropland sites during the growing season,
-    but had a persistent low bias during the winter months or other time periods
-    with frequent precipitation. This result was anticipated, since the
-    reflectance-based approach used by SIMS is not sensitive to soil
-    evaporation. To correct for this underestimation, a soil water balance model
-    based on FAO-56 (Allen et al., 1998) was implemented on Google Earth Engine
-    and driven with gridded precipitation data from gridMET to estimate soil
-    evaporation coefficients. These coefficients were then combined with the
-    basal crop coefficients calculated by SIMS to calculate total crop
-    evapotranspiration using the dual crop coefficient approach. In addition,
-    a modest positive bias was observed in the SIMS data for periods with low
-    or sparse vegetative cover. To correct for this bias, updates were made to
-    the equations that calculate the minimum basal crop coefficient to allow
-    lower minimum basal crop coefficient values to be achieved. Full
-    documentation of the SIMS model, current algorithms, and details and
-    equations used in the soil water balance model are included in the
-    SIMS user manual.
+    coefficients for each 30 x 30 m pixel. The primary change from the SIMS
+    publication (Pereira et al., 2020) for implementation in OpenET is the
+    integration of a gridded soil water balance model to account for soil
+    evaporation following precipitation events.
+
+    Results of the OpenET Phase I Intercomparison and Accuracy Assessment
+    (Melton et al., 2022) showed that SIMS generally performed well for
+    cropland sites during the growing season, but had a persistent low bias
+    during the winter months or other time periods with frequent precipitation.
+    This result was anticipated, since the reflectance-based approach used by
+    SIMS is not sensitive to soil evaporation. To correct for this
+    underestimation, a soil water balance model based on FAO-56
+    (Allen et al., 1998) was implemented on Google Earth Engine and driven
+    with gridded precipitation data from gridMET to estimate soil evaporation
+    coefficients. These coefficients were then combined with the basal crop
+    coefficients calculated by SIMS to calculate total crop evapotranspiration
+    using the dual crop coefficient approach. In addition, a modest positive
+    bias was observed in the SIMS data for periods with low or sparse
+    vegetative cover. To correct for this bias, updates were made to the
+    equations that calculate the minimum basal crop coefficient to allow lower
+    minimum basal crop coefficient values to be achieved. Full documentation
+    of the SIMS model, current algorithms, and details and equations used in
+    the soil water balance model are included in the SIMS user manual.
 
     The SIMS model calculates ET under well-watered conditions for the current
     crop growth stage and condition as measured by the satellite data, and SIMS
