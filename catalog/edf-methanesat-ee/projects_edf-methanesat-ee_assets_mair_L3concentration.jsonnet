@@ -128,9 +128,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
       {
-        name: 'basin',
-        description: 'Oil and Gas basin (e.g. Permian) or area of interest (e.g. New York City).',
-        type: ee_const.var_type.string,
+        name: 'target_id',
+        description: 'Flight Target ID.',
+        type: ee_const.var_type.int,
       },
       {
         name: 'time_coverage_end',
