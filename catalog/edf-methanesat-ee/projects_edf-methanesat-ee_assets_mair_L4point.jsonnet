@@ -80,29 +80,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.int,
       },
       {
-        name: 'flux_hi',
-        description: 'Higher estimate of methane flux quantification, in kg/h.',
-        units: units.kg_per_hour,
-        type: ee_const.var_type.int,
-      },
-      {
-        name: 'flux_lo',
-        description: 'Lower estimate of methane flux quantification, in kg/h.',
-        units: units.kg_per_hour,
-        type: ee_const.var_type.int,
-      },
-      {
         name: 'flux_sd',
         description: 'Standard deviation of methane flux quantification, in kg/h.',
-        units: units.kg_per_hour,
-        type: ee_const.var_type.int,
-      },
-      {
-        name: 'in_gim_bound',
-        description: |||
-          Whether the point source is within the footprint of the L4 GIM area
-          emissions product (0 if false, 1 if true).
-        |||,
         units: units.kg_per_hour,
         type: ee_const.var_type.int,
       },
