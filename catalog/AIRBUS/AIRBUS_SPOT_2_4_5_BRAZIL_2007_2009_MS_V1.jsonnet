@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'SPOT Multispectral (MS) Imagery 10-20m, Brazil',
+  title: 'SPOT Multispectral Imagery 10-20m, Brazil',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
