@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Airbus SPOT Panchromatic (PAN) Imagery 5-10m, Brazil',
+  title: 'SPOT Panchromatic (PAN) Imagery 5-10m, Brazil',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
