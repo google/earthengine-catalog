@@ -1,3 +1,5 @@
+// To access this dataset, fill out the form: https://forms.gle/jQmCbWgarjENQBYz6
+
 var analytic = ee.Image('GOOGLE/BRAZIL_FOREST_2008/V1/ANALYTIC');
 
 // Calculate NDVI using the Red (R) and Near-Infrared (N) bands.

@@ -1,3 +1,5 @@
+// To access this dataset, fill out the form: https://forms.gle/jQmCbWgarjENQBYz6
+
 var visual2008 = ee.Image("GOOGLE/BRAZIL_FOREST_2008/V1/VISUAL");
 
 // Define visualization parameters

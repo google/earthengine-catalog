@@ -1,3 +1,5 @@
+// To access this dataset, fill out the form: https://forms.gle/jQmCbWgarjENQBYz6
+
 // SINGLE IMAGE VIEW
 // Load the multispectral collection.
 var msCol = ee.ImageCollection('AIRBUS/SPOT_2_4_5/BRAZIL/2007_2009/MS/V1');
