@@ -24,7 +24,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'SPOT Panchromatic Imagery 5-10m, Brazil',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: description + access_note,
   license: 'proprietary',
   links: ee.standardLinks(subdir, id) + [
@@ -32,14 +31,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'gee:categories': ['satellite-imagery'],
   keywords: [
-    'airbus',
+    'google',
     'brazil',
     'forest-code',
     'imagery',
     'spot',
   ],
   providers: [
-    ee.producer_provider('Airbus / CNES', 'https://regards.cnes.fr/html/swh/Home-swh3.html'),
+    ee.producer_provider('Google/CNES', 'https://developers.google.com/earth-engine/guides/spot_brazil_forest_imagery_dataset_2008_v1'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(xmin=-74, ymin=-34, xmax=-34, ymax=6, start='2007-01-01T00:00:00Z', end='2009-11-26T23:59:59Z'),
