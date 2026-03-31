@@ -29,6 +29,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     platforms to generate regional ET maps. DisALEXI then disaggregates the
     regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to
     resolve individual farm fields and other landscape features.
+
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
