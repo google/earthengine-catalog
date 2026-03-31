@@ -59,6 +59,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     are masked out in this data collection. Future research will extend the
     vegetation density-crop coefficient approach used within SIMS to other land
     cover types.
+
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
