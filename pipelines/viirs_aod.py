@@ -32,10 +32,15 @@ import h5py
 import numpy
 
 from google3.third_party.earthengine_catalog.pipelines import geocorrect
+from stac import bboxes
 
 # A spatial resolution of 750 meters corresponds roughly to 0.0067 degrees when
 # using the mean radius of the Earth.
 SCALE_FACTOR = 0.006737353417
+
+# Due to issues with raster projection at extreme latitudes, we only use pixels
+# between -85 and 85 degrees latitude.
+ALLOWED_EXTENT = bboxes.BBox(-180, -85, 180, 85)
 
 # Fill values differ depending on what a raster represents.
 FLAG_FILL = -128
@@ -151,11 +156,12 @@ def build_glts(
   try:
     return geocorrect.GeoLookupTable.from_index(
         geocorrect.CoordinateIndex.from_arrays(
-            lat,
-            lon,
+            lat[:],
+            lon[:],
             lat_fill_value=lat.fillvalue,
             lon_fill_value=lon.fillvalue,
             mask=mask_arr,
+            allowed_extent=ALLOWED_EXTENT,
         ),
         scale_lat=-SCALE_FACTOR,
         scale_lon=SCALE_FACTOR,

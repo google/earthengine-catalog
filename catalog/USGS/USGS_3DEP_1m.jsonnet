@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The 1m pixel size DEM is the highest resolution standard DEM offered in the
     3DEP product suite. The 10m 3DEP dataset is available at
-    [USGS_3DEP_10m](USGS_3DEP_10m).
+    [USGS_3DEP_10m_collection](USGS_3DEP_10m_collection).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

@@ -22,6 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('AAFC', base_url),
     ee.link.child_catalog('ACA', base_url),
     ee.link.child_catalog('AHN', base_url),
+    ee.link.child_catalog('AIRBUS', base_url),
     ee.link.child_catalog('ASTER', base_url),
     ee.link.child_catalog('AU', base_url),
     ee.link.child_catalog('BIOPAMA', base_url),

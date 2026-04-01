@@ -105,6 +105,7 @@ class CoordinateIndex:
       lat_fill_value: Union[int, float] = numpy.nan,
       lon_fill_value: Union[int, float] = numpy.nan,
       mask: Optional[numpy.ndarray] = None,
+      allowed_extent: Optional[bboxes.BBox] = None,
   ) -> Self:
     """Returns a GeoIndex for the given lat and lon rasters.
 
@@ -121,6 +122,8 @@ class CoordinateIndex:
         indicates that a point should be ignored when building the GLT (in
         addition to `lat_fill_value` and `lon_fill_value`). This does NOT affect
         the bounding box calculation.
+      allowed_extent: Optional Bounding box defining the spatial region of
+        interest. Points outside this box will be omitted from the index.
 
     Returns:
       CoordinateIndex
@@ -150,6 +153,15 @@ class CoordinateIndex:
       coords_valid &= ~numpy.isnan(lat)
     if numpy.isnan(lon_fill_value):
       coords_valid &= ~numpy.isnan(lon)
+
+    if allowed_extent is not None:
+      in_lat = (lat >= allowed_extent.south) & (lat <= allowed_extent.north)
+      if allowed_extent.west <= allowed_extent.east:
+        in_lon = (lon >= allowed_extent.west) & (lon <= allowed_extent.east)
+      else:
+        # Handling antimeridian crossing
+        in_lon = (lon >= allowed_extent.west) | (lon <= allowed_extent.east)
+      coords_valid &= in_lat & in_lon
 
     if not numpy.any(coords_valid):
       raise EmptyInputError('The input grid was empty')
@@ -400,6 +412,10 @@ class GeoLookupTable:
         self._glt[valid_glt, 0], self._glt[valid_glt, 1]
     ]
     return new_raster
+
+  def dimensions(self) -> tuple[int, int]:
+    """Returns the dimensions of the GLT as (width, height)."""
+    return (self._glt.shape[1], self._glt.shape[0])
 
   def geotransform(self) -> list[float]:
     """Returns the geotransform for this bounding box in gdal order."""

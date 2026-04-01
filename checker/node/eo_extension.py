@@ -247,6 +247,9 @@ UNITS = units.UNITS.union({
     'mg/m^3/day',
     'mmol/m^3',
     'mol/m^3',
+    'W/m^2/sr/µm',
+    'W/m^2/sr/µm/dn',
+    'W/m^2/µm',
 })
 
 
