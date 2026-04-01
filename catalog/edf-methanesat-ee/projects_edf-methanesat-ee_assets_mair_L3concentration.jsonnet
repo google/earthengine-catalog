@@ -160,7 +160,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // One of: second, minute, hour, day, week, month, year, custom_time_unit.
     unit: 'day',
     // How long the interval is (expressed in units above).
-    interval: 7,
+    interval: 2,
   },
   'sci:citation': |||
     Chulakadabba, A., Sargent, M., Lauvaux, T., Benmergui, J. S., Franklin, J.
