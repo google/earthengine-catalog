@@ -1,6 +1,6 @@
 local id = 'projects/edf-methanesat-ee/assets/mair/L4point';
 local subdir = 'edf-methanesat-ee';
-local version = '1.0.0';
+local version = '1.1.0';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
