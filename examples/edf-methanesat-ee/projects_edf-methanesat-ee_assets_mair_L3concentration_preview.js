@@ -15,7 +15,7 @@ var background = ee.Image.rgb(256, 256, 256).rename('vis-red', 'vis-green', 'vis
 var imageWithBackground = background.blend(datasetVis);
 
 // Visualizing
-var region = ee.Geometry.Rectangle(-95.593, 30.626, -92.681, 33.739);
+var region = ee.Geometry.Rectangle(-78.4455, 37.1045, -75.4455, 39.6045);
 var pixels = 256;
 var imageParams = {
   dimensions: [pixels, pixels],
