@@ -41,6 +41,7 @@ local units = import 'units.libsonnet';
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['satellite-imagery'],
+  'gee:status': 'beta',
   keywords: [
     'radar',
     'c-bands',

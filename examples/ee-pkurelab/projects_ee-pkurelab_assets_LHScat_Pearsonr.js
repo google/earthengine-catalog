@@ -5,7 +5,7 @@ var Pearsonr = ee.Image("projects/ee-pkurelab/assets/LHScat_Pearsonr");
 var visParams_Pearsonr = {
   min: 0.8,
   max: 1,
-  palette: ['#C7E9C0', '#FFD966', '#FFB347', '#E29578']
+  palette: ['green', 'yellow', 'red', 'firebrick']
 };
 
 // Center the map view

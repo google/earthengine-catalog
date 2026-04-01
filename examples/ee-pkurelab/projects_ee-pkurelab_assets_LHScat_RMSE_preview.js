@@ -6,7 +6,7 @@ var RMSE = ee.Image("projects/ee-pkurelab/assets/LHScat_RMSE");
 var visParams_RMSE = {
   min: 0,
   max: 1,
-  palette: ['#C7E9C0', '#FFD966', '#FFB347', '#E29578']
+  palette: ['green', 'yellow', 'red', 'firebrick']
 };
 
 // Thumbnail preview script (for catalog / metadata)

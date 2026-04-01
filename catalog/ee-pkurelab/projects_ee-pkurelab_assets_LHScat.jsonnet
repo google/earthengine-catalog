@@ -40,6 +40,7 @@ local units = import 'units.libsonnet';
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
+  'gee:status': 'beta',
   'gee:categories': ['satellite-imagery'],
   keywords: [
     'radar',
