@@ -109,9 +109,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * As of 2025-11-17, embedding layers have DATASET_VERSION 1.1. This
     includes a regenerated 2017 layer that incorporates additional Sentinel-1
     acquisitions.
-    * As of 2026-01-29, 2025 embeddings are being added to the collection on a
-    rolling basis by UTM zone. Please check the collection for current
-    coverage.
 
     Google is committed to ongoing production of annual Satellite Embedding
     layers and will provide at least one year of advance notice of any
