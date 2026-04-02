@@ -9,5 +9,5 @@ var fluxVisParams = {
   palette: ['#070088','#a3069b','#cc4e64','#ffa826','#edfb59'],
 };
 
-Map.setCenter(-42.26, 42.66, 3);
+Map.setCenter(-76.8, 39, 9);
 Map.addLayer(dataset, fluxVisParams, 'Retrieved column-averaged dry-air CH4 mole fraction');
