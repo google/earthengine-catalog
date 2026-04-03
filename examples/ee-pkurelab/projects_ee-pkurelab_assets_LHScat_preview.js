@@ -5,6 +5,8 @@ var LHScat = ee.ImageCollection("projects/ee-pkurelab/assets/LHScat")
 // Reduce the collection to a single representative image.
 var signals = LHScat.mean();
 
+var region = ee.Geometry.Rectangle([73, 8, 150, 54]);
+
 // Print a ui.Thumbnail widget in the console (for visual preview).
 var thumb = ui.Thumbnail({
   image: signals,
@@ -13,7 +15,8 @@ var thumb = ui.Thumbnail({
     max: 500,
     palette: ['green', 'yellow', 'red', 'firebrick'],
     dimensions: 512,
-    format: 'png'
+    format: 'png',
+    region: region,
   },
   style: {width: '256px', height: '256px', position: 'bottom-left'}
 });

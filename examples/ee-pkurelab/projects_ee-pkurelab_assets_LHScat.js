@@ -5,6 +5,8 @@ var LHScat = ee.ImageCollection("projects/ee-pkurelab/assets/LHScat")
 // Reduce the collection to a single representative image.
 var signals = LHScat.mean();
 
+var region = ee.Geometry.Rectangle([73, 8, 150, 54]);
+
 // Visualization parameters for the radar singles signal.
 var visParams_signals = {
   min: -2000,
@@ -13,7 +15,7 @@ var visParams_signals = {
 };
 
 // Center the map on the image footprint.
-Map.centerObject(signals, 1);
+Map.centerObject(region, 4);
 
 // Add the layer to the map for interactive preview.
 Map.addLayer(signals, visParams_signals, 'LHScat radar singles (2020-03)');

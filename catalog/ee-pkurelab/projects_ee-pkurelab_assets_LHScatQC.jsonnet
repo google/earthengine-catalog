@@ -1,4 +1,4 @@
-local id = 'projects/ee-pkurelab/assets/LHScat_Pearsonr';
+local id = 'projects/ee-pkurelab/assets/LHScatQC';
 local subdir = 'ee-pkurelab';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -21,7 +21,7 @@ local units = import 'units.libsonnet';
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'LHScat_Pearsonr',
+  title: 'LHScatQC',
   'gee:type': ee_const.gee_type.image,
   description:
   |||
@@ -61,26 +61,46 @@ local units = import 'units.libsonnet';
       ],
     'eo:bands':[
       {
-        name: 'b1',
+        name: 'Pearsonr',
         description: 'Pearson correlation coefficient (Pearsonr) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
+      },
+      
+      {
+        name: 'RMSE',
+        description: 'Root Mean Square Error (RMSE) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
       }
     ],
-    'gee:visualizations': [{
-      display_name: 'Pearson correlation coefficient',
-      lookat: {lon: 100.0, lat: 53.0, zoom: 1},
-      image_visualization: {
-        band_vis: {
-          min: [0.8],
-          max: [1],
-          palette: ['green', 'yellow', 'red', 'firebrick'],
-          bands: ['b1'],
+
+    'gee:visualizations': [
+      {
+        display_name: 'Pearson correlation coefficient',
+        lookat: {lon: 100.0, lat: 53.0, zoom: 4},
+        image_visualization: {
+          band_vis: {
+            min: [0.8],
+            max: [1],
+            palette: ['green', 'yellow', 'red', 'firebrick'],
+            bands: ['Pearsonr'],
+          },
         },
       },
-    }],
+      {
+        display_name: 'Root Mean Square Error (RMSE)',
+        lookat: {lon: 100.0, lat: 53.0, zoom: 4},
+        image_visualization: {
+          band_vis: {
+            min: [0],
+            max: [1],
+            palette: ['green', 'yellow', 'red', 'firebrick'],
+            bands: ['RMSE'],
+          },
+        },
+      }
+    ],
   },
 
-  'sci:citation': 'Tao, S., Ao, Z., Wigneron, J.-P., Saatchi, S., Ciais, P., Chave, J., Le Toan, T., Frison, P.-L., Hu, X., Chen, C., Fan, L., Wang, M., Zhu, J., Zhao, X., Li, X., Liu, X., Su, Y., Hu, T., Guo, Q., Wang, Z., Tang, Z., Liu, Y. Y., and Fang, J.: A global long-term, high-resolution satellite radar backscatter data record (1992–2022+): merging C-band ERS/ASCAT and Ku-band QSCAT, Earth Syst. Sci. Data, 15, 1577–1596, https://doi.org/10.5194/essd-15-1577-2023, 2023.
-                  Tao, S., Chave, J., Frison, P.-L., Le Toan, T., Ciais, P., Fang, J., Wigneron, J.-P., Santoro, M., Yang, H., Li, X., Labrière, N., and Saatchi, S.: Increasing and widespread vulnerability of intact tropical rainforests to repeated droughts, Proc. Natl. Acad. Sci. USA, 119, e2116626119, https://doi.org/10.1073/pnas.2116626119, 2022.',
+  'sci:citation': 'Tao, S., Ao, Z., Wigneron, J.-P., Saatchi, S., Ciais, P., Chave, J., Le Toan, T., Frison, P.-L., Hu, X., Chen, C., Fan, L., Wang, M., Zhu, J., Zhao, X., Li, X., Liu, X., Su, Y., Hu, T., Guo, Q., Wang, Z., Tang, Z., Liu, Y. Y., and Fang, J.: A global long-term, high-resolution satellite radar backscatter data record (1992–2022+): merging C-band ERS/ASCAT and Ku-band QSCAT, Earth Syst. Sci. Data, 15, 1577–1596, [https://doi.org/10.5194/essd-15-1577-2023](https://doi.org/10.5194/essd-15-1577-2023), 2023.
+                  Tao, S., Chave, J., Frison, P.-L., Le Toan, T., Ciais, P., Fang, J., Wigneron, J.-P., Santoro, M., Yang, H., Li, X., Labrière, N., and Saatchi, S.: Increasing and widespread vulnerability of intact tropical rainforests to repeated droughts, Proc. Natl. Acad. Sci. USA, 119, e2116626119, [https://doi.org/10.1073/pnas.2116626119](https://doi.org/10.1073/pnas.2116626119), 2022.',
   
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:unusual_terms_of_use': true,
