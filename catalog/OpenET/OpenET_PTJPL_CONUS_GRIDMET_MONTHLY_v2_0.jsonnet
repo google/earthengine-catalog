@@ -1,6 +1,4 @@
 local id = 'OpenET/PTJPL/CONUS/GRIDMET/MONTHLY/v2_0';
-local successor_id = 'projects/openet/assets/ptjpl/conus/gridmet/monthly/v2_1';
-local latest_id = successor_id;
 local subdir = 'OpenET';
 local version = '2.0';
 
@@ -12,10 +10,8 @@ local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
+local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_base_url = ee_const.catalog_base;
 
 {
   stac_version: ee_const.stac_version,
@@ -26,9 +22,8 @@ local catalog_base_url = ee_const.catalog_base;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET PT-JPL Monthly Evapotranspiration v' + version + ' [deprecated]',
+  title: 'OpenET PT-JPL Monthly Evapotranspiration v' + version,
   version: version,
-  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     Priestley-Taylor Jet Propulsion Laboratory (PT-JPL)
@@ -53,12 +48,7 @@ local catalog_base_url = ee_const.catalog_base;
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-      successor_id, catalog_base_url + subdir + '/' + successor_basename + '.json'),
-    ee.link.latest(
-      latest_id, catalog_base_url + subdir + '/' + latest_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',

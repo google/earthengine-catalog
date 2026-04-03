@@ -1,7 +1,4 @@
 local id = 'projects/openet/assets/ssebop/conus/gridmet/monthly/v2_0';
-local predecessor_id = 'OpenET/SSEBOP/CONUS/GRIDMET/MONTHLY/v2_0';
-local successor_id = 'projects/openet/assets/ssebop/conus/gridmet/monthly/v2_1';
-local latest_id = successor_id;
 local subdir = 'OpenET';
 local version = '2.0';
 
@@ -13,17 +10,13 @@ local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
+local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_base_url = ee_const.catalog_base;
 
 {
   id: id,
-  title: 'OpenET SSEBop Monthly Evapotranspiration v' + version + ' [deprecated]',
+  title: 'OpenET SSEBop Monthly Evapotranspiration v' + version,
   version: version,
-  'gee:status': 'deprecated',
   description: |||
     Operational Simplified Surface Energy Balance (SSEBop).
 
@@ -53,14 +46,7 @@ local catalog_base_url = ee_const.catalog_base;
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(
-      predecessor_id, catalog_base_url + subdir + '/' + predecessor_basename + '.json'),
-    ee.link.successor(
-      successor_id, catalog_base_url + subdir + '/' + successor_basename + '.json'),
-    ee.link.latest(
-      latest_id, catalog_base_url + subdir + '/' + latest_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
