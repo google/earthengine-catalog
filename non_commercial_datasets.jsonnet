@@ -59,6 +59,5 @@
   'projects/malariaatlasproject/assets/TCB_v061',
   'projects/malariaatlasproject/assets/TCW_v061',
   'projects/ee-pkurelab/assets/LHScat',
-  'projects/ee-pkurelab/assets/LHScat_Pearsonr',
-  'projects/ee-pkurelab/assets/LHScat_RMSE',
+  'projects/ee-pkurelab/assets/LHScatQC',
 ]
