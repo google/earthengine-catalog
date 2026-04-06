@@ -1,4 +1,6 @@
 local id = 'projects/openet/assets/sims/conus/gridmet/monthly/v2_0';
+local predecessor_id = 'OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0';
+local latest_id = id;
 local subdir = 'OpenET';
 local version = '2.0';
 
@@ -10,8 +12,10 @@ local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_base_url = ee_const.catalog_base;
 
 {
   id: id,
@@ -63,7 +67,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.predecessor(
+      predecessor_id, catalog_base_url + subdir + '/' + predecessor_basename + '.json'),
+    ee.link.latest(
+      latest_id, catalog_base_url + subdir + '/' + latest_basename + '.json'),
+  ],
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
