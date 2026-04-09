@@ -165,7 +165,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     5771-5785.
     [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023),
   |||,
-  'gee:status': 'beta',
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
   'gee:type': ee_const.gee_type.image_collection,
