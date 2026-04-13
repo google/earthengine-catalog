@@ -27,6 +27,11 @@ local license = spdx.proprietary;
   title: 'WeatherNext Gen Forecasts',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+    > **DEPRECATION NOTICE**: This dataset is scheduled for deprecation on
+    > **July 15, 2026**. To ensure service continuity, users must migrate all
+    > active workflows to **WeatherNext 2**. For more details, see our
+    > [deprecation page](https://developers.google.com/weathernext/guides/deprecation).
+
     WeatherNext Gen is an experimental dataset of global medium-range ensemble
     weather forecasts produced by an operational version of Google DeepMind's
     [diffusion-based ensemble weather model](https://www.nature.com/articles/s41586-024-08252-9).
