@@ -287,7 +287,6 @@ EXCEPTIONS = frozenset({
     'zcta',
     'zinc',
     'zip_code',
-    'LHScat',
 })
 
 
