@@ -22,6 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('projects_neon-prod-earthengine_assets_CHM_001', base_url),
+    ee.link.child_collection('projects_neon-prod-earthengine_assets_CNC_002', base_url),
     ee.link.child_collection('projects_neon-prod-earthengine_assets_DEM_001', base_url),
     ee.link.child_collection('projects_neon-prod-earthengine_assets_HSI_REFL_001', base_url),
     ee.link.child_collection('projects_neon-prod-earthengine_assets_HSI_REFL_002', base_url),

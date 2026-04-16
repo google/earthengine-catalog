@@ -41,9 +41,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   extent: ee.extent_global(
-      // TODO(dpencosk): Add start date.
-      '2006-01-24T00:00:00Z',
-      null
+      '2022-10-29T00:00:00Z',
+      // TODO(dpencosk): Make the end date null when ingestion begins.
+      '2022-10-29T00:00:00Z',
   ),
 
   summaries: {

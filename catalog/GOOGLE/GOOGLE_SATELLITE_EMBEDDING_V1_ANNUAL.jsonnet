@@ -104,10 +104,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [README](https://developers.google.com/earth-engine/guides/aef_on_gcs_readme)
     for full details on the data structure.
 
-    Update: As of 2025-11-17, embedding layers for the year 2017 have been
-    regenerated and updated in place to incorporate additional Sentinel-1
-    acquisitions. The `DATASET_VERSION` property for these updated layers has
-    been incremented from 1.0 to 1.1.
+    Updates:
+
+    * As of 2025-11-17, embedding layers have DATASET_VERSION 1.1. This
+    includes a regenerated 2017 layer that incorporates additional Sentinel-1
+    acquisitions.
+
+    Google is committed to ongoing production of annual Satellite Embedding
+    layers and will provide at least one year of advance notice of any
+    anticipated change in delivery, subject to the ongoing availability of
+    input data streams from USGS and ESA that production of the dataset relies
+    on.
   |||,
 
   keywords: [

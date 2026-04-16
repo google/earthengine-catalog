@@ -27,6 +27,11 @@ local license = spdx.proprietary;
   title: 'WeatherNext Graph Forecasts',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+    > **DEPRECATION NOTICE**: This dataset is scheduled for deprecation on
+    > **July 15, 2026**. To ensure service continuity, users must migrate all
+    > active workflows to **WeatherNext 2**. For more details, see our
+    > [deprecation page](https://developers.google.com/weathernext/guides/deprecation).
+
     WeatherNext Graph is an experimental dataset of global medium-range weather
     forecasts produced by an operational version of Google DeepMind's
     [graphical neural network weather model](https://www.science.org/stoken/author-tokens/ST-1550/full).

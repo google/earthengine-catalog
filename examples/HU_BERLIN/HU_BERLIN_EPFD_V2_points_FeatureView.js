@@ -1,4 +1,4 @@
-var fvLayer = ui.Map.FeatureViewLayer('HU_BERLIN/EPFD/V2/point_FeatureView');
+var fvLayer = ui.Map.FeatureViewLayer('HU_BERLIN/EPFD/V2/points_FeatureView');
 
 var visParams = {
   color: '00909F',

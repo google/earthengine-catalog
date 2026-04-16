@@ -108,6 +108,34 @@ class Rel(enum.Enum):
     return self._value_
 
 
+def _propagate_gsd_to_bands(stac_collection_dict: dict[str, Any]) -> None:
+  """Propagates a global 'gsd' from summaries to individual bands.
+
+  If a global 'gsd' is present in 'summaries' and bands in 'eo:bands'
+  don't have one, it's copied to them. Modifies the dict in place.
+
+  Args:
+    stac_collection_dict: The STAC Collection dictionary to modify.
+  """
+  summaries = stac_collection_dict.get('summaries')
+  if not isinstance(summaries, dict):
+    return
+
+  global_gsd = summaries.get('gsd')
+  if not isinstance(global_gsd, (int, float, list)):
+    return
+
+  bands = summaries.get('eo:bands')
+  if not isinstance(bands, list):
+    return
+
+  if not bands:
+    return
+  for band in bands:
+    if 'gsd' not in band:
+      band['gsd'] = global_gsd
+
+
 @dataclasses.dataclass
 class Link:
   """Represents a STAC Link."""
@@ -163,12 +191,28 @@ class Property:
 
   def set_range_stats(self, range_stats: dict[str, Any]) -> None:
     stats = range_stats.get(self.name)
-    if not stats:
+    if stats is None:
       return
+    if isinstance(stats, dict):
+      self.estimated_range = stats.get('gee:estimated_range')
+      self.minimum = stats.get('minimum')
+      self.maximum = stats.get('maximum')
 
-    self.estimated_range = stats['gee:estimated_range']
-    self.minimum = stats['minimum']
-    self.maximum = stats['maximum']
+  @property
+  def estimated_min_value(self) -> Optional[float]:
+    return self.minimum if self.estimated_range else None
+
+  @property
+  def estimated_max_value(self) -> Optional[float]:
+    return self.maximum if self.estimated_range else None
+
+  @property
+  def provider_min_value(self) -> Optional[float]:
+    return self.minimum if not self.estimated_range else None
+
+  @property
+  def provider_max_value(self) -> Optional[float]:
+    return self.maximum if not self.estimated_range else None
 
 
 @dataclasses.dataclass
@@ -274,7 +318,9 @@ class Band:
   wavelength: Optional[str] = None  # gee:wavelength
   center_frequency: Optional[float] = None  # sar:center_frequency
   bitmask: Optional[Bitmask] = None  # gee:bitmask
-  gsd: Optional[float] = None  # Meters. Not in eo:band, but does not have gee:
+  gsd: Optional[Union[float, list[float]]] = (
+      None  # Meters. Not in eo:band, but does not have gee:
+  )
   # The range info is stored in the summaries by band name.
   estimated_range: Optional[bool] = None
   minimum: Optional[float] = None
@@ -389,6 +435,8 @@ class Collection:
 
   def __init__(self, stac_json: dict[str, Any]):
     self.stac_json = stac_json
+    # Propagate the GSD from the summaries to the bands.
+    _propagate_gsd_to_bands(stac_json)
     if stac_json.get(stac_checker.GEE_STATUS) == stac_checker.Status.DEPRECATED:
       # Set the STAC 'deprecated' field that we don't set in the jsonnet files
       stac_json['deprecated'] = True
@@ -540,13 +588,18 @@ class Collection:
     for band in bands:
       yield Band.from_stac(band)
 
-  def schemas(self) -> Iterator[Property]:
+  @listify
+  def schemas(self) -> Iterable[Property]:
+    """Returns an iterable of Property objects from the STAC summaries."""
     summaries = self.stac_json.get('summaries')
     if not summaries:
       return
+
     schemas = summaries.get('gee:schema', [])
     for schema in schemas:
-      yield Property.from_stac(schema)
+      a_property = Property.from_stac(schema)
+      a_property.set_range_stats(summaries)
+      yield a_property
 
   # See also datetime_interval(), which returns a pair of datetimes
   def interval(self) -> Optional[Interval]:

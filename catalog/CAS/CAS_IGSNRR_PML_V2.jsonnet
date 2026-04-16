@@ -1,17 +1,22 @@
 local id = 'CAS/IGSNRR/PML/V2';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/IGSNRR_PML_versions.libsonnet';
+local successor_id = 'CAS/IGSNRR/PML/V2_v017';
+local latest_id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a';
 
 local subdir = 'CAS';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
 local units = import 'units.libsonnet';
 
+local version = '0.1.4';
 local license = spdx.cc_by_4_0;
+
+local basename = std.strReplace(id, '/', '_');
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_base_url = ee_const.catalog_base;
 
 {
   stac_version: ee_const.stac_version,
@@ -47,7 +52,12 @@ local license = spdx.cc_by_4_0;
     research communities (Zhang et al., 2019).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.successor(
+      successor_id, catalog_base_url + subdir + '/' + successor_basename + '.json'),
+    ee.link.latest(
+      latest_id, catalog_base_url + 'pml_evapotranspiration/' + latest_basename + '.json'),
+  ],
   'gee:categories': ['plant-productivity', 'water-vapor'],
   keywords: [
     'evapotranspiration',
@@ -55,7 +65,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('PML_V2', 'https://github.com/kongdd/PML'),
-    ee.host_provider(version_config.ee_catalog_url),
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2002-07-04T00:00:00Z', null),
   summaries: {

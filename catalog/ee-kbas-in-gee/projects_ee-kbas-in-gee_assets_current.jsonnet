@@ -68,14 +68,18 @@ local version = 'September 2025';
   keywords: [
     'biodiversity',
     'boundaries',
-	'global',
-	'iucn',
-	'management',
-	'marine'
+	  'global',
+	  'iucn',
+	  'management',
+	  'marine'
   ],
 
   providers: [
-    ee.producer_provider('BirdLife International', 'https://www.birdlife.org/'),
+    ee.producer_provider(
+      'KBA Partnership',
+      'https://www.keybiodiversityareas.org/about-kbas/kba-programme/kba-partnership'
+    ),
+    ee.processor_provider('BirdLife International', 'https://www.birdlife.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
 
@@ -237,8 +241,6 @@ local version = 'September 2025';
       in any materials or publications derived in part or in whole from the data.
   |||,
   'gee:unusual_terms_of_use': true,
-  // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'beta',
   'gee:skip_featureview_generation': true,
 
   'gee:type': ee_const.gee_type.table,

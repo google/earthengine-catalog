@@ -193,7 +193,6 @@ EXCEPTIONS = frozenset({
     'ndmc',
     'ned',
     'nfdrs',
-    'nitrogen',
     'nldas',
     'nrcan',
     'olci',

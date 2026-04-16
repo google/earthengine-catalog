@@ -17,8 +17,18 @@ class ValidFilePathTest(test_utils.NodeTest):
   def test_catalog(self):
     self.assert_catalog({}, dataset_id='A', file_path='A/catalog.json')
 
+  def test_catalog_case_mismatch(self):
+    self.assert_catalog(
+        {}, dataset_id='openet', file_path='OpenET/catalog.json'
+    )
+
   def test_collection(self):
     self.assert_collection({}, dataset_id='A/B', file_path='A/A_B.json')
+
+  def test_collection_case_mismatch(self):
+    self.assert_collection(
+        {}, dataset_id='openet/foo', file_path='OpenET/openet_foo.json'
+    )
 
 
 class SkipFilePathTestgoogletest(test_utils.NodeTest):

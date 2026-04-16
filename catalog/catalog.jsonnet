@@ -22,6 +22,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('AAFC', base_url),
     ee.link.child_catalog('ACA', base_url),
     ee.link.child_catalog('AHN', base_url),
+    ee.link.child_catalog('AIRBUS', base_url),
     ee.link.child_catalog('ASTER', base_url),
     ee.link.child_catalog('AU', base_url),
     ee.link.child_catalog('BIOPAMA', base_url),
@@ -61,6 +62,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('HU_BERLIN', base_url),
     ee.link.child_catalog('HYCOM', base_url),
     ee.link.child_catalog('IDAHO_EPSCOR', base_url),
+    ee.link.child_catalog('IAHS', base_url),
     ee.link.child_catalog('IGN', base_url),
     ee.link.child_catalog('iNaturalist', base_url),
     ee.link.child_catalog('IPCC', base_url),
@@ -140,6 +142,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('overture-maps', base_url),
     ee.link.child_catalog('mapbiomas-public', base_url),
     ee.link.child_catalog('global-precipitation-nowcast', base_url),
-    ee.link.child_catalog('ee-kbas-in-gee', base_url)
+    ee.link.child_catalog('ee-kbas-in-gee', base_url),
+    ee.link.child_catalog('pml_evapotranspiration', base_url)
   ],
 }

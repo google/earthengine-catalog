@@ -32,10 +32,15 @@ import h5py
 import numpy
 
 from google3.third_party.earthengine_catalog.pipelines import geocorrect
+from stac import bboxes
 
 # A spatial resolution of 750 meters corresponds roughly to 0.0067 degrees when
 # using the mean radius of the Earth.
 SCALE_FACTOR = 0.006737353417
+
+# Due to issues with raster projection at extreme latitudes, we only use pixels
+# between -85 and 85 degrees latitude.
+ALLOWED_EXTENT = bboxes.BBox(-180, -85, 180, 85)
 
 # Fill values differ depending on what a raster represents.
 FLAG_FILL = -128
@@ -44,7 +49,7 @@ DATA_FILL = -999.999
 
 # VIIRS sensor channels M1-M11. AOD_channel and SfcRfl are 3D rasters that
 # contain one 2D raster for each channel.
-SENSOR_CHANNELS = [f'M{i}' for i in range(1, 12)]
+SENSOR_CHANNELS = tuple(f'M{i}' for i in range(1, 12))
 
 # The four land aerosol models. The integer value of each in the AerMdl band
 # is given by its 1-indexed position here, as 0 is used for oceanic aerosol.
@@ -52,18 +57,10 @@ SENSOR_CHANNELS = [f'M{i}' for i in range(1, 12)]
 # model.
 LAND_AEROSOL_MODELS = ('Dust', 'Generic', 'Urban', 'Smoke')
 
-# All quality flag rasters are projected using QCAll, the overall flag for AOE
-# retrieval. These rasters are expected to have non-fill values are nearly all
-# pixels.
+# All rasters are projected using GLTs derived from the pixels in QCAll, the
+# overall flag for AOE retrieval. That raster is expected to have non-fill
+# values are nearly all pixels.
 QC_ALL = 'QCAll'
-
-# Most of the rasters are projected using AOD550 as the mask. Generally, these
-# rasters will only have a non-fill value at a coordinate where AOD550 could be
-# successfully retrieved. SpaStddev is an exception -- thresholds are applied to
-# it as part of "is aerosol present" checks by the model and therefore may have
-# values where AOD is not successfully retrieved.
-AOD_550 = 'AOD550'
-SPA_STDDEV = 'SpaStddev'
 
 
 @dataclasses.dataclass(frozen=True)
@@ -73,95 +70,104 @@ class Raster:
   Properties:
     name: Name of the dataset in the .nc file.
     fill_value: int or float fill value.
-    mask_name: Name of the dataset in the .nc file to use as a mask when
-      generating the GLT used to project this one. See `build_glts` below.
     params: For 3D rasters, strings describing the parameter used to generate
       each of the 2D rasters.
   """
 
   name: str
   fill_value: Union[int, float]
-  mask_name: str
   params: Sequence[str] = dataclasses.field(default_factory=list)
 
 
 RASTERS = (
-    Raster(AOD_550, DATA_FILL, AOD_550),
-    Raster('AOD_channel', DATA_FILL, AOD_550, SENSOR_CHANNELS),
-    Raster('AngsExp1', DATA_FILL, AOD_550),
-    Raster('AngsExp2', DATA_FILL, AOD_550),
-    Raster('SfcRefl', DATA_FILL, AOD_550, SENSOR_CHANNELS),
-    Raster(SPA_STDDEV, DATA_FILL, SPA_STDDEV),
-    Raster('Residual', DATA_FILL, AOD_550),
-    Raster('AOD550LndMdl', DATA_FILL, AOD_550, LAND_AEROSOL_MODELS),
-    Raster('ResLndMdl', DATA_FILL, AOD_550, LAND_AEROSOL_MODELS),
-    Raster('FineMdlIdx', INDEX_FILL, AOD_550),
-    Raster('CoarseMdlIdx', INDEX_FILL, AOD_550),
-    Raster('FineModWgt', DATA_FILL, AOD_550),
-    Raster('AerMdl', INDEX_FILL, AOD_550),
-    Raster(QC_ALL, FLAG_FILL, QC_ALL),
-    Raster('QCAE', FLAG_FILL, QC_ALL),
-    Raster('QCExtn', FLAG_FILL, QC_ALL),
-    Raster('QCTest', FLAG_FILL, QC_ALL),
-    Raster('QCInput', FLAG_FILL, QC_ALL),
-    Raster('QCPath', FLAG_FILL, QC_ALL),
-    Raster('QCRet', FLAG_FILL, QC_ALL),
+    Raster('AOD550', DATA_FILL),
+    Raster('AOD_channel', DATA_FILL, SENSOR_CHANNELS),
+    Raster('AngsExp1', DATA_FILL),
+    Raster('AngsExp2', DATA_FILL),
+    Raster('SfcRefl', DATA_FILL, SENSOR_CHANNELS),
+    Raster('SpaStddev', DATA_FILL),
+    Raster('Residual', DATA_FILL),
+    Raster('AOD550LndMdl', DATA_FILL, LAND_AEROSOL_MODELS),
+    Raster('ResLndMdl', DATA_FILL, LAND_AEROSOL_MODELS),
+    Raster('FineMdlIdx', INDEX_FILL),
+    Raster('CoarseMdlIdx', INDEX_FILL),
+    Raster('FineModWgt', DATA_FILL),
+    Raster('AerMdl', INDEX_FILL),
+    Raster(QC_ALL, FLAG_FILL),
+    Raster('QCAE', FLAG_FILL),
+    Raster('QCExtn', FLAG_FILL),
+    Raster('QCTest', FLAG_FILL),
+    Raster('QCInput', FLAG_FILL),
+    Raster('QCPath', FLAG_FILL),
+    Raster('QCRet', FLAG_FILL),
 )
 
 
 def build_glts(
     source: h5py.File,
     num_threads: int = 10,
-) -> dict[str, list[geocorrect.GeoLookupTable]]:
+) -> list[geocorrect.GeoLookupTable]:
   """Return the GLT(s) needed to project the given VIIRS AOD data.
 
   A Geographic Lookup Table provides, for each index in the original 2D arrays,
-  the mapping to the 2D array index in a north-up lat-lon grid. For the three
-  mask rasters QC_ALL, AOD_550, and SPA_STDDEV, we build and return the GLTs
-  needed to project all of the RASTERS in `source`. By using a mask, we ignore
-  coordinates where the mask raster has a fill value, allowing them to be filled
-  with the nearest non-fill value neighbor located up to two pixels away.
+  the mapping to the 2D array index in a north-up lat-lon grid. We use the
+  pixels in the QC_ALL raster as the basis for the GLT(s) used to project all of
+  the RASTERS in `source`. By using a mask, we ignore coordinates where QC_ALL
+  has a fill value, allowing them to be filled with the nearest non-fill value
+  neighbor located up to two pixels away.
+
+  However, if a raster has a fill value at (i, j) and QC_ALL has a non-fill
+  value at the same index, that fill value will be projected when the GLT is
+  applied to the raster. For a cleaner visualization, users can interpolate or
+  smooth the image in Earth Engine, e.g.:
+
+    var raster = image.select(BAND_NAME)
+    var raster_mean = raster.reduceNeighborhood({
+      reducer: ee.Reducer.mean(),
+      kernel: ee.Kernel.square({radius: 2, units: 'pixels'}),
+      skipMasked: false
+    });
+    var final_raster_mean = raster.unmask(raster_mean);
 
   If the mask ends up discarding all coordinates from the input, we will not
-  return any GLTs for that name. It is up to the caller to decide if this
-  should be considered an error.
+  return any GLTs. It is up to the caller to decide if this should be considered
+  an error.
 
   Args:
     source: h5py.File
     num_threads: Number of threads to use when generating each GLT
 
   Returns:
-    A dict from mask name to a list of GeoLookupTables
+    A list of GeoLookupTables. There will only be one if the source crosses
+    the antimeridian, so there will be one GLT for each hemisphere.
   """
   lat = source['Latitude']
   lon = source['Longitude']
 
-  glts = {}
-  for mask_name in (QC_ALL, AOD_550, SPA_STDDEV):
-    band = source[mask_name]
-    band_arr = band[:]
-    band_fill_value = band.fillvalue
-    del band
-    band_arr[band_arr != band_fill_value] = 1
-    band_arr[band_arr == band_fill_value] = 0
-    mask_arr = band_arr.astype(numpy.uint8)
-    del band_arr
+  band = source[QC_ALL]
+  band_arr = band[:]
+  band_fill_value = band.fillvalue
+  del band
+  band_arr[band_arr != band_fill_value] = 1
+  band_arr[band_arr == band_fill_value] = 0
+  mask_arr = band_arr.astype(numpy.uint8)
+  del band_arr
 
-    try:
-      glts[mask_name] = geocorrect.GeoLookupTable.from_index(
-          geocorrect.CoordinateIndex.from_arrays(
-              lat,
-              lon,
-              lat_fill_value=lat.fillvalue,
-              lon_fill_value=lon.fillvalue,
-              mask=mask_arr,
-          ),
-          scale_lat=-SCALE_FACTOR,
-          scale_lon=SCALE_FACTOR,
-          max_nn_distance=2,
-          num_threads=num_threads,
-      )
-    except geocorrect.EmptyInputError:
-      logging.warning('No GLTs built with %s as the mask', mask_name)
-
-  return glts
+  try:
+    return geocorrect.GeoLookupTable.from_index(
+        geocorrect.CoordinateIndex.from_arrays(
+            lat[:],
+            lon[:],
+            lat_fill_value=lat.fillvalue,
+            lon_fill_value=lon.fillvalue,
+            mask=mask_arr,
+            allowed_extent=ALLOWED_EXTENT,
+        ),
+        scale_lat=-SCALE_FACTOR,
+        scale_lon=SCALE_FACTOR,
+        max_nn_distance=2,
+        num_threads=num_threads,
+    )
+  except geocorrect.EmptyInputError:
+    logging.warning('No GLTs built with %s as the mask', QC_ALL)
+    return []

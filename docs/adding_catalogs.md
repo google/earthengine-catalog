@@ -61,7 +61,7 @@ Interval,Dataset,30-day active users
 2025-01-05/2025-02-03,projects/provider-name/assets/dataset2,66
 ```
 
-To read the files, use [gsutil](https://cloud.google.com/storage/docs/gsutil).
+To read the files, use [gcloud storage](https://docs.cloud.google.com/sdk/docs/install-sdk).
 There are no charges for reading these files.
 
 ## Dataset deletion protection

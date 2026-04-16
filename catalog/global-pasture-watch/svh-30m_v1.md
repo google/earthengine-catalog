@@ -37,7 +37,7 @@ less than 50 cm from the ground surface, which may lead to overestimation of hei
 covers, such as wetland saltpans.
 
 - **Underestimation of maximum heights**: The trained machine learning model exhibited a tendency toward the mean, which 
-resulted in overly narrow and optimistic [prediction intervals]((https://stac.openlandmap.org/gpw_gsvh-30m/collection.json)). 
+resulted in overly narrow and optimistic [prediction intervals](https://stac.openlandmap.org/gpw_gsvh-30m/collection.json). 
 Due to the underestimation of vegetation height in the upper extremes, care should be taken when interpreting absolute 
 values in regions with very tall forests, but relative patterns and trends are still informative.
 
