@@ -1,10 +1,10 @@
 var dataset = ee.FeatureCollection.loadBigQueryTable(
     'bigquery-public-data.overture_maps.bathymetry');
 
-// Filter to a specific area (New York City area)
-var geometry = ee.Geometry.Rectangle([-74.3, 40.4, -73.7, 40.95]);
+// Filter to a specific area (Florida and Bahamas shallow waters)
+var geometry = ee.Geometry.Rectangle([-82, 22, -76, 27]);
 var filtered = dataset.filterBounds(geometry);
 
 // Display the bathymetry features
-Map.setCenter(-74.006, 40.7128, 8);
-Map.addLayer(filtered, {color: '0d47a1'}, 'Overture Maps Bathymetry');
+Map.setCenter(-79, 25, 7);
+Map.addLayer(filtered, {color: '0288d1'}, 'Overture Maps Bathymetry');

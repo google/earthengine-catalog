@@ -1,16 +1,16 @@
 // Query land use in New York City area for preview.
 var query = "SELECT geometry FROM `bigquery-public-data.overture_maps.land_use` " +
            "WHERE ST_INTERSECTS(geometry, ST_GEOGFROMTEXT('POLYGON((" +
-           "-74.1 40.6, -73.9 40.6, -73.9 40.8, -74.1 40.8, -74.1 40.6))'))";
+           "-74.3 40.45, -73.7 40.45, -73.7 41.05, -74.3 41.05, -74.3 40.45))'))";
 
 // Load collection.
 var landUse = ee.FeatureCollection.runBigQuery(query);
 
-var delta = 0.05;
+var delta = 0.3;
 var pixels = 256;
 
-var lon = -74.006;
-var lat = 40.7128;
+var lon = -74.0;
+var lat = 40.75;
 
 var areaOfInterest = ee.Geometry.Rectangle(
     [lon - delta, lat - delta, lon + delta, lat + delta], null, false);

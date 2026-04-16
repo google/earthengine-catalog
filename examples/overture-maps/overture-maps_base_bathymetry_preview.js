@@ -1,16 +1,16 @@
-// Query bathymetry in New York City area for preview.
+// Query bathymetry in Florida + Bahamas shallow waters for preview.
 var query = "SELECT geometry FROM `bigquery-public-data.overture_maps.bathymetry` " +
            "WHERE ST_INTERSECTS(geometry, ST_GEOGFROMTEXT('POLYGON((" +
-           "-74.3 40.4, -73.7 40.4, -73.7 40.95, -74.3 40.95, -74.3 40.4))'))";
+           "-82 22, -76 22, -76 27, -82 27, -82 22))'))";
 
 // Load collection.
 var bathymetry = ee.FeatureCollection.runBigQuery(query);
 
-var delta = 0.05;
+var delta = 2.5;
 var pixels = 256;
 
-var lon = -74.006;
-var lat = 40.7128;
+var lon = -79;
+var lat = 25;
 
 var areaOfInterest = ee.Geometry.Rectangle(
     [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
@@ -23,9 +23,9 @@ var bathymetryImage = bathymetry.reduceToImage({
 
 var bathymetryVisParams = {
   min: 0,
-  max: 10,
-  palette: ['ffffff', '0d47a1'],
-  opacity: 0.8
+  max: 5,
+  palette: ['e0f7fa', '80deea', '26c6da', '0288d1', '01579b', '002171'],
+  opacity: 0.9
 };
 var bathymetryImageVisualized = bathymetryImage.visualize(bathymetryVisParams);
 
