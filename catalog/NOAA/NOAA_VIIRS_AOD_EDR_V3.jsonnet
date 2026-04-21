@@ -15,15 +15,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'VIIRS Aerosol Optical Depth and Aerosol Particle Size EDRs V' + version,
   version: version,
 
-  // TODO(dpencosk): Improve the dataset description.
   description: |||
-    The VIIRS Aerosol Optical Depth and Aerosol Particle Size EDRs product
-    provides raw coordinates and observations at a spatial resolution of 750
-    meters. This dataset contains geocorrected rasters projected into a north-up
-    lat-lon grid using a Geographic Lookup Table (GLT). Source files that cross
-    the antimeridian yield two assets, one for each hemisphere. For more
-    details, see the theoretical basis document at
-    https://www.star.nesdis.noaa.gov/jpss/documents/ATBD/ATBD_EPS_Aerosol_AOD_v3.4.pdf.
+    The VIIRS Aerosol Optical Depth (AOD) and Aerosol Particle Size (APS)
+    Environmental Data Records (EDRs) product provides aerosol properties
+    retrieved from the Visible Infrared Imaging Radiometer Suite (VIIRS) sensor.
+    The primary product is the AOD at 550 nm, with additional retrievals at
+    other sensor channels and Angstrom Exponent over oceans. The spatial
+    resolution is 750 meters.
+
+    We project the source rasters into a north-up lat-lon (EPSG:4326) grid using
+    [GDAL libraries](https://github.com/google/earthengine-catalog/blob/main/pipelines/viirs_aod.py).
+    Data beyond 85°S and 85°N are excluded to avoid geometric complications
+    when generating asset footprints for bounds filtering.
+
+    For more details and access to raw data, see:
+
+    * [JPSS Aerosols page](https://www.star.nesdis.noaa.gov/jpss/aerosols.php)
+    * [Algorithm Theoretical Basis Document](https://www.star.nesdis.noaa.gov/jpss/documents/ATBD/ATBD_EPS_Aerosol_AOD_v3.4.pdf)
+    * [Google Cloud JPSS main page](https://console.cloud.google.com/marketplace/product/noaa-public/noaa-jpss)
   |||,
 
   'gee:categories': ['atmosphere'],
@@ -40,11 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent_global(
-      '2022-10-29T00:00:00Z',
-      // TODO(dpencosk): Make the end date null when ingestion begins.
-      '2022-10-29T00:00:00Z',
-  ),
+  extent: ee.extent(-180.0, -85.0, 180.0, 85.0, '2022-10-29T00:00:00Z', null),
 
   summaries: {
     gsd: [750],
@@ -775,16 +780,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
 
-    // TODO(dpencosk): Add band statistics.
+    // TODO: dpencosk - Add band statistics.
     // band_name_1: {minimum: 0, maximum: 255, 'gee:estimated_range': false},
 
-    // TODO(dpencosk): Add a valid visualization.
     'gee:visualizations': [
       {
         display_name: 'AOD 550nm',
         lookat: {lon: 0, lat: 0, zoom: 2},
         image_visualization: {
           band_vis: {
+            min: [0.0],
+            max: [0.5],
+            palette: ['800080', '0000ff', '00ffff', '008000', 'ffff00', 'ff0000'],
             bands: ['AOD550'],
           },
         },
@@ -846,11 +853,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     redistributed as desired.
   |||,
 
-  'gee:status': 'incomplete',
+  'gee:status': 'beta',
 
   'gee:type': ee_const.gee_type.image_collection,
 
-  // TODO(dpencosk): Unsure if we can use spdx.cc0_1_0 here.
   license: spdx.proprietary.id,
 
   links: ee.standardLinks(subdir, id),
@@ -859,7 +865,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   stac_extensions: [
     ee_const.ext_eo,
-    // ee_const.ext_sci,
     ee_const.ext_ver,
   ],
 }
