@@ -9,7 +9,7 @@ local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local version = 'September 2025';
+local version = 'March 2026';
 
 {
   id: id,
@@ -83,7 +83,7 @@ local version = 'September 2025';
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent_global('2016-01-01T00:00:00Z', '2025-09-01T00:00:00Z'),
+  extent: ee.extent_global('2016-01-01T00:00:00Z', '2026-03-01T00:00:00Z'),
 
   summaries: {
 
@@ -96,11 +96,6 @@ local version = 'September 2025';
       {
         name: 'Country',
         description: 'Name of country/territory containing the KBA.',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'DelTxt',
-        description: 'Notes relating to the digitisation of the polygon.',
         type: ee_const.var_type.string,
       },
       {
