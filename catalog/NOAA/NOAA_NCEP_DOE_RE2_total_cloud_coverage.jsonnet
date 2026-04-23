@@ -25,6 +25,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+    **This collection is no longer being updated. The Model is no longer being updated at the source.**
+
     NCEP-DOE Reanalysis 2 project is using a state-of-the-art analysis/forecast system to perform
     data assimilation using past data from 1979 through the previous year.
   |||,
@@ -45,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('NOAA', 'https://psl.noaa.gov/data/gridded/data.ncep.reanalysis2.html'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1979-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1979-01-01T00:00:00Z', '2026-03-01T00:00:00Z'),
   summaries: {
     gsd: [
       278300.0,
