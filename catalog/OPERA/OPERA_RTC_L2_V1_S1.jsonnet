@@ -278,7 +278,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [EOSDIS Data Use and Citation Guidance](https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance)
   |||,
 
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,
 
