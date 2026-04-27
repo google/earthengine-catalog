@@ -21,4 +21,4 @@ var thumb = ui.Thumbnail({
   style: {width: '256px', height: '256px', position: 'bottom-left'}
 });
 
-print('Thumbnail preview:', thumb);
+print(thumb);
