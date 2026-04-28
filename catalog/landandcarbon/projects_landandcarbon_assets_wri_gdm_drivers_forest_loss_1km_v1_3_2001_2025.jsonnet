@@ -190,6 +190,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
 
+    // TODO(google): Remove gee:status when the dataset is ready.
+  'gee:status': 'incomplete'
+
   'gee:type': ee_const.gee_type.image,
   license: license.id,
   links: ee.standardLinks(subdir, id),
