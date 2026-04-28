@@ -45,7 +45,6 @@ EXCEPTIONS = frozenset({
     'calibrated',
     'caltech',
     'carbon_organic',
-    'cci',
     'cdem',
     'cdl',
     'cgiar',

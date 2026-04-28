@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('ESA_CCI_Above_Ground_Biomass_V6_0', base_url),
     ee.link.child_collection('ESA_CCI_FireCCI_5_1', base_url),
     ee.link.child_collection('ESA_GLOBCOVER_L4_200901_200912_V2_3', base_url),
     ee.link.child_collection('ESA_WorldCover_v100', base_url),
