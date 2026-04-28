@@ -1,11 +1,11 @@
-local id = 'projects/landandcarbon/assets/wri_gdm_drivers_forest_loss_1km/v1_2_2001_2024';
+local id = 'projects/landandcarbon/assets/wri_gdm_drivers_forest_loss_1km/v1_3_2001_2025';
 local subdir = 'landandcarbon';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local version = '1.2';
+local version = '1.3';
 
 local license = spdx.cc_by_4_0;
 
@@ -14,11 +14,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2024 v1.2',
+  title: 'WRI/Google DeepMind Global Drivers of Forest Loss 2001-2025 v1.3',
   version: version,
 
   description: |||
-    This dataset maps the dominant driver of tree cover loss from 2001-2024 globally at 1 km resolution. 
+    This dataset maps the dominant driver of tree cover loss from 2001-2025 globally at 1 km resolution. 
     Produced by the World Resources Institute (WRI) and Google DeepMind, the data were developed using 
     a global neural network model (ResNet) trained on a set of samples collected through visual 
     interpretation of very high-resolution satellite imagery. The model used satellite imagery 
@@ -70,14 +70,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     multiple drivers if they occur in the same cell at smaller scales, nor does it detail the sequence of 
     drivers if multiple occurred at different times within the period. Additionally, these data are limited 
     in scope to attributing drivers to tree cover loss as mapped by the 
-    [Global Forest Change v1.12](https://www.science.org/doi/10.1126/science.1244693) tree cover loss product, 
+    [Global Forest Change v1.13](https://www.science.org/doi/10.1126/science.1244693) tree cover loss product, 
     and therefore the detection of loss is subject to the accuracy of that product. 
     
     **For a full description of the methods, technical specifications, definitions, accuracy, and 
     limitations, please see the publication**: 
     [https://doi.org/10.1088/1748-9326/add606](https://doi.org/10.1088/1748-9326/add606). 
-    The data is also available for download on [Zenodo](https://zenodo.org/records/15366671) and 
-    the [WRI Data Explorer](https://datasets.wri.org/datasets/dominant-drivers-of-tree-cover-loss-at-1km-v1-2).  
+    The data is also available for download on [Zenodo](https://zenodo.org/records/19485190) and 
+    the [WRI Data Explorer](https://datasets.wri.org/datasets/dominant-drivers-of-tree-cover-loss-at-1km).  
   |||, 
 
 
@@ -93,12 +93,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
 
   providers: [
-    ee.producer_provider('World Resources Institute', 'https://zenodo.org/records/15366671'),
+    ee.producer_provider('World Resources Institute', 'https://zenodo.org/records/19485190'),
     ee.producer_provider('Google DeepMind', 'https://deepmind.google/'),
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent_global('2001-01-01T00:00:00Z', '2025-01-01T00:00:00Z'),
+  extent: ee.extent_global('2001-01-01T00:00:00Z', '2026-01-01T00:00:00Z'),
 
   summaries: {
     gsd: [1111.95],
