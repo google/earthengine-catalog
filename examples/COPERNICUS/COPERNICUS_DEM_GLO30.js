@@ -1,5 +1,8 @@
-// Use mosaic to hide the tile information.
-var dataset = ee.ImageCollection('COPERNICUS/DEM/GLO30').mosaic();
+var collection = ee.ImageCollection('COPERNICUS/DEM/GLO30');
+var nativeProj = collection.first().projection();
+// Mosaic collection and set default projection from a sample image
+// to ensure terrain analysis is done in the native scale and CRS.
+var dataset = collection.mosaic().setDefaultProjection(nativeProj);
 
 Map.setCenter(-6.746, 46.529, 4);
 
@@ -75,9 +78,7 @@ var wbmVis = {
 };
 Map.addLayer(wbm, wbmVis, 'Water Body Mask (WBM)', false, 0.75);
 
-var dsm = dataset.select('DEM')
-              .setDefaultProjection('EPSG:3857', null, 30)
-              .rename('DSM');
+var dsm = dataset.select('DEM').rename('DSM');
 var dsmVis = {
   min: 0.0,
   max: 3000.0,
