@@ -3,22 +3,29 @@ var LHScat = ee.ImageCollection("projects/ee-pkurelab/assets/LHScat")
                .filterDate("2020-03-01", "2020-04-01");
 
 // Reduce the collection to a single representative image.
-var signals = LHScat.mean();
+var signals = LHScat.select('radar_singles').mean();
 
-var region = ee.Geometry.Rectangle([73, 8, 150, 54]);
+var visParams = {
+  min: -2000,
+  max: 500,
+  palette: ['green', 'yellow', 'red', 'firebrick']
+};
 
-// Print a ui.Thumbnail widget in the console (for visual preview).
-var thumb = ui.Thumbnail({
-  image: signals,
+var region = ee.Geometry.Rectangle([73, 8, 150, 54], null, false);
+
+// Create a background to avoid transparency issues.
+var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
+var background = waterLand.visualize({palette: ['cadetblue', 'lightgray']});
+
+var rgbImage = signals.visualize(visParams);
+var imageWithBackground = ee.ImageCollection([background, rgbImage]).mosaic().toInt();
+
+print(ui.Thumbnail({
+  image: imageWithBackground,
   params: {
-    min: -2000,
-    max: 500,
-    palette: ['green', 'yellow', 'red', 'firebrick'],
-    dimensions: 512,
+    dimensions: 256,
     format: 'png',
     region: region,
-  },
-  style: {width: '256px', height: '256px', position: 'bottom-left'}
-});
-
-print(thumb);
+    crs: 'EPSG:3857',
+  }
+}));

@@ -1,33 +1,30 @@
-
-// Load QC image with two bands: RMSE and Pearsonr
 var LHScat_QC = ee.Image("projects/ee-pkurelab/assets/LHScatQC");
 
-// Select the RMSE and Pearsonr bands from the image
-var RMSE = LHScat_QC.select('RMSE');
+// Select the RMSE band and scale it (original values are 0-1)
+// We convert the result to an int band to make sure the visualization is RGB
+var RMSE = LHScat_QC.select('RMSE').multiply(100).toInt();
 
-// Visualization parameters
-// RMSE visualization: 0–2 (example range, adjust if needed)
 var visParams_RMSE = {
   min: 0,
-  max: 1,
+  max: 100,
   palette: ['green', 'yellow', 'red', 'firebrick']
 };
 
-// Define a bbox
-var region = ee.Geometry.Rectangle([73, 8, 150, 54]);
+var region = ee.Geometry.Rectangle([73, 8, 150, 54], null, false);
 
-// RMSE
-var thumb_RMSE = ui.Thumbnail({
-  image: RMSE,
+// Create a background to avoid transparency issues.
+var waterLand = ee.Image('NOAA/NGDC/ETOPO1').select('bedrock').gt(0.0);
+var background = waterLand.visualize({palette: ['cadetblue', 'lightgray']});
+
+var rgbImage = RMSE.visualize(visParams_RMSE);
+var imageWithBackground = ee.ImageCollection([background, rgbImage]).mosaic();
+
+print(ui.Thumbnail({
+  image: imageWithBackground,
   params: {
-    min: visParams_RMSE.min,
-    max: visParams_RMSE.max,
-    palette: visParams_RMSE.palette,
+    dimensions: 256,
+    format: 'png',
     region: region,
-    dimensions: 512,
-    format: 'png'
-  },
-  style: {width: '256px', height: '256px', position: 'bottom-left'}
-});
-
-print(thumb_RMSE);
+    crs: 'EPSG:3857',
+  }
+}));
