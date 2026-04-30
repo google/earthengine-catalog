@@ -1,4 +1,4 @@
-local id = 'WCMC/WDOECM/current/polygons';
+local id = 'WCMC/WDPCA/current/polygons';
 local subdir = 'WCMC';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -18,28 +18,22 @@ local s = wcmc.schema_fields;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'WDOECM: Other Effective Area-based Conservation Measures (polygons) [deprecated]',
-  version: 'July 2024',
+  title: 'WDPCA: World Database on Protected and Conserved Areas (polygons)',
+  version: 'January 2026',
   'gee:type': ee_const.gee_type.table,
-  'gee:status': 'deprecated',
-  description: wcmc.wdoecm_description,
+  description: wcmc.wdpca_description,
   license: wcmc.license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
-    ee.link.successor(
-      'WCMC/WDPCA/current/polygons',
-      ee_const.catalog_base + 'WCMC/WCMC_WDPCA_current_polygons.json'
-    ),
   ],
   'gee:categories': ['ecosystems'],
   keywords: wcmc.keywords,
   providers: wcmc.providers(self_ee_catalog_url),
-  // TODO(b/229788379): how to represent an ongoing end date?
-  extent: ee.extent_global('2024-05-01T00:00:00Z', '2030-01-01T00:00:00Z'),
+  extent: ee.extent_global('2026-01-01T00:00:00Z', '2030-01-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       s.CONS_OBJ, s.DESIG, s.DESIG_ENG, s.DESIG_TYPE, s.GIS_AREA, s.GIS_M_AREA,
-      s.GOVSUBTYPE, s.GOV_TYPE, s.INT_CRIT, s.ISO3, s.IUCN_CAT,
+      s.GOVSUBTYPE, s.GOV_TYPE, s.INLND_WTRS, s.INT_CRIT, s.ISO3, s.IUCN_CAT,
       s.MANG_AUTH, s.MANG_PLAN, s.METADATAID, s.NAME, s.NAME_ENG, s.NO_TAKE,
       s.NO_TK_AREA, s.OECM_ASMT, s.OWNSUBTYPE, s.OWN_TYPE, s.PRNT_ISO3,
       s.REALM, s.REP_AREA, s.REP_M_AREA, s.SITE_ID, s.SITE_PID, s.SITE_TYPE,
@@ -47,20 +41,20 @@ local s = wcmc.schema_fields;
     ],
     'gee:visualizations': [
       {
-        display_name: 'Total OECMs extent',
+        display_name: 'Site Extent',
         lookat: {
-          lat: 27.33,
-          lon: -4.14,
-          zoom: 5,
+          lat: -9.8,
+          lon: 124.45,
+          zoom: 2,
         },
         polygon_visualization: {
           property_name: 'REP_AREA',
           property_vis: {
             min: [
-              50000.0,
+              0.0,
             ],
             max: [
-              800000.0,
+              1550000.0,
             ],
             palette: [
               '2ed033',
@@ -74,7 +68,7 @@ local s = wcmc.schema_fields;
         },
       },
       {
-        display_name: 'Total OECMs extent',
+        display_name: 'Site Extent',
         visualize_as: 'FeatureView',
       },
     ],
