@@ -1,17 +1,15 @@
-local id = 'projects/forestdatapartnership/assets/cocoa/model_2025a';
+local id = 'projects/forestdatapartnership/assets/coffee/model_2025b';
 local subdir = 'forestdatapartnership';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/projects_forestdatapartnership_assets_cocoa_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions_compare = import 'templates/versions_2025a_2025b.libsonnet';
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
 
-local license = spdx.various;
+local license = spdx.cc_by_4_0;
+
+local version = '2025b';
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -30,15 +28,13 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Cocoa Probability model ' + version,
+  title: 'Coffee Probability model ' + version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 
-    **Note: This dataset is not yet peer-reviewed. 
-
     Please see this
-    [GitHub README](https://github.com/google/forest-data-partnership/tree/main/models/model_2025a)
-    for more information.**
+    [GitHub README](https://github.com/google/forest-data-partnership/tree/main/models/model_2025b)
+    for technical documentation of this dataset.
 
     This image collection provides estimated per-pixel probability that the
     underlying area is occupied by the commodity.  The probability estimates are
@@ -48,13 +44,12 @@ local self_url = catalog_subdir_url + base_filename;
     on Github.
 
     The primary purpose of this image collection is to support the mission of
-    the [Forest Data Partnership](https://www.forestdatapartnership.org/) which
+    the [Forest Data Partnership](https://www.fao.org/in-action/forest-data-partnership) which
     aims to halt and reverse forest loss from commodity production by
     collaboratively improving global monitoring, supply chain tracking, and
     restoration.
 
-    This dataset currently covers the following countries: Côte d'Ivoire, Ghana,
-    Indonesia, Ecuador, Peru, Colombia.
+    This dataset currently covers the pan-tropical region (-24 to 24 degrees latitude).
 
     This community data product is meant to evolve over time, as more data
     becomes available from the community and the model used to produce the maps
@@ -62,20 +57,12 @@ local self_url = catalog_subdir_url + base_filename;
     additional datasets to improve these layers, please reach out through
     [this form](https://goo.gle/fdap-data).
 
-    Limitations: Model output is limited to selected countries as calendar year
-    composites for 2020 and 2023. Not all regions of the output are well
-    represented by training data. Accuracy is reported in aggregate, and will
-    vary geographically and with user chosen thresholds. Sensor artifacts based
-    on data availability, cross-track nonuniformity, or cloudiness may be
-    visually apparent in output probabilities and result in classification
-    errors at some thresholds.
-
-    **Note that this dataset has separate terms of use for commercial users of
-    Earth Engine. Please see "Terms of Use" tab for details.**
+    Limitations: See the 
+    [GitHub README](https://github.com/google/forest-data-partnership/tree/main/models/v2025).
 
   ||| + '\n' + versions_compare.version_differences,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links,
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',
@@ -83,24 +70,24 @@ local self_url = catalog_subdir_url + base_filename;
     'conservation',
     'crop',
     'landuse',
-    'cocoa',
+    'coffee',
     'plantation',
     'pre_review',
   ],
   providers: [
     ee.producer_provider(
       'Produced by Google for the Forest Data Partnership',
-      'https://www.forestdatapartnership.org/'
+      'https://www.fao.org/in-action/forest-data-partnership'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2020-01-01T00:00:00Z', '2023-12-31T23:59:59Z'),
+  extent: ee.extent(-180.0, -24.0, 180.0, 24.0, '2020-01-01T00:00:00Z', '2024-12-31T23:59:59Z'),
   summaries: {
     'eo:bands': [
       {
         name: 'probability',
         description: |||
-          Probability that the pixel includes cocoa trees for the given year.
+          Probability that the pixel includes coffee for the given year.
         |||,
       },
     ],
@@ -112,25 +99,20 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       // Example with one band.
       {
-        display_name: 'Predicted probability of cocoa presence',
+        display_name: 'Predicted probability of coffee presence',
         lookat: { lon: -7, lat: 7, zoom: 6 },
         image_visualization: { band_vis: { min: [0.5], bands: ['probability'] } },
       },
     ],
   },
   'sci:citation': |||
-    Forest Data Partnership. 2025. Community models 2025a. [Online](https://github.com/google/forest-data-partnership/tree/main/models/model_2025a/README.md)
+    Forest Data Partnership. 2026. Community models 2025b. [Online](https://github.com/google/forest-data-partnership/tree/main/models/model_2025b/README.md)
   |||,
   'gee:terms_of_use': |||
-    For non-commercial users of Earth Engine, use of the dataset is subject to
-    CC-BY 4.0 NC license and requires the following attribution:
+
+    Use of the dataset is subject to the
+    CC-BY 4.0 license and requires the following attribution:
     "Produced by Google for the Forest Data Partnership".
 
-    Commercial use of the dataset is subject to the
-    [Forest Data Partnership Datasets Commercial Terms of Use](https://services.google.com/fh/files/misc/forest_data_partnership_datasets_commerical_terms_of_use.pdf).
-
-    Contains modified Copernicus Sentinel data [2015-present]. See the
-    [Sentinel Data Legal Notice](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice).
   |||,
-  'gee:unusual_terms_of_use': true,
 }

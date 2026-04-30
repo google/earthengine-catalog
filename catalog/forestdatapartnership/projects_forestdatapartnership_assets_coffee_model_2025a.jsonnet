@@ -5,6 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions_compare = import 'templates/versions_2025a_2025b.libsonnet';
 
 local license = spdx.various;
 
@@ -31,8 +32,10 @@ local self_url = catalog_subdir_url + base_filename;
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
 
-    **Note: This dataset is not yet peer-reviewed. Please see this
-    [GitHub README](https://github.com/google/forest-data-partnership/tree/main/models)
+    **Note: This dataset is not yet peer-reviewed. 
+
+    Please see this
+    [GitHub README](https://github.com/google/forest-data-partnership/tree/main/models/model_2025a)
     for more information.**
 
     This image collection provides estimated per-pixel probability that the
@@ -69,7 +72,7 @@ local self_url = catalog_subdir_url + base_filename;
     **Note that this dataset has separate terms of use for commercial users of
     Earth Engine. Please see "Terms of Use" tab for details.**
 
-  |||,
+  ||| + '\n' + versions_compare.version_differences,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['agriculture'],
@@ -115,7 +118,7 @@ local self_url = catalog_subdir_url + base_filename;
     ],
   },
   'sci:citation': |||
-    Forest Data Partnership. 2025. Community models 2025a. [Online](https://github.com/google/forest-data-partnership/tree/main/models/README.md)
+    Forest Data Partnership. 2025. Community models 2025a. [Online](https://github.com/google/forest-data-partnership/tree/main/models/model_2025a/README.md)
   |||,
   'gee:terms_of_use': |||
 
