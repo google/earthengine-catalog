@@ -20,28 +20,39 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     Operational Simplified Surface Energy Balance (SSEBop).
 
-    The Operational Simplified Surface Energy Balance (SSEBop) model by Senay
-    et al. (2013, 2017) is a thermal-based simplified surface energy model for
-    estimating actual ET based on the principles of satellite psychrometry
-    (Senay 2018). The OpenET SSEBop implementation uses land surface temperature
-    (Ts) from Landsat (Collection 2 Level-2 Science Products) with key model
-    parameters (cold/wet-bulb reference, Tc, and surface psychrometric
-    constant, 1/dT) derived from a combination of observed surface temperature,
-    normalized difference vegetation index (NDVI), climatological average
-    (1980-2017) daily maximum air temperature (Ta, 1-km) from Daymet, and
-    net radiation data from ERA-5. This model implementation uses the Google
-    Earth Engine processing framework for connecting key SSEBop ET functions
-    and algorithms together when generating both intermediate and aggregated ET
-    results. A detailed study and evaluation of the SSEBop model across CONUS
-    (Senay et al., 2022) informs both cloud implementation and assessment for
-    water balance applications at broad scales. Notable model (v0.2.6)
-    enhancements and performance against previous versions include additional
-    compatibility with Landsat 9 (launched Sep 2021), global model
-    extensibility, and improved parameterization of SSEBop using
-    FANO (Forcing and Normalizing Operation) to better estimate ET
-    in all landscapes and all seasons regardless of vegetation cover density,
-    thereby improving model accuracy by avoiding extrapolation of Tc to
-    non-calibration regions.
+The Operational Simplified Surface Energy Balance (SSEBop) model
+    (Senay et al., 2013; 2023) is a thermal based approach for estimating
+    actual evapotranspiration (ET) using the principles of satellite
+    psychrometry (Senay, 2018). As one of the core models in the OpenET
+    ensemble, SSEBop provides a computationally efficient framework for large-
+    area, operational ET mapping.
+
+    The OpenET Collection 2.1 implementation of SSEBop relies on two primary
+    inputs:
+
+    1. Land surface temperature from Landsat Collection 2 Level 2 Science
+    Products.
+    2. Gridded reference ET from gridMET (Abotzoglou, 2013).
+
+    Key model parameters, including the cold/wet bulb reference temperature
+    (Tc) and the surface psychrometric constant (1/dT), are derived using a
+    combination of observed surface temperature, normalized difference
+    vegetation index (NDVI), and ERA5 net radiation data
+    (DOI: 10.5066/P9JBW6R9). These components are integrated within the Google
+    Earth Engine processing environment, which links the full suite of SSEBop
+    algorithms to generate both intermediate outputs and aggregated ET
+    products. Extensive evaluation across the conterminous United States
+    (Senay et al., 2022; Volk et al., 2024; Ji et al., 2025; Khand et al, 2025)
+    has guided the cloud-based implementation and demonstrated the model’s
+    utility for applications such as crop water use assessment and regional
+    water budget analysis.
+
+    For OpenET Collection 2.1, SSEBop model v0.7.1 (Senay et al., 2026)
+    includes a notable enhancement: an improved implementation of the Forcing
+    and Normalizing Operation (FANO) equation for determining Tc. This update
+    strengthens the model’s ability to represent wet surfaces with low NDVI,
+    improving performance in areas where vegetation signals are weak or mixed,
+    particularly over farmlands and grasslands during sparse canopy cover.
 
     [Additional information](https://etdata.org/methods/)
   |||,
