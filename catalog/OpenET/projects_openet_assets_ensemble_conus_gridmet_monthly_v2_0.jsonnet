@@ -35,6 +35,9 @@ local catalog_base_url = ee_const.catalog_base;
     pixel). The monthly ET dataset provides data on total ET by month as an
     equivalent depth of water in millimeters.
 
+    Note: DisALEXI cannot be generated before 2001 and is not included in the
+    ensemble calculation in 1999 or 2000.
+
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
