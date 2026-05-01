@@ -71,7 +71,6 @@ local version = 'March 2026';
 	  'global',
 	  'iucn',
 	  'management',
-	  'marine'
   ],
 
   providers: [
