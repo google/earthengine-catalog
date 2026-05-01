@@ -4,7 +4,7 @@ local spdx = import 'spdx.libsonnet';
 
 local subdir = 'gtac-data-publish';
 local id = 'projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11';
-local version_config = 1
+local version_config = 1;
 local version = 'v2025-11';
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
