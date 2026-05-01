@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_1 = importstr 'collection_v2_1.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -20,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     Operational Simplified Surface Energy Balance (SSEBop).
 
-The Operational Simplified Surface Energy Balance (SSEBop) model
+    The Operational Simplified Surface Energy Balance (SSEBop) model
     (Senay et al., 2013; 2023) is a thermal based approach for estimating
     actual evapotranspiration (ET) using the principles of satellite
     psychrometry (Senay, 2018). As one of the core models in the OpenET
@@ -53,9 +54,7 @@ The Operational Simplified Surface Energy Balance (SSEBop) model
     strengthens the model’s ability to represent wet surfaces with low NDVI,
     improving performance in areas where vegetation signals are weak or mixed,
     particularly over farmlands and grasslands during sparse canopy cover.
-
-    [Additional information](https://etdata.org/methods/)
-  |||,
+  ||| + collection_v2_1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],

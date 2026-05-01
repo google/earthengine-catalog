@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the hot and cold pixels for an image generally follows a statistical
     isolation procedure described by Allen et al. (2013a) and ReVelle, Kilic
     and Allen (2019a,b). The calibration of H in eeMETRIC utilizes alfalfa
-    reference ET calculated from the NLDAS gridded weather dataset using a
+    reference ET calculated from the NLDAS-2 gridded weather dataset using a
     fixed 15% reduction in computed reference ET to account for known biases
     in the gridded data set. The fixed reduction does not impact the
     calibration accuracy of eeMETRIC and mostly reduces impacts of boundary

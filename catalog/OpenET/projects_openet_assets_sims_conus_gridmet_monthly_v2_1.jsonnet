@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_1 = importstr 'collection_v2_1.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -59,9 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     are masked out in this data collection. Future research will extend the
     vegetation density-crop coefficient approach used within SIMS to other land
     cover types.
-
-    [Additional information](https://etdata.org/methods/)
-  |||,
+  ||| + collection_v2_1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],

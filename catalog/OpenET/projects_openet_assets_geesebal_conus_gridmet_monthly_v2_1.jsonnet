@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_1 = importstr 'collection_v2_1.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -25,7 +26,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     (2021), which is based on the original algorithms developed by
     Bastiaanssen et al. (1998). The OpenET geeSEBAL implementation uses land
     surface temperature (LST) data from Landsat Collection 2, in addition to
-    NLDAS and gridMET datasets as instantaneous and daily meteorological
+    NLDAS-2 and gridMET datasets as instantaneous and daily meteorological
     inputs, respectively.
 
     The automated statistical algorithm to select the hot and cold endmembers
@@ -52,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     filters to select the endmembers, including the use of the USDA Cropland
     Data Layer (CDL) and filters for NDVI, LST and albedo.
     2. Corrections to LST for endmembers based on antecedent precipitation.
-    3. Definition of NLDAS wind speed thresholds to reduce model instability
+    3. Definition of NLDAS-2 wind speed thresholds to reduce model instability
     during the atmospheric correction.
     4. Improvements to estimate daily net radiation, using FAO-56 as reference
     (Allen et al., 1998).
@@ -67,9 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     lapse rate, elevation slope and aspect) to represent the effects of
     topographic features on the model’s endmember selection algorithm and ET
     estimates.
-
-    [Additional information](https://etdata.org/methods/)
-  |||,
+  ||| + collection_v2_1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
