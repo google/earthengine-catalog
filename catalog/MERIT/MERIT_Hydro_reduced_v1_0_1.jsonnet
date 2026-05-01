@@ -34,10 +34,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   'gee:categories': ['surface-ground-water'],
   keywords: [
-    'dem',
-    'elevation',
-    'flow_direction',
-    'hand',
     'hydrography',
     'hydrosheds',
     'merit',
