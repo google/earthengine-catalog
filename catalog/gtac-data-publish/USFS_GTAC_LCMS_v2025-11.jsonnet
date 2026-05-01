@@ -97,7 +97,7 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
-  ]
+  ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
     'lcms',
