@@ -30,6 +30,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to
     resolve individual farm fields and other landscape features.
 
+    Note: DisALEXI data does not exist before 2001 since the source ALEXI data
+    is only available starting in 2001.
+
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
@@ -37,7 +40,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
-    'gridmet_derived',
     'landsat_derived',
     'monthly',
     'openet',
@@ -155,12 +157,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: 'DisALEXI ET value',
+        description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
       {
         name: 'count',
-        description: 'Number of cloud free values',
+        description: 'Number of cloud free observations in the month included in the interpolation',
         'gee:units': units.count,
       },
     ],
