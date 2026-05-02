@@ -12,4 +12,5 @@
   {'v1.10': 'UMD/hansen/global_forest_change_2022_v1_10'},
   {'v1.11': 'UMD/hansen/global_forest_change_2023_v1_11'},  
   {'v1.12': 'UMD/hansen/global_forest_change_2024_v1_12'},
+  {'v1.13': 'UMD/hansen/global_forest_change_2025_v1_13'},
 ]
