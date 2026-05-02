@@ -7,13 +7,14 @@ expected that there will be noticeable differences in ET between the two
 collection versions for some places and times. Some of the updates and changes 
 include:
 
-* Additional cloud screening and filtering.
+* Additional cloud screening and filtering to skip Landsat images with 
+unmasked clouds and/or extensive snow cover.
 * Reprocessing to incorporate updates to the NLDAS-2 and GRIDMET
 input meteorology datasets.
-* Incorporation of the USGS Annual NLCD product for all models that
-require land cover information.
-* Incorporation of the latest USDA Cropland Data Layer (CDL) for all models
-that require crop type information.
+* Incorporation of the USGS Annual NLCD product for all models that require 
+land cover information.
+* Incorporation of the latest USDA CDL for all models that require crop type 
+information.
 * Updates to the interpolation so monthly ET is only produced when all
 days in the month have interpolated values (reducing “count=0” months in
 cloudy/snowy or low-coverage periods).
