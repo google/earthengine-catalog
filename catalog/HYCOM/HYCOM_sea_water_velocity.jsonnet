@@ -33,7 +33,6 @@ local license = spdx.proprietary;
   keywords: [
     'hycom',
     'nopp',
-    'ocean',
     'velocity',
     'water',
   ],

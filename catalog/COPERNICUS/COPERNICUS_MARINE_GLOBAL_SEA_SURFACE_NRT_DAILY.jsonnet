@@ -31,7 +31,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:categories': ['oceans'],
   keywords: [
     'copernicus',
-    'marine',
   ],
   providers: [
     ee.producer_provider('Copernicus', 'https://doi.org/10.48670/moi-00051'),

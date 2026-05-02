@@ -88,7 +88,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:categories': ['oceans'],
   keywords: [
     'coral',
-    'ocean',
     'planet_derived',
     'reef',
     'seagrass',
