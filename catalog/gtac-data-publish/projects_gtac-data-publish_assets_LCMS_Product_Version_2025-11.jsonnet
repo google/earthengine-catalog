@@ -27,7 +27,7 @@ local license = spdx.proprietary;
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
-    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI will
+    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI
     v2025-11 data will be released in late Summer 2026. 
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
@@ -46,7 +46,7 @@ local license = spdx.proprietary;
     Earth Engine (Gorelick et al., 2017).
 
     To produce annual composites for LandTrendr, USGS Collection 2 Landsat Tier 1 and Sentinel 2A,
-    2B Level-1C top of atmosphere reflectance data were used. The cFmask cloud masking algorithm
+    2B Level-1C top of atmosphere reflectance data were used. The CFmask cloud masking algorithm
     (Foga et al., 2017), which is an implementation of Fmask 2.0 (Zhu and Woodcock, 2012)
     (Landsat-only), cloudScore (Chastain et al., 2019) (Landsat-only), s2cloudless
     (Sentinel-Hub, 2021) and Cloud Score+ (Pasquarella et al., 2023) (Sentinel 2-only) are 
@@ -85,8 +85,6 @@ local license = spdx.proprietary;
       for more detailed information regarding methods and accuracy assessment, or the
       [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
       for data downloads, metadata, and support documents.
-
-    * The string HAWAII will be updated to HI in the upcoming v2025.11 data release.
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
@@ -409,7 +407,7 @@ local license = spdx.proprietary;
           tornados, storms and other severe weather events including freezing rain from ice
           storms.
 
-          * Hydrology - Land where flooding has significantly altered woody cover or other Land cover
+          * Hydrology - Land where flooding has significantly altered woody cover or other land cover
           elements regardless of land use (e.g. new mixtures of gravel and vegetation in and around
           streambeds after a flood).
 
@@ -663,15 +661,25 @@ local license = spdx.proprietary;
               1.0,
             ],
             max: [
-              5.0,
+              16.0,
             ],
             palette: [
-              '3d4551',
-              'f39268',
+              'ff09f3',
+              '541aff',
+              'e4f5fd',
+              'cc982e',
+              '0adaff',
+              'a10018',
               'd54309',
+              'fafa4b',
+              'afde1c',
+              'ffc80d',
+              'a64c28',
+              'f39268',
+              'c291d5',
               '00a398',
+              '3d4551',
               '1b1716',
-              'b30088',
             ],
             bands: [
               'Change',
@@ -695,20 +703,20 @@ local license = spdx.proprietary;
               15.0,
             ],
             palette: [
-              '005e00',
-              '008000',
-              '00cc00',
-              'b3ff1a',
-              '99ff99',
-              'b30088',
-              'e68a00',
-              'ffad33',
-              'ffe0b3',
-              'ffff00',
-              'aa7700',
-              'd3bf9b',
-              'ffffff',
-              '4780f3',
+              '004e2b',
+              '009344',
+              '61bb46',
+              'acbb67',
+              '8b8560',
+              'cafd4b',
+              'f89a1c',
+              '8fa55f',
+              'bebb8e',
+              'e5e98a',
+              'ddb925',
+              '893f54',
+              'e4f5fd',
+              '00b6f0',
               '1b1716',
             ],
             bands: [
@@ -730,13 +738,14 @@ local license = spdx.proprietary;
               1.0,
             ],
             max: [
-              7.0,
+              6.0,
             ],
             palette: [
-              '3d4551',
-              'f39268',
-              'd54309',
-              '00a398',
+              'fbff97',
+              'e6558b',
+              '004e2b',
+              '9dbac5',
+              'a6976a',
               '1b1716',
             ],
             bands: [
@@ -850,9 +859,9 @@ local license = spdx.proprietary;
         Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J., 2023. 
         Comprehensive Quality Assessment of Optical Satellite Imagery Using 
         Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
-        on Computer Vision and Pattern Recognition. 2124-2134.
+        on Computer Vision and Pattern Recognition. 2124-2134 [doi:10.1109/CVPRW59228.2023.00206](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/papers/Pasquarella_Comprehensive_Quality_Assessment_of_Optical_Satellite_Imagery_Using_Weakly_Supervised_CVPRW_2023_paper.pdf).
       |||,
-      doi:'10.3390/rs10050691',
+      doi:'10.1109/CVPRW59228.2023.00206',
     },
     {
       citation: |||
@@ -905,5 +914,4 @@ local license = spdx.proprietary;
     USDA Forest Service. 2026. USFS Landscape Change Monitoring System v2025.11
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
-  'gee:user_uploaded': true,
 }
