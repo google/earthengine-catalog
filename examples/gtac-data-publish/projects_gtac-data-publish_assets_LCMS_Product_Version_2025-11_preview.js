@@ -5,9 +5,34 @@ var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LCMS/Product
 var lcms = dataset.filter(ee.Filter.calendarRange(2024, 2024,'year'))  // range: [1985, 2025]
                .filter('study_area == "CONUS"').first()  // "AK"
 
-// Select the land cover band and apply default visualization.
+// LCMS Land Cover visualization parameter presets.
+var lcViz = {
+  min: [1.0],
+  max: [15.0],
+  palette: [
+    '005e00',
+    '008000',
+    '00cc00',
+    'b3ff1a',
+    '99ff99',
+    'b30088',
+    'e68a00',
+    'ffad33',
+    'ffe0b3',
+    'ffff00',
+    'aa7700',
+    'd3bf9b',
+    'ffffff',
+    '4780f3',
+    '1b1716',
+  ],
+  bands: ['Land_Cover'],
+};
+
+
+// Select the land cover band and apply default visualization using lcViz.
 var landCover = lcms.select('Land_Cover');
-var image = landCover.visualize();
+var image = landCover.visualize(lcViz);
 
 // Center point used for map display and preview AOI.
 var lon = -112;
