@@ -210,6 +210,7 @@ EXCEPTIONS = frozenset({
     'potassium',
     'power',
     'power_plants',
+    'pre-review',
     'precipitable',
     'prescribedfire',
     'protection',
