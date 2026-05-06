@@ -23,7 +23,7 @@ local license = spdx.proprietary;
     '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': beta,
+  'gee:status': 'beta',
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
