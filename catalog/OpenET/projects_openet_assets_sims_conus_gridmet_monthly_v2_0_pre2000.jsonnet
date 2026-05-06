@@ -1,6 +1,4 @@
-local id = 'projects/openet/assets/sims/conus/gridmet/monthly/v2_0';
-local predecessor_id = 'OpenET/SIMS/CONUS/GRIDMET/MONTHLY/v2_0';
-local latest_id = id;
+local id = 'projects/openet/assets/sims/conus/gridmet/monthly/v2_0_pre2000';
 local subdir = 'OpenET';
 local version = '2.0';
 
@@ -8,18 +6,17 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_0_pre2000 = importstr 'collection_v2_0_pre2000.md';
 
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
+local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_base_url = ee_const.catalog_base;
 
 {
   id: id,
-  title: 'OpenET SIMS Monthly Evapotranspiration v' + version,
+  title: 'OpenET SIMS Monthly Evapotranspiration v' + version + ' (1985-1999)',
   version: version,
   description: |||
     Satellite Irrigation Management Support (SIMS).
@@ -63,16 +60,9 @@ local catalog_base_url = ee_const.catalog_base;
     are masked out in this data collection. Future research will extend the
     vegetation density-crop coefficient approach used within SIMS to other land
     cover types.
-
-    [Additional information](https://etdata.org/methods/)
-  |||,
+  ||| + collection_v2_0_pre2000,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(
-      predecessor_id, catalog_base_url + subdir + '/' + predecessor_basename + '.json'),
-    ee.link.latest(
-      latest_id, catalog_base_url + subdir + '/' + latest_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
@@ -86,7 +76,7 @@ local catalog_base_url = ee_const.catalog_base;
     ee.producer_provider('OpenET, Inc.', 'https://etdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126, 25, -86, 50, '1999-10-01T00:00:00Z', '2025-01-01T00:00:00Z'),
+  extent: ee.extent(-126, 25, -86, 50, '1984-10-01T00:00:00Z', '1999-10-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -182,6 +172,7 @@ local catalog_base_url = ee_const.catalog_base;
         description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
+
       {
         name: 'count',
         description: 'Number of cloud free observations in the month included in the interpolation',
@@ -270,6 +261,7 @@ local catalog_base_url = ee_const.catalog_base;
     unit: 'month',
     interval: 1,
   },
+  'gee:status': 'beta',
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:type': ee_const.gee_type.image_collection,
   stac_version: ee_const.stac_version,

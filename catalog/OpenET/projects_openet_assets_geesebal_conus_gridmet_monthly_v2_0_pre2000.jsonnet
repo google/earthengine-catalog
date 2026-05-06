@@ -1,12 +1,12 @@
-local id = 'projects/openet/assets/geesebal/conus/gridmet/monthly/v2_1';
+local id = 'projects/openet/assets/geesebal/conus/gridmet/monthly/v2_0_pre2000';
 local subdir = 'OpenET';
-local version = '2.1';
+local version = '2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local collection_v2_1 = importstr 'collection_v2_1.md';
+local collection_v2_0_pre2000 = importstr 'collection_v2_0_pre2000.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -16,7 +16,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET geeSEBAL Monthly Evapotranspiration v' + version,
+  title: 'OpenET geeSEBAL Monthly Evapotranspiration v' + version + ' (1985-1999)',
   version: version,
   description: |||
     Google Earth Engine implementation of the Surface Energy Balance Algorithm
@@ -68,7 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     lapse rate, elevation slope and aspect) to represent the effects of
     topographic features on the model’s endmember selection algorithm and ET
     estimates.
-  ||| + collection_v2_1,
+  ||| + collection_v2_0_pre2000,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
@@ -84,17 +84,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://etdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126, 25, -66, 50, '2015-10-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -66, 50, '1984-10-01T00:00:00Z', '1999-10-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
         name: 'build_date',
         description: 'Date assets were built',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'build_status',
-        description: 'Status can be "permanent" or "provisional".  Images flagged as "provisional" may be updated in the future.',
         type: ee_const.var_type.string,
       },
       {
@@ -131,11 +126,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'et_reference_source',
         description: 'Collection ID for the daily reference ET data',
         type: ee_const.var_type.string,
-      },
-      {
-        name: 'image_source_count',
-        description: 'Number of scene images used in the interpolation',
-        type: ee_const.var_type.double,
       },
       {
         name: 'interp_days',
@@ -180,11 +170,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'start_date',
         description: 'Start date of month',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'units_et',
-        description: 'Units of the "et" band',
         type: ee_const.var_type.string,
       },
     ],
@@ -269,6 +254,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'month',
     interval: 1,
   },
+  'gee:status': 'beta',
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:type': ee_const.gee_type.image_collection,
   stac_version: ee_const.stac_version,

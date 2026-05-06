@@ -17,7 +17,7 @@ var visParams = {
 
 var rgbImage = et.visualize(visParams);
 Map.addLayer(
-    rgbImage, {}, 'OpenET PT-JPL Annual evapotranspiration (ET)', true, 0.3);
+  rgbImage, {}, 'OpenET PT-JPL Annual Evapotranspiration (ET)', true, 0.3);
 
 var lon = -120.68758;
 var lat = 36.75228;
@@ -30,8 +30,8 @@ var latDelta = 0.035;
 var pixels = 256;
 
 var areaOfInterest = ee.Geometry.Rectangle(
-    [lon - lonDelta, lat - latDelta, lon + lonDelta, lat + latDelta], null,
-    false);
+  [lon - lonDelta, lat - latDelta, lon + lonDelta, lat + latDelta], null,
+  false);
 
 Map.addLayer(areaOfInterest, {}, 'Area of Interest', true, 0.3);
 

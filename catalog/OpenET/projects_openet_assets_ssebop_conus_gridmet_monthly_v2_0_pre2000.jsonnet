@@ -1,12 +1,12 @@
-local id = 'projects/openet/assets/ssebop/conus/gridmet/monthly/v2_1';
+local id = 'projects/openet/assets/ssebop/conus/gridmet/monthly/v2_0_pre2000';
 local subdir = 'OpenET';
-local version = '2.1';
+local version = '2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local collection_v2_1 = importstr 'collection_v2_1.md';
+local collection_v2_0_pre2000 = importstr 'collection_v2_0_pre2000.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -16,45 +16,34 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'OpenET SSEBop Monthly Evapotranspiration v' + version,
+  title: 'OpenET SSEBop Monthly Evapotranspiration v' + version + ' (1985-1999)',
   version: version,
   description: |||
     Operational Simplified Surface Energy Balance (SSEBop).
 
-    The Operational Simplified Surface Energy Balance (SSEBop) model
-    (Senay et al., 2013; 2023) is a thermal based approach for estimating
-    actual evapotranspiration (ET) using the principles of satellite
-    psychrometry (Senay, 2018). As one of the core models in the OpenET
-    ensemble, SSEBop provides a computationally efficient framework for large-
-    area, operational ET mapping.
-
-    The OpenET Collection 2.1 implementation of SSEBop relies on two primary
-    inputs:
-
-    1. Land surface temperature from Landsat Collection 2 Level 2 Science
-    Products.
-    2. Gridded reference ET from gridMET (Abotzoglou, 2013).
-
-    Key model parameters, including the cold/wet bulb reference temperature
-    (Tc) and the surface psychrometric constant (1/dT), are derived using a
-    combination of observed surface temperature, normalized difference
-    vegetation index (NDVI), and ERA5 net radiation data
-    (DOI: 10.5066/P9JBW6R9). These components are integrated within the Google
-    Earth Engine processing environment, which links the full suite of SSEBop
-    algorithms to generate both intermediate outputs and aggregated ET
-    products. Extensive evaluation across the conterminous United States
-    (Senay et al., 2022; Volk et al., 2024; Ji et al., 2025; Khand et al, 2025)
-    has guided the cloud-based implementation and demonstrated the model’s
-    utility for applications such as crop water use assessment and regional
-    water budget analysis.
-
-    For OpenET Collection 2.1, SSEBop model v0.7.1 (Senay et al., 2026)
-    includes a notable enhancement: an improved implementation of the Forcing
-    and Normalizing Operation (FANO) equation for determining Tc. This update
-    strengthens the model’s ability to represent wet surfaces with low NDVI,
-    improving performance in areas where vegetation signals are weak or mixed,
-    particularly over farmlands and grasslands during sparse canopy cover.
-  ||| + collection_v2_1,
+    The Operational Simplified Surface Energy Balance (SSEBop) model by Senay
+    et al. (2013, 2017) is a thermal-based simplified surface energy model for
+    estimating actual ET based on the principles of satellite psychrometry
+    (Senay 2018). The OpenET SSEBop implementation uses land surface temperature
+    (Ts) from Landsat (Collection 2 Level-2 Science Products) with key model
+    parameters (cold/wet-bulb reference, Tc, and surface psychrometric
+    constant, 1/dT) derived from a combination of observed surface temperature,
+    normalized difference vegetation index (NDVI), climatological average
+    (1980-2017) daily maximum air temperature (Ta, 1-km) from Daymet, and
+    net radiation data from ERA-5. This model implementation uses the Google
+    Earth Engine processing framework for connecting key SSEBop ET functions
+    and algorithms together when generating both intermediate and aggregated ET
+    results. A detailed study and evaluation of the SSEBop model across CONUS
+    (Senay et al., 2022) informs both cloud implementation and assessment for
+    water balance applications at broad scales. Notable model (v0.2.6)
+    enhancements and performance against previous versions include additional
+    compatibility with Landsat 9 (launched Sep 2021), global model
+    extensibility, and improved parameterization of SSEBop using
+    FANO (Forcing and Normalizing Operation) to better estimate ET
+    in all landscapes and all seasons regardless of vegetation cover density,
+    thereby improving model accuracy by avoiding extrapolation of Tc to
+    non-calibration regions.
+  ||| + collection_v2_0_pre2000,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
@@ -70,17 +59,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('OpenET, Inc.', 'https://etdata.org/'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-126, 25, -66, 50, '2015-10-01T00:00:00Z', null),
+  extent: ee.extent(-126, 25, -86, 50, '1984-10-01T00:00:00Z', '1999-10-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
         name: 'build_date',
         description: 'Date assets were built',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'build_status',
-        description: 'Status can be "permanent" or "provisional".  Images flagged as "provisional" may be updated in the future.',
         type: ee_const.var_type.string,
       },
       {
@@ -117,11 +101,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'et_reference_source',
         description: 'Collection ID for the daily reference ET data',
         type: ee_const.var_type.string,
-      },
-      {
-        name: 'image_source_count',
-        description: 'Number of scene images used in the interpolation',
-        type: ee_const.var_type.double,
       },
       {
         name: 'interp_days',
@@ -168,11 +147,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Start date of month',
         type: ee_const.var_type.string,
       },
-      {
-        name: 'units_et',
-        description: 'Units of the "et" band',
-        type: ee_const.var_type.string,
-      },
     ],
     gsd: [30],
     'eo:bands': [
@@ -181,6 +155,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
+
       {
         name: 'count',
         description: 'Number of cloud free observations in the month included in the interpolation',
@@ -264,10 +239,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'month',
     interval: 1,
   },
+  'gee:status': 'beta',
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:type': ee_const.gee_type.image_collection,
-  type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
