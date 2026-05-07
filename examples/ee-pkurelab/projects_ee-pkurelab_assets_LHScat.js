@@ -7,7 +7,7 @@ var signals = LHScat.mean();
 
 var region = ee.Geometry.Rectangle([73, 8, 150, 54]);
 
-// Visualization parameters for the radar singles signal.
+// Visualization parameters for the radar signals.
 var visParams_signals = {
   min: -2000,
   max: 500,
@@ -18,5 +18,5 @@ var visParams_signals = {
 Map.centerObject(region, 4);
 
 // Add the layer to the map for interactive preview.
-Map.addLayer(signals, visParams_signals, 'LHScat radar singles (2020-03)');
+Map.addLayer(signals, visParams_signals, 'LHScat radar signals (2020-03)');
 

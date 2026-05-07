@@ -26,15 +26,15 @@ local units = import 'units.libsonnet';
   description:
   |||
     The LHScat dataset is the first long-term (since 1992), high-resolution (∼8.9 km) 
-    monthly satellite radar backscatter dataset over global land areas. It integrated 
+    monthly C-band satellite radar backscatter dataset over global land areas. It integrated 
     signals from the European Remote Sensing satellite (ERS; 1992–2001; C-band; 5.3 GHz),
     Quick Scatterometer (QSCAT, 1999–2009; Ku-band; 13.4 GHz), and the Advanced 
-    SCATterometer (ASCAT; since 2007; C-band; 5.255 GHz). The 6-year data gap between 
+    Scatterometer (ASCAT; since 2007; C-band; 5.255 GHz). The 6-year data gap between 
     C-band ERS and ASCAT was filled by modelling a substitute C-band signal during 1999–2009 
     from Ku-band QSCAT signals and climatic information. The quality of the merged radar 
-    signal was assessed by computing the Pearson correlation coefficient (Pearsonr) and Root Mean Square Error (RMSE) 
+    signal was assessed by computing the Pearson correlation coefficient (Pearson's r) and Root Mean Square Error (RMSE) 
     between the C-band and the corrected Ku-band signals in the overlapping years (1999–2001 and 2007–2009). 
-    Since the signals were merged from several sensors, the Pearsonr and RMSE values can be used to select 
+    Since the signals were merged from several sensors, the Pearson's r and RMSE values can be used to select 
     pixels with high data merging quality. For more detailed information, please refer to the paper 
     describing LHScat dataset(https://essd.copernicus.org/articles/15/1577/2023/).
   |||,
@@ -62,7 +62,7 @@ local units = import 'units.libsonnet';
     'eo:bands':[
       {
         name: 'Pearsonr',
-        description: 'Pearson correlation coefficient (Pearsonr) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
+        description: 'Pearson correlation coefficient (Pearson's r) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
       },
       
       {

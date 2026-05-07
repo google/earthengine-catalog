@@ -1,12 +1,12 @@
 
-// Load QC image with two bands: RMSE and Pearsonr
+// Load QC image with two bands: RMSE and Pearson's r
 var LHScat_QC = ee.Image("projects/ee-pkurelab/assets/LHScatQC");
 
-// Select the RMSE and Pearsonr bands from the image
+// Select the RMSE and Pearson's r bands from the image
 var RMSE = LHScat_QC.select('RMSE');
 
 // Visualization parameters
-// RMSE visualization: 0–2 (example range, adjust if needed)
+// RMSE visualization: 0–1 (example range, adjust if needed)
 var visParams_RMSE = {
   min: 0,
   max: 1,
