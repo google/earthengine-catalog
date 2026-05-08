@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_1 = importstr 'collection_v2_1.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -18,12 +19,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'OpenET geeSEBAL Monthly Evapotranspiration v' + version,
   version: version,
   description: |||
-    Implementation of geeSEBAL was completed within the OpenET framework.
+    Google Earth Engine implementation of the Surface Energy Balance Algorithm
+    for Land (SEBAL) model.
+
     An overview of the current geeSEBAL version can be found in Laipelt et al.
     (2021), which is based on the original algorithms developed by
     Bastiaanssen et al. (1998). The OpenET geeSEBAL implementation uses land
     surface temperature (LST) data from Landsat Collection 2, in addition to
-    NLDAS and gridMET datasets as instantaneous and daily meteorological
+    NLDAS-2 and gridMET datasets as instantaneous and daily meteorological
     inputs, respectively.
 
     The automated statistical algorithm to select the hot and cold endmembers
@@ -50,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     filters to select the endmembers, including the use of the USDA Cropland
     Data Layer (CDL) and filters for NDVI, LST and albedo.
     2. Corrections to LST for endmembers based on antecedent precipitation.
-    3. Definition of NLDAS wind speed thresholds to reduce model instability
+    3. Definition of NLDAS-2 wind speed thresholds to reduce model instability
     during the atmospheric correction.
     4. Improvements to estimate daily net radiation, using FAO-56 as reference
     (Allen et al., 1998).
@@ -65,9 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     lapse rate, elevation slope and aspect) to represent the effects of
     topographic features on the model’s endmember selection algorithm and ET
     estimates.
-
-    [Additional information](https://etdata.org/methods/)
-  |||,
+  ||| + collection_v2_1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
@@ -191,12 +192,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: 'geeSEBAL ET value',
+        description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
       {
         name: 'count',
-        description: 'Number of cloud free values',
+        description: 'Number of cloud free observations in the month included in the interpolation',
         'gee:units': units.count,
       },
     ],
@@ -268,7 +269,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'month',
     interval: 1,
   },
-  'gee:status': 'beta',
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:type': ee_const.gee_type.image_collection,
   stac_version: ee_const.stac_version,

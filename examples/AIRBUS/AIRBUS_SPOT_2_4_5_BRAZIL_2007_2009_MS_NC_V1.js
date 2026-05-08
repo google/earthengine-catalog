@@ -1,3 +1,5 @@
+// To access this dataset, fill out the form: https://forms.gle/jQmCbWgarjENQBYz6
+
 var collection = ee.ImageCollection('AIRBUS/SPOT_2_4_5/BRAZIL/2007_2009/MS_NC/V1')
   .filterBounds(ee.Geometry.Point(-45.2, -19.5));
 

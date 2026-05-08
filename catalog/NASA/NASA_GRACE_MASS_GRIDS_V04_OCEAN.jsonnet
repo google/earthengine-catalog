@@ -72,7 +72,6 @@ local version = version_config.version;
     'jpl',
     'mass',
     'nasa',
-    'ocean',
     'tellus',
     'water',
   ],

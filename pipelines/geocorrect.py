@@ -322,7 +322,7 @@ class GeoLookupTable:
       num_cols = int(math.ceil((bbox.south - bbox.north) / scale_lat))
       num_rows = int(math.ceil((bbox.east - bbox.west) / scale_lon))
       glt_full = numpy.full(
-          (num_cols, num_rows, 2), GLT_FILL_VALUE, dtype=numpy.int64
+          (num_cols, num_rows, 2), GLT_FILL_VALUE, dtype=numpy.int32
       )
       logging.info('GLT will have shape (%d, %d)', num_cols, num_rows)
 
@@ -368,7 +368,7 @@ class GeoLookupTable:
         # (i, j) offsets for all points that were found within the max chord
         # distance.
         block_indices = numpy.full(
-            (len(flat_ii), 2), GLT_FILL_VALUE, dtype=numpy.int64
+            (len(flat_ii), 2), GLT_FILL_VALUE, dtype=numpy.int32
         )
         block_indices[valid] = index.source_indices[flat_ii[valid]]
 

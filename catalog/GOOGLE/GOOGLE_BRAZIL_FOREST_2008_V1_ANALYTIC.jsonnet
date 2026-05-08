@@ -30,7 +30,6 @@ local access_note = importstr 'includes/_BRAZIL_FOREST_2008_access_note.md';
   title: 'Brazil Forest Imagery Dataset 2008: Analytic Basemap',
   version: version,
   'gee:type': ee_const.gee_type.image,
-  'gee:status': 'beta',
   description: description + geo_prio + processing + limitations + access_note,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -46,7 +45,7 @@ local access_note = importstr 'includes/_BRAZIL_FOREST_2008_access_note.md';
     'google',
   ],
   providers: [
-    ee.producer_provider('Google Earth Engine', 'https://earthengine.google.com/'),
+    ee.producer_provider('Google', 'https://developers.google.com/earth-engine/guides/spot_brazil_forest_imagery_dataset_2008_v1'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(xmin=-74, ymin=-34, xmax=-34, ymax=6, start='2007-01-01T00:00:00Z', end='2009-11-26T23:59:59Z'),

@@ -5,6 +5,7 @@ var waterLandMask =
 var rtc_s1 = ee.ImageCollection('OPERA/RTC/L2_V1/S1')
                  .filterDate('2025-10-25', '2025-11-01')
                  .filterBounds(geometry)
+                 .filter(ee.Filter.listContains('POLARIZATIONS', 'VV'))
                  .mean()
                  .mask(waterLandMask);
 

@@ -35,6 +35,8 @@ launch deadline:
 
 ## Detailed steps for adding a new dataset:
 
+Note: For large vector datasets, it may be preferable to ingest them into BigQuery. See [Guide: Ingesting Geospatial Vector Datasets into BigQuery](guide_to_ingest_geospatial_data_into_bigquery.md) for detailed instructions.
+
 1. File a bug
 [to add a new dataset](https://issuetracker.google.com/issues?q=status:(open%20%7C%20new%20%7C%20assigned%20%7C%20accepted)%20componentid:1161680&p=1)
 or

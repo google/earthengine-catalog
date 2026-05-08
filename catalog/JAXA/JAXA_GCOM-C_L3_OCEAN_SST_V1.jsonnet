@@ -57,7 +57,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gcom',
     'gcom_c',
     'jaxa',
-    'ocean',
     'sea_surface_temperature',
     'sst',
   ],

@@ -25,8 +25,6 @@ local spdx = import 'spdx.libsonnet';
   keywords: [
     'copernicus',
     'currents',
-    'marine',
-    'ocean',
     'insitu',
   ],
   providers(self_ee_catalog_url): [
