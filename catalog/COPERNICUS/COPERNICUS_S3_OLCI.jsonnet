@@ -55,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'toa',
   ],
   providers: [
-    ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-3-olci'),
+    ee.producer_provider('European Union/ESA/Copernicus', 'https://user.eumetsat.int/resources/user-guides/sentinel-3-olci-level-1-data-guide'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2016-10-18T19:25:42Z', null),

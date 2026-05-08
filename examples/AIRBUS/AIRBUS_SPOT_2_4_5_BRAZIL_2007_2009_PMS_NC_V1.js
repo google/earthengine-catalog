@@ -1,3 +1,5 @@
+// To access this dataset, fill out the form: https://forms.gle/jQmCbWgarjENQBYz6
+
 var collection = ee.ImageCollection('AIRBUS/SPOT_2_4_5/BRAZIL/2007_2009/PMS_NC/V1');
 
 var image = collection.filter(ee.Filter.eq('satellite', 'SPOT5')).first();

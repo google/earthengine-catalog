@@ -59,7 +59,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'chlorophyll_a',
     'copernicus',
     'daily',
-    'marine',
   ],
   providers: [
     ee.producer_provider('Copernicus', 'https://doi.org/10.24381/cds.f85b319d '),
