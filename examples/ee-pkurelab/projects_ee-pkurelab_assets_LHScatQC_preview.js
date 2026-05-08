@@ -29,6 +29,5 @@ var thumb_RMSE = ui.Thumbnail({
   },
   style: {width: '256px', height: '256px', position: 'bottom-left'}
 });
-
 print('Thumbnail preview (RMSE):', thumb_RMSE);
 
