@@ -62,7 +62,7 @@ local units = import 'units.libsonnet';
     'eo:bands':[
       {
         name: 'Pearsonr',
-        description: 'Pearson correlation coefficient (Pearson's r) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
+        description: 'Pearson correlation coefficient (Pearson\'s r) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
       },
       
       {
