@@ -55,7 +55,7 @@ local license = spdx.proprietary;
     2). For LandTrendr, the annual medoid is then computed to summarize cloud and cloud shadow-free values 
     from each year into a single composite. For CCDC, United States Geological Survey (USGS) Collection 2 
     Landsat Tier 1 surface reflectance data were used for the CONUS, and Landsat Tier 1 top of atmosphere 
-    reflectance data for AK, PRUSVI, and HAWAII. 
+    reflectance data for AK, PRUSVI, and HI. 
 
     The composite time series is temporally segmented using LandTrendr
     (Kennedy et al., 2010; Kennedy et al., 2018; Cohen et al., 2018).
@@ -123,7 +123,7 @@ local license = spdx.proprietary;
         description: |||
           This LCMS version covers the conterminous United States, Alaska, 
           Puerto Rico-US Virgin Islands, and Hawaii.
-          Possible values: 'CONUS, AK, PRUSVI, HAWAII'
+          Possible values: 'CONUS, AK, PRUSVI, HI'
         |||,
         type: ee_const.var_type.string,
       },
