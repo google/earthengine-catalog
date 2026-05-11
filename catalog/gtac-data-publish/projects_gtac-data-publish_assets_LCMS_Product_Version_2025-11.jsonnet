@@ -35,7 +35,7 @@ local license = spdx.proprietary;
     United States. Its objective is to develop a consistent approach using the latest technology
     and advancements in change detection to produce a "best available" map of landscape change. For full LCMS methodology, see Housman et al. (2026).
 
-    Outputs include three annual products: change, land cover, and land use. The change model output relates specifically to vegetation cover and includes slow loss, fast loss (which also includes hydrologic changes such as inundation or desiccation), and gain. These values are predicted for each year of the Landsat time series and serve as the foundational products for LCMS. We apply a ruleset based on ancillary datasets to create the final change product, which is a refinement/reclassification of the modeled change to 15 classes that explicitly provide information on the cause of landscape change (e.g., Tree Removal, Wildfire, Wind damage). Land cover and land use maps depict life-form level land cover and broad-level land use for each year. 
+    Outputs include three annual products: change, land cover, and land use. The change model output relates specifically to vegetation cover and includes slow loss, fast loss (which also includes hydrologic changes such as inundation or desiccation), and gain. These values are predicted for each year of the Landsat time series and serve as the foundational products for LCMS. We apply a ruleset based on ancillary datasets to create the final change product, which is a refinement/reclassification of the modeled change to 15 classes that explicitly provide information on the cause of landscape change (e.g., Tree Removal, Wildfire, Wind). Land cover and land use maps depict life-form level land cover and broad-level land use for each year. 
 
     Because no algorithm performs best in all situations, LCMS uses an ensemble of models as
     predictors, which improves map accuracy across a range of ecosystems and change processes
@@ -75,17 +75,18 @@ local license = spdx.proprietary;
 
     Random Forest models (Breiman, 2001) were trained using reference data from TimeSync and predictor data from LandTrendr, CCDC, and terrain indices to predict annual change, land cover, and land use classes. Following modeling, we institute a series of probability thresholds and rulesets using ancillary datasets to improve qualitative map outputs and reduce commission and omission. More information can be found in the LCMS Methods Brief included in the Description and in Housman et al. (2026). 
 
+    More information can be found in the LCMS Methods Brief and the LCMS companion article included in Additional Resources below.
+
     **Additional Resources**
 
     * [A more detailed code example of using LCMS data](https://github.com/google/earthengine-community/blob/master/datasets/scripts/LCMS_Visualization.js).
 
     * The [LCMS Data Explorer](https://apps.fs.usda.gov/lcms-viewer) is a web-based application that
       provides users the ability to view, analyze, summarize and download LCMS data.
-
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2025-11_Methods.pdf)
-      for more detailed information regarding methods and accuracy assessment, or the
-      [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php)
-      for data downloads, metadata, and support documents.
+    
+    * The [LCMS Dashboard](https://lcms-dashboard.fs2c.usda.gov/lcms) allows users to quickly summarize areas and download reports.
+ 
+    * Please see the [LCMS Methods Brief] https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2025-11_Methods.pdf) and the [LCMS companion article (Housman et al., 2026)](https://doi.org/10.1038/s41597-026-06743-0) for more detailed information regarding methods and accuracy assessment, or the [LCMS Geodata Clearinghouse] https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) for data downloads, metadata, and support documents.
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
@@ -151,7 +152,7 @@ local license = spdx.proprietary;
       {
         name: 'Change',
         description: |||
-          Final thematic LCMS change product. A total of fifteen change classes are mapped for each year. Foundationally, change is modeled with three separate binary Random Forest models for each study area: slow loss, fast loss, and gain. Each pixel is assigned to the modeled change class with the highest probability that is also above a specified threshold. Any pixel that does not have any value above each class's respective threshold is assigned to the Stable class. Following a ruleset using the modeled change class, ancillary datasets (such as TCC, MTBS, and IDS), and LCMS Land Cover data, one of the 15 refined, cause of change classes is assigned to each pixel. See the LCMS Methods Brief linked to in the Description for full details on the ruleset and the ancillary datasets used. 
+          Final thematic LCMS change product. A total of fifteen change classes are mapped for each year. Foundationally, change is modeled with three separate binary Random Forest models for each study area: slow loss, fast loss, and gain. Each pixel is assigned to the modeled change class with the highest probability that is also above a specified threshold. Any pixel that does not have any value above each class's respective threshold is assigned to the Stable class. Following a ruleset using the modeled change class, ancillary datasets (such as TCC, Monitoring Trends in Burn Severity, and Insect and Disease Survey), and LCMS Land Cover data, one of the 15 refined, cause of change classes is assigned to each pixel. See the LCMS Methods Brief linked to in the Description for full details on the ruleset and the ancillary datasets used. 
         |||,
         'gee:classes': [
           {
@@ -831,7 +832,7 @@ local license = spdx.proprietary;
       citation: |||
         Housman, I. W., Healey, S. P., Heyer, J., Hardwick, E., Yang, Z., Ross, J., 
         and Megown, K. (2026). Coincident maps of changing land cover, land use, and 
-        forest condition in the United States, 1985-present. Scientific Data.
+        forest condition in the United States, 1985-present. Scientific Data. [doi:10.1038/s41597-026-06743-0](https://doi.org/10.1038/s41597-026-06743-0)
       |||,
       doi: '10.1038/s41597-026-06743-0',
     },
