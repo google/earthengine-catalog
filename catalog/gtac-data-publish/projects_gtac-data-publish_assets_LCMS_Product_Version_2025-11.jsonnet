@@ -86,7 +86,7 @@ local license = spdx.proprietary;
     
     * The [LCMS Dashboard](https://lcms-dashboard.fs2c.usda.gov/lcms) allows users to quickly summarize areas and download reports.
  
-    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2025-11_Methods.pdf) and the [LCMS companion article (Housman et al., 2026)](https://doi.org/10.1038/s41597-026-06743-0) for more detailed information regarding methods and accuracy assessment, or the [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) for data downloads metadata, and support documents.
+    * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2025-11_Methods.pdf) and the [LCMS companion article](https://doi.org/10.1038/s41597-026-06743-0) (Housman et al., 2026) for more detailed information regarding methods and accuracy assessment, or the [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) for data downloads metadata, and support documents.
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
