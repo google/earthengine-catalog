@@ -12,7 +12,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Forest Data Partnership',
   description: |||
     Datasets shared by the
     [Forest Data Partnership](https://www.forestdatapartnership.org/).

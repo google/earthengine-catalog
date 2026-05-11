@@ -29,7 +29,6 @@ following changes:
       {
           "id": "<yourproject>",
           "homeBucket": "projects/<yourproject>",
-          "name": "<Catalog name>",
           "description": "<Catalog description>",
           "type": "PUBLISHER",
           "link": "<Link to the external publisher page>",
@@ -37,6 +36,8 @@ following changes:
           "contactLink": "<Contact mailto: or https: link">
     }
     ```
+
+    Note: The human-readable name of the catalog should be specified as the `title` field in the catalog's `catalog.jsonnet` file, not in the owners file.
 
 ## Reporting usage statistics
 

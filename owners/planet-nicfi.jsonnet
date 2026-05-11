@@ -5,6 +5,5 @@
   "homeBucket": "projects/planet-nicfi",
   "id": "planet-nicfi",
   "link": "https://planet.com/nicfi",
-  "name": "Planet",
   "type": "PUBLISHER"
 }

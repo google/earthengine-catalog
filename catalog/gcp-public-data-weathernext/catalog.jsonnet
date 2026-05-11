@@ -12,7 +12,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'WeatherNext',
   description: |||
     WeatherNext is a growing suite of next-generation weather forecasting AI models developed by Google.
   |||,

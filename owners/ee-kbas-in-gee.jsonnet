@@ -7,6 +7,5 @@
   homeBucket: 'projects/ee-kbas-in-gee',
   id: 'ee-kbas-in-gee',
   link: 'https://www.keybiodiversityareas.org/',
-  name: 'BirdLife International',
   type: 'PUBLISHER',
 }

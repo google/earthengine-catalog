@@ -14,7 +14,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'The Malaria Atlas Project',
   description: description,
   links: [
     ee.link.root(),

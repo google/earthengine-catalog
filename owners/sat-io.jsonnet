@@ -5,7 +5,6 @@
   "homeBucket": "projects/sat-io",
   "id": "sat-io",
   "link": "https://gee-community-catalog.org/",
-  "name": "Awesome GEE Community Catalog",
   "type": "COMMUNITY"
 }
 

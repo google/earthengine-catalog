@@ -5,6 +5,5 @@
   homeBucket: 'projects/nature-trace',
   id: 'nature-trace',
   link: 'https://deepmind.google',
-  name: 'Nature Trace',
   type: 'PUBLISHER',
 }

@@ -5,6 +5,5 @@
   homeBucket: 'projects/gcp-public-data-weathernext',
   id: 'gcp-public-data-weathernext',
   link: 'https://developers.google.com/weathernext',
-  name: 'WeatherNext',
   type: 'PUBLISHER',
 }

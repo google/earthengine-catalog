@@ -41,19 +41,47 @@ class CatalogTest(test_utils.NodeTest):
     )
 
   def test_invalid_too_long(self):
-    dataset_id = 'a' * 31
+    dataset_id = 'a' * 141
     self.assert_catalog(
         {TITLE: dataset_id},
-        'Catalog title is too long: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"',
+        f'Catalog title is too long: "{dataset_id}"',
         dataset_id=dataset_id,
     )
 
   def test_invalid(self):
-    dataset_id = 'not a valid title'
+    dataset_id = '% not a valid title'
     self.assert_catalog(
         {TITLE: dataset_id},
-        'Catalog title has invalid characters: "not a valid title"',
+        f'Catalog title has invalid characters: "{dataset_id}"',
         dataset_id=dataset_id,
+    )
+
+  def test_publisher_catalog_valid(self):
+    dataset_id = 'sat-io'
+    title_str = 'Awesome GEE Community Catalog'
+    self.assert_catalog(
+        {TITLE: title_str},
+        dataset_id=dataset_id,
+        file_path='sat-io/catalog.json',
+    )
+
+  def test_publisher_catalog_valid_long(self):
+    dataset_id = 'sat-io'
+    title_str = 'A' * 50
+    self.assert_catalog(
+        {TITLE: title_str},
+        dataset_id=dataset_id,
+        file_path='sat-io/catalog.json',
+    )
+
+  def test_publisher_catalog_too_long(self):
+    dataset_id = 'sat-io'
+    title_str = 'A' * 141
+    self.assert_catalog(
+        {TITLE: title_str},
+        'Catalog title is too long: "' + title_str + '"',
+        dataset_id=dataset_id,
+        file_path='sat-io/catalog.json',
     )
 
   def test_warning_for_title_not_being_last_id_component(self):

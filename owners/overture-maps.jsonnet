@@ -1,7 +1,6 @@
 {
   id: 'overture-maps',
   homeBucket: 'projects/overture-maps',
-  name: 'Overture Maps',
   description: |||
     Overture Maps Foundation is a collaborative effort to develop
     interoperable open map data. The foundation produces open map data

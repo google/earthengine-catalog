@@ -5,6 +5,5 @@
   homeBucket: 'projects/forestdatapartnership',
   id: 'forestdatapartnership',
   link: 'https://forestdatapartnership.org',
-  name: 'Forest Data Partnership',
   type: 'PUBLISHER',
 }

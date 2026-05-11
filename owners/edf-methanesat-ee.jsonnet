@@ -14,6 +14,5 @@ See the dataset Terms of Use for more information.
   "link": "https://www.methanesat.org/data",
   "logo": "https://storage.googleapis.com/edf-methanesat-ee-static/MSATforweb_LOGO.png",
   "imageLink": "https://storage.googleapis.com/edf-methanesat-ee-static/MethaneSAT_dataset.png",
-  "name": "Environmental Defense Fund - MethaneSAT",
   "type": "PUBLISHER"
 }

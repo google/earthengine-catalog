@@ -15,7 +15,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Land & Carbon Lab',
   description: description,
   links: [
     ee.link.root(),

@@ -1,5 +1,4 @@
 {
-  "name": "USDA Forest Service",
   "type": "PUBLISHER",
   "id": "gtac-data-publish",
   "homeBucket": "projects/gtac-data-publish",

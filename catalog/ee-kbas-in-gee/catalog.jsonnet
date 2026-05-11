@@ -12,7 +12,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'BirdLife International',
   description: 'BirdLife International is a global partnership of non-governmental organizations that strives to conserve birds and their habitats. BirdLife International\'s priorities include preventing extinction of bird species, identifying and safeguarding important sites for birds, maintaining and restoring key bird habitats, and empowering conservationists worldwide.',
   links: [
     ee.link.root(),
