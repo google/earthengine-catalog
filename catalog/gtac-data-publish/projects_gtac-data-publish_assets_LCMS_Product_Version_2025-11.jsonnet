@@ -90,7 +90,8 @@ local license = spdx.proprietary;
 
     Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
     questions or specific data requests.
-  |||,
+  |||
+  ,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     {
