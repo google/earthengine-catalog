@@ -14,7 +14,15 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: 'MapBiomas',
-  description: '[MapBiomas](https://mapbiomas.org) is a collaborative network of NGOs, universities, and technology companies focused on developing annual land use and land cover maps for Brazil and other countries using satellite imagery and machine learning. The project promotes transparency, scientific rigor, and open access to environmental data for monitoring land use changes over time.',
+  description: |||
+    [MapBiomas](https://mapbiomas.org) is a collaborative network of NGOs,
+    universities, and technology companies focused on developing annual land
+    use and land cover maps for Brazil and other countries using satellite
+    imagery and machine learning.
+
+    The project promotes transparency, scientific rigor, and open access to
+    environmental data for monitoring land use changes over time.
+  |||,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

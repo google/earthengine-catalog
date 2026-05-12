@@ -13,7 +13,19 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: 'Large Scale Hydrology Lab',
-  description: 'The Large Scale Hydrology Lab specializes in advancing global and regional water cycle research by synthesizing multi-source Earth observations with process-based modeling. We are widely recognized for the Penman-Monteith-Leuning (PML) model and its high-accuracy, long-term evapotranspiration (ET) and gross primary productivity (GPP) products. By integrating remote sensing, machine learning, and surface process modeling, our goal is to provide essential data infrastructure for monitoring water-carbon coupling and understanding climate change impacts at a global scale.',
+  description: |||
+    The Large Scale Hydrology Lab specializes in advancing global and
+    regional water cycle research by synthesizing multi-source Earth
+    observations with process-based modeling. We are widely recognized
+    for the Penman-Monteith-Leuning (PML) model and its high-accuracy,
+    long-term evapotranspiration (ET) and gross primary productivity
+    (GPP) products.
+
+    By integrating remote sensing, machine learning, and surface process
+    modeling, our goal is to provide essential data infrastructure for
+    monitoring water-carbon coupling and understanding climate change
+    impacts at a global scale.
+  |||,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

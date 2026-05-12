@@ -13,7 +13,19 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: 'Awesome GEE Community Catalog',
-  description: 'The [Awesome GEE Community Catalog](https://gee-community-catalog.org/) is an unfunded open source grassroots project with a mission to help collect community sourced and community generated geospatial datasets. Their goal is to make data accessible and tie it to an analysis platform fostering accessibility and reducing digital divide. This catalog lives and serves alongside the Google Earth Engine data catalog. This collaborative effort not only offers openly available, preprocessed research datasets but also caters to frequently requested ones under various open licenses. You can find the full community catalog and access all datasets [here](https://gee-community-catalog.org/).',
+  description: |||
+    The [Awesome GEE Community Catalog](https://gee-community-catalog.org/) is
+    an unfunded open source grassroots project with a mission to help collect
+    community sourced and community generated geospatial datasets. Their goal
+    is to make data accessible and tie it to an analysis platform fostering
+    accessibility and reducing digital divide.
+
+    This catalog lives and serves alongside the Google Earth Engine data
+    catalog. This collaborative effort not only offers openly available,
+    preprocessed research datasets but also caters to frequently requested ones
+    under various open licenses. You can find the full community catalog and
+    access all datasets [here](https://gee-community-catalog.org/).
+  |||,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

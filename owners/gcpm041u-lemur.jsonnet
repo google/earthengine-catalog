@@ -1,7 +1,6 @@
   {
       "id": "gcpm041u-lemur",
       "homeBucket": "projects/gcpm041u-lemur",
-      "description": "Suite of nationally consistent, rigorously validated datasets describing multiple Canadian forest attributes. These high-quality datasets were developed by the remote sensing team at the [Laurentian Forestry Centre](https://natural-resources.canada.ca/science-data/science-research/research-centres/laurentian-forestry-centre) of the [Canadian Forest Service](https://natural-resources.canada.ca/corporate/corporate-overview/canadian-forest-service), [Natural Resources Canada](https://www.nrcan.gc.ca/home).",
       "type": "PUBLISHER",
       "logo": "https://developers.google.com/static/earth-engine/datasets/logos/BIG-nrcan-cfs-Canada.NR.png",
       "imageLink": "https://developers.google.com/static/earth-engine/datasets/logos/Canadian_Forest_Earth_Observation_Products.png",

@@ -13,7 +13,15 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: 'USDA Forest Service',
-  description: 'The USDA Forest Service provides a suite of national datasets to monitor the health and diversity of forests, grasslands, and surrounding landscapes across the United States. These datasets offer a wide range of applications for federal, state, and private partners to support the sustainable use and management of natural resources and land uses to meet diverse public needs.',
+  description: |||
+    The USDA Forest Service provides a suite of national datasets to monitor
+    the health and diversity of forests, grasslands, and surrounding
+    landscapes across the United States.
+
+    These datasets offer a wide range of applications for federal, state, and
+    private partners to support the sustainable use and management of natural
+    resources and land uses to meet diverse public needs.
+  |||,
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

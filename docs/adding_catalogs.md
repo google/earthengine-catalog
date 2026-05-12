@@ -25,19 +25,22 @@ following changes:
 1.  A new JSON file in the owners/ directory named `<yourproject>.jsonnet`
         with the following fields:
 
-    ```
+    ```json
       {
           "id": "<yourproject>",
           "homeBucket": "projects/<yourproject>",
-          "description": "<Catalog description>",
           "type": "PUBLISHER",
           "link": "<Link to the external publisher page>",
           "contactDisplay": "<Contact display>",
-          "contactLink": "<Contact mailto: or https: link">
+          "contactLink": "<Contact mailto: or https: link>"
     }
     ```
 
-    Note: The human-readable name of the catalog should be specified as the `title` field in the catalog's `catalog.jsonnet` file, not in the owners file.
+    Note: The human-readable name and description of the catalog should be
+    specified as the `title` and `description` fields in the catalog's
+    `catalog.jsonnet` file, not in the owners file. The description can be
+    imported from a separate `description.md` file using `importstr
+    'description.md'`.
 
 ## Reporting usage statistics
 
@@ -67,10 +70,18 @@ There are no charges for reading these files.
 
 ## Dataset deletion protection
 
-To protect datasets in publisher and community catalogs from accidental deletion, Earth Engine uses a special asset property called `dataset_admin_delete_protected`.
+To protect datasets in publisher and community catalogs from accidental deletion,
+Earth Engine uses a special asset property called `dataset_admin_delete_protected`.
 
-When this property is set to any value other than `pending_update`, the asset is locked and cannot be deleted. For individual images and tables, this applies directly to the asset itself. For image collections, setting this property protects all images within the collection from deletion.
+When this property is set to any value other than `pending_update`, the asset is
+locked and cannot be deleted. For individual images and tables, this applies
+directly to the asset itself. For image collections, setting this property
+protects all images within the collection from deletion.
 
-If you need to delete an asset for legitimate reasons, you can temporarily disable the protection by setting `dataset_admin_delete_protected` to `pending_update`. This allows you to make necessary changes while still maintaining a safety net. You can update this property using the Code Editor UI or the `earthengine` command-line tool (using the [`asset set`](https://developers.google.com/earth-engine/guides/command_line#asset) subcommand).
+If you need to delete an asset for legitimate reasons, you can temporarily
+disable the protection by setting `dataset_admin_delete_protected` to
+`pending_update`. This allows you to make necessary changes while still
+maintaining a safety net. You can update this property using the Code Editor UI
+or the `earthengine` command-line tool (using the [`asset set`](https://developers.google.com/earth-engine/guides/command_line#asset) subcommand).
 
 The Earth Engine Data team handles setting this property for user-owned datasets once they are activated in the public catalog.
