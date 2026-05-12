@@ -13,9 +13,7 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: 'Nature Trace',
-  description: |||
-    Nature Trace is a growing suite of geospatial layers from next-generation AI models developed by Google DeepMind and Google Research for understanding environments that can support nature.
-  |||,
+  description: 'Nature Trace is a growing suite of geospatial layers from next-generation AI models developed by Google DeepMind and Google Research for understanding environments that can support nature.',
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

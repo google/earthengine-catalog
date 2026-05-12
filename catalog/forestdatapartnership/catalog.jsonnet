@@ -13,10 +13,7 @@ local self_url = base_url + base_filename;
   type: ee_const.stac_type.catalog,
   id: id,
   title: 'Forest Data Partnership',
-  description: |||
-    Datasets shared by the
-    [Forest Data Partnership](https://www.forestdatapartnership.org/).
-  |||,
+  description: 'The [Forest Data Partnership](https://www.forestdatapartnership.org/) strengthens collaboration and application around global monitoring of commodity-driven deforestation, forest degradation and restoration efforts across the globe.',
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
