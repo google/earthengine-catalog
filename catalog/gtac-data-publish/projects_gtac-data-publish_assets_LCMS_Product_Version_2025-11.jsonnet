@@ -23,7 +23,6 @@ local license = spdx.proprietary;
     '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
@@ -98,9 +97,18 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
+    ee.link.predecessor(
+      'USFS/GTAC/LCMS/v2024-10',
+      ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
+    ),
+    ee.link.latest(
+      id,
+      ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
+    ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
+    'lcms',
     'usda',
     'usfs',
     'change_detection',
