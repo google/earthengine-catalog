@@ -1,7 +1,7 @@
 // This script loads a large BigQuery table and performs per-feature operations,
 // which can make it take longer to load than typical Earth Engine scripts.
 var dataset = ee.FeatureCollection.loadBigQueryTable("earth-engine-public-data.insitu_nrt_currents.radar_radial_latest")
-                  .filter(ee.Filter.date('2025-04-01', '2025-04-02'));
+                  .filter(ee.Filter.date('2025-04-01', '2025-04-02')).limit(100);
 
 dataset = dataset.map(function(f) {
   var val = ee.Number(f.get('RDVA')).float();
