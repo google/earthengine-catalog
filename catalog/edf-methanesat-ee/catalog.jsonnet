@@ -14,6 +14,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'Environmental Defense Fund - MethaneSAT',
   description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://www.methanesat.org/data',
+    contactDisplay: 'EDF-MethaneSAT',
+    contactLink: 'https://www.methanesat.org/contact'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

@@ -24,6 +24,12 @@ local self_url = base_url + base_filename;
     tropical forests, combat climate change, conserve biodiversity, and
     facilitate sustainable development for non commercial uses.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://planet.com/nicfi',
+    contactDisplay: 'support@planet.com',
+    contactLink: ''
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

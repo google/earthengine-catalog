@@ -18,6 +18,12 @@ local self_url = base_url + base_filename;
     AI models developed by Google DeepMind and Google Research for
     understanding environments that can support nature.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://deepmind.google',
+    contactDisplay: 'biosphere-models@google.com',
+    contactLink: 'mailto:biosphere-models@google.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

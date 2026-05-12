@@ -16,6 +16,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'The Malaria Atlas Project',
   description: description,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://data.malariaatlas.org',
+    contactDisplay: 'The Malaria Atlas Project',
+    contactLink: 'data.malariaatlas.org@thekids.org.au'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

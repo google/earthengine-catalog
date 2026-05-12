@@ -16,6 +16,12 @@ local self_url = base_url + base_filename;
   description: |||
     WeatherNext is a growing suite of next-generation weather forecasting AI models developed by Google.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://developers.google.com/weathernext',
+    contactDisplay: 'weathernext@google.com',
+    contactLink: 'mailto:weathernext@google.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

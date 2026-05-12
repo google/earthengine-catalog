@@ -23,6 +23,12 @@ local self_url = base_url + base_filename;
     The project promotes transparency, scientific rigor, and open access to
     environmental data for monitoring land use changes over time.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://mapbiomas.org',
+    contactDisplay: 'contato@mapbiomas.org',
+    contactLink: 'https://brasil.mapbiomas.org/contato/'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

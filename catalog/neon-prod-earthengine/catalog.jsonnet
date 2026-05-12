@@ -25,6 +25,12 @@ local self_url = base_url + base_filename;
     throughout the United States and Puerto Rico for ecological research and
     monitoring.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://www.neonscience.org/data-collection/airborne-remote-sensing',
+    contactDisplay: 'listaopgee@battelleecology.org',
+    contactLink: ''
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

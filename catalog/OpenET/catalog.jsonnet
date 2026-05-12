@@ -14,6 +14,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'OpenET',
   description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://etdata.org',
+    contactDisplay: 'support@openetdata.org',
+    contactLink: 'https://etdata.org/contact-us/'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

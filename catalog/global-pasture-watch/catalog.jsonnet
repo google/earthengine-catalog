@@ -17,6 +17,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'Global Pasture Watch',
   description: description,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://landcarbonlab.org/data/global-grassland-and-livestock-monitoring',
+    contactDisplay: 'Land & Carbon Lab',
+    contactLink: 'https://landcarbonlab.org/subscribe'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

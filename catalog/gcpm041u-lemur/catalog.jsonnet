@@ -15,6 +15,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'Canadian Forest Earth Observation Products',
   description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://natural-resources.canada.ca/science-data/science-research/research-centres/laurentian-forestry-centre',
+    contactDisplay: 'Laurentian Forestry Center, Remote Sensing Lab',
+    contactLink: 'https://cfs.nrcan.gc.ca/employees/read/966'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
