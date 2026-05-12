@@ -3,7 +3,7 @@ var LHScat = ee.ImageCollection("projects/ee-pkurelab/assets/LHScat")
                .filterDate("2020-03-01", "2020-04-01");
 
 // Reduce the collection to a single representative image.
-var signals = LHScat.select('radar_singles').mean();
+var signals = LHScat.select('radar_signals').mean();
 
 var visParams = {
   min: -2000,
