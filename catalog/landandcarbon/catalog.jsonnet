@@ -17,6 +17,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'Land & Carbon Lab',
   description: description,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://landcarbonlab.org/',
+    contactDisplay: 'Land & Carbon Lab',
+    contactLink: 'https://landcarbonlab.org/contact/'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

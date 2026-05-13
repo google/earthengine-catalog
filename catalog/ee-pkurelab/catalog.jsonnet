@@ -14,6 +14,12 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'PKURELAB',
   description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://pkurelab.github.io',
+    contactDisplay: 'sltao@pku.edu.cn',
+    contactLink: 'https://www.ues.pku.edu.cn/jszy/tsl/tslgrjl/18324dd983f44c15861b47e5087974fc.htm'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

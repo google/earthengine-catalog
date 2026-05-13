@@ -24,6 +24,12 @@ local self_url = base_url + base_filename;
     Google Cloud Public Dataset Program, with the data being listed and
     maintained by CARTO.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://overturemaps.org/',
+    contactDisplay: 'CARTO',
+    contactLink: 'mailto:support@carto.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

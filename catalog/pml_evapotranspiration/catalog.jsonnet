@@ -26,6 +26,12 @@ local self_url = base_url + base_filename;
     monitoring water-carbon coupling and understanding climate change
     impacts at a global scale.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://zhang-hydrolab.github.io/',
+    contactDisplay: 'Large Scale Hydrology Lab',
+    contactLink: 'mailto:zhangyq@igsnrr.ac.cn'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

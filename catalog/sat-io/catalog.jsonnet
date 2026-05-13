@@ -26,6 +26,12 @@ local self_url = base_url + base_filename;
     under various open licenses. You can find the full community catalog and
     access all datasets [here](https://gee-community-catalog.org/).
   |||,
+  'gee:publisher': {
+    type: 'COMMUNITY',
+    link: 'https://gee-community-catalog.org/',
+    contactDisplay: 'gee-community-catalog@googlegroups.com',
+    contactLink: ''
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

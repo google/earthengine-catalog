@@ -19,6 +19,12 @@ local self_url = base_url + base_filename;
     commodity-driven deforestation, forest degradation and restoration
     efforts across the globe.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://forestdatapartnership.org',
+    contactDisplay: 'forestdatapartnership@googlegroups.com',
+    contactLink: 'mailto:forestdatapartnership@googlegroups.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
