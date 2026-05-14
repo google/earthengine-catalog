@@ -12,5 +12,4 @@ template.TOMS_MERGED(
   id=id,
   version_config=version_config,
   extra_description='See [this document](https://acd-ext.gsfc.nasa.gov/anonftp/toms/omi/Changes_OMI_TO3_col4_col3.pdf) for a summary of changes between v3 and v4.',
-  status='beta',
 )
