@@ -34,6 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Note: DisALEXI cannot be generated before 2001 and is not included in the
     ensemble calculation for this collection.
+
   ||| + collection_v2_0_pre2000,
   license: license.id,
   links: ee.standardLinks(subdir, id),
