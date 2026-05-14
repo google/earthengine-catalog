@@ -22,25 +22,26 @@ following changes:
 
 1.  At least one dataset description. See the docs on [adding new datasets](adding_datasets.md) for details of
         writing a new dataset description.
-1.  A new JSON file in the owners/ directory named `<yourproject>.jsonnet`
-        with the following fields:
+1.  Add a link to your new catalog in the top-level `catalog.jsonnet` file (located at `catalog/catalog.jsonnet`) using `ee.link.child_catalog('yourproject', base_url)`.
 
-    ```json
-      {
-          "id": "<yourproject>",
-          "homeBucket": "projects/<yourproject>",
-          "type": "PUBLISHER",
-          "link": "<Link to the external publisher page>",
-          "contactDisplay": "<Contact display>",
-          "contactLink": "<Contact mailto: or https: link>"
-    }
-    ```
-
-    Note: The human-readable name and description of the catalog should be
-    specified as the `title` and `description` fields in the catalog's
-    `catalog.jsonnet` file, not in the owners file. The description can be
+1. Add a new `catalog.jsonnet` file to your project's directory
+  (e.g., `catalog/<yourproject>/catalog.jsonnet`)
+  *  The human-readable name and description of the catalog should be
+     specified as the `title` and `description` fields in the catalog's
+    `catalog.jsonnet` file. The description can be
     imported from a separate `description.md` file using `importstr
     'description.md'`.
+  * Add to ` `catalog.jsonnet` a `gee:publisher` field with the
+    following fields:
+    ```jsonnet
+      'gee:publisher': {
+          type: 'PUBLISHER',
+          link: '<Link to the external publisher page>',
+          contactDisplay: '<Contact display>',
+          contactLink: '<Contact mailto: or https: link>'
+      }
+    ```
+
 
 ## Reporting usage statistics
 
