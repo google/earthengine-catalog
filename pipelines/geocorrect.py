@@ -46,7 +46,9 @@ Optical Depth and Aerosol Particle Size EDRs files into Earth Engine; see
 import concurrent.futures
 import dataclasses
 import math
-from typing import Optional, Self, Union
+import os
+import tempfile
+from typing import Iterator, Self
 
 from absl import logging
 import numpy
@@ -72,7 +74,7 @@ class EmptyInputError(InputError):
 
 
 def latlon_to_xyz(
-    lat_deg: Union[float, numpy.ndarray], lon_deg: Union[float, numpy.ndarray]
+    lat_deg: float | numpy.ndarray, lon_deg: float | numpy.ndarray
 ) -> numpy.ndarray:
   """Converts lat/lon in degrees to Cartesian (x, y, z) on unit sphere."""
   lat = numpy.radians(lat_deg)
@@ -81,6 +83,21 @@ def latlon_to_xyz(
   y = numpy.cos(lat) * numpy.sin(lon)
   z = numpy.sin(lat)
   return numpy.stack((x, y, z), axis=-1)
+
+
+@dataclasses.dataclass(frozen=True)
+class ProjectedChunk:
+  """A chunk of a projected raster.
+
+  Properties:
+    col_offset: The offset into the first dimension (num_cols).
+    row_offset: The offset into the second dimension (num_rows).
+    data: The projected data for this chunk.
+  """
+
+  col_offset: int
+  row_offset: int
+  data: numpy.ndarray
 
 
 @dataclasses.dataclass(frozen=True)
@@ -102,10 +119,10 @@ class CoordinateIndex:
       cls,
       lat: numpy.ndarray,
       lon: numpy.ndarray,
-      lat_fill_value: Union[int, float] = numpy.nan,
-      lon_fill_value: Union[int, float] = numpy.nan,
-      mask: Optional[numpy.ndarray] = None,
-      allowed_extent: Optional[bboxes.BBox] = None,
+      lat_fill_value: int | float = numpy.nan,
+      lon_fill_value: int | float = numpy.nan,
+      mask: numpy.ndarray | None = None,
+      allowed_extent: bboxes.BBox | None = None,
   ) -> Self:
     """Returns a GeoIndex for the given lat and lon rasters.
 
@@ -257,7 +274,9 @@ class GeoLookupTable:
       scale_lon: float,
       max_nn_distance: int = 1,
       num_threads: int = 1,
+      block_size: int = 256,
       buffer_bbox: bool = True,
+      temp_dir: str | None = None,
   ) -> list[Self]:
     """Returns GeoLookupTables for the given CoordinateIndex.
 
@@ -274,9 +293,16 @@ class GeoLookupTable:
         number of pixels in the corrected grid is large (can be due to a number
         of factors: size of the bbox, the requested scale, both...), multiple
         threads may be needed to build the GLT in a reasonable amount of time.
+      block_size: The number of pixels for the height and width of each
+        construction tile. This determines the granularity of work units passed
+        to worker threads and limits the number of points in memory at once.
       buffer_bbox: If True, assume that the corners of each bounding box are
         pixel centers, meaning the boxes must be extended based on `scale_lat`
         and `scale_lon` to account for the full pixel size.
+      temp_dir: If provided, the GLT will be backed by a `numpy.memmap` file
+        created in this directory. Otherwise, we store the whole GLT in memory.
+        Ownership of the temp dir, including files added by this object, remains
+        with the caller.
 
     Returns:
       GeoLookupTables, one for each bounding box in `index`
@@ -318,69 +344,74 @@ class GeoLookupTable:
             north=max(-90, min(90, bbox.north - (scale_lat / 2))),
         )
 
-      # Preallocate the GLT as a single numpy array.
+      # Calculate the size of the GLT (and therefore the projected rasters).
       num_cols = int(math.ceil((bbox.south - bbox.north) / scale_lat))
       num_rows = int(math.ceil((bbox.east - bbox.west) / scale_lon))
-      glt_full = numpy.full(
-          (num_cols, num_rows, 2), GLT_FILL_VALUE, dtype=numpy.int64
-      )
+
+      if temp_dir:
+        fd, map_path = tempfile.mkstemp(dir=temp_dir, suffix='.glt.map')
+        os.close(fd)
+        glt_full = numpy.memmap(
+            map_path,
+            dtype=numpy.int32,
+            mode='w+',
+            shape=(num_cols, num_rows, 2),
+        )
+        glt_full[:] = GLT_FILL_VALUE
+      else:
+        glt_full = numpy.full(
+            (num_cols, num_rows, 2), GLT_FILL_VALUE, dtype=numpy.int32
+        )
       logging.info('GLT will have shape (%d, %d)', num_cols, num_rows)
 
       # Generate all latitude centers and longitude centers.
       lats = bbox.north + numpy.arange(num_cols) * scale_lat + (scale_lat / 2)
       lons = bbox.west + numpy.arange(num_rows) * scale_lon + (scale_lon / 2)
 
-      # Define a block size for batch processing.
-      block_size = 100
-
-      def _fill_glt_block(col_start: int) -> None:
-        """Populates a block of columns in `glt_full`."""
+      def _fill_glt_block(col_start: int, row_start: int) -> None:
+        """Populates a tile in `glt_full`."""
         col_end = min(col_start + block_size, num_cols)
-        block_lats = lats[col_start:col_end]
+        row_end = min(row_start + block_size, num_rows)
 
-        # Use NumPy broadcasting to efficiently compute a 2D grid of XYZ
-        # coordinates. By multiplying a column vector of (N_lats, 1) latitudes
-        # with a row vector of (1, N_lons) longitudes, NumPy automatically
-        # "broadcasts" the values to fill an (N_lats, N_lons) grid, which
-        # avoids explicit loops and the memory overhead of calling meshgrid.
+        block_lats = lats[col_start:col_end]
+        block_lons = lons[row_start:row_end]
+
         rad_lat = numpy.radians(block_lats)
-        rad_lon = numpy.radians(lons)
+        rad_lon = numpy.radians(block_lons)
         cos_lat = numpy.cos(rad_lat)
         sin_lat = numpy.sin(rad_lat)
         cos_lon = numpy.cos(rad_lon)
         sin_lon = numpy.sin(rad_lon)
 
-        # Broadcasting to create (N_lats, N_lons, 3) XYZ grid.
+        # Broadcasting to create XYZ grid for the tile.
         x = cos_lat[:, numpy.newaxis] * cos_lon[numpy.newaxis, :]
         y = cos_lat[:, numpy.newaxis] * sin_lon[numpy.newaxis, :]
-        z = numpy.repeat(sin_lat[:, numpy.newaxis], len(lons), axis=1)
+        z = numpy.repeat(sin_lat[:, numpy.newaxis], len(block_lons), axis=1)
         query_xyz = numpy.stack([x, y, z], axis=-1).reshape(-1, 3)
 
         # Use distance_upper_bound to prune search for points far from any data.
         dd, ii = tree.query(query_xyz, k=1, distance_upper_bound=max_chord)
 
-        # Flattened block view for assignment.
-        flat_ii = ii.flatten()
-        flat_dd = dd.flatten()
-        valid = flat_dd <= max_chord
-
-        # Use NumPy's advanced ("fancy") indexing to bulk-fetch the original
-        # (i, j) offsets for all points that were found within the max chord
-        # distance.
+        valid = dd <= max_chord
         block_indices = numpy.full(
-            (len(flat_ii), 2), GLT_FILL_VALUE, dtype=numpy.int64
+            (len(ii), 2), GLT_FILL_VALUE, dtype=numpy.int32
         )
-        block_indices[valid] = index.source_indices[flat_ii[valid]]
+        block_indices[valid] = index.source_indices[ii[valid]]
 
-        glt_full[col_start:col_end, :, :] = block_indices.reshape(
-            (col_end - col_start, num_rows, 2)
+        glt_full[col_start:col_end, row_start:row_end, :] = (
+            block_indices.reshape((col_end - col_start, row_end - row_start, 2))
         )
 
       with concurrent.futures.ThreadPoolExecutor(
           max_workers=num_threads
       ) as executor:
         for col_start in range(0, num_cols, block_size):
-          executor.submit(_fill_glt_block, col_start)
+          for row_start in range(0, num_rows, block_size):
+            executor.submit(_fill_glt_block, col_start, row_start)
+
+      if temp_dir:
+        # `glt_full` is backed by numpy.memmep, so write it to disk.
+        glt_full.flush()
 
       tables.append(cls(bbox, scale_lat, scale_lon, glt_full))
 
@@ -389,7 +420,7 @@ class GeoLookupTable:
   def apply_to(
       self,
       raster: numpy.ndarray,
-      fill_value: Union[int, float],
+      fill_value: int | float,
       dtype: type[numpy.number],
   ) -> numpy.ndarray:
     """Returns a new numpy array with the GLT applied to the input raster.
@@ -403,15 +434,52 @@ class GeoLookupTable:
 
     Returns:
       numpy array
+
+    Raises:
+      Error: If the projection fails.
     """
-    new_raster = numpy.full(
-        (self._glt.shape[0], self._glt.shape[1]), fill_value, dtype=dtype
+    num_cols, num_rows, _ = self._glt.shape
+    chunks = list(
+        self.apply_to_chunks(
+            raster, fill_value, dtype, chunk_size=max(num_cols, num_rows)
+        )
     )
-    valid_glt = numpy.all(self._glt != GLT_FILL_VALUE, axis=-1)
-    new_raster[valid_glt] = raster[
-        self._glt[valid_glt, 0], self._glt[valid_glt, 1]
-    ]
-    return new_raster
+    if len(chunks) != 1:
+      raise Error(f'apply_to() expected 1 chunk, but got {len(chunks)}')
+    return chunks[0].data
+
+  def apply_to_chunks(
+      self,
+      raster: numpy.ndarray,
+      fill_value: int | float,
+      dtype: type[numpy.number],
+      chunk_size: int = 1024,
+  ) -> Iterator[ProjectedChunk]:
+    """Yields chunks of the projected raster.
+
+    Args:
+      raster: The original raster as a numpy array.
+      fill_value: The "no data" value for the raster.
+      dtype: The numpy type of the raster values.
+      chunk_size: The number of pixels for the height and width of each chunk.
+
+    Yields:
+      ProjectedChunks
+    """
+    num_cols, num_rows, _ = self._glt.shape
+    for col_start in range(0, num_cols, chunk_size):
+      col_end = min(col_start + chunk_size, num_cols)
+      for row_start in range(0, num_rows, chunk_size):
+        row_end = min(row_start + chunk_size, num_rows)
+        glt_chunk = self._glt[col_start:col_end, row_start:row_end, :]
+        chunk_data = numpy.full(
+            (col_end - col_start, row_end - row_start), fill_value, dtype=dtype
+        )
+        valid_glt = numpy.all(glt_chunk != GLT_FILL_VALUE, axis=-1)
+        chunk_data[valid_glt] = raster[
+            glt_chunk[valid_glt, 0], glt_chunk[valid_glt, 1]
+        ]
+        yield ProjectedChunk(col_start, row_start, chunk_data)
 
   def dimensions(self) -> tuple[int, int]:
     """Returns the dimensions of the GLT as (width, height)."""

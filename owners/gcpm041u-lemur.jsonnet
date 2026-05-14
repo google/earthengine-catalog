@@ -1,8 +1,6 @@
   {
       "id": "gcpm041u-lemur",
       "homeBucket": "projects/gcpm041u-lemur",
-      "name": "Canadian Forest Earth Observation Products",
-      "description": "Suite of nationally consistent, rigorously validated datasets describing multiple Canadian forest attributes. These high-quality datasets were developed by the remote sensing team at the Laurentian Forestry Centre of the Canadian Forest Service, Natural Resources Canada.",
       "type": "PUBLISHER",
       "logo": "https://developers.google.com/static/earth-engine/datasets/logos/BIG-nrcan-cfs-Canada.NR.png",
       "imageLink": "https://developers.google.com/static/earth-engine/datasets/logos/Canadian_Forest_Earth_Observation_Products.png",

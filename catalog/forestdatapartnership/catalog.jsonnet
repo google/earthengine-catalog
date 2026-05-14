@@ -12,11 +12,19 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Forest Data Partnership',
   description: |||
-    Datasets shared by the
-    [Forest Data Partnership](https://www.forestdatapartnership.org/).
+    The [Forest Data Partnership](https://www.forestdatapartnership.org/)
+    strengthens collaboration and application around global monitoring of
+    commodity-driven deforestation, forest degradation and restoration
+    efforts across the globe.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://forestdatapartnership.org',
+    contactDisplay: 'forestdatapartnership@googlegroups.com',
+    contactLink: 'mailto:forestdatapartnership@googlegroups.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

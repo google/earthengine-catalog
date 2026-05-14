@@ -15,8 +15,14 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Oya',
   description: description,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://research.google',
+    contactDisplay: 'oya-team@google.com',
+    contactLink: 'mailto:oya-team@google.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

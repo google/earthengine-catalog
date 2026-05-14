@@ -12,8 +12,14 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'OpenET',
   description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://etdata.org',
+    contactDisplay: 'support@openetdata.org',
+    contactLink: 'https://etdata.org/contact-us/'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

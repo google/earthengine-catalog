@@ -25,7 +25,6 @@ https://www.star.nesdis.noaa.gov/jpss/documents/ATBD/ATBD_EPS_Aerosol_AOD_v3.4.p
 
 from collections.abc import Sequence
 import dataclasses
-from typing import Union
 
 from absl import logging
 import h5py
@@ -75,7 +74,7 @@ class Raster:
   """
 
   name: str
-  fill_value: Union[int, float]
+  fill_value: int | float
   params: Sequence[str] = dataclasses.field(default_factory=list)
 
 
@@ -105,7 +104,8 @@ RASTERS = (
 
 def build_glts(
     source: h5py.File,
-    num_threads: int = 10,
+    num_threads: int = 4,
+    temp_dir: str | None = None,
 ) -> list[geocorrect.GeoLookupTable]:
   """Return the GLT(s) needed to project the given VIIRS AOD data.
 
@@ -136,6 +136,9 @@ def build_glts(
   Args:
     source: h5py.File
     num_threads: Number of threads to use when generating each GLT
+    temp_dir: If provided, GLTs will be backed by disk-based mapping files in
+      this directory. Ownership of the temp dir, including files added by this
+      object, remains with the caller.
 
   Returns:
     A list of GeoLookupTables. There will only be one if the source crosses
@@ -167,6 +170,7 @@ def build_glts(
         scale_lon=SCALE_FACTOR,
         max_nn_distance=2,
         num_threads=num_threads,
+        temp_dir=temp_dir,
     )
   except geocorrect.EmptyInputError:
     logging.warning('No GLTs built with %s as the mask', QC_ALL)

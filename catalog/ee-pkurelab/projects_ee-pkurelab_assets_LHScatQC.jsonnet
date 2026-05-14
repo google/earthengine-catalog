@@ -21,20 +21,20 @@ local units = import 'units.libsonnet';
     ee_const.ext_sci,
   ],
   id: id,
-  title: 'LHScatQC',
+  title: 'LHScat Quality Control',
   'gee:type': ee_const.gee_type.image,
   description:
   |||
     The LHScat dataset is the first long-term (since 1992), high-resolution (∼8.9 km) 
-    monthly satellite radar backscatter dataset over global land areas. It integrated 
+    monthly C-band satellite radar backscatter dataset over global land areas. It integrated 
     signals from the European Remote Sensing satellite (ERS; 1992–2001; C-band; 5.3 GHz),
     Quick Scatterometer (QSCAT, 1999–2009; Ku-band; 13.4 GHz), and the Advanced 
-    SCATterometer (ASCAT; since 2007; C-band; 5.255 GHz). The 6-year data gap between 
+    Scatterometer (ASCAT; since 2007; C-band; 5.255 GHz). The 6-year data gap between 
     C-band ERS and ASCAT was filled by modelling a substitute C-band signal during 1999–2009 
     from Ku-band QSCAT signals and climatic information. The quality of the merged radar 
-    signal was assessed by computing the Pearson correlation coefficient (Pearsonr) and Root Mean Square Error (RMSE) 
+    signal was assessed by computing the Pearson correlation coefficient (Pearson\'s r) and Root Mean Square Error (RMSE) 
     between the C-band and the corrected Ku-band signals in the overlapping years (1999–2001 and 2007–2009). 
-    Since the signals were merged from several sensors, the Pearsonr and RMSE values can be used to select 
+    Since the signals were merged from several sensors, the Pearson\'s r and RMSE values can be used to select 
     pixels with high data merging quality. For more detailed information, please refer to the paper 
     describing LHScat dataset(https://essd.copernicus.org/articles/15/1577/2023/).
   |||,
@@ -62,7 +62,7 @@ local units = import 'units.libsonnet';
     'eo:bands':[
       {
         name: 'Pearsonr',
-        description: 'Pearson correlation coefficient (Pearsonr) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
+        description: 'Pearson correlation coefficient (Pearson\'s r) between the monthly C-band and corrected Ku-band signals in the overlapping years.',
       },
       
       {
@@ -85,7 +85,7 @@ local units = import 'units.libsonnet';
         },
       },
       {
-        display_name: 'Root Mean Square Error (RMSE)',
+        display_name: 'Root Mean Square Error',
         lookat: {lon: 100.0, lat: 53.0, zoom: 4},
         image_visualization: {
           band_vis: {
@@ -99,7 +99,7 @@ local units = import 'units.libsonnet';
     ],
   },
 
-  'sci:citation': 'Tao, S., Ao, Z., Wigneron, J.-P., Saatchi, S., Ciais, P., Chave, J., Le Toan, T., Frison, P.-L., Hu, X., Chen, C., Fan, L., Wang, M., Zhu, J., Zhao, X., Li, X., Liu, X., Su, Y., Hu, T., Guo, Q., Wang, Z., Tang, Z., Liu, Y. Y., and Fang, J.: A global long-term, high-resolution satellite radar backscatter data record (1992–2022+): merging C-band ERS/ASCAT and Ku-band QSCAT, Earth Syst. Sci. Data, 15, 1577–1596, [https://doi.org/10.5194/essd-15-1577-2023](https://doi.org/10.5194/essd-15-1577-2023), 2023.
+  'sci:citation': 'Tao, S., Ao, Z., Wigneron, J.-P., Saatchi, S., Ciais, P., Chave, J., Le Toan, T., Frison, P.-L., Hu, X., Chen, C., Fan, L., Wang, M., Zhu, J., Zhao, X., Li, X., Liu, X., Su, Y., Hu, T., Guo, Q., Wang, Z., Tang, Z., Liu, Y. Y., and Fang, J.: A global long-term, high-resolution satellite radar backscatter data record (1992–2022+): merging C-band ERS/ASCAT and Ku-band QSCAT, Earth Syst. Sci. Data, 15, 1577-1596, [https://doi.org/10.5194/essd-15-1577-2023](https://doi.org/10.5194/essd-15-1577-2023), 2023.
                   Tao, S., Chave, J., Frison, P.-L., Le Toan, T., Ciais, P., Fang, J., Wigneron, J.-P., Santoro, M., Yang, H., Li, X., Labrière, N., and Saatchi, S.: Increasing and widespread vulnerability of intact tropical rainforests to repeated droughts, Proc. Natl. Acad. Sci. USA, 119, e2116626119, [https://doi.org/10.1073/pnas.2116626119](https://doi.org/10.1073/pnas.2116626119), 2022.',
   
   'gee:terms_of_use': ee.gee_terms_of_use(license),

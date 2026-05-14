@@ -23,7 +23,6 @@ local license = spdx.cc_by_4_0;
   id: id,
   title: 'Hansen Global Forest Change v1.13 (2000-2025)',
   version: version,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
   description: |||
     Results from time-series analysis of Landsat images in characterizing

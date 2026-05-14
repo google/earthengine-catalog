@@ -131,6 +131,11 @@ MEAN.
 1. Don't mix continuous and classification values in the same band - create two
 separate bands in such cases.
 
+1. To allow for default visualization of classification bands with predefined
+colors, use properties with comma-separated strings. See the
+[documentation for the `asset set` commands](https://developers.google.com/earth-engine/guides/command_line#asset)
+for details.
+
 1. If your datasets have multiple versions, create successor/predecessor links
 using the versioning approach [similar to this
 one](https://github.com/google/earthengine-catalog/tree/main/catalog/UMD): put
