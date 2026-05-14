@@ -22,6 +22,12 @@ local self_url = base_url + base_filename;
     private partners to support the sustainable use and management of natural
     resources and land uses to meet diverse public needs.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://www.fs.usda.gov/',
+    contactDisplay: 'USDA Forest Service',
+    contactLink: ''
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
