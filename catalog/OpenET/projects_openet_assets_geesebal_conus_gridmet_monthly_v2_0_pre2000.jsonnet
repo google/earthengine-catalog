@@ -68,6 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     lapse rate, elevation slope and aspect) to represent the effects of
     topographic features on the model’s endmember selection algorithm and ET
     estimates.
+
   ||| + collection_v2_0_pre2000,
   license: license.id,
   links: ee.standardLinks(subdir, id),

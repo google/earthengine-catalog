@@ -1,6 +1,7 @@
+
 **OpenET Collection v2.0, pre-2000 (1985-1999)**
 
-**Attention** This collection should not be merged with the main v2.0
+Note: This collection should not be merged with the main v2.0
 collection to compute long-term trends, annual totals, or difference from
 average type calculations, unless care is taken to identify and fill gaps
 or missing data. This collection was generated using Landsat 5 data only,

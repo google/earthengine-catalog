@@ -43,6 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     in all landscapes and all seasons regardless of vegetation cover density,
     thereby improving model accuracy by avoiding extrapolation of Tc to
     non-calibration regions.
+
   ||| + collection_v2_0_pre2000,
   license: license.id,
   links: ee.standardLinks(subdir, id),
