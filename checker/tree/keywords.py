@@ -22,7 +22,6 @@ EXCEPTIONS = frozenset({
     'aim',
     'air_temperature',
     'alerts',
-    'alphaearth-derived',
     'aot',
     'argillic',
     'aura',
