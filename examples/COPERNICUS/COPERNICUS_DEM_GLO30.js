@@ -85,7 +85,10 @@ var dsmVis = {
   palette:
       ['333399', '00a2e5', '55dd77', 'ffff99', 'aa926b', 'aa928d', 'ffffff'],
 };
-Map.addLayer(dsm, dsmVis, 'Digital Surface Model (DSM; m)', true, 0.75);
+// Vertical datum: orthometric height (H) in meters above EGM2008.
+// https://spatialreference.org/ref/epsg/3855/
+var dsmName = 'Digital Surface Model (DSM; m above EGM08)';
+Map.addLayer(dsm, dsmVis, dsmName, true, 0.75);
 
 // Multiply by 20 to exaggerate the hillshade for a better visualization.
 Map.addLayer(
