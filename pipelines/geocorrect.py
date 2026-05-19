@@ -476,9 +476,8 @@ class GeoLookupTable:
             (col_end - col_start, row_end - row_start), fill_value, dtype=dtype
         )
         valid_glt = numpy.all(glt_chunk != GLT_FILL_VALUE, axis=-1)
-        chunk_data[valid_glt] = raster[
-            glt_chunk[valid_glt, 0], glt_chunk[valid_glt, 1]
-        ]
+        projected = raster[glt_chunk[:, :, 0], glt_chunk[:, :, 1]]
+        numpy.copyto(chunk_data, projected, where=valid_glt)
         yield ProjectedChunk(col_start, row_start, chunk_data)
 
   def dimensions(self) -> tuple[int, int]:
