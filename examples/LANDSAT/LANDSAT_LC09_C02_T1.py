@@ -1,0 +1,12 @@
+dataset = ee.ImageCollection('LANDSAT/LC09/C02/T1').filterDate(
+    '2022-01-01', '2022-02-01'
+)
+
+true_color_432 = dataset.select(['B4', 'B3', 'B2'])
+
+true_color_432_vis = {'min': 0.0, 'max': 30000.0}
+
+m = geemap.Map()
+m.set_center(6.746, 46.529, 6)
+m.add_layer(true_color_432, true_color_432_vis, 'True Color (432)')
+m

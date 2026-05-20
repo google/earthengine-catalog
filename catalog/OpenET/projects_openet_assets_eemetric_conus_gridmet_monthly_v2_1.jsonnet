@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_1 = importstr 'collection_v2_1.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -29,7 +30,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the hot and cold pixels for an image generally follows a statistical
     isolation procedure described by Allen et al. (2013a) and ReVelle, Kilic
     and Allen (2019a,b). The calibration of H in eeMETRIC utilizes alfalfa
-    reference ET calculated from the NLDAS gridded weather dataset using a
+    reference ET calculated from the NLDAS-2 gridded weather dataset using a
     fixed 15% reduction in computed reference ET to account for known biases
     in the gridded data set. The fixed reduction does not impact the
     calibration accuracy of eeMETRIC and mostly reduces impacts of boundary
@@ -70,9 +71,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the atmospherically corrected surface reflectance and LST from Landsat
     Collection 2 Level 2, with fallback to Collection 2 Level 1 when needed for
     near real-time estimates.
-
-    [Additional information](https://etdata.org/methods/)
-  |||,
+  ||| + collection_v2_1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
@@ -196,12 +195,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: 'eeMETRIC ET value',
+        description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
       {
         name: 'count',
-        description: 'Number of cloud free values',
+        description: 'Number of cloud free observations in the month included in the interpolation',
         'gee:units': units.count,
       },
     ],

@@ -21,8 +21,9 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Hansen Global Forest Change v1.12 (2000-2024)',
+  title: 'Hansen Global Forest Change v1.12 (2000-2024) [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
     Results from time-series analysis of Landsat images in characterizing
@@ -35,7 +36,7 @@ local license = spdx.cc_by_4_0;
     each of these bands.
 
     Please see the [User Notes](https://storage.googleapis.com/earthenginepartners-hansen/GFC-2024-v1.12/download.html)
-    for this update, as well as the associated journal article:
+    for this Version 1.12 update, as well as the associated journal article:
     Hansen, Potapov, Moore, Hancher et al. "High-resolution global maps of
     21st-century forest cover change." Science 342.6160 (2013): 850-853.
   |||,

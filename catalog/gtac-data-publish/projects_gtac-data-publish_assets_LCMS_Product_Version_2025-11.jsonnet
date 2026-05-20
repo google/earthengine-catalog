@@ -916,5 +916,4 @@ local license = spdx.proprietary;
     USDA Forest Service. 2026. USFS Landscape Change Monitoring System v2025.11
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
-  'gee:user_uploaded': true,
 }

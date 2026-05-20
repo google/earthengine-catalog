@@ -12,16 +12,26 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Large Scale Hydrology Lab',
   description: |||
-    The Large Scale Hydrology Lab specializes in advancing global and regional water cycle research 
-    through big data analytics and advanced hydrological modeling. We are widely recognized 
-    for the Penman-Monteith-Leuning (PML) model and its high-accuracy, long-term 
-    evapotranspiration (ET) and gross primary productivity (GPP) products. By integrating 
-    remote sensing, machine learning, and surface process modeling, our goal is to provide 
-    essential data infrastructure for monitoring water-carbon coupling and understanding 
-    climate change impacts at a global scale.
+    The Large Scale Hydrology Lab specializes in advancing global and
+    regional water cycle research by synthesizing multi-source Earth
+    observations with process-based modeling. We are widely recognized
+    for the Penman-Monteith-Leuning (PML) model and its high-accuracy,
+    long-term evapotranspiration (ET) and gross primary productivity
+    (GPP) products.
+
+    By integrating remote sensing, machine learning, and surface process
+    modeling, our goal is to provide essential data infrastructure for
+    monitoring water-carbon coupling and understanding climate change
+    impacts at a global scale.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://zhang-hydrolab.github.io/',
+    contactDisplay: 'Large Scale Hydrology Lab',
+    contactLink: 'mailto:zhangyq@igsnrr.ac.cn'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

@@ -1,4 +1,6 @@
 local id = 'projects/openet/assets/disalexi/conus/gridmet/monthly/v2_0';
+local predecessor_id = 'OpenET/DISALEXI/CONUS/GRIDMET/MONTHLY/v2_0';
+local latest_id = id;
 local subdir = 'OpenET';
 local version = '2.0';
 
@@ -10,8 +12,10 @@ local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
+local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
+local latest_basename = std.strReplace(latest_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local catalog_base_url = ee_const.catalog_base;
 
 {
   id: id,
@@ -30,14 +34,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to
     resolve individual farm fields and other landscape features.
 
+    Note: DisALEXI data does not exist before 2001 since the source ALEXI data
+    is only available starting in 2001.
+
     [Additional information](https://etdata.org/methods/)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.predecessor(
+      predecessor_id, catalog_base_url + subdir + '/' + predecessor_basename + '.json'),
+    ee.link.latest(
+      latest_id, catalog_base_url + subdir + '/' + latest_basename + '.json'),
+  ],
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
-    'gridmet_derived',
     'landsat_derived',
     'monthly',
     'openet',
@@ -140,12 +151,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: 'DisALEXI ET value',
+        description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
       {
         name: 'count',
-        description: 'Number of cloud free values',
+        description: 'Number of cloud free observations in the month included in the interpolation',
         'gee:units': units.count,
       },
     ],

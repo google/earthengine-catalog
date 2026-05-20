@@ -17,7 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'INaturalist Multispecies Open Range Maps',
+  title: 'iNaturalist Multispecies Open Range Maps',
   version: '2.23',
   'gee:type': ee_const.gee_type.bigquery_table,
   'gee:bq_table_name': 'earth-engine-public-data.inaturalist_open_range_map.multispecies_latest',

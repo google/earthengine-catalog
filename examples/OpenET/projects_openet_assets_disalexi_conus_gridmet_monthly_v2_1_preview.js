@@ -16,7 +16,8 @@ var visParams = {
 };
 
 var rgbImage = et.visualize(visParams);
-Map.addLayer(rgbImage, {}, 'OpenET DisALEXI Annual ET', true, 0.3);
+Map.addLayer(
+  rgbImage, {}, 'OpenET DisALEXI Annual Evapotranspiration (ET)', true, 0.3);
 
 var lon = -119.343
 var lat = 38.78;
@@ -29,8 +30,8 @@ var latDelta = 0.065;
 var pixels = 256;
 
 var areaOfInterest = ee.Geometry.Rectangle(
-  [lon - lonDelta, lat - latDelta, lon + lonDelta, lat + latDelta],
-  null, false);
+  [lon - lonDelta, lat - latDelta, lon + lonDelta, lat + latDelta], null,
+  false);
 
 Map.addLayer(areaOfInterest, {}, 'Area of Interest', true, 0.3);
 

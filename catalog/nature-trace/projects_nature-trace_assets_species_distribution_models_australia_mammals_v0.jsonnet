@@ -19,7 +19,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
   ],
   description: |||
-    **Note: This dataset is not yet peer-reviewed.**
 
     These species distribution model outputs, developed by Google in
     collaboration with [QCIF](https://www.qcif.edu.au/) and
@@ -72,7 +71,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'biodiversity',
     'conservation',
     'alphaearth-derived',
-    'pre-review',
     'species',
   ],
   providers: [

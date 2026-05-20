@@ -6,6 +6,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local collection_v2_1 = importstr 'collection_v2_1.md';
 
 local license = spdx.cc_by_4_0;
 
@@ -30,14 +31,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     regional ALEXI ET to finer scales using Landsat data (30 m; biweekly) to
     resolve individual farm fields and other landscape features.
 
-    [Additional information](https://etdata.org/methods/)
-  |||,
+    Note: DisALEXI data does not exist before 2001 since the source ALEXI data
+    is only available starting in 2001.
+  ||| + collection_v2_1,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
-    'gridmet_derived',
     'landsat_derived',
     'monthly',
     'openet',
@@ -155,12 +156,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'et',
-        description: 'DisALEXI ET value',
+        description: 'Total actual evapotranspiration (ET)',
         'gee:units': units.millimeter,
       },
       {
         name: 'count',
-        description: 'Number of cloud free values',
+        description: 'Number of cloud free observations in the month included in the interpolation',
         'gee:units': units.count,
       },
     ],

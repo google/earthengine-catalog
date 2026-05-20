@@ -55,7 +55,7 @@ import os
 
 # --- CONFIGURATION ---
 # The path to your shapefile
-SHP_PATH = "/usr/local/google/home/kumaraashutosh/Documents/WDPCA/WDPA_WDOECM_Jan2026_Public_all_shp/WDPA_WDOECM_Jan2026_Public_all_shp_0/WDPA_WDOECM_Jan2026_Public_all_shp-points.shp"
+SHP_PATH = "/path/to/your/shapefile.shp"
 # Where you want the final CSV file to be saved
 OUTPUT_DIR = "./csv_output"
 OUTPUT_FILENAME = "output.csv"
@@ -97,9 +97,9 @@ def convert_shp_to_csv(shp_path, output_dir, output_filename):
     df["geometry"] = gdf[geom_col].apply(
         lambda x: x.wkt if x is not None and not x.is_empty else None
     )
-    
+
     if geom_col != "geometry" and geom_col in df.columns:
-       df = df.drop(columns=[geom_col])
+        df = df.drop(columns=[geom_col])
 
     # 4. Export to CSV
     out_path = os.path.join(output_dir, output_filename)

@@ -131,6 +131,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('edf-methanesat-ee', base_url),
     ee.link.child_catalog('forestdatapartnership', base_url),
     ee.link.child_catalog('gcp-public-data-weathernext', base_url),
+    ee.link.child_catalog('gtac-data-publish', base_url),
     ee.link.child_catalog('neon-prod-earthengine', base_url),
     ee.link.child_catalog('ngis-cat', base_url),
     ee.link.child_catalog('planet-nicfi', base_url),
@@ -143,6 +144,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('mapbiomas-public', base_url),
     ee.link.child_catalog('global-precipitation-nowcast', base_url),
     ee.link.child_catalog('ee-kbas-in-gee', base_url),
-    ee.link.child_catalog('pml_evapotranspiration', base_url)
+    ee.link.child_catalog('pml_evapotranspiration', base_url),
+    ee.link.child_catalog('ee-pkurelab', base_url),
   ],
 }

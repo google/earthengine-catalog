@@ -40,9 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'fishing',
     'gfw',
-    'marine',
     'monthly',
-    'ocean',
   ],
   providers: [
     ee.producer_provider('Global Fishing Watch', 'https://globalfishingwatch.org/'),
