@@ -1,0 +1,506 @@
+[33mcommit 51ccd4f1ab8f92f917b302707376b36279dc50b9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mGTAC-LCMS[m[33m, [m[1;31morigin/GTAC-LCMS[m[33m)[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 16:19:44 2026 -0600
+
+    Updating LCMS version 2025-11 dataset availability range
+
+[33mcommit e2fd5e165265127d32e4640f55c5aa20cfe604c8[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 16:08:43 2026 -0600
+
+    Updating LCMS version 2025-11 dataset availability range
+
+[33mcommit 04623ad16c914283aeebacf87be9c222750d3fd2[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 12:49:25 2026 -0600
+
+    Updating LCMS version 2025-11 description
+
+[33mcommit 22e0725c89332f9101ff284f30dba2884d34d249[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 12:43:26 2026 -0600
+
+    Updating LCMS version 2025-11 description
+
+[33mcommit d60a3037b977bdef91e85fca576e119e1d2ca2d7[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 12:35:46 2026 -0600
+
+    Updating LCMS version 2025-11 description
+
+[33mcommit 9fe20407d419e2d05cec8f105441809ddf89af19[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 12:28:04 2026 -0600
+
+    Updating LCMS version 2025-11 description
+
+[33mcommit fa21155c719863d272024dd32a8ec4b1d46c8ecf[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 11 12:16:11 2026 -0600
+
+    Activate Earth Engine dataset projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11 and supersede v2024-10
+
+[33mcommit 0e9002f4acc7f245825bc575f66ea6514298c20d[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Thu May 7 11:29:56 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 3601178252d6f9c67abdc2389e3ead1360810e56[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Thu May 7 09:35:00 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit e70b8977dec0caabc4ac4b553f335d9b82b00a03[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Wed May 6 09:40:18 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit ee7d9f33799c53121c4bacd4ec165377b8e26591[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Tue May 5 08:17:51 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 02f5764113417b274bcb49b0c694b1c2aa4c4981[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 4 15:05:19 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit f114b08c7798e8823886d58e232c927a510d78d3[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 4 14:57:20 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 5491770b6ec7a6ea814e455d45cb8baef68a446a[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Mon May 4 14:48:52 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 5265c295999ef80e520393174cec4894446fbcda[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 16:26:21 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 158cbe31c357e5f0ce66ae608a2bac7c9895a732[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 16:23:38 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit f36960bbcfb6146da2348672acbce1620db8f6bb[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 16:19:02 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit fda3ab7f4de3f8e5ca07c5ac0073dd3362beac77[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 16:07:17 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 54158be002c9b62f6301d7db0ef7893ec3cf3029[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 16:04:07 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit f39d09b10750070036fe9af353ba53575ac46882[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 16:01:54 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 6f994901219856016a99140f89e134c484bedd52[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 15:58:48 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 82ec9e4372d370af8fe6268a94c7a523f0edbbfe[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 15:53:24 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit 9e26a71d6eef2ece9f73ce0fd7cc159714913be7[m
+Author: Joshua Heyer <joshua.heyer@usda.gov>
+Date:   Fri May 1 14:49:46 2026 -0600
+
+    LCMS v2025-11 GEE Publisher Catalog data publishing
+
+[33mcommit ba670638eb90179731bc538b45bb0a47ad9222fd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Kurt Schwehr <schwehr@google.com>
+Date:   Thu Apr 30 17:23:47 2026 -0700
+
+    MERIT_Hydro_reduced_v1_0_1.jsonnet: Remove `dem` and `elevation` tags.
+    
+    PiperOrigin-RevId: 908462619
+
+[33mcommit ced235980abf2ce4665c22ec6d5c4393f685e999[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Thu Apr 30 11:01:37 2026 -0700
+
+    add 2025b Forest Data Partnership dataset descriptions to catalog
+    
+    PiperOrigin-RevId: 908269295
+
+[33mcommit d87b9c317c4c3e1ebc28f3ecbee8272fdfe744ec[m
+Merge: dc4a957c e2fe743a
+Author: Copybara-Service <copybara-worker@google.com>
+Date:   Thu Apr 30 05:04:56 2026 -0700
+
+    Merge pull request #1728 from Michelle-Sims:main
+    
+    PiperOrigin-RevId: 908102646
+
+[33mcommit dc4a957c0faac7889f280a6a4efe28b78ef2a3ab[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Wed Apr 29 14:54:46 2026 -0700
+
+    Fix LHScat preview scripts
+    
+    PiperOrigin-RevId: 907792052
+
+[33mcommit e2fe743a71e8565b8e061af54a4bbc01aa315837[m
+Author: Michelle Sims <73441824+Michelle-Sims@users.noreply.github.com>
+Date:   Wed Apr 29 12:48:27 2026 -0700
+
+    Activated catalog link
+
+[33mcommit 164ddd4285f03822d0c4ff4bce885bda06d03046[m
+Author: Michelle Sims <73441824+Michelle-Sims@users.noreply.github.com>
+Date:   Wed Apr 29 12:33:41 2026 -0700
+
+    Changed status to 'beta'
+
+[33mcommit 77bf056c811e086de686f1b4a86db1af18b00756[m
+Author: Michelle Sims <73441824+Michelle-Sims@users.noreply.github.com>
+Date:   Tue Apr 28 15:43:42 2026 -0700
+
+    Disabled catalog link for v1.3 until status is updated
+    
+    Disabled catalog link for v1.3 until status is updated
+
+[33mcommit b15e59ef1d8715e3cec074e35178d375ce121a28[m
+Author: Michelle Sims <73441824+Michelle-Sims@users.noreply.github.com>
+Date:   Tue Apr 28 15:37:58 2026 -0700
+
+    Added missing comma after gee status
+    
+    Added missing comma after gee status
+
+[33mcommit 1cedb0c089e34d38a36ec6263605b86028077278[m
+Author: Michelle Sims <73441824+Michelle-Sims@users.noreply.github.com>
+Date:   Tue Apr 28 15:32:55 2026 -0700
+
+    Added status of v1.3 drivers of forest loss data
+    
+    Added status of v1.3 drivers of forest loss data
+
+[33mcommit 74a349c7fd6802404e15c16a34ef37a1f64751de[m
+Author: Justin Braaten <braaten@google.com>
+Date:   Tue Apr 28 11:15:33 2026 -0700
+
+    Improve DEM terrain analysis examples and projection guidance
+    
+    PiperOrigin-RevId: 907080733
+
+[33mcommit 11260ce9273404b8bded1311f3a03e688865adbb[m
+Author: Michelle Sims <73441824+Michelle-Sims@users.noreply.github.com>
+Date:   Tue Apr 28 10:51:29 2026 -0700
+
+    Add v1.3 of drivers of forest loss data to the land and carbon publisher catalog
+    
+    Add v1.3 of the drivers of forest loss data to the land and carbon publisher catalog (note data is under embargo until April 29). Edited a link in the description for v1.2
+
+[33mcommit 02e2b6e6ec22bd70913e5f5245d4c06a37cb4f94[m
+Author: Dan Pencoske <dpencosk@google.com>
+Date:   Mon Apr 27 14:17:53 2026 -0700
+
+    Move Opera RTC S1 datasets out of beta.
+    
+    PiperOrigin-RevId: 906541024
+
+[33mcommit 84b19c79e1a81996c9f1f78a68e2d9e7a5626982[m
+Author: Dan Pencoske <dpencosk@google.com>
+Date:   Mon Apr 27 09:05:59 2026 -0700
+
+    Fix preview scripts for LHScat and LHScatQC.
+    
+    PiperOrigin-RevId: 906389255
+
+[33mcommit 1f9dfd400e9610adb4b3726feb35c8899d38f173[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Mon Apr 27 09:01:40 2026 -0700
+
+    Add KBA owners entry and images
+    
+    PiperOrigin-RevId: 906386959
+
+[33mcommit 2edadc99d8995f47c228ff48d9aa2b573414ce36[m
+Merge: db5e426c 161f4e47
+Author: Copybara-Service <copybara-worker@google.com>
+Date:   Mon Apr 27 07:04:04 2026 -0700
+
+    Merge pull request #1716 from tomscott024BLI:main
+    
+    PiperOrigin-RevId: 906334998
+
+[33mcommit db5e426c6f7d8ec29428cdc03685cf695d37f9b5[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Fri Apr 24 14:15:42 2026 -0700
+
+    Add Python examples to the EE data catalog.
+    
+    PiperOrigin-RevId: 905216280
+
+[33mcommit f750cba132e948d674a63af3dd4e1f3d04ce942f[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Thu Apr 23 07:10:53 2026 -0700
+
+    Mark NOAA NCEP Reanalysis 2 total cloud coverage as no longer updating.
+    
+    The source for the NOAA NCEP Reanalysis 2 total cloud coverage dataset is no longer being updated. The dataset description has been updated to reflect this, and the end date in the JSONNet has been set.
+    
+    PiperOrigin-RevId: 904439221
+
+[33mcommit ce61e3e8c8d0a3c29e834a61e496f6bdfba8a92c[m
+Author: Dan Pencoske <dpencosk@google.com>
+Date:   Wed Apr 22 05:15:32 2026 -0700
+
+    Document the POLARIZATIONS property for Opera RTC S1 assets.
+    
+    PiperOrigin-RevId: 903781548
+
+[33mcommit 82c781d038d17459e15e9b0f2c88715e6d7b3b67[m
+Author: Dan Pencoske <dpencosk@google.com>
+Date:   Tue Apr 21 13:38:49 2026 -0700
+
+    Address some TODOs in the VIIRS AOD jsonnet entry and add example scripts.
+    
+    PiperOrigin-RevId: 903401492
+
+[33mcommit 50daad201541eb0534c110a90f7b769ee99fd411[m
+Merge: fa9fac77 fdc2cc20
+Author: Copybara-Service <copybara-worker@google.com>
+Date:   Tue Apr 21 05:48:04 2026 -0700
+
+    Merge pull request #1703 from pkurelab:update-LHScat_PKU-data
+    
+    PiperOrigin-RevId: 903178753
+
+[33mcommit 161f4e477e1c450f1c3b804b01a656c5f08625cf[m
+Author: Tom Scott <tom.scott@birdlife.org>
+Date:   Tue Apr 21 12:23:07 2026 +0100
+
+    March 2026 KBA Update
+    
+    Changed dated descriptors and removed DelTxt field from schema.
+
+[33mcommit fa9fac77ac149cb384c5d31b91a0869508ce0c07[m
+Merge: bde9e715 6157ff1e
+Author: Simon Ilyushchenko <simonf@simonf.com>
+Date:   Wed Apr 15 14:35:47 2026 -0700
+
+    Merge pull request #1604 from salmanmkc/upgrade-github-actions-node24
+    
+    Upgrade GitHub Actions for Node 24 compatibility
+
+[33mcommit bde9e715f19325d0dce4de836d0b76b28a34a900[m
+Author: Dan Pencoske <dpencosk@google.com>
+Date:   Tue Apr 14 10:24:07 2026 -0700
+
+    Fix signup and license links for Planet datasets.
+    
+    PiperOrigin-RevId: 899655381
+
+[33mcommit 50a03c80427e531232df2b47382903b6f19e9b91[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Mon Apr 13 12:02:37 2026 -0700
+
+    Added deprecation notice in WN1 Graph & Gen.
+    
+    PiperOrigin-RevId: 899116668
+
+[33mcommit 8d69635be2e29e5612f944f28142122614ad9762[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Mon Apr 13 08:27:28 2026 -0700
+
+    Fix capitalization in iNaturalist dataset title.
+    
+    PiperOrigin-RevId: 899012569
+
+[33mcommit fdc2cc2030b91ea234a85819c1d581ce7a9b97e4[m
+Author: pkurelab <pkurelab@gmail.com>
+Date:   Mon Apr 13 19:02:39 2026 +0800
+
+    del keywords
+
+[33mcommit 764fcb64a0052179445df118039b2707eb826694[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Wed Apr 8 18:38:35 2026 -0700
+
+    Activate new Mapbiomas and Methanesat datasets
+    
+    PiperOrigin-RevId: 896808268
+
+[33mcommit 7808d94a59092273604fd46b311ecdb4736ca084[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Tue Apr 7 07:05:01 2026 -0700
+
+    Remove the test path used for testing purpose
+    
+    PiperOrigin-RevId: 895880602
+
+[33mcommit 3120055adc496f46bc6bce6da2be0e24c3a19b75[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Mon Apr 6 14:22:08 2026 -0700
+
+    OpenET: Mark old datasets as superseded by v2.1.
+    
+    PiperOrigin-RevId: 895499893
+
+[33mcommit bb1317de723bdbe0a160bfb8a3a62959e098d2f7[m[33m ([m[1;31morigin/GTAC-TreeMap[m[33m, [m[1;31morigin/GTAC-TCC[m[33m)[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Mon Apr 6 09:23:38 2026 -0700
+
+    Make iNaturalist/MULTI_SPECIES/LATEST public.
+    
+    PiperOrigin-RevId: 895361415
+
+[33mcommit 0cf371c28f2084001fdb569acfa7f5d294335bae[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Sun Apr 5 13:16:25 2026 -0700
+
+    Add a guide for ingesting geospatial data into BigQuery.
+    
+    PiperOrigin-RevId: 895005983
+
+[33mcommit 090de5bc990257224b0662d9400e39fea4097950[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Fri Apr 3 16:56:56 2026 -0700
+
+    OpenET: Mark old datasets as superseded by v2.1.
+    
+    PiperOrigin-RevId: 894312481
+
+[33mcommit f9a6f37e53c8496b00ca66388cbe5726575dd0c8[m
+Author: pkurelab <pkurelab@gmail.com>
+Date:   Fri Apr 3 14:18:48 2026 +0800
+
+    update
+
+[33mcommit 43084c6dd8e587a27635952664f09f6da5c25891[m
+Author: pkurelab <pkurelab@gmail.com>
+Date:   Fri Apr 3 14:12:38 2026 +0800
+
+    merge the RMSE and Pearsonnr assets into a single two-band asset
+
+[33mcommit cdc91f624edf8a4c1c6a1799ce96f20d3f97bd4b[m
+Merge: 5de27742 3e4c159b
+Author: Copybara-Service <copybara-worker@google.com>
+Date:   Thu Apr 2 16:16:40 2026 -0700
+
+    Merge pull request #1672 from joaosiqueira:main
+    
+    PiperOrigin-RevId: 893756451
+
+[33mcommit 5de277420961e487dd4dc903c510c4bdb55a7e01[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Thu Apr 2 15:52:26 2026 -0700
+
+    OpenET: Mark old datasets as superseded by v2.1.
+    
+    PiperOrigin-RevId: 893744937
+
+[33mcommit bd8047ed7710725212e45d4729130b639a91d6f9[m
+Author: Simon Ilyushchenko <simonf@google.com>
+Date:   Thu Apr 2 14:43:52 2026 -0700
+
+    use a better map location for the MethaneSAT L3 example
+    
+    PiperOrigin-RevId: 893711445
+
+[33mcommit fb1d6f54d46afd11643d502a50e1a12fa60732d6[m
+Merge: 23ee2908 55ffc61e
+Author: Copybara-Service <copybara-worker@google.com>
+Date:   Thu Apr 2 09:11:37 2026 -0700
+
+    Merge pull request #1674 from georgegov:mair-l3
+    
+    PiperOrigin-RevId: 893542576
+
+[33mcommit 55ffc61ed51c6c968b3693b05576e2575e11ac42[m
+Author: George Gov <ggov@methanesat.org>
+Date:   Wed Apr 1 15:57:37 2026 -0700
+
+    Remove gee:interval from MethaneAir L3
+
+[33mcommit f8b2c9703a34f8225c8485a5a0e86b6e8dd1d68e[m
+Author: George Gov <ggov@methanesat.org>
+Date:   Wed Apr 1 13:32:30 2026 -0700
+
+    Correct MethaneAir L3 interval to every 2 days
+
+[33mcommit 23ee29084c5896913eae3b715c58bbbbbbedaa33[m
+Author: Google Earth Engine Community Authors <noreply@google.com>
+Date:   Wed Apr 1 13:27:24 2026 -0700
+
+    Update GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL dataset description.
+    
+    PiperOrigin-RevId: 893086808
+
+[33mcommit 2fba557cc614b567721313820bea46fd4b219061[m
+Author: George Gov <ggov@methanesat.org>
+Date:   Wed Apr 1 13:23:19 2026 -0700
+
+    Update MethaneAIR L3 preview visualization rectangle
+
+[33mcommit 4fd73aa1a06692c4af6629897c1433f49411748c[m
+Merge: d1993cd9 4e8e5a2f
+Author: Copybara-Service <copybara-worker@google.com>
+Date:   Wed Apr 1 11:50:05 2026 -0700
+
+    Merge pull request #1675 from georgegov:mair-l4-point
+    
+    PiperOrigin-RevId: 893040310
+
+[33mcommit 4e8e5a2f7eee27f9fd681382894b8f8a617d4105[m
+Author: George Gov <ggov@methanesat.org>
+Date:   Wed Apr 1 09:20:28 2026 -0700
+
+    Update MethaneAIR L4 Point to v1.1.0
+
+[33mcommit d25ea16863f800d2afed390d4e9097897e113943[m
+Merge: b05a2b4b d1993cd9
+Author: George Gov <ggov@methanesat.org>
+Date:   Wed Apr 1 09:16:26 2026 -0700
+
+    Merge branch 'main' into mair-l4-point
+
+[33mcommit 55600ac8118df499801704131e37af2481833714[m
+Merge: 765b06df d1993cd9
+Author: George Gov <ggov@methanesat.org>
+Date:   Wed Apr 1 09:16:09 2026 -0700
+
+    Merge branch 'main' into mair-l3
+
+[33mcommit 091ac9cbe70fc78bf94226969458b68a19f991c4[m
+Author: pkurelab <pkurelab@gmail.com>
+Date:   Wed Apr 1 12:57:01 2026 +0800
+
+    Updated palette colors for LHScat_RMSE and LHScat_Pearsonr visualizations
+
+[33mcommit 06bc6d3f70d2cb7f8f2ccf8907db0c1bd968d518[m
+Author: pkurelab <pkurelab@gmail.com>
+Date:   Wed Apr 1 12:45:12 2026 +0800
+
+    change the catalog.json
