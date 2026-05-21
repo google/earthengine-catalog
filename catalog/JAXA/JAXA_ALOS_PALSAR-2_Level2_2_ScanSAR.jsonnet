@@ -40,6 +40,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset is compatible with the
     [Committee on Earth Observation (CEOS)](https://ceos.org/)
     [Analysis Ready Data for LAND (CARD4L)](https://ceos.org/ard/files/PFS/NRB/v5.5/CARD4L-PFS_NRB_v5.5.pdf) standard.
+
+    Note that this collection is heterogeneous and contains a mixture of
+    single-polarization (HH) and dual-polarization (HH+HV, and rarely VV+VH)
+    images. Users should filter the collection by the `Polarizations` property
+    before selecting polarization bands (e.g.,
+    `collection.filter(ee.Filter.listContains('Polarizations', 'HV'))`).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -342,6 +348,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'HV',
         description: |||
             HV polarization Terrain-flattened Gamma-Nought backscatter
+            coefficient.
+        |||,
+      },
+      {
+        name: 'VV',
+        description: |||
+            VV polarization Terrain-flattened Gamma-Nought backscatter
+            coefficient.
+        |||,
+      },
+      {
+        name: 'VH',
+        description: |||
+            VH polarization Terrain-flattened Gamma-Nought backscatter
             coefficient.
         |||,
       },
