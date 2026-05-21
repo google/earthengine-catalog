@@ -68,7 +68,7 @@ local license = spdx.proprietary;
   |||,
 
   license: license.id,
-  links: ee.standardLinks(subdir, id) [
+  links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/',
