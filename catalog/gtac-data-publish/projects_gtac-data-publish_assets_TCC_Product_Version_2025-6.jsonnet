@@ -1,6 +1,7 @@
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 
 local subdir = 'gtac-data-publish';
 local id = 'projects/gtac-data-publish/assets/TCC/Product_Version/2025-6';
