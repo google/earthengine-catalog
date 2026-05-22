@@ -96,7 +96,7 @@ local self_url = catalog_subdir_url + base_filename;
       {
         display_name: 'Predicted probability of palm presence',
         lookat: { lon: -7, lat: 7, zoom: 6 },
-        image_visualization: { band_vis: { min: [0.5], bands: ['probability'] } },
+        image_visualization: { band_vis: { min: [0.9], bands: ['probability'] } },
       },
     ],
   },
