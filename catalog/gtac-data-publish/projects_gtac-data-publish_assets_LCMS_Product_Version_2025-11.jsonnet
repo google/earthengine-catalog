@@ -23,10 +23,7 @@ local license = spdx.proprietary;
     '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
-    **Overview**
-
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
@@ -37,16 +34,12 @@ local license = spdx.proprietary;
     United States. Its objective is to develop a consistent approach using the latest technology
     and advancements in change detection to produce a "best available" map of landscape change. For full LCMS methodology, see Housman et al. (2026).
 
-    **Products**
-    
     Outputs include three annual products: change, land cover, and land use. The change model output relates specifically to vegetation cover and includes slow loss, fast loss (which also includes hydrologic changes such as inundation or desiccation), and gain. These values are predicted for each year of the Landsat time series and serve as the foundational products for LCMS. We apply a ruleset based on ancillary datasets to create the final change product, which is a refinement/reclassification of the modeled change to 15 classes that explicitly provide information on the cause of landscape change (e.g., Tree Removal, Wildfire, Wind). Land cover and land use maps depict life-form level land cover and broad-level land use for each year. 
 
     Because no algorithm performs best in all situations, LCMS uses an ensemble of models as
     predictors, which improves map accuracy across a range of ecosystems and change processes
     (Healey et al., 2018). The resulting suite of LCMS change, land cover, and land use maps offer
     a holistic depiction of landscape change across the United States since 1985.
-
-    **Data and Methods**
 
     Predictor layers for the LCMS model include outputs from the LandTrendr and CCDC change detection 
     algorithms, and terrain information. These components are all accessed and processed using Google 
@@ -104,9 +97,18 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
+    ee.link.predecessor(
+      'USFS/GTAC/LCMS/v2024-10',
+      ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
+    ),
+    ee.link.latest(
+      id,
+      ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
+    ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
+    'lcms',
     'usda',
     'usfs',
     'change_detection',
