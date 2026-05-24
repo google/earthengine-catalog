@@ -118,7 +118,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         },
       },
     ],
-  },
 
   'sci:citation': |||
     Zhang, Z., Murray, N., Song, X., ... & Friess, D. (2026) Unexpected expansion and regrowth in Earth's mangrove forests over the past four decades. Science. https://doi.org/10.1126/science.aec9773
