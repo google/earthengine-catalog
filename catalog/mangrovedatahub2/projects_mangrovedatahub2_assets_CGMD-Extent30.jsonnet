@@ -17,6 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
+
   id: id,
   title: 'Global Annual Mangrove Extent (1984-2023)',
   version: '1.0',
@@ -53,33 +54,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
 
   links: ee.standardLinks(subdir, id) + [
+    ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(license.reference),
     {
-      rel: 'related',
-      title: 'FeatureView',
-      href: 'https://code.earthengine.google.com/?asset=projects/mangrovedatahub2/assets/CGMD-Extent30_FeatureView',
-      type: 'text/html',
+      rel: ee_const.rel.source,
+      href: 'https://zenodo.org/records/17204134',
     },
   ],
 
-  'gee:feature_view_ingestion_params': {
-    maxFeaturesPerTile: 1000,
-    thinningStrategy: 'HIGHER_DENSITY',
-    thinningRanking: ['area_km2 DESC'],
-  },
-
   'gee:categories': [
-    'forest-biomass',
-    'landuse-landcover',
+    'ecosystems',
+    'forests-biomass',
   ],
 
   keywords: [
     'mangrove',
     'wetland',
     'coastal',
-    'landsat-derived',
+    'Landsat',
     'annual',
     'global',
+    'land cover',
+    'ecosystem',
   ],
 
   providers: [
@@ -93,40 +89,57 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   summaries: {
     gsd: [30.0],
     'gee:schema': [
-        {
-          name: 'year',
-          type: 'INTEGER',
-          description: 'Data year, ranging from 1984 to 2023.',
-        },
-        {
-          name: 'gridcode',
-          type: 'INTEGER',
-          description: 'Source flag for the mapped mangrove extent. 1 indicates clear Landsat observation; 2 indicates gap-filled using the latest available clear Landsat observation.',
-        },
-        {
-          name: 'area_km2',
-          type: 'FLOAT',
-          description: 'Polygon area in square kilometers, calculated under the Behrmann equal-area projection.',
-        },
-      ],
-    },
+      {
+        name: 'year',
+        description: 'Data year, ranging from 1984 to 2023.',
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'gridcode',
+        description: 'Source flag for the mapped mangrove extent. A value of 1 indicates extent derived from clear Landsat observations; a value of 2 indicates gap-filled extent using the latest available clear Landsat observation.',
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'area_km2',
+        description: 'Polygon area in square kilometers, calculated under the Behrmann equal-area projection.',
+        type: ee_const.var_type.float,
+        units: units.kilometer,
+      },
+    ],
     'gee:visualizations': [
       {
         display_name: 'Mangrove extent',
-        look: {
-          colors: ['006400'],
+        lookat: {
+          lat: 0.0,
+          lon: 110.0,
+          zoom: 3,
+        },
+        table_visualization: {
+          color: '006400',
         },
       },
+      {
+        display_name: 'Mangrove extent FeatureView',
+        visualize_as: 'FeatureView',
+      },
     ],
+    'gee:feature_view_ingestion_params': {
+      max_features_per_tile: 1000,
+      thinning_strategy: 'HIGHER_DENSITY',
+      prerender_tiles: true,
+    },
+  },
+
+  
 
   'sci:citation': |||
-    Zhang, Z., Murray, N., Song, X., ... & Friess, D. (2026) Unexpected expansion and regrowth in Earth's mangrove forests over the past four decades. Science. https://doi.org/10.1126/science.aec9773
+    Zhang, Z., Murray, N., Song, X., ... & Friess, D. (2026). Unexpected expansion and regrowth in Earth's mangrove forests over the past four decades. Science. https://doi.org/10.1126/science.aec9773
   |||,
 
   'sci:publications': [
     {
       citation: |||
-        Zhang, Z., Murray, N., Song, X., ... & Friess, D. (2026) Unexpected expansion and regrowth in Earth's mangrove forests over the past four decades. Science. https://doi.org/10.1126/science.aec9773
+        Zhang, Z., Murray, N., Song, X., ... & Friess, D. (2026). Unexpected expansion and regrowth in Earth's mangrove forests over the past four decades. Science. https://doi.org/10.1126/science.aec9773
       |||,
       doi: '10.1126/science.aec9773',
     },
