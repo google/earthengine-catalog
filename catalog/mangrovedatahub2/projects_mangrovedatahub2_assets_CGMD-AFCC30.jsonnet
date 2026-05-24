@@ -22,6 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Global Annual Mangrove Fractional Canopy Cover (1984-2023)',
   version: '1.0',
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
 
   description: |||
@@ -47,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   'gee:categories': [
-    'forests-biomass',
+    'forest-biomass',
     'vegetation-indices',
   ],
 
@@ -75,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'FCC',
         description: 'Mangrove fractional canopy cover stored as integer percentage cover from 0 to 100',
-        'gee:units': 'percent',
+        'gee:units': '%',
       },
     ],
 

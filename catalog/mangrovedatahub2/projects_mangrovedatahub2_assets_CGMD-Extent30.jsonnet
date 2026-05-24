@@ -20,6 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Global Annual Mangrove Extent (1984-2023)',
   version: '1.0',
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.table,
 
   description: |||
@@ -53,11 +54,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
+    {
+      rel: 'related',
+      title: 'FeatureView',
+      href: 'https://code.earthengine.google.com/?asset=projects/mangrovedatahub2/assets/CGMD-Extent30_FeatureView',
+      type: 'text/html',
+    },
   ],
 
+  'gee:feature_view_ingestion_params': {
+    maxFeaturesPerTile: 1000,
+    thinningStrategy: 'HIGHER_DENSITY',
+    thinningRanking: ['area_km2 DESC'],
+  },
+
   'gee:categories': [
-    'forests-biomass',
-    'landcover',
+    'forest-biomass',
+    'landuse-landcover',
   ],
 
   keywords: [
@@ -79,6 +92,32 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   summaries: {
     gsd: [30.0],
+    'gee:schema': [
+        {
+          name: 'year',
+          type: 'INTEGER',
+          description: 'Data year, ranging from 1984 to 2023.',
+        },
+        {
+          name: 'gridcode',
+          type: 'INTEGER',
+          description: 'Source flag for the mapped mangrove extent. 1 indicates clear Landsat observation; 2 indicates gap-filled using the latest available clear Landsat observation.',
+        },
+        {
+          name: 'area_km2',
+          type: 'FLOAT',
+          description: 'Polygon area in square kilometers, calculated under the Behrmann equal-area projection.',
+        },
+      ],
+    },
+    'gee:visualizations': [
+      {
+        display_name: 'Mangrove extent',
+        look: {
+          colors: ['006400'],
+        },
+      },
+    ],
   },
 
   'sci:citation': |||
@@ -93,8 +132,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       doi: '10.1126/science.aec9773',
     },
   ],
-
-  'gee:interval': { type: 'cadence', unit: 'year', interval: 1 },
 
   'gee:terms_of_use': |||
     Acknowledgements
