@@ -63,19 +63,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   'gee:categories': [
-    'ecosystems',
-    'forests-biomass',
+    'forest-biomass',
+    'landuse-landcover',
   ],
 
   keywords: [
     'mangrove',
     'wetland',
     'coastal',
-    'Landsat',
+    'landsat_derived',
     'annual',
     'global',
-    'land cover',
-    'ecosystem',
   ],
 
   providers: [

@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'mangrove',
     'wetland',
     'coastal',
-    'landsat-derived',
+    'landsat_derived',
     'annual',
     'global',
   ],
