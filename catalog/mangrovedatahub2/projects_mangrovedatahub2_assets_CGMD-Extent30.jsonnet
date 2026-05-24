@@ -102,7 +102,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'area_km2',
         description: 'Polygon area in square kilometers, calculated under the Behrmann equal-area projection.',
-        type: ee_const.var_type.float,
+        type: ee_const.var_type.double,
       },
     ],
     'gee:visualizations': [
