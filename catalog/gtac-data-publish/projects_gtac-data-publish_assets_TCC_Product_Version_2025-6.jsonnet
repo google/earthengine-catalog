@@ -25,7 +25,6 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
   description: |||
-    **Overview**
     
     The Tree Canopy Cover (TCC) data suite, produced by the United States Department of Agriculture, Forest Service (USFS), are annual remote sensing-based map outputs spanning from 1985-2025. These data support the National Land Cover Database (NLCD) project, which is managed by the US Geological Survey (USGS) as part of the Multi-Resolution Land Characteristics (MRLC) consortium. The project aims to use the latest technology to create a consistent, "best available" map of tree canopy cover. Methodology is detailed in Heyer et al. (2025). The geographic scope includes the Conterminous United States (CONUS) and OCONUS regions (Southeast Alaska (SEAK), Hawaii (HI), Puerto Rico, and the US Virgin Islands (PRUSVI)). PRUSVI and HI v2025-6 data will be released in late Summer 2026.
 
@@ -62,7 +61,7 @@ local license = spdx.proprietary;
     * Please see the [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
 
-    Contact [sm.fs.tcc@usda.gov] with any
+    Contact [SM.FS.tcc@usda.gov] with any
     questions or specific data requests.
 
   |||,
@@ -72,7 +71,15 @@ local license = spdx.proprietary;
     {
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/',
-    }
+    },
+  ee.link.predecessor(
+    'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5',
+    ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
+  ),
+  ee.link.latest(
+    'projects/gtac-data-publish/assets/TCC/Product_Version/2025-6',
+    ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_TCC_Product_Version_2025-6.json'
+  ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [

@@ -25,7 +25,6 @@ local license = spdx.proprietary;
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
   description: |||
-    **Overview**
 
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
@@ -94,7 +93,7 @@ local license = spdx.proprietary;
 
     * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2025-11_Methods.pdf) and the [LCMS companion article](https://doi.org/10.1038/s41597-026-06743-0) (Housman et al., 2026) for more detailed information regarding methods and accuracy assessment, or the [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) for data downloads metadata, and support documents.
 
-    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    Contact [SM.FS.lcms@usda.gov](mailto:SM.FS.lcms@usda.gov) with any
     questions or specific data requests.
   |||
 ,
@@ -104,6 +103,14 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
+  ee.link.predecessor(
+  'USFS/GTAC/LCMS/v2024-10',
+  ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
+  ),
+  ee.link.latest(
+    'projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11',
+    ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
+  ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
