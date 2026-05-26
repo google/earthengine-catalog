@@ -42,23 +42,25 @@ CASE_MISMATCH_PREVIEW_JS = 'OpenET/projects_openet_assets_foo_preview.js'
 
 def mock_load(examples_root: pathlib.Path) -> set[str]:
   return {
-      IMAGE_JS.lower(),
-      PROJECTS_IMAGE_JS.lower(),
-      TABLE_JS.lower(),
-      TABLE_FEATUREVIEW_JS.lower(),
-      TABLE_WITHOUT_JS_FEATUREVIEW_JS.lower(),
-      FEATUREVIEW_EXCEPTION_JS.lower(),
-      CASE_MISMATCH_JS.lower()}
+      IMAGE_JS,
+      PROJECTS_IMAGE_JS,
+      TABLE_JS,
+      TABLE_FEATUREVIEW_JS,
+      TABLE_WITHOUT_JS_FEATUREVIEW_JS,
+      FEATUREVIEW_EXCEPTION_JS,
+      CASE_MISMATCH_JS.lower(),
+  }
 
 
 def mock_load_previews(examples_root: pathlib.Path) -> set[str]:
   return {
-      IMAGE_PREVIEW_JS.lower(),
-      PROJECTS_IMAGE_PREVIEW_JS.lower(),
-      TABLE_PREVIEW_JS.lower(),
-      TABLE_WITHOUT_JS_PREVIEW_JS.lower(),
-      FEATUREVIEW_EXCEPTION_PREVIEW_JS.lower(),
-      CASE_MISMATCH_PREVIEW_JS.lower()}
+      IMAGE_PREVIEW_JS,
+      PROJECTS_IMAGE_PREVIEW_JS,
+      TABLE_PREVIEW_JS,
+      TABLE_WITHOUT_JS_PREVIEW_JS,
+      FEATUREVIEW_EXCEPTION_PREVIEW_JS,
+      CASE_MISMATCH_PREVIEW_JS.lower(),
+  }
 
 
 class ValidExamplesTest(test_utils.NodeTest):
@@ -100,9 +102,11 @@ class ValidExamplesTest(test_utils.NodeTest):
   def test_table_missing_featureview_exception(self):
     self.assert_collection(
         {},
-        'Remove preview script from _PREVIEW_EXCEPTIONS: ' +
-        'tiger/tiger_2010_bg_preview.js',
-        dataset_id=FEATUREVIEW_EXCEPTION_ID, gee_type=TABLE)
+        'Remove preview script from _PREVIEW_EXCEPTIONS: '
+        + 'TIGER/TIGER_2010_BG_preview.js',
+        dataset_id=FEATUREVIEW_EXCEPTION_ID,
+        gee_type=TABLE,
+    )
 
   def test_missing_scripts_incomplete_exception(self):
     self.assert_collection(
@@ -143,29 +147,33 @@ class ErrorExamplesTest(test_utils.NodeTest):
   def test_table_missing_featureview(self):
     self.assert_collection(
         {},
-        'Missing FeatureView script: a/a_b_featureview.js',
+        'Missing FeatureView script: A/A_B_FeatureView.js',
         dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
-        gee_type=TABLE)
+        gee_type=TABLE,
+    )
 
   def test_table_missing_featureview_ready(self):
     self.assert_collection(
         {'gee:status': 'ready'},
-        'Missing FeatureView script: a/a_b_featureview.js',
+        'Missing FeatureView script: A/A_B_FeatureView.js',
         dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
-        gee_type=TABLE)
+        gee_type=TABLE,
+    )
 
   def test_table_missing_table_script(self):
     self.assert_collection(
         {},
-        'Missing script: e/e_f.js',
+        'Missing script: E/E_F.js',
         dataset_id=TABLE_WITHOUT_JS,
-        gee_type=TABLE)
+        gee_type=TABLE,
+    )
 
   def test_image_cannot_have_featureview(self):
     self.assert_collection(
         {},
-        'Only a table can have a FeatureView script: c/c_d_featureview.js',
-        dataset_id=TABLE_ID)
+        'Only a table can have a FeatureView script: C/C_D_FeatureView.js',
+        dataset_id=TABLE_ID,
+    )
 
 
 if __name__ == '__main__':

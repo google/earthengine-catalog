@@ -6,14 +6,14 @@
 - ee.Tables must have a FeatureView example script, except when
   gee:skip_featureview_generation is set to true
 
-Case-insensitive checks are used for filesystem paths, URLs, and titles to
-handle cases where dataset ID capitalization (e.g., 'openet') does not match
-the directory name on disk (e.g., 'OpenET'), ensuring compatibility across
-different operating systems (MacOS, Windows).
+Case-insensitive checks are used for filesystem paths, URLs, and titles
+only for OpenET/openet datasets to handle cases where dataset ID
+capitalization (e.g., 'openet') does not match the directory name on disk
+(e.g., 'OpenET'), ensuring compatibility across different operating systems
+(MacOS, Windows). For all other datasets, these checks remain case-sensitive.
 """
 
 # TODO(schwehr): Add a tree check to find unused scripts.
-# TODO(schwehr): Add a generate_examples script and add a message to use it.
 
 import pathlib
 from typing import Iterator
@@ -56,9 +56,9 @@ _EXCEPTIONS_RAW = frozenset((
     'MODIS_MYD11A2',
     'MODIS_MYD13Q1',
     ))
-_EXCEPTIONS = frozenset({x.lower() + '.js' for x in _EXCEPTIONS_RAW})
+_EXCEPTIONS = frozenset({x + '.js' for x in _EXCEPTIONS_RAW})
 
-_FEATURE_VIEW_EXCEPTIONS = frozenset({x.lower() for x in [
+_FEATURE_VIEW_EXCEPTIONS = frozenset({
     'JRC/JRC_LUCAS_HARMO_COPERNICUS_POLYGONS_V1_2018_FeatureView.js',
     'LARSE/LARSE_GEDI_GEDI02_A_002_INDEX_FeatureView.js',
     'LARSE/LARSE_GEDI_GEDI02_B_002_INDEX_FeatureView.js',
@@ -74,7 +74,7 @@ _FEATURE_VIEW_EXCEPTIONS = frozenset({x.lower() for x in [
     'WWF/WWF_HydroATLAS_v1_Basins_level05_FeatureView.js',
     'WWF/WWF_HydroATLAS_v1_Basins_level04_FeatureView.js',
     'WWF/WWF_HydroATLAS_v1_Basins_level03_FeatureView.js',
-]})
+})
 
 # TODO(schwehr): Remove entries as they are backfilled.
 _PREVIEW_EXCEPTIONS_LIST = [
@@ -836,23 +836,42 @@ _PREVIEW_EXCEPTIONS_LIST = [
     'planet-nicfi/projects_planet-nicfi_assets_basemaps_asia',
 ]
 
-_PREVIEW_EXCEPTIONS = frozenset({
-    item.lower() + '_preview.js' for item in _PREVIEW_EXCEPTIONS_LIST})
+_PREVIEW_EXCEPTIONS = frozenset(
+    {item + '_preview.js' for item in _PREVIEW_EXCEPTIONS_LIST}
+)
 
 
 _GEE_SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 
 
 def load(examples_root: pathlib.Path) -> set[str]:
-  return {str(path.relative_to(examples_root)).lower()
-          for path in examples_root.rglob('*.js')
-          if not path.name.endswith('_preview.js')}
+
+  def clean(path: pathlib.Path) -> str:
+    rel = str(path.relative_to(examples_root))
+    if stac.should_allow_case_mismatch(rel):
+      return rel.lower()
+    return rel
+
+  return {
+      clean(path)
+      for path in examples_root.rglob('*.js')
+      if not path.name.endswith('_preview.js')
+  }
 
 
 def load_previews(examples_root: pathlib.Path) -> set[str]:
-  return {str(path.relative_to(examples_root)).lower()
-          for path in examples_root.rglob('*.js')
-          if path.name.endswith('_preview.js')}
+
+  def clean(path: pathlib.Path) -> str:
+    rel = str(path.relative_to(examples_root))
+    if stac.should_allow_case_mismatch(rel):
+      return rel.lower()
+    return rel
+
+  return {
+      clean(path)
+      for path in examples_root.rglob('*.js')
+      if path.name.endswith('_preview.js')
+  }
 
 
 class Check(stac.NodeCheck):
@@ -883,11 +902,16 @@ class Check(stac.NodeCheck):
     subdir = (node.id.split('/')[1] if node.id.startswith('projects/')
               else node.id.split('/')[0])
     basename = subdir + '/' + node.id.replace('/', '_')
-    filename = (basename + '.js').lower()
-    preview_filename = (basename + '_preview.js').lower()
-    featureview_filename = (basename + '_FeatureView.js').lower()
+    filename = basename + '.js'
+    preview_filename = basename + '_preview.js'
+    featureview_filename = basename + '_FeatureView.js'
 
-    if filename not in cls.scripts and name.lower() not in _EXCEPTIONS:
+    if stac.should_allow_case_mismatch(subdir):
+      filename = filename.lower()
+      preview_filename = preview_filename.lower()
+      featureview_filename = featureview_filename.lower()
+
+    if filename not in cls.scripts and name not in _EXCEPTIONS:
       yield cls.new_issue(node, f'Missing script: {filename}')
 
     if preview_filename not in cls.preview_scripts:
@@ -899,10 +923,12 @@ class Check(stac.NodeCheck):
           f'Remove preview script from _PREVIEW_EXCEPTIONS: {preview_filename}')
 
     if node.gee_type == stac.GeeType.TABLE:
-      if (featureview_filename not in cls.scripts and
-          _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac and
-          featureview_filename not in _FEATURE_VIEW_EXCEPTIONS and
-          node.stac.get(stac.GEE_STATUS) in (stac.Status.READY.value, None)):
+      if (
+          featureview_filename not in cls.scripts
+          and _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac
+          and featureview_filename not in _FEATURE_VIEW_EXCEPTIONS
+          and node.stac.get(stac.GEE_STATUS) in (stac.Status.READY.value, None)
+      ):
         yield cls.new_issue(
             node, f'Missing FeatureView script: {featureview_filename}')
     else:

@@ -202,3 +202,38 @@ def is_in_non_commercial(dataset_id: str) -> bool:
     if dataset_id.startswith(pattern):
       return True
   return False
+
+
+_CASE_INSENSITIVE_DIRS = frozenset({'openet'})
+
+
+def should_allow_case_mismatch(value: str | pathlib.Path | None) -> bool:
+  """Returns True if the value belongs to a dir with case-insensitive paths."""
+  if not value:
+    return False
+  if isinstance(value, pathlib.Path):
+    return any(p.lower() in _CASE_INSENSITIVE_DIRS for p in value.parts)
+
+  val_lower = value.lower()
+  return any(d in val_lower for d in _CASE_INSENSITIVE_DIRS)
+
+
+def equal_paths(p1: pathlib.Path, p2: pathlib.Path) -> bool:
+  """Compares two paths, allowing case-insensitivity if either path does."""
+  if should_allow_case_mismatch(p1) or should_allow_case_mismatch(p2):
+    return p1.as_posix().lower() == p2.as_posix().lower()
+  return p1 == p2
+
+
+def equal_urls(u1: str, u2: str) -> bool:
+  """Compares two URLs, allowing case-insensitivity if either URL does."""
+  if should_allow_case_mismatch(u1) or should_allow_case_mismatch(u2):
+    return u1.lower() == u2.lower()
+  return u1 == u2
+
+
+def equal_strings(s1: str, s2: str) -> bool:
+  """Compares two strings, allowing case-insensitivity if either string does."""
+  if should_allow_case_mismatch(s1) or should_allow_case_mismatch(s2):
+    return s1.lower() == s2.lower()
+  return s1 == s2
