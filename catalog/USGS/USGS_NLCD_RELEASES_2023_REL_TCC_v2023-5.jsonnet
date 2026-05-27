@@ -382,7 +382,7 @@ local license = spdx.proprietary;
         citation: |||
           Lin, L.; Di, L.; Zhang, C.; Guo, L.; Di, Y.; Li, H.; Yang, A. 2022. Validation and refinement of cropland
           data layer using a spatial-temporal decision tree algorithm. Scientific Data. 9(1): 63.
-          [doi:10.3390/rs10050691](https://doi.org/10.1038/s41597-022-01169-w)
+          [doi:10.1038/s41597-022-01169-w](https://doi.org/10.1038/s41597-022-01169-w)
         |||,
         doi:'10.1038/s41597-022-01169-w',
       },

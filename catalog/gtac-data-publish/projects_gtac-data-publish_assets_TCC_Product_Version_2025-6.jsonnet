@@ -20,7 +20,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Tree Canopy Cover ' + ' ' + version + ' ' + '(CONUS and OCONUS)',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
@@ -349,7 +349,7 @@ local license = spdx.proprietary;
       },
       {
         citation: |||
-          Heyer, J., Schleeweis, K., Ruefenacht, B., Housman, I., Zhiqiang, Y., Ryerson, D., Reischmann, J., Megown, K., & Bogle, M. S. (2025). Annual national tree canopy cover mapping: A novel workflow with temporal transferability and improved uncertainty quantification. Science of Remote Sensing, 100301. [doi:'10.1016/j.srs.2025.100301](http://doi.org/10.1016/j.srs.2025.100301)
+          Heyer, J., Schleeweis, K., Ruefenacht, B., Housman, I., Zhiqiang, Y., Ryerson, D., Reischmann, J., Megown, K., & Bogle, M. S. (2025). Annual national tree canopy cover mapping: A novel workflow with temporal transferability and improved uncertainty quantification. Science of Remote Sensing, 100301. [doi:10.1016/j.srs.2025.100301](http://doi.org/10.1016/j.srs.2025.100301)
         |||,
         doi:'10.1016/j.srs.2025.100301',
       },
@@ -376,7 +376,7 @@ local license = spdx.proprietary;
         citation: |||
           Lin, L.; Di, L.; Zhang, C.; Guo, L.; Di, Y.; Li, H.; Yang, A. 2022. Validation and refinement of cropland
           data layer using a spatial-temporal decision tree algorithm. Scientific Data. 9(1): 63.
-          [doi:10.3390/rs10050691](https://doi.org/10.1038/s41597-022-01169-w)
+          [doi:10.1038/s41597-022-01169-w](https://doi.org/10.1038/s41597-022-01169-w)
         |||,
         doi:'10.1038/s41597-022-01169-w',
       },
