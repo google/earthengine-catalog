@@ -29,26 +29,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The dataset was generated using time-series Landsat imagery within the Google Earth Engine platform. Annual mangrove extent was mapped from long-term Landsat observations to support consistent monitoring of mangrove area dynamics, including long-term loss, gain, and persistence.
 
-    Each feature in the collection includes the following key properties:
-
-    * `year`: data year, ranging from 1984 to 2023
-    * `gridcode`: source flag for the mapped mangrove extent
-      * `1`: derived from clear Landsat observations
-      * `2`: gap-filled using the latest available clear Landsat observation
-    * `area_km2`: polygon area in square kilometers, calculated under the Behrmann equal-area projection
-
-    The vector format is used to reduce data volume and facilitate polygon-based area analysis. Users are encouraged to filter the dataset by year before visualization or analysis.
-
     For citation, offline analysis, and long-term archiving, a companion version of this dataset is available via [Zenodo](https://zenodo.org/records/17204134). A full description of the data generation, validation, and uncertainty assessment is provided in the [associated scientific paper](https://doi.org/10.1126/science.aec9773).
 
-    Example usage:
-
-        var extent = ee.FeatureCollection(
-          'projects/mangrovedatahub2/assets/CGMD-Extent30'
-        );
-
-        var extent2023 = extent.filter(ee.Filter.eq('year', 2023));
-        Map.addLayer(extent2023, {color: '006400'}, 'Mangrove extent 2023');
+    Because the dataset is provided at annual temporal resolution, the timing of detected changes should be interpreted at the yearly scale. Changes that occurred late in a calendar year may be detected in the following annual map, resulting in a potential temporal offset of up to one year.
   |||,
 
   license: license.id,
@@ -85,7 +68,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent_global('1984-01-01T00:00:00Z', '2023-12-31T23:59:59Z'),
 
   summaries: {
-    gsd: [30.0],
     'gee:schema': [
       {
         name: 'year',

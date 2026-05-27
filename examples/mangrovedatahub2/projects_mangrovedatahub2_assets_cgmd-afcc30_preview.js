@@ -1,12 +1,18 @@
-// Define the data variable for CGMD-AFCC30
-var dataset = ee.ImageCollection('projects/mangrovedatahub2/assets/CGMD-AFCC30');
+var lon = 133.6;
+var lat = -2.4;
 
-// Define the year for visualization
-var year = 2023;
+var delta = 0.5;
+// Width and height of the thumbnail image.
+var pixels = 256;
+
+var areaOfInterest = ee.Geometry.Rectangle(
+    [lon - delta, lat - delta, lon + delta, lat + delta], null, false);
+    
+var dataset = ee.ImageCollection('projects/mangrovedatahub2/assets/CGMD-AFCC30');
 
 // Load the fractional canopy cover image for the year 2023
 var fcc = dataset
-  .filter(ee.Filter.eq('year', year))
+  .filter(ee.Filter.eq('year', 2023))
   .mosaic();
 
 // Define visualization parameters
@@ -16,8 +22,19 @@ var vis = {
   palette: ['ffffff', 'd9f0a3', '78c679', '238443', '005a32']
 };
 
+var rgbImage = fcc.visualize(vis);
+
 // Center the map on the image with a zoom level of 8 (covers Bintuni Bay, Indonesia)
-Map.setCenter(133.3826, -2.3649, 8);
+Map.setCenter(lon, lat, 8);
 
 // Add the layer to the map
-Map.addLayer(fcc, vis, 'Mangrove fractional canopy cover, ' + year);
+Map.addLayer(rgbImage, {}, 'Mangrove FCC in 2023', true, 1);
+
+var imageParams = {
+  dimensions: [pixels, pixels],
+  region: areaOfInterest,
+  crs: 'EPSG:3857',
+  format: 'png',
+};
+
+print(ui.Thumbnail({image: rgbImage, params: imageParams}));

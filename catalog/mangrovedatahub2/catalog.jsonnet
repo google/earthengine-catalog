@@ -17,8 +17,8 @@ local self_url = base_url + base_filename;
 
   'gee:publisher': {
     type: 'PUBLISHER',
-    link: 'https://gis-zhangzhen.github.io/resources/',
-    contactDisplay: 'Dr. Zhen Zhang',
+    link: 'https://www.themangrovelab.com/',
+    contactDisplay: 'The Mangrove Lab',
     contactLink: 'mailto:zzhang58@tulane.edu',
   },
 
