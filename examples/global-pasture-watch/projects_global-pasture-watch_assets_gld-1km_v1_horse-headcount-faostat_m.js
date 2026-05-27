@@ -2,7 +2,7 @@ Map.setCenter(-55.50, -12.20, 4);
 
 var horseVis = {
   min: 0,
-  max: 500,
+  max: 10,
   palette: [
     'ffffcc',
     'c2e699',

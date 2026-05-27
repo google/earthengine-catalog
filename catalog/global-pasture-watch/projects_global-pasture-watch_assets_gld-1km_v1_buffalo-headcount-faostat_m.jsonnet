@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     headcount: {
       minimum: 0,
-      maximum: 500,
+      maximum: 160,
       'gee:estimated_range': true
     },
 
@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         image_visualization: {
           band_vis: {
             min: [0],
-            max: [500],
+            max: [160],
             palette: [
               'ffffcc',
               'c2e699',
