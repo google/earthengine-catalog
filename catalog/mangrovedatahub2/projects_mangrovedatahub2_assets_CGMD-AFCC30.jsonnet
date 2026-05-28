@@ -26,13 +26,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
 
   description: |||
-    The CGMD-AFCC30 (Continuous Global Mangrove Dynamics-Annual Fractional Canopy Cover at 30-m resolution) dataset provides global annual mangrove fractional canopy cover (FCC) at 30-m spatial resolution from 1984 to 2023. FCC quantifies the proportion of each Landsat pixel occupied by mangrove canopy and is expressed as a percentage ranging from 0% to 100%.
+    This dataset provides global annual mangrove fractional canopy cover (FCC) at 30-m spatial resolution from 1984 to 2023 to support 
+    large-scale analyses of long-term mangrove dynamics, including canopy degradation and recovery, blue carbon assessment, and coastal ecosystem monitoring. 
+    FCC quantifies the proportion of each Landsat pixel occupied by mangrove canopy and is expressed as a percentage ranging from 0% to 100%.
 
-    The dataset was generated using time-series Landsat imagery within the Google Earth Engine platform. FCC maps are produced annually and spatially constrained to the global mangrove extent for each year. For data management and computational efficiency, the global dataset is organized into regional subsets, while temporal information is encoded using the `year` property associated with each image.
+    The dataset was generated using time-series Landsat imagery within the Google Earth Engine platform. 
+    Annual Landsat composites were produced after strict cloud, cloud-shadow, and low-quality observation filtering. 
+    FCC was then estimated using a linear spectral unmixing approach and spatially constrained to the global mangrove extent for each year. 
 
-    This dataset is designed to support large-scale analyses of long-term mangrove dynamics, including canopy change, degradation and recovery, blue carbon assessment, and coastal ecosystem monitoring. For citation, offline analysis, and long-term archiving, a companion version of this dataset is available via [Zenodo](https://zenodo.org/records/17204134). A full description of the data generation, validation, and uncertainty assessment is provided in the [associated scientific paper](https://doi.org/10.1126/science.aec9773).
+    The FCC estimates were evaluated against high-resolution Planet imagery across different regions, with root mean square error (RMSE) ranging from 9% to 22%.
+
+    Users should note that FCC values are derived from annual median Landsat composites. 
+    As a result, canopy changes occurring late in a calendar year may be captured in the following year's composite, 
+    which can introduce a one-year lag in the timing of detected FCC change.
+    For quick visualization and exploratory analysis, users are encouraged to access 
+    [the CGMD Earth Engine App](https://zhenzhang.users.earthengine.app/view/globalmangrovedynamic).   
   |||,
-
   license: license.id,
 
   links: ee.standardLinks(subdir, id) + [

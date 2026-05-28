@@ -25,13 +25,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.table,
 
   description: |||
-    The CGMD-Extent30 (Continuous Global Mangrove Dynamics-Annual Mangrove Extent at 30-m resolution) dataset provides global annual mangrove extent from 1984 to 2023. The dataset is distributed as a single Earth Engine `FeatureCollection`, with each feature representing a mapped mangrove polygon for a specific year.
+    The CGMD-Extent30 (Continuous Global Mangrove Dynamics-Annual Mangrove Extent at 30-m resolution) dataset provides global annual mangrove extent from 1984 to 2023. 
+    The dataset is distributed as a single Earth Engine `FeatureCollection`, with each feature representing a mapped mangrove polygon for a specific year.
 
-    The dataset was generated using time-series Landsat imagery within the Google Earth Engine platform. Annual mangrove extent was mapped from long-term Landsat observations to support consistent monitoring of mangrove area dynamics, including long-term loss, gain, and persistence.
+    The dataset was generated from long-term Landsat time-series observations within the Google Earth Engine platform. 
+    We first mapped mangrove extent for three baseline periods, representing the 1980s, 2010, and 2023, using cloud-free Landsat composites, 
+    prior global mangrove maps, automatically derived training samples, localized machine-learning classifiers, and post-classification refinements. 
+    True mangrove loss and gain between baseline periods were then identified using a change-detection procedure, 
+    and annual mangrove extent maps for intervening years were reconstructed using a temporal consistency algorithm.
 
-    For citation, offline analysis, and long-term archiving, a companion version of this dataset is available via [Zenodo](https://zenodo.org/records/17204134). A full description of the data generation, validation, and uncertainty assessment is provided in the [associated scientific paper](https://doi.org/10.1126/science.aec9773).
+    The dataset was validated using independent reference samples. For static mangrove extent, 
+    global user's and producer's accuracies were approximately 90%. For mangrove change, including loss and gain, 
+    user's and producer's accuracies were approximately 80%.
 
-    Because the dataset is provided at annual temporal resolution, the timing of detected changes should be interpreted at the yearly scale. Changes that occurred late in a calendar year may be detected in the following annual map, resulting in a potential temporal offset of up to one year.
+    This dataset is designed to support large-scale analyses of long-term mangrove area dynamics, 
+    including loss, gain, persistence, coastal ecosystem monitoring, and blue carbon assessment. 
+
+    Because the dataset is provided at annual temporal resolution, the timing of detected changes should be interpreted at the yearly scale. 
+    Changes that occurred late in a calendar year may be detected in the following annual map, resulting in a potential temporal offset of up to one year. 
+    In addition, transient mangrove losses lasting less than three years were treated as degradation rather than persistent extent loss; 
+    therefore, these areas remain classified as mangroves in the annual extent product.
+    For quick visualization and exploratory analysis, users are encouraged to access 
+    [the CGMD Earth Engine App](https://zhenzhang.users.earthengine.app/view/globalmangrovedynamic).
   |||,
 
   license: license.id,
