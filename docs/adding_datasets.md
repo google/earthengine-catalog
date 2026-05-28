@@ -83,7 +83,17 @@ the main example.
 256x256 preview thumbnail. This thumbnail will be used in the catalog to
 identify the dataset, so choose a representative and good-looking
 visualization. Make sure to hide the basemap (e.g., by using a single-color
-background).
+background). If your dataset has transparent nodata areas, blend a solid
+gray background under it in your preview script using the following pattern:
+
+   ```javascript
+   var gray = 150;
+   var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
+   var visualizedImage = yourRawImage.visualize(yourVisParams);
+   var imageWithBackground = ee.ImageCollection([background, visualizedImage]).mosaic();
+
+   print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
+   ```
 
 1. Create a GitHub pull request with all the files you changed or added.
 
