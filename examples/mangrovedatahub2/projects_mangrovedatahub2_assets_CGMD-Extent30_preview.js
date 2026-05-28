@@ -22,6 +22,10 @@ var image = ee.Image().byte().paint({
   forceRgbOutput: true
 });
 
+var gray = 150;
+var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
+var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
+
 var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
@@ -29,4 +33,4 @@ var imageParams = {
   format: 'png'
 };
 
-print(ui.Thumbnail({image: image, params: imageParams}));
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));

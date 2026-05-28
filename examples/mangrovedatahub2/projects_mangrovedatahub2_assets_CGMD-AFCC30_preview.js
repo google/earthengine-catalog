@@ -30,6 +30,10 @@ Map.setCenter(lon, lat, 8);
 // Add the layer to the map
 Map.addLayer(rgbImage, {}, 'Mangrove FCC in 2023', true, 1);
 
+var gray = 150;
+var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
+var imageWithBackground = ee.ImageCollection([background, rgbImage]).mosaic();
+
 var imageParams = {
   dimensions: [pixels, pixels],
   region: areaOfInterest,
@@ -37,4 +41,4 @@ var imageParams = {
   format: 'png',
 };
 
-print(ui.Thumbnail({image: rgbImage, params: imageParams}));
+print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
