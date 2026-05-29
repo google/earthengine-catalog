@@ -61,7 +61,7 @@ local license = spdx.proprietary;
     * Please see the [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
 
-    Contact [SM.FS.tcc@usda.gov] with any
+    Contact [SM.FS.TCC@usda.gov] with any
     questions or specific data requests.
 
   |||,
@@ -301,12 +301,10 @@ local license = spdx.proprietary;
    'sci:publications': [
       {
         citation: |||
-          Breiman, L., 2001.
-          Random Forests. In Machine Learning. Springer,
-          45: 5-32
+          Breiman, L., 2001. Random Forests. In Machine Learning. Springer, 45: 5-32
           [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
         |||,
-          doi:'10.1023/A:1010933404324',
+        doi:'10.1023/A:1010933404324',
       },
       {
         citation: |||
@@ -317,7 +315,7 @@ local license = spdx.proprietary;
           221: 274-285
           [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
         |||,
-          doi:'10.1016/j.rse.2018.11.012',
+        doi:'10.1016/j.rse.2018.11.012',
       },
       {
         citation: |||
