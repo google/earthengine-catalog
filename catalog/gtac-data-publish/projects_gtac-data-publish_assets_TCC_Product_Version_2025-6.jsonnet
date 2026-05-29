@@ -72,14 +72,6 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/',
     },
-  ee.link.predecessor(
-    'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5',
-    ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
-  ),
-  ee.link.latest(
-    'projects/gtac-data-publish/assets/TCC/Product_Version/2025-6',
-    ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_TCC_Product_Version_2025-6.json'
-  ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
