@@ -61,9 +61,8 @@ local license = spdx.proprietary;
     * Please see the [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
 
-    Contact [SM.FS.TCC@usda.gov] with any
+    Contact [SM.FS.TCC@usda.gov] (mailto:SM.FS.TCC@usda.gov) with any
     questions or specific data requests.
-
   |||,
 
   license: license.id,
