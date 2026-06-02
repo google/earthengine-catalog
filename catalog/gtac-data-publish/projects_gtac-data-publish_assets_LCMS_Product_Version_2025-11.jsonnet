@@ -102,6 +102,14 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
+       ee.link.predecessor(
+      'USFS/GTAC/LCMS/v2024-10',
+      ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
+    ),
+    ee.link.latest(
+      id,
+      ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
+    ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
