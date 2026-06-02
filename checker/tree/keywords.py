@@ -258,7 +258,6 @@ EXCEPTIONS = frozenset({
     'tile',
     'tir',
     'tirs',
-    'tnc',
     'toms',
     'treemap',
     'tropical',
