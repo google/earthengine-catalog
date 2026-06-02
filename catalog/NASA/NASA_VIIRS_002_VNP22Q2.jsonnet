@@ -29,7 +29,6 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   id: id,
   title: 'VNP22Q2.002: Land Surface Phenology Yearly L3 Global 500m SIN Grid',
   version: version,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Suomi National Polar-Orbiting Partnership (Suomi NPP) NASA Visible
