@@ -21,7 +21,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Global Annual Mangrove Extent (1984-2023)',
   version: '1.0',
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.table,
 
   description: |||
