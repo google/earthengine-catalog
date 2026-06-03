@@ -150,4 +150,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
 
   'gee:user_uploaded': true,
+  'gee:skip_featureview_generation': true,
 }
