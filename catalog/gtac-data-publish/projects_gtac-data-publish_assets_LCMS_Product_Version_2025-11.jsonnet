@@ -24,6 +24,7 @@ local license = spdx.proprietary;
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
@@ -34,12 +35,16 @@ local license = spdx.proprietary;
     United States. Its objective is to develop a consistent approach using the latest technology
     and advancements in change detection to produce a "best available" map of landscape change. For full LCMS methodology, see Housman et al. (2026).
 
+    **Products**
+
     Outputs include three annual products: change, land cover, and land use. The change model output relates specifically to vegetation cover and includes slow loss, fast loss (which also includes hydrologic changes such as inundation or desiccation), and gain. These values are predicted for each year of the Landsat time series and serve as the foundational products for LCMS. We apply a ruleset based on ancillary datasets to create the final change product, which is a refinement/reclassification of the modeled change to 15 classes that explicitly provide information on the cause of landscape change (e.g., Tree Removal, Wildfire, Wind). Land cover and land use maps depict life-form level land cover and broad-level land use for each year. 
 
     Because no algorithm performs best in all situations, LCMS uses an ensemble of models as
     predictors, which improves map accuracy across a range of ecosystems and change processes
     (Healey et al., 2018). The resulting suite of LCMS change, land cover, and land use maps offer
     a holistic depiction of landscape change across the United States since 1985.
+
+    **Data and Methods**
 
     Predictor layers for the LCMS model include outputs from the LandTrendr and CCDC change detection 
     algorithms, and terrain information. These components are all accessed and processed using Google 
@@ -87,7 +92,7 @@ local license = spdx.proprietary;
 
     * Please see the [LCMS Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/LCMS/LCMS_v2025-11_Methods.pdf) and the [LCMS companion article](https://doi.org/10.1038/s41597-026-06743-0) (Housman et al., 2026) for more detailed information regarding methods and accuracy assessment, or the [LCMS Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php) for data downloads metadata, and support documents.
 
-    Contact [sm.fs.lcms@usda.gov](mailto:sm.fs.lcms@usda.gov) with any
+    Contact [SM.FS.lcms@usda.gov](mailto:SM.FS.lcms@usda.gov) with any
     questions or specific data requests.
   |||
 ,
@@ -97,7 +102,7 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
-    ee.link.predecessor(
+       ee.link.predecessor(
       'USFS/GTAC/LCMS/v2024-10',
       ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
     ),
@@ -108,7 +113,6 @@ local license = spdx.proprietary;
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
-    'lcms',
     'usda',
     'usfs',
     'change_detection',
@@ -119,7 +123,7 @@ local license = spdx.proprietary;
     'redcastle_resources',
   ],
   providers: [
-    ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 'https://apps.fs.usda.gov/lcms-viewer/'),
+    ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 'https://www.fs.usda.gov/about-agency/gtac'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
@@ -131,7 +135,7 @@ local license = spdx.proprietary;
         description: |||
           This LCMS version covers the conterminous United States, Alaska, 
           Puerto Rico-US Virgin Islands, and Hawaii.
-          Possible values: 'CONUS, AK, PRUSVI, HI'
+          Possible values: 'CONUS', 'AK', 'PRUSVI', 'HI'
         |||,
         type: ee_const.var_type.string,
       },
@@ -869,7 +873,8 @@ local license = spdx.proprietary;
         Pasquarella, V. J., Brown, C. F., Czerwinski, W., and Rucklidge, W. J., 2023. 
         Comprehensive Quality Assessment of Optical Satellite Imagery Using 
         Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
-        on Computer Vision and Pattern Recognition. 2124-2134 [doi:10.1109/CVPRW59228.2023.00206](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/papers/Pasquarella_Comprehensive_Quality_Assessment_of_Optical_Satellite_Imagery_Using_Weakly_Supervised_CVPRW_2023_paper.pdf).
+        on Computer Vision and Pattern Recognition. 2124-2134 [doi:10.1109/CVPRW59228.2023.00206]
+        (https://doi.org/10.1109/CVPRW59228.2023.00206).
       |||,
       doi:'10.1109/CVPRW59228.2023.00206',
     },

@@ -2,13 +2,10 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local versions = import 'versions.libsonnet';
-local versions_table = import 'templates/TCC_versions.libsonnet';
 
-local id = 'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5';
-local subdir = 'USGS';
-local version_config = versions(subdir, versions_table, id);
-local version = version_config.version;
+local subdir = 'gtac-data-publish';
+local id = 'projects/gtac-data-publish/assets/TCC/Product_Version/2025-6';
+local version = 'v2025-6';
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -26,16 +23,10 @@ local license = spdx.proprietary;
   title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'beta',
   description: |||
-    **Overview**
     
-    The Tree Canopy Cover (TCC) data suite, produced by the United States Department of Agriculture, Forest Service (USFS), 
-    are annual remote sensing-based map outputs spanning from 1985-2023.
-    These data support the National Land Cover Database (NLCD) project, 
-    which is managed by the US Geological Survey (USGS) as part of the Multi-Resolution Land Characteristics (MRLC) consortium. 
-    The project aims to use the latest technology to create a consistent, "best available" map of tree canopy cover. 
-    The geographic scope includes the Conterminous United States (CONUS) and OCONUS regions (Southeast Alaska (SEAK), Hawaii, 
-    Puerto Rico, and the US Virgin Islands (PRUSVI)). 
+    The Tree Canopy Cover (TCC) data suite, produced by the United States Department of Agriculture, Forest Service (USFS), are annual remote sensing-based map outputs spanning from 1985-2025. These data support the National Land Cover Database (NLCD) project, which is managed by the US Geological Survey (USGS) as part of the Multi-Resolution Land Characteristics (MRLC) consortium. The project aims to use the latest technology to create a consistent, "best available" map of tree canopy cover. Methodology is detailed in Heyer et al. (2025). The geographic scope includes the Conterminous United States (CONUS) and OCONUS regions (Southeast Alaska (SEAK), Hawaii (HI), Puerto Rico, and the US Virgin Islands (PRUSVI)). PRUSVI and HI v2025-6 data will be released in late Summer 2026.
 
     **Products**
 
@@ -48,50 +39,38 @@ local license = spdx.proprietary;
     * **NLCD TCC:** A refined product derived from the annual Science TCC images. It undergoes post-processing to 
     reduce interannual noise, highlight long-term trends, and mask specific features (such as water and non-tree agriculture).  
 
-    Each image includes a data mask band that has three values representing areas of no data (0), mapped tree canopy cover(1), 
-    and non-processing area (2). The non-processing areas are pixels in the study area with no cloud or cloud shadow-free data. No data
-    and non-processing area pixels are masked in TCC and SE images.
+    Each image includes a data mask band that has three values representing areas of no data (0), mapped tree canopy cover (1), and non-processing area (2). The non-processing areas are pixels in the study area with no cloud or cloud shadow-free data. Pixels with no data and non-processing area are masked in TCC and SE images.
 
     **Data and Methods**
 
-    We developed training data and random forest models for CONUS, SEAK, PRUSVI and HAWAII using the 
-    USFS Forest Inventory and Analysis (FIA) photo-interpreted TCC as reference data. We leveraged Google Earth Engine (GEE) 
-    (Gorelick et al., 2017) to process fitted LandTrendr and terrain predictors. Terrain data from the 3D Elevation Program (3DEP) 
-    (U.S. Geological Survey, 2019) include elevation, slope, sine of aspect, and cosine of aspect. 
-    For CONUS, we also included the Crop Data Layer (CDL) as a predictor (Lin et al., 2022). 
+    We developed training data and random forest models for CONUS, SEAK, PRUSVI and HI using the USFS Forest Inventory and Analysis (FIA) photo-interpreted TCC as reference data. We leveraged Google Earth Engine (GEE) (Gorelick et al., 2017) to process LandTrendr and terrain predictors. Terrain data from the 3D Elevation Program (3DEP) (U.S. Geological Survey, 2019) include elevation, slope, sine of aspect, and cosine of aspect. For CONUS, we also included the Crop Data Layer (CDL) as a predictor (Lin et al., 2022). 
 
-    We utilized USGS Collection 2 Landsat Tier 1 and Sentinel 2A/2B Level-1C top of atmosphere reflectance imagery to 
-    produce annual medoid composites. To ensure data quality, we applied various algorithms to mask clouds and shadows, 
-    including cFmask (Foga et al., 2017; Zhu and Woodcock, 2012), cloudScore (Chastain et al., 2019), s2cloudless (Sentinel-Hub, 2021), 
-    Cloud Score+ (Pasquarella et al., 2023), and TDOM (Chastain et al., 2019). Once masked, we computed annual medoids to create 
-    a single cloud-free composite for each year. Finally, the composite time series was temporally segmented using LandTrendr 
-    (Kennedy et al., 2010, 2018; Cohen et al., 2018). 
+    We utilized USGS Collection 2 Landsat Tier 1 and Sentinel 2A/2B Level-1C top of atmosphere reflectance imagery to produce annual medoid composites. To ensure data quality, we applied various algorithms to mask clouds and shadows, 
+    including cFmask (Foga et al., 2017; Zhu and Woodcock, 2012), cloudScore (Chastain et al., 2019), s2cloudless (Sentinel-Hub, 2021), Cloud Score+ (Pasquarella et al., 2023), and TDOM (Chastain et al., 2019). Once masked, we computed annual medoids to create a single cloud-free composite for each year. Finally, the composite time series was temporally segmented using LandTrendr (Kennedy et al., 2010, 2018; Cohen et al., 2018). 
 
-    For CONUS, we used 70% of the reference data for calibration and 30% for independent error assessment. 
-    Given the ecological diversity of CONUS, we divided the modeling area into 54 tiles (480 km × 480 km). 
-    On local computers we built a unique random forest model for each tile (Breiman, 2001), training it on reference data intersecting a 
-    5×5 window around the center tile. The models were then deployed in GEE to predict wall-to-wall TCC. For OCONUS regions, 
-    we used an 80/20 split and developed a single random forest model for each region.
+    For CONUS, we used 70% of the reference data for calibration and 30% for independent error assessment. Given the ecological diversity of CONUS, we divided the modeling area into 54 tiles (480 km × 480 km). On local computers, we built a unique random forest model for each tile (Breiman, 2001), training it on reference data intersecting a 5×5 window around the center tile. The models were then deployed in GEE to predict wall-to-wall TCC. For OCONUS regions, we used an 80/20 split, and developed a single random forest model for each region. 
+
+    For the full TCC methodology, see Heyer et al. (2025).
 
     **Additional Resources**
 
-    * Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2023-5_Methods.pdf) or 
+    * Please see the [TCC Methods Brief](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/docs/TCC_v2025-6_Methods.pdf) or 
     [Science of Remote Sensing journal article](https://www.sciencedirect.com/science/article/pii/S2666017225001075)
     for detailed information regarding methods and accuracy assessment. 
     
     * Please see the [TCC Geodata Clearinghouse](https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/)
     for data downloads, metadata, and support documents.
 
-    * The string HAWAII will be updated to HI in the upcoming v2025.6 data release.
-
-    Contact [sm.fs.tcc@usda.gov] with any
+    Contact [SM.FS.TCC@usda.gov] (mailto:SM.FS.TCC@usda.gov) with any
     questions or specific data requests.
-
   |||,
 
   license: license.id,
-  links: ee.standardLinks(subdir, id)  + version_config.version_links + [
-    ee.link.license('https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/')
+  links: ee.standardLinks(subdir, id) + [
+    {
+      rel: ee_const.rel.source,
+      href: 'https://data.fs.usda.gov/geodata/rastergateway/treecanopycover/',
+    },
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
@@ -108,7 +87,7 @@ local license = spdx.proprietary;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
-                    '1985-06-01T00:00:00Z', '2023-09-30T00:00:00Z'),
+                    '1985-06-01T00:00:00Z', '2025-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
@@ -116,8 +95,8 @@ local license = spdx.proprietary;
         description: |||
           TCC currently covers CONUS, Southeastern Alaska, Puerto Rico-US
           Virgin Islands and Hawaii. This version contains data for CONUS, 
-          AK, PRUSVI, and HAWAII.
-          Possible values: 'CONUS, AK, PRUSVI, HAWAII'
+          AK, PRUSVI, and HI.
+          Possible values: 'CONUS', 'AK', 'PRUSVI', 'HI'
         |||,
         type: ee_const.var_type.string,
       },
@@ -125,7 +104,7 @@ local license = spdx.proprietary;
         name: 'version',
         description: |||
           This is the fifth version of the TCC product released in the MRLC consortium 
-          that is part of the National Land Cover Database (NLCD)'
+          that is part of the National Land Cover Database (NLCD)
         |||,
         type: ee_const.var_type.string,
       },
@@ -314,19 +293,17 @@ local license = spdx.proprietary;
     ],
   },
   'sci:citation': |||
-    USDA Forest Service. 2025. USFS Tree Canopy Cover v2023.5
+    USDA Forest Service. 2025. USFS Tree Canopy Cover v2025.6
     (Conterminous United States and Outer Conterminous United States).
     Salt Lake City, Utah.
   |||,
    'sci:publications': [
       {
         citation: |||
-          Breiman, L., 2001.
-          Random Forests. In Machine Learning. Springer,
-          45: 5-32
+          Breiman, L., 2001. Random Forests. In Machine Learning. Springer, 45: 5-32
           [doi:10.1023/A:1010933404324](https://doi.org/10.1023/A:1010933404324)
         |||,
-          doi:'10.1023/A:1010933404324',
+        doi:'10.1023/A:1010933404324',
       },
       {
         citation: |||
@@ -337,7 +314,7 @@ local license = spdx.proprietary;
           221: 274-285
           [doi:10.1016/j.rse.2018.11.012](https://doi.org/10.1016/j.rse.2018.11.012)
         |||,
-          doi:'10.1016/j.rse.2018.11.012',
+        doi:'10.1016/j.rse.2018.11.012',
       },
       {
         citation: |||
@@ -358,6 +335,12 @@ local license = spdx.proprietary;
           [doi:10.1016/j.rse.2017.03.026](http://doi.org/10.1016/j.rse.2017.03.026)
         |||,
         doi:'10.1016/j.rse.2017.03.026',
+      },
+      {
+        citation: |||
+          Heyer, J., Schleeweis, K., Ruefenacht, B., Housman, I., Zhiqiang, Y., Ryerson, D., Reischmann, J., Megown, K., & Bogle, M. S. (2025). Annual national tree canopy cover mapping: A novel workflow with temporal transferability and improved uncertainty quantification. Science of Remote Sensing, 100301. [doi:10.1016/j.srs.2025.100301](http://doi.org/10.1016/j.srs.2025.100301)
+        |||,
+        doi:'10.1016/j.srs.2025.100301',
       },
       {
         citation: |||
@@ -392,9 +375,9 @@ local license = spdx.proprietary;
           Comprehensive Quality Assessment of Optical Satellite Imagery Using 
           Weakly Supervised Video Learning. In Proceedings of the IEEE/CVF Conference 
           on Computer Vision and Pattern Recognition. 2124-2134. 
-          [doi:10.1109/cvprw59228.2023.00206](https://doi.org/10.1109/cvprw59228.2023.00206)
+          [doi:10.1109/CVPRW59228.2023.00206](https://doi.org/10.1109/CVPRW59228.2023.00206)
         |||,
-        doi:'10.3390/rs10050691',
+        doi:'10.1109/CVPRW59228.2023.00206',
       },
       {
         citation: |||
@@ -437,8 +420,7 @@ local license = spdx.proprietary;
     without additional permissions or fees. If you use these data in a publication, presentation, or
     other research product please use the following citation:
 
-    USDA Forest Service. 2025. USFS Tree Canopy Cover v2023.5
+    USDA Forest Service. 2025. USFS Tree Canopy Cover v2025.6
     (Conterminous United States and Outer Conterminous United States). Salt Lake City, Utah.
   |||,
-  'gee:user_uploaded': true,
 }
