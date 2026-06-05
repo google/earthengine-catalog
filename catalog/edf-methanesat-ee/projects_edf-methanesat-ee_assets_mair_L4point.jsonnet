@@ -24,10 +24,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset was generated using MethaneAIR measurements taken on flights
     between 09 July 2025 and 10 October 2025. MethaneAIR is managed by
     [MethaneSAT LLC](https://www.methanesat.org/), a wholly owned subsidiary of
-    Environmental Defense Fund. The methane emission fluxes were produced using a
-    point source detection and emissions quantification framework specialized to exploit the high spatial
+    Environmental Defense Fund. The methane emission fluxes were produced using a 
+    point source detection framework ([described in Zhang et al. (2026)](https://doi.org/10.5194/egusphere-2026-141))
+    and quantification framework specialized to exploit the high spatial
     resolution, wide spatial coverage, and high precision of MethaneAIR data
-    (methodology is described in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023).)
+    (described in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023)).
     The point source quantification framework was extensively tested in blind
     controlled-release experiments as detailed in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023)
     and [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439). Not all
@@ -148,6 +149,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MethaneAIR: a new airborne imaging spectrometer, Atmos. Meas. Tech., 16,
     5771-5785.
     [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023),
+    Zhang, Z., Sargent, M., Warren, J. D., Chulakadabba, A., Russi, M., Ayvazov,
+    S., Benmergui, J., Knapp, M., Kyzivat, E., Miller, C. C., Roche, S., Luo, B.,
+    Miller, D. J., Nasr, M., Sun, K., Williams, J. P., MacKay, K., Omara, M.,
+    Guanter, L., Gautam, R., Franklin, J., Liu, X., and Wofsy, S. C. 2026. Automatic
+    Methane Plume Masking Based on Wavelet Transform Image Processing: Application to
+    MethaneAIR and MethaneSAT data, EGUsphere (preprint),
+    [doi.org/10.5194/egusphere-2026-141](https://doi.org/10.5194/egusphere-2026-141),
   |||,
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
