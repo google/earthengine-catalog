@@ -1,7 +1,7 @@
 local id = 'NOAA/VIIRS/001/VNP09GA';
-local successor_id = 'NASA/VIIRS/002/VNP09GA';
-local latest_id = successor_id;
-local version = 'v001';
+local versions = import 'versions.libsonnet';
+local version_table =
+    import '../NASA/templates/VIIRS_VNP09GA_versions.libsonnet';
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -9,14 +9,10 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local license = spdx.proprietary;
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
-local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
+local license = spdx.proprietary;
 
 {
   stac_version: ee_const.stac_version,
@@ -64,13 +60,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP09GA.001',
     },
-    ee.link.latest(
-        latest_id,
-        ee_const.catalog_base + 'NASA/' + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['satellite-imagery'],
   keywords: [
     'daily',
@@ -84,7 +74,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/VIIRS/VNP09GA.001'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   'gee:provider_ids': [
     'C1373412034-LPDAAC_ECS',
