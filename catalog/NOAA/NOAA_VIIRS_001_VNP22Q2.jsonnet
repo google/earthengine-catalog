@@ -1,19 +1,18 @@
 local id = 'NOAA/VIIRS/001/VNP22Q2';
 local subdir = 'NOAA';
-local successor_id = 'NASA/VIIRS/002/VNP22Q2';
-local latest_id = successor_id;
-local version = 'V001';
+local versions = import 'versions.libsonnet';
+local version_table = import '../NASA/templates/VIIRS_VNP22Q2_versions.libsonnet';
 
 local viirs_vnp22q2_bands = import 'viirs_vnp22q2_bands.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -69,13 +68,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP22Q2.001',
     },
-    ee.link.latest(
-      latest_id,
-      ee_const.catalog_base + 'NASA/' + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'land',

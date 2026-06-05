@@ -1,22 +1,20 @@
 local id = 'NOAA/VIIRS/001/VNP21A1D';
 local subdir = 'NOAA';
-local successor_id = 'NASA/VIIRS/002/VNP21A1D';
-local latest_id = successor_id;
-local version = '1';
+local versions = import 'versions.libsonnet';
+local version_table = import '../NASA/templates/VIIRS_VNP21A1D_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local template = import 'templates/NOAA_VIIRS_001_VNP21A1.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -62,13 +60,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP21A1D.001',
     },
-    ee.link.latest(
-      latest_id,
-      ee_const.catalog_base + 'NASA/' + latest_basename + '.json'),
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'NASA/' + successor_basename + '.json'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['climate'],
   keywords: [
     'daily',
