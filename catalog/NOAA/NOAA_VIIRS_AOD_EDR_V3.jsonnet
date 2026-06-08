@@ -853,8 +853,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     redistributed as desired.
   |||,
 
-  'gee:status': 'beta',
-
   'gee:type': ee_const.gee_type.image_collection,
 
   license: spdx.proprietary.id,
