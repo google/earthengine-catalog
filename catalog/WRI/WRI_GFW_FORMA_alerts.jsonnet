@@ -1,16 +1,16 @@
 local id = 'WRI/GFW/FORMA/alerts';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/FORMA_versions.libsonnet';
 local subdir = 'WRI';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,6 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'FORMA Alerts',
+  version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
     **NOTE from WRI**: WRI decided to stop updating FORMA alerts. The goal was
@@ -49,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     of days between the alert_date and the last MODIS NDVI update.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['fire'],
   keywords: [
     'daily',
@@ -63,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('World Resources Institute / Global Forest Watch', 'https://www.globalforestwatch.org/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-120.0, -50.0, 180.0, 40.0,
                     '2012-01-01T00:00:00Z', '2019-05-18T00:00:00Z'),
@@ -153,5 +154,4 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     as the source of the data.
   |||,
   'gee:user_uploaded': true,
-  version: ee_const.version_unknown,
 }

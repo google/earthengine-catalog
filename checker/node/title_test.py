@@ -1,9 +1,9 @@
 """Tests for title."""
 
+from absl.testing import absltest
 from checker import stac
 from checker import test_utils
 from checker.node import title
-from absl.testing import absltest
 
 DEPRECATED = ' [deprecated]'
 TITLE = 'title'
@@ -131,6 +131,12 @@ class CollectionTest(test_utils.NodeTest):
     self.assert_collection(
         {TITLE: 'Too long ' + extra},
         f'Collection title is too long: "Too long {extra}"',
+    )
+
+  def test_deprecated_multiple(self):
+    self.assert_collection(
+        {TITLE: 'My old dataset v1.0 (deprecated) [deprecated]'},
+        '"title" must contain "deprecated" at most once, found 2 times',
     )
 
 

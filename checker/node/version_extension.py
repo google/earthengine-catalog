@@ -142,6 +142,13 @@ class Check(stac.NodeCheck):
     else:
       if not isinstance(version_field, str):
         yield cls.new_issue(node, f'"{VERSION}" must be a str')
+      else:
+        if 'deprecated' in version_field.lower():
+          yield cls.new_issue(
+              node,
+              f'"{VERSION}" must not contain "deprecated", found'
+              f' "{version_field}"',
+          )
 
     if TITLE in node.stac:
       title = node.stac[TITLE]

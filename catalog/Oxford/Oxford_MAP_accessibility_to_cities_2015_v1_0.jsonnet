@@ -1,4 +1,6 @@
 local id = 'Oxford/MAP/accessibility_to_cities_2015_v1_0';
+local versions = import 'versions.libsonnet';
+local version_table = import '../malariaatlasproject/templates/accessibility_to_cities_versions.libsonnet';
 
 local subdir = 'Oxford';
 
@@ -6,8 +8,8 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local basename = std.strReplace(id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
 
@@ -21,7 +23,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'Accessibility to Cities 2015 [deprecated]',
-  version: '1.0',
+  version: version,
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
   description: |||
@@ -60,11 +62,7 @@ local license = spdx.cc_by_4_0;
     Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-      'projects/malariaatlasproject/assets/accessibility/accessibility_to_cities/2015_v1_0',
-      ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_accessibility_accessibility_to_cities_2015_v1_0.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['population'],
   keywords: [
     'accessibility',
@@ -75,7 +73,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('Malaria Atlas Project', 'https://malariaatlas.org/research-project/accessibility-to-cities/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 85.0,
                     '2015-01-01T00:00:00Z', '2016-01-01T00:00:00Z'),

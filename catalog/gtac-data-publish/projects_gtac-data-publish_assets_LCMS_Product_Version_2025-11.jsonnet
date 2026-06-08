@@ -1,12 +1,13 @@
+local id = 'projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/LCMS_versions.libsonnet';
+local subdir = 'gtac-data-publish';
+
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-
-local subdir = 'gtac-data-publish';
-local id = 'projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11';
-local version = 'v2025-11';
-local basename = std.strReplace(id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -97,19 +98,11 @@ local license = spdx.proprietary;
   |||
 ,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     {
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
-       ee.link.predecessor(
-      'USFS/GTAC/LCMS/v2024-10',
-      ee_const.catalog_base + 'USFS/USFS_GTAC_LCMS_v2024-10.json'
-    ),
-    ee.link.latest(
-      id,
-      ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
-    ),
   ],
   'gee:categories': ['landuse-landcover'],
   keywords: [
@@ -124,7 +117,7 @@ local license = spdx.proprietary;
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 'https://www.fs.usda.gov/about-agency/gtac'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-135.286387, 20.38379, -56.446306, 52.459364,
                     '1985-01-01T00:00:00Z', '2025-12-31T00:00:00Z'),

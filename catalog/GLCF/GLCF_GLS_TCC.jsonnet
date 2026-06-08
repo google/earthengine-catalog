@@ -1,17 +1,16 @@
 local id = 'GLCF/GLS_TCC';
-local successor_id = 'NASA/MEASURES/GFCC/TC/v3';
+local versions = import 'versions.libsonnet';
+local version_table = import '../NASA/templates/GLS_TCC_versions.libsonnet';
 local subdir = 'GLCF';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,6 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'GLCF: Landsat Tree Cover Continuous Fields [deprecated]',
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
@@ -52,10 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     an image in the collection for each available WRS2 path/row.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, ee_const.catalog_base + 'NASA/NASA_MEASURES_GFCC_TC_v3.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['forest-biomass'],
   keywords: [
     'forest',
@@ -66,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MEaSUREs/GFCC/GFCC30TC.003'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2010-12-31T00:00:00Z'),
   summaries: {
@@ -193,5 +190,4 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     University of Maryland, Department of Geographical Sciences and NASA. Usage
     is free if acklowedgement is made.
   |||,
-  version: ee_const.version_unknown,
 }

@@ -35,6 +35,14 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'"{TITLE}" must be a str')
       return
 
+    deprecated_count = title.lower().count('deprecated')
+    if deprecated_count > 1:
+      yield cls.new_issue(
+          node,
+          f'"{TITLE}" must contain "deprecated" at most once, '
+          f'found {deprecated_count} times',
+      )
+
     if node.type == stac.StacType.CATALOG:
       if node.id == GEE_CATALOG:
         # The top level node as a catalog title: 'Google Earth Engine Catalog'

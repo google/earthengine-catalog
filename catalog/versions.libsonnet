@@ -53,7 +53,12 @@ local configs(subdir, version_array) = {
     [$['keys'][current_index]]: {
       id: $['keys'][current_index],
 
-      version: $['version_table'][self.id],
+      version:
+        local raw_version = $['version_table'][self.id];
+        if std.endsWith(raw_version, ee_const.version_deprecated_suffix) then
+          std.substr(raw_version, 0, std.length(raw_version) - std.length(ee_const.version_deprecated_suffix))
+        else
+          raw_version,
       basename: basename(self.id),
       ee_catalog_url: ee_const.ee_catalog_url + self.basename,
 
