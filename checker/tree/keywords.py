@@ -71,7 +71,6 @@ EXCEPTIONS = frozenset({
     'digital_soil_mapping',
     'diurnal',
     'driest',
-    'ecological-connectivity',
     'eddi',
     'emc',
     'endangered',
