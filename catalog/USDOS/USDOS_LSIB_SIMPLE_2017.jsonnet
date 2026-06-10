@@ -58,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'United States Department of State, Office of the Geographer',
-      'https://geonode.state.gov/layers/catalog:geonode:LSIB'),
+      'https://geodata.state.gov/geonetwork/srv/eng/catalog.search#/home.'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2017-03-30T00:00:00Z', '2017-03-30T00:00:00Z'),
