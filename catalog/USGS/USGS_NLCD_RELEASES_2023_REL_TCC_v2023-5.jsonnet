@@ -3,7 +3,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local versions_table = import 'templates/TCC_versions.libsonnet';
+local versions_table = import '../gtac-data-publish/templates/TCC_versions.libsonnet';
 
 local id = 'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5';
 local subdir = 'USGS';
@@ -23,8 +23,9 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS) [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     **Overview**
