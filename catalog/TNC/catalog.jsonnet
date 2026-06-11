@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('TNC_HM_v3_300m_c', base_url),
     ee.link.child_collection('TNC_HM_v3_90m_s', base_url),
   ],
 }
