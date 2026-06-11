@@ -100,5 +100,50 @@ local configs(subdir, version_array) = {
   }
 };
 
-function(subdir, version_table, id)
-  configs(subdir, version_table)['versions'][id]
+# Returns an object containing all of the version information for `id`
+# taken from `version_table`, including related versions and the links
+# between them.
+#
+# In the rare case that `id` links to something in `version_table` without
+# explicitly being a member (e.g., multiple datasets are merged into a
+# common successor), the current and successor versions can be passed as
+# optional arguments to dynamically modify the `version_table` for a one-way
+# link from `id`.
+function(subdir, version_table, id,
+         successor_version_key=null,
+         successor_subdir=null,
+         current_version=null)
+  if successor_version_key == null then
+    # Common case: `id` is in `version_table` and the version relationships
+    # can be derived directly.
+    configs(subdir, version_table)['versions'][id]
+  else
+    # Rare case: `id` is inserting itself into `version_table` before a
+    # specific version.
+    local resolved_successor_subdir =
+      if successor_subdir != null then successor_subdir else subdir;
+
+    local find_successor_index(table, key, idx=0) =
+      if idx >= std.length(table) then
+        error "Successor version key '" + key + "' not found in version table"
+      else if std.objectFields(table[idx])[0] == key then
+        idx
+      else
+        find_successor_index(table, key, idx + 1);
+
+    local successor_index = find_successor_index(version_table, successor_version_key);
+    local slice(arr, start, len) = [
+      arr[i] for i in std.range(start, start + len - 1)
+    ];
+    local sliced_table = slice(version_table, successor_index, std.length(version_table) - successor_index);
+
+    local current_version_key = if current_version != null then current_version else ee_const.version_unknown;
+    local pred = {
+      [current_version_key]: {
+        id: id,
+        subdir: subdir
+      }
+    };
+
+    local new_table = [pred] + sliced_table;
+    configs(resolved_successor_subdir, new_table)['versions'][id]

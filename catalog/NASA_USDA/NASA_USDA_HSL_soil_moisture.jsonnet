@@ -1,7 +1,7 @@
 local id = 'NASA_USDA/HSL/soil_moisture';
-local successor_id = 'NASA/SMAP/SPL4SMGP/007';
 local subdir = 'NASA_USDA';
-local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import '../NASA/templates/NASA_SMAP_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -10,13 +10,14 @@ local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
 
+local version_config = versions(
+    subdir, version_table, id,
+    successor_version_key='7',
+    successor_subdir='NASA');
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local successor_filename = successor_basename + '.json';
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local successor_url =  ee_const.catalog_base + 'NASA/' + successor_filename;
 
 {
   stac_version: ee_const.stac_version,
@@ -60,9 +61,7 @@ local successor_url =  ee_const.catalog_base + 'NASA/' + successor_filename;
     Agricultural Services and USDA Hydrology and Remote Sensing Lab.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(successor_id, successor_url)
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['soil'],
   keywords: [
     'geophysical',
@@ -221,5 +220,5 @@ local successor_url =  ee_const.catalog_base + 'NASA/' + successor_filename;
     for additional information.
   |||,
   'gee:user_uploaded': true,
-   version: ee_const.version_unknown,
+   version: version_config.version,
 }
