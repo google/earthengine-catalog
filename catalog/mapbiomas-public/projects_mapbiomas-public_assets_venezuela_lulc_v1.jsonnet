@@ -122,7 +122,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 27, color: 'ffffff', description: 'Not Observed'},
           {value: 29, color: 'ffaa5f', description: 'Rocky Outcrop'},
           {value: 30, color: '9c0027', description: 'Mining'},
+          {value: 31, color: '091077', description: 'Aquaculture'},
           {value: 32, color: 'fc8114', description: 'Hypersaline Tidal Flat'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
+          {value: 34, color: '93dfe6', description: 'Glacier'},
           {value: 50, color: 'ad5100', description: 'Xerophytic Grassland/Shrubland'},
           {value: 66, color: 'a89358', description: 'Shrubland'},
           {value: 68, color: 'e97a7a', description: 'Other Non-vegetated Natural Areas'},
@@ -173,10 +176,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [28] --
               'ffaa5f',  // [29] Rocky Outcrop
               '9c0027',  // [30] Mining
-              '000000',  // [31] --
+              '091077',  // [31] Aquaculture
               'fc8114',  // [32] Hypersaline Tidal Flat
-              '000000',  // [33] --
-              '000000',  // [34] --
+              '2532e4',  // [33] River, lake or ocean
+              '93dfe6',  // [34] Glacier
               '000000',  // [35] --
               '000000',  // [36] --
               '000000',  // [37] --
