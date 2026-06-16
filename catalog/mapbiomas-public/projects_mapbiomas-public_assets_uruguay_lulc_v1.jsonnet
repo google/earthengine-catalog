@@ -107,7 +107,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 12, color: 'ccc87e', description: 'Grassland'},
           {value: 14, color: 'ffefc3', description: 'Agricultural and Livestock Area'},
           {value: 15, color: 'fbf0ab', description: 'Pasture'},
-          {value: 19, color: 'c27ba0', description: 'Agriculture'},
+          {value: 18, color: 'c27ba0', description: 'Agriculture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated Area'},
           {value: 26, color: '2532e4', description: 'Water Body'},
           {value: 27, color: 'ffffff', description: 'Not Observed'},
@@ -147,8 +147,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               'fbf0ab',  // [15] Pasture
               '000000',  // [16] --
               '000000',  // [17] --
-              '000000',  // [18] --
-              'c27ba0',  // [19] Agriculture
+              'c27ba0',  // [18] Agriculture
+              '000000',  // [19] --
               '000000',  // [20] --
               '000000',  // [21] --
               'd4271e',  // [22] Non-vegetated Area
