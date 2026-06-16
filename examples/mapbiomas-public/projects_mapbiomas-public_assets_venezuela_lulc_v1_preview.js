@@ -44,10 +44,10 @@ var visParams = {
     '000000',  // [28] --
     'ffaa5f',  // [29] Rocky Outcrop
     '9c0027',  // [30] Mining
-    '000000',  // [31] --
+    '091077',  // [31] Aquaculture
     'fc8114',  // [32] Hypersaline Tidal Flat
-    '000000',  // [33] --
-    '000000',  // [34] --
+    '2532e4',  // [33] River, lake or ocean
+    '93dfe6',  // [34] Glacier
     '000000',  // [35] --
     '000000',  // [36] --
     '000000',  // [37] --
