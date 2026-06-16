@@ -57,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   extent: ee.extent(
-    -81.1555,
+    -92.01,
     -5.1216,
     -75.1741,
     2.4547,
