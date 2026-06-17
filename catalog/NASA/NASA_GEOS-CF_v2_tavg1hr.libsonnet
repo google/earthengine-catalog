@@ -238,52 +238,52 @@ local units = import 'units.libsonnet';
       {
         name: 'PM10_RH35',
         description: 'Particulate matter with diameter less than 10 um mass at RH 35% (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25_RH35',
         description: 'Particulate matter with diameter less than 2.5 um mass at RH 35% (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25bc_RH35',
         description: 'PM2.5 mass at RH 35% from black carbon mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25du_RH35',
         description: 'PM2.5 mass at RH 35% from dust mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25nit_RH35',
         description: 'PM2.5 mass at RH 35% from nitrate (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25nh4_RH35',
         description: 'PM2.5 mass at RH 35% from ammonium (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25oc_RH35',
         description: 'PM2.5 mass at RH 35% from primary organic aerosols (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25soa_RH35',
         description: 'PM2.5 mass at RH 35% from secondary organic aerosols (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25ss_RH35',
         description: 'PM2.5 mass at RH 35% from sea salt aerosols (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PM25su_RH35',
         description: 'PM2.5 mass at RH 35% from sulfates (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'PRPE',
