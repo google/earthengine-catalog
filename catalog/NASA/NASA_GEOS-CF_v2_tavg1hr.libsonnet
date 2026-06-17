@@ -23,30 +23,37 @@ local units = import 'units.libsonnet';
       {
         name: 'AOD550_BC',
         description: 'Aerosol optical depth at 550 nm of black carbon aerosols',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'AOD550_DUST',
         description: 'Aerosol optical depth at 550 nm of dust aerosols',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'AOD550_OC',
         description: 'Aerosol optical depth at 550 nm of organic aerosols',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'AOD550_PSC',
         description: 'Aerosol optical depth at 550 nm of polar stratospheric cloud',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'AOD550_SLA',
         description: 'Aerosol optical depth at 550 nm of stratospheric liquid aerosols',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'AOD550_SNA',
         description: 'Aerosol optical depth at 550 nm of sulfate-nitrate-ammonium aerosols',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'AOD550_SS',
         description: 'Aerosol optical depth at 550 nm of sea salt aerosols',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'BCPI',
@@ -76,6 +83,7 @@ local units = import 'units.libsonnet';
       {
         name: 'CLDTT',
         description: 'Total cloud area fraction',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'CO',
@@ -85,6 +93,7 @@ local units = import 'units.libsonnet';
       {
         name: 'COSZ',
         description: 'Cosine of the solar zenith angle',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'DST1',
@@ -209,72 +218,72 @@ local units = import 'units.libsonnet';
       {
         name: 'PBLCol_NO2',
         description: 'Boundary layer column density of nitrogen dioxide (MW=46.01 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'PBLCol_O3',
         description: 'Boundary layer column density of ozone (MW=48.0 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'PBLCol_SO2',
         description: 'Boundary layer column density of sulfur dioxide (MW=64.04 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'PHIS',
         description: 'Surface geopotential height',
-        'gee:units': 'm^2 s-2',
+        'gee:units': units.squared_meter_per_squared_second,
       },
       {
         name: 'PM10_RH35',
         description: 'Particulate matter with diameter less than 10 um mass at RH 35% (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25_RH35',
         description: 'Particulate matter with diameter less than 2.5 um mass at RH 35% (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25bc_RH35',
         description: 'PM2.5 mass at RH 35% from black carbon mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25du_RH35',
         description: 'PM2.5 mass at RH 35% from dust mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25nit_RH35',
         description: 'PM2.5 mass at RH 35% from nitrate (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25nh4_RH35',
         description: 'PM2.5 mass at RH 35% from ammonium (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25oc_RH35',
         description: 'PM2.5 mass at RH 35% from primary organic aerosols (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25soa_RH35',
         description: 'PM2.5 mass at RH 35% from secondary organic aerosols (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25ss_RH35',
         description: 'PM2.5 mass at RH 35% from sea salt aerosols (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PM25su_RH35',
         description: 'PM2.5 mass at RH 35% from sulfates (includes water) mass concentration in dry air',
-        'gee:units': 'ug m-3',
+        'gee:units': units.density_ug_per_m_cubed,
       },
       {
         name: 'PRPE',
@@ -299,6 +308,7 @@ local units = import 'units.libsonnet';
       {
         name: 'RH',
         description: 'Relative humidity after moist',
+        'gee:units': units.dimensionless,
       },
       {
         name: 'SALA',
@@ -343,22 +353,22 @@ local units = import 'units.libsonnet';
       {
         name: 'TotCol_BrO',
         description: 'Total column density of bromine monoxide (MW=95.9 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TotCol_CO',
         description: 'Total column density of carbon monoxide (MW=28.01 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TotCol_IO',
         description: 'Total column density of iodine monoxide (MW=206.9 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TotCol_NO2',
         description: 'Total column density of nitrogen dioxide (MW=46.01 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TotCol_O3',
@@ -368,7 +378,7 @@ local units = import 'units.libsonnet';
       {
         name: 'TotCol_SO2',
         description: 'Total column density of SO2 sulfur dioxide (MW=64.04 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TPREC',
@@ -378,47 +388,47 @@ local units = import 'units.libsonnet';
       {
         name: 'TropCol_BrO',
         description: 'Tropospheric column density of bromine monoxide (MW=95.9 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_CO',
         description: 'Tropospheric column density of carbon monoxide (MW=28.01 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_GLYX',
         description: 'Tropospheric column density of glyoxal (MW=58.04 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_HCHO',
         description: 'Tropospheric column density of formaldehyde (MW=30.03 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_HCOOH',
         description: 'Tropospheric column density of formic acid (MW=46.03 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_IO',
         description: 'Tropospheric column density of iodine monoxide (MW=206.9 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_ISOP',
         description: 'Tropospheric column density of isoprene (MW=100.13 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_NH3',
         description: 'Tropospheric column density of ammonia (MW=17.04 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_NO2',
         description: 'Tropospheric column density of nitrogen dioxide (MW=46.01 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_O3',
@@ -428,12 +438,12 @@ local units = import 'units.libsonnet';
       {
         name: 'TropCol_PAN',
         description: 'Tropospheric column density of peroxyacetyl nitrate (MW=121.06 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TropCol_SO2',
         description: 'Tropospheric column density of sulfur dioxide (MW=64.04 g mol-1)',
-        'gee:units': '1.0e15 molec cm-2',
+        'gee:units': units.trace_gas_molecules_per_cm2,
       },
       {
         name: 'TROPPB',
