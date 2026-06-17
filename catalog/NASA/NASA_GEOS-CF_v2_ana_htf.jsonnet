@@ -73,7 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'PM25_RH35',
         description: 'Particulate matter with diameter below 2.5 um mass at RH 35% (includes water) mass concentration in dry air',
-        'gee:units': units.density_ug_per_m_cubed,
+        'gee:units': units.mg_per_sq_m,
       },
       {
         name: 'SLP',
