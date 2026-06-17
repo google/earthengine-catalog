@@ -23,6 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status':'beta',
   title: 'GEOS-CF ana tavg1hr v2: Goddard Earth Observing System Composition Forecast',
   version: 'v2',
   description: |||
