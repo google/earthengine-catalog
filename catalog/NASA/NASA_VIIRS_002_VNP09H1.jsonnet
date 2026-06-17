@@ -1,21 +1,19 @@
 local id = 'NASA/VIIRS/002/VNP09H1';
 local subdir = 'NASA';
-local version = 'v002';
-local predecessor_id = 'NOAA/VIIRS/001/VNP09H1';
-local latest_id = id;
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/VIIRS_VNP09H1_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local base_filename = basename + '.json';
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   stac_version: ee_const.stac_version,
@@ -60,10 +58,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP09H1.002',
     },
-      ee.link.latest(latest_id, catalog_subdir_url + latest_basename + '.json'),
-      ee.link.predecessor(predecessor_id,ee_const.catalog_base + 'NOAA/' +
-        predecessor_basename + '.json'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['satellite-imagery'],
   keywords: [
     'daily',

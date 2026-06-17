@@ -21,5 +21,5 @@ var parameters = {
   format: 'png'
 };
 
-var image = means.visualize({palette: palette});
+var image = means.visualize(visParams);
 print(ui.Thumbnail({image: image, params: parameters}));

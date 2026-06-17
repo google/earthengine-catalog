@@ -39,6 +39,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     LST as well as quality control, the three emissivity bands, view zenith
     angle, and time of observation.
 
+    Note that scale factors and offsets described in the MODIS documentation
+    for MOD21C1 bands are already applied to assets ingested into Earth
+    Engine.
+
     Documentation:
 
     * [User's Guide](https://lpdaac.usgs.gov/documents/1398/MOD21_User_Guide_V61.pdf)

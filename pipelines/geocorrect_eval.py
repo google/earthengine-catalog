@@ -59,6 +59,7 @@ is closer.
 """
 
 from collections.abc import Sequence
+import time
 
 from absl import app
 import h5py
@@ -105,21 +106,9 @@ def generate_haversine_tif(
 ) -> None:
   """Writes a tif with the Haversine distances to each pixel's source point."""
   # Calculate lat/lon center of each pixel in the bounding box.
-  lat = numpy.array([
-      [gt[3] + (x * gt[5]) + (gt[5] / 2)] * glt.shape[1]
-      for x in range(0, glt.shape[0])
-  ])
-  lon = numpy.array([
-      [gt[0] + (y * gt[1]) + (gt[1] / 2) for y in range(0, glt.shape[0])]
-      for _ in range(0, glt.shape[1])
-  ])
-  lon = numpy.rot90(numpy.rot90(numpy.rot90(lon)))
-
-  # Sometimes lat and lon come out as 3D arrays with a 3rd dimension of size 1.
-  if len(lat.shape) > 2:
-    lat = lat[:, :, 0]
-  if len(lon.shape) > 2:
-    lon = lon[:, :, 0]
+  lats = gt[3] + numpy.arange(glt.shape[0]) * gt[5] + (gt[5] / 2)
+  lons = gt[0] + numpy.arange(glt.shape[1]) * gt[1] + (gt[1] / 2)
+  lat, lon = numpy.meshgrid(lats, lons, indexing='ij')
 
   # Determine the source lat/lon center of each projected pixel using the GLT.
   valid_glt = numpy.all(glt != -1, axis=-1)
@@ -128,33 +117,28 @@ def generate_haversine_tif(
   proj_lon = lon.copy()
   proj_lon[valid_glt] = source_lon[glt[valid_glt, 0], glt[valid_glt, 1]]
 
-  def haversine_distance(coords: numpy.ndarray) -> float:
-    """Calculates the haversine distance between two points in meters."""
-    rads = numpy.radians(coords)
-    hav = max(
-        geocorrect.pairwise.haversine_distances([rads[0:2], rads[2:4]])[0]
+  def vectorized_haversine(
+      lat1: numpy.ndarray,
+      lon1: numpy.ndarray,
+      lat2: numpy.ndarray,
+      lon2: numpy.ndarray,
+  ) -> numpy.ndarray:
+    """Calculates haversine distance in meters for arrays of coordinates."""
+    r_lat1, r_lon1, r_lat2, r_lon2 = map(
+        numpy.radians, [lat1, lon1, lat2, lon2]
+    )
+    dlat = r_lat2 - r_lat1
+    dlon = r_lon2 - r_lon1
+    a = (
+        numpy.sin(dlat / 2) ** 2
+        + numpy.cos(r_lat1) * numpy.cos(r_lat2) * numpy.sin(dlon / 2) ** 2
     )
     # Earth mean radius in meters.
-    return 6378137 * hav
+    return 6378137 * 2 * numpy.arcsin(numpy.sqrt(a))
 
-  hav = numpy.reshape(
-      numpy.apply_along_axis(
-          haversine_distance,
-          -1,
-          numpy.stack(
-              (
-                  # Each input to the method defined above is a length-4 array
-                  # containing (lat1, lon1) and (lat2, lon2) in that order.
-                  lat.flatten(),
-                  lon.flatten(),
-                  proj_lat.flatten(),
-                  proj_lon.flatten(),
-              ),
-              axis=-1,
-          ),
-      ),
-      shape=lat.shape,
-  )
+  hav = vectorized_haversine(
+      lat.flatten(), lon.flatten(), proj_lat.flatten(), proj_lon.flatten()
+  ).reshape(lat.shape)
 
   # Filter out the distances of unprojected pixels before writing the tif.
   invalid_glt = numpy.all(glt == -1, axis=-1)
@@ -186,19 +170,22 @@ def main(argv: Sequence[str]) -> None:
   lon = rfl_file['location']['lon']
   src_glt_x = rfl_file['location']['glt_x'][:].copy() - 1
   src_glt_y = rfl_file['location']['glt_y'][:].copy() - 1
-  scale = rfl_file.attrs.get('spatialResolution')
+  scale = numpy.array(rfl_file.attrs.get('spatialResolution')).item()
 
   # Generate our GLT. If the input file happens to cross the antimeridian, we
   # only look at one hemisphere.
   index = geocorrect.CoordinateIndex.from_arrays(
       lat, lon, lat_fill_value=lat.fillvalue, lon_fill_value=lon.fillvalue
   )
+  start_time = time.perf_counter()
   glt = geocorrect.GeoLookupTable.from_index(
       index,
       scale_lat=-scale,
       scale_lon=scale,
       num_threads=6,
   )[0]
+  end_time = time.perf_counter()
+  print(f'GLT construction took {end_time - start_time:.4f} seconds')
 
   generate_haversine_tif(
       outfile1,

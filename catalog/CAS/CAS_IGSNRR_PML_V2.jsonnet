@@ -1,17 +1,19 @@
 local id = 'CAS/IGSNRR/PML/V2';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/IGSNRR_PML_versions.libsonnet';
-
 local subdir = 'CAS';
+local versions = import 'versions.libsonnet';
+local version_table = import '../pml_evapotranspiration/templates/PML_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local units = import 'units.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
-local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
+
+local basename = std.strReplace(id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -55,7 +57,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('PML_V2', 'https://github.com/kongdd/PML'),
-    ee.host_provider(version_config.ee_catalog_url),
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2002-07-04T00:00:00Z', null),
   summaries: {

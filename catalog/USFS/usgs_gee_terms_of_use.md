@@ -12,7 +12,7 @@ in place on either public or private land. Natural hazards may or may not be
 depicted on the data and maps, and land users should exercise due caution.
 The data are dynamic and may change over time. The user is responsible to
 verify the limitations of the geospatial data and to use the data
-accordingly.  These data were collected using funding from the U.S.
+accordingly. These data were collected using funding from the U.S.
 Government and can be used without additional permissions or fees. If you
 use these data in a publication, presentation, or other research product
 please use the following citation:

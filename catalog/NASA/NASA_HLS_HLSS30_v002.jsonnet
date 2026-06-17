@@ -35,9 +35,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     * [General Documentation](https://lpdaac.usgs.gov/products/hlss30v002/)
     * L30 catalog link: [NASA/HLS/HLSL30/v002](NASA_HLS_HLSL30_v002)
-
-    Note: The historical assets are currently being ingested and this process
-    is expected to finish in 2025.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [

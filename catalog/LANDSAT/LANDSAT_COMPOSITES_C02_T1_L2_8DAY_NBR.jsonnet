@@ -46,6 +46,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'landsat',
+    'landsat-composite',
+    'fire',
     'nbrt',
     'usgs',
   ],
@@ -93,5 +95,4 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:min_zoom_level': 4,
   'gee:interval': {type: 'cadence', unit: 'day', interval: 8},
   'gee:terms_of_use': importstr 'terms_of_use.md',
-  'gee:is_derived': true,
 }

@@ -40,7 +40,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'igbp',
     'landcover',
     'map',
-    'oxford',
   ],
   providers: [
     ee.producer_provider('Oxford Malaria Atlas Project', 'https://malariaatlas.org/'),

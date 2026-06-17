@@ -48,11 +48,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'heat',
     'hourly',
     'noaa',
-    'ocean',
     'osb',
   ],
   providers: [
-    ee.producer_provider('NOAA', 'https://www.ncdc.noaa.gov/cdr/atmospheric/ocean-heat-fluxes'),
+    ee.producer_provider('NOAA', 'https://www.ncei.noaa.gov/products/climate-data-records/ocean-heat-fluxes'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1988-01-01T00:00:00Z', '2021-08-31T00:00:00Z'),

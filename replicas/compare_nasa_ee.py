@@ -4,7 +4,7 @@
 The script compares data from NASA read via OpenDAP
 and their replicas in Google Earth Engine.
 
-Prerequsites:
+Prerequisites:
 * Earth Engine client
 * xee (https://github.com/google/Xee) to use Xarray with the EE client.
 * pydap
@@ -22,7 +22,6 @@ import traceback
 
 import ee
 import numpy as np
-from osgeo import gdal
 from pydap.cas.urs import setup_session
 import requests
 import xarray
@@ -158,7 +157,7 @@ def compare(
     nasa_data = np.flip(nasa_data, axis=0)
   else:
     nasa_data = first_nasa_image
-  # Flip verically so that north is up
+  # Flip vertically so that north is up
   nasa_data = np.flip(nasa_data, axis=1)
 
   # Print the shape of the first time slice of data from Earth Engine

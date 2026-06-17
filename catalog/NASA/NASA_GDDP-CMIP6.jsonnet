@@ -374,7 +374,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     each EE Image that notes the specific license the data may fall under.
 
     (Note that while the official Terms of Use mention that some models are
-    restricted under '%s' (%s), models available in EarthEngine either fall
+    restricted under '%s' (%s), models available in Earth Engine either fall
     under '%s' (%s) or '%s' (%s).)
   ||| % [
     spdx.cc_by_sa_4_0.id, spdx.cc_by_sa_4_0.name, spdx.cc_by_4_0.id,

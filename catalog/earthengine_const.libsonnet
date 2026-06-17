@@ -52,6 +52,7 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
   ext_ver: self.ext_base + 'version/v1.0.0/schema.json',
 
   version_unknown: 'Unknown',
+  version_deprecated_suffix: ' (deprecated)',
 
   provider_type: {
     host: 'host',
@@ -103,9 +104,12 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
     string: 'STRING',
     int: 'INT',
     double: 'DOUBLE',
+    record: 'RECORD',
     string_list: 'STRING_LIST',
     int_list: 'INT_LIST',
     double_list: 'DOUBLE_LIST',
+    record_list: 'RECORD_LIST',
     geometry: 'GEOMETRY',
+    datetime: 'DATETIME',
   },
 }

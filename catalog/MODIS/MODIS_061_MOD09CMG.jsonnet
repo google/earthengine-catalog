@@ -36,6 +36,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This product is based on a Climate Modeling Grid (CMG) for use in climate
     simulation models.
 
+    Note that scale factors and offsets described in the MODIS documentation
+    for MOD09CMG bands are already applied to assets ingested into Earth
+    Engine.
+
     Documentation:
 
     * [User's Guide](https://lpdaac.usgs.gov/documents/925/MOD09_User_Guide_V61.pdf)

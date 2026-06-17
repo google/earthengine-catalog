@@ -207,6 +207,35 @@ class CatalogLinkTest(test_utils.NodeTest):
         {'links': [
             child_link, self.PARENT_LINK, self.ROOT_LINK, self.SELF_LINK]},
         'child title must be "thing"')
+  def test_child_case_mismatch(self):
+    child_link = {
+        'title': 'openet',
+        'href': BASE_URL + 'OpenET/catalog.json',
+        'rel': 'child',
+        'type': JSON,
+    }
+    self.assert_catalog({
+        'links': [child_link, self.PARENT_LINK, self.ROOT_LINK, self.SELF_LINK]
+    })
+
+  def test_child_case_mismatch_fails(self):
+    child_link = {
+        'title': 'usgs',
+        'href': BASE_URL + 'USGS/catalog.json',
+        'rel': 'child',
+        'type': JSON,
+    }
+    self.assert_catalog(
+        {
+            'links': [
+                child_link,
+                self.PARENT_LINK,
+                self.ROOT_LINK,
+                self.SELF_LINK,
+            ]
+        },
+        'child title must be "USGS"',
+    )
 
   def test_children_with_same_url(self):
     self.assert_catalog(
@@ -359,6 +388,24 @@ class CollectionLinkTest(test_utils.NodeTest):
         {'links': stac_links}, message,
         dataset_id=self.node_id, file_path=self.node_path)
 
+  def test_preview_case_mismatch_fails(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'preview']
+    preview = dict(self.preview)
+    preview['href'] = preview['href'].replace('AHN', 'ahn')
+    stac_links.append(preview)
+    message = (
+        'preview href must be https://developers.google.com/earth-engine/'
+        'datasets/images/AHN/AHN_AHN2_05M_RUW_sample.png. '
+        'Found: https://developers.google.com/earth-engine/'
+        'datasets/images/ahn/ahn_ahn2_05M_RUW_sample.png'
+    )
+    self.assert_collection(
+        {'links': stac_links},
+        message,
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+    )
+
   def test_preview_extra_key(self):
     preview = self.preview | {'title': 'should not have a title'}
     stac_links = [l for l in self.required_links if l['rel'] != 'preview']
@@ -394,6 +441,24 @@ class CollectionLinkTest(test_utils.NodeTest):
         'datasets/catalog/AHN_AHN2_05M_RUW#terms-of-use. '
         'Found: https://example.test#terms-of-use',
         dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_terms_case_mismatch_fails(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'license']
+    terms = dict(self.terms_of_use)
+    terms['href'] = DEV_URL + 'catalog/ahn_AHN2_05M_RUW#terms-of-use'
+    stac_links.append(terms)
+    message = (
+        'terms license href must be https://developers.google.com/earth-engine/'
+        'datasets/catalog/AHN_AHN2_05M_RUW#terms-of-use. '
+        'Found: https://developers.google.com/earth-engine/'
+        'datasets/catalog/ahn_AHN2_05M_RUW#terms-of-use'
+    )
+    self.assert_collection(
+        {'links': stac_links},
+        message,
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+    )
 
   def test_terms_missing_type(self):
     stac_links = [l for l in self.required_links if l['rel'] != 'license']
@@ -447,6 +512,24 @@ class CollectionLinkTest(test_utils.NodeTest):
         'code href must be https://code.earthengine.google.com/?scriptPath='
         'Examples:Datasets/AHN/AHN_AHN2_05M_RUW. Found: https://example.test',
         dataset_id=self.node_id, file_path=self.node_path)
+
+  def test_example_case_mismatch_fails(self):
+    stac_links = [l for l in self.required_links if l['rel'] != 'related']
+    example = dict(self.example)
+    example['href'] = EXAMPLES_URL + 'ahn/AHN_AHN2_05M_RUW'
+    stac_links.append(example)
+    message = (
+        'code href must be https://code.earthengine.google.com/?scriptPath='
+        'Examples:Datasets/AHN/AHN_AHN2_05M_RUW. '
+        'Found: https://code.earthengine.google.com/?scriptPath='
+        'Examples:Datasets/ahn/AHN_AHN2_05M_RUW'
+    )
+    self.assert_collection(
+        {'links': stac_links},
+        message,
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+    )
 
   def test_example_title_missing(self):
     example = dict(self.example)
@@ -509,6 +592,23 @@ class CollectionLinkTest(test_utils.NodeTest):
         'Found: https://example.test/foo_FeatureView',
         dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
 
+  def test_feature_view_case_mismatch_fails(self):
+    feature_view = dict(self.feature_view)
+    feature_view['href'] = EXAMPLES_URL + 'ahn/AHN_AHN2_05M_RUW_FeatureView'
+    message = (
+        'code href must be https://code.earthengine.google.com/?scriptPath='
+        'Examples:Datasets/AHN/AHN_AHN2_05M_RUW_FeatureView. '
+        'Found: https://code.earthengine.google.com/?scriptPath='
+        'Examples:Datasets/ahn/AHN_AHN2_05M_RUW_FeatureView'
+    )
+    self.assert_collection(
+        {'links': self.required_links + [feature_view]},
+        message,
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+        gee_type=TABLE,
+    )
+
   def test_feature_view_title_missing(self):
     feature_view = dict(self.feature_view)
     feature_view.pop('title')
@@ -556,6 +656,85 @@ class CollectionLinkTest(test_utils.NodeTest):
         {'links': stac_links},
         'Remove node from feature view exceptions',
         dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
+
+
+class OpenEtCollectionLinkTest(test_utils.NodeTest):
+
+  node_id = 'projects/openet/assets/ensemble/conus/gridmet/monthly/v2_0'
+  node_path = pathlib.Path(
+      'OpenET/projects_openet_assets_ensemble_conus_gridmet_monthly_v2_0.json'
+  )
+
+  # Mismatched preview: uses 'openet' instead of 'OpenET'
+  preview = {
+      'href': (
+          DEV_URL
+          + 'images/openet/projects_openet_assets_ensemble_conus_gridmet_monthly_v2_0_sample.png'
+      ),
+      'rel': 'preview',
+      'type': 'image/png',
+  }
+
+  # Mismatched terms: uses 'projects_OpenET' instead of 'projects_openet'
+  terms_of_use = {
+      'href': (
+          DEV_URL
+          + 'catalog/projects_OpenET_assets_ensemble_conus_gridmet_monthly_v2_0#terms-of-use'
+      ),
+      'rel': 'license',
+      'type': 'text/html',
+  }
+
+  # Mismatched example: uses 'OpenET' instead of 'openet'
+  example = {
+      'code': 'JavaScript',
+      'href': (
+          EXAMPLES_URL
+          + 'OpenET/projects_openet_assets_ensemble_conus_gridmet_monthly_v2_0'
+      ),
+      'rel': 'related',
+      'title': (
+          'Run the example for'
+          ' projects/openet/assets/ensemble/conus/gridmet/monthly/v2_0 in the'
+          ' Earth Engine Code Editor'
+      ),
+      'type': 'text/html',
+  }
+
+  required_links = [
+      {
+          'href': (
+              BASE_URL
+              + 'OpenET/projects_openet_assets_ensemble_conus_gridmet_monthly_v2_0.json'
+          ),
+          'rel': 'self',
+          'type': 'application/json',
+      },
+      {
+          'href': BASE_URL + 'OpenET/catalog.json',
+          'rel': 'parent',
+          'type': 'application/json',
+      },
+      {
+          'href': BASE_URL + 'catalog.json',
+          'rel': 'root',
+          'type': 'application/json',
+      },
+      example,
+      preview,
+      terms_of_use,
+  ]
+
+  def setUp(self):
+    super().setUp()
+    self.check = links.Check
+
+  def test_valid_has_everything(self):
+    self.assert_collection(
+        {'links': self.required_links},
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+    )
 
 
 if __name__ == '__main__':

@@ -46,11 +46,13 @@ Optical Depth and Aerosol Particle Size EDRs files into Earth Engine; see
 import concurrent.futures
 import dataclasses
 import math
-from typing import Optional, Self, Union
+import os
+import tempfile
+from typing import Iterator, Self
 
 from absl import logging
 import numpy
-from sklearn import neighbors
+from scipy import spatial
 from sklearn.metrics import pairwise
 
 from stac import bboxes
@@ -71,79 +73,31 @@ class EmptyInputError(InputError):
   """Error raised when we don't have any coordinates to project."""
 
 
-class ProjectionError(Error):
-  """Error raised when we fail to project a coordinate into lat-lon."""
+def latlon_to_xyz(
+    lat_deg: float | numpy.ndarray, lon_deg: float | numpy.ndarray
+) -> numpy.ndarray:
+  """Converts lat/lon in degrees to Cartesian (x, y, z) on unit sphere."""
+  lat = numpy.radians(lat_deg)
+  lon = numpy.radians(lon_deg)
+  x = numpy.cos(lat) * numpy.cos(lon)
+  y = numpy.cos(lat) * numpy.sin(lon)
+  z = numpy.sin(lat)
+  return numpy.stack((x, y, z), axis=-1)
 
 
 @dataclasses.dataclass(frozen=True)
-class S1Interval:
-  """An S1Interval represents a closed interval on a unit circle.
+class ProjectedChunk:
+  """A chunk of a projected raster.
 
   Properties:
-    low: Minimum point in degrees.
-    high: Maximum point in degrees. If high < low, then the interval is
-      inverted. This can be used to detect antimeridian crossings when the
-      input points are longitudes.
+    col_offset: The offset into the first dimension (num_cols).
+    row_offset: The offset into the second dimension (num_rows).
+    data: The projected data for this chunk.
   """
 
-  low: float
-  high: float
-
-  @classmethod
-  def empty(cls) -> Self:
-    """Returns an empty S1Interval."""
-    return cls(180, -180)
-
-  def is_empty(self) -> bool:
-    """Returns True if the S1Interval is empty."""
-    return self.low == 180 and self.high == -180
-
-  def contains(self, longitude: float) -> bool:
-    """Returns True if the given longitude is contained by the interval."""
-    if self.low > self.high:
-      return longitude >= self.low or longitude <= self.high
-    else:
-      return longitude >= self.low and longitude <= self.high
-
-  @classmethod
-  def positive_distance(cls, degrees_a: float, degrees_b: float) -> float:
-    """Returns the distance between two points in the range [0, 360)."""
-    diff = degrees_b - degrees_a
-    if diff >= 0:
-      return diff
-    else:
-      # If b is 180 and a is -180 + epsilon, we'd prefer to return 360.
-      return (degrees_b + 180) - (degrees_a - 180)
-
-  @classmethod
-  def check(
-      cls, degrees_low: float, degrees_high: float
-  ) -> tuple[float, float]:
-    """Returns points so that the low-high interval is on a unit circle."""
-    if degrees_low == -180 and degrees_high != 180:
-      degrees_low = math.pi
-    if degrees_high == -180 and degrees_low != 180:
-      degrees_high = math.pi
-    return degrees_low, degrees_high
-
-  def add_longitude(self, lon: float) -> Self:
-    """Returns an S1Interval that includes `lon`."""
-    if math.fabs(lon) > 180:
-      raise InputError('Cannot add latitude %f to S1Interval'.format(lon))
-    if lon == -180:
-      lon = 180
-
-    if self.is_empty():
-      return S1Interval(lon, lon)
-    elif self.contains(lon):
-      return self
-    else:
-      dist_low = self.positive_distance(lon, self.low)
-      dist_high = self.positive_distance(self.high, lon)
-      if dist_low < dist_high:
-        return S1Interval(*self.check(lon, self.high))
-      else:
-        return S1Interval(*self.check(self.low, lon))
+  col_offset: int
+  row_offset: int
+  data: numpy.ndarray
 
 
 @dataclasses.dataclass(frozen=True)
@@ -151,27 +105,24 @@ class CoordinateIndex:
   """An index of (lat, lon) coordinates to their array offsets in 2D rasters.
 
   Properties:
-    points: A list of (latitude, longitude) pairs.
-    point_index: A map from (latitude, longitude) to the (i, j) position in the
-      original 2D rasters.
-    bbox_list: The bounding boxes that cover all of `points`. Generally there
-      will only be one, but there will be two if the region crosses the
-      antimeridian, one for each side. Note that if 'points' represent pixel
-      centers, then the bounding boxes will not cover the entire border.
+    points: A numpy array of (lat, lon) points found in the source rasters.
+    bbox_list: The bounding boxes that cover all relevant coordinate points.
+    source_indices: A numpy array of (i, j) offsets into the original rasters.
   """
 
-  points: list[tuple[float, float]]
-  point_index: dict[tuple[float, float], tuple[int, int]]
+  points: numpy.ndarray
   bbox_list: list[bboxes.BBox]
+  source_indices: numpy.ndarray
 
   @classmethod
   def from_arrays(
       cls,
       lat: numpy.ndarray,
       lon: numpy.ndarray,
-      lat_fill_value: Union[int, float] = numpy.nan,
-      lon_fill_value: Union[int, float] = numpy.nan,
-      mask: Optional[numpy.ndarray] = None,
+      lat_fill_value: int | float = numpy.nan,
+      lon_fill_value: int | float = numpy.nan,
+      mask: numpy.ndarray | None = None,
+      allowed_extent: bboxes.BBox | None = None,
   ) -> Self:
     """Returns a GeoIndex for the given lat and lon rasters.
 
@@ -188,6 +139,8 @@ class CoordinateIndex:
         indicates that a point should be ignored when building the GLT (in
         addition to `lat_fill_value` and `lon_fill_value`). This does NOT affect
         the bounding box calculation.
+      allowed_extent: Optional Bounding box defining the spatial region of
+        interest. Points outside this box will be omitted from the index.
 
     Returns:
       CoordinateIndex
@@ -211,83 +164,84 @@ class CoordinateIndex:
       )
     logging.info('Source rasters have shape %s', lat.shape)
 
-    # Build a bounding box in each hemisphere. This will matter if we cross the
-    # antimeridian; we don't want a single box that spans from (-180, 180) with
-    # a lot of empty pixels in the middle.
-    west_bbox = None
-    east_bbox = None
-    s1_interval = S1Interval.empty()
-    if mask is None:
-      mask = numpy.full((lat.shape[0], lat.shape[1]), 1, dtype=numpy.uint8)
+    # Coords that are not fill values are used for BBox calculation.
+    coords_valid = (lat != lat_fill_value) & (lon != lon_fill_value)
+    if numpy.isnan(lat_fill_value):
+      coords_valid &= ~numpy.isnan(lat)
+    if numpy.isnan(lon_fill_value):
+      coords_valid &= ~numpy.isnan(lon)
 
-    points = []
-    point_index = {}
-    for i, (lat_col, lon_col, mask_col) in enumerate(zip(lat, lon, mask)):
-      for j, (lat_ij, lon_ij, mask_ij) in enumerate(
-          zip(lat_col, lon_col, mask_col)
-      ):
-        if (
-            lat_ij == lat_fill_value
-            or lon_ij == lon_fill_value
-            # == doesn't work for numpy.nan
-            or (numpy.isnan(lat_ij) and numpy.isnan(lat_fill_value))
-            or (numpy.isnan(lon_ij) and numpy.isnan(lon_fill_value))
-        ):
-          continue
-        lat_ij = lat_ij.item()
-        lon_ij = lon_ij.item()
-        if mask_ij != 0:
-          points.append((lat_ij, lon_ij))
-          point_index[(lat_ij, lon_ij)] = (i, j)
-        s1_interval = s1_interval.add_longitude(lon_ij)
+    if allowed_extent is not None:
+      in_lat = (lat >= allowed_extent.south) & (lat <= allowed_extent.north)
+      if allowed_extent.west <= allowed_extent.east:
+        in_lon = (lon >= allowed_extent.west) & (lon <= allowed_extent.east)
+      else:
+        # Handling antimeridian crossing
+        in_lon = (lon >= allowed_extent.west) | (lon <= allowed_extent.east)
+      coords_valid &= in_lat & in_lon
 
-        # Update the appropriate bounding box depending on the hemisphere of
-        # this point.
-        if lon_ij <= 0:
-          if west_bbox is None:
-            west_bbox = bboxes.BBox(lon_ij, lat_ij, lon_ij, lat_ij)
-          this_bbox = west_bbox
-        else:
-          if east_bbox is None:
-            east_bbox = bboxes.BBox(lon_ij, lat_ij, lon_ij, lat_ij)
-          this_bbox = east_bbox
-        if lat_ij < this_bbox.south:
-          this_bbox.south = lat_ij
-        if lat_ij > this_bbox.north:
-          this_bbox.north = lat_ij
-        if lon_ij < this_bbox.west:
-          this_bbox.west = lon_ij
-        if lon_ij > this_bbox.east:
-          this_bbox.east = lon_ij
+    if not numpy.any(coords_valid):
+      raise EmptyInputError('The input grid was empty')
+
+    valid_lat = lat[coords_valid]
+    valid_lon = lon[coords_valid]
+
+    # Minimal enclosing interval on S1 to detect antimeridian crossing.
+    lons_to_check = valid_lon.copy()
+    lons_to_check[lons_to_check == -180] = 180
+    lons_unique = numpy.unique(lons_to_check)
+    if lons_unique.size == 1:
+      s1_low, s1_high = float(lons_unique[0]), float(lons_unique[0])
+    else:
+      gaps = numpy.diff(lons_unique)
+      wrap_gap = 360.0 - (lons_unique[-1] - lons_unique[0])
+      max_gap_idx = numpy.argmax(gaps)
+      if wrap_gap >= gaps[max_gap_idx]:
+        s1_low, s1_high = float(lons_unique[0]), float(lons_unique[-1])
+      else:
+        s1_low, s1_high = (
+            float(lons_unique[max_gap_idx + 1]),
+            float(lons_unique[max_gap_idx]),
+        )
+
+    # Points for GLT are also filtered by `mask`.
+    glt_valid = coords_valid.copy()
+    if mask is not None:
+      glt_valid = glt_valid & (mask != 0)
+
+    if not numpy.any(glt_valid):
+      raise EmptyInputError('The input grid had no unmasked points')
+
+    idx_i, idx_j = numpy.where(glt_valid)
+    points = numpy.stack([lat[glt_valid], lon[glt_valid]], axis=-1)
+    source_indices = numpy.stack([idx_i, idx_j], axis=-1)
+
+    # Build a bounding box in each hemisphere.
+    is_west = valid_lon <= 0
+    is_east = ~is_west
 
     bbox_list = []
-    if s1_interval.is_empty():
-      raise EmptyInputError('The input grid was empty')
-    elif s1_interval.low > s1_interval.high:
-      # If the S1Interval is inverted, then we crossed the antimeridian.
-      if east_bbox is None or west_bbox is None:
-        raise ProjectionError(
-            'The antimeridian was crossed but one hemisphere has a null bbox'
-        )
-      bbox_list.extend((east_bbox, west_bbox))
-    else:
-      if east_bbox is not None:
-        if west_bbox is not None:
-          # We crossed the prime meridian, which is fine.
-          bbox_list.append(east_bbox.union(west_bbox))
-        else:
-          bbox_list.append(east_bbox)
-      elif west_bbox is not None:
-        bbox_list.append(west_bbox)
-      else:
-        raise EmptyInputError('The input grid was empty')
-
-    if not points:
-      raise EmptyInputError(
-          'No points mapped by CoordinateIndex with bounding boxes: %s',
-          bbox_list,
+    if numpy.any(is_west):
+      w_lats = valid_lat[is_west]
+      w_lons = valid_lon[is_west]
+      bbox_list.append(
+          bboxes.BBox(w_lons.min(), w_lats.min(), w_lons.max(), w_lats.max())
       )
-    return cls(points, point_index, bbox_list)
+
+    if numpy.any(is_east):
+      e_lats = valid_lat[is_east]
+      e_lons = valid_lon[is_east]
+      bbox_list.insert(
+          0, bboxes.BBox(e_lons.min(), e_lats.min(), e_lons.max(), e_lats.max())
+      )
+
+    if s1_low <= s1_high:
+      # If we didn't cross the antimeridian, union the boxes. In this case, we
+      # crossed the prime meridian, but that's fine.
+      if len(bbox_list) == 2:
+        bbox_list = [bbox_list[0].union(bbox_list[1])]
+
+    return cls(points, bbox_list, source_indices)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -320,7 +274,9 @@ class GeoLookupTable:
       scale_lon: float,
       max_nn_distance: int = 1,
       num_threads: int = 1,
+      block_size: int = 256,
       buffer_bbox: bool = True,
+      temp_dir: str | None = None,
   ) -> list[Self]:
     """Returns GeoLookupTables for the given CoordinateIndex.
 
@@ -337,9 +293,16 @@ class GeoLookupTable:
         number of pixels in the corrected grid is large (can be due to a number
         of factors: size of the bbox, the requested scale, both...), multiple
         threads may be needed to build the GLT in a reasonable amount of time.
+      block_size: The number of pixels for the height and width of each
+        construction tile. This determines the granularity of work units passed
+        to worker threads and limits the number of points in memory at once.
       buffer_bbox: If True, assume that the corners of each bounding box are
         pixel centers, meaning the boxes must be extended based on `scale_lat`
         and `scale_lon` to account for the full pixel size.
+      temp_dir: If provided, the GLT will be backed by a `numpy.memmap` file
+        created in this directory. Otherwise, we store the whole GLT in memory.
+        Ownership of the temp dir, including files added by this object, remains
+        with the caller.
 
     Returns:
       GeoLookupTables, one for each bounding box in `index`
@@ -357,17 +320,19 @@ class GeoLookupTable:
 
     # When filling in the corrected grid, we pick a pixel by finding the nearest
     # original point to the given position. We fill any gaps by choosing the
-    # nearest neighbor as long as it is not too many pixels away.
-    tree = neighbors.BallTree(
-        [(math.radians(x), math.radians(y)) for x, y in index.points],
-        metric='haversine',
-        leaf_size=10,
-    )
-    max_distance = max_nn_distance * max(
+    # nearest neighbor as long as it is not too many pixels away. We use the
+    # Euclidean distance because it's faster than Haversine and roughly
+    # equivalent.
+    source_xyz = latlon_to_xyz(index.points[:, 0], index.points[:, 1])
+    tree = spatial.cKDTree(source_xyz, leafsize=10)
+
+    # Convert the angular max distance to chord distance.
+    max_theta = max_nn_distance * max(
         pairwise.haversine_distances(
             [[0, 0], [math.radians(scale_lat), math.radians(scale_lon)]]
         )[0]
     )
+    max_chord = 2 * math.sin(max_theta / 2)
 
     tables = []
     for bbox in index.bbox_list:
@@ -379,60 +344,83 @@ class GeoLookupTable:
             north=max(-90, min(90, bbox.north - (scale_lat / 2))),
         )
 
-      # Preallocate the GLTs so we only have to do assignment below.
-      # This should speed things up when the size of the grid is large, which
-      # tends to happen the farther you get from the equator.
+      # Calculate the size of the GLT (and therefore the projected rasters).
       num_cols = int(math.ceil((bbox.south - bbox.north) / scale_lat))
       num_rows = int(math.ceil((bbox.east - bbox.west) / scale_lon))
-      glt_i = [[GLT_FILL_VALUE] * num_rows for _ in range(0, num_cols)]
-      glt_j = [[GLT_FILL_VALUE] * num_rows for _ in range(0, num_cols)]
+
+      if temp_dir:
+        fd, map_path = tempfile.mkstemp(dir=temp_dir, suffix='.glt.map')
+        os.close(fd)
+        glt_full = numpy.memmap(
+            map_path,
+            dtype=numpy.int32,
+            mode='w+',
+            shape=(num_cols, num_rows, 2),
+        )
+        glt_full[:] = GLT_FILL_VALUE
+      else:
+        glt_full = numpy.full(
+            (num_cols, num_rows, 2), GLT_FILL_VALUE, dtype=numpy.int32
+        )
       logging.info('GLT will have shape (%d, %d)', num_cols, num_rows)
 
-      # Further speed things up by working in parallel.
-      # The "cell-var-from-loop" warnings can be ignored because those vars
-      # are global from this method's point of view.
-      # pylint: disable=cell-var-from-loop
-      def _fill_glt_col(col_idx: int) -> None:
-        """Populates `glt_i` and 'glt_j` for a single column."""
-        lat = bbox.north + (col_idx * scale_lat) + (scale_lat / 2)
-        lons = [
-            bbox.west + (row_idx * scale_lon) + (scale_lon / 2)
-            for row_idx in range(0, num_rows)
-        ]
+      # Generate all latitude centers and longitude centers.
+      lats = bbox.north + numpy.arange(num_cols) * scale_lat + (scale_lat / 2)
+      lons = bbox.west + numpy.arange(num_rows) * scale_lon + (scale_lon / 2)
 
-        dd, ii = tree.query(
-            [(math.radians(lat), math.radians(lon)) for lon in lons], k=1
+      def _fill_glt_block(col_start: int, row_start: int) -> None:
+        """Populates a tile in `glt_full`."""
+        col_end = min(col_start + block_size, num_cols)
+        row_end = min(row_start + block_size, num_rows)
+
+        block_lats = lats[col_start:col_end]
+        block_lons = lons[row_start:row_end]
+
+        rad_lat = numpy.radians(block_lats)
+        rad_lon = numpy.radians(block_lons)
+        cos_lat = numpy.cos(rad_lat)
+        sin_lat = numpy.sin(rad_lat)
+        cos_lon = numpy.cos(rad_lon)
+        sin_lon = numpy.sin(rad_lon)
+
+        # Broadcasting to create XYZ grid for the tile.
+        x = cos_lat[:, numpy.newaxis] * cos_lon[numpy.newaxis, :]
+        y = cos_lat[:, numpy.newaxis] * sin_lon[numpy.newaxis, :]
+        z = numpy.repeat(sin_lat[:, numpy.newaxis], len(block_lons), axis=1)
+        query_xyz = numpy.stack([x, y, z], axis=-1).reshape(-1, 3)
+
+        # Use distance_upper_bound to prune search for points far from any data.
+        dd, ii = tree.query(query_xyz, k=1, distance_upper_bound=max_chord)
+
+        valid = dd <= max_chord
+        block_indices = numpy.full(
+            (len(ii), 2), GLT_FILL_VALUE, dtype=numpy.int32
         )
-        for row_idx, (near_dist, near_idx) in enumerate(zip(dd, ii)):
-          if near_dist[0] > max_distance:
-            continue
-          elif near_idx[0] >= len(index.points):
-            raise ProjectionError('Bad nearest index {}'.format(near_idx[0]))
-          else:
-            orig_point = index.points[near_idx[0]]
-            orig_ij = index.point_index.get(orig_point)
-            if orig_ij is None:
-              raise ProjectionError('Bad nearest point {}'.format(orig_point))
-            glt_i[col_idx][row_idx] = orig_ij[0]
-            glt_j[col_idx][row_idx] = orig_ij[1]
+        block_indices[valid] = index.source_indices[ii[valid]]
 
-      # pylint: enable=cell-var-from-loop
+        glt_full[col_start:col_end, row_start:row_end, :] = (
+            block_indices.reshape((col_end - col_start, row_end - row_start, 2))
+        )
 
       with concurrent.futures.ThreadPoolExecutor(
           max_workers=num_threads
       ) as executor:
-        for col_idx in range(0, num_cols):
-          executor.submit(_fill_glt_col, col_idx)
+        for col_start in range(0, num_cols, block_size):
+          for row_start in range(0, num_rows, block_size):
+            executor.submit(_fill_glt_block, col_start, row_start)
 
-      glt = numpy.stack((glt_i, glt_j), axis=-1, dtype=numpy.int64)
-      tables.append(cls(bbox, scale_lat, scale_lon, glt))
+      if temp_dir:
+        # `glt_full` is backed by numpy.memmep, so write it to disk.
+        glt_full.flush()
+
+      tables.append(cls(bbox, scale_lat, scale_lon, glt_full))
 
     return tables
 
   def apply_to(
       self,
       raster: numpy.ndarray,
-      fill_value: Union[int, float],
+      fill_value: int | float,
       dtype: type[numpy.number],
   ) -> numpy.ndarray:
     """Returns a new numpy array with the GLT applied to the input raster.
@@ -446,15 +434,55 @@ class GeoLookupTable:
 
     Returns:
       numpy array
+
+    Raises:
+      Error: If the projection fails.
     """
-    new_raster = numpy.full(
-        (self._glt.shape[0], self._glt.shape[1]), fill_value, dtype=dtype
+    num_cols, num_rows, _ = self._glt.shape
+    chunks = list(
+        self.apply_to_chunks(
+            raster, fill_value, dtype, chunk_size=max(num_cols, num_rows)
+        )
     )
-    valid_glt = numpy.all(self._glt != GLT_FILL_VALUE, axis=-1)
-    new_raster[valid_glt] = raster[
-        self._glt[valid_glt, 0], self._glt[valid_glt, 1]
-    ]
-    return new_raster
+    if len(chunks) != 1:
+      raise Error(f'apply_to() expected 1 chunk, but got {len(chunks)}')
+    return chunks[0].data
+
+  def apply_to_chunks(
+      self,
+      raster: numpy.ndarray,
+      fill_value: int | float,
+      dtype: type[numpy.number],
+      chunk_size: int = 1024,
+  ) -> Iterator[ProjectedChunk]:
+    """Yields chunks of the projected raster.
+
+    Args:
+      raster: The original raster as a numpy array.
+      fill_value: The "no data" value for the raster.
+      dtype: The numpy type of the raster values.
+      chunk_size: The number of pixels for the height and width of each chunk.
+
+    Yields:
+      ProjectedChunks
+    """
+    num_cols, num_rows, _ = self._glt.shape
+    for col_start in range(0, num_cols, chunk_size):
+      col_end = min(col_start + chunk_size, num_cols)
+      for row_start in range(0, num_rows, chunk_size):
+        row_end = min(row_start + chunk_size, num_rows)
+        glt_chunk = self._glt[col_start:col_end, row_start:row_end, :]
+        chunk_data = numpy.full(
+            (col_end - col_start, row_end - row_start), fill_value, dtype=dtype
+        )
+        valid_glt = numpy.all(glt_chunk != GLT_FILL_VALUE, axis=-1)
+        projected = raster[glt_chunk[:, :, 0], glt_chunk[:, :, 1]]
+        numpy.copyto(chunk_data, projected, where=valid_glt)
+        yield ProjectedChunk(col_start, row_start, chunk_data)
+
+  def dimensions(self) -> tuple[int, int]:
+    """Returns the dimensions of the GLT as (width, height)."""
+    return (self._glt.shape[1], self._glt.shape[0])
 
   def geotransform(self) -> list[float]:
     """Returns the geotransform for this bounding box in gdal order."""

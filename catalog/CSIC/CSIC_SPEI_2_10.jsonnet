@@ -14,6 +14,7 @@ local version = version_config.version;
 local license = spdx.cc_by_4_0;
 
 {
+  'gee:status': 'deprecated',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -23,7 +24,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'SPEIbase: Standardised Precipitation-Evapotranspiration Index ' +
-    'database, Version ' + version,
+    'database, Version ' + version + ' [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||

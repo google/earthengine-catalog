@@ -98,5 +98,61 @@ class NoncommercialTest(absltest.TestCase):
     # 'WRI/SBTN/naturalLands/v1/2020' should be considered noncommercial.
     full_asset_id = 'WRI/SBTN/naturalLands/v1/2020'
     self.assertTrue(stac.is_in_non_commercial(full_asset_id))
+
+
+class CaseMismatchTest(absltest.TestCase):
+
+  def test_should_allow_case_mismatch_string(self):
+    self.assertTrue(stac.should_allow_case_mismatch('openet'))
+    self.assertTrue(stac.should_allow_case_mismatch('OpenET'))
+    self.assertTrue(
+        stac.should_allow_case_mismatch('projects/openet/assets/foo')
+    )
+    self.assertTrue(stac.should_allow_case_mismatch('OpenET/catalog.json'))
+    self.assertFalse(stac.should_allow_case_mismatch('usgs'))
+    self.assertFalse(stac.should_allow_case_mismatch(''))
+    self.assertFalse(stac.should_allow_case_mismatch(None))
+
+  def test_should_allow_case_mismatch_path(self):
+    self.assertTrue(stac.should_allow_case_mismatch(pathlib.Path('openet')))
+    self.assertTrue(
+        stac.should_allow_case_mismatch(pathlib.Path('OpenET/catalog.json'))
+    )
+    self.assertFalse(
+        stac.should_allow_case_mismatch(pathlib.Path('usgs/catalog.json'))
+    )
+
+  def test_equal_paths(self):
+    self.assertTrue(
+        stac.equal_paths(
+            pathlib.Path('OpenET/catalog.json'),
+            pathlib.Path('openet/catalog.json'),
+        )
+    )
+    self.assertFalse(
+        stac.equal_paths(
+            pathlib.Path('USGS/catalog.json'), pathlib.Path('usgs/catalog.json')
+        )
+    )
+    self.assertFalse(
+        stac.equal_paths(
+            pathlib.Path('OpenET/catalog.json'),
+            pathlib.Path('openet/other.json'),
+        )
+    )
+
+  def test_equal_urls(self):
+    self.assertTrue(stac.equal_urls('https://a/OpenET/b', 'https://a/openet/b'))
+    self.assertFalse(stac.equal_urls('https://a/USGS/b', 'https://a/usgs/b'))
+    self.assertFalse(
+        stac.equal_urls('https://a/OpenET/b', 'https://a/openet/c')
+    )
+
+  def test_equal_strings(self):
+    self.assertTrue(stac.equal_strings('OpenET', 'openet'))
+    self.assertFalse(stac.equal_strings('USGS', 'usgs'))
+    self.assertFalse(stac.equal_strings('OpenET', 'other'))
+
+
 if __name__ == '__main__':
   absltest.main()

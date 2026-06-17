@@ -36,6 +36,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MODIS emissivity bands 29, 31, and 32 are the average of both the nighttime
     and daytime acquisitions.
 
+    Note that scale factors and offsets described in the MODIS documentation
+    for MOD21C2 bands are already applied to assets ingested into Earth
+    Engine.
+
     Documentation:
 
     * [User's Guide](https://lpdaac.usgs.gov/documents/1398/MOD21_User_Guide_V61.pdf)

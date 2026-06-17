@@ -2,7 +2,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'USFS_GTAC_LCMS_versions.libsonnet';
+local version_table = import '../gtac-data-publish/templates/LCMS_versions.libsonnet';
 
 local subdir = 'USFS';
 local id = 'USFS/GTAC/LCMS/v2021-7';
@@ -30,7 +30,7 @@ local license = spdx.proprietary;
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data
     suite. It shows LCMS-modeled change, land cover, and/or land use classes
-    for each year. This LCMS version covers the conterminous United States (CONUS) 
+    for each year. This LCMS version covers the conterminous United States (CONUS)
     and Southeastern Alaska (SEAK).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape
@@ -162,7 +162,9 @@ local license = spdx.proprietary;
 
     * **Weiss, A.D., 2001.**
     Topographic position and landforms analysis Poster Presentation, ESRI Users Conference,
-    San Diego, CAZhu, Z., and Woodcock, C. E. (2012).
+    San Diego, CA.
+
+    * **Zhu, Z., and Woodcock, C. E. (2012).**
     Object-based cloud and cloud shadow detection in Landsat imagery. In Remote Sensing of
     Environment. *Science Direct*,
     118: 83-94
@@ -209,8 +211,8 @@ local license = spdx.proprietary;
       {
         name: 'study_area',
         description: |||
-          LCMS currently covers conterminous United States, Southeastern Alaska, 
-          and Puerto Rico-US Virgin Islands. This version contains outputs across 
+          LCMS currently covers conterminous United States, Southeastern Alaska,
+          and Puerto Rico-US Virgin Islands. This version contains outputs across
           conterminous United States and Southeastern Alaska.
           Possible values: 'CONUS, SEAK'
         |||,

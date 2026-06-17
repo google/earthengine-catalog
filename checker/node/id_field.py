@@ -19,7 +19,7 @@ ID = 'id'
 UNKNOWN_ID = 'unknown'
 
 MIN_COLLECTION_LEN = 2
-MAX_COLLECTION_LEN = 7
+MAX_COLLECTION_LEN = 8
 
 
 class Check(stac.NodeCheck):

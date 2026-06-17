@@ -186,7 +186,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           * PROVISIONAL: Real time data used to populate the position and other
             parameters of this system.This is a provisional track that will be
             replaced when reanalysis of the storm is performed. (Usually within
-            2 years of the storm's occurence)
+            2 years of the storm's occurrence)
           * PROVISIONAL_spur: Real time data (see provisional description above)
             but due to differences in positions between various inputs,
             algorithm can not identify accurate position. When counting storms,
@@ -917,7 +917,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'REUNION_RMW',
         description: |||
-          Radius of maximum winds 
+          Radius of maximum winds
         |||,
         type: ee_const.var_type.double,
         units: units.nautical_mile,

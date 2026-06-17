@@ -4,9 +4,11 @@ for pointers on creating pull requests in GitHub.
 
 ## Overview
 
-Currently, adding user-uploaded assets to the public catalog
+[Publisher catalogs](https://developers.google.com/earth-engine/datasets/publisher) should be used whenever possible.
+
+Previously, adding user-uploaded assets to the public catalog
 involves mirroring these assets into public Earth Engine folders.
-However, the source user-uploaded assets still need to be kept in user folders
+However, the source user-uploaded assets still needed to be kept in user folders
 for as long as the dataset is present in the catalog.
 
 To add a new dataset:
@@ -16,7 +18,7 @@ To add a new dataset:
 * Create and submit a GitHub pull request with these files.
 
 See also
-[dataset acceptance criteria](https://developers.google.com/earth-engine/help_collection_criteria).
+[dataset acceptance criteria](https://developers.google.com/earth-engine/publisher_data_catalogs_eligibility).
 
 ## Timelines
 
@@ -32,6 +34,8 @@ launch deadline:
   description and send it for review
 
 ## Detailed steps for adding a new dataset:
+
+Note: For large vector datasets, it may be preferable to ingest them into BigQuery. See [Guide: Ingesting Geospatial Vector Datasets into BigQuery](guide_to_ingest_geospatial_data_into_bigquery.md) for detailed instructions.
 
 1. File a bug
 [to add a new dataset](https://issuetracker.google.com/issues?q=status:(open%20%7C%20new%20%7C%20assigned%20%7C%20accepted)%20componentid:1161680&p=1)
@@ -79,7 +83,17 @@ the main example.
 256x256 preview thumbnail. This thumbnail will be used in the catalog to
 identify the dataset, so choose a representative and good-looking
 visualization. Make sure to hide the basemap (e.g., by using a single-color
-background).
+background). If your dataset has transparent nodata areas, blend a solid
+gray background under it in your preview script using the following pattern:
+
+   ```javascript
+   var gray = 150;
+   var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
+   var visualizedImage = yourRawImage.visualize(yourVisParams);
+   var imageWithBackground = ee.ImageCollection([background, visualizedImage]).mosaic();
+
+   print(ui.Thumbnail({image: imageWithBackground, params: imageParams}));
+   ```
 
 1. Create a GitHub pull request with all the files you changed or added.
 
@@ -112,7 +126,7 @@ Here is some advice for data normalization.
 1. For global datasets, prefer single assets over tiled mosaics.
 
 1. Images with the same band signatures should be in the same image collection.
-However, collections should be homogenous - if not all assets in a collection
+However, collections should be homogeneous - if not all assets in a collection
 have the same band names and types, either reingest the assets to make the
 bands the same or use multiple collections.
 
@@ -127,6 +141,11 @@ MEAN.
 1. Don't mix continuous and classification values in the same band - create two
 separate bands in such cases.
 
+1. To allow for default visualization of classification bands with predefined
+colors, use properties with comma-separated strings. See the
+[documentation for the `asset set` commands](https://developers.google.com/earth-engine/guides/command_line#asset)
+for details.
+
 1. If your datasets have multiple versions, create successor/predecessor links
 using the versioning approach [similar to this
 one](https://github.com/google/earthengine-catalog/tree/main/catalog/UMD): put
@@ -136,3 +155,27 @@ every jsonnet file. Mark all but the most recent versions with `"gee_status":
 
 1. Don't create new single-dataset keywords. If you feel a new keyword would
 make sense, propose other existing datasets where it should also be added.
+
+## Common errors.
+
+1. If you are getting the error "text block not terminated with |||”.",the
+problem is with indentation. You can temporarily fix it by switching,
+e.g.,
+
+```
+description: |||
+ Badly
+indented
+         text
+|||
+```
+to
+
+```
+description: |||
+  one good line
+|||,
+```
+and then gradually reintroducing the real lines. Make sure to strip
+trailing whitespaces on empty lines and watch out for tab characters.
+

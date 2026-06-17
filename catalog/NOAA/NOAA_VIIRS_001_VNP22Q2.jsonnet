@@ -1,10 +1,14 @@
 local id = 'NOAA/VIIRS/001/VNP22Q2';
 local subdir = 'NOAA';
+local versions = import 'versions.libsonnet';
+local version_table = import '../NASA/templates/VIIRS_VNP22Q2_versions.libsonnet';
 
 local viirs_vnp22q2_bands = import 'viirs_vnp22q2_bands.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -21,8 +25,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP22Q2: Land Surface Phenology Yearly L3 Global 500m SIN Grid',
-  version: 'V001',
+  title: 'VNP22Q2: Land Surface Phenology Yearly L3 Global 500m SIN Grid [deprecated]',
+  'gee:status': 'deprecated',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Suomi National Polar-Orbiting Partnership (Suomi NPP) NASA Visible
@@ -63,8 +68,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP22Q2.001',
     },
-  ],
-  'gee:categories': ['landuse-landcover'],
+  ] + version_config.version_links,
+  'gee:categories': ['vegetation-indices'],
   keywords: [
     'land',
     'nasa',
@@ -84,7 +89,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:provider_ids': [
     'C1711966127-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2013-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2013-01-01T00:00:00Z', '2022-01-01T00:00:00Z'),
   summaries: {
     gsd: [
       500.0,
@@ -146,8 +151,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   'gee:interval': {
     type: 'cadence',
-    unit: 'day',
-    interval: 8,
+    unit: 'year',
+    interval: 1,
   },
   'gee:terms_of_use': |||
     LP DAAC NASA data are freely accessible; however, when an author

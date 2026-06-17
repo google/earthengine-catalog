@@ -12,15 +12,26 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Nature Trace',
   description: |||
-    Nature Trace is a growing suite of geospatial layers from next-generation AI models developed by Google DeepMind and Google Research for understanding environments that can support nature.
+    Nature Trace is a growing suite of geospatial layers from next-generation
+    AI models developed by Google DeepMind and Google Research for
+    understanding environments that can support nature.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://deepmind.google',
+    contactDisplay: 'biosphere-models@google.com',
+    contactLink: 'mailto:biosphere-models@google.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('projects_nature-trace_assets_forest_typology_natural_forest_2020_v1_0_collection', base_url),
+    ee.link.child_collection('projects_nature-trace_assets_forest_typology_forest_typology_2020_v1_0_collection', base_url),
     ee.link.child_collection('projects_nature-trace_assets_farmscapes_england_v1_0', base_url),
+    ee.link.child_collection('projects_nature-trace_assets_farmscapes_england_v1_0_vectorised', base_url),
+    ee.link.child_collection('projects_nature-trace_assets_species_distribution_models_australia_mammals_v0', base_url),
   ],
 }

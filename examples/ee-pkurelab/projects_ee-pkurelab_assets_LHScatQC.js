@@ -1,0 +1,34 @@
+
+// Load QC image with two bands: RMSE and Pearson's r
+var LHScat_QC = ee.Image("projects/ee-pkurelab/assets/LHScatQC");
+
+// Select the RMSE and Pearson's r bands from the image
+var RMSE = LHScat_QC.select('RMSE');
+var Pearsonr = LHScat_QC.select('Pearsonr');
+
+// Visualization parameters
+// RMSE visualization: 0–1 (example range, adjust if needed)
+var visParams_RMSE = {
+  min: 0,
+  max: 1,
+  palette: ['green', 'yellow', 'red', 'firebrick']
+};
+// Pearson correlation visualization: 0.8–1
+var visParams_Pearsonr = {
+  min: 0.8,
+  max: 1,
+  palette: ['green', 'yellow', 'red', 'firebrick']
+};
+
+
+// Define a bbox
+var region = ee.Geometry.Rectangle([73, 18, 150, 54]);
+Map.centerObject(region, 4);
+
+// Add RMSE layer
+Map.addLayer(RMSE, visParams_RMSE, 'LHScat QC - RMSE');
+
+// Add Pearson's r layer
+Map.addLayer(Pearsonr, visParams_Pearsonr, 'LHScat QC - Pearson\'s r');
+
+

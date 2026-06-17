@@ -1,10 +1,14 @@
 local id = 'NOAA/VIIRS/001/VNP64A1';
 local subdir = 'NOAA';
+local versions = import 'versions.libsonnet';
+local version_table = import '../NASA/templates/VIIRS_VNP64A1_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -21,8 +25,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'VNP64A1: Burned Area Monthly L4 Global 500m SIN Grid',
-  version: '1',
+  title: 'VNP64A1: Burned Area Monthly L4 Global 500m SIN Grid [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The daily Suomi National Polar-Orbiting Partnership (Suomi NPP) NASA Visible
@@ -52,7 +57,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/VIIRS/VNP64A1.001',
     },
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['fire'],
   keywords: [
     'burn',

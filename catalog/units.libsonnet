@@ -198,6 +198,8 @@
   // radiance: 'Watts/sr/m^2',
   radiance_nanowatts_cm2: 'nanoWatts/sr/cm^2',
   radiance_nanowatts_cm2_nanometers: 'nanoWatts/sr/cm^2/nm',
+  watt_per_meter_squared_sr_um: 'W/m^2/sr/µm',
+  watt_per_meter_squared_sr_um_per_dn: 'W/m^2/sr/µm/dn',
   per_steradian: 'sr^-1',
 
   // https://en.wikipedia.org/wiki/Reflectance
@@ -271,6 +273,7 @@
   // https://en.wikipedia.org/wiki/Flux
   watt_per_meter: 'W/m',
   watt_per_meter_squared: 'W/m^2',
+  watt_per_meter_squared_um: 'W/m^2/µm',
   // 'Year' is controversial:
   // https://rock.geosociety.org/net/gsatoday/archive/22/2/pdf/i1052-5173-22-2-28.pdf
   // We pick 'y' for consistency with 'd' and 'h'

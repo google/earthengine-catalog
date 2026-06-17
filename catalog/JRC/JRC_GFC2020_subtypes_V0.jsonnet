@@ -1,9 +1,13 @@
 local id = 'JRC/GFC2020_subtypes/V0';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/jrc_gft2020_versions.libsonnet';
 local subdir = 'JRC';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -13,17 +17,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
-  type: 'Collection',
+  type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global map of forest types 2020',
-  version: 'V0',
+  title: 'Global map of forest types 2020 V0 [deprecated]',
+  version: version,
   // The collection contains tiles for a global mosaic.
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'deprecated',
   description: |||
     The global map of forest types provides a spatially explicit representation
     of primary forest, naturally regenerating forest and planted forest (including
@@ -87,7 +92,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [this website](https://forobs.jrc.ec.europa.eu/GFC).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['forest-biomass'],
   keywords: [
     'eudr',

@@ -70,6 +70,12 @@ A catalog with two children:
     title: 'USDOS_LSIB_2021',
     type: 'application/json'
   }]
+
+Case-insensitive checks are used for filesystem paths, URLs, and titles
+only for OpenET/openet datasets to handle cases where dataset ID
+capitalization (e.g., 'openet') does not match the directory name on disk
+(e.g., 'OpenET'), ensuring compatibility across different operating systems
+(MacOS, Windows). For all other datasets, these checks remain case-sensitive.
 """
 
 import collections
@@ -269,7 +275,7 @@ class Check(stac.NodeCheck):
           expect = href.stem
           if href.name == 'catalog.json':
             expect = href.parts[-2]
-          if child[TITLE] != expect:
+          if not stac.equal_strings(child[TITLE], expect):
             yield cls.new_issue(node, f'{CHILD} {TITLE} must be "{expect}"')
 
       url_counts = collections.Counter(
@@ -308,7 +314,7 @@ class Check(stac.NodeCheck):
       expected_url = IMAGE_BASE + parents + '/' + node.path.stem + SAMPLE_SUFFIX
 
       url = preview[HREF]
-      if url != expected_url:
+      if not stac.equal_urls(url, expected_url):
         yield cls.new_issue(
             node, f'{PREVIEW} {HREF} must be {expected_url}. Found: {url}')
 
@@ -342,7 +348,7 @@ class Check(stac.NodeCheck):
       expected_url = TERMS_BASE + name + TERMS_SUFFIX
 
       url = terms[HREF]
-      if url != expected_url:
+      if not stac.equal_urls(url, expected_url):
         yield cls.new_issue(
             node,
             f'terms {LICENSE} {HREF} must be {expected_url}. Found: {url}')
@@ -382,7 +388,7 @@ class Check(stac.NodeCheck):
                 else node.id.split('/')[0])
       expected_url = CODE_URL + subdir + '/' + example_name
       url = example[HREF]
-      if url != expected_url:
+      if not stac.equal_urls(url, expected_url):
         yield cls.new_issue(
             node, f'{CODE} {HREF} must be {expected_url}. Found: {url}')
 
@@ -429,7 +435,7 @@ class Check(stac.NodeCheck):
 
         expected_url = CODE_URL + subdir + '/' + example_name + FEATURE_VIEW
         url = feature_view[HREF]
-        if url != expected_url:
+        if not stac.equal_urls(url, expected_url):
           yield cls.new_issue(
               node, f'{CODE} {HREF} must be {expected_url}. Found: {url}')
 

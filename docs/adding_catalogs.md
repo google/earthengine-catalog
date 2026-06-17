@@ -22,21 +22,26 @@ following changes:
 
 1.  At least one dataset description. See the docs on [adding new datasets](adding_datasets.md) for details of
         writing a new dataset description.
-1.  A new JSON file in the owners/ directory named `<yourproject>.jsonnet`
-        with the followng fields:
+1.  Add a link to your new catalog in the top-level `catalog.jsonnet` file (located at `catalog/catalog.jsonnet`) using `ee.link.child_catalog('yourproject', base_url)`.
 
+1. Add a new `catalog.jsonnet` file to your project's directory
+  (e.g., `catalog/<yourproject>/catalog.jsonnet`)
+  *  The human-readable name and description of the catalog should be
+     specified as the `title` and `description` fields in the catalog's
+    `catalog.jsonnet` file. The description can be
+    imported from a separate `description.md` file using `importstr
+    'description.md'`.
+  * Add to ` `catalog.jsonnet` a `gee:publisher` field with the
+    following fields:
+    ```jsonnet
+      'gee:publisher': {
+          type: 'PUBLISHER',
+          link: '<Link to the external publisher page>',
+          contactDisplay: '<Contact display>',
+          contactLink: '<Contact mailto: or https: link>'
+      }
     ```
-      {
-          "id": "<yourproject>",
-          "homeBucket": "projects/<yourproject>",
-          "name": "<Catalog name>",
-          "description": "<Catalog description>",
-          "type": "PUBLISHER",
-          "link": "<Link to the external publisher page>",
-          "contactDisplay": "<Contact display>",
-          "contactLink": "<Contact mailto: or https: link">
-    }
-    ```
+
 
 ## Reporting usage statistics
 
@@ -61,31 +66,23 @@ Interval,Dataset,30-day active users
 2025-01-05/2025-02-03,projects/provider-name/assets/dataset2,66
 ```
 
-To read the files, use [gsutil](https://cloud.google.com/storage/docs/gsutil).
+To read the files, use [gcloud storage](https://docs.cloud.google.com/sdk/docs/install-sdk).
 There are no charges for reading these files.
 
 ## Dataset deletion protection
 
-To safeguard datasets added to publisher and community catalogs, Earth Engine
-uses a special asset property called `dataset_admin_delete_protected`. This
-property determines whether assets added to the catalog can be deleted.
+To protect datasets in publisher and community catalogs from accidental deletion,
+Earth Engine uses a special asset property called `dataset_admin_delete_protected`.
 
-* **Protected Datasets:** Datasets with the `dataset_admin_delete_protected`
- property set (to any value other than `pending_update`) are protected.
- Attempts to delete these datasets will be blocked.
+When this property is set to any value other than `pending_update`, the asset is
+locked and cannot be deleted. For individual images and tables, this applies
+directly to the asset itself. For image collections, setting this property
+protects all images within the collection from deletion.
 
-* **Asset types**. If this property is set on individual images and tables,
- they cannot be deleted. If it's set on image collections, images in those
- collections cannot be deleted.
+If you need to delete an asset for legitimate reasons, you can temporarily
+disable the protection by setting `dataset_admin_delete_protected` to
+`pending_update`. This allows you to make necessary changes while still
+maintaining a safety net. You can update this property using the Code Editor UI
+or the `earthengine` command-line tool (using the [`asset set`](https://developers.google.com/earth-engine/guides/command_line#asset) subcommand).
 
-* **Temporary Disabling:**  The protection can be temporarily disabled by
- setting the `dataset_admin_delete_protected` property to `pending_update`.
- This allows intentional changes while still guarding against accidental
- deletion. You can set the property via the `earthengine` command line tool
-(using the
-["asset set"](https://developers.google.com/earth-engine/guides/command_line#asset)
-subcommand) or in the Code Editor UI.
-
-* **Administrative Management:** The Earth Engine Data team sets this
-  property for user-owned datasets listed in the data catalog once these
-  datasets have been activated.
+The Earth Engine Data team handles setting this property for user-owned datasets once they are activated in the public catalog.

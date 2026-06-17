@@ -80,7 +80,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
     gsd: [
-      1000.0,
+      90.0,
     ],
     'eo:bands': [
       {

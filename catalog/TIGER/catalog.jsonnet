@@ -30,5 +30,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('TIGER_2020_BG', base_url),
     ee.link.child_collection('TIGER_2020_TABBLOCK20', base_url),
     ee.link.child_collection('TIGER_2020_TRACT', base_url),
+    ee.link.child_collection('TIGER_2020_ZCTA5', base_url),
   ],
 }

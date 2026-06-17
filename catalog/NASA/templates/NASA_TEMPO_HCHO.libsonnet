@@ -51,6 +51,7 @@ local self_ee_catalog_url(id) =
         'formaldehyde',
         'pollution',
         'tropomi',
+        'tempo',
       ],
       providers: (
         if cfg.qa_description == '' then

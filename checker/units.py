@@ -67,6 +67,7 @@ UNITS = frozenset({
     'mbar',
     'mg/m^3',
     'min',
+    'min/m',
     'mm',
     'mm/d',
     'mm/y',
@@ -85,4 +86,7 @@ UNITS = frozenset({
     '&micro;m',
     '&mu;g/m&sup3',
     '&mu;m',
+    'W/m^2/sr/µm',
+    'W/m^2/sr/µm/dn',
+    'W/m^2/µm',
 })

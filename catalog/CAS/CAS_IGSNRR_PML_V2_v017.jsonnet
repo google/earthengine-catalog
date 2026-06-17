@@ -1,8 +1,7 @@
 local id = 'CAS/IGSNRR/PML/V2_v017';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/IGSNRR_PML_versions.libsonnet';
-
 local subdir = 'CAS';
+local versions = import 'versions.libsonnet';
+local version_table = import '../pml_evapotranspiration/templates/PML_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -12,6 +11,9 @@ local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
+
+local basename = std.strReplace(id, '/', '_');
+local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   'gee:status': 'deprecated',
@@ -24,7 +26,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title:
-    'PML_V2 ' + version +
+    'PML_V2.1.7' +
     ': Coupled Evapotranspiration and Gross Primary Product (GPP) [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
@@ -45,6 +47,9 @@ local license = spdx.cc_by_4_0;
     at 95 flux sites across the globe, and are similar to or noticeably better than
     major state-of-the-art ET and GPP products widely used by water and ecology
     research communities (Zhang et al., 2019).
+
+    Note on versioning: For consistency in naming conventions, PML-V2.1.7 replaces the previous PML-V2 0.1.7.
+
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
@@ -55,7 +60,7 @@ local license = spdx.cc_by_4_0;
   ],
   providers: [
     ee.producer_provider('PML_V2', 'https://github.com/kongdd/PML'),
-    ee.host_provider(version_config.ee_catalog_url),
+    ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-02-26T00:00:00Z', null),
   summaries: {

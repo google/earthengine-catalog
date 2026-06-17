@@ -64,13 +64,15 @@ local version = version_config.version;
 
     * [Anomalies](https://gpmweb2https.pps.eosdis.nasa.gov/tsdis/AB/docs/gpm_anomalous.html)
 
-    This collection contains provisional
-    products that are regularly replaced with updated versions when
-    the data become available. The products are marked with a metadata
-    property called 'status'. When a product is initially made available,
-    the property value is 'provisional'. Once a provisional product
-    has been updated with the final version, this value is updated
-    to 'permanent'.
+    This collection contains provisional products that are regularly replaced
+    with updated versions when the data become available. The products are
+    marked with a metadata property called 'status'. When a product is initially
+    made available, the property value is 'provisional'. Once a provisional
+    product has been updated with the final version, this value is updated to
+    'permanent'. (Note: No 'permanent' products are available beyond 2025/09/30
+    due to the provider's planned transition to version 8; see
+    [here](https://gpm.nasa.gov/data/news/imerg-v08-transition-schedule) for
+    details.)
 
     This collection contains data from:
 
@@ -117,7 +119,7 @@ local version = version_config.version;
   'gee:provider_ids': [
     'C2723754847-GES_DISC',
   ],
-  extent: ee.extent_global('2000-06-01T00:00:00Z', null),
+  extent: ee.extent_global('1998-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
       11132.0,

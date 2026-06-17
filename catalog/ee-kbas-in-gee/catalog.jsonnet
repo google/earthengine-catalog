@@ -1,0 +1,29 @@
+local id = 'ee-kbas-in-gee';
+local ee_const = import 'earthengine_const.libsonnet';
+local ee = import 'earthengine.libsonnet';
+
+local basename = 'catalog';
+local base_filename = basename + '.json';
+local base_url = ee_const.catalog_base + 'ee-kbas-in-gee/';
+local parent_url = ee_const.catalog_base + 'catalog.json';
+local self_url = base_url + base_filename;
+
+{
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.catalog,
+  id: id,
+  title: 'BirdLife International',
+  description: 'BirdLife International is a global partnership of non-governmental organizations that strives to conserve birds and their habitats. BirdLife International\'s priorities include preventing extinction of bird species, identifying and safeguarding important sites for birds, maintaining and restoring key bird habitats, and empowering conservationists worldwide.',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://www.keybiodiversityareas.org/',
+    contactDisplay: 'BirdLife International',
+    contactLink: 'https://www.birdlife.org/'
+  },
+  links: [
+    ee.link.root(),
+    ee.link.parent(parent_url),
+    ee.link.self_link(self_url),
+    ee.link.child_collection('projects_ee-kbas-in-gee_assets_current', base_url)
+  ],
+}

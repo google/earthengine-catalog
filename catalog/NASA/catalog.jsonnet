@@ -20,6 +20,7 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
 
     ee.link.child_collection('NASA_ASTER_GED_AG100_003', base_url),
+    ee.link.child_collection('NASA_ECOSTRESS_L2T_LSTE_V2', base_url),
     ee.link.child_collection('NASA_ECOSTRESS_L2T_STARS_V2', base_url),
     ee.link.child_collection('NASA_EMIT_L2B_CH4ENH', base_url),
     ee.link.child_collection('NASA_EMIT_L2B_CH4PLM', base_url),
@@ -104,6 +105,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_TEMPO_HCHO_L3_QA', base_url),
     ee.link.child_collection('NASA_TEMPO_NO2_L3', base_url),
     ee.link.child_collection('NASA_TEMPO_NO2_L3_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_O3_L3_QA', base_url),
 
     ee.link.child_collection('NASA_VIIRS_002_VNP09GA', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP09H1', base_url),
@@ -112,7 +114,9 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_VIIRS_002_VNP15A2H', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP21A1D', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP21A1N', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VNP22Q2', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP43IA4', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP46A2', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VNP64A1', base_url),
   ],
 }

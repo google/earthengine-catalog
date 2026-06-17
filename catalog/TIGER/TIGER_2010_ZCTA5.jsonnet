@@ -1,4 +1,7 @@
 local id = 'TIGER/2010/ZCTA5';
+local versions = import 'versions.libsonnet';
+local version_table = import 'TIGER_ZCTA_versions.libsonnet';
+
 local subdir = 'TIGER';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -7,6 +10,9 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
+
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -20,8 +26,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'TIGER: US Census 5-digit ZIP Code Tabulation Areas 2010',
-  version: '2010',
+  title: 'TIGER: US Census 5-digit ZIP Code Tabulation Areas 2010 [deprecated]',
+  'gee:status': 'deprecated',
+  version: version,
   'gee:type': ee_const.gee_type.table,
   description: |||
     ZIP Code tabulation areas (ZCTAs) are approximate area representations of
@@ -51,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'census',

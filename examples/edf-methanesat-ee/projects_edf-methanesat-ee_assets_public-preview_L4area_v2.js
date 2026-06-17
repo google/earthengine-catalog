@@ -1,6 +1,7 @@
 // Request access to this data by filling out the form at: https://forms.gle/jqw4Mvr63dsV1fUF8
 var dataset = ee.ImageCollection("projects/edf-methanesat-ee/assets/public-preview/L4area_v2")
-  .filterDate('2024-11-01', '2025-05-01');
+  .filterDate('2024-11-01', '2025-05-01')
+  .select("mean_flux");
 
 // Visualization
 var colorRange = [

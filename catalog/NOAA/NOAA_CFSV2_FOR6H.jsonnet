@@ -5,12 +5,15 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/CFSV2_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,10 +24,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products',
-  version: 'V2',
+  title: 'CFSV2: NCEP Climate Forecast System Version 2, 6-Hourly Products [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+
+    Note: Starting October 20, 2025, this dataset switched to using Celsius
+    instead of Kelvin units for temperature bands. Please use
+    [NOAA/CFSV2/FOR6H_HARMONIZED](https://developers.google.com/earth-engine/datasets/catalog/NOAA_CFSV2_FOR6H_HARMONIZED)
+    for consistent temperature units (Kelvin).
+
     The National Centers for Environmental Prediction (NCEP) Climate Forecast
     System (CFS) is a fully coupled model representing the interaction between
     the Earth's atmosphere, oceans, land, and sea ice. CFS was developed at the
@@ -45,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5065/D61C1TXF',
     },
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['climate'],
   keywords: [
     'climate',
@@ -66,7 +76,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('NOAA NWS National Centers for Environmental Prediction (NCEP)', 'https://cfs.ncep.noaa.gov/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('1979-01-01T00:00:00Z', null),
   summaries: {
@@ -113,7 +123,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'Maximum_temperature_height_above_ground_6_Hour_Interval',
-        description: 'Maximum temperature 2m above ground, 6-hour interval',
+        description: 'Maximum temperature 2m above ground, 6-hour interval.
+        Note that the units switched from Kelvin to Celsius on 2025-10-20:18:00:00.',
         'gee:units': units.kelvin,
       },
       {
@@ -123,7 +134,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'Minimum_temperature_height_above_ground_6_Hour_Interval',
-        description: 'Minimum temperature 2m above ground, 6-hour interval',
+        description: 'Minimum temperature 2m above ground, 6-hour interval.
+        Note that the units switched from Kelvin to Celsius on 2025-10-20:18:00:00.',
         'gee:units': units.kelvin,
       },
       {
@@ -153,7 +165,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'Temperature_height_above_ground',
-        description: 'Temperature 2m above ground',
+        description: 'Temperature 2m above ground.
+        Note that the units switched from Kelvin to Celsius on 2025-10-20:18:00:00.',
         'gee:units': units.kelvin,
       },
       {

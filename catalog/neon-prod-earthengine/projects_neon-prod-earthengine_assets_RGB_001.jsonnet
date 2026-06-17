@@ -64,7 +64,7 @@ local units = import 'units.libsonnet';
     //   type: ee_const.media_type.html,
     // },
   ],
-  'gee:categories': ['satellite-imagery'],
+  'gee:categories': ['orthophotos'],
   keywords: [
     'airborne',
     'forest',

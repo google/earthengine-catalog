@@ -1,8 +1,0 @@
-[
-  {
-    'v2021-4': 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4',
-  },
-  {
-    'v2023-5': 'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5'
-  }
-]

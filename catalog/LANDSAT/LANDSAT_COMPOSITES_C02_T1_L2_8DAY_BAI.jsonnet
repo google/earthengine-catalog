@@ -51,6 +51,8 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   keywords: [
     'bai',
     'landsat',
+    'landsat-composite',
+    'fire',
     'usgs',
   ],
   providers: [
@@ -93,5 +95,4 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:min_zoom_level': 4,
   'gee:interval': {type: 'cadence', unit: 'day', interval: 8},
   'gee:terms_of_use': importstr 'terms_of_use.md',
-  'gee:is_derived': true,
 }

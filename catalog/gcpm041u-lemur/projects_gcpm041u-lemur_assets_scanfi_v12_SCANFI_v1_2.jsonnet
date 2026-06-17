@@ -19,52 +19,52 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
-    This data publication contains a set of 30m resolution raster files representing 2020 
-    Canadian wall-to-wall maps of broad land cover type, forest canopy height, degree of 
-    crown closure and aboveground tree biomass, along with species composition of several 
-    major tree species. The Spatialized CAnadian National Forest Inventory data product (SCANFI) 
-    was developed using the newly updated National Forest Inventory photo-plot dataset, which 
-    consists of a regular sample grid of photo-interpreted high-resolution imagery covering all 
-    of Canada’s non-arctic landmass. SCANFI was produced using temporally harmonized summer and 
-    winter Landsat spectral imagery along with hundreds of tile-level regional models based on 
+    This data publication contains a set of 30m resolution raster files representing 2020
+    Canadian wall-to-wall maps of broad land cover type, forest canopy height, degree of
+    crown closure and aboveground tree biomass, along with species composition of several
+    major tree species. The Spatialized CAnadian National Forest Inventory data product (SCANFI)
+    was developed using the newly updated National Forest Inventory photo-plot dataset, which
+    consists of a regular sample grid of photo-interpreted high-resolution imagery covering all
+    of Canada’s non-arctic landmass. SCANFI was produced using temporally harmonized summer and
+    winter Landsat spectral imagery along with hundreds of tile-level regional models based on
     a novel k-nearest neighbours and random forest imputation method.
-    
-    A full description of all methods and validation analyses can be found in [Guindon et al. (2024)](https://doi.org/10.1139/cjfr-2023-0118). 
-    As the Arctic ecozones are outside NFI’s covered areas, the vegetation attributes in these 
-    regions were predicted using a single random forest model. The vegetation attributes in these 
+
+    A full description of all methods and validation analyses can be found in [Guindon et al. (2024)](https://doi.org/10.1139/cjfr-2023-0118).
+    As the Arctic ecozones are outside NFI’s covered areas, the vegetation attributes in these
+    regions were predicted using a single random forest model. The vegetation attributes in these
     arctic areas could not be rigorously validated. The "articExtrapolationArea" band identifies these zones.
-    
+
     Data limitations:
 
-    1. The spectral disturbances of some areas disturbed by pests are not comprehensively represented in the 
-    training set, thus making it impossible to predict all defoliation cases. One such area, severely impacted by 
-    the recent eastern spruce budworm outbreak, is located on the North Shore of the St-Lawrence River. These 
+    1. The spectral disturbances of some areas disturbed by pests are not comprehensively represented in the
+    training set, thus making it impossible to predict all defoliation cases. One such area, severely impacted by
+    the recent eastern spruce budworm outbreak, is located on the North Shore of the St-Lawrence River. These
     forests are misrepresented in our training data, there is therefore an imprecision in the estimates.
-    
-    2. Attributes of open stand classes, namely shrub, herbs, rock and bryoid, are more difficult to estimate 
-    through the photointerpretation of aerial images. Therefore, these estimates could be less reliable than the 
+
+    2. Attributes of open stand classes, namely shrub, herbs, rock and bryoid, are more difficult to estimate
+    through the photointerpretation of aerial images. Therefore, these estimates could be less reliable than the
     forest attribute estimates.
-    
-    3. As reported in the [manuscript](https://doi.org/10.1139/cjfr-2023-0118), the uncertainty of tree species cover predictions is relatively high. This 
-    is particularly true for less abundant tree species, such as ponderosa pine and tamarack. The tree species 
-    layers are therefore suitable for regional and coarser scale studies. Also, the broadleaf proportion are 
+
+    3. As reported in the [manuscript](https://doi.org/10.1139/cjfr-2023-0118), the uncertainty of tree species cover predictions is relatively high. This
+    is particularly true for less abundant tree species, such as ponderosa pine and tamarack. The tree species
+    layers are therefore suitable for regional and coarser scale studies. Also, the broadleaf proportion are
     slightly underestimated in this product version.
-    
-    4. Our validation indicates that the areas in Yukon exhibit a notably lower R2 value. Consequently, estimates 
-    within these regions are less dependable. 
-    
-    5. Urban areas and roads are classified as rock, according to the 2020 Agriculture and Agri-Food Canada 
-    land-use classification map. Even though those areas contain mostly buildings and infrastructure, they may 
-    also contain trees. Forested urban parks are usually classified as forested areas. Vegetation attributes are 
+
+    4. Our validation indicates that the areas in Yukon exhibit a notably lower R2 value. Consequently, estimates
+    within these regions are less dependable.
+
+    5. Urban areas and roads are classified as rock, according to the 2020 Agriculture and Agri-Food Canada
+    land-use classification map. Even though those areas contain mostly buildings and infrastructure, they may
+    also contain trees. Forested urban parks are usually classified as forested areas. Vegetation attributes are
     also predicted for forested areas in agricultural regions.
-    
+
     This dataset can also be downloaded from Canada's ["Open Government"](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc) website.
-    
+
     Contains information licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada)
   |||,
-  
-  
+
+
 
   'gee:categories': ['forest-biomass'],
 
@@ -104,7 +104,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
       {
         name: 'nfiLandCover',
-        description: 'NFI land cover class values: Land cover classes include Bryoid (1), Herbs (2), Rock (3), Shrub (4), 
+        description: 'NFI land cover class values: Land cover classes include Bryoid (1), Herbs (2), Rock (3), Shrub (4),
                         Treed broadleaf (5), Treed conifer (6), Treed mixed (7) and  Water (8)',
         // Only for bands with enumerated values.
         'gee:classes': [
@@ -168,10 +168,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'White and red pine (%): estimated as the proportion of the canopy covered by Pinus strobus and Pinus resinosa',
         'gee:units': units.percent,
       },
- 
+
       {
         name: 'articExtrapolationArea',
-        description: 'Flag for marking Artic unreliable extrapolated pixels',
+        description: 'Flag for marking Arctic unreliable extrapolated pixels',
         'gee:classes': [
           {value: 1, color: '000000', description: 'Artic Extrapolation Area'},
         ],
@@ -196,21 +196,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
 
   'sci:citation': |||
-     Guindon L., Villemaire P., Correia D.L.P., Manka F., Lacarte S., Smiley B. 2023. 
-     SCANFI: Spatialized CAnadian National Forest Inventory data product. 
-     Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada. 
+     Guindon L., Villemaire P., Correia D.L.P., Manka F., Lacarte S., Smiley B. 2023.
+     SCANFI: Spatialized CAnadian National Forest Inventory data product.
+     Natural Resources Canada, Canadian Forest Service, Laurentian Forestry Centre, Quebec, Canada.
      [https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc](https://doi.org/10.23687/18e6a919-53fd-41ce-b4e2-44a9707c52dc)
-     
-     Guindon, L., Manka, F., Correia, D.L.P., Villemaire, P., Smiley, B., Bernier, P., Gauthier, S., Beaudoin, A., Boucher, J., and Boulanger, Y. 2024. 
-     A new approach for Spatializing the Canadian National Forest Inventory (SCANFI) using Landsat dense time series. Can. J. For. Res. 
+
+     Guindon, L., Manka, F., Correia, D.L.P., Villemaire, P., Smiley, B., Bernier, P., Gauthier, S., Beaudoin, A., Boucher, J., and Boulanger, Y. 2024.
+     A new approach for Spatializing the Canadian National Forest Inventory (SCANFI) using Landsat dense time series. Can. J. For. Res.
      [https://doi.org/10.1139/cjfr-2023-0118](https://doi.org/10.1139/cjfr-2023-0118)
   |||,
-  
+
   'gee:terms_of_use': |||
     Licensed under the
     [Open Government Licence - Canada](https://open.canada.ca/en/open-government-licence-canada).
   |||,
-  
+
 
   'gee:type': ee_const.gee_type.image,
 

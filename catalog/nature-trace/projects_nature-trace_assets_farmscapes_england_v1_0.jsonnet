@@ -5,7 +5,7 @@ local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local license = spdx.cc_by_nc_4_0;
+local license = spdx.cc_by_4_0;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -23,7 +23,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The Farmscapes 2020 dataset provides high-resolution (25cm) probability maps
     for three key semi-natural features within England's agricultural
     landscapes: hedgerows, woodland, and stone walls. This dataset was developed
-    in collaboration with the Oxford Leverhulme Centre for Nature Recovery to
+    in collaboration with the Leverhulme Centre for Nature Recovery at Oxford to
     serve as a baseline for applications including landscape restoration,
     biodiversity monitoring, and ecological connectivity analysis.
 
@@ -37,7 +37,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     **Limitations**
 
     * Geographic Scope: Model performance is reduced in dense urban
-    environments and montainous areas, which were underrepresented in the
+    environments and mountainous areas, which were underrepresented in the
     training data that focused primarily on rural landscapes.
     * Temporal Accuracy: The source imagery was captured between 2018 and 2020.
     Consequently, the dataset does not account for landscape changes that have
@@ -149,8 +149,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:terms_of_use': |||
     This dataset is licensed under
-    [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) and requires
-    the following attribution: "This dataset is produced by Google".
+    [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
+    following attribution: "This dataset is produced by Google".
   |||,
-  'gee:unusual_terms_of_use': true,
 }
