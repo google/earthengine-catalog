@@ -75,6 +75,7 @@
   // https://en.wikipedia.org/wiki/Density
   density_si: 'kg/m^3',
   density_mg_per_m_cubed: 'mg/m^3',
+  density_ug_per_m_cubed: 'ug/m^3',
 
   // https://www.efunda.com/glossary/units/units--surface_density--gram_per_square_centimeter.cfm
   surface_density: 'g/cm^2',
