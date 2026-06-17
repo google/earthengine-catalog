@@ -22,7 +22,7 @@ var delta = 50;
 // Width and height of the thumbnail image.
 var pixels = 256;
 
-var image = temp.visualize(tempVis);
+var image = NO2.visualize(NO2Vis);
 var imageWithBackground = ee.ImageCollection([background, image]).mosaic();
 
 var areaOfInterest = ee.Geometry.Rectangle(
