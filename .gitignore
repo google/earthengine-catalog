@@ -1,2 +1,14 @@
 .vscode
 CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Bazel
+bazel-*
+
+# Local working docs
+docs/*.docx
