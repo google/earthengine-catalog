@@ -19,5 +19,5 @@ var weeklyT =
     geosCf.select('T').filterDate('2025-08-04', '2025-08-11').median();
 Map.addLayer(weeklyT, imageVisParamT, 'Weekly T', false, 1);
 
-var NO2 = ee.Image('NASA/GEOS-CF/v2/ana/tavg1hr/20250804_1200z');
+var NO2 = ee.Image('NASA/GEOS-CF/v2/ana/tavg1hr/20250804_1230z');
 Map.addLayer(NO2, imageVisParamNO2, 'NO2', true, 1);
