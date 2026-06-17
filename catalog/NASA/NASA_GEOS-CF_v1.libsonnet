@@ -32,7 +32,7 @@
     skills can be improved significantly by applying a bias-correction to the
     surface model output using a machine-learning approach.
 
-    A new version of GEOS-CF, v2.0, was released in January 2026. The updates 
+    **Please Note:** A new version of GEOS-CF, v2.0, was released in January 2026. The updates 
     to the GEOS-CF system include updates to the GEOS atmospheric general 
     circulation model and the GEOS-Chem chemical model, replaying meteorology 
     to GEOS IT, direct assimilation of stratospheric profiles and column ozone, 
