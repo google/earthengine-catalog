@@ -8,9 +8,5 @@ var geosCf = ee.ImageCollection('NASA/GEOS-CF/v2/fcst/htf');
 
 Map.setCenter(100, 20, 3);
 
-var NO2 = ee.Image('NASA/GEOS-CF/v2/fcst/htf/20250804_09z+20250805_1200z');
+var NO2 = ee.Image('NASA/GEOS-CF/v2/fcst/htf/20260101_09z-20260101_0930z');
 Map.addLayer(NO2, imageVisParamNO2, 'NO2', true, 1);
-
-
-
-
