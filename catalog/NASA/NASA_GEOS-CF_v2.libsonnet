@@ -16,6 +16,7 @@
     chemistry module integrated in GEOS-CF is identical to the offline GEOS-Chem
     model and readily benefits from the innovations provided by the GEOS-Chem
     community. Outputs are provided globally at 0.25&deg; horizontal resolution. 
+    Please refer to the [GEOS-CF Product Page](https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/) for more details.
 
     In October 2025, a major update to the GEOS-CF system was introduced as 
     GEOS-CF v2. This change included updates to the GEOS atmospheric general 
@@ -24,11 +25,13 @@
     of stratospheric profiles and column ozone from NASA Aura OMI and MLS instruments, 
     and updates to the anthropogenic emission source. Evaluation of these updates is 
     ongoing; results will be added into this description as they become available. 
-    Preliminary results suggest that, in relation to GEOS-CF v1, GEOS-CF v2 dramatically 
+    [Preliminary results](https://gmao.gsfc.nasa.gov/science-snapshots/improved-atmospheric-composition-forecasting-in-geos-cf-version-2/) 
+    suggest that, in relation to GEOS-CF v1, GEOS-CF v2 dramatically 
     improves the representation of PM<sub>2.5</sub> and SO<sub>2</sub> near the surface. 
-    While representations of O<sub>3</sub> and NO<sub>2</sub> are generally improved throughout
-    most of the atmospheric column, representation of near-surface concentrations (i.e., at 
-    atmospheric levels directly relevant to air quality) may be degraded comapred to v1.
+    Representations of O<sub>3</sub> and NO<sub>2</sub> are generally improved throughout
+    most of the atmospheric column, with and NO<sub>2</sub> being substantially lower in GEOS-CF v2 compared with v1. 
+    While representation of near-surface O<sub>3</sub> is improved compared to GEOS-CF v1, 
+    there remain high biases compared with ozone monitor data from the US Environmental Protection Agency.
 
     Users of GEOS-CF are encouraged to treat outputs from the original system (v1) 
     and the new system (v2) separately in their analysis, due to the extensive changes 
