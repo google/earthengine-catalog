@@ -10,6 +10,7 @@ UNITS = frozenset({
     '%',
     '% change/y',
     '1/s',
+    '1.0e15 molecules/cm^2',
     'Area fraction',
     'Dimensionless',
     'Mass fraction',

@@ -31,6 +31,17 @@
     5-days forecasts have skill scores comparable to the 1-day hindcast. Model
     skills can be improved significantly by applying a bias-correction to the
     surface model output using a machine-learning approach.
+
+    **Please Note:** A new version of GEOS-CF, v2.0, was released in January 2026. The updates 
+    to the GEOS-CF system include updates to the GEOS atmospheric general 
+    circulation model and the GEOS-Chem chemical model, replaying meteorology 
+    to GEOS IT, direct assimilation of stratospheric profiles and column ozone, 
+    and updates to the anthropogenic emission source. Many of the same products 
+    are available, and some new products have been added, but other products have 
+    been discontinued. Furthermore, GEOS-CF v2.0 data will not be back-processed to
+    cover the same period as GEOS-CF v1.0. For this reason, we consider GEOS-CF v2.0 
+    to be a continuation and supplement to the GEOS-CF v1.0 data record, but not a 
+    replacement for GEOS-CF v1.0 data. Please see the [GEOS-CF system description](https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/system-description_geos-cf/) for a summary of the updates.
   |||,
   sci_citation: |||
     Keller, C. A., Knowland, K. E., Duncan, B. N., Liu, J., Anderson, D. C.,

@@ -146,6 +146,7 @@
   // See also: https://en.wikipedia.org/wiki/Mixing_ratio
   mole_fraction: 'Mol fraction',
   molecules_per_cm2: 'molecules/cm^2',
+  trace_gas_molecules_per_cm2: '1.0e15 molecules/cm^2',
 
   // https://en.wikipedia.org/wiki/Metre
   meter: 'm',
