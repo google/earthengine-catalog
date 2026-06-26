@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import os
+from typing import Any
 
 from absl import app
 from absl import logging
@@ -66,6 +67,25 @@ numeric_variables = (
     'surface_flag'
 )
 
+integer_variables = frozenset((
+    'beam',
+    'degrade_flag',
+    'elevation_bias_flag',
+    'num_detectedmodes',
+    'quality_flag',
+    'selected_algorithm',
+    'selected_mode',
+    'selected_mode_flag',
+    'surface_flag',
+    'land_cover_data/landsat_water_persistence',
+    'land_cover_data/leaf_off_flag',
+    'land_cover_data/pft_class',
+    'land_cover_data/region_class',
+    'land_cover_data/urban_focal_window_size',
+    'land_cover_data/urban_proportion',
+))
+
+
 # Integer-valued columns that contained fill values instead of NA prior to
 # Pandas updates past version 1.5.
 integer_fill_variables = {
@@ -76,13 +96,50 @@ integer_fill_variables = {
 
 string_variables = ('shot_number',)
 
+# Describes how to transform variable names from different GEDI versions
+# into the schema defined for V002. A value of None indicates that the
+# variable is not present at all.
+NUMERIC_TRANSFORMS = {
+    gedi_lib.VERSION_002: {},
+    gedi_lib.VERSION_003: {
+        'land_cover_data/leaf_off_doy': None,
+        'land_cover_data/leaf_on_cycle': None,
+        'land_cover_data/leaf_on_doy': None,
+        'quality_flag': 'l2a_quality_flag_rel3',
+    },
+}
+STRING_TRANSFORMS = {
+    gedi_lib.VERSION_002: {},
+    gedi_lib.VERSION_003: {},
+}
+
+
+def get_inactive_variables(version: str) -> set[str]:
+  """Returns the leaf names of variables that are inactive in this version."""
+  inactive_vars = set()
+  for v in numeric_variables:
+    h5_path = NUMERIC_TRANSFORMS[version].get(v, v)
+    if h5_path is None:
+      inactive_vars.add(v.split('/')[-1])
+  return inactive_vars
+
+
 rh_names = tuple([f'rh{d}' for d in range(101)])
 
 
 def extract_values(
-      input_paths: list[str], output_path: str,
-      use_all_algorithms: bool = False) -> None:
-  """Extracts all rh (relative heights) and some qa flags.
+    input_paths: list[str],
+    output_path: str,
+    use_all_algorithms: bool = False,
+) -> None:
+  """Extracts all rh (relative heights) and some qa flags to CSV.
+
+  The columns in the output CSV are, in order:
+  * numeric variables
+  * string variables
+  * rh variables (rh0 to rh100)
+  * gedi_lib.shot_breakdown_variables
+  * gedi_lib.l2b_variables_for_l2a
 
   Args:
      input_paths: GEDI L2A and GEDI L2B file paths
@@ -97,16 +154,46 @@ def extract_values(
   if not basename.startswith('GEDI') or not basename.endswith('.h5'):
     logging.error('Input path is not a GEDI filename: %s', l2a_path)
     return
+  try:
+    version = gedi_lib.extract_version(basename)
+  except ValueError:
+    logging.exception('Unable to extract version from %s', basename)
+    return
 
   with h5py.File(l2a_path, 'r') as l2a_hdf_fh:
     with h5py.File(l2b_path, 'r') as l2b_hdf_fh:
       with open(output_path, 'w') as csv_fh:
-        write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_fh)
+        write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_fh, version)
 
 
-def write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_file):
-  """Writes a single CSV file based on the contents of HDF file."""
+def write_csv(
+    l2a_hdf_fh: h5py.File,
+    l2b_hdf_fh: h5py.File,
+    csv_file: Any,
+    version: str = gedi_lib.VERSION_002,
+) -> None:
+  """Writes a single CSV file based on the contents of HDF file.
+
+  Args:
+    l2a_hdf_fh: L2A HDF5 file handle.
+    l2b_hdf_fh: L2B HDF5 file handle.
+    csv_file: Output CSV file object.
+    version: GEDI version.
+  """
   is_first = True
+
+  # Build list of active variables and their H5 paths for this version.
+  # List of tuples: (output_column_name, h5_variable_path)
+  vars_to_extract = []
+  for v in numeric_variables:
+    h5_path = NUMERIC_TRANSFORMS[version].get(v, v)
+    if h5_path is not None:
+      vars_to_extract.append((v.split('/')[-1], h5_path))
+  for v in string_variables:
+    h5_path = STRING_TRANSFORMS[version].get(v, v)
+    if h5_path is not None:
+      vars_to_extract.append((v.split('/')[-1], h5_path))
+
   # Iterating over relative height percentage values from 0 to 100
   for k in l2a_hdf_fh.keys():
     if not k.startswith('BEAM'):
@@ -115,8 +202,8 @@ def write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_file):
 
     df = pd.DataFrame()
 
-    for v in numeric_variables + string_variables:
-      gedi_lib.hdf_to_df(l2a_hdf_fh, k, v, df)
+    for df_key, h5_path in vars_to_extract:
+      gedi_lib.hdf_to_df(l2a_hdf_fh, k, h5_path, df, df_key)
 
     rh = pd.DataFrame(l2a_hdf_fh[f'{k}/rh'], columns=rh_names)
     df = pd.concat((df, rh), axis=1)
@@ -133,7 +220,8 @@ def write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_file):
 
     # Correct fill replacements.
     for df_key, fill_value in integer_fill_variables.items():
-      df[df_key] = df[df_key].fillna(fill_value)
+      if df_key in df.columns:
+        df[df_key] = df[df_key].fillna(fill_value)
 
     df.to_csv(
         csv_file,
@@ -141,7 +229,8 @@ def write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_file):
         index=False,
         header=is_first,
         mode='a',
-        lineterminator='\n')
+        lineterminator='\n',
+    )
     is_first = False
 
 

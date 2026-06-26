@@ -14,8 +14,10 @@
 
 import datetime
 import os
+import re
 import time
 from typing import Any
+
 from absl import flags
 import attr
 from dateutil import relativedelta
@@ -26,7 +28,33 @@ import pytz
 
 import ee
 
+VERSION_002 = '002'
+VERSION_003 = '003'
+SUPPORTED_VERSIONS = (VERSION_002, VERSION_003)
+
+
+def extract_version(filename: str) -> str:
+  """Extracts GEDI version from filename and asserts it is supported."""
+  match = re.search(r'_V(\d{3})(?:\.h5)?$', filename)
+  if not match:
+    # Fallback to 002 for legacy files that do not have the version in
+    # their name.
+    version = VERSION_002
+  else:
+    version = match.group(1)
+  if version not in SUPPORTED_VERSIONS:
+    raise ValueError(
+        f'Unsupported version: {version}. Supported: {SUPPORTED_VERSIONS}'
+    )
+  return version
+
+
 l2b_variables_for_l2a = ('local_beam_azimuth', 'local_beam_elevation')
+shot_breakdown_variables = (
+    'shot_number_within_beam',
+    'minor_frame_number',
+    'orbit_number',
+)
 
 
 NUM_UTM_GRID_CELLS = flags.DEFINE_integer(
@@ -113,7 +141,12 @@ def add_shot_number_breakdown(df: pd.DataFrame) -> None:
 
 
 def hdf_to_df(
-    hdf_fh: h5py.File, beam_key: str, var: str, df: pd.DataFrame) -> None:
+    hdf_fh: h5py.File,
+    beam_key: str,
+    var: str,
+    df: pd.DataFrame,
+    df_key: str | None = None,
+) -> None:
   """Copies data for a single var from an HDF file to a Pandas DataFrame.
 
   Args:
@@ -121,11 +154,14 @@ def hdf_to_df(
     beam_key: a string like BEAM0110, first part of the HDF variable key
     var: second part of the HDF variable key (also used for the dataframe key)
     df: output Pandsa DataFrame
+    df_key: optional key to use in the DataFrame. If not specified, the last
+      part of var is used.
   """
   if var.startswith('#'):
     return
   hdf_key = f'{beam_key}/{var}'
-  df_key = var.split('/')[-1]
+  if df_key is None:
+    df_key = var.split('/')[-1]
 
   ds = hdf_fh[hdf_key]
   df[df_key] = ds[:]

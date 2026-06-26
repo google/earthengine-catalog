@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import os
+from typing import Any
 
 from absl import app
 from absl import logging
@@ -28,7 +29,6 @@ numeric_variables = (
     'fhd_normal',
     'pgap_theta',
     'beam',
-    'shot_number',
     'l2b_quality_flag',
     'algorithmrun_flag',
     'selected_rg_algorithm',
@@ -44,7 +44,34 @@ numeric_variables = (
     'geolocation/solar_elevation',
 )
 
+integer_variables = frozenset((
+    'beam',
+    'l2b_quality_flag',
+    'algorithmrun_flag',
+    'selected_rg_algorithm',
+    'selected_l2a_algorithm',
+    'geolocation/degrade_flag',
+))
+
+
 string_variables = ('shot_number',)
+
+# Describes how to transform variable names from different GEDI versions
+# into the schema defined for V002. A value of None indicates that the
+# variable is not present at all.
+NUMERIC_TRANSFORMS = {
+    gedi_lib.VERSION_002: {},
+    gedi_lib.VERSION_003: {
+        'geolocation/lat_lowestmode': 'lat_lowestmode',
+        'geolocation/lon_lowestmode': 'lon_lowestmode',
+        'l2b_quality_flag': 'l2b_quality_flag_rel3',
+        'algorithmrun_flag': 'l2_algrunflag',
+    },
+}
+STRING_TRANSFORMS = {
+    gedi_lib.VERSION_002: {},
+    gedi_lib.VERSION_003: {},
+}
 
 cover_names = [f'cover_z{d}' for d in range(30)]
 pai_names = [f'pai_z{d}' for d in range(30)]
@@ -53,7 +80,15 @@ pavd_names = [f'pavd_z{d}' for d in range(30)]
 
 # pylint:disable=line-too-long
 def extract_values(input_paths: list[str], output_path: str) -> None:
-  """Extracts all relative height values from all algorithms and some qa flags.
+  """Extracts GEDI L2B values to CSV.
+
+  The columns in the output CSV are, in order:
+  * numeric variables
+  * string variables
+  * cover_z variables (30 slices)
+  * pai_z variables (30 slices)
+  * pavd_z variables (30 slices)
+  * gedi_lib.shot_breakdown_variables
 
   Args:
      input_paths: GEDI L2B file path in a single-element list
@@ -65,15 +100,43 @@ def extract_values(input_paths: list[str], output_path: str) -> None:
   if not basename.startswith('GEDI') or not basename.endswith('.h5'):
     logging.error('Input path is not a GEDI filename: %s', input_path)
     return
+  try:
+    version = gedi_lib.extract_version(basename)
+  except ValueError:
+    logging.exception('Unable to extract version from %s', basename)
+    return
 
   with h5py.File(input_path, 'r') as hdf_fh:
     with open(output_path, 'w') as csv_fh:
-      write_csv(hdf_fh, csv_fh)
+      write_csv(hdf_fh, csv_fh, version)
 
 
-def write_csv(hdf_fh, csv_file):
-  """Writes a single CSV file based on the contents of HDF file."""
+def write_csv(
+    hdf_fh: h5py.File,
+    csv_file: Any,
+    version: str = gedi_lib.VERSION_002,
+) -> None:
+  """Writes a single CSV file based on the contents of HDF file.
+
+  Args:
+    hdf_fh: HDF5 file handle.
+    csv_file: Output CSV file object.
+    version: GEDI version.
+  """
   is_first = True
+
+  # Build list of active variables and their H5 paths for this version.
+  # List of tuples: (output_column_name, h5_variable_path)
+  vars_to_extract = []
+  for v in numeric_variables:
+    h5_path = NUMERIC_TRANSFORMS[version].get(v, v)
+    if h5_path is not None:
+      vars_to_extract.append((v.split('/')[-1], h5_path))
+  for v in string_variables:
+    h5_path = STRING_TRANSFORMS[version].get(v, v)
+    if h5_path is not None:
+      vars_to_extract.append((v.split('/')[-1], h5_path))
+
   # Iterating over metrics using a height profile defined for 30 slices.
   for k in hdf_fh.keys():
     if not k.startswith('BEAM'):
@@ -82,8 +145,8 @@ def write_csv(hdf_fh, csv_file):
 
     df = pd.DataFrame()
 
-    for v in numeric_variables + string_variables:
-      gedi_lib.hdf_to_df(hdf_fh, k, v, df)
+    for df_key, h5_path in vars_to_extract:
+      gedi_lib.hdf_to_df(hdf_fh, k, h5_path, df, df_key)
 
     ds = hdf_fh[f'{k}/cover_z']
     cover_z = pd.DataFrame(ds, columns=cover_names)
