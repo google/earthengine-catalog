@@ -460,7 +460,7 @@
         },
       },
       {
-        name: 'QC_b16_15_1km',
+        name: 'QC_b16_1km',
         description: 'Band quality for MODIS band 16',
         'gee:bitmask': {
           bitmask_parts: [
