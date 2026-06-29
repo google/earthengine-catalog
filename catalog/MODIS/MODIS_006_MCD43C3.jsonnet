@@ -69,7 +69,7 @@ local template = import 'templates/MODIS_006_MCD43C3.libsonnet';
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MCD43C3.006'),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-02-24T00:00:00Z', null),
+  extent: ee.extent_global('2000-02-24T00:00:00Z', '2023-02-10T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Aqua',
