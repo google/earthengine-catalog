@@ -1,5 +1,5 @@
 var dataset = ee.ImageCollection('NASA/GEOS-CF/v2/fcst/htf')
-                  .filter(ee.Filter.date('2025-08-04', '2025-08-05'));
+                  .filter(ee.Filter.date('2026-04-04', '2026-04-05'));
 var NO2 = dataset.select('NO2').median();
 var NO2Vis = {
   min: 6.96e-11,

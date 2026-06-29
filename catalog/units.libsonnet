@@ -216,6 +216,8 @@
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
   rainfall_rate_kg_per_m_per_s: 'kg/m/s',
+  mass_flux_kg_per_m2_per_s: 'kg/m^2/s',
+  flash_rate_km2_per_s: 'km^-2 s^-1',
   pvu: 'K*m^2/kg/s',
   // TODO(kumaraashutosh): Temporarily added, we need to double-check with the
   // provider about unit for confidence and slope.

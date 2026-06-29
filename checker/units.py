@@ -60,6 +60,7 @@ UNITS = frozenset({
     'kPa',
     'km',
     'km^2',
+    'km^-2 s^-1',
     'kt',
     'm',
     'm/s',
