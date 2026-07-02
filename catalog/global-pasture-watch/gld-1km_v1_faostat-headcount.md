@@ -1,23 +1,19 @@
-Produced by the Land & Carbon Lab Global Pasture Watch initiative, the current dataset provides
-annual FAOSTAT-adjusted livestock headcount layers globally at 1-km spatial resolution.
+Produced by the Land &#38; Carbon Lab’s Global Pasture Watch initiative, the current dataset provides global headcount predictions adjusted to FAOSTAT national statistics. The dataset is based on the largest known compilation of subnational livestock census data ([harmonized from 55,336 administrative units across 147 countries](https://doi.org/10.5281/zenodo.17665040)) and is modeled via machine learning (Random Forest),using 128 environmental, socioeconomic, and anthropogenic spatial layers (including terrain elevation, MODIS land surface temperature and water vapor, aridity index, accessibility metrics, and religious population distribution). Modeling was restricted to [annual layer of potential land for livestock production](https://doi.org/10.5281/zenodo.14933679), derived from Landsat-based cropland and grassland extents from 2000 to 2022.
 
-The dataset contains livestock headcount estimates for cattle, buffalo, goat, horse, and sheep
-derived from the Global Pasture Watch livestock density workflow and adjusted using FAOSTAT statistics.
+Originally designed to support environmental and agricultural applications such as refining greenhouse gas (GHG) emission estimates, modeling nutrient cycles, estimating soil carbon sequestration rates, and informing national livestock policies, the dataset offers global coverage of livestock distribution. The final predictions were adjusted using a linear country-by-country scaling approach so that aggregated national totals match the statistics provided by FAOSTAT. For subnational applications requiring high precision, users are encouraged to apply local calibration factors from national agencies rather than relying entirely on the FAOSTAT-adjusted estimates. 
 
-TODO: Add detailed methodological description.
+Estimates of 95% probability prediction interval values (lower and upper boundaries around mean predictions; 2.5th & 97.5th percentiles) and raw densities and headcount predictions are available in [Zenodo](https://doi.org/10.5281/zenodo.17486471). The dataset is also available in [OpenLandMap STAC](https://browser.stac.opengeohub.org/cat/landmetric).
 
-## Processing workflow
+**Limitations:** 
 
-TODO: Describe the 4-step CRS/area workflow used for FAOSTAT adjustment.
+**Irregular and incomplete census data**: Livestock census data are often irregular, incomplete, and can be overestimated due to double counting caused by animal mobility across census boundaries or changes in farm ownership. Furthermore, spatial availability varies widely; many developing countries only provide data at coarse administrative scales, which may lead to systematic underestimation of undocumented livestock. 
 
-## Provenance
+**Mismatched input scales and unrealistic densities**: Livestock densities are derived by combining administrative headcount estimates with remote sensing-based active grazing/forage areas. In regions dominated by landless livestock systems or feedlots, the high number of livestock may not match the mapped grazing land, resulting in unrealistically high density values.
 
-TODO: Add source datasets, GCS asset links, and adjustment methodology.
+**Interrupted Goode Homolosine projection caveats**: To ensure precise spatial alignment and minimize distortions, all modeling was conducted in equal-area coordinate system, specifically the Interrupted Goode Homolosine projection (used for all layers in (https://doi.org/10.5281/zenodo.20396303)). Prior to GEE ingestion, the dataset was converted to the EPSG:4326 coordinate system. Because the original headcount data represents absolute values per $1\text{ km}^2$, a spatial redistribution approach was used to correct for projection-induced distortions (see (https://github.com/wri/global-pasture-watch/blob/main/gld-1km/workflow/08-reprojection_to_wgs84.py))). This adjustment preserves total national values for consistency with FAOSTAT statistics, though it may slightly shift the local allocation of headcounts within country borders.
 
-## Limitations
+**Uniform allocation across species**: The intermediate layer representing potential land for livestock production is applied uniformly as an input for all modeled livestock species. The current model does not account for the complexities of different livestock management systems (e.g., dairy vs. cow-calf vs. finishing systems) or distinct species-specific behaviors, such as goats acting primarily as browsers. 
 
-TODO: Add dataset limitations and uncertainty notes.
+**Underestimation of maximum densities and optimistic intervals**: The selected machine learning models struggle to accurately predict areas with very high livestock density, likely resulting in the underestimation of intense livestock hotspots. Additionally, the 95% prediction intervals exhibited a low Prediction Interval Coverage Probability (PICP of 30–45%), meaning the uncertainty bounds are too narrow and optimistic, and they should be interpreted with caution.
 
-## Citation
-
-TODO: Add citation, DOI, and publication links.
+**For more information see [Parente et. al, 2026](https://dx.doi.org/10.7717/peerj.21494), [Zenodo](https://doi.org/10.5281/zenodo.20396303) and [Global Pasture Watch GitHub site](https://github.com/wri/global-pasture-watch)**
