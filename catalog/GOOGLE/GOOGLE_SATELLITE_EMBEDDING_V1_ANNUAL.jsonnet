@@ -96,13 +96,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     `gs://alphaearth_foundations`. You can
     browse the bucket contents via the [Google Cloud
     Console](https://console.cloud.google.com/storage/browser/alphaearth_foundations).
-    Please note that this bucket is configured as "Requester Pays," meaning you
-    must include a billing project with your API requests to cover data retrieval
-    and egress charges. Refer to the GCS documentation on [Requester
-    Pays](https://docs.cloud.google.com/storage/docs/requester-pays) and the
-    bucket
+    and refer to the bucket
     [README](https://developers.google.com/earth-engine/guides/aef_on_gcs_readme)
-    for full details on the data structure.
+    for full details on the data structure. As of July 2026, this bucket is set
+    up as "provider pays".
 
     Updates:
 
