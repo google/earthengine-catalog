@@ -12,7 +12,7 @@ class ValidSchemaTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = schema.Check
+    self.check = schema.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_without(self):
     self.assert_catalog({})
@@ -50,7 +50,7 @@ class ErrorSchemaTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = schema.Check
+    self.check = schema.Check  # pyrefly: ignore[bad-assignment]
 
   def test_bad_schema_not_dict(self):
     self.assert_collection(

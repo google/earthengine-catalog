@@ -148,7 +148,7 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(node, f'"{NAME}" is a duplicate: "{name}"')
           else:
             names.add(name)
-          if schema_type == SchemaType.PROPERTY_TYPE_UNSPECIFIED:
+          if schema_type == SchemaType.PROPERTY_TYPE_UNSPECIFIED:  # pyrefly: ignore[unbound-name]
             yield cls.new_issue(
                 node, f'Cannot be PROPERTY_TYPE_UNSPECIFIED: {name}')
 

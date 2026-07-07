@@ -16,7 +16,7 @@ class VersionExtensionCatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = version_extension.Check
+    self.check = version_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_empty(self):
     self.assert_catalog({})
@@ -49,7 +49,7 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = version_extension.Check
+    self.check = version_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_empty(self):
     self.assert_collection({})

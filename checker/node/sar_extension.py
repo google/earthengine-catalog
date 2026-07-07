@@ -78,7 +78,7 @@ class Check(stac.NodeCheck):
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     extensions = node.stac.get('stac_extensions', [])
-    extension_list = [ex for ex in extensions if 'github.io/sar' in ex]
+    extension_list = [ex for ex in extensions if 'github.io/sar' in ex]  # pyrefly: ignore[not-iterable]
     extension_url = extension_list[0] if extension_list else None
     has_sar_extension = bool(extension_list)
 
@@ -95,7 +95,7 @@ class Check(stac.NodeCheck):
 
     if has_sar_extension:
       # TODO(schwehr): Factor out as a function when primary checkers are in?
-      search = re.search(r'v([0-9]+\.[0-9]+\.[0-9]+)', extension_url)
+      search = re.search(r'v([0-9]+\.[0-9]+\.[0-9]+)', extension_url)  # pyrefly: ignore[no-matching-overload]
       if search:
         extension_version = search.groups()[0]
         if extension_version != EXTENSION_VERSION:

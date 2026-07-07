@@ -67,8 +67,8 @@ class ValidExamplesTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = examples.Check
-    self.check.scripts = set()
+    self.check = examples.Check  # pyrefly: ignore[bad-assignment]
+    self.check.scripts = set()  # pyrefly: ignore[missing-attribute]
     self.enter_context(mock.patch.object(examples, 'load', mock_load))
     self.enter_context(
         mock.patch.object(examples, 'load_previews', mock_load_previews))
@@ -132,8 +132,8 @@ class ErrorExamplesTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = examples.Check
-    self.check.scripts = set()
+    self.check = examples.Check  # pyrefly: ignore[bad-assignment]
+    self.check.scripts = set()  # pyrefly: ignore[missing-attribute]
     self.enter_context(mock.patch.object(examples, 'load', mock_load))
     self.enter_context(
         mock.patch.object(examples, 'load_previews', mock_load_previews))

@@ -76,17 +76,17 @@ class Check(stac.NodeCheck):
   @classmethod
   def run(cls, node: stac.Node) -> Iterator[stac.Issue]:
     extensions = node.stac.get('stac_extensions', [])
-    for extension in extensions:
+    for extension in extensions:  # pyrefly: ignore[not-iterable]
       if not isinstance(extension, str):
         yield cls.new_issue(node, 'Extensions must be a url str')
         return
-    extension_list = [ex for ex in extensions if 'github.io/version' in ex]
+    extension_list = [ex for ex in extensions if 'github.io/version' in ex]  # pyrefly: ignore[not-iterable]
     extension_url = extension_list[0] if extension_list else None
     has_version_extension = bool(extension_list)
 
     version_field = node.stac.get(VERSION)
     has_deprecated = (
-        node.stac.get(stac.GEE_STATUS) == stac.Status.DEPRECATED.value
+        node.stac.get(stac.GEE_STATUS) == stac.Status.DEPRECATED.value  # pyrefly: ignore[missing-attribute]
     )
 
     links = node.stac.get(LINKS, [])
@@ -106,6 +106,7 @@ class Check(stac.NodeCheck):
       if has_deprecated:
         yield cls.new_issue(
             node,
+            # pyrefly: ignore[missing-attribute]
             f'Catalog must not have "{stac.GEE_STATUS}" set to'
             f' "{stac.Status.DEPRECATED.value}"',
         )
@@ -129,7 +130,7 @@ class Check(stac.NodeCheck):
             node, 'Version extension not found, but have version links')
       return
 
-    search = re.search(r'v([0-9]+\.[0-9]+\.[0-9]+)', extension_url)
+    search = re.search(r'v([0-9]+\.[0-9]+\.[0-9]+)', extension_url)  # pyrefly: ignore[no-matching-overload]
     if search:
       extension_version = search.groups()[0]
       if extension_version != EXTENSION_VERSION:
@@ -153,14 +154,14 @@ class Check(stac.NodeCheck):
     if TITLE in node.stac:
       title = node.stac[TITLE]
       if has_deprecated:
-        if not title.endswith(DEPRECATED_TITLE):
+        if not title.endswith(DEPRECATED_TITLE):  # pyrefly: ignore[missing-attribute]
           yield cls.new_issue(
               node,
               'The title for deprecated assets ' +
               f'must end with "{DEPRECATED_TITLE}"')
       else:
         deprecated_title = DEPRECATED_TITLE.lstrip()
-        if title.endswith(deprecated_title):
+        if title.endswith(deprecated_title):  # pyrefly: ignore[missing-attribute]
           yield cls.new_issue(
               node,
               'The title for non-deprecated assets ' +

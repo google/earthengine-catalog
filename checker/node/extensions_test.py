@@ -12,7 +12,7 @@ class ExtensionsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = extensions.Check
+    self.check = extensions.Check  # pyrefly: ignore[bad-assignment]
 
   def test_has_all_the_extensions(self):
     self.assert_collection({STAC_EXTENSIONS: EXTENSIONS})

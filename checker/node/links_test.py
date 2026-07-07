@@ -27,7 +27,7 @@ class CatalogLinkTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = links.Check
+    self.check = links.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_catalog({
@@ -295,7 +295,7 @@ class CollectionLinkTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = links.Check
+    self.check = links.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_has_everything(self):
     stac_data = {'links': self.required_links + [self.feature_view, {
@@ -727,7 +727,7 @@ class OpenEtCollectionLinkTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = links.Check
+    self.check = links.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_has_everything(self):
     self.assert_collection(

@@ -13,7 +13,7 @@ class CatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = title.Check
+    self.check = title.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     dataset_id = 'Valid_Catalog-Title42'
@@ -99,7 +99,7 @@ class CollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = title.Check
+    self.check = title.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({TITLE: 'A collection title'})

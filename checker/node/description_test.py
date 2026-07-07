@@ -9,7 +9,7 @@ class DescriptionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = description.Check
+    self.check = description.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_catalog(self):
     self.assert_catalog({'description': 'x' * 40})

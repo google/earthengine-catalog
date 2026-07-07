@@ -12,7 +12,7 @@ class NonCommercialTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = non_commercial.Check
+    self.check = non_commercial.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_real_member(self):
     self.assert_collection(

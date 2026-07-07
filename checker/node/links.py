@@ -433,7 +433,7 @@ class Check(stac.NodeCheck):
               f'{num_feature_view_links}')
         feature_view = feature_view_links[0]
 
-        expected_url = CODE_URL + subdir + '/' + example_name + FEATURE_VIEW
+        expected_url = CODE_URL + subdir + '/' + example_name + FEATURE_VIEW  # pyrefly: ignore[unbound-name]
         url = feature_view[HREF]
         if not stac.equal_urls(url, expected_url):
           yield cls.new_issue(
@@ -455,7 +455,7 @@ class Check(stac.NodeCheck):
         yield cls.new_issue(node, f'example missing {TYPE}')
       elif link[TYPE] != HTML:
         yield cls.new_issue(
-            node, f'example {TYPE} not {HTML}: {terms[TYPE]}')
+            node, f'example {TYPE} not {HTML}: {terms[TYPE]}')  # pyrefly: ignore[unsupported-operation]
 
     # TODO(b/185832969): Allowed - license.  Any number
     # TODO(b/185832969): Allowed - cite-as.  Any number

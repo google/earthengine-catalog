@@ -12,7 +12,7 @@ class ValidGeeProviderIdsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_provider_ids.Check
+    self.check = gee_provider_ids.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog({})
@@ -31,7 +31,7 @@ class ErrorGeeProviderIdsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_provider_ids.Check
+    self.check = gee_provider_ids.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog(

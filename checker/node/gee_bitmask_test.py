@@ -9,7 +9,7 @@ class ValidGeeBitmaskTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_bitmask.Check
+    self.check = gee_bitmask.Check  # pyrefly: ignore[bad-assignment]
 
   def test_one_part(self):
     self.assert_collection({'summaries': {'eo:bands': [{
@@ -79,7 +79,7 @@ class ErrorGeeBitmaskTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_bitmask.Check
+    self.check = gee_bitmask.Check  # pyrefly: ignore[bad-assignment]
 
   def test_bitmask_dict(self):
     self.assert_collection(

@@ -9,7 +9,7 @@ class ValidFilePathTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = file_path.Check
+    self.check = file_path.Check  # pyrefly: ignore[bad-assignment]
 
   def test_root_catalog(self):
     self.assert_catalog({}, dataset_id='GEE_catalog', file_path='catalog.json')
@@ -35,7 +35,7 @@ class SkipFilePathTestgoogletest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = file_path.Check
+    self.check = file_path.Check  # pyrefly: ignore[bad-assignment]
 
   def test_node_id_empty(self):
     self.assert_catalog({}, dataset_id='', file_path='catalog.json')
@@ -50,7 +50,7 @@ class ErrorFilePathTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = file_path.Check
+    self.check = file_path.Check  # pyrefly: ignore[bad-assignment]
 
   def test_root_catalog_bad_name(self):
     self.assert_catalog(

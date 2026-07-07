@@ -30,7 +30,7 @@ def get_added_jsonnet_files():
     logging.info('Skipping event %s', event_name)
     return []
 
-  if 'copybara' in os.environ.get('GITHUB_ACTOR'):
+  if 'copybara' in os.environ.get('GITHUB_ACTOR'):  # pyrefly: ignore[not-iterable]
     return []
 
   if event_name == 'push':

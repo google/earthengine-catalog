@@ -12,7 +12,7 @@ class IdFieldCatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = id_field.Check
+    self.check = id_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_id(self):
     id_list = ['A', 'b', 'c_d', 'd-f', 'g' * 50, 'FIRMS', 'NASA']
@@ -49,7 +49,7 @@ class IdFieldCollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = id_field.Check
+    self.check = id_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_id(self):
     # TODO(schwehr): The top level of catalogs

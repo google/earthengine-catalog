@@ -9,7 +9,7 @@ class TopLevelTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = top_level.Check
+    self.check = top_level.Check  # pyrefly: ignore[bad-assignment]
 
   def test_all_catalog_fields(self):
     fields = ['description', 'id', 'links', 'stac_version', 'title', 'type']

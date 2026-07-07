@@ -16,7 +16,7 @@ class CatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = required.Check
+    self.check = required.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_catalog({key: DOES_NOT_MATTER for key in CATALOG_FIELDS})
@@ -37,7 +37,7 @@ class CollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = required.Check
+    self.check = required.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({key: DOES_NOT_MATTER for key in COLLECTION_FIELDS})

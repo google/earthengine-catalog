@@ -15,7 +15,7 @@ class ValidSummariesTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = summaries.Check
+    self.check = summaries.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog({})
@@ -108,7 +108,7 @@ class ErrorSummariesTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = summaries.Check
+    self.check = summaries.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_with_summaries(self):
     self.assert_catalog(

@@ -73,11 +73,11 @@ class Check(stac.NodeCheck):
 
     # # TODO(schwehr): Factor out as a function when primary checkers are in?
     extensions = node.stac.get('stac_extensions', [])
-    for extension in extensions:
+    for extension in extensions:  # pyrefly: ignore[not-iterable]
       if not isinstance(extension, str):
         yield cls.new_issue(node, 'Extensions must be a url str')
         return
-    extension_list = [ex for ex in extensions if 'github.io/scientific' in ex]
+    extension_list = [ex for ex in extensions if 'github.io/scientific' in ex]  # pyrefly: ignore[not-iterable]
     extension_url = extension_list[0] if extension_list else None
     has_scientific_extension = bool(extension_list)
 
@@ -91,7 +91,7 @@ class Check(stac.NodeCheck):
 
     if has_scientific_extension:
       # TODO(schwehr): Factor out as a function when primary checkers are in?
-      search = re.search(r'v([0-9]+\.[0-9]+\.[0-9]+)', extension_url)
+      search = re.search(r'v([0-9]+\.[0-9]+\.[0-9]+)', extension_url)  # pyrefly: ignore[no-matching-overload]
       if search:
         extension_version = search.groups()[0]
         if extension_version != EXTENSION_VERSION:

@@ -927,7 +927,7 @@ class Check(stac.NodeCheck):
           featureview_filename not in cls.scripts
           and _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac
           and featureview_filename not in _FEATURE_VIEW_EXCEPTIONS
-          and node.stac.get(stac.GEE_STATUS) in (stac.Status.READY.value, None)
+          and node.stac.get(stac.GEE_STATUS) in (stac.Status.READY.value, None)  # pyrefly: ignore[missing-attribute]
       ):
         yield cls.new_issue(
             node, f'Missing FeatureView script: {featureview_filename}')
