@@ -28,7 +28,7 @@ class KeywordsTest(absltest.TestCase):
 
   def test_valid(self):
     stac_data = {'keywords': ['a_keyword']}
-    collection_node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    collection_node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)  # pyrefly: ignore[bad-argument-type]
     nodes = [
         stac.Node('A', pathlib.Path('A/catalog.json'), CATALOG, NONE, {}),
         collection_node, collection_node]
@@ -39,13 +39,13 @@ class KeywordsTest(absltest.TestCase):
       keywords, 'is_single_use_exception', mock_is_single_use_exception)
   def test_single_use_exception(self):
     stac_data = {'keywords': [SINGLE_USE_KEYWORD]}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)  # pyrefly: ignore[bad-argument-type]
     issues = list(Check.run([node]))
     self.assertEqual(0, len(issues))
 
   def test_bad_single_use(self):
     stac_data = {'keywords': ['a_keyword']}
-    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)
+    node = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data)  # pyrefly: ignore[bad-argument-type]
     issues = list(Check.run([node]))
     expect = [Check.new_issue(
         node, 'Only one instance of "a_keyword"')]

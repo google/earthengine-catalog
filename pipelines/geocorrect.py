@@ -411,7 +411,7 @@ class GeoLookupTable:
 
       if temp_dir:
         # `glt_full` is backed by numpy.memmep, so write it to disk.
-        glt_full.flush()
+        glt_full.flush()  # pyrefly: ignore[missing-attribute]
 
       tables.append(cls(bbox, scale_lat, scale_lon, glt_full))
 

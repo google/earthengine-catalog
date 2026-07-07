@@ -39,7 +39,7 @@ class CheckTest(absltest.TestCase):
     stac_type = stac.StacType.COLLECTION
     gee_type = stac.GeeType.TABLE
     stac_data = {'field': 'value'}
-    node = stac.Node(dataset_id, path, stac_type, gee_type, stac_data)
+    node = stac.Node(dataset_id, path, stac_type, gee_type, stac_data)  # pyrefly: ignore[bad-argument-type]
 
     message = 'a message'
     issue = stac.Check.new_issue(node, message)
@@ -59,7 +59,7 @@ class CheckTest(absltest.TestCase):
     stac_type = stac.StacType.COLLECTION
     gee_type = stac.GeeType.TABLE
     stac_data = {'field2': 'value2'}
-    node = stac.Node(dataset_id, path, stac_type, gee_type, stac_data)
+    node = stac.Node(dataset_id, path, stac_type, gee_type, stac_data)  # pyrefly: ignore[bad-argument-type]
 
     message = 'a message'
     issue = stac.Check.new_issue(node, message, stac.IssueLevel.WARNING)

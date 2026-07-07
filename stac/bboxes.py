@@ -51,7 +51,7 @@ class BBox:
 
   def union(self, other_bbox: Self) -> Self:
     """Returns a new bbox that covers both this one and `other_bbox`."""
-    return BBox(
+    return BBox(  # pyrefly: ignore[bad-return]
         min(self.west, other_bbox.west),
         min(self.south, other_bbox.south),
         max(self.east, other_bbox.east),

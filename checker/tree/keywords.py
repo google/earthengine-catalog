@@ -306,12 +306,12 @@ class Check(stac.TreeCheck):
     nodes = [
         x
         for x in dataset_nodes
-        if x.stac.get(stac.GEE_STATUS) != stac.Status.DEPRECATED.value
+        if x.stac.get(stac.GEE_STATUS) != stac.Status.DEPRECATED.value  # pyrefly: ignore[missing-attribute]
     ]
 
     counts = collections.Counter()
     for node in nodes:
-      counts.update(node.stac.get(KEYWORDS, []))
+      counts.update(node.stac.get(KEYWORDS, []))  # pyrefly: ignore[no-matching-overload]
 
     single_keywords = {
         k for k, v in counts.items()
@@ -319,7 +319,7 @@ class Check(stac.TreeCheck):
 
     if single_keywords:
       for node in nodes:
-        for keyword in node.stac.get(KEYWORDS, []):
+        for keyword in node.stac.get(KEYWORDS, []):  # pyrefly: ignore[not-iterable]
           if keyword in single_keywords:
             # To add a keyword to the system, it should to occur in at least
             # two datasets.  For those where the keyword is critical, but there

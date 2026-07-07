@@ -25,7 +25,7 @@ NO_SELF_URL = 'No self url found'
 
 def version_urls(node: stac.Node) -> Iterator[tuple[str, str]]:
   links = node.stac[LINKS]
-  for link in links:
+  for link in links:  # pyrefly: ignore[not-iterable]
     rel = link.get(REL, 'None')
     if rel in VERSION_REL and HREF in link:
       yield rel, link[HREF].removeprefix(PREFIX).removesuffix(SUFFIX)
@@ -33,7 +33,7 @@ def version_urls(node: stac.Node) -> Iterator[tuple[str, str]]:
 
 def self_url(node: stac.Node) -> str:
   links = node.stac[LINKS]
-  for link in links:
+  for link in links:  # pyrefly: ignore[not-iterable]
     if link.get(REL, 'None') == SELF and HREF in link:
       return link[HREF].removeprefix(PREFIX).removesuffix(SUFFIX)
   return NO_SELF_URL

@@ -88,7 +88,7 @@ def _start_task(export_params: ExportParameters) -> str:
       pyramidingPolicy=export_params.pyramiding_policy,
       scale=25,
       crs=export_params.crs,
-      maxPixels=1e13,
+      maxPixels=1e13,  # pyrefly: ignore[bad-argument-type]
       overwrite=export_params.overwrite)
 
   time.sleep(0.1)

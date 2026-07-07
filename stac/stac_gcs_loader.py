@@ -66,7 +66,7 @@ class CollectionList(Sequence[stac_lib.Collection]):
   _collections = Sequence[stac_lib.Collection]
 
   def __init__(self, collections: Sequence[stac_lib.Collection]):
-    self._collections = tuple(collections)
+    self._collections = tuple(collections)  # pyrefly: ignore[bad-assignment]
 
   # Define immutable list interface for convenience, though one could
   # argue this should be more like a set.
@@ -74,10 +74,10 @@ class CollectionList(Sequence[stac_lib.Collection]):
     return iter(self._collections)
 
   def __getitem__(self, index):
-    return self._collections[index]
+    return self._collections[index]  # pyrefly: ignore[unsupported-operation]
 
   def __len__(self):
-    return len(self._collections)
+    return len(self._collections)  # pyrefly: ignore[bad-argument-type]
 
   def __eq__(self, other: object) -> bool:
     if isinstance(other, CollectionList):
@@ -92,7 +92,7 @@ class CollectionList(Sequence[stac_lib.Collection]):
     # Save a local copy of the input for safe iterations.
     ids_copy = tuple(ids)
     return self.__class__(
-        [c for c in self._collections if c.public_id() in ids_copy]
+        [c for c in self._collections if c.public_id() in ids_copy]  # pyrefly: ignore[bad-argument-type]
     )
 
   def filter_by_types(self, gee_types: Iterable[str]) -> Self:
@@ -106,7 +106,7 @@ class CollectionList(Sequence[stac_lib.Collection]):
       ):
         raise ValueError(f'Type {gee_type} is not a valid GEE type.')
     return self.__class__(
-        [c for c in self._collections if c.dataset_type() in gee_types_copy]
+        [c for c in self._collections if c.dataset_type() in gee_types_copy]  # pyrefly: ignore[bad-argument-type]
     )
 
   def filter_by_datetime(

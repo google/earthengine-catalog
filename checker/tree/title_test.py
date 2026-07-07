@@ -19,9 +19,9 @@ class TitleTest(absltest.TestCase):
 
   def test_valid(self):
     stac_data_a = {'title': 'Title A'}
-    collection_a = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_a)
+    collection_a = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_a)  # pyrefly: ignore[bad-argument-type]
     stac_data_b = {'title': 'Title B'}
-    collection_b = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_b)
+    collection_b = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_b)  # pyrefly: ignore[bad-argument-type]
 
     nodes = [collection_a, collection_b]
     issues = list(Check.run(nodes))
@@ -29,8 +29,8 @@ class TitleTest(absltest.TestCase):
 
   def test_catch_duplicate(self):
     stac_data_a = {'title': 'Title A'}
-    collection_a = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_a)
-    collection_b = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_a)
+    collection_a = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_a)  # pyrefly: ignore[bad-argument-type]
+    collection_b = stac.Node(ID, FILE_PATH, COLLECTION, IMAGE, stac_data_a)  # pyrefly: ignore[bad-argument-type]
 
     nodes = [collection_a, collection_b]
     issues = list(Check.run(nodes))

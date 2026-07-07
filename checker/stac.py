@@ -35,12 +35,12 @@ _StrEnum = (
 )
 
 
-class StacType(*_StrEnum):
+class StacType(*_StrEnum):  # pyrefly: ignore[invalid-inheritance]
   CATALOG = 'Catalog'
   COLLECTION = 'Collection'
 
 
-class GeeType(*_StrEnum):
+class GeeType(*_StrEnum):  # pyrefly: ignore[invalid-inheritance]
   IMAGE = 'image'
   IMAGE_COLLECTION = 'image_collection'
   TABLE = 'table'
@@ -54,7 +54,7 @@ class GeeType(*_StrEnum):
     return frozenset(x.value for x in cls if x != cls.NONE)
 
 
-class Status(*_StrEnum):
+class Status(*_StrEnum):  # pyrefly: ignore[invalid-inheritance]
   BETA = 'beta'
   DEPRECATED = 'deprecated'
   INCOMPLETE = 'incomplete'
@@ -109,7 +109,7 @@ class Node:
   stac: dict[str, object]  # The result of json.load
 
 
-class IssueLevel(*_StrEnum):
+class IssueLevel(*_StrEnum):  # pyrefly: ignore[invalid-inheritance]
   """How serious is an issue."""
   WARNING = 'warning'
   ERROR = 'error'

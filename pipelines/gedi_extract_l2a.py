@@ -205,7 +205,7 @@ def write_csv(
     for df_key, h5_path in vars_to_extract:
       gedi_lib.hdf_to_df(l2a_hdf_fh, k, h5_path, df, df_key)
 
-    rh = pd.DataFrame(l2a_hdf_fh[f'{k}/rh'], columns=rh_names)
+    rh = pd.DataFrame(l2a_hdf_fh[f'{k}/rh'], columns=rh_names)  # pyrefly: ignore[bad-argument-type]
     df = pd.concat((df, rh), axis=1)
 
     gedi_lib.add_shot_number_breakdown(df)
