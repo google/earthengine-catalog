@@ -1,4 +1,4 @@
-local id = 'projects/global-pasture-watch/assets/gld-1km/v1/goat-headcount-faostat_m';
+local id = 'projects/global-pasture-watch/assets/gld-1km/v1/livestock-headcount-faostat_m';
 local subdir = 'global-pasture-watch';
 local version = '1';
 
@@ -14,11 +14,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual goat headcount FAOSTAT-adjusted v' + version,
+  title: 'GPW Annual livestock headcount FAOSTAT-adjusted v' + version,
   version: version,
 
   description: |||
-    This dataset provides global goat headcount from 2000 to 2022 at 1-km spatial resolution.
+    This dataset provides global livestock headcount from 2000 to 2022 at 1-km spatial resolution.
   ||| + livestock_md,
 
   'gee:categories': ['agriculture'],
@@ -39,22 +39,59 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   summaries: {
     'eo:bands': [
       {
-        name: 'headcount',
-        description: 'Headcount (goat)',
+        name: 'cattle',
+        description: 'Cattle headcount considering available land for livestock production inside a 1 km²',
         gsd: 1000
-      }
+      },
+      {
+        name: 'buffalo',
+        description: 'Buffalo headcount considering available land for livestock production inside a 1 km²',
+        gsd: 1000
+      },
+      {
+        name: 'horse',
+        description: 'Horse headcount considering available land for livestock production inside a 1 km²',
+        gsd: 1000
+      },
+      {
+        name: 'goat',
+        description: 'Goat headcount considering available land for livestock production inside a 1 km²',
+        gsd: 1000
+      },
+      {
+        name: 'sheep',
+        description: 'Sheep headcount considering available land for livestock production inside a 1 km²',
+        gsd: 1000
+      },
     ],
-
-    headcount: {
+    cattle: {
       minimum: 0,
       maximum: 160,
       'gee:estimated_range': true
     },
-
+    buffalo: {
+      minimum: 0,
+      maximum: 160,
+      'gee:estimated_range': true
+    },
+    horse: {
+      minimum: 0,
+      maximum: 10,
+      'gee:estimated_range': true
+    },
+    goat: {
+      minimum: 0,
+      maximum: 160,
+      'gee:estimated_range': true
+    },
+    sheep: {
+      minimum: 0,
+      maximum: 160,
+      'gee:estimated_range': true
+    },
     'gee:visualizations': [
-      {
-        display_name: 'Headcount (goat)',
-        lookat: {lon: -55.50, lat: -12.20, zoom: 4},
+      {display_name: 'Cattle headcount',
+        lookat: {lon: -47.50, lat: -7.20, zoom: 4},
         image_visualization: {
           band_vis: {
             min: [0],
@@ -67,7 +104,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               'd95f0e',
               '993404'
             ],
-            bands: ['headcount'],
+            bands: ['cattle'],
           }
         },
       }
@@ -88,13 +125,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5281/zenodo.20396303',
   'sci:citation': |||
-     Parente, L., Ehrmann, S., Hengl, T., Fritz, S., Bonannella, C., et al. (2026). Global Pasture Watch - Annual livestock headcount layers for cattle, goats, sheep, horses, and buffaloes at 1-km 2000–2022 (FAOSTAT-adjusted) (Version v1) [Data set]. Zenodo. [doi:https://doi.org/10.5281/zenodo.20396303](https://doi.org/10.5281/zenodo.20396303)
+     Parente, L., Ehrmann, S., Hengl, T., Fritz, S., Bonannella, C., et al. (2026). Global Pasture Watch - Annual livestock headcount layers for livestock, goats, sheep, horses, and buffaloes at 1-km 2000–2022 (FAOSTAT-adjusted) (Version v1) [Data set]. Zenodo. [doi:https://doi.org/10.5281/zenodo.20396303](https://doi.org/10.5281/zenodo.20396303)
   ||| + livestock_md,
   'sci:publications': [
     {
       citation: |||
         Parente, L., Ehrmann, S., Hengl, T., Fritz, S., Bonannella, C., et al. (2026).
-        Global distribution of cattle, horses, goats, sheep and buffaloes at 1 km resolution for 2000–2022 based on subnational census data and spatiotemporal machine learning. PeerJ.
+        Global distribution of livestock, horses, goats, sheep and buffaloes at 1 km resolution for 2000–2022 based on subnational census data and spatiotemporal machine learning. PeerJ.
         [doi: 10.7717/peerj.21494](https://dx.doi.org/10.7717/peerj.21494)
       |||,
       doi: '10.7717/peerj.21494',

@@ -1,11 +1,11 @@
 var headcount = ee.ImageCollection(
-  "projects/global-pasture-watch/assets/gld-1km/v1/buffalo-headcount-faostat_m"
+  "projects/global-pasture-watch/assets/gld-1km/v1/livestock-headcount-faostat_m"
 )
 
-var lon = 73; //-47.50;
-var lat = 35; //-7.20;
+var lon = -47.50; //-47.50;
+var lat = -7.20; //-7.20;
 
-var headcount = headcount.filterDate('2020-01-01', '2021-01-01').first()
+var headcount = headcount.select('cattle').filterDate('2020-01-01', '2021-01-01').first()
 
 var palette = ["#d7d7d7","#ffffd4","#fed98e","#fe9929","#d95f0e", "#993404"];
 var vis = {min: 0, max: 160, palette: palette};
