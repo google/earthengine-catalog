@@ -60,7 +60,7 @@ local license = spdx.proprietary {
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-171.0, -16.6, 164.0, 76.9,
-                    '1998-08-16T00:00:00Z', '2020-05-06T00:00:00Z'),
+                    '1924-01-01T00:00:00Z', null),
   summaries: {
     'eo:bands': [
       {
