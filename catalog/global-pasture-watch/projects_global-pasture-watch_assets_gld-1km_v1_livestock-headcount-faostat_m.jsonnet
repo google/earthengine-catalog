@@ -24,9 +24,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:categories': ['agriculture'],
 
   keywords: [
-    'livestock',
-    'headcount',
-    'faostat',
+    'pasture',
+    'rangeland',
+    'land',
+    'landuse',
+    'global',
     'gpw',
     'global',
   ],
@@ -37,31 +39,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
   summaries: {
+    gsd: 1000,
     'eo:bands': [
       {
         name: 'cattle',
-        description: 'Cattle headcount considering available land for livestock production inside a 1 km²',
-        gsd: 1000
+        description: 'Cattle headcount considering available land for livestock production inside a 1 km²'
       },
       {
         name: 'buffalo',
-        description: 'Buffalo headcount considering available land for livestock production inside a 1 km²',
-        gsd: 1000
+        description: 'Buffalo headcount considering available land for livestock production inside a 1 km²'
       },
       {
         name: 'horse',
-        description: 'Horse headcount considering available land for livestock production inside a 1 km²',
-        gsd: 1000
+        description: 'Horse headcount considering available land for livestock production inside a 1 km²'
       },
       {
         name: 'goat',
-        description: 'Goat headcount considering available land for livestock production inside a 1 km²',
-        gsd: 1000
+        description: 'Goat headcount considering available land for livestock production inside a 1 km²'
       },
       {
         name: 'sheep',
-        description: 'Sheep headcount considering available land for livestock production inside a 1 km²',
-        gsd: 1000
+        description: 'Sheep headcount considering available land for livestock production inside a 1 km²'
       },
     ],
     cattle: {
