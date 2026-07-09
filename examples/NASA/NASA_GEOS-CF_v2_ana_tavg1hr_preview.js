@@ -2,13 +2,13 @@ var dataset = ee.ImageCollection('NASA/GEOS-CF/v2/ana/tavg1hr')
                   .filter(ee.Filter.date('2025-08-04', '2025-08-11'));
 var NO2 = dataset.select('NO2').median();
 var NO2Vis = {
-  min: 6.96e-11,
-  max: 4.42e-8,
+  min: 1e-10,
+  max: 1e-9,
   palette: ['d7191c', 'fdae61', 'ffffbf', 'abd9e9', '2c7bb6'],
 };
 
-var lon = 100;
-var lat = 20;
+var lon = -20;
+var lat = 0;
 
 
 var gray = 150;

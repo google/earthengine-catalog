@@ -2,23 +2,24 @@ var dataset = ee.ImageCollection('NASA/GEOS-CF/v2/fcst/tavg1hr')
                   .filter(ee.Filter.date('2025-08-04', '2025-08-11'));
 var NO2 = dataset.select('NO2').median();
 var NO2Vis = {
-  min: 6.96e-11,
-  max: 4.42e-8,
-  palette: ['d7191c', 'fdae61', 'ffffbf', 'abd9e9', '2c7bb6'],
+  min: 1e-10,
+  max: 1e-9,
+  palette: ['#d53e4f', '#f46d43', '#fee08b', '#e6f598', '#abdda4', '#3288bd', '#5e4fa2'],
 };
 
-var lon = 100;
-var lat = 20;
+// Centered to cover the entire conterminous US
+var lon = -98;
+var lat = 38;
 
 
 var gray = 150;
 var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
 
-Map.setCenter(lon, lat, 2);
+Map.setCenter(lon, lat, 3);
 Map.addLayer(NO2, NO2Vis, 'NO2');
 
-// Degrees in EPSG:3857.
-var delta = 50;
+// Degrees in EPSG:3857 - Cover conterminous US
+var delta = 30;
 // Width and height of the thumbnail image.
 var pixels = 256;
 

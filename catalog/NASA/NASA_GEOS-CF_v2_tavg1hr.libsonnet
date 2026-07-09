@@ -116,9 +116,549 @@ local units = import 'units.libsonnet';
         'gee:units': units.mole_fraction,
       },
       {
+        name: 'EMIS_ACET',
+        description: 'Acetone total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ACET_ANTH',
+        description: 'Acetone industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ACET_BB',
+        description: 'Acetone biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ACET_BG',
+        description: 'Acetone biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ACET_OC',
+        description: 'Acetone ocean emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALD2',
+        description: 'Acetaldehyde total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALD2_ANTH',
+        description: 'Acetaldehyde industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALD2_BB',
+        description: 'Acetaldehyde biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALD2_BG',
+        description: 'Acetaldehyde biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALD2_OC',
+        description: 'Acetaldehyde ocean emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALK4',
+        description: 'Lumped alkanes c4 and higher total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALK4_ANTH',
+        description: 'Lumped alkanes c4 and higher industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ALK4_BB',
+        description: 'Lumped alkanes c4 and higher biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BCPI',
+        description: 'Hydrophilic black carbon total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BCPI_ANTH',
+        description: 'Hydrophilic black carbon industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BCPI_BB',
+        description: 'Hydrophilic black carbon biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BCPO',
+        description: 'Hydrophobic black carbon total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BCPO_ANTH',
+        description: 'Hydrophobic black carbon industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BCPO_BB',
+        description: 'Hydrophobic black carbon biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_BENZ',
+        description: 'Benzene total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_C2H6',
+        description: 'Ethane total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_C2H6_ANTH',
+        description: 'Ethane industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_C2H6_BB',
+        description: 'Ethane biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_C3H8',
+        description: 'Propane total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_C3H8_ANTH',
+        description: 'Propane industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_C3H8_BB',
+        description: 'Propane biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CH2Br2',
+        description: 'Dibromomethane total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CH2I2',
+        description: 'Diiodomethane total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CH2IBr',
+        description: 'Bromoiodomethane total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CH2ICl',
+        description: 'Chloroiodomethane total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CH3I',
+        description: 'Methyl iodide total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CHBr3',
+        description: 'Bromoform total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CO',
+        description: 'Carbon monoxide total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CO_AGR',
+        description: 'Carbon monoxide agriculture emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CO_ANTH',
+        description: 'Carbon monoxide industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CO_BB',
+        description: 'Carbon monoxide biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CO_BG',
+        description: 'Carbon monoxide biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_CO_SHIP',
+        description: 'Carbon monoxide ship emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_DMS',
+        description: 'Dimethyl sulfide total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_DST1',
+        description: 'Dust aerosol 0.7 microns emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_DST2',
+        description: 'Dust aerosol 1.4 microns emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_DST3',
+        description: 'Dust aerosol 2.4 microns emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_DST4',
+        description: 'Dust aerosol 4.5 microns emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_EOH',
+        description: 'Ethanol total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_EOH_ANTH',
+        description: 'Ethanol industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_EOH_BG',
+        description: 'Ethanol biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_HCHO',
+        description: 'Formaldehyde total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_HCHO_ANTH',
+        description: 'Formaldehyde industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_HCHO_BB',
+        description: 'Formaldehyde biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_HCOOH',
+        description: 'Formic acid total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_HNO2',
+        description: 'Nitrous acid total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_HOI',
+        description: 'Hypoiodous acid total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_I2',
+        description: 'Molecular iodine total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_ISOP',
+        description: 'Isoprene total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_LIMO_BG',
+        description: 'LIMO biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_MEK',
+        description: 'Methyl ethyl ketone total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_MEK_ANTH',
+        description: 'Methyl ethyl ketone industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_MEK_BB',
+        description: 'Methyl ethyl ketone biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_MTPA_BG',
+        description: 'MTPA biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_MTPO_BG',
+        description: 'MTPO biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NH3',
+        description: 'Ammonia total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NH3_AGR',
+        description: 'Ammonia agriculture emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NH3_ANTH',
+        description: 'Ammonia industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NH3_BB',
+        description: 'Ammonia biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO',
+        description: 'Nitric oxide total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO2',
+        description: 'Nitrogen dioxide total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO2_AGR',
+        description: 'Nitrogen dioxide agriculture emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO2_ANTH',
+        description: 'Nitrogen dioxide industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO2_BB',
+        description: 'Nitrogen dioxide biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO2_SHIP',
+        description: 'Nitrogen dioxide ship emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO_AGR',
+        description: 'Nitric oxide agriculture emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO_ANTH',
+        description: 'Nitric oxide industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO_BB',
+        description: 'Nitric oxide biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO_LGHT',
+        description: 'Nitric oxide lightning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO_SHIP',
+        description: 'Nitric oxide ship emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_NO_SOIL',
+        description: 'Nitric oxide soil emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_OCPI',
+        description: 'Hydrophilic organic carbon total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_OCPI_ANTH',
+        description: 'Hydrophilic organic carbon industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_OCPI_BB',
+        description: 'Hydrophilic organic carbon biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_OCPO',
+        description: 'Hydrophobic organic carbon total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_OCPO_ANTH',
+        description: 'Hydrophobic organic carbon industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_OCPO_BB',
+        description: 'Hydrophobic organic carbon biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_PRPE',
+        description: 'Lumped alkenes c3 and higher total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_PRPE_ANTH',
+        description: 'Lumped alkenes c3 and higher industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_PRPE_BB',
+        description: 'Lumped alkenes c3 and higher biomass burning emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_PRPE_BG',
+        description: 'Lumped alkenes c3 and higher biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SALA',
+        description: 'Sea-salt aerosol accumulation mode 0.01-0.05 microns total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SALC',
+        description: 'Sea-salt aerosol coarse mode 0.5-8 microns total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SESQ_BG',
+        description: 'SESQ biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO2',
+        description: 'Sulfur dioxide total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO2_ANTH',
+        description: 'Sulfur dioxide industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO2_BB',
+        description: 'Sulfur dioxide biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO2_SHIP',
+        description: 'Sulfur dioxide ship emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO2_VOLC',
+        description: 'Sulfur dioxide eruptive volcano emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO4',
+        description: 'Sulfate total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO4_ANTH',
+        description: 'Sulfate industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO4_BB',
+        description: 'Sulfate biomass emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO4_SHIP',
+        description: 'Sulfate ship emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SO4_VOLC',
+        description: 'Sulfate eruptive volcano emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SOAP',
+        description: 'SOA precursor total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SOAP_ANTH',
+        description: 'SOA precursor industry emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SOAP_BG',
+        description: 'SOA precursor biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SOAS',
+        description: 'SOA simple total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_SOAS_BG',
+        description: 'SOA simple biogenic emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_TOLU',
+        description: 'Toluene total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_XYLE',
+        description: 'Xylene total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
+        name: 'EMIS_pFe',
+        description: 'Anthropogenic iron total emission mass flux',
+        'gee:units': units.mass_flux_kg_per_m2_per_s,
+      },
+      {
         name: 'EOH',
         description: 'Ethanol (C2H5OH, MW=46.07 g mol-1) mole fraction in dry air',
         'gee:units': units.mole_fraction,
+      },
+      {
+        name: 'FLASHRATE',
+        description: 'Lightning flash rate for GEOS-Chem',
+        'gee:units': units.flash_rate_km2_per_s,
       },
       {
         name: 'H2O2',
