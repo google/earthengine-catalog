@@ -10,19 +10,22 @@ local ee = import 'earthengine.libsonnet';
       self_ee_catalog_url,
       extent,
       terms_of_use,
-      license
+      license,
+      version_config
   ): {
     stac_version: ee_const.stac_version,
     type: ee_const.stac_type.collection,
     stac_extensions: [
-      ee_const.ext_eo
+      ee_const.ext_eo,
+      ee_const.ext_ver,
     ],
     id: id,
+    version: version_config.version,
     title: title,
     'gee:type': ee_const.gee_type.image_collection,
     description: description,
     license: license,
-    links: ee.standardLinks(subdir, id),
+    links: ee.standardLinks(subdir, id) + version_config.version_links,
     'gee:categories': ['elevation-topography'],
     keywords: [
       'copernicus',

@@ -1,4 +1,4 @@
-local id = 'COPERNICUS/DEM/GLO30';
+local id = 'COPERNICUS/DEM/GLO30_2024_1';
 local versions = import 'versions.libsonnet';
 local version_table = import 'COPERNICUS_DEM_GLO30_versions.libsonnet';
 
@@ -42,24 +42,45 @@ local description = |||
 |||;
 
 local terms_of_use = |||
-  The GLO-30 dataset is available worldwide with a free license with the
-  exception of two countries (Armenia and Azerbaijan). [License for Copernicus
-  DEM](https://docs.sentinel-hub.com/api/latest/static/files/data/dem/resources/license/License-COPDEM-30.pdf).
+  The GLO-30 dataset is available worldwide with a free license. [See the terms
+  under 'Licence for the use of the Copernicus
+  WorldDEM-30'](https://dataspace.copernicus.eu/sites/default/files/media/files/2025-06/copernicus_contributing_mission_data_access_v2_cop_dem_licenses.pdf).
 
-  © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided
-  under COPERNICUS by the European Union and ESA; all rights reserved.
+  When communicating to the General Public or distributing the Copernicus WorldDEM-30,
+  the User shall inform the General Public of the source by using the following notice:
+  © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS
+  by the European Union and ESA; all rights reserved.
+
+  Where the Copernicus WorldDEM-30 data have been adapted or modified, the User shall
+  provide the following notice:
+  "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH
+  2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved”.
+
+  The following sentence or its translation in any language shall be added by such Users
+  in a licence or any legal warning or notice covering their distribution or communication
+  to the General Public of the Copernicus WorldDEM30:
+  "The organisations in charge of the Copernicus programme by law or by delegation do not
+  incur any liability for any use of the Copernicus WorldDEM-30".
 |||;
 
 glo30.common(
   id=id,
   subdir=subdir,
-  title='Copernicus DEM GLO-30: Global 30m Digital Elevation Model [deprecated]',
+  title='Copernicus DEM GLO-30 (2024_1): Global 30m Digital Elevation Model',
   description=description,
   self_ee_catalog_url=self_ee_catalog_url,
-  extent=ee.extent_global('2010-12-01T00:00:00Z', '2015-01-31T00:00:00Z'),
+  extent=ee.extent_global('2010-12-01T00:00:00Z', '2020-11-13T00:00:00Z'),
   terms_of_use=terms_of_use,
   license=license.id,
   version_config=version_config
 ) + {
-  'gee:status': 'deprecated',
+  summaries+: {
+    'gee:schema': [
+      {
+        name: 'tile_version',
+        description: 'The release version of the Copernicus DEM tile (e.g., 02).',
+        type: ee_const.var_type.string,
+      },
+    ],
+  },
 }
