@@ -42,23 +42,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'cattle',
-        description: 'Cattle headcount considering available land for livestock production inside a 1 km²'
+        description: 'Cattle headcount considering available land for livestock production per km²'
       },
       {
         name: 'buffalo',
-        description: 'Buffalo headcount considering available land for livestock production inside a 1 km²'
+        description: 'Buffalo headcount considering available land for livestock production per km²'
       },
       {
         name: 'horse',
-        description: 'Horse headcount considering available land for livestock production inside a 1 km²'
+        description: 'Horse headcount considering available land for livestock production per km²'
       },
       {
         name: 'goat',
-        description: 'Goat headcount considering available land for livestock production inside a 1 km²'
+        description: 'Goat headcount considering available land for livestock production per km²'
       },
       {
         name: 'sheep',
-        description: 'Sheep headcount considering available land for livestock production inside a 1 km²'
+        description: 'Sheep headcount considering available land for livestock production per km²'
       },
     ],
     cattle: {
