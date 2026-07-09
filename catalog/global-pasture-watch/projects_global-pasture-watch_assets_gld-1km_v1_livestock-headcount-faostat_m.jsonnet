@@ -7,7 +7,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local license = spdx.cc_by_4_0;
-local livestock_md = importstr 'gld-1km_v1_faostat-headcount.md';
+local livestock_md = importstr 'gld-1km_v1.md';
 
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
