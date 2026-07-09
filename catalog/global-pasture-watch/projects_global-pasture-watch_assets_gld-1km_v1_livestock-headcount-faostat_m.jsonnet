@@ -28,7 +28,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'rangeland',
     'land',
     'landuse',
-    'global',
     'gpw',
     'global',
   ],
@@ -39,7 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2022-12-31T00:00:00Z'),
   summaries: {
-    gsd: 1000,
+    gsd: [1000],
     'eo:bands': [
       {
         name: 'cattle',
