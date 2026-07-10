@@ -54,15 +54,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'evapotranspiration',
     'gpp',
-    //'pml',
-    //'water-carbon',
   ],
   providers: [
     ee.producer_provider('Large Scale Hydrology Lab', 'https://zhang-hydrolab.github.io/'),
     ee.producer_provider('PML_V2', 'https://github.com/gee-hydro/gee_PML'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-03-05T00:00:00Z', null),
+  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-03-05T00:00:00Z', '2024-12-26T00:00:00Z'),
   summaries: {
     gsd: [500.0],
     'eo:bands': [

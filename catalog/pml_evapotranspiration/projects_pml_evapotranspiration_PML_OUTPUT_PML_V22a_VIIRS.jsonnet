@@ -50,8 +50,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'evapotranspiration',
     'gpp',
-    //'pml',
-    //'water-carbon',
   ],
   providers: [
     ee.producer_provider('Large Scale Hydrology Lab', 'https://zhang-hydrolab.github.io/'),
