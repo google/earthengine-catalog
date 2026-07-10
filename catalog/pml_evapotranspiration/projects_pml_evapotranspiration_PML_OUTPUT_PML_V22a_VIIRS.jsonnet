@@ -1,14 +1,10 @@
 local id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a_VIIRS';
 local subdir = 'pml_evapotranspiration';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/PML_VIIRS_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local version_config = versions(subdir, version_table, id);
-local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
 
@@ -25,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (VIIRS Edition)',
-  version: version,
+  version: 'V2.2a-VIIRS',
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
   description: |||
