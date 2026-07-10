@@ -1,7 +1,7 @@
 local id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a_VIIRS';
 local subdir = 'pml_evapotranspiration';
 local versions = import 'versions.libsonnet';
-local version_table = import 'templates/PML_versions.libsonnet';
+local version_table = import 'templates/PML_VIIRS_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -27,6 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (VIIRS Edition)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'beta',
   description: |||
     The dataset is produced by the Large Scale Hydrology Lab, which specializes in advancing global and 
     regional water cycle research by synthesizing multi-source Earth observations with process-based modeling. 
