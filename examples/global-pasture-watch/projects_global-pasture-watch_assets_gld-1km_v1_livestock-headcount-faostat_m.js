@@ -6,16 +6,22 @@ var vis10 = {min: 0, max: 10, palette: palette};
 
 var gld = ee.ImageCollection(
   "projects/global-pasture-watch/assets/gld-1km/v1/livestock-headcount-faostat_m"
-);
+)
 
-var cattle2022 = gld.filterDate('2022-01-01', '2023-01-01').first();
-var buffalo2022 = gld.filterDate('2022-01-01', '2023-01-01').first();
-var horse2022 = gld.filterDate('2022-01-01', '2023-01-01').first();
-var goat2022 = gld.filterDate('2022-01-01', '2023-01-01').first();
-var sheep2022 = gld.filterDate('2022-01-01', '2023-01-01').first();
+var gld_2000 = gld.filterDate('2000-01-01', '2001-01-01').first();
+var gld_2022 = gld.filterDate('2022-01-01', '2023-01-01').first();
 
-Map.addLayer(cattle2022.select('cattle'), vis160, 'Cattle headcount (2022)');
-Map.addLayer(buffalo2022.select('buffalo'), vis160, 'Cattle headcount (2022)');
-Map.addLayer(horse2022.select('horse'), vis10, 'Cattle headcount (2022)');
-Map.addLayer(goat2022.select('goat'), vis160, 'Cattle headcount (2022)');
-Map.addLayer(sheep2022.select('sheep'), vis160, 'Buffalo headcount (2022)');
+Map.addLayer(gld_2000.select('buffalo'), vis160, 'Buffalo headcount (2000)', false);
+Map.addLayer(gld_2022.select('buffalo'), vis160, 'Buffalo headcount (2022)');
+
+Map.addLayer(gld_2000.select('horse'), vis10, 'Horse headcount (2000)', false);
+Map.addLayer(gld_2022.select('horse'), vis10, 'Horse headcount (2022)');
+
+Map.addLayer(gld_2000.select('goat'), vis160, 'Goat headcount (2000)', false);
+Map.addLayer(gld_2022.select('goat'), vis160, 'Goat headcount (2022)');
+
+Map.addLayer(gld_2000.select('sheep'), vis160, 'Sheep headcount (2000)', false);
+Map.addLayer(gld_2022.select('sheep'), vis160, 'Sheep headcount (2022)');
+
+Map.addLayer(gld_2000.select('cattle'), vis160, 'Cattle headcount (2000)', false);
+Map.addLayer(gld_2022.select('cattle'), vis160, 'Cattle headcount (2022)');
