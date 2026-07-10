@@ -1,4 +1,4 @@
-local id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a';
+local id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a_VIIRS';
 local subdir = 'pml_evapotranspiration';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/PML_versions.libsonnet';
@@ -24,23 +24,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (MODIS Edition)',
+  title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (VIIRS Edition)',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The dataset is produced by the Large Scale Hydrology Lab, which specializes in advancing global and 
     regional water cycle research by synthesizing multi-source Earth observations with process-based modeling. 
 
-    The PML-V2.2a (MODIS Edition) product provides global terrestrial evapotranspiration (ET) and gross 
-    primary production (GPP) at a 500-m, 8-day resolution from 2000 to 2024. Forced by MSWEP and MSWX data, 
+    The PML-V2.2a (VIIRS Edition) product provides global terrestrial evapotranspiration (ET) and gross 
+    primary production (GPP) at a 500-m, 8-day resolution from 2012 to 2025. Forced by MSWEP and MSWX data, 
     this version features an expanded bottom-up calibration using 208 flux sites and refined parameterizations 
     that explicitly distinguish irrigated from rainfed croplands.
 
     Validation confirms high accuracy across plant functional types (NSE > 0.60, absolute bias < 5%) 
-    and reliable basin-scale water-balance performance (NSE: 0.89–0.91). Optimized for high-resolution 
-    eco-hydrological monitoring, this MODIS-based record provides a robust historical baseline. Due to 
-    satellite orbital drift, this asset will no longer be updated post-2024. For near-present monitoring 
-    and data extending to 2025, please refer to the companion VIIRS Edition asset, which ensures seamless data continuity.
+    and reliable basin-scale water-balance performance (NSE: 0.89–0.91). Optimized for high-resolution, 
+    near-present monitoring, this VIIRS-based record ensures seamless data continuity. For the 2000–2024 
+    period, please refer to the companion MODIS Edition asset, which will no longer be updated due to satellite orbital drift.
 
     This dataset is part of the broader PML-V2.2 suite, where the description preprint is available at [Earth System Science Data](https://essd.copernicus.org/preprints/essd-2026-94/). 
     For the long-term and consolidated record (1982-near present, PML-V2.2a/b/c at 0.1° resolution with different remote sensing forcings), 
@@ -62,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('PML_V2', 'https://github.com/gee-hydro/gee_PML'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-03-05T00:00:00Z', null),
+  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2012-01-25T00:00:00Z', null),
   summaries: {
     gsd: [500.0],
     'eo:bands': [
