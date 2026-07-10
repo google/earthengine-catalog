@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-  ] + version_config.version_links,
+  ],
   'gee:categories': ['plant-productivity', 'water-vapor'],
   keywords: [
     'evapotranspiration',
