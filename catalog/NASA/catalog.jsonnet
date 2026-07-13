@@ -107,6 +107,14 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_TEMPO_NO2_L3_QA', base_url),
     ee.link.child_collection('NASA_TEMPO_O3_L3_QA', base_url),
 
+    ee.link.child_collection('NASA_TEMPO_CLDO4_L3_V4', base_url),
+    ee.link.child_collection('NASA_TEMPO_HCHO_L3_V4', base_url),
+    ee.link.child_collection('NASA_TEMPO_HCHO_L3_V4_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_NO2_L3_V4', base_url),
+    ee.link.child_collection('NASA_TEMPO_NO2_L3_V4_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_O3_L3_V4_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_O3PROF_L3_V4', base_url),
+
     ee.link.child_collection('NASA_VIIRS_002_VNP09GA', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP09H1', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP13A1', base_url),

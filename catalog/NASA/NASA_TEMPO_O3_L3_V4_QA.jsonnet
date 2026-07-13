@@ -1,4 +1,4 @@
-local id = 'NASA/TEMPO/O3_L3_QA';
+local id = 'NASA/TEMPO/O3_L3_V4_QA';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/NASA_TEMPO_O3_QA_versions.libsonnet';
 local subdir = 'NASA';
@@ -19,6 +19,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
+  'gee:status': 'beta',
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
@@ -26,12 +27,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'TEMPO gridded ozone total column ' + version + ' (PROVISIONAL) [deprecated]',
+  title: 'TEMPO gridded ozone total column ' + version + ' (PROVISIONAL)',
   version: version,
-  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The TEMPO gridded ozone total column V03 (PROVISIONAL) is a Level 3 dataset
+    The TEMPO gridded ozone total column V04 (PROVISIONAL) is a Level 3 dataset
     providing essential total column ozone information on a regular grid across
     North America. Generated from the TEMPO instrument on the IS-40e platform,
     the data is created by combining and re-gridding Level 2 files from single
@@ -64,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.003',
+      href: 'https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.004',
     },
   ] + version_config.version_links,
   'gee:categories': ['satellite-imagery'],
@@ -77,13 +77,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'tropomi',
   ],
   providers: [
-    ee.producer_provider('NASA ASDC', 'https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.003'),
+    ee.producer_provider('NASA ASDC', 'https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.004'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
-    'C2930764281-LARC_CLOUD',
+    'C3685896625-LARC_CLOUD',
   ],
-  extent: ee.extent(-170.0, 10.0, -10.0, 80.0, '2023-08-02T00:00:00Z', '2025-09-16T00:00:00Z'),
+  extent: ee.extent(-170.0, 10.0, -10.0, 80.0, '2023-08-02T00:00:00Z', null),
   summaries: {
     gsd: [
       2226,
@@ -209,11 +209,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
-  'sci:doi': '10.5067/IS-40e/TEMPO/O3TOT_L3.003',
+  'sci:doi': '10.5067/IS-40e/TEMPO/O3TOT_L3.004',
   'sci:citation': |||
-    NASA/LARC/SD/ASDC.(2024). TEMPO gridded ozone total column V03 (PROVISIONAL)
+    NASA/LARC/SD/ASDC.(2025). TEMPO gridded ozone total column V04 (PROVISIONAL)
     [Data set]. NASA Langley Atmospheric Science Data Center DAAC.
-    Retrieved from [10.5067/IS-40e/TEMPO/O3TOT_L3.003](https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.003)
+    Retrieved from [10.5067/IS-40e/TEMPO/O3TOT_L3.004](https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.004)
   |||,
   'gee:terms_of_use': |||
     This dataset is in the public domain and is available
