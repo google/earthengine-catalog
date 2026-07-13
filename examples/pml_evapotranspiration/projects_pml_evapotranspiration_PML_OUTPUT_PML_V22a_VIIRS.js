@@ -7,7 +7,7 @@ var image = dataset.filterDate('2025-01-01', '2025-12-31')
     .multiply(365)
     .multiply(0.01);
     
-// Final unit: mm yr-1
+// Final unit: gC m-2 yr-1
 var visualization = {
   bands: ['GPP'],
   min: 0.0,
@@ -23,4 +23,4 @@ var visualization = {
 Map.setCenter(0.0, 15.0, 2);
 
 Map.addLayer(
-    image, visualization, 'PML_V2.2a Gross Primary Productivity (GPP)');
+    image, visualization, 'PML_V2.2a Gross Primary Production (GPP)');
