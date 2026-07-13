@@ -32,5 +32,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_global-pasture-watch_assets_ggc-30m_v1_nat-semi-grassland_p', base_url),
     ee.link.child_collection('projects_global-pasture-watch_assets_ggpp-30m_v1_ugpp_m', base_url),
     ee.link.child_collection('projects_global-pasture-watch_assets_gsvh-30m_v1_short-veg-height_m', base_url),
+    ee.link.child_collection('projects_global-pasture-watch_assets_gld-1km_v1_livestock-headcount-faostat_m', base_url),
   ],
 }
