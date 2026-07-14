@@ -33,5 +33,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_nature-trace_assets_farmscapes_england_v1_0', base_url),
     ee.link.child_collection('projects_nature-trace_assets_farmscapes_england_v1_0_vectorised', base_url),
     ee.link.child_collection('projects_nature-trace_assets_species_distribution_models_australia_mammals_v0', base_url),
+    ee.link.child_collection('projects_nature-trace_assets_mapl_emit_plumes_v3', base_url),
+    ee.link.child_collection('projects_nature-trace_assets_mapl_emit_enhancements_v3', base_url),
   ],
 }
