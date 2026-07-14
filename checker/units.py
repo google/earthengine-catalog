@@ -80,6 +80,7 @@ UNITS = frozenset({
     'ppm',
     'psu',
     'rad',
+    's^-1',
     'sawlog-board-ft/acre',
     'seconds',
     'tons/acre',
