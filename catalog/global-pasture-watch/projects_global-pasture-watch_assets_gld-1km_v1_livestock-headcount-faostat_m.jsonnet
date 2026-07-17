@@ -123,7 +123,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:doi': '10.5281/zenodo.20396303',
   'sci:citation': |||
      Parente, L., Ehrmann, S., Hengl, T., Fritz, S., Bonannella, C., et al. (2026). Global Pasture Watch - Annual livestock headcount layers for livestock, goats, sheep, horses, and buffaloes at 1-km 2000–2022 (FAOSTAT-adjusted) (Version v1) [Data set]. Zenodo. [doi:https://doi.org/10.5281/zenodo.20396303](https://doi.org/10.5281/zenodo.20396303)
-  ||| + livestock_md,
+  |||,
   'sci:publications': [
     {
       citation: |||
