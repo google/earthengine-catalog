@@ -37,5 +37,6 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('projects_pml_evapotranspiration_PML_OUTPUT_PML_V22a', base_url),
+    ee.link.child_collection('projects_pml_evapotranspiration_PML_OUTPUT_PML_V22a_VIIRS', base_url),
   ],
 }
