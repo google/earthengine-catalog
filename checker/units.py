@@ -42,6 +42,7 @@ UNITS = frozenset({
     'dB',
     'deg',
     'dn',
+    'einstein/m^2/day',
     'ft',
     'ft^2',
     'ft^2/acre',

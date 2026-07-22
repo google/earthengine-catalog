@@ -296,6 +296,51 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Version of the software used to create this product',
         type: ee_const.var_type.string,
       },
+      {
+        name: 'nsst_lastModified',
+        description: 'Last date this product was modified',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'nsst_software_name',
+        description: "'smigen' or 'l3mapgen'; name of the software used to create\nthis product",
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'nsst_software_version',
+        description: 'Version of the software used to create this product',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'par_lastModified',
+        description: 'Last date this product was modified',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'par_software_name',
+        description: "'smigen' or 'l3mapgen'; name of the software used to create\nthis product",
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'par_software_version',
+        description: 'Version of the software used to create this product',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'Kd_490_lastModified',
+        description: 'Last date this product was modified',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'Kd_490_software_name',
+        description: "'smigen' or 'l3mapgen'; name of the software used to create\nthis product",
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'Kd_490_software_version',
+        description: 'Version of the software used to create this product',
+        type: ee_const.var_type.string,
+      },
     ],
     gsd: [
       4616.0,
@@ -391,6 +436,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'Sea surface temperature',
         'gee:units': units.celsius,
       },
+      {
+        name: 'nsst',
+        description: 'Nighttime Sea Surface Temperature',
+        'gee:units': units.celsius,
+      },
+      {
+        name: 'par',
+        description: 'Photosynthetically Available Radiation',
+        'gee:units': units.einstein_per_square_meter_per_day,
+      },
+      {
+        name: 'Kd_490',
+        description: 'Diffuse attenuation coefficient at 490nm',
+        'gee:units': units.reciprocal_metre,
+      },
     ],
     'gee:visualizations': [
       {
@@ -485,6 +545,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     sst: {
       minimum: -2.0,
       maximum: 45.0,
+      'gee:estimated_range': true,
+    },
+    nsst: {
+      minimum: -2.0,
+      maximum: 45.0,
+      'gee:estimated_range': true,
+    },
+    par: {
+      minimum: 0.0,
+      maximum: 80.0,
+      'gee:estimated_range': true,
+    },
+    Kd_490: {
+      minimum: 0.01,
+      maximum: 6.4,
       'gee:estimated_range': true,
     },
   },
