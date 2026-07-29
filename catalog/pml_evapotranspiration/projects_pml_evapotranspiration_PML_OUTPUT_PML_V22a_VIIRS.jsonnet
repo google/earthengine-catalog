@@ -23,7 +23,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (VIIRS Edition)',
   version: 'V2.2a-VIIRS',
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
     The dataset is produced by the Large Scale Hydrology Lab, which specializes in advancing global and 
     regional water cycle research by synthesizing multi-source Earth observations with process-based modeling. 
