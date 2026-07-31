@@ -133,7 +133,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 'sci:citation': |||
     Xu, Z., Zhang, Y., Kong, D., Ma, N., and Zhang, X., 2026. Extended global
     terrestrial evapotranspiration and gross primary production dataset from
-    1982 to near present. Earth System Science Data, 18, 5663-5695,
+    1982 to near present. Earth Syst. Sci. Data, 18, 5663-5695,
     [doi:10.5194/essd-18-5663-2026](https://doi.org/10.5194/essd-18-5663-2026)
   |||,
   'sci:publications': [
