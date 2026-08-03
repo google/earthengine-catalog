@@ -23,6 +23,7 @@ local gsm_description = importstr 'general_satellite_messages_description.md';
     ee.link.self_link(self_url),
 
     ee.link.child_collection('NOAA_CFSR', base_url),
+    ee.link.child_collection('NOAA_CFSR_HARMONIZED', base_url),
     ee.link.child_collection('NOAA_GFS0P25', base_url),
     ee.link.child_collection('NOAA_PERSIANN-CDR', base_url),
 

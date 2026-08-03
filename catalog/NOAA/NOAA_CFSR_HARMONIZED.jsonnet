@@ -1,4 +1,4 @@
-local id = 'NOAA/CFSR';
+local id = 'NOAA/CFSR_HARMONIZED';
 local subdir = 'NOAA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -24,16 +24,10 @@ local base_filename = basename + '.json';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CFSR: Climate Forecast System Reanalysis [deprecated]',
+  title: 'CFSR: Climate Forecast System Reanalysis Harmonized',
   version: version,
-  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    Starting October 22, 2025, this dataset switched to using Celsius
-    instead of Kelvin units for temperature bands. Please use
-    [NOAA/CFSR_HARMONIZED](https://developers.google.com/earth-engine/datasets/catalog/NOAA_CFSR_HARMONIZED)
-    for consistent temperature units (Kelvin).
-
     The National Centers for Environmental Prediction (NCEP) Climate Forecast
     System Reanalysis (CFSR) was designed and executed as a global,
     high-resolution, coupled atmosphere-ocean-land surface-sea ice system to
@@ -51,6 +45,8 @@ local base_filename = basename + '.json';
     Some images contain only a subset of bands. Using this dataset with both
     "00" and "03" forecast types will require you to cast the bands across
     the collection.
+
+    This dataset harmonizes all temperature bands to Kelvin.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -290,7 +286,7 @@ local base_filename = basename + '.json';
       {
         name: 'Ground_Heat_Flux_surface_3_Hour_Average',
         description:
-          'Ground Heat Flux 4 hour average at ground or water surface for ' +
+          'Ground Heat Flux 3 hour average at ground or water surface for ' +
           '03 forecast',
         'gee:units': units.watt_per_meter_squared,
       },
@@ -340,7 +336,7 @@ local base_filename = basename + '.json';
       {
         name: 'Liquid_Volumetric_Soil_Moisture_non_Frozen_depth_below_surface_layer_70_cm',
         description:
-          'Liquid Volumetric Soil Moisture (non Frozen) 50 cm depth below ' +
+          'Liquid Volumetric Soil Moisture (non Frozen) 70 cm depth below ' +
           'land surface layer',
       },
       {
@@ -493,7 +489,7 @@ local base_filename = basename + '.json';
       {
         name: 'Snow_Phase_Change_Heat_Flux_surface_3_Hour_Average',
         description:
-          'Snow phase change hear flux 3 hour average at ground or ' +
+          'Snow phase change heat flux 3 hour average at ground or ' +
           'water surface for 03 forecast',
         'gee:units': units.watt_per_meter_squared,
       },
@@ -562,7 +558,7 @@ local base_filename = basename + '.json';
       {
         name: 'Temperature_depth_below_surface_layer_25_cm',
         description:
-          'Temperature 25cm epth below land surface layer for ' +
+          'Temperature 25cm depth below land surface layer for ' +
           '00 and 03 forecast',
         'gee:units': units.kelvin,
       },
