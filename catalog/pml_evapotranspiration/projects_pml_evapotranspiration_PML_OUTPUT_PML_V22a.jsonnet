@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     satellite orbital drift, this asset will no longer be updated post-2024. For near-present monitoring 
     and data extending to 2025, please refer to the companion VIIRS Edition asset, which ensures seamless data continuity.
 
-    This dataset is part of the broader PML-V2.2 suite, where the description preprint is available at [Earth System Science Data](https://essd.copernicus.org/preprints/essd-2026-94/). 
+    This dataset is part of the broader PML-V2.2 suite, where the description paper is available at [Earth System Science Data](https://doi.org/10.5194/essd-18-5663-2026). 
     For the long-term and consolidated record (1982-near present, PML-V2.2a/b/c at 0.1° resolution with different remote sensing forcings), 
     please visit the [TPDC data repository](https://doi.org/10.11888/Terre.tpdc.303314).
   |||,
@@ -135,14 +135,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     PET: { minimum: 0.0, maximum: 2011.0, 'gee:estimated_range': true },
     Ew: { minimum: 0.0, maximum: 2011.0, 'gee:estimated_range': true },
   },
-  'sci:citation': |||
-    Zhang, Y., Kong, D., Gan, R., Chiew, F.H.S., McVicar, T.R., Zhang, Q.,
-    and Yang, Y., 2019. Coupled estimation of 500m and 8-day resolution global
-    evapotranspiration and gross primary production in 2002-2017.
-    Remote Sens. Environ. 222, 165-182,
-    [doi:10.1016/j.rse.2018.12.031](https://doi.org/10.1016/j.rse.2018.12.031)
+'sci:citation': |||
+    Xu, Z., Zhang, Y., Kong, D., Ma, N., and Zhang, X., 2026. Extended global
+    terrestrial evapotranspiration and gross primary production dataset from
+    1982 to near present. Earth Syst. Sci. Data, 18, 5663-5695,
+    [doi:10.5194/essd-18-5663-2026](https://doi.org/10.5194/essd-18-5663-2026)
   |||,
   'sci:publications': [
+    {
+      citation: |||
+        Zhang, Y., Kong, D., Gan, R., Chiew, F.H.S., McVicar, T.R., Zhang, Q.,
+        and Yang, Y., 2019. Coupled estimation of 500m and 8-day resolution global
+        evapotranspiration and gross primary production in 2002-2017.
+        Remote Sens. Environ. 222, 165-182,
+        [doi:10.1016/j.rse.2018.12.031](https://doi.org/10.1016/j.rse.2018.12.031)
+      |||,
+      doi: '10.1016/j.rse.2018.12.031',
+    },
     {
       citation: |||
         Gan, R., Zhang, Y.Q., Shi, H., Yang, Y.T., Eamus, D., Cheng, L.,
