@@ -34,5 +34,6 @@ local self_url = base_url + base_filename;
     ee.link.self_link(self_url),
     ee.link.child_collection('projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11', base_url),
     ee.link.child_collection('projects_gtac-data-publish_assets_TCC_Product_Version_2025-6', base_url),
+    ee.link.child_collection('projects_gtac-data-publish_assets_TreeMap_Product_Version_2026-1', base_url),
   ],
 }
