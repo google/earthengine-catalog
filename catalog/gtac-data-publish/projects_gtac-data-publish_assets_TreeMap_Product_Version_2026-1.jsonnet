@@ -131,7 +131,6 @@ local license = spdx.proprietary;
     'gtac',
     'landcover',
     'landfire',
-    'publisher-dataset',
     'redcastle-resources',
     'tree-cover',
     'us',
@@ -2833,7 +2832,6 @@ local license = spdx.proprietary;
         citation: |||
             Karin Riley, Rachel Houtman, Scott Zimmer, Lila Leatherman, Jamie Peeler, John Shaw, Isaac Grenfell, Maria Borja Arboleda, Abhinav Shrestha, Ian Housman, and Mark Finney. TreeMap 2020, 2022, and 2023: Improved species range mapping in a tree-level forest dataset for the conterminous United States. Earth Systems Science Data, in prep.
         |||,
-        doi:'',
         },
    ],
   'gee:terms_of_use': |||
