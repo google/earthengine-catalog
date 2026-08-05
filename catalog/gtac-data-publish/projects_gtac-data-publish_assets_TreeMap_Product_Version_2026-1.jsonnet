@@ -1,132 +1,121 @@
-local id = 'USFS/GTAC/TreeMap/v2022';
-local subdir = 'USFS';
+local id = 'projects/gtac-data-publish/assets/TreeMap/Product_Version/2026-1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/TreeMap_versions.libsonnet';
+local subdir = 'gtac-data-publish';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local versions = import 'versions.libsonnet';
-local version_table = import 'templates/TreeMap_versions.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
 local license = spdx.proprietary;
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-
 {
-  'gee:status': 'deprecated',
-  'gee:user_uploaded': true,
-
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
+  'gee:status': 'beta',
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS TreeMap v2022 [deprecated]',
+  title: 'USFS TreeMap 2026-1',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    This product is part of the TreeMap data suite. It provides detailed spatial
-    information on forest characteristics including number of live and dead trees,
-    biomass, and carbon across the entire forested extent of the United States in
-    2022.
-
-    TreeMap v2022 contains 22-band 30 x 30m resolution gridded map images per study
-    area, of the forests of the United States circa 2022, with each band
-    representing an attribute derived from select Forest Inventory Analysis (FIA)
-    data (and one band representing the TreeMap ID). Examples of attributes include
-    forest type, canopy cover percent, live tree stocking, live/dead tree biomass,
-    and carbon in live/dead trees.
-
-    TreeMap products are the output of a random forest machine learning algorithm
-    that assigns the most similar FIA plot to each pixel of gridded LANDFIRE input
-    data. The objective is to combine the complimentary strengths of
-    detailed-but-spatially-sparse FIA data with less-detailed-but-spatially-
-    comprehensive LANDFIRE data to produce better estimations of forest
-    characteristics at a variety of scales. TreeMap is being used in both the
-    private and public sectors for projects including fuel treatment planning,
-    snag hazard mapping, and estimation of terrestrial carbon resources.
-
-    TreeMap is distinct from other imputed forest vegetation products in that it
-    provides an FIA plot identifier to each pixel whereas other datasets provide
-    forest characteristics such as live basal area (e.g., Ohmann and Gregory 2002;
-    Pierce Jr et al. 2009; Wilson, Lister, and Riemann 2012). The FIA plot
-    identifier can be linked to the hundreds of variables and attributes recorded
-    for each tree and plot in the FIA DataMart, FIA's public repository of plot
-    information (Forest Inventory Analysis 2022a).
-
-    The TreeMap 2022 CONUS dataset featured here updates the TreeMap 2016 dataset
-    to landscape conditions circa 2022 and updates the methods by: 1) using a
-    different suite of climate variables in the imputation and 2) improving species
-    composition assignments to prevent plots being imputed to areas where their
-    existing vegetation type was not present, an issue which affected a small number
-    of pixels in previous TreeMap versions.
-
-    TreeMap v2022 was produced using the methods described in
-    [Riley et al. (2022)](https://research.fs.usda.gov/treesearch/65597)
-    but differ from TreeMap v2016 in that: 1) the climatic variables were obtained
-    from DayMet and included precipitation, shortwave radiation, soil water
-    equivalent, maximum temperature, minimum temperature, vapor pressure, and vapor
-    pressure deficit; and 2) plots available for imputation in each LANDFIRE zone
-    were limited to those plots with a tree species that were present either in the
-    plots found within the LANDFIRE zone, or in the zones immediately bordering it,
-    according to the FIA plots located within the zone. This reduced not only plots
-    with Existing Vegetation Type not present in the zone but also plots with trees
-    outside of their observed range.
-
-    The results showed good correspondence between the target LANDFIRE data and the
-    imputed plot data, with an overall within-class agreement of 94.3% for forest
-    cover, 99.0% for forest height, 95.6% for vegetation group, and 95.5% for
-    disturbance code. Of 69,800 single-condition FIA plots available to Random
-    Forest, 64,745 of these (92.7%) were utilized in the imputation to 2,687,805,994
-    forested pixels.
-
-
-
+    TreeMap datasets provide detailed spatial information on forest characteristics 
+    across the entire forested extent of the Conterminous United States (CONUS) for 
+    the years 2016, 2020, 2022, and 2023. TreeMap 2014 is also available for CONUS but 
+    not included in this data archive. TreeMap 2024 is projected to be released in fall 2026. 
+    
+    For each year, TreeMap contains 22-band 30 x 30m resolution gridded map images of 
+    the forests of the United States, with each band representing an attribute derived 
+    from select Forest Inventory Analysis (FIA) data and one band representing the TreeMap ID 
+    (TM_ID). Some commonly used attributes have already been generated for users and are 
+    represented here, including forest type, canopy cover percent, live tree stocking, 
+    live/dead tree biomass, and carbon in live/dead trees. 
+    
+    TreeMap datasets use [LANDFIRE](https://www.landfire.gov/) data as key input layers and 
+    are constrained to years when LANDFIRE data are available. TreeMap includes only pixels 
+    defined by LANDFIRE as at least 10% forest cover.
+    
+    TreeMap is produced using a Random Forest machine learning imputation algorithm that 
+    assigns the most similar FIA plot to each pixel of gridded LANDFIRE input data. The 
+    objective is to combine the complementary strengths of detailed-but-spatially-sparse 
+    FIA data with less-detailed-but-spatially-comprehensive LANDFIRE data to produce better 
+    estimates of forest characteristics at a variety of scales. 
+    
+    TreeMap is distinct from other imputed forest vegetation products in that it assigns an FIA 
+    plot identifier to each pixel, whereas other datasets use separate models for each individual 
+    forest characteristic such as live basal area (e.g., Ohmann and Gregory 2002; Pierce Jr et al. 
+    2009; Wilson, Lister, and Riemann 2012). The FIA plot identifier can be linked to the hundreds 
+    of variables and attributes recorded for each tree and plot in the FIA DataMart, FIA's public 
+    repository of plot information (Forest Inventory Analysis 2022a). While we provide 21 attribute 
+    rasters in this data package, users can generate other attributes by linking the TM_ID 
+    to the FIA plot control number (PLT_CN), which corresponds to a unique plot visit. For 
+    more information and a lookup table linking TM_ID to FIA PLT_CN, see the Forest Service 
+    Research Data Archive (DOIs given below in “Additional Resources” section).
+    
+    TreeMap is used in both the private and public sectors for projects including fuel 
+    treatment planning, snag hazard mapping, and estimation of terrestrial carbon resources.
+    
+    The TreeMap 2016 dataset was produced using the methods described in [Riley et al. (2022)](https://research.fs.usda.gov/treesearch/65597). 
+    The TreeMap 2020, 2022, and 2023 datasets were produced using the methods described in 
+    Riley et al. (2026, In Prep), 
+    which are similar to those used for TreeMap 2016, but differ in that: 1) biophysical 
+    variables were derived by overlay of the plot coordinates with Daymet rasters rather 
+    than LANDFIRE biophysical variables and included average precipitation, average 
+    maximum temperature, average minimum temperature, average vapor pressure, average soil 
+    water equivalent, average vapor pressure deficit, average daily shortwave radiation; 
+    and 2) plots available for imputation in each LANDFIRE zone were limited to those plots 
+    with tree species that were present either in the FIA plots found within the LANDFIRE 
+    zone, or in the zones immediately bordering it. This reduced the number of plots with 
+    trees that were imputed outside of their observed range, an issue which affected a small number of pixels in previous TreeMap versions.
+    
+    The results for all years showed good correspondence between the target LANDFIRE data 
+    and the imputed plot data. Values of overall within-class agreement for forest cover, 
+    forest height, vegetation group, and disturbance code can be found in each vintage's 
+    metadata in the USFS Research Data Archive and USFS Raster Data Gateway, as well as in 
+    Riley et al (In Prep). 
+    
     **Additional Resources**
-
-    * Please see the [TreeMap 2016 Publication](https://www.fs.usda.gov/research/treesearch/65597)
-      for more detailed information regarding methods and accuracy assessment.
-
+    
+    * See TreeMap in the Research Data Archive for CONUS-wide datasets, the TM_ID to FIA 
+    PLT_CN lookup table, plot-level tree data (the Tree Table), and additional information on
+    [TreeMap 2014](https://www.fs.usda.gov/rds/archive/catalog/RDS-2019-0026)
+    [TreeMap 2016](https://www.fs.usda.gov/rds/archive/catalog/RDS-2021-0074), 
+    [TreeMap 2020](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031), 
+    [TreeMap 2022](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032), 
+    [TreeMap 2023](https://www.fs.usda.gov/rds/archive/catalog/RDS-2026-0038).
+    
+    * See the [TreeMap 2016 Publication, Riley et al. 2022](https://www.fs.usda.gov/research/treesearch/65597)
+    for more detailed information regarding methods and accuracy assessment.
+    
     * The [TreeMap Data Explorer](https://apps.fs.usda.gov/lcms-viewer/treemap.html)
-      is a web-based application that provides users the ability to view and
-      download TreeMap attribute data.
+    is a web-based application that provides users with the ability to view and download 
+    TreeMap attribute data.
+    
+    * Visit the [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/) for TreeMap attribute data downloads, metadata, and support documents.
+    
+    * See the [FIA Database Manual version 9.4](https://research.fs.usda.gov/understory/forest-inventory-and-analysis-database-user-guide-nfi) for more detailed information on the attributes included in TreeMap.
+    
+    Contact sm.fs.treemaphelp@usda.gov with any questions or specific data requests.
 
-    * Visit the [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031)
-      for the full dataset download, metadata, and support documents.
 
-    * Visit the [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/)
-      for TreeMap attribute data downloads, metadata, and support documents.
-
-    * See the [FIA Database Manual version 9.3](https://research.fs.usda.gov/understory/forest-inventory-and-analysis-database-user-guide-nfi)
-      for more detailed information on the attributes included in TreeMap 2020.
-
-    * The [Treemap 2016 vintage](https://developers.google.com/earth-engine/datasets/catalog/USFS_GTAC_TreeMap_v2016)
-      contains landscape conditions of the forests of the United States circa 2016.
-
-    * The [Treemap 2020 vintage](https://developers.google.com/earth-engine/datasets/catalog/USFS_GTAC_TreeMap_v2020)
-      contains landscape conditions of the forests of the United States circa 2020.
-
-    Contact [sm.fs.treemaphelp@usda.gov] with any
-    questions or specific data requests.
 
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.license(
         'https://data.fs.usda.gov/geodata/rastergateway/treemap/'),
     {
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treemap/',
     },
-  ] + version_config.version_links,
+  ],
   'gee:categories': ['forest-biomass'],
   keywords: [
     'aboveground',
@@ -135,15 +124,14 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     'climate_change',
     'conus',
     'forest',
-    'forest-biomass',
-    'forest-type',
-    'forest-inventory-and-analysis',
-    'fsic-go',
+    'forest_type',
+    'forest_inventory_and_analysis',
+    'fsic_go',
     'gtac',
     'landcover',
     'landfire',
-    'redcastle-resources',
-    'tree-cover',
+    'redcastle_resources',
+    'tree_cover',
     'us',
     'usda',
     'usfs',
@@ -151,16 +139,51 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('USDA Forest Service (USFS) Field Services and Innovation Center Geospatial Office (FSIC-GO)', 'https://data.fs.usda.gov/geodata/rastergateway/treemap/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-128.97722, 22.76862, -65.25445, 51.64968,
-                    '2022-01-01T00:00:00Z', '2023-01-01T00:00:00Z'),
+                    '2020-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
         name: 'year',
         description: |||
-          Year of the product.
+          Year of the product data.
+        |||,
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'year_released',
+        description: |||
+          Year the product data was released.
+        |||,
+        type: ee_const.var_type.int,
+      },
+      {
+        name: 'tm_methods_ver',
+        description: |||
+          Version of the methods used to generate the product, corresponds to a unique publication. E.g., '2.1' 
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'methods_publication',
+        description: |||
+          Short citation for the publication associated with the methods version.
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'tm_dataset_release',
+        description: |||
+          Dataset release version - indicates the version of the annual dataset. Eg., '1.0'
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'tm_data_ver',
+        description: |||
+          Concatenated from publication year, methods version number, and dataset release number. E.g., "2025-2.0-1.0"
         |||,
         type: ee_const.var_type.string,
       },
@@ -172,30 +195,54 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         type: ee_const.var_type.string,
       },
       {
-        name: 'landfire_ver',
+        name: 'landfire_ver_name',
         description: |||
-          Landfire version used as reference and target data for imputation.
+          Name used to refer to the version of Landfire data used as reference and target data for imputation, e.g., "LF2022"
         |||,
         type: ee_const.var_type.string,
       },
+      {
+        name: 'landfire_ver_num',
+        description: |||
+          Number used to refer to the version of Landfire data used as reference and target data for imputation, e.g., "2.3.0"
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'fiadb_ver',
+        description: |||
+          Version of Forest Inventory and Analysis Database used to generate the product, e.g., "1.9"
+        |||,
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'doi',
+        description: |||
+          Link to the official data publication in the FS Research Data Archive.
+        |||,
+        type: ee_const.var_type.string,
+      },
+
     ],
     gsd: [30],
     'eo:bands': [
       {
         name: 'ALSTK',
         description: |||
-          All-Live-Tree Stocking. The sum of stocking percent values of all live trees on
+          All-Live-Tree Stocking. The sum of stocking percent values of all live trees on 
           the condition.
         |||,
         'gee:units': units.percent,
+
       },
       {
         name: 'BALIVE',
         description: |||
-          Live Tree Basal Area. Basal area in square feet per acre of all live trees
+          Live Tree Basal Area. Basal area in square feet per acre of all live trees 
           ≥1.0 inch d.b.h./d.r.c. sampled in the condition.
         |||,
         'gee:units': units.square_ft_per_acre,
+
       },
       {
         name: 'CANOPYPCT',
@@ -203,115 +250,122 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           Live Canopy Cover. Derived from the Forest Vegetation Simulator.
         |||,
         'gee:units': units.percent,
+
       },
       {
         name: 'CARBON_D',
         description: |||
-          Carbon, Standing Dead. Calculated via the following FIA query:
-          Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP)
-          / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND
+          Carbon, Standing Dead. Calculated via the following FIA query: 
+          Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) 
+          / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND 
           ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.tons_per_acre,
+
       },
       {
         name: 'CARBON_DWN',
         description: |||
-          Carbon, Down Dead. Carbon (tons per acre) of woody material >3 inches in
-          diameter on the ground, and stumps and their roots >3 inches in diameter.
-          Estimated from models based on geographic area, forest type, and live tree
+          Carbon, Down Dead. Carbon (tons per acre) of woody material >3 inches in 
+          diameter on the ground, and stumps and their roots >3 inches in diameter. 
+          Estimated from models based on geographic area, forest type, and live tree 
           carbon density (Smith and Heath 2008).
         |||,
         'gee:units': units.tons_per_acre,
+
       },
       {
         name: 'CARBON_L',
         description: |||
-          Carbon, Live Above Ground. Calculated via the following FIA query:
-          Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP)
+          Carbon, Live Above Ground. Calculated via the following FIA query: 
+          Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) 
           / 2 /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.tons_per_acre,
+
       },
       {
         name: 'DRYBIO_D',
         description: |||
-          Dry Standing Dead Tree Biomass, Above Ground. Calculated via the following FIA
-          query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING,
-          DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND
+          Dry Standing Dead Tree Biomass, Above Ground. Calculated via the following FIA 
+          query: Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, 
+          DRYBIO_WDLD_SPP) /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND 
           ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.tons_per_acre,
+
       },
       {
         name: 'DRYBIO_L',
         description: |||
-          Dry Live Tree Biomass, Above Ground. Calculated via the following FIA query:
-          Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP)
+          Dry Live Tree Biomass, Above Ground. Calculated via the following FIA query: 
+          Sum (DRYBIO_BOLE, DRYBIO_TOP, DRYBIO_STUMP, DRYBIO_SAPLING, DRYBIO_WDLD_SPP) 
           /2000*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.tons_per_acre,
+
       },
       {
         name: 'FLDSZCD',
         description: |||
-          Field Stand-Size Class Code - Field-assigned classification of the predominant
+          Field Stand-Size Class Code - Field-assigned classification of the predominant 
           (based on stocking) diameter class of live trees within the condition.
         |||,
+
         'gee:classes': [
           {
             value: 0,
             color: 'c62363',
-            description: 'Nonstocked - Meeting the definition of accessible land and one of
-            the following applies (1) less than 10 percent stocked by trees, seedlings, and
-            saplings and not classified as cover trees, or (2) for several woodland species
-            where stocking standards are not available, less than 10 percent canopy cover of
+            description: 'Nonstocked - Meeting the definition of accessible land and one of 
+            the following applies (1) less than 10 percent stocked by trees, seedlings, and 
+            saplings and not classified as cover trees, or (2) for several woodland species 
+            where stocking standards are not available, less than 10 percent canopy cover of 
             trees, seedlings, and saplings.',
           },
           {
             value: 1,
             color: 'feba12',
-            description: '≤4.9 inches (seedlings/saplings). At least 10 percent stocking
-            (or 10 percent canopy cover if stocking standards are not available) in trees,
-            seedlings, and saplings, and at least 2/3 of the canopy cover is in trees less
+            description: '≤4.9 inches (seedlings/saplings). At least 10 percent stocking 
+            (or 10 percent canopy cover if stocking standards are not available) in trees, 
+            seedlings, and saplings, and at least 2/3 of the canopy cover is in trees less 
             than 5.0 inches d.b.h./d.r.c.',
           },
           {
             value: 2,
             color: 'ffff00',
-            description: '5.0-8.9 inches (softwoods)/ 5.0-10.9 inches (hardwoods). At least
-            10 percent stocking (or 10 percent canopy cover if stocking standards are not
-            available) in trees, seedlings, and saplings; and at least one-third of the
-            canopy cover is in trees greater than 5.0 inches d.b.h./d.r.c. and the plurality
-            of the canopy cover is in softwoods 5.0-8.9 inches diameter and/or hardwoods
+            description: '5.0-8.9 inches (softwoods)/ 5.0-10.9 inches (hardwoods). At least 
+            10 percent stocking (or 10 percent canopy cover if stocking standards are not 
+            available) in trees, seedlings, and saplings; and at least one-third of the 
+            canopy cover is in trees greater than 5.0 inches d.b.h./d.r.c. and the plurality 
+            of the canopy cover is in softwoods 5.0-8.9 inches diameter and/or hardwoods 
             5.0-10.9 inches d.b.h., and/or woodland trees 5.0-8.9 inches d.r.c.',
           },
           {
             value: 3,
             color: '38a800',
-            description: '9.0-19.9 inches (softwoods)/ 11.0-19.9 inches (hardwoods). At
-            least 10 percent stocking (or 10 percent canopy cover if stocking standards are
-            not available) in trees, seedlings, and sapling; and at least one-third of the
-            canopy cover is in trees greater than 5.0 inches d.b.h./d.r.c. and the plurality
-            of the canopy cover is in softwoods 9.0-19.9 inches diameter and/or hardwoods
+            description: '9.0-19.9 inches (softwoods)/ 11.0-19.9 inches (hardwoods). At 
+            least 10 percent stocking (or 10 percent canopy cover if stocking standards are 
+            not available) in trees, seedlings, and sapling; and at least one-third of the 
+            canopy cover is in trees greater than 5.0 inches d.b.h./d.r.c. and the plurality 
+            of the canopy cover is in softwoods 9.0-19.9 inches diameter and/or hardwoods 
             between 11.0-19.9 inches d.b.h., and/or woodland trees 9.0-19.9 inches d.r.c.',
           },
           {
             value: 4,
             color: '73dfff',
-            description: '20.0-39.9 inches. At least 10 percent stocking (or 10 percent
-            canopy cover if stocking standards are not available) in trees, seedlings, and
-            saplings; and at least one-third of the canopy cover is in trees greater than
-            5.0 inches d.b.h./d.r.c. and the plurality of the canopy cover is in trees
+            description: '20.0-39.9 inches. At least 10 percent stocking (or 10 percent 
+            canopy cover if stocking standards are not available) in trees, seedlings, and 
+            saplings; and at least one-third of the canopy cover is in trees greater than 
+            5.0 inches d.b.h./d.r.c. and the plurality of the canopy cover is in trees 
             20.0-39.9 inches d.b.h.',
           },
           {
             value: 5,
             color: '5c09fc',
-            description: '40.0+ inches. At least 10 percent stocking (or 10 percent canopy
-            cover if stocking standards are not available) in trees, seedlings, and
-            saplings; and at least one-third of the canopy cover is in trees greater than
-            5.0 inches d.b.h./d.r.c. and the plurality of the canopy cover is in trees
+            description: '40.0+ inches. At least 10 percent stocking (or 10 percent canopy 
+            cover if stocking standards are not available) in trees, seedlings, and 
+            saplings; and at least one-third of the canopy cover is in trees greater than 
+            5.0 inches d.b.h./d.r.c. and the plurality of the canopy cover is in trees 
             greater than or equal to 40.0 inches d.b.h.',
           },
         ],
@@ -319,12 +373,13 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'FLDTYPCD',
         description: |||
-          Field Forest Type Code - A code indicating the forest type, assigned by the
-          field crew, based on the tree species or species groups forming a plurality of
-          all live stocking. The field crew assesses the forest type based on the acre
-          of forest land around the plot, in addition to the species sampled on the
+          Field Forest Type Code - A code indicating the forest type, assigned by the 
+          field crew, based on the tree species or species groups forming a plurality of 
+          all live stocking. The field crew assesses the forest type based on the acre 
+          of forest land around the plot, in addition to the species sampled on the 
           condition.
         |||,
+
         'gee:classes': [
             {
             value: 101,
@@ -1031,11 +1086,12 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'FORTYPCD',
         description: |||
-          Algorithm Forest Type Code - This is the forest type used for reporting
-          purposes. It is primarily derived using a computer algorithm, except when less
-          than 25 percent of the plot samples a particular forest condition or in a few
+          Algorithm Forest Type Code - This is the forest type used for reporting 
+          purposes. It is primarily derived using a computer algorithm, except when less 
+          than 25 percent of the plot samples a particular forest condition or in a few 
           other cases.
         |||,
+
         'gee:classes': [
             {
             value: 101,
@@ -1752,28 +1808,53 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'GSSTK',
         description: |||
-          Growing-Stock Stocking. The sum of stocking percent values of all growing-stock
+          Growing-Stock Stocking. The sum of stocking percent values of all growing-stock 
           trees on the condition.
         |||,
         'gee:units': units.percent,
+
       },
       {
         name: 'QMD',
         description: |||
-          Stand Quadratic Mean Diameter. The quadratic mean diameter, or the diameter of
-          the tree of average basal area, on the condition. Based on live trees
-          ≥1.0 inch d.b.h./d.r.c.
+          Stand Quadratic Mean Diameter. The quadratic mean diameter, or the diameter of 
+          the tree of average basal area, on the condition. Based on live trees 
+          ≥1.0 inch d.b.h./d.r.c. 
         |||,
         'gee:units': units.inch,
+
+      },
+      {
+        name: 'QMD_RMRS',
+        description: |||
+          Stand Quadratic Mean Diameter. Rocky Mountain Research Station. The quadratic 
+          mean diameter, or the diameter of the tree of average basal area, on the 
+          condition. Based on live trees ≥1.0 inch d.b.h./d.r.c. Only collected by certain
+          FIA work units. 
+        |||,
+        'gee:units': units.inch,
+
       },
       {
         name: 'SDIsum',
         description: |||
-          Sum of Stand Density Index. Stand density index (SDI). A relative measure of
-          stand density for live trees (greater than or equal to 1.0 inch d.b.h./d.r.c.)
+          Sum of Stand Density Index. Stand density index (SDI). A relative measure of 
+          stand density for live trees (greater than or equal to 1.0 inch d.b.h./d.r.c.) 
           on the condition, expressed as a sum of the maximum stand density index (SDI).
         |||,
         'gee:units': units.dimensionless,
+
+      },
+      {
+        name: 'SDIPCT_RMRS',
+        description: |||
+          Stand Density Index. Rocky Mountain Research Station. A relative measure of 
+          stand density for live trees (≥1.0 inch d.b.h./d.r.c.) on the condition, 
+          expressed as a percentage of the maximum stand density index (SDI). Only 
+          collected by certain FIA work units.
+        |||,
+        'gee:units': units.dimensionless,
+
       },
       {
         name: 'STANDHT',
@@ -1781,42 +1862,44 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
           Height of dominant trees. Derived from the Forest Vegetation Simulator.
         |||,
         'gee:units': units.foot,
+
       },
       {
         name: 'STDSZCD',
         description: |||
-          Algorithm Stand-Size Class Code - A classification of the predominant (based on
-          stocking) diameter class of live trees within the condition assigned using an
+          Algorithm Stand-Size Class Code - A classification of the predominant (based on 
+          stocking) diameter class of live trees within the condition assigned using an 
           algorithm.
         |||,
+
         'gee:classes': [
           {
             value: 1,
             color: '38a800',
-            description: 'Large diameter - Stands with an all live stocking value of at
-            least 10 (base 100); with more than 50 percent of the stocking in medium and
-            large diameter trees; and with the stocking of large diameter trees equal to or
+            description: 'Large diameter - Stands with an all live stocking value of at 
+            least 10 (base 100); with more than 50 percent of the stocking in medium and 
+            large diameter trees; and with the stocking of large diameter trees equal to or 
             greater than the stocking of medium diameter trees.',
           },
           {
             value: 2,
             color: 'ffff00',
-            description: 'Medium diameter - Stands with an all live stocking value of at
-            least 10 (base 100); with more than 50 percent of the stocking in medium and
-            large diameter trees; and with the stocking of large diameter trees less than
+            description: 'Medium diameter - Stands with an all live stocking value of at 
+            least 10 (base 100); with more than 50 percent of the stocking in medium and 
+            large diameter trees; and with the stocking of large diameter trees less than 
             the stocking of medium diameter trees.',
           },
           {
             value: 3,
             color: 'feba12',
-            description: 'Small diameter - Stands with an all live stocking value of at
-            least 10 (base 100) on which at least 50 percent of the stocking is in small
+            description: 'Small diameter - Stands with an all live stocking value of at 
+            least 10 (base 100) on which at least 50 percent of the stocking is in small 
             diameter trees.',
           },
           {
             value: 5,
             color: 'c62363',
-            description: 'Nonstocked - Forest land with all live stocking value less
+            description: 'Nonstocked - Forest land with all live stocking value less 
             than 10.',
           },
         ],
@@ -1824,55 +1907,69 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       {
         name: 'TPA_DEAD',
         description: |||
-          Dead Trees Per Acre. Number of dead standing trees per acre (DIA >= 5”).
-          Calculated via the following FIA query: Sum TREE.TPA_UNADJ WHERE
-          (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5)
+          Dead Trees Per Acre. Number of dead standing trees per acre (DIA >= 5”). 
+          Calculated via the following FIA query: Sum TREE.TPA_UNADJ WHERE 
+          (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) AND ((TREE.DIA)>=5) 
           AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.count_per_acre,
+
       },
       {
         name: 'TPA_LIVE',
         description: |||
-          Live Trees Per Acre. Number of live trees per acre (DIA > 1"). Calculated via
-          the following FIA query: Sum TREE.TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1)
+          Live Trees Per Acre. Number of live trees per acre (DIA > 1”). Calculated via 
+          the following FIA query: Sum TREE.TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) 
           AND ((TREE.STATUSCD)=1) AND ((TREE.DIA)>=1))
         |||,
         'gee:units': units.count_per_acre,
+
       },
       {
         name: 'TM_ID',
         description: |||
-          Raw TreeMap identifier dataset values. This dataset is useful to see spatial
-          groupings of individual modeled plot values.
+          Raw TreeMap identifier dataset values. This dataset is useful to see spatial groupings of individual modeled plot values. TM_ID mappings to FIA plot ids are specific to each year of data. TM_ID attribute layers should not be compared directly across years. If using TM_ID to calculate additional attributes from FIA data, use the year-specific Raster Attribute Table (RAT) to map TM_ID to PLT_CN. The RAT is provided at the USFS Research Data Archive (RDA) and the USFS Raster Data Gateway.
         |||,
         'gee:units': units.dimensionless,
+
+      },
+      {
+        name: 'Value',
+        description: |||
+          Raw TreeMap identifier dataset values. This dataset is useful to see spatial 
+          groupings of individual modeled plot values. Equivalent to TM_ID. See notes on TM_ID mappings to FIA plot ids.  
+        |||,
+        'gee:units': units.dimensionless,
+
       },
       {
         name: 'VOLBFNET_L',
         description: |||
-          Volume, Live (log rule: Int’l ¼ inch). Calculated via the following FIA query:
-          Sum VOLBFNET * TPA_UNADJ WHERE (((TREE.TREECLCD)=2) AND
+          Volume, Live (log rule: Int’l ¼ inch). Calculated via the following FIA query: 
+          Sum VOLBFNET * TPA_UNADJ WHERE (((TREE.TREECLCD)=2) AND 
           ((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.sawlog_board_ft_per_acre,
+
       },
       {
         name: 'VOLCFNET_D',
         description: |||
-          Volume, Standing Dead. Calculated via the following FIA query:
-          Sum VOLCFNET*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2)
+          Volume, Standing Dead. Calculated via the following FIA query: 
+          Sum VOLCFNET*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=2) 
           AND ((TREE.DIA)>=5) AND ((TREE.STANDING_DEAD_CD)=1))
         |||,
         'gee:units': units.cubic_ft_per_acre,
+
       },
       {
         name: 'VOLCFNET_L',
         description: |||
-          Volume, Live. Calculated via the following FIA query:
+          Volume, Live. Calculated via the following FIA query: 
           Sum VOLCFNET*TPA_UNADJ WHERE (((COND.COND_STATUS_CD)=1) AND ((TREE.STATUSCD)=1))
         |||,
         'gee:units': units.cubic_ft_per_acre,
+
       },
     ],
     'gee:visualizations': [
@@ -2141,6 +2238,145 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
       },
       {
+        display_name: 'FLDSZCD_Viz',
+        lookat: {
+          lat: 38,
+          lon: -95.712891,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              0,
+            ],
+            max: [
+              5,
+            ],
+            palette: [
+              'C62363',
+              'FEBA12',
+              'FFFF00',
+              '38A800',
+              '73DFFF',
+              '5C09FC',
+            ],
+            bands: [
+              'FLDSZCD',
+            ],
+          },
+        },
+      },
+      {
+        display_name: 'FLDTYPCD_Viz',
+        lookat: {
+          lat: 38,
+          lon: -95.712891,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              101,
+            ],
+            max: [
+              995,
+            ],
+            palette: [
+              '94D0AA','81B0B6','7F6A37','C57F69','EEC289',
+              'F08BF0','51A0B1','F3B035','EBA9D1','AF8DE6','BBB92D',
+              'E48FC8','EEA97F','EAF5E0','D2D59B','DCC2C0','C7F0AA',
+              'E51EEB','3A1591','C26DA6','67C6CA','95EF79','D5C7E9',
+              'BC916F','D1DFD6','49F6AE','7B677B','F16791','DBF39C',
+              'DAD9BD','7D2F2E','45E8D5','9BC5E5','4DEBBE','3A6A8B',
+              '68F0EC','AAA7E7','4589D2','F4DF8E','F7D969','DFA098',
+              'D8ECF0','CAF466','E64393','8CE7EF','EEC7EA','DFA9EF',
+              'B7F2E0','BBBCC4','B2B1C8','ADF6D0','E2C8F9','BAE3F5',
+              '8391A7','9A2D79','B4CFA7','93DBF2','BAAEA2','8FF390',
+              'B2FA73','C6295F','EA6375','A1E073','2DB8AB','AE73B2',
+              'E38BAE','CFB0FA','D3A9B3','90E5D5','F12C43','B2C387',
+              '8FA42C','CDE353','7680AC','46D7ED','EECC39','D7BAF5',
+              '9A29F0','A7C6D7','F28A8D','EBF385','A0CD4F','81B180',
+              'CBA1FB','6BC35E','F5A3AD','D4DDEF','A049B7','E1A0B6',
+              'F06748','7A9252','66D727','E645DC','AA8D8B','EE405D',
+              'CFADD4','9190E6','4E655F','57ADF1','B2EB31','C6E377',
+              'BEA664','C26262','4B9A91','72F4B9','DA90E3','3EBF45',
+              'E973BF','AFE7B3','81629F','9144DD','E4C0A1','AC82A2',
+              'F5A8E1','B486F5','ECBF68','F340AF','C0CAF5','C1F89A',
+              'D3F3D2','EBEBC0','D350F4','D1CF7C','71F943','9E87C0',
+              'B6707A','F7E6D7','8CAAF2','F1F2F3','A3D382','4EBF86',
+              '8CF45A','F4F3B7','A1CFC9','F0DC9F','5971EF','699FCB',
+              'F7A1F0','5E62F8','F0CDBD','A7902B','F2F875','E6A55A',
+              'F068E4','DE55BF','CFF3C0','F7C1F3','90896C','F5BEB3',
+              'B49EC7','6BC3F5','6226E8','7AEBCD','D2AB20','515891',
+              'E47A65','97B45A','CBD14D','64C2A2','ADF2AD','DEEFB4',
+              '52B8DC','E1F855','8FA792','EBE545','C676DF','489744',
+              'E2F231','CFBC8F','51DC89','AA511D','846AC6','BB8FD3',
+              'F1BCD8','4F45A6','C6F5F4','E5DD69','C0A8E1','7F5DD7',
+              'DFD3D7','56F277','28703C','86E799','B9D1BF','A5BAEE',
+              'F28E2E','E7DBED','5D84E4','BB68F3','D96F9B','EFCDDD',
+            ],
+            bands: [
+              'FLDTYPCD',
+            ],
+          },
+        },
+      },
+      {
+        display_name: 'FORTYPCD_Viz',
+        lookat: {
+          lat: 38,
+          lon: -95.712891,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              101,
+            ],
+            max: [
+              999,
+            ],
+            palette: [
+              '94D0AA','81B0B6','7F6A37','C57F69','EEC289',
+              'F08BF0','51A0B1','F3B035','EBA9D1','AF8DE6','BBB92D',
+              'E48FC8','EEA97F','EAF5E0','D2D59B','DCC2C0','C7F0AA',
+              'E51EEB','3A1591','C26DA6','67C6CA','95EF79','D5C7E9',
+              'BC916F','D1DFD6','49F6AE','7B677B','F16791','DBF39C',
+              'DAD9BD','7D2F2E','45E8D5','9BC5E5','4DEBBE','3A6A8B',
+              '68F0EC','AAA7E7','4589D2','F4DF8E','F7D969','DFA098',
+              'D8ECF0','CAF466','E64393','8CE7EF','EEC7EA','DFA9EF',
+              'B7F2E0','BBBCC4','B2B1C8','ADF6D0','E2C8F9','BAE3F5',
+              '8391A7','9A2D79','B4CFA7','93DBF2','BAAEA2','8FF390',
+              'B2FA73','C6295F','EA6375','A1E073','2DB8AB','AE73B2',
+              'E38BAE','CFB0FA','D3A9B3','90E5D5','F12C43','B2C387',
+              '8FA42C','CDE353','7680AC','46D7ED','EECC39','D7BAF5',
+              '9A29F0','A7C6D7','F28A8D','EBF385','A0CD4F','81B180',
+              'CBA1FB','6BC35E','F5A3AD','D4DDEF','A049B7','E1A0B6',
+              'F06748','7A9252','66D727','E645DC','AA8D8B','EE405D',
+              'CFADD4','9190E6','4E655F','57ADF1','B2EB31','C6E377',
+              'BEA664','C26262','4B9A91','72F4B9','DA90E3','3EBF45',
+              'E973BF','AFE7B3','81629F','9144DD','E4C0A1','AC82A2',
+              'F5A8E1','B486F5','ECBF68','F340AF','C0CAF5','C1F89A',
+              'D3F3D2','EBEBC0','D350F4','D1CF7C','71F943','9E87C0',
+              'B6707A','F7E6D7','8CAAF2','F1F2F3','A3D382','4EBF86',
+              '8CF45A','F4F3B7','A1CFC9','F0DC9F','5971EF','699FCB',
+              'F7A1F0','5E62F8','F0CDBD','A7902B','F2F875','E6A55A',
+              'F068E4','DE55BF','CFF3C0','F7C1F3','90896C','F5BEB3',
+              'B49EC7','6BC3F5','6226E8','7AEBCD','D2AB20','515891',
+              'E47A65','97B45A','CBD14D','64C2A2','ADF2AD','DEEFB4',
+              '52B8DC','E1F855','8FA792','EBE545','C676DF','489744',
+              'E2F231','CFBC8F','51DC89','AA511D','846AC6','BB8FD3',
+              'F1BCD8','4F45A6','C6F5F4','E5DD69','C0A8E1','7F5DD7',
+              'DFD3D7','56F277','28703C','86E799','B9D1BF','A5BAEE',
+              'F28E2E','E7DBED','5D84E4','BB68F3','D96F9B','EFCDDD',
+            ],
+            bands: [
+              'FORTYPCD',
+            ],
+          },
+        },
+      },
+      {
         display_name: 'GSSTK_Viz',
         lookat: {
           lat: 38,
@@ -2207,6 +2443,39 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
       },
       {
+        display_name: 'QMD_RMRS_Viz',
+        lookat: {
+          lat: 38,
+          lon: -95.712891,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              2,
+            ],
+            max: [
+              25,
+            ],
+            palette: [
+              'ffe599',
+              'e7cd68',
+              'c5ae32',
+              '969206',
+              '71870b',
+              '52741c',
+              '3a652a',
+              '265737',
+              '134b42',
+              '00404d',
+            ],
+            bands: [
+              'QMD_RMRS',
+            ],
+          },
+        },
+      },
+      {
         display_name: 'SDIsum_Viz',
         lookat: {
           lat: 38,
@@ -2240,6 +2509,39 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
       },
       {
+        display_name: 'SDIPCT_RMRS_Viz',
+        lookat: {
+          lat: 38,
+          lon: -95.712891,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              30,
+            ],
+            max: [
+              460,
+            ],
+            palette: [
+              'ffe599',
+              'e7cd68',
+              'c5ae32',
+              '969206',
+              '71870b',
+              '52741c',
+              '3a652a',
+              '265737',
+              '134b42',
+              '00404d',
+            ],
+            bands: [
+              'SDIPCT_RMRS',
+            ],
+          },
+        },
+      },
+      {
         display_name: 'STANDHT_Viz',
         lookat: {
           lat: 38,
@@ -2268,6 +2570,34 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
             ],
             bands: [
               'STANDHT',
+            ],
+          },
+        },
+      },
+      {
+        display_name: 'STDSZCD_Viz',
+        lookat: {
+          lat: 38,
+          lon: -95.712891,
+          zoom: 5,
+        },
+        image_visualization: {
+          band_vis: {
+            min: [
+              1,
+            ],
+            max: [
+              5,
+            ],
+            palette: [
+              '38A800',
+              'FFFF00',
+              'FEBA12',
+              'C62363',
+              'C62363',
+            ],
+            bands: [
+              'STDSZCD',
             ],
           },
         },
@@ -2440,18 +2770,47 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ],
   },
   'sci:citation': |||
-    Houtman, R. M., L. S. T. Leatherman, S. N. Zimmer, I. W. Housman, A. Shrestha,
-    J. D. Shaw, K. L. Riley:  2025. TreeMap 2022 CONUS: A tree-level model of the
-    forests of the conterminous United States circa 2022. Fort Collins,
-    CO: Forest Service Research Data Archive.
-    [doi:10.2737/RDS-2025-0032](https://doi.org/10.2737/RDS-2025-0032)
-
-  |||,
+    TreeMap is updated periodically. To ensure scientific reproducibility, please 
+    cite the specific version(s) corresponding to the data year(s) used in your 
+    analysis. Individual citations for each TreeMap vintage are listed below.
+    
+   |||,
    'sci:publications': [
         {
         citation: |||
-            Riley, K. L., I. C. Grenfell, M. A. Finney and J. D. Shaw:  2021, TreeMap 2016:
-            A tree-level model of the forests of the conterminous United States circa 2016.
+            Zimmer, S. N., R. M. Houtman, L. S. T. Leatherman, J. D. Shaw, I. W. Housman, 
+            A. Shrestha, M. O. Borja Arboleda, I. C. Grenfell, M. A. Finney, K. L. Riley: 
+            2026, TreeMap 2023 CONUS: A tree-level model of the forests of the conterminous 
+            United States circa 2023. Fort Collins, CO: Forest Service Research Data 
+            Archive.
+            [doi:10.2737/RDS-2026-0038](https://doi.org/10.2737/RDS-2026-0038)
+        |||,
+        doi:'10.2737/RDS-2026-0038',
+        },
+        {
+        citation: |||
+            Houtman, R. M., L. S. T. Leatherman, S. N. Zimmer, I. W. Housman, A. Shrestha,  
+            J. D. Shaw, K. L. Riley:  2025. TreeMap 2022 CONUS: A tree-level model of the 
+            forests of the conterminous United States circa 2022. Fort Collins, 
+            CO: Forest Service Research Data Archive.
+            [doi:10.2737/RDS-2025-0032](https://doi.org/10.2737/RDS-2025-0032)
+        |||,
+        doi:'10.2737/RDS-2025-0032',
+        },
+        {
+        citation: |||
+            Zimmer, S. N., R. M. Houtman, L. S. T. Leatherman, I. W. Housman, A. Shrestha, 
+            J. D. Shaw, K. L. Riley: 2025, TreeMap 2020 CONUS: A tree-level model of the 
+            forests of the conterminous United States circa 2020. Fort Collins, CO: Forest 
+            Service Research Data Archive. 
+            [doi:10.2737/RDS-2025-0031](https://doi.org/10.2737/RDS-2025-0031)
+        |||,
+        doi:'10.2737/RDS-2025-0031',
+        },
+        {
+        citation: |||
+            Riley, K. L., I. C. Grenfell, M. A. Finney and J. D. Shaw:  2021, TreeMap 2016: 
+            A tree-level model of the forests of the conterminous United States circa 2016. 
             Fort Collins, CO: Forest Service Research Data Archive.
             [doi:10.2737/RDS-2021-0074](https://doi.org/10.2737/RDS-2021-0074)
         |||,
@@ -2459,73 +2818,45 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
         },
         {
         citation: |||
-            Wilson, B T., A. J. Lister and R. I. Riemann: 2012, A Nearest-Neighbor
-            Imputation Approach to Mapping Tree Species over Large Areas Using Forest
-            Inventory Plots and Moderate Resolution Raster Data.
-            Forest Ecol. Manag. 271:182-198.
-            [doi:10.1016/j.foreco.2012.02.002](https://doi.org/10.1016/j.foreco.2012.02.002)
+            Riley, K. L., I. C. Grenfell, J. M. Wiener and M. A. Finney:  2022, TreeMap 2016
+            dataset generates CONUS-wide maps of forest characteristics including live basal
+            area, aboveground carbon, and number of trees per acre. 
+            Journal of Forestry. 2022: 607-632.
+            [doi:10.1093/jofore/fvac022](https://doi.org/10.1093/jofore/fvac022)
+            [https://research.fs.usda.gov/treesearch/65597](https://research.fs.usda.gov/treesearch/65597)
         |||,
-        doi:'10.1016/j.foreco.2012.02.002',
+        doi:'10.1093/jofore/fvac022',
         },
         {
         citation: |||
-            Pierce, K. B. Jr., J. L. Ohmann, M. C. Wimberly, M. J. Gregory and J. S Fried:
-            2009, Mapping Wildland Fuels and Forest Structure for Land Management:
-            A Comparison of Nearest Neighbor Imputation and Other Methods.
-            Can. J. For. Res. 39: 1901-1916.
-            [doi:10.1139/X09-102](https://doi.org/10.1139/X09-102)
+            Karin Riley, Rachel Houtman, Scott Zimmer, Lila Leatherman, Jamie Peeler, John Shaw, Isaac Grenfell, Maria Borja Arboleda, Abhinav Shrestha, Ian Housman, and Mark Finney. TreeMap 2020, 2022, and 2023: Improved species range mapping in a tree-level forest dataset for the conterminous United States. Earth Systems Science Data, in prep.
         |||,
-        doi:'10.1139/X09-102',
-        },
-        {
-        citation: |||
-            Ohmann, J. L. and M. J. Gregory: 2002, Predictive Mapping of Forest Composition
-            and Structure with Direct Gradient Analysis and Nearest- Neighbor Imputation in
-            Coastal Oregon, USA. Can. J. For. Res. 32:725-741.
-            [doi: 10.1139/X02-011](https://doi.org/10.1139/X02-011)
-        |||,
-        doi:'10.1139/X02-011',
-        },
-        {
-        citation: |||
-            Forest Inventory Analysis: 2024, Forest Inventory Analysis DataMart. Forest
-            Inventory Analysis DataMart FIADB_1.9.1. 2024.
-            Accessed February 2024 at [https://apps.fs.usda.gov/fia/datamart/datamart.html](https://apps.fs.usda.gov/fia/datamart/datamart.html)
-            [doi: 10.2737/RDS-2001-FIADB](https://doi.org/10.2737/RDS-2001-FIADB)
-        |||,
-        doi:'10.2737/RDS-2001-FIADB',
         },
    ],
   'gee:terms_of_use': |||
-    The USDA Forest Service makes no warranty, expressed or implied, including the
-    warranties of merchantability and fitness for a particular purpose, nor assumes
-    any legal liability or responsibility for the accuracy, reliability,
-    completeness or utility of these geospatial data, or for the improper or
-    incorrect use of these geospatial data. These geospatial data and related maps
-    or graphics are not legal documents and are not intended to be used as such. The
-    data and maps may not be used to determine title, ownership, legal descriptions
-    or boundaries, legal jurisdiction, or restrictions that may be in place on
-    either public or private land. Natural hazards may or may not be depicted on the
-    data and maps, and land users should exercise due caution. The data are dynamic
-    and may change over time. The user is responsible to verify the limitations of
+    The USDA Forest Service makes no warranty, expressed or implied, including the 
+    warranties of merchantability and fitness for a particular purpose, nor assumes 
+    any legal liability or responsibility for the accuracy, reliability, 
+    completeness or utility of these geospatial data, or for the improper or 
+    incorrect use of these geospatial data. These geospatial data and related maps 
+    or graphics are not legal documents and are not intended to be used as such. The 
+    data and maps may not be used to determine title, ownership, legal descriptions 
+    or boundaries, legal jurisdiction, or restrictions that may be in place on 
+    either public or private land. Natural hazards may or may not be depicted on the 
+    data and maps, and land users should exercise due caution. The data are dynamic 
+    and may change over time. The user is responsible to verify the limitations of 
     the geospatial data and to use the data accordingly.
 
-    These data were collected using funding from the U.S. Government and can be used
-    without additional permissions or fees. If you use these data in a publication,
-    presentation, or other research product please use the appropriate citation:
+    These data were collected using funding from the U.S. Government and can be used 
+    without additional permissions or fees. If you use these data in a publication, 
+    presentation, or other research product please use the appropriate citation for 
+    each year vintage.
 
-    Houtman, R. M., L. S. T. Leatherman, S. N. Zimmer, I. W. Housman, A. Shrestha,
-    J. D. Shaw, K. L. Riley:  2025. TreeMap 2022 CONUS: A tree-level model of the
-    forests of the conterminous United States circa 2022. Fort Collins,
-    CO: Forest Service Research Data Archive.
-    [doi:10.2737/RDS-2025-0032](https://doi.org/10.2737/RDS-2025-0032)
+    See TreeMap in the Research Data Archive for additional information on
+      [TreeMap 2016](https://www.fs.usda.gov/rds/archive/catalog/RDS-2021-0074),  
+      [TreeMap 2020](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031),  
+      [TreeMap 2022](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032),  
+      [TreeMap 2023](https://www.fs.usda.gov/rds/archive/catalog/RDS-2026-0038).
 
-    See [TreeMap Research Data Archive](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032)
-    for additional information.
   |||,
 }
-
-
-
-
-

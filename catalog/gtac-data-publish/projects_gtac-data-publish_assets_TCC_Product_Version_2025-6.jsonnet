@@ -80,6 +80,8 @@ local license = spdx.proprietary;
     'usda',
     'usfs',
     'gtac',
+    'fsic_go',
+    'tree_cover',
     'redcastle_resources',
     'usgs',
   ],
