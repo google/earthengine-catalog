@@ -18,6 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
+  'gee:status': 'deprecated',
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
   stac_extensions: [
@@ -26,7 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS TreeMap v2016 (Conterminous United States)',
+  title: 'USFS TreeMap v2016 (Conterminous United States) [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
