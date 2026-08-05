@@ -12,9 +12,9 @@ var palettes = {
 };
 
 var palettesR = {
-  bamako_r:   palettes.bamako.reverse(),
-  lajolla_r:  palettes.lajolla.reverse(),
-  imola_r:    palettes.imola.reverse()
+  bamako_r:   palettes.bamako.slice().reverse(),
+  lajolla_r:  palettes.lajolla.slice().reverse(),
+  imola_r:    palettes.imola.slice().reverse()
 };
 
 // Define each band's (attributes) visualization parameters

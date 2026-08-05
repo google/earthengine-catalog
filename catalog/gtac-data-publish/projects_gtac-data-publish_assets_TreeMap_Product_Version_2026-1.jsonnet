@@ -22,7 +22,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS TreeMap',
+  title: 'USFS TreeMap 2026-1',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -38,7 +38,7 @@ local license = spdx.proprietary;
     represented here, including forest type, canopy cover percent, live tree stocking, 
     live/dead tree biomass, and carbon in live/dead trees. 
     
-    TreeMap datasets use LANDFIRE (https://www.landfire.gov/) data as key input layers and 
+    TreeMap datasets use [LANDFIRE](https://www.landfire.gov/) data as key input layers and 
     are constrained to years when LANDFIRE data are available. TreeMap includes only pixels 
     defined by LANDFIRE as at least 10% forest cover.
     
@@ -60,11 +60,11 @@ local license = spdx.proprietary;
     Research Data Archive (DOIs given below in “Additional Resources” section).
     
     TreeMap is used in both the private and public sectors for projects including fuel 
-    treatment planning, snag hazard mapping, and estimation ofterrestrial carbon resources.
+    treatment planning, snag hazard mapping, and estimation of terrestrial carbon resources.
     
-    The TreeMap 2016 dataset was produced using the methods described in Riley et al. (2022) 
-    (https://research.fs.usda.gov/treesearch/65597). The TreeMap 2020, 2022, and 2023 
-    datasets were produced using the methods described in Riley et al. (2026, In Prep), 
+    The TreeMap 2016 dataset was produced using the methods described in [Riley et al. (2022)](https://research.fs.usda.gov/treesearch/65597). 
+    The TreeMap 2020, 2022, and 2023 datasets were produced using the methods described in 
+    Riley et al. (2026, In Prep), 
     which are similar to those used for TreeMap 2016, but differ in that: 1) biophysical 
     variables were derived by overlay of the plot coordinates with Daymet rasters rather 
     than LANDFIRE biophysical variables and included average precipitation, average 
