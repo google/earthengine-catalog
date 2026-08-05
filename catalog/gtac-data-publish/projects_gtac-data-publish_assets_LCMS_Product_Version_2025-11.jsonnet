@@ -113,6 +113,7 @@ local license = spdx.proprietary;
     'landuse',
     'forest',
     'gtac',
+    'fsic_go',
     'redcastle_resources',
   ],
   providers: [
