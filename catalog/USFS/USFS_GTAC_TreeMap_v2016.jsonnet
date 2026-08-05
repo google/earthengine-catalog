@@ -5,6 +5,10 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/TreeMap_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -23,7 +27,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   id: id,
   title: 'USFS TreeMap v2016 (Conterminous United States)',
-  version: '2016',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This product is part of the TreeMap data suite. It provides detailed spatial
@@ -113,7 +117,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/treemap/',
     },
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['forest-biomass'],
   keywords: [
     'biomass',
