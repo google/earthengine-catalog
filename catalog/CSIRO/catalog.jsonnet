@@ -18,6 +18,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('CSIRO_BHI_v2', base_url),
     ee.link.child_collection('CSIRO_SLGA', base_url),
   ],
 }
