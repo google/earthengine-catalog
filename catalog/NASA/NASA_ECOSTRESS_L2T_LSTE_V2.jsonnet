@@ -26,7 +26,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'ECOSTRESS Land Surface Temperature and Emissivity L2 Global 70 m V002',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  # TODO(aprajitaa): Update gee:status to public once expanded to all of global.
   'gee:status': 'beta',
   description: |||
     The ECOSTRESS Land Surface Temperature and Emissivity (ECO_L2T_LSTE) V002
@@ -36,8 +35,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     from ECOSTRESS observations and is essential for understanding surface energy
     balance and water stress.
 
-    NOTE: Currently, only tiles covering the Los Angeles metro area have been
-    ingested into Earth Engine. We plan to expand coverage in the future.
+    NOTE: Currently, only tiles covering the continental United States, Europe
+    and Australia are ingested into Earth Engine. Coverage is expanding to the
+    rest of the globe in the second half of 2026.
 
     Documentation:
 
