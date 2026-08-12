@@ -1,4 +1,4 @@
-local id = 'projects/edf-methanesat-ee/assets/public-preview/L4point';
+local id = 'projects/edf-methanesat-ee/assets/msat/L4point';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
 local ee_const = import 'earthengine_const.libsonnet';
@@ -16,23 +16,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneSAT L4 Point Sources Public Preview V' + version + ' ' + '[deprecated]',
+  title: 'MethaneSAT L4 Point Sources V' + version,
   version: version_internal,
-  'gee:status': 'deprecated',
   description: |||
-    This early "Public Preview" dataset provides high precision data for methane emissions from
-    discrete point sources. These methane emission fluxes were produced using a point source
+    This dataset provides the most recently processed high precision data for methane emissions
+    from discrete point sources. These methane emission fluxes were produced using a point source
     detection and emissions quantification framework specialized to exploit the high spatial
     resolution, wide spatial coverage, and high precision of MethaneSAT data (methodology is
     described in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023).)
     The point source quantification framework was extensively tested in blind controlled-release
     experiments as detailed in
     [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023) and
-    [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439). 
-
-    Total emissions for a scene–from both dispersed area and point source emissions–may be
-    obtained by summing the area emissions and point source emissions for a given collection ID
-    (see L4 Area Sources Public Preview).
+    [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439).
 
     Not all data products (L3 concentration, L4 area and L4 points) are available for all
     collection IDs. Contact the data provider for more information about the project at this link:
@@ -40,27 +35,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     ---
 
-    7/2/2025 Important Update: 
+    7/2/2025 Important Update:
 
-    As you may be aware, we recently lost contact with the satellite. After exploring all possible  
-    recovery options, we have now confirmed that it is no longer functioning, due to an
-    undetermined problem with the outer platform carrying our methane detector. While there is no
-    question this is a setback, we are undeterred in our efforts to drive down methane pollution.
+    As you may be aware, we lost contact with the satellite in June of 2025. After exploring all
+    possible recovery options, we have confirmed that it is no longer functioning, due to an
+    undetermined problem with the outer platform carrying our methane detector. While there is
+    no question this is a setback, we are undeterred in our efforts to drive down methane pollution.
     Please see our official statement here:
     [MethaneSAT Loses Contact with Satellite | MethaneSAT](https://www.methanesat.org/project-updates/methanesat-loses-contact-satellite).
 
-    What this means for the Public Preview data: The existing datasets will remain accessible on
-    Google platforms and on our web portal for the foreseeable future. Additionally, over the next
-    few months, we will release substantial new data collected by MethaneSAT prior to the loss of
-    contact. This will include hundreds of scenes (of targets that are roughly 200kmx200km). We
-    hope this will be useful for you. Should there be any changes to data availability, we will
-    notify you well in advance.
+    What this means for the existing datasets: They will remain accessible on Google platforms and
+    on our web portal for the foreseeable future. Should there be any changes to data availability,
+    we will notify you well in advance.
 
-    Looking ahead: While we don’t have all the answers yet, we plan to leverage our advanced Data
-    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will
-    also take the necessary time to evaluate the best next step in our efforts to enable methane
+    Current state: While we don't have all the answers yet, we plan to leverage our advanced Data
+    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will also
+    take the necessary time to evaluate the best next step in our efforts to enable methane
     reductions. To stay up to date with further updates, feel free to sign up for our
-    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up).
+    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up). For
+    additional information about the data products, algorithms, or calibration, view the publications
+    on our [website](https://www.methanesat.org/scienceandresearch).
   ||| + publications,
   'gee:categories': ['atmosphere'],
   keywords: [
@@ -75,7 +69,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Environmental Defense Fund - MethaneSAT', 'https://methanesat.org'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2024-06-14T00:00:00Z', '2025-01-17T00:00:00Z'),
+  extent: ee.extent_global('2024-06-14T00:00:00Z', '2025-06-20T00:00:00Z'),
   // The dataset is not public, and a sample FV has been generated.
   'gee:skip_featureview_generation': true,
   summaries: {

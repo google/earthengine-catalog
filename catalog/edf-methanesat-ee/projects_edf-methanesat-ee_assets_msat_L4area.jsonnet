@@ -1,6 +1,6 @@
-local id = 'projects/edf-methanesat-ee/assets/public-preview/L4area_v2';
+local id = 'projects/edf-methanesat-ee/assets/msat/L4area';
 local subdir = 'edf-methanesat-ee';
-local version = '2.0.0';
+local version = '1.0.0';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
@@ -15,76 +15,61 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneSAT L4 Area Sources Public Preview V' + version + ' ' + '[deprecated]',
+  title: 'MethaneSAT L4 Area Sources V' + version,
   version: version_internal,
-  'gee:status': 'deprecated',
   description: |||
-    *The dispersed area emissions model is still in development and not
-    representative of a final product.*
+    This dataset provides the most recently processed data for methane emissions on an
+    approximately 4 km x 4 km grid. These data include total methane emissions and their spatial
+    distribution at high resolution to meet global methane mitigation goals.
 
-    This early "Public Preview" dataset provides high precision data for methane
-    emissions from dispersed area sources. These novel measurements demonstrate
-    the importance of quantifying total methane emissions with high resolution
-    to meet global methane mitigation goals.
+    These methane emissions estimates were made using the Column Observations to Regional
+    Emissions (CORE) algorithm. The primary input to CORE is methane concentration observations
+    in the form of column-averaged dry-air mole fractions of methane (XCH4). An atmospheric
+    transport model; the Stochastic Time-Inverted Lagrangian Transport (STILT) model;
+    [Lin et al. (2003)](https://doi.org/10.1029/2002JD003161),
+    [Fasoli et al. (2018)](https://doi.org/10.5194/gmd-11-2813-2018);
+    driven by meteorological data from the National Centers for Environmental Prediction
+    ([NCEP](https://www.weather.gov/ncep/)) Global Forecast System
+    ([GFS](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php));
+    links variations in observed
+    XCH4 to potential upwind sources. Emissions and inflow across the upwind boundary are
+    inferred with a Bayesian inverse model using Hamiltonian Monte Carlo (HMC) sampling
+    implemented in the Stan probabilistic programming framework
+    ([Carpenter et al., 2017](https://www.jstatsoft.org/article/view/v076i01)). The
+    CORE algorithm will continue to be updated as the team improves the methodology. Any
+    significant changes in methodology will be documented through updates to the MethaneSAT
+    Level-4 Dispersed Emissions Product
+    [Algorithm Theoretical Basis Document](https://zenodo.org/records/20030295) (ATBD).
 
-    Total emissions for a scene may be obtained by summing the area emissions
-    for a given collection ID.
+    These observations made by MethaneSAT are broadly consistent with independent empirical
+    data where available from other sources. Not all data products (L3 concentration, L4 area and
+    L4 point) are available for all collection IDs. Individual heat maps can have spatial misallocations
+    due to several factors, including wind field uncertainty, observational uncertainty and variable
+    emission rates. Users are advised to interpret individual emission grids with caution. For more
+    about definitions and limitations, see ourabout definitions and limitations, see our
+    [technical explanation](https://www.methanesat.org/sites/default/files/2026-07/MethaneSAT%20Dispersed%20Area%20Emissions%20Definitions%20and%20Limitations.pdf).
+    To learn more about MethaneSAT algorithm versions, see this [overview](https://www.methanesat.org/sites/default/files/2026-07/Overview%20of%20MethaneSAT%20Algorithm%20Versions.pdf).
 
-    Dispersed area emissions are estimated from methane concentration observations
-    in the form of column-averaged dry-air mole fractions of methane (XCH4) using
-    an inverse model. An atmospheric transport model - the Stochastic Time-Inverted
-    Lagrangian Transport (STILT) model; [Lin et al. (2003)](https://doi.org/10.1029/2002JD003161),
-    [Fasoli et al. (2018)](https://doi.org/10.5194/gmd-11-2813-2018); driven
-    by meteorological data from the National Centers for Environmental
-    Prediction ([NCEP](https://www.weather.gov/ncep/)) Global Forecast System
-    ([GFS](https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gfs.php))
-    - is used to link variations in observed XCH4 to potential upwind sources.
-
-    These predictive linkages are used to invert an estimated set of emissions
-    from the observations of MethaneSAT using a novel Markov Chain Monte Carlo
-    technique nicknamed CORE (Conserved and Optimized Retrieval of Emissions).
-    Inflow across the domain boundary and pre-existing background concentrations
-    are estimated, but not reported. 
-
-    This set of initial observations made by MethaneSAT are consistent with
-    independent empirical data where available from other sources. Not all data
-    products (L3 concentration, L4 area and L4 points) are available for all
-    collection IDs. Individual heat maps can have spatial misallocations due to
-    several factors, including wind field uncertainty, observational
-    uncertainty and variable emission rates. Users are advised to interpret
-    individual emission grids with caution. For more about definitions and
-    limitations, see our
-    [technical explanation](https://www.methanesat.org/sites/default/files/2025-11/MethaneSAT%20Dispersed%20Area%20Emissions_Definitions%20and%20Limitations.pdf).
-    Contact the data provider for more information about the project at this
-    link:
+    Contact the data provider for more information about the project at this link:
     [https://www.methanesat.org/contact/](https://www.methanesat.org/contact/).
 
     ---
 
-    7/2/2025 Important Update: 
+    7/2/2025 Important Update:
 
-    As you may be aware, we recently lost contact with the satellite. After
-    exploring all possible recovery options, we have now confirmed that it is
-    no longer functioning, due to an undetermined problem with the outer
-    platform carrying our methane detector. While there is no question this is
-    a setback, we are undeterred in our efforts to drive down methane pollution.
-    Please see our official statement here:
+    Note: The satellite lost contact with the ground in June of 2025:
     [MethaneSAT Loses Contact with Satellite | MethaneSAT](https://www.methanesat.org/project-updates/methanesat-loses-contact-satellite).
+    Existing datasets will remain accessible on Google platforms and on our
+    web portal for the foreseeable future. They have been reprocessed using greatly improved
+    algorithms and released in August, 2026. The reprocessed data are superior in all respects
+    compared to our interim releases earlier in 2026, and additional scenes have been added that
+    were not available previously. These datasets should be used for future analysis in preference to
+    previous releases, which are deprecated.
 
-    What this means for the Public Preview data: The existing datasets will
-    remain accessible on Google platforms and on our web portal for the
-    foreseeable future. Additionally, over the next few months, we will release
-    substantial new data collected by MethaneSAT prior to the loss of contact.
-    This will include hundreds of scenes (of targets that are roughly
-    200kmx200km). We hope this will be useful for you. Should there be any
-    changes to data availability, we will notify you well in advance.
-
-    Looking ahead: While we don’t have all the answers yet, we plan to leverage
-    our advanced Data Processing Platform (DPP) to quantify other streams of
-    satellite and/or aerial data. We will also take the necessary time to
-    evaluate the best next step in our efforts to enable methane reductions. To
-    stay up to date with further updates, feel free to sign up for our
-    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up).
+    To stay up to date with further updates, please sign up for our
+    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up). For additional
+    information about the data products, algorithms, or calibration, view the publications on our
+    [website](https://www.methanesat.org/scienceandresearch).
   |||,
   'gee:categories': ['atmosphere'],
   keywords: [
@@ -103,7 +88,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Setting an end date of 'null' because this value will change often as more
   // data is added to the dataset regularly. Earth Engine will compute our end
   // date for us instead.
-  extent: ee.extent_global('2024-05-01T00:00:00Z', null),
+  extent: ee.extent_global('2024-05-01T00:00:00Z', '2025-06-20T00:00:00Z'),
   summaries: {
     // Values that are true for all bands.
     // gsd: pixel size (ground sample distance), in meters.
@@ -123,18 +108,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'upper_bound_flux',
         description: 'Upper bound on the 95% confidence interval of flux.',
         'gee:units': units.kg_per_hour,
-      },
-      {
-        name: 'l4_retained_emitter',
-        description: |||
-          * 0: Emitter that is likely non-emitting and below noise threshold of
-            1 kg/hr/km^2. Emitter not included in emission totals.
-          * 1: Emitter that is likely emitting and above noise threshold of 1
-            kg/hr/km^2. Emitter included in emission totals.
-          
-          Only present on two step CORE products.
-        |||,
-        'gee:units': units.count,
       },
     ],
     mean_flux: {minimum: 0, maximum: 15000, 'gee:estimated_range': true},
@@ -232,18 +205,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'format STRING (ISO 8601).',
         type: ee_const.var_type.string,
       },
-      {
-        name: 'two_step_core',
-        description: 'Only present on two step CORE products.',
-        type: ee_const.var_type.string,
-      },
     ],
-  },
-  'gee:interval': {
-    type: 'cadence',
-    unit: 'day',
-    // How long the interval is (expressed in units above).
-    interval: 14,
   },
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
