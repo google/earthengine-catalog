@@ -83,13 +83,9 @@ local license = spdx.proprietary;
     
     **Additional Resources**
     
-    * See TreeMap in the Research Data Archive for CONUS-wide datasets, the TM_ID to FIA 
+    * See TreeMap in the Forest Service Research Data Archive for CONUS-wide datasets, the TM_ID to FIA 
     PLT_CN lookup table, plot-level tree data (the Tree Table), and additional information on
-    [TreeMap 2014](https://www.fs.usda.gov/rds/archive/catalog/RDS-2019-0026)
-    [TreeMap 2016](https://www.fs.usda.gov/rds/archive/catalog/RDS-2021-0074), 
-    [TreeMap 2020](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031), 
-    [TreeMap 2022](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032), 
-    [TreeMap 2023](https://www.fs.usda.gov/rds/archive/catalog/RDS-2026-0038).
+    [TreeMap 2014](https://www.fs.usda.gov/rds/archive/catalog/RDS-2019-0026), [TreeMap 2016](https://www.fs.usda.gov/rds/archive/catalog/RDS-2021-0074), [TreeMap 2020](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031), [TreeMap 2022](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032), and [TreeMap 2023](https://www.fs.usda.gov/rds/archive/catalog/RDS-2026-0038).
     
     * See the [TreeMap 2016 Publication, Riley et al. 2022](https://www.fs.usda.gov/research/treesearch/65597)
     for more detailed information regarding methods and accuracy assessment.
@@ -439,7 +435,7 @@ local license = spdx.proprietary;
             {
             value: 127,
             color: 'f2c531',
-            description: 'Northern white-cedar',
+            description: 'Northern white cedar',
             },
             {
             value: 128,
@@ -519,7 +515,7 @@ local license = spdx.proprietary;
             {
             value: 202,
             color: '948ee9',
-            description: 'Port-Orford-cedar',
+            description: 'Port Orford cedar',
             },
             {
             value: 221,
@@ -529,7 +525,7 @@ local license = spdx.proprietary;
             {
             value: 222,
             color: 'e29af0',
-            description: 'Incense-cedar',
+            description: 'Incense cedar',
             },
             {
             value: 224,
@@ -604,7 +600,7 @@ local license = spdx.proprietary;
             {
             value: 271,
             color: 'cc63bd',
-            description: 'Alaska-yellow-cedar',
+            description: 'Alaska yellow cedar',
             },
             {
             value: 281,
@@ -849,7 +845,7 @@ local license = spdx.proprietary;
             {
             value: 606,
             color: '60dad1',
-            description: 'Atlantic white-cedar',
+            description: 'Atlantic white cedar',
             },
             {
             value: 607,
@@ -1151,7 +1147,7 @@ local license = spdx.proprietary;
             {
             value: 127,
             color: 'f2c531',
-            description: 'Northern white-cedar',
+            description: 'Northern white cedar',
             },
             {
             value: 141,
@@ -1226,7 +1222,7 @@ local license = spdx.proprietary;
             {
             value: 202,
             color: '948ee9',
-            description: 'Port-Orford-cedar',
+            description: 'Port Orford cedar',
             },
             {
             value: 221,
@@ -1236,7 +1232,7 @@ local license = spdx.proprietary;
             {
             value: 222,
             color: 'e29af0',
-            description: 'Incense-cedar',
+            description: 'Incense cedar',
             },
             {
             value: 224,
@@ -1311,7 +1307,7 @@ local license = spdx.proprietary;
             {
             value: 271,
             color: 'cc63bd',
-            description: 'Alaska-yellow-cedar',
+            description: 'Alaska yellow cedar',
             },
             {
             value: 281,
@@ -1556,7 +1552,7 @@ local license = spdx.proprietary;
             {
             value: 606,
             color: '60dad1',
-            description: 'Atlantic white-cedar',
+            description: 'Atlantic white cedar',
             },
             {
             value: 607,
@@ -1819,7 +1815,7 @@ local license = spdx.proprietary;
         description: |||
           Stand Quadratic Mean Diameter. The quadratic mean diameter, or the diameter of 
           the tree of average basal area, on the condition. Based on live trees 
-          ≥1.0 inch d.b.h./d.r.c. 
+          ≥1.0 inch d.b.h./d.r.c. Available for years: 2020, 2022, 2023.
         |||,
         'gee:units': units.inch,
 
@@ -1830,7 +1826,7 @@ local license = spdx.proprietary;
           Stand Quadratic Mean Diameter. Rocky Mountain Research Station. The quadratic 
           mean diameter, or the diameter of the tree of average basal area, on the 
           condition. Based on live trees ≥1.0 inch d.b.h./d.r.c. Only collected by certain
-          FIA work units. 
+          FIA work units. Available for years: 2016. Limited spatial availability.
         |||,
         'gee:units': units.inch,
 
@@ -1840,7 +1836,7 @@ local license = spdx.proprietary;
         description: |||
           Sum of Stand Density Index. Stand density index (SDI). A relative measure of 
           stand density for live trees (greater than or equal to 1.0 inch d.b.h./d.r.c.) 
-          on the condition, expressed as a sum of the maximum stand density index (SDI).
+          on the condition, expressed as a sum of the maximum stand density index (SDI). Available for years: 2020, 2022, 2023.
         |||,
         'gee:units': units.dimensionless,
 
@@ -1851,7 +1847,7 @@ local license = spdx.proprietary;
           Stand Density Index. Rocky Mountain Research Station. A relative measure of 
           stand density for live trees (≥1.0 inch d.b.h./d.r.c.) on the condition, 
           expressed as a percentage of the maximum stand density index (SDI). Only 
-          collected by certain FIA work units.
+          collected by certain FIA work units. Available for years: 2016. Limited spatial availability.
         |||,
         'gee:units': units.dimensionless,
 
@@ -2852,11 +2848,11 @@ local license = spdx.proprietary;
     presentation, or other research product please use the appropriate citation for 
     each year vintage.
 
-    See TreeMap in the Research Data Archive for additional information on
-      [TreeMap 2016](https://www.fs.usda.gov/rds/archive/catalog/RDS-2021-0074),  
-      [TreeMap 2020](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031),  
-      [TreeMap 2022](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032),  
-      [TreeMap 2023](https://www.fs.usda.gov/rds/archive/catalog/RDS-2026-0038).
+    See TreeMap in the Research Data Archive for additional information.
+    * [TreeMap 2016](https://www.fs.usda.gov/rds/archive/catalog/RDS-2021-0074)
+    * [TreeMap 2020](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0031)  
+    * [TreeMap 2022](https://www.fs.usda.gov/rds/archive/catalog/RDS-2025-0032)  
+    * [TreeMap 2023](https://www.fs.usda.gov/rds/archive/catalog/RDS-2026-0038)
 
   |||,
 }
