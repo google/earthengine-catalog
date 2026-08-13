@@ -130,7 +130,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     'gee:schema': [
       {
-        name: 'mean_total_kg_hr',
+        name: 'mean_total_flux_kg_hr',
         description: 'Total value of area emissions for this collection in ' +
         'kg/hr. Missing values are indicated by -1.',
         type: ee_const.var_type.double,
@@ -173,11 +173,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'collection_id',
         description: 'satellite observation number.',
-        type: ee_const.var_type.string,
-      },
-      {
-        name: 'ovr_resampling',
-        description: 'Resampling method used.',
         type: ee_const.var_type.string,
       },
       {
