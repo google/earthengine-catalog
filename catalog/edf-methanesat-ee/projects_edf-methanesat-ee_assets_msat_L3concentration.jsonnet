@@ -17,6 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'MethaneSAT L3 Concentration V' + version,
   version: version_internal,
+  'gee:status': 'beta',
   description: |||
     This dataset provides the most recently processed geospatial data for the
     column-averaged dry-air mole fraction of methane in the atmosphere, "XCH4",

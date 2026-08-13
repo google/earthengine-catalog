@@ -17,6 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'MethaneSAT L4 Area Sources V' + version,
   version: version_internal,
+  'gee:status': 'beta',
   description: |||
     This dataset provides the most recently processed data for methane emissions on an
     approximately 4 km x 4 km grid. These data include total methane emissions and their spatial

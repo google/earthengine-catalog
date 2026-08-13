@@ -18,6 +18,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'MethaneSAT L4 Point Sources V' + version,
   version: version_internal,
+  'gee:status': 'beta',
   description: |||
     This dataset provides the most recently processed high precision data for methane emissions
     from discrete point sources. These methane emission fluxes were produced using a point source
