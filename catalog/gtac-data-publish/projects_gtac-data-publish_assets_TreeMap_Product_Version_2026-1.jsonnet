@@ -138,7 +138,7 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-128.97722, 22.76862, -65.25445, 51.64968,
-                    '2020-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
+                    '2016-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {
