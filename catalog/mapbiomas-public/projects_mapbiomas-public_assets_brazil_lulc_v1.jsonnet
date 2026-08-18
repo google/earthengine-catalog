@@ -33,7 +33,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Each image contains one band named "classification", representing the land cover classification for that specific year, version and collection id.
 
-    For more information, classification legend, methodology, and accuracy assessments, visit the [MapBiomas website](https://mapbiomas.org/en).
+    For more information, classification legend, methodology, and accuracy assessments, visit the [MapBiomas website](https://brazil.mapbiomas.org/en).
 
     It is recommended to consult the classification legend to interpret the class values.
     Note that MapBiomas provides discrete classification maps, not probabilities.
@@ -236,7 +236,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'sci:doi': '10.3390/rs12172735',
   'sci:citation': |||
-    Souza et al. (2020) – Reconstructing Three Decades of Land Use and Land Cover Changes in Brazilian Biomes with Landsat Archive and Earth Engine – Remote Sensing, 
+    Souza et al. (2020) - Reconstructing Three Decades of Land Use and Land Cover Changes in Brazilian Biomes with Landsat Archive and Earth Engine - Remote Sensing,
     Volume 12, Issue 17, 10.3390/rs12172735.
 
     [doi:10.3390/rs12172735](https://doi.org/10.3390/rs12172735)

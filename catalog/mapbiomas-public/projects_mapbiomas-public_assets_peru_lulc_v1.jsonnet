@@ -25,23 +25,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MapBiomas Land Use and Land Cover (LULC) dataset for Peru is produced annually
     by the MapBiomas Project using Landsat satellite imagery and machine learning
     classification techniques. The dataset provides consistent annual land cover maps
-    at 30-meter resolution covering the period from 1985 to 2024.
+    at a 30-meter resolution.
 
-    Peru's territory spans several major regions, including the Amazon rainforest
-    (Selva), the Andean highlands (Sierra), and the Pacific coastal desert (Costa).
-    This diversity is reflected in the classification legend, which includes classes
-    specific to Peruvian ecosystems such as dry forest, fog oasis, coastal salt flat,
-    and glacier.
+    Peru's territory spans the Amazon rainforest, the Andean highlands, the Pacific
+    coastal desert, and the Equatorial Dry Forest. This geographic diversity is
+    reflected in the classification legend, which includes classes specific to
+    Peruvian ecosystems such as dry forest, fog oasis, coastal salt flat, flooded
+    forest, oil palm, Andean herbaceous and floodable vegetation, and glaciers.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
     classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9
     (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
-    composites. The classification process uses automated decision trees trained with
-    reference samples and validated by regional experts.
+    composites. The classification process uses the Random Forest algorithm trained
+    with reference samples collected and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas Peru website](https://peru.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],

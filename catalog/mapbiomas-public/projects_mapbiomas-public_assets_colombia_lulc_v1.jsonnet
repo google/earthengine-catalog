@@ -2,7 +2,7 @@ local id = 'projects/mapbiomas-public/assets/colombia/lulc/v1';
 
 local subdir = 'mapbiomas-public';
 
-local version = '2.0';
+local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -24,25 +24,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   description: |||
     MapBiomas Land Use and Land Cover (LULC) dataset for Colombia is produced
     annually by the MapBiomas Project using Landsat satellite imagery and machine
-    learning classification techniques. The dataset provides consistent annual land
-    cover maps at 30-meter resolution covering the period from 1985 to 2024. This
-    version is based on Collection 3 of the MapBiomas Colombia methodology.
+    learning classification techniques. The dataset provides consistent,
+    thematically detailed maps at a 30-meter resolution, covering multiple decades
+    and updated with each new collection.
+
+    Each image in the collection contains annual land cover classifications with
+    pixel values representing categorical land cover classes.
 
     Colombia's territory spans the Amazon rainforest, the Andes highlands, the
-    Orinoco plains (Llanos), and both the Pacific and Caribbean coasts. This
-    geographic diversity is reflected in the classification legend, which includes
-    classes specific to Colombian ecosystems such as mangrove, hypersaline tidal
-    flat, palm oil, banana, and Andean herbaceous and shrubby vegetation.
+    Inter-Andean Valleys, the Orinoco plains (Llanos), and both the Pacific and
+    Caribbean coasts. This geographic diversity is reflected in the classification
+    legend, which includes classes specific to Colombian ecosystems such as
+    mangrove, flooded forest, hypersaline tidal flat, palm oil, banana, glaciers,
+    and Andean herbaceous and shrubby vegetation, including their flooded variants.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
-    classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9
-    (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
-    composites. The classification process uses automated decision trees trained with
-    reference samples and validated by regional experts.
+    classification is based on Landsat 4 and 5 (TM), Landsat 7 (ETM+), Landsat 8 and
+    9 (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
+    composites. The classification process uses the Random Forest algorithm trained
+    with reference samples and validated by regional experts.
+
+    Note that MapBiomas provides discrete classification maps, not probabilities.
+    These maps are most appropriate for map transitions, time series analysis, and
+    land policy monitoring applications.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas Colombia website](https://colombia.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],

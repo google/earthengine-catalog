@@ -25,8 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MapBiomas Land Use and Land Cover (LULC) dataset for Chile is produced annually
     by the MapBiomas Project using Landsat satellite imagery and machine learning
     classification techniques. The dataset provides consistent annual land cover maps
-    at 30-meter resolution covering the period from 1999 to 2024. This version is
-    based on Collection 2 of the MapBiomas Chile methodology.
+    at a 30-meter resolution.
 
     Chile's elongated territory spans more than 4,000 kilometers, encompassing the
     Atacama Desert in the north, the Central Valley, temperate forests, and Patagonia
@@ -42,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     reference samples and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas website](https://chile.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],
