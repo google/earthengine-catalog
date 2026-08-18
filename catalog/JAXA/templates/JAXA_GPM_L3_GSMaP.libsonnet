@@ -28,7 +28,7 @@ local license = spdx.proprietary;
     is ''provisional''. Once a provisional product has been updated
     with the final version, this value is updated to ''permanent''.
     For more information please refer
-    [General Documentation](https://eolp.jaxa.jp/GSMaP_Hourly.html)
+    [General Documentation](https://eolp.jaxa.jp/GSMaP_Hourly.html).
   |||,
   license: license.id,
   keywords: [

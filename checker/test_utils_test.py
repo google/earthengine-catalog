@@ -28,7 +28,7 @@ class TestUtilsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = Check
+    self.check = Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_dataset_id_zero_messages(self):
     self.assert_catalog({}, dataset_id='zero')

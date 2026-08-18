@@ -139,7 +139,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     CDR data sets are nonproprietary, publicly available,
     and no restrictions are placed upon their use. For additional information,
-    see the [Fair Use of NOAA's CDR Data Sets, Algorithms and Documentation](https://www.ncdc.noaa.gov/sites/default/files/cdr-documentation/UseAgreement_0.pdf)
+    see the [Fair Use of NOAA's CDR Data Sets, Algorithms and Documentation](https://www.ncei.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/UseAgreement_01B-16.pdf)
     document.
   |||,
 }

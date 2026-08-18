@@ -20,7 +20,7 @@ class ValidVisualizationsTableTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = visualizations_table.Check
+    self.check = visualizations_table.Check  # pyrefly: ignore[bad-assignment]
 
   def test_empty(self):
     self.assert_collection(
@@ -73,7 +73,7 @@ class ValidEmptyTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = visualizations_table.Check
+    self.check = visualizations_table.Check  # pyrefly: ignore[bad-assignment]
 
   def test_empty(self):
     self.assert_collection({})
@@ -105,7 +105,7 @@ class ErrorVisualizationsTableTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = visualizations_table.Check
+    self.check = visualizations_table.Check  # pyrefly: ignore[bad-assignment]
 
   def test_visualization_missing_table_visualization(self):
     self.assert_collection(

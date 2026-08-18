@@ -21,7 +21,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'NCEP/NCAR Reanalysis Data, Sea-Level Pressure',
+  title: 'NCEP/NCAR Reanalysis Data, Sea-Level Pressure [deprecated]',
+  'gee:status': 'deprecated',
   version: '1',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -32,9 +33,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     well as to produce analyses of the current atmospheric state (Climate Data
     Assimilation System, CDAS). The NCEP/NCAR Reanalysis 1 project is using a
     state-of-the-art analysis/forecast system to perform data assimilation using
-    past data from 1948 to the present. The data have 6-hour temporal
+    past data from 1948 to March 2026. The data have 6-hour temporal
     resolution (0000, 0600, 1200, and 1800 UTC) and 2.5 degree spatial
     resolution.
+
+    NCEP discontinued this dataset in March 2026 and it is no longer being
+    updated.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -52,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('NCEP', 'https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.html'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1948-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1948-01-01T00:00:00Z', '2026-03-18T00:00:00Z'),
   summaries: {
     gsd: [
       278300.0,

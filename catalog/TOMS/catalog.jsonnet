@@ -19,5 +19,6 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('TOMS_MERGED', base_url),
+    ee.link.child_collection('TOMS_MERGED_V4', base_url),
   ],
 }

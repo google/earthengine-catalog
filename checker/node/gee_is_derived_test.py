@@ -9,7 +9,7 @@ class GeeIsDerivedTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_is_derived.Check
+    self.check = gee_is_derived.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_landsat(self):
     self.assert_collection(

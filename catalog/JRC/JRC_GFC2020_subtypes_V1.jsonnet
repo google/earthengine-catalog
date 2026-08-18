@@ -56,7 +56,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     The global map of forest types v1 combines available global datasets
     (wall-to-wall or global in their scope) that indicate or are proxies for the
-    four main forest types The main data layers that are used to delineate primary
+    four main forest types. The main data layers that are used to delineate primary
     forests in GFT 2020 are:
 
     1. The Forest Landscape Integrity Index in 2019
@@ -79,8 +79,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     1. global drivers of forest loss.
     1. Global natural forests 2020.
 
-    The global input layers and mapping approach of GFT 2020 version 1 will be
-    described in a separate technical report, expected to be released by March 2026.
+    The global input layers and mapping approach of GFT 2020 version 1 are
+    described in a separate technical report, expected to be released by March 2026 and available from
+    the JRC Publications Repository: [Bourgoin et al. 2026](https://publications.jrc.ec.europa.eu/repository/handle/JRC146622).
     A technical report [Bourgoin et al. 2025](https://op.europa.eu/en/publication-detail/-/publication/e2c286ac-14e9-11f0-b1a3-01aa75ed71a1/language-en)
     describes the mapping approach for the preliminary version (version 0) of GFT 2020.
 
@@ -116,6 +117,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     {
       citation: |||
         Bourgoin, C., Verhegghen, A., Carboni, S., Degreve, L., Ameztoy Aramendi, I., Ceccherini, G., Colditz, R. and Achard, F., Global Forest Maps for the Year 2020 to Support the EU Regulation on Deforestation-free Supply Chains, Publications Office of the European Union, Luxembourg, 2025, [https://data.europa.eu/doi/10.2760/1975879](https://data.europa.eu/doi/10.2760/1975879), JRC141702.
+      |||
+    },
+    {
+      citation: |||
+        Bourgoin, C., Verhegghen, A., Ameztoy, I., Beuchle, R., Carboni, S. et al.,
+        Maps of Global Forest Cover 2020 Version 3 and Global Forest Type 2020
+        Version 1 Supporting the EU Deforestation Regulation - Methodology,
+        Accuracy Assessment and Comparison, Publications Office of the European
+        Union, Luxembourg, 2026,
+        [https://data.europa.eu/doi/10.2760/9982436](https://data.europa.eu/doi/10.2760/9982436),
+        JRC146622.
       |||
     }
   ],

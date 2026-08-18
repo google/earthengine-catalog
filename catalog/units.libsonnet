@@ -146,6 +146,7 @@
   // See also: https://en.wikipedia.org/wiki/Mixing_ratio
   mole_fraction: 'Mol fraction',
   molecules_per_cm2: 'molecules/cm^2',
+  trace_gas_molecules_per_cm2: '1.0e15 molecules/cm^2',
 
   // https://en.wikipedia.org/wiki/Metre
   meter: 'm',
@@ -198,6 +199,8 @@
   // radiance: 'Watts/sr/m^2',
   radiance_nanowatts_cm2: 'nanoWatts/sr/cm^2',
   radiance_nanowatts_cm2_nanometers: 'nanoWatts/sr/cm^2/nm',
+  watt_per_meter_squared_sr_um: 'W/m^2/sr/µm',
+  watt_per_meter_squared_sr_um_per_dn: 'W/m^2/sr/µm/dn',
   per_steradian: 'sr^-1',
 
   // https://en.wikipedia.org/wiki/Reflectance
@@ -213,6 +216,8 @@
   // https://en.wikipedia.org/wiki/Precipitation#Measurement
   rainfall_rate_kg_per_m2_per_s: 'kg/m^2/s',
   rainfall_rate_kg_per_m_per_s: 'kg/m/s',
+  mass_flux_kg_per_m2_per_s: 'kg/m^2/s',
+  flash_rate_km2_per_s: 'km^-2 s^-1',
   pvu: 'K*m^2/kg/s',
   // TODO(kumaraashutosh): Temporarily added, we need to double-check with the
   // provider about unit for confidence and slope.
@@ -271,6 +276,7 @@
   // https://en.wikipedia.org/wiki/Flux
   watt_per_meter: 'W/m',
   watt_per_meter_squared: 'W/m^2',
+  watt_per_meter_squared_um: 'W/m^2/µm',
   // 'Year' is controversial:
   // https://rock.geosociety.org/net/gsatoday/archive/22/2/pdf/i1052-5173-22-2-28.pdf
   // We pick 'y' for consistency with 'd' and 'h'
@@ -288,4 +294,5 @@
   // https://en.wikipedia.org/wiki/Molar_concentration
   mmol_per_cubic_meter: 'mmol/m^3',
   mol_per_cubic_meter: 'mol/m^3',
+  einstein_per_square_meter_per_day: 'einstein/m^2/day',
 }

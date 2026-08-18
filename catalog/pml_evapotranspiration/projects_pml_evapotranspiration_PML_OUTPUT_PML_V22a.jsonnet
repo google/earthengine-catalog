@@ -1,18 +1,19 @@
 local id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a';
-local predecessor_id = 'CAS/IGSNRR/PML/V2_v018';
 local subdir = 'pml_evapotranspiration';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/PML_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_base_url = ee_const.catalog_base;
 
 {
   stac_version: ee_const.stac_version,
@@ -23,44 +24,43 @@ local catalog_base_url = ee_const.catalog_base;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (GPP)',
-  version: '2.2a',
+  title: 'PML_V2.2a: Coupled Evapotranspiration and Gross Primary Product (MODIS Edition)',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The dataset is produced by the Large Scale Hydrology Lab, which specializes in advancing global and 
     regional water cycle research by synthesizing multi-source Earth observations with process-based modeling. 
 
-    The PML-V2.2a product provides 500m 8-day resolution global terrestrial evapotranspiration (ET) 
-    and gross primary production (GPP) from 2000 to 2024. Driven by MSWEP and MSWX, this version 
-    features expanded bottom-up calibration using 208 flux sites and refined parameterization 
-    distinguishing irrigated from rainfed croplands.
+    The PML-V2.2a (MODIS Edition) product provides global terrestrial evapotranspiration (ET) and gross 
+    primary production (GPP) at a 500-m, 8-day resolution from 2000 to 2024. Forced by MSWEP and MSWX data, 
+    this version features an expanded bottom-up calibration using 208 flux sites and refined parameterizations 
+    that explicitly distinguish irrigated from rainfed croplands.
 
     Validation confirms high accuracy across plant functional types (NSE > 0.60, absolute bias < 5%) 
-    and reliable basin-scale water-balance performance (NSE: 0.89–0.91). This MODIS-based 
-    record is optimized for high-resolution near-present monitoring.
+    and reliable basin-scale water-balance performance (NSE: 0.89–0.91). Optimized for high-resolution 
+    eco-hydrological monitoring, this MODIS-based record provides a robust historical baseline. Due to 
+    satellite orbital drift, this asset will no longer be updated post-2024. For near-present monitoring 
+    and data extending to 2025, please refer to the companion VIIRS Edition asset, which ensures seamless data continuity.
 
-    This dataset is part of the broader PML-V2.2 suite. For the long-term and consolidated record 
-    (1982-near present, PML-V2.2a/b/c at 0.1° resolution with different remote sensing forcings), 
+    This dataset is part of the broader PML-V2.2 suite, where the description paper is available at [Earth System Science Data](https://doi.org/10.5194/essd-18-5663-2026). 
+    For the long-term and consolidated record (1982-near present, PML-V2.2a/b/c at 0.1° resolution with different remote sensing forcings), 
     please visit the [TPDC data repository](https://doi.org/10.11888/Terre.tpdc.303314).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.license(license.reference),
-    ee.link.predecessor(
-      predecessor_id, catalog_base_url + 'CAS/' + predecessor_basename + '.json'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['plant-productivity', 'water-vapor'],
   keywords: [
     'evapotranspiration',
     'gpp',
-    //'pml',
-    //'water-carbon',
   ],
   providers: [
     ee.producer_provider('Large Scale Hydrology Lab', 'https://zhang-hydrolab.github.io/'),
+    ee.producer_provider('PML_V2', 'https://github.com/gee-hydro/gee_PML'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-03-05T00:00:00Z', null),
+  extent: ee.extent(-180.0, -60.0, 180.0, 90.0, '2000-03-05T00:00:00Z', '2024-12-26T00:00:00Z'),
   summaries: {
     gsd: [500.0],
     'eo:bands': [
@@ -72,13 +72,13 @@ local catalog_base_url = ee_const.catalog_base;
       },
       { 
         name: 'ET', 
-        description: 'Actual evapotranspiration', 
+        description: 'Evapotranspiration', 
         'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
       { 
         name: 'Ec', 
-        description: 'Vegetation transpiration', 
+        description: 'Transpiration', 
         'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
@@ -90,7 +90,7 @@ local catalog_base_url = ee_const.catalog_base;
       },
       { 
         name: 'Ei', 
-        description: 'Interception from vegetation canopy', 
+        description: 'Interception evaporation', 
         'gee:units': units.millimeter_per_day,
         'gee:scale': 0.01 
       },
@@ -135,14 +135,23 @@ local catalog_base_url = ee_const.catalog_base;
     PET: { minimum: 0.0, maximum: 2011.0, 'gee:estimated_range': true },
     Ew: { minimum: 0.0, maximum: 2011.0, 'gee:estimated_range': true },
   },
-  'sci:citation': |||
-    Zhang, Y., Kong, D., Gan, R., Chiew, F.H.S., McVicar, T.R., Zhang, Q.,
-    and Yang, Y., 2019. Coupled estimation of 500m and 8-day resolution global
-    evapotranspiration and gross primary production in 2002-2017.
-    Remote Sens. Environ. 222, 165-182,
-    [doi:10.1016/j.rse.2018.12.031](https://doi.org/10.1016/j.rse.2018.12.031)
+'sci:citation': |||
+    Xu, Z., Zhang, Y., Kong, D., Ma, N., and Zhang, X., 2026. Extended global
+    terrestrial evapotranspiration and gross primary production dataset from
+    1982 to near present. Earth Syst. Sci. Data, 18, 5663-5695,
+    [doi:10.5194/essd-18-5663-2026](https://doi.org/10.5194/essd-18-5663-2026)
   |||,
   'sci:publications': [
+    {
+      citation: |||
+        Zhang, Y., Kong, D., Gan, R., Chiew, F.H.S., McVicar, T.R., Zhang, Q.,
+        and Yang, Y., 2019. Coupled estimation of 500m and 8-day resolution global
+        evapotranspiration and gross primary production in 2002-2017.
+        Remote Sens. Environ. 222, 165-182,
+        [doi:10.1016/j.rse.2018.12.031](https://doi.org/10.1016/j.rse.2018.12.031)
+      |||,
+      doi: '10.1016/j.rse.2018.12.031',
+    },
     {
       citation: |||
         Gan, R., Zhang, Y.Q., Shi, H., Yang, Y.T., Eamus, D., Cheng, L.,

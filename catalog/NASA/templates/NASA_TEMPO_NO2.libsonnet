@@ -54,6 +54,11 @@ local vertical_column_sample_bands() = [
 
 {
   nasa_tempo_no2_collection(cfg) ::
+    local version_config = if std.objectHas(cfg, 'version_config') then cfg.version_config else null;
+    local version = if version_config != null then version_config.version else (if std.objectHas(cfg, 'version') then cfg.version else 'V03');
+    local doi = cfg.doi;
+    local provider_id = cfg.provider_id;
+    local extra_bands = if std.objectHas(cfg, 'extra_bands') then cfg.extra_bands else [];
     {
       stac_version: ee_const.stac_version,
       type: ee_const.stac_type.collection,
@@ -63,8 +68,10 @@ local vertical_column_sample_bands() = [
       ],
       id: cfg.id,
       title: 'TEMPO gridded NO2' + cfg.qa_title +
-        ' tropospheric and stratospheric columns V03',
-      version: 'V03',
+        ' tropospheric and stratospheric columns ' + version +
+        (if std.objectHas(cfg, 'status') && cfg.status == 'deprecated' then ' [deprecated]' else ''),
+      version: version,
+      [if std.objectHas(cfg, 'status') then 'gee:status']: cfg.status,
       'gee:type': ee_const.gee_type.image_collection,
       description: |||
         Nitrogen dioxide Level 3 files provide trace gas information on a
@@ -84,9 +91,9 @@ local vertical_column_sample_bands() = [
       links: ee.standardLinks(subdir, cfg.id) + [
         {
           rel: ee_const.rel.cite_as,
-          href: 'https://doi.org/10.5067/IS-40e/TEMPO/NO2_L3.003',
+          href: 'https://doi.org/' + doi,
         },
-      ],
+      ] + (if version_config != null then version_config.version_links else []),
       'gee:categories': ['satellite-imagery'],
       keywords: [
         'air_quality',
@@ -98,19 +105,19 @@ local vertical_column_sample_bands() = [
       ],
       providers: (
         if cfg.qa_description == '' then
-          [ee.producer_provider('NASA ASDC', 'https://asdc.larc.nasa.gov/')]
+          [ee.producer_provider('NASA ASDC', 'https://doi.org/' + doi)]
         else
           [
             ee.producer_provider(
               'QA Filtered: Google and NASA ASDC',
-              'https://asdc.larc.nasa.gov/'
+              'https://doi.org/' + doi
             ),
           ]
       ) + [
         ee.host_provider(self_ee_catalog_url(cfg.id)),
       ],
       'gee:provider_ids': [
-        'C2930763263-LARC_CLOUD',
+        provider_id,
       ],
       extent: ee.extent_global('2023-08-01T00:00:00Z', null),
       summaries: {
@@ -277,7 +284,7 @@ local vertical_column_sample_bands() = [
             description: 'NO2 stratosphere air mass factor',
             'gee:units': units.dimensionless,
           },
-        ],
+        ] + extra_bands,
         'gee:visualizations': [
           {
             display_name: 'Tropospheric NO2',
@@ -310,10 +317,10 @@ local vertical_column_sample_bands() = [
       },
       'sci:citation': |||
         NASA/LARC/SD/ASDC. (n.d.). TEMPO gridded NO2 tropospheric and
-        stratospheric columns V03 (PROVISIONAL) [Data set]. NASA Langley
+        stratospheric columns %s (PROVISIONAL) [Data set]. NASA Langley
         Atmospheric Science Data Center DAAC.
-        Retrieved from https://doi.org/10.5067/IS-40e/TEMPO/NO2_L3.003
-      |||,
+        Retrieved from https://doi.org/%s
+      ||| % [version, doi],
       'gee:terms_of_use': |||
         This dataset is in the public domain and is available
         without restriction on use and distribution. See [NASA's

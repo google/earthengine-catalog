@@ -1,24 +1,19 @@
 local id = 'CAS/IGSNRR/PML/V2_v017';
-local predecessor_id = 'CAS/IGSNRR/PML/V2';
-local successor_id = 'CAS/IGSNRR/PML/V2_v018';
-local latest_id = 'projects/pml_evapotranspiration/PML/OUTPUT/PML_V22a';
-
 local subdir = 'CAS';
+local versions = import 'versions.libsonnet';
+local version_table = import '../pml_evapotranspiration/templates/PML_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
-local version = '0.1.7';
 local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
-local predecessor_basename = std.strReplace(predecessor_id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_base_url = ee_const.catalog_base;
 
 {
   'gee:status': 'deprecated',
@@ -57,14 +52,7 @@ local catalog_base_url = ee_const.catalog_base;
 
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.predecessor(
-      predecessor_id, catalog_base_url + subdir + '/' + predecessor_basename + '.json'),
-    ee.link.successor(
-      successor_id, catalog_base_url + subdir + '/' + successor_basename + '.json'),
-    ee.link.latest(
-      latest_id, catalog_base_url + 'pml_evapotranspiration/' + latest_basename + '.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['plant-productivity', 'water-vapor'],
   keywords: [
     'evapotranspiration',

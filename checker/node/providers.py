@@ -176,7 +176,7 @@ class Check(stac.NodeCheck):
           if URL not in provider:
             yield cls.new_issue(node, f'{HOST} provider must have a "{URL}"')
           else:
-            if not url.startswith(BASE_URL):
+            if not url.startswith(BASE_URL):  # pyrefly: ignore[unbound-name]
               yield cls.new_issue(
                   node, f'{HOST} provider {URL} must start with "{BASE_URL}"')
 

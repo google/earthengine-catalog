@@ -3,7 +3,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local versions_table = import 'templates/TCC_versions.libsonnet';
+local versions_table = import '../gtac-data-publish/templates/TCC_versions.libsonnet';
 
 local id = 'USGS/NLCD_RELEASES/2021_REL/TCC/v2021-4';
 local subdir = 'USGS';

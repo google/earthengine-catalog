@@ -88,7 +88,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               0,
             ],
             max: [
-              1,
+              0,
             ],
             palette: [
               'ffffff',
@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
     flood: {
       minimum: 0,
-      maximum: 1,
+      maximum: 0,
       'gee:estimated_range': false,
     },
   },

@@ -77,6 +77,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'VH polarization radar backscatter normalized to gamma0.',
       },
       {
+        name: 'HV',
+        description: 'HV polarization radar backscatter normalized to gamma0.',
+      },
+      {
+        name: 'HH',
+        description: 'HH polarization radar backscatter normalized to gamma0.',
+      },
+      {
         name: 'mask',
         description: |||
           Mask layer containing valid/invalid, layover, and shadow
@@ -156,6 +164,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'ORBIT_PASS_DIRECTION',
         description: 'Orbit pass direction',
         type: ee_const.var_type.string,
+      },
+      {
+        name: 'POLARIZATIONS',
+        description: |||
+          The polarization bands available in the asset, a list with the valid
+          values being: "VV", "VH", "HV" and "HH".
+        |||,
+        type: ee_const.var_type.string_list,
       },
       {
         name: 'PROCESSING_DATETIME',
@@ -262,7 +278,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [EOSDIS Data Use and Citation Guidance](https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance)
   |||,
 
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,
 

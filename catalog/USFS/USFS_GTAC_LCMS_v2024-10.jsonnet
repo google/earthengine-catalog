@@ -2,7 +2,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'USFS_GTAC_LCMS_versions.libsonnet';
+local version_table = import '../gtac-data-publish/templates/LCMS_versions.libsonnet';
 
 local subdir = 'USFS';
 local id = 'USFS/GTAC/LCMS/v2024-10';
@@ -23,9 +23,10 @@ local license = spdx.proprietary;
   ],
   id: id,
   title: 'USFS Landscape Change Monitoring System ' + ' ' + version + ' ' +
-    '(CONUS and OCONUS)',
+    '(CONUS and OCONUS) [deprecated]',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
+  'gee:status': 'deprecated',
   description: |||
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
@@ -104,6 +105,14 @@ local license = spdx.proprietary;
       rel: ee_const.rel.source,
       href: 'https://data.fs.usda.gov/geodata/rastergateway/LCMS/index.php',
     },
+    ee.link.successor(
+      'projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11',
+      ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
+    ),
+    ee.link.latest(
+      'projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11',
+      ee_const.catalog_base + 'gtac-data-publish/projects_gtac-data-publish_assets_LCMS_Product_Version_2025-11.json'
+    ),
   ] + version_config.version_links,
   'gee:categories': ['landuse-landcover'],
   keywords: [

@@ -9,7 +9,7 @@ class ValidFilePathTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = file_path.Check
+    self.check = file_path.Check  # pyrefly: ignore[bad-assignment]
 
   def test_root_catalog(self):
     self.assert_catalog({}, dataset_id='GEE_catalog', file_path='catalog.json')
@@ -17,15 +17,25 @@ class ValidFilePathTest(test_utils.NodeTest):
   def test_catalog(self):
     self.assert_catalog({}, dataset_id='A', file_path='A/catalog.json')
 
+  def test_catalog_case_mismatch(self):
+    self.assert_catalog(
+        {}, dataset_id='openet', file_path='OpenET/catalog.json'
+    )
+
   def test_collection(self):
     self.assert_collection({}, dataset_id='A/B', file_path='A/A_B.json')
+
+  def test_collection_case_mismatch(self):
+    self.assert_collection(
+        {}, dataset_id='openet/foo', file_path='OpenET/openet_foo.json'
+    )
 
 
 class SkipFilePathTestgoogletest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = file_path.Check
+    self.check = file_path.Check  # pyrefly: ignore[bad-assignment]
 
   def test_node_id_empty(self):
     self.assert_catalog({}, dataset_id='', file_path='catalog.json')
@@ -40,7 +50,7 @@ class ErrorFilePathTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = file_path.Check
+    self.check = file_path.Check  # pyrefly: ignore[bad-assignment]
 
   def test_root_catalog_bad_name(self):
     self.assert_catalog(
@@ -89,6 +99,22 @@ class ErrorFilePathTest(test_utils.NodeTest):
     self.assert_collection(
         {}, 'Collection: expected 1-level path: A/A_B.json found: A/B.json',
         dataset_id='A/B', file_path='A/B.json')
+
+  def test_catalog_case_mismatch_fails(self):
+    self.assert_catalog(
+        {},
+        'expected path: A/catalog.json found: a/catalog.json',
+        dataset_id='A',
+        file_path='a/catalog.json',
+    )
+
+  def test_collection_case_mismatch_fails(self):
+    self.assert_collection(
+        {},
+        'Collection: expected 1-level path: A/A_B.json found: a/A_B.json',
+        dataset_id='A/B',
+        file_path='a/A_B.json',
+    )
 
 
 if __name__ == '__main__':

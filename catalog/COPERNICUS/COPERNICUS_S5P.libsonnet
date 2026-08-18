@@ -5,7 +5,7 @@ local units = import 'units.libsonnet';
 {
   providers(self_ee_catalog_url):
     [
-      ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-5p-tropomi'),
+      ee.producer_provider('European Union/ESA/Copernicus', 'https://sentiwiki.copernicus.eu/web/s5p-products'),
       ee.host_provider(self_ee_catalog_url),
     ],
   schema():
@@ -135,7 +135,7 @@ local units = import 'units.libsonnet';
     ],
   terms_of_use: |||
     The use of Sentinel data is governed by the [Copernicus
-    Sentinel Data Terms and Conditions.](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice)
+    Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
   |||,
   bands_common:
     [

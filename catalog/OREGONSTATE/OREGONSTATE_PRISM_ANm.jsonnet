@@ -1,11 +1,18 @@
 local prism = import 'prism.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/PRISM_ANm_versions.libsonnet';
+local subdir = 'OREGONSTATE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 
+local id = 'OREGONSTATE/PRISM/ANm';
+local version_config = versions(subdir, version_table, id);
+
 prism {
   params+:: { period: 'monthly' },
-  id: 'OREGONSTATE/PRISM/ANm',
-  version: '81_91',
+  id: id,
+  version: version_config.version,
+  links+: version_config.version_links,
   title: 'PRISM Monthly Spatial Climate Dataset ANm',
   description: super.description_intro +
               |||

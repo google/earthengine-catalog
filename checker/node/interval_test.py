@@ -9,7 +9,7 @@ class IntervalTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = interval.Check
+    self.check = interval.Check  # pyrefly: ignore[bad-assignment]
 
   def test_no_interval(self):
     self.assert_collection({})

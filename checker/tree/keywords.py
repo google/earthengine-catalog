@@ -22,7 +22,6 @@ EXCEPTIONS = frozenset({
     'aim',
     'air_temperature',
     'alerts',
-    'alphaearth-derived',
     'aot',
     'argillic',
     'aura',
@@ -45,7 +44,6 @@ EXCEPTIONS = frozenset({
     'calibrated',
     'caltech',
     'carbon_organic',
-    'cci',
     'cdem',
     'cdl',
     'cgiar',
@@ -56,8 +54,6 @@ EXCEPTIONS = frozenset({
     'clc',
     'climatic_water_balance',
     'cloudtostreet',
-    'cocoa',
-    'coffee',
     'coldest',
     'condensation',
     'coral',
@@ -75,7 +71,6 @@ EXCEPTIONS = frozenset({
     'digital_soil_mapping',
     'diurnal',
     'driest',
-    'ecological-connectivity',
     'eddi',
     'emc',
     'endangered',
@@ -91,6 +86,7 @@ EXCEPTIONS = frozenset({
     'firecci',
     'firecci51',
     'fldas',
+    'flow_direction',
     'flow_regulation',
     'forest_inventory_and_analysis',
     'forest_type',
@@ -116,6 +112,7 @@ EXCEPTIONS = frozenset({
     'gtopo30',
     'habitats',
     'half_hourly',
+    'hand',
     'hansen',
     'hapludalfs',
     'health',
@@ -224,7 +221,6 @@ EXCEPTIONS = frozenset({
     'river_networks',
     'rmrs',
     'rtma',
-    'rubber',
     'salinity',
     'saltmarsh',
     'seagrass',
@@ -261,7 +257,6 @@ EXCEPTIONS = frozenset({
     'tile',
     'tir',
     'tirs',
-    'tnc',
     'toms',
     'treemap',
     'tropical',
@@ -311,12 +306,12 @@ class Check(stac.TreeCheck):
     nodes = [
         x
         for x in dataset_nodes
-        if x.stac.get(stac.GEE_STATUS) != stac.Status.DEPRECATED.value
+        if x.stac.get(stac.GEE_STATUS) != stac.Status.DEPRECATED.value  # pyrefly: ignore[missing-attribute]
     ]
 
     counts = collections.Counter()
     for node in nodes:
-      counts.update(node.stac.get(KEYWORDS, []))
+      counts.update(node.stac.get(KEYWORDS, []))  # pyrefly: ignore[no-matching-overload]
 
     single_keywords = {
         k for k, v in counts.items()
@@ -324,7 +319,7 @@ class Check(stac.TreeCheck):
 
     if single_keywords:
       for node in nodes:
-        for keyword in node.stac.get(KEYWORDS, []):
+        for keyword in node.stac.get(KEYWORDS, []):  # pyrefly: ignore[not-iterable]
           if keyword in single_keywords:
             # To add a keyword to the system, it should to occur in at least
             # two datasets.  For those where the keyword is critical, but there

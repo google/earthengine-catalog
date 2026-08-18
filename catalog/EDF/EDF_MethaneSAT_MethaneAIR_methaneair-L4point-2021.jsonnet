@@ -1,21 +1,18 @@
 local id = 'EDF/MethaneSAT/MethaneAIR/methaneair-L4point-2021';
-local successor_id = 'EDF/MethaneSAT/MethaneAIR/L4point';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/methaneair_L4point_versions.libsonnet';
 local subdir = 'EDF';
-local latest_id = successor_id;
-local version = '2021';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
-local successor_basename = std.strReplace(successor_id, '/', '_');
-local latest_basename = std.strReplace(latest_id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
 
 {
   id: id,
@@ -64,7 +61,7 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   ],
   providers: [
     ee.producer_provider('Environmental Defense Fund - MethaneSAT', 'https://methanesat.org'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-110.3, 31.4, -103.1, 40.6,
                     '2021-08-07T00:00:00Z', '2021-08-11T00:00:00Z'),
@@ -129,13 +126,10 @@ local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
   'gee:user_uploaded': true,
 
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf'),
-    ee.link.latest(latest_id, catalog_subdir_url + latest_basename + ".json"),
-    ee.link.successor(
-      successor_id, catalog_subdir_url + successor_basename + ".json"),
   ],
 
 

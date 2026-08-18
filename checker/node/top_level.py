@@ -11,8 +11,14 @@ from typing import Iterator
 from checker import stac
 
 CATALOG_ALLOWED_FIELDS = [
-    'description', 'id', 'links', 'stac_version',
-    'title', 'type']
+    'description',
+    'gee:publisher',
+    'id',
+    'links',
+    'stac_version',
+    'title',
+    'type',
+]
 
 COLLECTION_ALLOWED_FIELDS = [
     'description',

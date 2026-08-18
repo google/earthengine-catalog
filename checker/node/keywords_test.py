@@ -12,7 +12,7 @@ class KeywordsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = Check
+    self.check = Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({KEYWORDS: ['ab', 'c_d', 'e9']})

@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('NASA LP DAAC at the USGS EROS Center', 'https://doi.org/10.5067/MODIS/MOD44W.006'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2000-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2000-01-01T00:00:00Z', '2015-01-01T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Space Shuttle Endeavour',

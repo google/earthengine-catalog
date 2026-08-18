@@ -1,2 +1,1 @@
-[Malaria Atlas Project (MAP)](data.malariaatlas.org)
-datasets.
+The [Malaria Atlas Project (MAP)](https://data.malariaatlas.org) aims to disseminate free, accurate and up-to-date geographical information on malaria and associated topics.

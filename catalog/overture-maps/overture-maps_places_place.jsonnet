@@ -22,7 +22,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Overture Maps - Places: Place',
   version: 'latest',
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.bigquery_table,
   'gee:bq_table_name': 'bigquery-public-data.overture_maps.place',
   description: |||

@@ -166,6 +166,41 @@ class CoordinateIndexTest(unittest.TestCase):
     index = geocorrect.CoordinateIndex.from_arrays(lat, lon)
     self.assertEqual([bboxes.BBox(10, 1, 10, 2)], index.bbox_list)
 
+  def test_allowed_extent(self):
+    lat = numpy.array([[-10, 0, 10], [-10, 0, 10], [-10, 0, 10]])
+    lon = numpy.array([[-10, -10, -10], [0, 0, 0], [10, 10, 10]])
+    # Points:
+    # (-10,-10) (0,-10) (10,-10)
+    # (-10,0)   (0,0)   (10,0)
+    # (-10,10)  (0,10)  (10,10)
+
+    # Restrict to lat [-15, 15] and lon [-5, 15]
+    extent = bboxes.BBox(west=-5, south=-15, east=15, north=15)
+    index = geocorrect.CoordinateIndex.from_arrays(
+        lat, lon, allowed_extent=extent
+    )
+
+    expected_points = numpy.array(
+        [[-10, 0], [0, 0], [10, 0], [-10, 10], [0, 10], [10, 10]]
+    )
+    numpy.testing.assert_array_equal(index.points, expected_points)
+    self.assertEqual([bboxes.BBox(0, -10, 10, 10)], index.bbox_list)
+
+  def test_allowed_extent_anti_meridian(self):
+    lat = numpy.array([[0, 0, 0]])
+    lon = numpy.array([[170, 180, -170]])
+    # allowed_extent crosses antimeridian: [175, -175]
+    extent = bboxes.BBox(west=175, south=-10, east=-175, north=10)
+    index = geocorrect.CoordinateIndex.from_arrays(
+        lat, lon, allowed_extent=extent
+    )
+
+    # longitude 170 is outside.
+    # longitude 180 is inside.
+    # longitude -170 is outside.
+    numpy.testing.assert_array_equal(index.points, [[0, 180]])
+    self.assertEqual([bboxes.BBox(180, 0, 180, 0)], index.bbox_list)
+
 
 class GeoLookupTableTest(unittest.TestCase):
   """Tests the geocorrect.GeoLookupTableTest dataclass."""
@@ -238,6 +273,31 @@ class GeoLookupTableTest(unittest.TestCase):
         geotransform = glts[0].geotransform()
         self.assertEqual(expected, geotransform)
 
+  def test_dimensions(self):
+    index = self.generate_test_index()
+    scale_lat = -0.5
+    scale_lon = 0.5
+    glts = geocorrect.GeoLookupTable.from_index(index, scale_lat, scale_lon)
+    self.assertEqual(len(glts), 1)
+    self.assertEqual((7, 7), glts[0].dimensions())
+
+  def test_tiled_construction(self):
+    index = self.generate_test_index()
+    scale_lat = -0.5
+    scale_lon = 0.5
+
+    # Build GLT without tiling by picking a block size that is larger than
+    # the index. We'll compare this to one built in chunks to ensure that the
+    # tiling doesn't introduce any errors.
+    glts_single = geocorrect.GeoLookupTable.from_index(
+        index, scale_lat, scale_lon, block_size=100
+    )
+    glts_tiled = geocorrect.GeoLookupTable.from_index(
+        index, scale_lat, scale_lon, block_size=2
+    )
+
+    numpy.testing.assert_array_equal(glts_single[0]._glt, glts_tiled[0]._glt)
+
   def test_bad_scale_factors(self):
     index = self.generate_test_index()
 
@@ -301,6 +361,31 @@ class GeoLookupTableTest(unittest.TestCase):
             numpy.testing.assert_array_equal(
                 numpy.array(expected, dtype=dtype), projected
             )
+
+  def test_apply_to_chunks(self):
+    index = self.generate_test_index()
+    raster = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    scale_lat = -0.5
+    scale_lon = 0.5
+    glts = geocorrect.GeoLookupTable.from_index(index, scale_lat, scale_lon)
+    glt = glts[0]
+
+    # Grid size (height, width) is 7x7. We'll use 2x2 chunks to ensure multiple
+    # tiles in both directions. We assume that we can use `apply_to` to create
+    # the golden output if `test_apply_glt` passes.
+    chunk_size = 2
+    full_projected = glt.apply_to(raster, -1, numpy.int64)
+
+    chunked_projected = numpy.full((7, 7), -1, dtype=numpy.int64)
+    for chunk in glt.apply_to_chunks(
+        raster, -1, numpy.int64, chunk_size=chunk_size
+    ):
+      chunked_projected[
+          chunk.col_offset : chunk.col_offset + chunk.data.shape[0],
+          chunk.row_offset : chunk.row_offset + chunk.data.shape[1],
+      ] = chunk.data
+
+    numpy.testing.assert_array_equal(full_projected, chunked_projected)
 
 
 if __name__ == '__main__':

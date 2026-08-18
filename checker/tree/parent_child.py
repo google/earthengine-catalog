@@ -33,7 +33,7 @@ NO_SELF_URL = 'No self url found'
 
 def self_url(node: stac.Node) -> str:
   links = node.stac[LINKS]
-  for link in links:
+  for link in links:  # pyrefly: ignore[not-iterable]
     if link[REL] == SELF:
       return link[HREF].removeprefix(PREFIX).removesuffix(SUFFIX)
   return NO_SELF_URL
@@ -41,7 +41,7 @@ def self_url(node: stac.Node) -> str:
 
 def parent_url(node: stac.Node) -> str:
   links = node.stac[LINKS]
-  for link in links:
+  for link in links:  # pyrefly: ignore[not-iterable]
     if link[REL] == PARENT:
       return link[HREF].removeprefix(PREFIX).removesuffix(SUFFIX)
   return NO_PARENT_URL
@@ -49,7 +49,7 @@ def parent_url(node: stac.Node) -> str:
 
 def child_urls(node: stac.Node) -> list[str]:
   result = []
-  for link in node.stac[LINKS]:
+  for link in node.stac[LINKS]:  # pyrefly: ignore[not-iterable]
     if link[REL] == CHILD:
       result.append(link[HREF].removeprefix(PREFIX).removesuffix(SUFFIX))
   return result
@@ -87,8 +87,9 @@ class Check(stac.TreeCheck):
           yield cls.new_issue(
               node,
               f'catalog_url != parent_url: {catalog_url} {a_parent_url}')
-        elif node.stac.get(stac.GEE_STATUS) == stac.Status.INCOMPLETE.value:
+        elif node.stac.get(stac.GEE_STATUS) == stac.Status.INCOMPLETE.value:  # pyrefly: ignore[missing-attribute]
           message = (
+              # pyrefly: ignore[missing-attribute]
               "Please don't reference in catalog.jsonnet datasets that have "
               f'{stac.GEE_STATUS} set to "{stac.Status.INCOMPLETE.value}": '
               f'{catalog_url} {a_self_url}'
@@ -97,7 +98,7 @@ class Check(stac.TreeCheck):
       else:
         if (
             node.id != GEE_CATALOG
-            and node.stac.get(stac.GEE_STATUS) != stac.Status.INCOMPLETE.value
+            and node.stac.get(stac.GEE_STATUS) != stac.Status.INCOMPLETE.value  # pyrefly: ignore[missing-attribute]
             and not node.id.startswith('TEMPLATE')
         ):
           yield cls.new_issue(node, 'Not in any catalog as a child link')

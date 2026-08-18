@@ -1,1 +1,1 @@
-Dataset of Quasi-Global Precipitation Estimates.
+Oya is a quasi-global, high-resolution precipitation estimation dataset derived from geostationary (GEO) satellite observations.

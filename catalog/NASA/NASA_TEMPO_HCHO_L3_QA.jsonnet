@@ -1,6 +1,9 @@
 local tempo_hcho_l3_qa = import 'templates/NASA_TEMPO_HCHO.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/NASA_TEMPO_HCHO_QA_versions.libsonnet';
 
-local id = "NASA/TEMPO/HCHO_L3_QA";
+local id = 'NASA/TEMPO/HCHO_L3_QA';
+local version_config = versions('NASA', version_table, id);
 local qa_title = ' (QA filtered)';
 local qa_description = |||
 
@@ -26,7 +29,11 @@ local qa_or_raw_link = |||
 |||;
 
 tempo_hcho_l3_qa.nasa_tempo_hcho_collection({
-  id:id,
+  id: id,
+  version_config: version_config,
+  status: 'deprecated',
+  doi: '10.5067/IS-40e/TEMPO/HCHO_L3.003',
+  provider_id: 'C2930761273-LARC_CLOUD',
   qa_title: qa_title,
   qa_description: qa_description,
   quality_flag_desc: quality_flag_desc,

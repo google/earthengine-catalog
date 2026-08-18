@@ -1,0 +1,30 @@
+local id = 'ee-pkurelab';
+local ee_const = import 'earthengine_const.libsonnet';
+local ee = import 'earthengine.libsonnet';
+
+local basename = 'catalog';
+local base_filename = basename + '.json';
+local base_url = ee_const.catalog_base + 'ee-pkurelab/';
+local parent_url = ee_const.catalog_base + 'catalog.json';
+local self_url = base_url + base_filename;
+
+{
+  stac_version: ee_const.stac_version,
+  type: ee_const.stac_type.catalog,
+  id: id,
+  title: 'PKURELAB',
+  description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://pkurelab.github.io',
+    contactDisplay: 'sltao@pku.edu.cn',
+    contactLink: 'https://www.ues.pku.edu.cn/jszy/tsl/tslgrjl/18324dd983f44c15861b47e5087974fc.htm'
+  },
+  links: [
+    ee.link.root(),
+    ee.link.parent(parent_url),
+    ee.link.self_link(self_url),
+    ee.link.child_collection('projects_ee-pkurelab_assets_LHScat', base_url),
+    ee.link.child_collection('projects_ee-pkurelab_assets_LHScatQC', base_url),
+  ],
+}

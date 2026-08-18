@@ -25,7 +25,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This dataset is processed by GSMaP algorithm version 7 (product version 4).
     See [GSMaP Technical Documentation](https://www.eorc.jaxa.jp/GPM/doc/product/format/en/07.GPM_GSMaP_Product_Format_V5_E.pdf)
     for more details.
-  ||| + gsmap.description_footer,
+  ||| + gsmap.description_footer + |||
+    (Note: No 'permanent' products are available beyond May 31, 2026 and the
+    production of 'provisional' products will cease in June 2026.)
+  |||,
   license: gsmap.license,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['precipitation'],

@@ -12,7 +12,7 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Overture Maps',
   description: |||
     Overture Maps Foundation is a collaborative effort to develop
     interoperable open map data. The foundation produces open map data
@@ -24,6 +24,12 @@ local self_url = base_url + base_filename;
     Google Cloud Public Dataset Program, with the data being listed and
     maintained by CARTO.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://overturemaps.org/',
+    contactDisplay: 'CARTO',
+    contactLink: 'mailto:support@carto.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

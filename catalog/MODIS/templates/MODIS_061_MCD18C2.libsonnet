@@ -18,7 +18,7 @@
   |||,
   summaries: {
     gsd: [
-      500.0,
+      5566.0
     ],
     instruments: [
       'MODIS',

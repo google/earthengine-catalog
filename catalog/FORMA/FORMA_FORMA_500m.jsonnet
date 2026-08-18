@@ -1,16 +1,15 @@
 local id = 'FORMA/FORMA_500m';
-local successor_id = 'WRI/GFW/FORMA/alerts';
+local versions = import 'versions.libsonnet';
+local version_table = import '../WRI/templates/FORMA_versions.libsonnet';
 local subdir = 'FORMA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,6 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'FORMA Global Forest Watch Deforestation Alerts, 500m [deprecated]',
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image,
@@ -40,10 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     January 2006.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-    ee.link.successor(
-        successor_id, ee_const.catalog_base + 'WRI/WRI_GFW_FORMA_alerts.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['fire'],
   keywords: [
     'alerts',
@@ -58,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Global Forest Watch, World Resources Institute', 'https://www.globalforestwatch.org'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2006-01-01T00:00:00Z', '2015-06-10T00:00:00Z'),
   summaries: {
@@ -112,5 +109,4 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     WRI does request that the user give proper attribution and identify WRI and
     GFW, where applicable, as the source of the data.
   |||,
-  version: ee_const.version_unknown,
 }

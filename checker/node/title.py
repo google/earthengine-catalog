@@ -10,8 +10,8 @@ from typing import Iterator
 
 from checker import stac
 
-CATALOG_EXCEPTIONS_IDS = frozenset({'USGS/3DEP'})
-COLLECTION_EXCEPTION_IDS = frozenset({
+EXCEPTION_IDS = frozenset({
+    'USGS/3DEP',
     'OSU/GIMP/2000_IMAGERY_MOSAIC',
 })
 
@@ -35,45 +35,41 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'"{TITLE}" must be a str')
       return
 
+    deprecated_count = title.lower().count('deprecated')
+    if deprecated_count > 1:
+      yield cls.new_issue(
+          node,
+          f'"{TITLE}" must contain "deprecated" at most once, '
+          f'found {deprecated_count} times',
+      )
+
     if node.type == stac.StacType.CATALOG:
       if node.id == GEE_CATALOG:
         # The top level node as a catalog title: 'Google Earth Engine Catalog'
         return
 
-      # Handles 1 level and 2 level cases.
-      last_part = node.id.split('/')[-1]
-      if last_part != title:
-        message = (
-            f'Catalog {TITLE} is usually the dataset id:'
-            f' "{node.id}" != "{title}"')
-        yield cls.new_issue(node, message, stac.IssueLevel.WARNING)
+      if len(node.path.parts) != 2:
+        last_part = node.id.split('/')[-1]
+        if last_part != title:
+          message = (
+              f'Catalog {TITLE} is usually the dataset id:'
+              f' "{node.id}" != "{title}"')
+          yield cls.new_issue(node, message, stac.IssueLevel.WARNING)
+    else:
+      title = title.removesuffix(DEPRECATED)
 
-      if node.id not in CATALOG_EXCEPTIONS_IDS:
-        if len(title) < 2:
-          yield cls.new_issue(node, f'Catalog {TITLE} is too short: "{title}"')
-          return
-        if len(title) > 30:
-          yield cls.new_issue(node, f'Catalog {TITLE} is too long: "{title}"')
-          return
-        if not re.fullmatch('[a-zA-Z][-_a-zA-Z0-9]*', title):
-          yield cls.new_issue(
-              node, f'Catalog {TITLE} has invalid characters: "{title}"'
-          )
+    if node.id in EXCEPTION_IDS:
       return
 
-    title = title.removesuffix(DEPRECATED)
-
-    if node.id in COLLECTION_EXCEPTION_IDS:
-      return
-
+    type_str = str(node.type).split('.')[-1].capitalize()
     if len(title) < 2:
-      yield cls.new_issue(node, f'Collection {TITLE} is too short: "{title}"')
+      yield cls.new_issue(node, f'{type_str} {TITLE} is too short: "{title}"')
       return
     if len(title) > 140:
-      yield cls.new_issue(node, f'Collection {TITLE} is too long: "{title}"')
+      yield cls.new_issue(node, f'{type_str} {TITLE} is too long: "{title}"')
       return
 
     if not re.fullmatch(r'[a-zA-Z][-+ .,_:/&<()\'a-zA-Z0-9]*', title):
       yield cls.new_issue(
-          node, f'Collection {TITLE} has invalid characters: "{title}"'
+          node, f'{type_str} {TITLE} has invalid characters: "{title}"'
       )

@@ -77,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     limitations, please see the publication**: 
     [https://doi.org/10.1088/1748-9326/add606](https://doi.org/10.1088/1748-9326/add606). 
     The data is also available for download on [Zenodo](https://zenodo.org/records/15366671) and 
-    the [WRI Data Explorer](https://datasets.wri.org/datasets/dominant-drivers-of-tree-cover-loss-at-1km).  
+    the [WRI Data Explorer](https://datasets.wri.org/datasets/dominant-drivers-of-tree-cover-loss-at-1km-v1-2).  
   |||, 
 
 

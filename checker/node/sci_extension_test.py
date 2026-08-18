@@ -12,7 +12,7 @@ class ValidSciExtTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = sci_extension.Check
+    self.check = sci_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_with_nothing(self):
     self.assert_catalog({})
@@ -34,7 +34,7 @@ class ErrorSciExtTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = sci_extension.Check
+    self.check = sci_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_with_sci_ext(self):
     self.assert_catalog(

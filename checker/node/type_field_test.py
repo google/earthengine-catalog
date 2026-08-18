@@ -9,7 +9,7 @@ class CatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = type_field.Check
+    self.check = type_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_catalog({'type': 'Catalog'}, file_path='catalog.json')
@@ -36,7 +36,7 @@ class CollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = type_field.Check
+    self.check = type_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({'type': 'Collection'})

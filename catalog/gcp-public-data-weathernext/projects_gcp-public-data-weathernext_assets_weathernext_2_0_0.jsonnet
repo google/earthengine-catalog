@@ -1,4 +1,6 @@
 local id = 'projects/gcp-public-data-weathernext/assets/weathernext_2_0_0';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/weathernext_versions.libsonnet';
 local subdir = 'gcp-public-data-weathernext';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -6,12 +8,8 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
-local catalog_subdir_url = ee_const.catalog_base + subdir + '/';
-local parent_url = catalog_subdir_url + 'catalog.json';
-local self_url = catalog_subdir_url + base_filename;
+local version_config = versions(subdir, version_table.probabilistic, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
@@ -22,8 +20,10 @@ local license = spdx.proprietary;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
+  version: version,
   title: 'WeatherNext 2',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
@@ -103,7 +103,7 @@ local license = spdx.proprietary;
             arising from their use.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['climate'],
   keywords: [
     'weather',
@@ -117,7 +117,7 @@ local license = spdx.proprietary;
   ],
   providers: [
     ee.producer_provider('Google', 'https://developers.google.com/weathernext'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2022-01-01T00:00:00Z', null),
   summaries: {

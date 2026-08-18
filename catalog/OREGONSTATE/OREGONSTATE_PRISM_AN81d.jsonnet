@@ -1,17 +1,16 @@
 local prism = import 'prism.libsonnet';
-local successor_id = 'OREGONSTATE/PRISM/ANd';
-local ee_const = import 'earthengine_const.libsonnet';
-local ee = import 'earthengine.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/PRISM_ANd_versions.libsonnet';
+local subdir = 'OREGONSTATE';
+
+local id = 'OREGONSTATE/PRISM/AN81d';
+local version_config = versions(subdir, version_table, id);
 
 prism {
-  id: 'OREGONSTATE/PRISM/AN81d',
+  id: id,
   title: 'PRISM Daily Spatial Climate Dataset AN81d [deprecated]',
   'gee:status': 'deprecated',
-  version: '81',
-  links+: [
-    ee.link.successor(
-      successor_id,
-      ee_const.catalog_base + 'OREGONSTATE/OREGONSTATE_PRISM_ANd.json'
-    ),
-  ],
+  version: version_config.version,
+  links+: version_config.version_links,
 }
+

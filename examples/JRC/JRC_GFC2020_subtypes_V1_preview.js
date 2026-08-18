@@ -14,7 +14,7 @@ var imageWithBackground =
 
 Map.setCenter(0.0, 0.0, 2);
 
-Map.addLayer(image2020, {}, 'EC JRC Global forest types 2020 – V0');
+Map.addLayer(image2020, {}, 'EC JRC Global forest types 2020 – V1');
 
 var lon = -70;
 var lat = -10;

@@ -31,8 +31,6 @@ local self_url = catalog_subdir_url + base_filename;
   'gee:type': ee_const.gee_type.image,
   description: |||
 
-    **Note: This dataset is not yet peer-reviewed.  Please see the GitHub 
-    README associated with this model for more information.**
 
     This image provides a per-pixel score (in [0, 1]) that indicates whether 
     the pixel area is occupied by undisturbed forest in year 2020.
@@ -91,7 +89,6 @@ local self_url = catalog_subdir_url + base_filename;
     'eudr',
     'biodiversity',
     'conservation',
-    'pre_review',
   ],
   providers: [
     ee.producer_provider(

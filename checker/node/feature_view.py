@@ -170,7 +170,7 @@ class Check(stac.NodeCheck):
             ', '.join(sorted(THINNING_STRATEGIES)))
 
     property_names = [
-        x['name'] for x in node.stac[SUMMARIES].get('gee:schema', {})
+        x['name'] for x in node.stac[SUMMARIES].get('gee:schema', {})  # pyrefly: ignore[missing-attribute]
     ] + ['.geometryType', '.minZoomLevel']
 
     if THINNING_RANKING in params:

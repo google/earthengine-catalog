@@ -19,7 +19,7 @@ class ValidEoExtensionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = eo_extension.Check
+    self.check = eo_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog({})
@@ -72,7 +72,7 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = eo_extension.Check
+    self.check = eo_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_with_eo(self):
     self.assert_catalog(

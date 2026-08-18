@@ -126,7 +126,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'GENERAL_QUALITY',
-            description: 'Synthesis of the OLQC checks performed at the datastrip level (Relative_Orbit_Number)',
+            description: 'Synthesis of the OLQC checks performed at the datastrip level',
             type: ee_const.var_type.string,
           },
           {
@@ -136,7 +136,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'GEOMETRIC_QUALITY',
-            description: 'Synthesis of the OLQC checks performed at the datastrip level (Attitude_Quality_Indicator)',
+            description: 'Synthesis of the OLQC checks performed at the datastrip level',
             type: ee_const.var_type.string,
           },
           {

@@ -1,8 +1,8 @@
 """Tests for version_extension."""
 
+from absl.testing import absltest
 from checker import test_utils
 from checker.node import version_extension
-from absl.testing import absltest
 
 CATALOG_BASE_URL = 'https://developers.google.com/earth-engine/datasets/catalog'
 CATALOG_URL = CATALOG_BASE_URL + '/A_B'
@@ -16,7 +16,7 @@ class VersionExtensionCatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = version_extension.Check
+    self.check = version_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_empty(self):
     self.assert_catalog({})
@@ -49,7 +49,7 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = version_extension.Check
+    self.check = version_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_empty(self):
     self.assert_collection({})
@@ -134,6 +134,12 @@ class VersionExtensionCollectionTest(test_utils.NodeTest):
     self.assert_collection(
         {'stac_extensions': [VERSION_URL], 'version': 321},
         '"version" must be a str')
+
+  def test_version_field_contains_deprecated(self):
+    self.assert_collection(
+        {'stac_extensions': [VERSION_URL], 'version': '1.2 (deprecated)'},
+        '"version" must not contain "deprecated", found "1.2 (deprecated)"',
+    )
 
   def test_missing_extension_with_link(self):
     self.assert_collection(

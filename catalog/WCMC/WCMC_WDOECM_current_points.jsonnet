@@ -55,11 +55,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
   ],
-  'gee:categories': ['ecosystems'],
+  'gee:categories': ['ecosystems', 'oceans'],
   keywords: [
     'boundaries',
     'iucn',
-    'marine',
     'mpa',
     'protected',
     'wcmc',

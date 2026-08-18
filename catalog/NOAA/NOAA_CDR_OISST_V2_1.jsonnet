@@ -54,7 +54,6 @@ local license = spdx.proprietary;
     'daily',
     'ice',
     'noaa',
-    'ocean',
     'oisst',
     'real_time',
     'sst',

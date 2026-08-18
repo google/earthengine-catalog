@@ -34,7 +34,6 @@ local license = spdx.proprietary;
     'elevation',
     'hycom',
     'nopp',
-    'ocean',
     'ssh',
     'water',
   ],

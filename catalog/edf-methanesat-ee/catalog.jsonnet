@@ -12,15 +12,23 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Environmental Defense Fund - MethaneSAT',
   description: importstr 'description.md',
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://www.methanesat.org/data',
+    contactDisplay: 'EDF-MethaneSAT',
+    contactLink: 'https://www.methanesat.org/contact'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('projects_edf-methanesat-ee_assets_mair_L3concentration', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L3concentration', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L4area', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L4area_v2', base_url),
+    ee.link.child_collection('projects_edf-methanesat-ee_assets_mair_L4point', base_url),
     ee.link.child_collection('projects_edf-methanesat-ee_assets_public-preview_L4point', base_url),
   ],
 }

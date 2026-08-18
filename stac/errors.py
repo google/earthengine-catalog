@@ -11,7 +11,7 @@ class Error(Exception):
 
   def display_message(self) -> Optional[str]:
     if self.message_template:
-      return self.message_template.format(*self.template_args)
+      return self.message_template.format(*self.template_args)  # pyrefly: ignore[not-iterable]
     elif self.args:
       return self.args[0]
 

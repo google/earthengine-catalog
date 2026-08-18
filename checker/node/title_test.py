@@ -1,9 +1,9 @@
 """Tests for title."""
 
+from absl.testing import absltest
 from checker import stac
 from checker import test_utils
 from checker.node import title
-from absl.testing import absltest
 
 DEPRECATED = ' [deprecated]'
 TITLE = 'title'
@@ -13,7 +13,7 @@ class CatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = title.Check
+    self.check = title.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     dataset_id = 'Valid_Catalog-Title42'
@@ -41,19 +41,47 @@ class CatalogTest(test_utils.NodeTest):
     )
 
   def test_invalid_too_long(self):
-    dataset_id = 'a' * 31
+    dataset_id = 'a' * 141
     self.assert_catalog(
         {TITLE: dataset_id},
-        'Catalog title is too long: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"',
+        f'Catalog title is too long: "{dataset_id}"',
         dataset_id=dataset_id,
     )
 
   def test_invalid(self):
-    dataset_id = 'not a valid title'
+    dataset_id = '% not a valid title'
     self.assert_catalog(
         {TITLE: dataset_id},
-        'Catalog title has invalid characters: "not a valid title"',
+        f'Catalog title has invalid characters: "{dataset_id}"',
         dataset_id=dataset_id,
+    )
+
+  def test_publisher_catalog_valid(self):
+    dataset_id = 'sat-io'
+    title_str = 'Awesome GEE Community Catalog'
+    self.assert_catalog(
+        {TITLE: title_str},
+        dataset_id=dataset_id,
+        file_path='sat-io/catalog.json',
+    )
+
+  def test_publisher_catalog_valid_long(self):
+    dataset_id = 'sat-io'
+    title_str = 'A' * 50
+    self.assert_catalog(
+        {TITLE: title_str},
+        dataset_id=dataset_id,
+        file_path='sat-io/catalog.json',
+    )
+
+  def test_publisher_catalog_too_long(self):
+    dataset_id = 'sat-io'
+    title_str = 'A' * 141
+    self.assert_catalog(
+        {TITLE: title_str},
+        'Catalog title is too long: "' + title_str + '"',
+        dataset_id=dataset_id,
+        file_path='sat-io/catalog.json',
     )
 
   def test_warning_for_title_not_being_last_id_component(self):
@@ -71,7 +99,7 @@ class CollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = title.Check
+    self.check = title.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({TITLE: 'A collection title'})
@@ -103,6 +131,12 @@ class CollectionTest(test_utils.NodeTest):
     self.assert_collection(
         {TITLE: 'Too long ' + extra},
         f'Collection title is too long: "Too long {extra}"',
+    )
+
+  def test_deprecated_multiple(self):
+    self.assert_collection(
+        {TITLE: 'My old dataset v1.0 (deprecated) [deprecated]'},
+        '"title" must contain "deprecated" at most once, found 2 times',
     )
 
 

@@ -1,0 +1,4 @@
+[
+  { '81': 'OREGONSTATE/PRISM/AN81d' },
+  { '81_91': 'OREGONSTATE/PRISM/ANd' },
+]

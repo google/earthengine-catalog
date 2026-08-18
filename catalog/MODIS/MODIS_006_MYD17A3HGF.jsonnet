@@ -65,7 +65,7 @@ local template = import 'templates/MODIS_006_MOD17A3HGF.libsonnet';
   'gee:provider_ids': [
     'C1631984536-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2002-07-04T00:00:00Z', null),
+  extent: ee.extent_global('2002-07-04T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Aqua',

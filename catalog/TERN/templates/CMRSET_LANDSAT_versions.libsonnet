@@ -1,0 +1,4 @@
+[
+  { '2.1': 'TERN/AET/CMRSET_LANDSAT_V2_1' },
+  { '2.2': 'TERN/AET/CMRSET_LANDSAT_V2_2' },
+]

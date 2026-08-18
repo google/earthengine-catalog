@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MODIS/MYDOCGA.006',
     },
   ],
-  'gee:categories': ['satellite-imagery'],
+  'gee:categories': ['satellite-imagery', 'oceans'],
   keywords: [
     'aqua',
     'daily',
@@ -54,7 +54,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'modis',
     'mydocga',
     'nasa',
-    'ocean',
     'reflectance',
     'sr',
     'usgs',
@@ -66,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:provider_ids': [
     'C203669713-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2002-07-04T00:00:00Z', null),
+  extent: ee.extent_global('2002-07-04T00:00:00Z', '2023-02-25T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Aqua',

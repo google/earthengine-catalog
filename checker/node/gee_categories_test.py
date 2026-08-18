@@ -7,7 +7,7 @@ class GeeCategoiresTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_categories.Check
+    self.check = gee_categories.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog({})

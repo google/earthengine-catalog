@@ -9,7 +9,7 @@ class GeeTermsOfUseTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_terms_of_use.Check
+    self.check = gee_terms_of_use.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({'gee:terms_of_use': 'Yada yada yada'})

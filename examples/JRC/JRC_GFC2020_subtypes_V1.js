@@ -21,5 +21,5 @@ var PALETTE =
     var GFT2020 = ee.Image('JRC/GFC2020_subtypes/V1');
 Map.addLayer(
     GFT2020, {min: 0, max: 20, palette: PALETTE},
-    'EC JRC Global forest types 2020 – V0')
+    'EC JRC Global forest types 2020 – V1')
 Map.setOptions('SATELLITE')

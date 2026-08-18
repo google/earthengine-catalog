@@ -36,6 +36,10 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_GEOS-CF_v1_fcst_tavg1hr', base_url),
     ee.link.child_collection('NASA_GEOS-CF_v1_rpl_htf', base_url),
     ee.link.child_collection('NASA_GEOS-CF_v1_rpl_tavg1hr', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_fcst_htf', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_fcst_tavg1hr', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_ana_htf', base_url),
+    ee.link.child_collection('NASA_GEOS-CF_v2_ana_tavg1hr', base_url),
 
     ee.link.child_collection('NASA_GIMMS_3GV0', base_url),
 
@@ -103,6 +107,14 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_TEMPO_NO2_L3_QA', base_url),
     ee.link.child_collection('NASA_TEMPO_O3_L3_QA', base_url),
 
+    ee.link.child_collection('NASA_TEMPO_CLDO4_L3_V4', base_url),
+    ee.link.child_collection('NASA_TEMPO_HCHO_L3_V4', base_url),
+    ee.link.child_collection('NASA_TEMPO_HCHO_L3_V4_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_NO2_L3_V4', base_url),
+    ee.link.child_collection('NASA_TEMPO_NO2_L3_V4_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_O3_L3_V4_QA', base_url),
+    ee.link.child_collection('NASA_TEMPO_O3PROF_L3_V4', base_url),
+
     ee.link.child_collection('NASA_VIIRS_002_VNP09GA', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP09H1', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP13A1', base_url),
@@ -110,7 +122,10 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_VIIRS_002_VNP15A2H', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP21A1D', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP21A1N', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VNP22Q2', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VNP43IA3', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP43IA4', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP46A2', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VNP64A1', base_url),
   ],
 }

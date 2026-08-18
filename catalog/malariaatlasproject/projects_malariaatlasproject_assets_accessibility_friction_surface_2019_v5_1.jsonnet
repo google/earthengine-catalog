@@ -1,10 +1,14 @@
 local id = 'projects/malariaatlasproject/assets/accessibility/friction_surface/2019_v5_1';
 
 local subdir = 'malariaatlasproject';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/friction_surface_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -22,7 +26,7 @@ local license = spdx.cc_by_4_0;
   ],
   id: id,
   title: 'Malaria Atlas Project Global Friction Surface 2019',
-  version: '5.1',
+  version: version,
   'gee:type': ee_const.gee_type.image,
   description: |||
     This global friction surface enumerates land-based travel speed for all 
@@ -63,7 +67,7 @@ local license = spdx.cc_by_4_0;
     Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['population'],
   keywords: [
     'accessibility',
