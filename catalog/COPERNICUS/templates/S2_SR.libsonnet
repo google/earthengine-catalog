@@ -148,7 +148,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'GENERAL_QUALITY',
-            description: 'Synthesis of the OLQC checks performed at the datastrip level (Relative_Orbit_Number)',
+            description: 'Synthesis of the OLQC checks performed at the datastrip level',
             type: ee_const.var_type.string,
           },
           {
@@ -158,7 +158,7 @@ local license = spdx.proprietary;
           },
           {
             name: 'GEOMETRIC_QUALITY',
-            description: 'Synthesis of the OLQC checks performed at the datastrip level (Attitude_Quality_Indicator)',
+            description: 'Synthesis of the OLQC checks performed at the datastrip level',
             type: ee_const.var_type.string,
           },
           {
@@ -811,7 +811,7 @@ local license = spdx.proprietary;
       },
       'gee:terms_of_use': |||
         The use of Sentinel data is governed by the [Copernicus
-        Sentinel Data Terms and Conditions.](https://scihub.copernicus.eu/twiki/pub/SciHubWebPortal/TermsConditions/Sentinel_Data_Terms_and_Conditions.pdf)
+        Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
       |||,
     }
 }

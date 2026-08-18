@@ -33,12 +33,12 @@ class Check(stac.NodeCheck):
 
     extensions = node.stac.get(STAC_EXTENSIONS, [])
 
-    for extension in extensions:
+    for extension in extensions:  # pyrefly: ignore[not-iterable]
       if extension not in EXTENSIONS:
         yield cls.new_issue(node, f'Extension not allowed: "{extension}"')
 
-    if extensions != sorted(extensions):
+    if extensions != sorted(extensions):  # pyrefly: ignore[bad-argument-type]
       yield cls.new_issue(node, 'Extensions must be sorted')
 
-    if len(extensions) != len(set(extensions)):
+    if len(extensions) != len(set(extensions)):  # pyrefly: ignore[bad-argument-type]
       yield cls.new_issue(node, 'Duplicate extensions not allowed')

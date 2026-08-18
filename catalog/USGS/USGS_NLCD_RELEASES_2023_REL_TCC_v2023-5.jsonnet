@@ -3,7 +3,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local versions_table = import 'templates/TCC_versions.libsonnet';
+local versions_table = import '../gtac-data-publish/templates/TCC_versions.libsonnet';
 
 local id = 'USGS/NLCD_RELEASES/2023_REL/TCC/v2023-5';
 local subdir = 'USGS';
@@ -23,8 +23,9 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS)',
+  title: 'USFS Tree Canopy Cover ' + version + ' ' + '(CONUS and OCONUS) [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     **Overview**
@@ -382,7 +383,7 @@ local license = spdx.proprietary;
         citation: |||
           Lin, L.; Di, L.; Zhang, C.; Guo, L.; Di, Y.; Li, H.; Yang, A. 2022. Validation and refinement of cropland
           data layer using a spatial-temporal decision tree algorithm. Scientific Data. 9(1): 63.
-          [doi:10.3390/rs10050691](https://doi.org/10.1038/s41597-022-01169-w)
+          [doi:10.1038/s41597-022-01169-w](https://doi.org/10.1038/s41597-022-01169-w)
         |||,
         doi:'10.1038/s41597-022-01169-w',
       },

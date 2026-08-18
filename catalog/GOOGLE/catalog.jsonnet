@@ -21,6 +21,8 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('GOOGLE_AirView_California_Unified_2015_2019', base_url),
+    ee.link.child_collection('GOOGLE_BRAZIL_FOREST_2008_V1_ANALYTIC', base_url),
+    ee.link.child_collection('GOOGLE_BRAZIL_FOREST_2008_V1_VISUAL', base_url),
     ee.link.child_collection('GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED', base_url),
     ee.link.child_collection('GOOGLE_DYNAMICWORLD_V1', base_url),
     ee.link.child_collection('GOOGLE_GLOBAL_CCDC_V1', base_url),

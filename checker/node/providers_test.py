@@ -25,7 +25,7 @@ class ProvidersTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = providers.Check
+    self.check = providers.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_most_common(self):
     self.assert_collection(

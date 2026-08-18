@@ -13,11 +13,22 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'MapBiomas',
   description: |||
-    This catalog contains land use and land cover datasets provided by the [MapBiomas Project](https://mapbiomas.org).
-    These datasets include annual land cover classifications derived from satellite imagery, covering Brazil and other countries.
+    [MapBiomas](https://mapbiomas.org) is a collaborative network of NGOs,
+    universities, and technology companies focused on developing annual land
+    use and land cover maps for Brazil and other countries using satellite
+    imagery and machine learning.
+
+    The project promotes transparency, scientific rigor, and open access to
+    environmental data for monitoring land use changes over time.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://mapbiomas.org',
+    contactDisplay: 'contato@mapbiomas.org',
+    contactLink: 'https://brasil.mapbiomas.org/contato/'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),

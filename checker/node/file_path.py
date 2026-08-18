@@ -12,6 +12,12 @@ STAC Collections:
   ORG/b/c/d will have a file ORG/ORG_b_c_d.json
 - FIRMS is a special case in that the catalog and the collection have the id
   of just 'FIRMS'
+
+Case-insensitive checks are used for filesystem paths, URLs, and titles
+only for OpenET/openet datasets to handle cases where dataset ID
+capitalization (e.g., 'openet') does not match the directory name on disk
+(e.g., 'OpenET'), ensuring compatibility across different operating systems
+(MacOS, Windows). For all other datasets, these checks remain case-sensitive.
 """
 
 import pathlib
@@ -63,7 +69,7 @@ class Check(stac.NodeCheck):
             f'More than 1 directory level: {list(id_parts)}')
       else:
         expected_path = pathlib.Path(id_parts[0]) / 'catalog.json'
-        if node.path != expected_path:
+        if not stac.equal_paths(node.path, expected_path):
           # The directory doesn't match the id.
           # e.g. for a file of A/catalog.json, found and id of B
           yield cls.new_issue(
@@ -78,7 +84,7 @@ class Check(stac.NodeCheck):
 
     expected_path = (
         pathlib.Path(expected_subdir) / (node.id.replace('/', '_') + '.json'))
-    if expected_path != node.path:
+    if not stac.equal_paths(expected_path, node.path):
       # Expect A/A_B_C.json, but found A/B/A_B_C.json
       message = (
           f'Collection: expected 1-level path: {expected_path} '

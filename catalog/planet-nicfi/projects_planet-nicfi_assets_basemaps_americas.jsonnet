@@ -15,7 +15,7 @@ std.mergePatch(common, {
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.license,
-      href: 'https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf',
+      href: 'https://planet.widen.net/s/zfdpf8qxwk/participantlicenseagreement_nicfi_2024',
       type: ee_const.media_type.pdf,
     },
   ],

@@ -20,7 +20,7 @@ class GeeClassesTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_classes.Check
+    self.check = gee_classes.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_hex(self):
     classes = [{'color': 'fafafa', 'description': 'A', 'value': 1},

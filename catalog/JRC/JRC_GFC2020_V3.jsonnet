@@ -63,9 +63,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     agroforestry, and other land uses. The application of a series of complex Boolean decision
     rules excludes areas that are not forest according to the definition of the FAO-FRA and EUDR.
 
-    The global input layers, mapping approach, and accuracy of GFC 2020 version 3 will be
-    described in a separate technical report, expected to be released by March 2026. A technical
-    report ([Bourgoin et al 2024](https://op.europa.eu/en/publication-detail/-/publication/f9baaa45-e73f-11ee-9ea8-01aa75ed71a1/language-en)) describes the mapping approach for the first version; methodological
+    The global input layers, mapping approach, and accuracy of GFC 2020 version 3 are
+    described in a Science for Policy report released in May 2026 and available from the JRC Publications Repository: [Bourgoin et al. 2026](https://publications.jrc.ec.europa.eu/repository/handle/JRC146622). A technical
+    report ([Bourgoin et al. 2024](https://op.europa.eu/en/publication-detail/-/publication/f9baaa45-e73f-11ee-9ea8-01aa75ed71a1/language-en)) describes the mapping approach for the first version; methodological
     changes in version 2 and comparisons with other maps are described in [Bourgoin et al. (2025)](https://op.europa.eu/en/publication-detail/-/publication/e2c286ac-14e9-11f0-b1a3-01aa75ed71a1/language-en).
     [Colditz et al. (2025)](https://op.europa.eu/en/publication-detail/-/publication/e86f56dd-15b5-11f0-b1a3-01aa75ed71a1/language-en) describe the accuracy assessment protocol and results for GFC 2020 version 2.
     [Bourgoin et al. 2025](https://essd.copernicus.org/preprints/essd-2025-351/) present the mapping methodology and accuracy and compare the map to other
@@ -109,6 +109,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         the EU Deforestation Regulation, Earth Syst. Sci. Data Discuss.
         [https://doi.org/10.5194/essd-2025-351](https://doi.org/10.5194/essd-2025-351),
         2025.
+      |||
+    },
+    {
+      citation: |||
+        Bourgoin, C., Verhegghen, A., Ameztoy, I., Beuchle, R., Carboni, S. et al.,
+        Maps of Global Forest Cover 2020 Version 3 and Global Forest Type 2020
+        Version 1 Supporting the EU Deforestation Regulation - Methodology,
+        Accuracy Assessment and Comparison, Publications Office of the European
+        Union, Luxembourg, 2026,
+        [https://data.europa.eu/doi/10.2760/9982436](https://data.europa.eu/doi/10.2760/9982436),
+        JRC146622.
       |||
     }
   ],

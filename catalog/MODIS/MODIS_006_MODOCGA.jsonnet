@@ -46,14 +46,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MODIS/MODOCGA.006',
     },
   ],
-  'gee:categories': ['satellite-imagery'],
+  'gee:categories': ['satellite-imagery', 'oceans'],
   keywords: [
     'daily',
     'global',
     'modis',
     'modocga',
     'nasa',
-    'ocean',
     'reflectance',
     'sr',
     'terra',
@@ -66,7 +65,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:provider_ids': [
     'C203669731-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2000-02-24T00:00:00Z', null),
+  extent: ee.extent_global('2000-02-24T00:00:00Z', '2023-02-17T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Terra',

@@ -12,10 +12,16 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'WeatherNext',
   description: |||
     WeatherNext is a growing suite of next-generation weather forecasting AI models developed by Google.
   |||,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://developers.google.com/weathernext',
+    contactDisplay: 'weathernext@google.com',
+    contactLink: 'mailto:weathernext@google.com'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
@@ -23,5 +29,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_59572747_4_0', base_url),
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_126478713_1_0', base_url),
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_weathernext_2_0_0', base_url),
+    ee.link.child_collection('projects_gcp-public-data-weathernext_assets_weathernext_2_0_0_mean', base_url),
   ],
 }

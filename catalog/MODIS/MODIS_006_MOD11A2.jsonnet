@@ -72,7 +72,7 @@ local license = spdx.proprietary;
   'gee:provider_ids': [
     'C194001212-LPDAAC_ECS',
   ],
-  extent: ee.extent_global('2000-02-18T00:00:00Z', null),
+  extent: ee.extent_global('2000-02-18T00:00:00Z', '2022-11-09T00:00:00Z'),
   summaries: template.summaries {
     platform: [
       'Terra',

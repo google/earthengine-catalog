@@ -1,6 +1,7 @@
 local id = 'EDF/MethaneSAT/MethaneAIR/L4area';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/methaneair_L4area_versions.libsonnet';
 local subdir = 'EDF';
-local version = 'v1';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -10,11 +11,10 @@ local methaneair = importstr 'methaneair.md';
 local methaneair_l4 = importstr 'methaneair_l4.md';
 local publications = importstr 'publications.md';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
-
-local basename = std.strReplace(id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Environmental Defense Fund - MethaneSAT', 'https://methanesat.org'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-112.56, 27.8, -73.45, 43.14,
                     '2021-07-30T00:00:00Z', '2023-10-13T00:00:00Z'),
@@ -140,7 +140,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:user_uploaded': true,
 
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf')
   ],

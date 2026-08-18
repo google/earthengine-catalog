@@ -64,7 +64,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('ECMWF / Copernicus Climate Change Service', 'https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('1979-01-01T00:00:00Z', null),
+  extent: ee.extent_global('1979-01-01T00:00:00Z', '2020-06-01T00:00:00Z'),
   summaries: {
     'gee:schema': [
       {

@@ -14,7 +14,7 @@ class ValidFeatureViewTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = feature_view.Check
+    self.check = feature_view.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_density_desc(self):
     self.assert_collection(
@@ -97,7 +97,7 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = feature_view.Check
+    self.check = feature_view.Check  # pyrefly: ignore[bad-assignment]
 
   def test_image_with_params(self):
     self.assert_collection(

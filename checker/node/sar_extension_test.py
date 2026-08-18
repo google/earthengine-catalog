@@ -15,7 +15,7 @@ class ValidSarExtensionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = sar_extension.Check
+    self.check = sar_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog({})
@@ -58,7 +58,7 @@ class ErrorSarExtensionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = sar_extension.Check
+    self.check = sar_extension.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog_with_extension(self):
     self.assert_catalog(

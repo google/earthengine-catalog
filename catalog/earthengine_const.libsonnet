@@ -52,6 +52,7 @@ local image_base_url = 'https://developers.google.com/earth-engine/datasets/imag
   ext_ver: self.ext_base + 'version/v1.0.0/schema.json',
 
   version_unknown: 'Unknown',
+  version_deprecated_suffix: ' (deprecated)',
 
   provider_type: {
     host: 'host',

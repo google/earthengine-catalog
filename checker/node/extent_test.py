@@ -70,7 +70,7 @@ class SpatialTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_spatial_only_has_bbox(self):
-    self.spatial['not a bbox'] = 'junk'
+    self.spatial['not a bbox'] = 'junk'  # pyrefly: ignore[bad-assignment]
     issues = list(check_spatial(self.node, self.extent))
     message = '"spatial" must only have one key: "bbox"'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -91,7 +91,7 @@ class SpatialTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_coord_is_list(self):
-    self.spatial[BBOX] = [NOT_A_LIST]
+    self.spatial[BBOX] = [NOT_A_LIST]  # pyrefly: ignore[bad-assignment]
     issues = list(check_spatial(self.node, self.extent))
     message = 'coord must be a list'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -105,7 +105,7 @@ class SpatialTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_coord_vals_are_number(self):
-    self.coord[2] = 'A'
+    self.coord[2] = 'A'  # pyrefly: ignore[unsupported-operation]
     issues = list(check_spatial(self.node, self.extent))
     message = 'coord must be a number.  Found <class \'str\'>'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -174,14 +174,14 @@ class TemporalTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_temporal_only_has_interval(self):
-    self.temporal['not temporal'] = 'junk'
+    self.temporal['not temporal'] = 'junk'  # pyrefly: ignore[unsupported-operation]
     issues = list(check_temporal(self.node, self.extent))
     message = '"temporal" must only have one key: "interval"'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
   def test_interval_is_list(self):
-    self.temporal[INTERVAL] = NOT_A_LIST
+    self.temporal[INTERVAL] = NOT_A_LIST  # pyrefly: ignore[unsupported-operation]
     issues = list(check_temporal(self.node, self.extent))
     message = '"interval" must be a list'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -213,7 +213,7 @@ class TemporalTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_start_not_str(self):
-    self.first_interval[0] = 222
+    self.first_interval[0] = 222  # pyrefly: ignore[unsupported-operation]
     issues = list(check_temporal(self.node, self.extent))
     message = 'start must be a string'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -234,7 +234,7 @@ class TemporalTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_end_not_str(self):
-    self.first_interval[1] = 333
+    self.first_interval[1] = 333  # pyrefly: ignore[unsupported-operation]
     issues = list(check_temporal(self.node, self.extent))
     message = 'end must be a string'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -266,7 +266,7 @@ class TemporalTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_table_must_have_end_date(self):
-    self.first_interval[1] = None
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
     self.node.gee_type = stac.GeeType.TABLE
     issues = list(check_temporal(self.node, self.extent))
     message = 'table must have an end date'
@@ -274,7 +274,7 @@ class TemporalTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_table_collection_must_have_end_date(self):
-    self.first_interval[1] = None
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
     self.node.gee_type = stac.GeeType.TABLE_COLLECTION
     issues = list(check_temporal(self.node, self.extent))
     message = 'table_collection must have an end date'
@@ -286,7 +286,7 @@ class ExtentTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = extent.Check
+    self.check = extent.Check  # pyrefly: ignore[bad-assignment]
 
     # Components used to build up inputs.
     spatial = {'bbox': [[-1.2, 7.8, 2.3, 8.9]]}
@@ -302,7 +302,7 @@ class ExtentTest(test_utils.NodeTest):
     self.assert_collection(self.stac_json)
 
   def test_valid_without_end_date(self):
-    self.stac_json[EXTENT][TEMPORAL][INTERVAL][0][1] = None
+    self.stac_json[EXTENT][TEMPORAL][INTERVAL][0][1] = None  # pyrefly: ignore[unsupported-operation]
     self.assert_collection(self.stac_json)
 
   def test_catalog_cannot_have_extent(self):

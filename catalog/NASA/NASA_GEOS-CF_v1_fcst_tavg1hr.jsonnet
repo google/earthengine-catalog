@@ -35,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'NASA / GMAO',
-      'https://gmao.gsfc.nasa.gov/weather_prediction/GEOS-CF/'
+      'https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/'
     ),
     ee.host_provider(self_ee_catalog_url),
   ],

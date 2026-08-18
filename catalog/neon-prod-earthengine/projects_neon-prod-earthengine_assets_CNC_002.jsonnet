@@ -23,7 +23,6 @@ local units = import 'units.libsonnet';
   id: id,
   title: 'NEON Canopy Nitrogen Content (CNC)',
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
     Modelled canopy nitrogen concentration calibrated with NEON plant foliar chemistry observations and
     predicted with L1 surface directional reflectance, derived from the [NEON Imaging Spectrometer (NIS)](

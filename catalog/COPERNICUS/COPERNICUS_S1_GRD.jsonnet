@@ -76,6 +76,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     This collection is computed on-the-fly. If you want to use the underlying
     collection with raw power values (which is updated faster), see
     COPERNICUS/S1_GRD_FLOAT.
+
+    For those interested in doing their own processing, the unprocessed S1 GRD
+    scenes, as downloaded from ESA, are available in
+    [gs://earth-engine-public-requester-pays/sentinel1/GRD](https://console.cloud.google.com/storage/browser/earth-engine-public-requester-pays/sentinel1/GRD),
+    along with corresponding orbit files (restituted and precise) in
+    [gs://earth-engine-public-requester-pays/sentinel1/AUX](https://console.cloud.google.com/storage/browser/earth-engine-public-requester-pays/sentinel1/AUX).
+    The unprocessed data is also indexed in BigQuery table
+    `earth-engine-public-data.geo_index.sentinel1_index`. Each row in the table
+    contains information about one S1 GRD product, including the product
+    identifier, datatake identifier, acquisition time, lat-lng bounds, and the
+    path to the product's data in
+    `gs://earth-engine-public-requester-pays/sentinel1/GRD`.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),

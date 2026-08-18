@@ -11,7 +11,7 @@ class LicenseFieldTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = license_field.Check
+    self.check = license_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid(self):
     self.assert_collection({LICENSE: list(license_field.KNOWN_LICENSES)[0]})

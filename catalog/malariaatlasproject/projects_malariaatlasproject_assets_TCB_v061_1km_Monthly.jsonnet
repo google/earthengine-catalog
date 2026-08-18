@@ -1,16 +1,17 @@
 local id = 'projects/malariaatlasproject/assets/TCB_v061/1km/Monthly';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/TCB_monthly_versions.libsonnet';
+
 local subdir = 'malariaatlasproject';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_nc_sa_4_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -18,9 +19,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
   title: 'TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness (Monthly 1km)',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This gap-filled Tasseled Cap Brightness (TCB) dataset was created by
@@ -32,7 +35,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     The gap-filled 8-daily ~1km outputs are then aggregated temporally to produce monthly and annual products.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'map',
@@ -40,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('The Malaria Atlas Project', 'https://www.malariaatlas.org'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2001-02-01T00:00:00Z' , null),
   summaries: {

@@ -5,12 +5,15 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/CFSR_versions.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,10 +24,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CFSR: Climate Forecast System Reanalysis',
-  version: 'V1',
+  title: 'CFSR: Climate Forecast System Reanalysis [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
+    Starting October 22, 2025, this dataset switched to using Celsius
+    instead of Kelvin units for temperature bands. Please use
+    [NOAA/CFSR_HARMONIZED](https://developers.google.com/earth-engine/datasets/catalog/NOAA_CFSR_HARMONIZED)
+    for consistent temperature units (Kelvin).
+
     The National Centers for Environmental Prediction (NCEP) Climate Forecast
     System Reanalysis (CFSR) was designed and executed as a global,
     high-resolution, coupled atmosphere-ocean-land surface-sea ice system to
@@ -49,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5065/D6513W89',
     },
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['climate'],
   keywords: [
     'climate',
@@ -72,7 +81,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider(
       'NOAA NWS National Centers for Environmental Prediction (NCEP)',
       'https://cfs.ncep.noaa.gov/cfsr/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2018-12-13T00:00:00Z', null),
   summaries: {

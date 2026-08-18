@@ -72,8 +72,6 @@ local gen_summaries(base_name, min_val, max_val, depths) = {
   license: license.id,
   keywords: [
     'copernicus',
-    'marine',
-    'ocean',
   ],
   extent: ee.extent_global('2022-01-01T00:00:00Z', null),
   interval: {

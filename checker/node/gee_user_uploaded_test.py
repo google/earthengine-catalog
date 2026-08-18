@@ -9,7 +9,7 @@ class GeeUserUploadedTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_user_uploaded.Check
+    self.check = gee_user_uploaded.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_catalog(self):
     self.assert_catalog({})

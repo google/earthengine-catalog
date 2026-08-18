@@ -9,7 +9,7 @@ class GeeTypeTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_unusual_terms_of_use.Check
+    self.check = gee_unusual_terms_of_use.Check  # pyrefly: ignore[bad-assignment]
 
   def test_catalog(self):
     self.assert_catalog({})

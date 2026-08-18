@@ -1,6 +1,6 @@
 local id = 'Oxford/MAP/friction_surface_2015_v1_0';
 local versions = import 'versions.libsonnet';
-local version_table = import 'templates/friction_surface_versions.libsonnet';
+local version_table = import '../malariaatlasproject/templates/friction_surface_versions.libsonnet';
 
 local subdir = 'Oxford';
 

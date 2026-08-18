@@ -56,7 +56,7 @@ class ValidVisualizationsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = visualizations.Check
+    self.check = visualizations.Check  # pyrefly: ignore[bad-assignment]
 
   def test_no_summaries(self):
     self.assert_collection({})
@@ -99,7 +99,7 @@ class ErrorsVisualizationsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = visualizations.Check
+    self.check = visualizations.Check  # pyrefly: ignore[bad-assignment]
 
   def test_missing_visualizations(self):
     self.assert_collection(

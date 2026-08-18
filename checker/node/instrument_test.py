@@ -9,7 +9,7 @@ class ValidInstrumentTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = instrument.Check
+    self.check = instrument.Check  # pyrefly: ignore[bad-assignment]
 
   def test_empty_catalog(self):
     self.assert_catalog({})
@@ -39,7 +39,7 @@ class ErrorInstrumentTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = instrument.Check
+    self.check = instrument.Check  # pyrefly: ignore[bad-assignment]
 
   def test_platform_not_list(self):
     self.assert_collection(

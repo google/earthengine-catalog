@@ -1,6 +1,7 @@
 bazel_dep(name = "rules_jsonnet", version = "0.7.2")
 bazel_dep(name = "bazel_skylib", version = "1.8.0")
 bazel_dep(name = "rules_python", version = "1.5.1")
+bazel_dep(name = "rules_go", version = "0.60.0")
 
 # Temporary workaround to deal with Bazel 9
 # TODO(simonf): remove when https://github.com/google/jsonnet/pull/1260 is pushed

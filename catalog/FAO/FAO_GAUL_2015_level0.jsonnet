@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'FAO UN',
-      'https://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
+      'https://data.apps.fao.org/catalog/iso/1122b98b-b208-4f45-956a-6e80ba8054a3'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-12-19T16:45:00Z', '2014-12-19T16:45:00Z'),

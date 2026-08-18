@@ -15,8 +15,14 @@ local self_url = base_url + base_filename;
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.catalog,
   id: id,
-  title: id,
+  title: 'Land & Carbon Lab',
   description: description,
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://landcarbonlab.org/',
+    contactDisplay: 'Land & Carbon Lab',
+    contactLink: 'https://landcarbonlab.org/contact/'
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
@@ -25,6 +31,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_2001_2022', base_url),
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_1_2001_2023', base_url),
     ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_2_2001_2024', base_url),
+    ee.link.child_collection('projects_landandcarbon_assets_wri_gdm_drivers_forest_loss_1km_v1_3_2001_2025', base_url),
   ]
 } 
 

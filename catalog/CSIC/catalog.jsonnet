@@ -21,5 +21,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('CSIC_SPEI_2_8', base_url),
     ee.link.child_collection('CSIC_SPEI_2_9', base_url),
     ee.link.child_collection('CSIC_SPEI_2_10', base_url),
+    ee.link.child_collection('CSIC_SPEI_2_11', base_url),
   ],
 }

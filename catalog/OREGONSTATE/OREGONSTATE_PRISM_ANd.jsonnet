@@ -1,9 +1,16 @@
 local prism = import 'prism.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/PRISM_ANd_versions.libsonnet';
+local subdir = 'OREGONSTATE';
 local ee_const = import 'earthengine_const.libsonnet';
 
+local id = 'OREGONSTATE/PRISM/ANd';
+local version_config = versions(subdir, version_table, id);
+
 prism {
-  id: 'OREGONSTATE/PRISM/ANd',
-  version: '81_91',
+  id: id,
+  version: version_config.version,
+  links+: version_config.version_links,
   title: 'PRISM Daily Spatial Climate Dataset ANd',
   description: prism.description_intro +
               |||

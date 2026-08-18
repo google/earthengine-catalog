@@ -12,7 +12,7 @@ class StacVersionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = stac_version.Check
+    self.check = stac_version.Check  # pyrefly: ignore[bad-assignment]
 
   def test_version(self):
     self.assert_collection({STAC_VERSION: CURRENT_STAC_VERSION})

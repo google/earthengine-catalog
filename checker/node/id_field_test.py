@@ -12,7 +12,7 @@ class IdFieldCatalogTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = id_field.Check
+    self.check = id_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_id(self):
     id_list = ['A', 'b', 'c_d', 'd-f', 'g' * 50, 'FIRMS', 'NASA']
@@ -49,13 +49,13 @@ class IdFieldCollectionTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = id_field.Check
+    self.check = id_field.Check  # pyrefly: ignore[bad-assignment]
 
   def test_valid_id(self):
     # TODO(schwehr): The top level of catalogs
     id_list = [
         'a/b', 'a/b/c', '0/1/2', 'A/B_C/V2', 'A/B-C', 'a/' + 'b' * 50,
-        '1/2/3/4/5/6/7', 'USGS/a', 'USGS/b/c', 'FIRMS']
+        '1/2/3/4/5/6/7/8', 'USGS/a', 'USGS/b/c', 'FIRMS']
     for dataset_id in id_list:
       self.assert_collection({ID: dataset_id}, dataset_id=dataset_id)
 
@@ -82,15 +82,15 @@ class IdFieldCollectionTest(test_utils.NodeTest):
     self.assert_collection({ID: dataset_id}, message, dataset_id=dataset_id)
 
   def test_too_deep(self):
-    dataset_id = '1/2/3/4/5/6/7/8'
-    message = 'id length greater than 7 for collection: 1/2/3/4/5/6/7/8: 8'
+    dataset_id = '1/2/3/4/5/6/7/8/9'
+    message = 'id length greater than 8 for collection: 1/2/3/4/5/6/7/8/9: 9'
     self.assert_collection({ID: dataset_id}, message, dataset_id=dataset_id)
 
   def test_multiple_issues(self):
-    dataset_id = '1/2/3/4/5/6/7/8/$'
+    dataset_id = '1/2/3/4/5/6/7/8/9/$'
     messages = [
         'id part not valid: "$"',
-        'id length greater than 7 for collection: 1/2/3/4/5/6/7/8/$: 9']
+        'id length greater than 8 for collection: 1/2/3/4/5/6/7/8/9/$: 10']
     self.assert_collection({ID: dataset_id}, messages, dataset_id=dataset_id)
 
 

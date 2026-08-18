@@ -1,6 +1,6 @@
 local id = 'Oxford/MAP/friction_surface_2019';
 local versions = import 'versions.libsonnet';
-local version_table = import 'templates/friction_surface_versions.libsonnet';
+local version_table = import '../malariaatlasproject/templates/friction_surface_versions.libsonnet';
 
 local subdir = 'Oxford';
 
@@ -35,11 +35,7 @@ local license = spdx.cc_by_4_0;
     Source dataset credits are as described in the accompanying paper.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links + [
-    ee.link.successor(
-      'projects/malariaatlasproject/assets/accessibility/friction_surface/2019_v5_1',
-      ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_accessibility_friction_surface_2019_v5_1.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['population'],
   keywords: [
     'accessibility',

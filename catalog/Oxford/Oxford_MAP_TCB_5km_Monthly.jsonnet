@@ -1,16 +1,17 @@
 local id = 'Oxford/MAP/TCB_5km_Monthly';
+local versions = import 'versions.libsonnet';
+local version_table = import '../malariaatlasproject/templates/TCB_monthly_versions.libsonnet';
+
 local subdir = 'Oxford';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_nc_sa_4_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -21,7 +22,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  version: ee_const.version_unknown,
+  version: version,
   'gee:status': 'deprecated',
   title: 'Oxford MAP TCB: Malaria Atlas Project Gap-Filled Tasseled Cap Brightness [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
@@ -37,11 +38,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Malaria Atlas Project](https://malariaatlas.org/).
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id)  + [
-  ee.link.successor(
-        'projects/malariaatlasproject/assets/TCB_v061/1km/Monthly',
-        ee_const.catalog_base + 'malariaatlasproject/projects_malariaatlasproject_assets_TCB_v061_1km_Monthly.json'),
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['vegetation-indices'],
   keywords: [
     'brightness',
@@ -52,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Oxford Malaria Atlas Project', 'https://www.bdi.ox.ac.uk/research/malaria-atlas-project'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2001-02-01T00:00:00Z', '2015-01-01T00:00:00Z'),
   summaries: {

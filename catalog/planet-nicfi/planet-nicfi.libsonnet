@@ -19,7 +19,7 @@ local license = spdx.proprietary;
     facilitating sustainable development, all of which must be Non-Commercial Use.
 
     To learn how to access the Basemaps, follow the
-    [sign up instructions here](https://developers.planet.com/docs/integrations/gee/nicfi/).
+    [sign up instructions here](https://docs.planet.com/platform/integrations/google-earth-engine/nicfi-gee/).
 
     The NICFI Satellite Data Program mosaics (also referred to as Planet-NICFI
     mosaics) contain both monthly and biannual collections generated every
@@ -118,7 +118,7 @@ local license = spdx.proprietary;
   'gee:terms_of_use': |||
     This data has usage, reproduction, and distribution restrictions in support
     of the NICFI Satellite Data Program purpose. The full licensing agreement is available
-    [here](https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf).
+    [here](https://planet.widen.net/s/zfdpf8qxwk/participantlicenseagreement_nicfi_2024).
 
     Copyright notice:
 

@@ -13,11 +13,12 @@
 # limitations under the License.
 
 import datetime
-from typing import Any
+from typing import Any, Iterable
 
 from absl import app
 
 import ee
+from google3.third_party.earthengine_catalog.pipelines import gedi_extract_l2a
 import gedi_lib
 
 
@@ -216,7 +217,11 @@ raster_bands = (
 ) + gedi_lib.l2b_variables_for_l2a
 
 
-int_bands = [p for p in raster_bands if p in INTEGER_PROPS]
+def filter_active_bands(
+    bands: Iterable[str], inactive_bands: set[str]
+) -> list[str]:
+  """Filters out inactive bands."""
+  return [b for b in bands if b not in inactive_bands]
 
 
 def export_wrapper(table_asset_ids: list[str], raster_asset_id: str,
@@ -234,35 +239,58 @@ def export_wrapper(table_asset_ids: list[str], raster_asset_id: str,
   Returns:
     an ExportParameters object containing arguments for an export job.
   """
+  if not table_asset_ids:
+    raise ValueError('No table asset ids specified')
+
+  inactive_bands = gedi_extract_l2a.get_inactive_variables(
+      gedi_lib.extract_version(table_asset_ids[0].split('/')[-1])
+  )
+  active_raster_bands = filter_active_bands(raster_bands, inactive_bands)
+  active_int_bands = filter_active_bands(INTEGER_PROPS, inactive_bands)
+
   return gedi_lib.create_export(
       table_asset_ids=table_asset_ids,
       raster_asset_id=raster_asset_id,
-      raster_bands=list(raster_bands),
-      int_bands=int_bands,
+      raster_bands=active_raster_bands,
+      int_bands=active_int_bands,
       grid_cell_feature=grid_cell_feature,
       grill_month=grill_month,
-      overwrite=overwrite)
+      overwrite=overwrite,
+  )
 
 
 def main(argv):
   start_id = 1  # First UTM grid cell id
   ee.Initialize()
-  raster_collection = 'LARSE/GEDI/GEDI02_A_002_MONTHLY'
+
+  with open(argv[1]) as fh:
+    table_ids = [x.strip() for x in fh if x.strip()]
+  if not table_ids:
+    print('No table IDs to rasterize.')
+    return
+
+  versions = set(gedi_lib.extract_version(t.split('/')[-1]) for t in table_ids)
+  if len(versions) != 1:
+    raise ValueError(f'Multiple versions detected in lookup file: {versions}')
+  raster_collection = f'LARSE/GEDI/GEDI02_A_{versions.pop()}_MONTHLY'
 
   for grid_cell_id in range(start_id,
                             start_id + gedi_lib.NUM_UTM_GRID_CELLS.value):
     grid_cell_feature = ee.Feature(
         ee.FeatureCollection(
-            'users/yang/GEETables/GEDI/GEDI_UTM_GRIDS_LandOnly').filterMetadata(
-                'grid_id', 'equals', grid_cell_id).first())
-    with open(argv[1]) as fh:
-      gedi_lib.rasterize_gedi_by_utm_zone(
-          [x.strip() for x in fh],
-          raster_collection + '/' + '%03d' % grid_cell_id,
-          grid_cell_feature,
-          argv[2],
-          export_wrapper,
-          overwrite=gedi_lib.ALLOW_GEDI_RASTERIZE_OVERWRITE.value)
+            'users/yang/GEETables/GEDI/GEDI_UTM_GRIDS_LandOnly'
+        )
+        .filterMetadata('grid_id', 'equals', grid_cell_id)
+        .first()
+    )
+    gedi_lib.rasterize_gedi_by_utm_zone(
+        table_ids,
+        raster_collection + '/' + '%03d' % grid_cell_id,
+        grid_cell_feature,
+        argv[2],
+        export_wrapper,
+        overwrite=gedi_lib.ALLOW_GEDI_RASTERIZE_OVERWRITE.value,
+    )
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ class GeeStatusUtilsTest(test_utils.NodeTest):
 
   def setUp(self):
     super().setUp()
-    self.check = gee_status.Check
+    self.check = gee_status.Check  # pyrefly: ignore[bad-assignment]
 
   def tearDown(self):
     super().tearDown()

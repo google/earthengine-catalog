@@ -1,17 +1,16 @@
 local id = 'OpenET/ENSEMBLE/CONUS/GRIDMET/MONTHLY/v2_0';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/OpenET_ENSEMBLE_versions.libsonnet';
 local subdir = 'OpenET';
-local version = '2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
-
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -22,8 +21,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'OpenET Ensemble Monthly Evapotranspiration v' + version,
+  title: 'OpenET Ensemble Monthly Evapotranspiration v' + version + ' [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The OpenET dataset includes satellite-based data on the total amount of
@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Additional information](https://openetdata.org/methodologies/)
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['water-vapor'],
   keywords: [
     'evapotranspiration',
@@ -54,7 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('OpenET, Inc.', 'https://openetdata.org/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-126.0, 25.0, -66.0, 50.0, '1999-10-01T00:00:00Z', null),
   summaries: {

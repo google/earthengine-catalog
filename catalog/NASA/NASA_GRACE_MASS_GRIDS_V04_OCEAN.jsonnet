@@ -72,7 +72,6 @@ local version = version_config.version;
     'jpl',
     'mass',
     'nasa',
-    'ocean',
     'tellus',
     'water',
   ],
@@ -137,6 +136,18 @@ local version = version_config.version;
         name: 'lwe_thickness_jpl',
         description: 'Equivalent liquid water thickness in centimeters calculated by JPL.',
         'gee:units': units.centimeter,
+      },
+      {
+        name: 'uncertainty_csr',
+        description: 'Error estimation by CSR.',
+      },
+      {
+        name: 'uncertainty_gfz',
+        description: 'Error estimation by GFZ.',
+      },
+      {
+        name: 'uncertainty_jpl',
+        description: 'Error estimation by JPL.',
       },
     ],
     'gee:visualizations': [

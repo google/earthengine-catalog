@@ -45,7 +45,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'cdr',
     'hourly',
     'noaa',
-    'ocean',
     'oisst',
     'osb',
     'sst',

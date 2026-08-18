@@ -106,22 +106,35 @@ def export_wrapper(table_asset_ids: list[str], raster_asset_id: str,
 def main(argv):
   start_id = 1  # First UTM grid cell id
   ee.Initialize()
-  raster_collection = 'LARSE/GEDI/GEDI02_B_002_MONTHLY'
+
+  with open(argv[1]) as fh:
+    table_ids = [x.strip() for x in fh if x.strip()]
+  if not table_ids:
+    print('No table IDs to rasterize.')
+    return
+
+  versions = set(gedi_lib.extract_version(t.split('/')[-1]) for t in table_ids)
+  if len(versions) != 1:
+    raise ValueError(f'Multiple versions detected in lookup file: {versions}')
+  raster_collection = f'LARSE/GEDI/GEDI02_B_{versions.pop()}_MONTHLY'
 
   for grid_cell_id in range(start_id,
                             start_id + gedi_lib.NUM_UTM_GRID_CELLS.value):
     grid_cell_feature = ee.Feature(
         ee.FeatureCollection(
-            'users/yang/GEETables/GEDI/GEDI_UTM_GRIDS_LandOnly').filterMetadata(
-                'grid_id', 'equals', grid_cell_id).first())
-    with open(argv[1]) as fh:
-      gedi_lib.rasterize_gedi_by_utm_zone(
-          [x.strip() for x in fh],
-          raster_collection + '/' + '%03d' % grid_cell_id,
-          grid_cell_feature,
-          argv[2],
-          export_wrapper,
-          overwrite=gedi_lib.ALLOW_GEDI_RASTERIZE_OVERWRITE.value)
+            'users/yang/GEETables/GEDI/GEDI_UTM_GRIDS_LandOnly'
+        )
+        .filterMetadata('grid_id', 'equals', grid_cell_id)
+        .first()
+    )
+    gedi_lib.rasterize_gedi_by_utm_zone(
+        table_ids,
+        raster_collection + '/' + '%03d' % grid_cell_id,
+        grid_cell_feature,
+        argv[2],
+        export_wrapper,
+        overwrite=gedi_lib.ALLOW_GEDI_RASTERIZE_OVERWRITE.value,
+    )
 
 
 if __name__ == '__main__':

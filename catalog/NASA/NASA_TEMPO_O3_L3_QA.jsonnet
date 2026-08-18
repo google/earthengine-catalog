@@ -1,4 +1,6 @@
 local id = 'NASA/TEMPO/O3_L3_QA';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/NASA_TEMPO_O3_QA_versions.libsonnet';
 local subdir = 'NASA';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -7,6 +9,9 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
 local license = spdx.proprietary;
+
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -21,8 +26,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'TEMPO gridded ozone total column V03 (PROVISIONAL)',
-  version: 'V03',
+  title: 'TEMPO gridded ozone total column ' + version + ' (PROVISIONAL) [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The TEMPO gridded ozone total column V03 (PROVISIONAL) is a Level 3 dataset
@@ -60,7 +66,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.003',
     },
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['satellite-imagery'],
   keywords: [
     'air_quality',
@@ -71,7 +77,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'tropomi',
   ],
   providers: [
-    ee.producer_provider('NASA ASDC', 'https://asdc.larc.nasa.gov/'),
+    ee.producer_provider('NASA ASDC', 'https://doi.org/10.5067/IS-40e/TEMPO/O3TOT_L3.003'),
     ee.host_provider(self_ee_catalog_url),
   ],
   'gee:provider_ids': [
