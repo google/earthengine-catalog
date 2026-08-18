@@ -2,7 +2,7 @@ local id = 'projects/mapbiomas-public/assets/ecuador/lulc/v1';
 
 local subdir = 'mapbiomas-public';
 
-local version = '3.0';
+local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -25,8 +25,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MapBiomas Land Use and Land Cover (LULC) dataset for Ecuador is produced annually
     by the MapBiomas Project using Landsat satellite imagery and machine learning
     classification techniques. The dataset provides consistent annual land cover maps
-    at 30-meter resolution covering the period from 1985 to 2024. This version
-    corresponds to Collection 3 of the MapBiomas Ecuador methodology.
+    at a 30-meter resolution.
 
     Ecuador's territory encompasses four distinct natural regions: the Amazon (Oriente),
     the Andes highlands (Sierra), the Pacific Coast (Costa), and the Galapagos Islands.
@@ -42,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     reference samples and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas website](https://ecuador.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],

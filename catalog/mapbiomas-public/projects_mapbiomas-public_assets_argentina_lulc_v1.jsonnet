@@ -2,7 +2,7 @@ local id = 'projects/mapbiomas-public/assets/argentina/lulc/v1';
 
 local subdir = 'mapbiomas-public';
 
-local version = '3.0';
+local version = '1.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -25,24 +25,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MapBiomas Land Use and Land Cover (LULC) dataset for Argentina is produced
     annually by the MapBiomas Project using Landsat satellite imagery and machine
     learning classification techniques. The dataset provides consistent annual land
-    cover maps at 30-meter resolution covering the period from 1985 to 2024. This
-    version is based on Collection 2 of the MapBiomas Argentina methodology.
+    cover maps at a 30-meter resolution.
 
-    Argentina's territory spans the Pampas grasslands, the Gran Chaco, the Andes
-    highlands, and the Patagonian steppe down to Tierra del Fuego. This geographic
-    diversity is reflected in the classification legend, which includes classes
-    specific to Argentine ecosystems such as closed and open shrublands, peatlands,
-    and ice and permanent snow.
+    Argentina's territory is home to a diverse range of ecosystems, from the
+    grasslands of the Pampas region and the forests of the Gran Chaco and the
+    Atlantic Forest to arid regions such as the Puna, the High Andes, and the
+    Patagonian steppe, among other ecoregions. This diversity is reflected in the
+    legend, which includes categories such as forests, shrublands, grasslands, urban
+    areas, and floodplains.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
     classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9
     (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
     composites. The classification process uses automated decision trees trained with
-    reference samples and validated by regional experts.
+    reference samples, collected and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas Argentina website](https://argentina.mapbiomas.org).
+
+    It is recommended to consult the classification legend to interpret the class
+    values.
+    Note that MapBiomas provides discrete classification maps, not probabilities.
   |||,
 
   'gee:categories': ['landuse-landcover'],

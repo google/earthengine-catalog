@@ -100,7 +100,7 @@ var visParams = {
 };
 
 // Amazonia colombiana - representative Amazon forest area in Colombia
-var region = ee.Geometry.Point([-72.5, 1.0]).buffer(20000).bounds();
+var region = ee.Geometry.Point([-74.0721, 4.7110]).buffer(20000).bounds();
 
 Map.centerObject(region, 9);
 Map.addLayer(collection, visParams, 'MapBiomas Colombia LULC ' + year);

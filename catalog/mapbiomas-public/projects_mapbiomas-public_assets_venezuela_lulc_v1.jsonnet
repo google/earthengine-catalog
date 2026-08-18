@@ -22,10 +22,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
-    MapBiomas Land Use and Land Cover (LULC) dataset for Venezuela is produced
+    MapBiomas Land Use and Land Cover (LULC) dataset for Venezuela is updated
     annually by the MapBiomas Project using Landsat satellite imagery and machine
     learning classification techniques. The dataset provides consistent annual land
-    cover maps at 30-meter resolution covering the period from 1985 to 2024.
+    cover maps at a 30-meter resolution.
 
     Venezuela's territory spans several major regions, including the Amazon
     rainforest, the Orinoco Llanos (plains), the Andean highlands, the Orinoco River
@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     reference samples and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas website](https://venezuela.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],

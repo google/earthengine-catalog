@@ -25,9 +25,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     MapBiomas Land Use and Land Cover (LULC) dataset for Uruguay is produced
     annually by the MapBiomas Project using Landsat satellite imagery and machine
     learning classification techniques. The dataset provides consistent annual land
-    cover maps at 30-meter resolution covering the period from 1985 to 2024.
+    cover maps at a 30-meter resolution.
 
-    Uruguay's territory lies almost entirely within the Pampa biome, dominated by
+    Uruguay's territory lies completely within the Pampa biome, dominated by
     natural grasslands and extensive livestock and agricultural land uses. This is
     reflected in a simpler classification legend than other MapBiomas countries,
     which includes specific classes for forest plantations, such as pinus and
@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     reference samples and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas website](https://uruguay.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],
