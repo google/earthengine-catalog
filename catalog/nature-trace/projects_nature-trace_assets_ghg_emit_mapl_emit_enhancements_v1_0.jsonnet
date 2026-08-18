@@ -27,18 +27,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Methane point-source emissions are a major driver of near-term climate forcing. Traditional space-based identification methods often rely on manual analyst review or matched-filter techniques that can miss smaller plumes. MAPL-EMIT addresses this using a deep learning vision transformer framework that simultaneously analyzes the full radiance spectrum and the spatial context of neighboring pixels. Validated on millions of synthetic plumes and real-world benchmarks, the model achieves significantly lower detection limits, capturing weaker plumes and more plausible emissions than human analysts.
 
-    This dataset provides model-generated granule-level methane enhancements (in ppm-m) along with plume probability scores for each pixel. If you are interested in plume level data, please see [MAPL-EMIT Plumes](https://developers.google.com/earth-engine/datasets/catalog/projects_nature-trace_assets_ghg_emit_mapl_emit_plumes_v1_0)
+    This dataset provides model-generated granule-level methane enhancements (in ppm-m) along with plume probability scores for each pixel. You can also explore and visualize the enhancement data interactively through the [MAPL-EMIT EE App](https://nature-trace.projects.earthengine.app/view/mapl-emit). If you are interested in plume level data, please see [MAPL-EMIT Plumes](https://developers.google.com/earth-engine/datasets/catalog/projects_nature-trace_assets_ghg_emit_mapl_emit_plumes_v1_0).
 
     The data is provided on a per-pixel basis:
+
     * **Enhancements:** The estimated column-integrated methane enhancement (ppm-m).
     * **Plume Probability:** A score (0 to 1) representing the model's confidence that the pixel contains a methane plume.
 
     **Example Uses:**
+
     * **Enhancement based flux inversion:** Using the granule level enhancements paired with winds and other relevant sources to produce flux inversion estimates. 
     * **Algorithm Development & Cross-Validation:** Utilizing the raw pixel-level enhancements and probabilities to develop custom plume identification algorithms, or comparing against other retrieval techniques.
     * **Detailed Morphological Studies:** Analyzing the continuous spread and diffusion of a plume without relying on pre-computed discrete bounding polygons.
 
     **Limitations:**
+
     * **Enhancement noise:** The enhancements can be noisy, especially when we are looking at very low enhancements which can either be missed out by the model entirely or incorrectly estimated. We observe that the SNR (signal-to-noise ratio) for MAPL-EMIT enhancements is much higher than Matched Filter or other approaches, however, noise still exists and should be handled accordingly.
     * **Instrument coverage:** Data coverage is constrained by EMIT's orbital sampling and field-of-view; observations are only available for locations and times when the instrument collected measurements from the International Space Station.
     * **Environmental Factors:** Model performance degrades in scenarios with heavy cloud cover, shadows, or low-albedo (dark) surfaces, which reduce the quality of the hyperspectral radiance signal.
@@ -83,8 +86,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         display_name: 'Methane Enhancement',
         lookat: {
-          lon: -100.0,
-          lat: 44.5,
+          lon: 54.16,
+          lat: 38.4604,
           zoom: 8,
         },
         image_visualization: {
