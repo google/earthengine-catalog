@@ -11,7 +11,7 @@ var collection = ee.ImageCollection(assetPath)
 
 var visParams = {
   min: 0,
-  max: 72,
+  max: 92,
   palette: [
     '000000',  // [0] --
     '1f8d49',  // [1] Forest formation
@@ -23,29 +23,29 @@ var visParams = {
     '000000',  // [7] --
     '000000',  // [8] --
     '7a5900',  // [9] Planted forest
-    'd6bc74',  // [10] Non-forest formation
-    '519799',  // [11] Swamp or flooded grassland
-    'd6bc74',  // [12] Grassland / Herbaceous
-    'd89f5c',  // [13] Other non-forest formations
+    'd6bc74',  // [10] Natural non-forest formation
+    '519799',  // [11] Flooded herbaceous formation
+    'd6bc74',  // [12] Herbaceous formation
+    'd89f5c',  // [13] Shrub and other non-forest formations
     'ffefc3',  // [14] Agricultural area
-    'edde8e',  // [15] Pasture
+    'edde8e',  // [15] Pasture (beta)
     '000000',  // [16] --
     '000000',  // [17] --
-    'e974ed',  // [18] Agriculture
+    '000000',  // [18] --
     '000000',  // [19] --
     '000000',  // [20] --
     'ffefc3',  // [21] Mosaic of agriculture and pasture
     'd4271e',  // [22] Non-vegetated area
     'ffa07a',  // [23] Beach
     'd4271e',  // [24] Urban infrastructure
-    'db4d4f',  // [25] Other non vegetated area
+    'db4d4f',  // [25] Other anthropogenic non-vegetated area
     '2532e4',  // [26] Water body
-    'bcbcbc',  // [27] Not observed
+    'ffffff',  // [27] Not observed
     '000000',  // [28] --
-    'ffaa5f',  // [29] Rocky outcrop
+    '000000',  // [29] --
     '9c0027',  // [30] Mining
     '091077',  // [31] Aquaculture
-    'fc8114',  // [32] Coastal salt flat
+    '000000',  // [32] --
     '2532e4',  // [33] River, lake or ocean
     '93dfe6',  // [34] Glacier
     '9065d0',  // [35] Oil palm
@@ -53,7 +53,7 @@ var visParams = {
     '000000',  // [37] --
     '000000',  // [38] --
     '000000',  // [39] --
-    'c71585',  // [40] Rice
+    'c71585',  // [40] Rice (beta)
     '000000',  // [41] --
     '000000',  // [42] --
     '000000',  // [43] --
@@ -64,8 +64,8 @@ var visParams = {
     '000000',  // [48] --
     '000000',  // [49] --
     '000000',  // [50] --
-    '000000',  // [51] --
-    '000000',  // [52] --
+    '5faf92',  // [51] Lowland flooded grassland
+    'f0b4a8',  // [52] Coastal salt flat
     '000000',  // [53] --
     '000000',  // [54] --
     '000000',  // [55] --
@@ -79,13 +79,33 @@ var visParams = {
     '000000',  // [63] --
     '000000',  // [64] --
     '000000',  // [65] --
-    'a89358',  // [66] Scrubland
+    'a89358',  // [66] Shrubland and other shrub vegetation
     '000000',  // [67] --
-    'e97a7a',  // [68] Other natural non vegetated area
+    'e97a7a',  // [68] Other natural non-vegetated area
     '000000',  // [69] --
-    'be9e00',  // [70] Fog oasis
+    'be9e00',  // [70] Fog oasis (beta)
     '000000',  // [71] --
-    '910046',  // [72] Other crops
+    '000000',  // [72] --
+    '000000',  // [73] --
+    '000000',  // [74] --
+    '000000',  // [75] --
+    '000000',  // [76] --
+    '000000',  // [77] --
+    '000000',  // [78] --
+    '000000',  // [79] --
+    '000000',  // [80] --
+    '000000',  // [81] --
+    '26abab',  // [82] High andean flooded grassland
+    '000000',  // [83] --
+    '000000',  // [84] --
+    '000000',  // [85] --
+    '000000',  // [86] --
+    '000000',  // [87] --
+    '000000',  // [88] --
+    '000000',  // [89] --
+    '000000',  // [90] --
+    '000000',  // [91] --
+    'd98a45',  // [92] Rocky surface
   ],
 };
 
