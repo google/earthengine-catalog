@@ -42,5 +42,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_mapbiomas-public_assets_chile_lulc_v1', base_url),
     ee.link.child_collection('projects_mapbiomas-public_assets_colombia_lulc_v1', base_url),
     ee.link.child_collection('projects_mapbiomas-public_assets_argentina_lulc_v1', base_url),
+    ee.link.child_collection('projects_mapbiomas-public_assets_mexico_lulc_v1', base_url),
+    ee.link.child_collection('projects_mapbiomas-public_assets_suriname_lulc_v1', base_url),
+    ee.link.child_collection('projects_mapbiomas-public_assets_pampa_lulc_v1', base_url),
   ],
 }
