@@ -15,4 +15,4 @@ MODULE.bazel.lock
 
 # Local working docs
 docs/*.docx
-docs/mapbiomas_platform_api.md
+docs/mapbiomas_*.md
