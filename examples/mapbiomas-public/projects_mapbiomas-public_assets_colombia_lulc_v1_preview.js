@@ -25,7 +25,7 @@ var visParams = {
     '7a5900',  // [9] Forest plantation
     'd6bc74',  // [10] Natural non forest formation
     '519799',  // [11] Wetland
-    'd6bc74',  // [12] Grasslands/herbaceous
+    'd6bc74',  // [12] Grasslands / herbaceous
     'd89f5c',  // [13] Other non forest formation
     'ffefc3',  // [14] Agricultural and livestock area
     '000000',  // [15] --

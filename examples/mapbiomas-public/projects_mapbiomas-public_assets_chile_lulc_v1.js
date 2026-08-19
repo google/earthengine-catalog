@@ -36,13 +36,13 @@ var visParams = {
     '000000',  // [20] --
     '000000',  // [21] --
     'd4271e',  // [22] Non-vegetated area
-    'ffa07a',  // [23] Beach, dune and sand spot
+    'ffa07a',  // [23] Beach, Dune and Sand Spot
     'd4271e',  // [24] Infrastructure
     'db4d4f',  // [25] Other non-vegetated area
-    '2532e4',  // [26] Water bodies
+    '2532e4',  // [26] Water Bodies
     'ffffff',  // [27] Not observed
     '000000',  // [28] --
-    'ffaa5f',  // [29] Rocky outcrop
+    'ffaa5f',  // [29] Rocky Outcrop
     '000000',  // [30] --
     '000000',  // [31] --
     '000000',  // [32] --
@@ -72,15 +72,15 @@ var visParams = {
     '000000',  // [56] --
     '000000',  // [57] --
     '000000',  // [58] --
-    '1f8d49',  // [59] Primary forest
-    '5cb85d',  // [60] Secondary forest
-    'f5d5d5',  // [61] Salt flat
+    '1f8d49',  // [59] Primary Forest
+    '5cb85d',  // [60] Secondary Forest
+    'f5d5d5',  // [61] Salt Flat
     '000000',  // [62] --
     'c7e0ab',  // [63] Steppe
     '000000',  // [64] --
     '000000',  // [65] --
     'a89358',  // [66] Shrubland
-    'c8ffb4',  // [67] Dwarf forest
+    'c8ffb4',  // [67] Dwarf Forest
   ],
 };
 

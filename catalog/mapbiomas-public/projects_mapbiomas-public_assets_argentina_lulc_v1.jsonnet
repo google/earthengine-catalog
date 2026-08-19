@@ -104,23 +104,28 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           corresponding to MapBiomas Argentina legend classes.
         |||,
         'gee:classes': [
+          {value: 1,  color: '1f8d49', description: 'Forests'},
           {value: 3,  color: '1f8d49', description: 'Closed forests'},
           {value: 4,  color: '7dc975', description: 'Open forests'},
           {value: 6,  color: '026975', description: 'Flooded forests'},
           {value: 9,  color: '7a5900', description: 'Forest plantations'},
-          {value: 11, color: '519799', description: 'Flooded grasslands'},
-          {value: 12, color: 'd6bc74', description: 'Grasslands'},
+          {value: 10, color: 'd6bc74', description: 'Natural herbaceous and shrub vegetation'},
+          {value: 11, color: '519799', description: 'Flooded grassland'},
+          {value: 12, color: 'd6bc74', description: 'Grassland'},
+          {value: 14, color: 'ffefc3', description: 'Agricultural and livestock area'},
           {value: 15, color: 'edde8e', description: 'Pastures'},
           {value: 18, color: 'e974ed', description: 'Agriculture'},
           {value: 19, color: 'c27ba0', description: 'Temporary crops'},
           {value: 21, color: 'ffefc3', description: 'Agriculture and pasture mosaic'},
+          {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
           {value: 24, color: 'd4271e', description: 'Urban areas'},
           {value: 25, color: 'db4d4f', description: 'Other non-vegetated areas'},
+          {value: 26, color: '2532e4', description: 'Water bodies'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
           {value: 33, color: '2532e4', description: 'Rivers, lakes or ocean'},
           {value: 34, color: '93dfe6', description: 'Ice and permanent snow'},
           {value: 36, color: 'd082de', description: 'Perennial crops'},
-          {value: 63, color: 'c7e0ab', description: 'Shrubs and herbaceous mosaic'},
+          {value: 63, color: 'c7e0ab', description: 'Shrub and herbaceous mosaics'},
           {value: 66, color: 'a89358', description: 'Closed shrublands'},
           {value: 73, color: '6fc179', description: 'Peatlands'},
           {value: 77, color: '86b074', description: 'Open shrublands'},
@@ -139,7 +144,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [77],
             palette: [
               '000000',  // [0] --
-              '000000',  // [1] --
+              '1f8d49',  // [1] Forests
               '000000',  // [2] --
               '1f8d49',  // [3] Closed forests
               '7dc975',  // [4] Open forests
@@ -148,11 +153,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [7] --
               '000000',  // [8] --
               '7a5900',  // [9] Forest plantations
-              '000000',  // [10] --
-              '519799',  // [11] Flooded grasslands
-              'd6bc74',  // [12] Grasslands
+              'd6bc74',  // [10] Natural herbaceous and shrub vegetation
+              '519799',  // [11] Flooded grassland
+              'd6bc74',  // [12] Grassland
               '000000',  // [13] --
-              '000000',  // [14] --
+              'ffefc3',  // [14] Agricultural and livestock area
               'edde8e',  // [15] Pastures
               '000000',  // [16] --
               '000000',  // [17] --
@@ -160,11 +165,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               'c27ba0',  // [19] Temporary crops
               '000000',  // [20] --
               'ffefc3',  // [21] Agriculture and pasture mosaic
-              '000000',  // [22] --
+              'd4271e',  // [22] Non-vegetated area
               '000000',  // [23] --
               'd4271e',  // [24] Urban areas
               'db4d4f',  // [25] Other non-vegetated areas
-              '000000',  // [26] --
+              '2532e4',  // [26] Water bodies
               'ffffff',  // [27] Not observed
               '000000',  // [28] --
               '000000',  // [29] --
@@ -201,7 +206,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [60] --
               '000000',  // [61] --
               '000000',  // [62] --
-              'c7e0ab',  // [63] Shrubs and herbaceous mosaic
+              'c7e0ab',  // [63] Shrub and herbaceous mosaics
               '000000',  // [64] --
               '000000',  // [65] --
               'a89358',  // [66] Closed shrublands

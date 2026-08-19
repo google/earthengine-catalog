@@ -14,7 +14,7 @@ var visParams = {
   max: 77,
   palette: [
     '000000',  // [0] --
-    '000000',  // [1] --
+    '1f8d49',  // [1] Forests
     '000000',  // [2] --
     '1f8d49',  // [3] Closed forests
     '7dc975',  // [4] Open forests
@@ -23,11 +23,11 @@ var visParams = {
     '000000',  // [7] --
     '000000',  // [8] --
     '7a5900',  // [9] Forest plantations
-    '000000',  // [10] --
-    '519799',  // [11] Flooded grasslands
-    'd6bc74',  // [12] Grasslands
+    'd6bc74',  // [10] Natural herbaceous and shrub vegetation
+    '519799',  // [11] Flooded grassland
+    'd6bc74',  // [12] Grassland
     '000000',  // [13] --
-    '000000',  // [14] --
+    'ffefc3',  // [14] Agricultural and livestock area
     'edde8e',  // [15] Pastures
     '000000',  // [16] --
     '000000',  // [17] --
@@ -35,11 +35,11 @@ var visParams = {
     'c27ba0',  // [19] Temporary crops
     '000000',  // [20] --
     'ffefc3',  // [21] Agriculture and pasture mosaic
-    '000000',  // [22] --
+    'd4271e',  // [22] Non-vegetated area
     '000000',  // [23] --
     'd4271e',  // [24] Urban areas
     'db4d4f',  // [25] Other non-vegetated areas
-    '000000',  // [26] --
+    '2532e4',  // [26] Water bodies
     'ffffff',  // [27] Not observed
     '000000',  // [28] --
     '000000',  // [29] --
@@ -76,7 +76,7 @@ var visParams = {
     '000000',  // [60] --
     '000000',  // [61] --
     '000000',  // [62] --
-    'c7e0ab',  // [63] Shrubs and herbaceous mosaic
+    'c7e0ab',  // [63] Shrub and herbaceous mosaics
     '000000',  // [64] --
     '000000',  // [65] --
     'a89358',  // [66] Closed shrublands

@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -34.70,
     5.45,
     '1985-01-01T00:00:00Z',
-    '2024-12-31T00:00:00Z'
+    '2025-12-31T00:00:00Z'
   ),
 
   summaries: {
@@ -98,29 +98,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           { value: 3,  color: '1f8d49', description: 'Forest Formation' },
           { value: 4,  color: '7dc975', description: 'Savanna Formation' },
           { value: 5,  color: '04381d', description: 'Mangrove' },
-          { value: 6,  color: '007785', description: 'Floodable Forest' },
-          { value: 9,  color: '7a5900', description: 'Forest Plantation' },
+          { value: 6,  color: '007785', description: 'Flooded Forest' },
+          { value: 7,  color: '228c70', description: 'Flooded Savanna (beta)' },
+          { value: 9,  color: '7a5900', description: 'Silviculture' },
           { value: 10, color: 'd6bc74', description: 'Herbaceous and Shrubby Vegetation' },
-          { value: 11, color: '519799', description: 'Wetland' },
-          { value: 12, color: 'd6bc74', description: 'Grassland' },
-          { value: 14, color: 'ffefc3', description: 'Farming' },
+          { value: 11, color: '519799', description: 'Flooded Grassland and Wetland' },
+          { value: 12, color: 'd6bc74', description: 'Grassland Formation' },
+          { value: 14, color: 'ffefc3', description: 'Agriculture and Livestock' },
           { value: 15, color: 'edde8e', description: 'Pasture' },
           { value: 18, color: 'e974ed', description: 'Agriculture' },
           { value: 19, color: 'c27ba0', description: 'Temporary Crop' },
-          { value: 20, color: 'db7093', description: 'Sugar cane' },
+          { value: 20, color: 'db7093', description: 'Sugarcane' },
           { value: 21, color: 'ffefc3', description: 'Mosaic of Uses' },
-          { value: 22, color: 'd4271e', description: 'Non vegetated area' },
-          { value: 23, color: 'ffa07a', description: 'Beach, Dune and Sand Spot' },
+          { value: 22, color: 'd4271e', description: 'Non-vegetated Area' },
+          { value: 23, color: 'ffa07a', description: 'Beach, Dune, and Sandbank' },
           { value: 24, color: 'd4271e', description: 'Urban Area' },
-          { value: 25, color: 'db4d4f', description: 'Other non Vegetated Areas' },
-          { value: 26, color: '2532e4', description: 'Water' },
-          { value: 27, color: 'ffffff', description: 'Not Observed' }
-          { value: 29, color: 'ffaa5f', description: 'Rocky Outcrop' },
+          { value: 25, color: 'db4d4f', description: 'Other Non-Vegetated Areas' },
+          { value: 26, color: '2532e4', description: 'Water Body' },
+          { value: 29, color: 'ad5100', description: 'Rocky Outcrop' },
           { value: 30, color: '9c0027', description: 'Mining' },
           { value: 31, color: '091077', description: 'Aquaculture' },
-          { value: 32, color: 'fc8114', description: 'Hypersaline Tidal Flat' },
-          { value: 33, color: '2532e4', description: 'River, Lake and Ocean' },
-          { value: 35, color: '9065d0', description: 'Palm Oil' },
+          { value: 32, color: 'fc8114', description: 'Hypersaline Flat' },
+          { value: 33, color: '2532e4', description: 'River, Lake, and Ocean' },
+          { value: 35, color: '9065d0', description: 'Oil Palm' },
           { value: 36, color: 'd082de', description: 'Perennial Crop' },
           { value: 39, color: 'f5b3c8', description: 'Soybean' },
           { value: 40, color: 'c71585', description: 'Rice' },
@@ -128,10 +128,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           { value: 46, color: 'd68fe2', description: 'Coffee' },
           { value: 47, color: '9932cc', description: 'Citrus' },
           { value: 48, color: 'e6ccff', description: 'Other Perennial Crops' },
-          { value: 49, color: '02d659', description: 'Wooded Sandbank Vegetation' },
-          { value: 50, color: 'ad5100', description: 'Herbaceous Sandbank Vegetation' },
+          { value: 49, color: '02d659', description: 'Arboreal Restinga' },
+          { value: 50, color: 'ffaa5f', description: 'Herbaceous or Shrubby Restinga' },
           { value: 62, color: 'ff69b4', description: 'Cotton (beta)' },
-          { value: 75, color: 'c12100', description: 'Photovoltaic Power Plant (beta)' },
+          { value: 75, color: '757272', description: 'Photovoltaic Plant' },
+          { value: 77, color: '86b074', description: 'Herbaceous-Shrub Formation' },
+          { value: 84, color: '81dbbf', description: 'Salt Marsh (beta)' },
+          { value: 91, color: '403d3e', description: 'Wind farm (beta)' },
         ]
       },
     ],
@@ -148,84 +151,100 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [75],
+            max: [91],
             palette: [
-              'ffffff',  // [0] Not Observed
-              '32a65e',  // [1] --
-              '32a65e',  // [2] --
+              '000000',  // [0] --
+              '1f8d49',  // [1] Forest
+              '000000',  // [2] --
               '1f8d49',  // [3] Forest Formation
               '7dc975',  // [4] Savanna Formation
               '04381d',  // [5] Mangrove
-              '026975',  // [6] Floodable Forest
-              '000000',  // [7] --
+              '007785',  // [6] Flooded Forest
+              '228c70',  // [7] Flooded Savanna (beta)
               '000000',  // [8] --
-              '7a6c00',  // [9] Forest Plantation
-              'ad975a',  // [10] --
-              '519799',  // [11] Wetland
-              'd6bc74',  // [12] Grassland
-              'd89f5c',  // [13] Other Non Forest Formations
-              'FFFFB2',  // [14] --
+              '7a5900',  // [9] Silviculture
+              'd6bc74',  // [10] Herbaceous and Shrubby Vegetation
+              '519799',  // [11] Flooded Grassland and Wetland
+              'd6bc74',  // [12] Grassland Formation
+              '000000',  // [13] --
+              'ffefc3',  // [14] Agriculture and Livestock
               'edde8e',  // [15] Pasture
               '000000',  // [16] --
               '000000',  // [17] --
-              'f5b3c8',  // [18] Agriculture
-              'C27BA0',  // [19] --
-              'db7093',  // [20] Sugar Cane
+              'e974ed',  // [18] Agriculture
+              'c27ba0',  // [19] Temporary Crop
+              'db7093',  // [20] Sugarcane
               'ffefc3',  // [21] Mosaic of Uses
-              'db4d4f',  // [22] Non vegetated area
-              'ffa07a',  // [23] Beach, Dune and Sand Spot
+              'd4271e',  // [22] Non-vegetated Area
+              'ffa07a',  // [23] Beach, Dune, and Sandbank
               'd4271e',  // [24] Urban Area
-              'db4d4f',  // [25] Other Non Vegetated Areas
-              '0000FF',  // [26] --
+              'db4d4f',  // [25] Other Non-Vegetated Areas
+              '2532e4',  // [26] Water Body
               '000000',  // [27] --
               '000000',  // [28] --
-              'ffaa5f',  // [29] Rocky Outcrop
+              'ad5100',  // [29] Rocky Outcrop
               '9c0027',  // [30] Mining
               '091077',  // [31] Aquaculture
-              'fc8114',  // [32] Hypersaline Tidal Flat
-              '2532e4',  // [33] Rivers, Lakes and Ocean
-              '93dfe6',  // [34] Glacier
-              '9065d0',  // [35] --
-              'd082de',  // [36] --
+              'fc8114',  // [32] Hypersaline Flat
+              '2532e4',  // [33] River, Lake, and Ocean
+              '000000',  // [34] --
+              '9065d0',  // [35] Oil Palm
+              'd082de',  // [36] Perennial Crop
               '000000',  // [37] --
               '000000',  // [38] --
               'f5b3c8',  // [39] Soybean
               'c71585',  // [40] Rice
               'f54ca9',  // [41] Other Temporary Crops
-              'cca0d4',  // [42] --
-              'dbd26b',  // [43] --
-              '807a40',  // [44] --
-              'e04cfa',  // [45] --
+              '000000',  // [42] --
+              '000000',  // [43] --
+              '000000',  // [44] --
+              '000000',  // [45] --
               'd68fe2',  // [46] Coffee
               '9932cc',  // [47] Citrus
               'e6ccff',  // [48] Other Perennial Crops
-              '02d659',  // [49] Wooded Sandbank Vegetation
-              'ad5100',  // [50] Herbaceous Sandbank Vegetation
+              '02d659',  // [49] Arboreal Restinga
+              'ffaa5f',  // [50] Herbaceous or Shrubby Restinga
               '000000',  // [51] --
               '000000',  // [52] --
               '000000',  // [53] --
               '000000',  // [54] --
               '000000',  // [55] --
               '000000',  // [56] --
-              'CC66FF',  // [57] --
-              'FF6666',  // [58] --
-              '006400',  // [59] --
-              '8d9e8b',  // [60] --
-              'f5d5d5',  // [61] Salt Flats
-              'ff69b4',  // [62] Cotton
-              'ebf8b5',  // [63] --
+              '000000',  // [57] --
+              '000000',  // [58] --
+              '000000',  // [59] --
+              '000000',  // [60] --
+              '000000',  // [61] --
+              'ff69b4',  // [62] Cotton (beta)
+              '000000',  // [63] --
               '000000',  // [64] --
               '000000',  // [65] --
-              '91ff36',  // [66] --
-              '7dc975',  // [67] --
-              'e97a7a',  // [68] --
-              '0fffe3',  // [69] Coral Reefs
+              '000000',  // [66] --
+              '000000',  // [67] --
+              '000000',  // [68] --
+              '000000',  // [69] --
               '000000',  // [70] --
               '000000',  // [71] --
               '000000',  // [72] --
               '000000',  // [73] --
               '000000',  // [74] --
-              'c12100',  // [75] Photovoltaic Power Plant
+              '757272',  // [75] Photovoltaic Plant
+              '000000',  // [76] --
+              '86b074',  // [77] Herbaceous-Shrub Formation
+              '000000',  // [78] --
+              '000000',  // [79] --
+              '000000',  // [80] --
+              '000000',  // [81] --
+              '000000',  // [82] --
+              '000000',  // [83] --
+              '81dbbf',  // [84] Salt Marsh (beta)
+              '000000',  // [85] --
+              '000000',  // [86] --
+              '000000',  // [87] --
+              '000000',  // [88] --
+              '000000',  // [89] --
+              '000000',  // [90] --
+              '403d3e',  // [91] Wind farm (beta)
             ],
           },
         },

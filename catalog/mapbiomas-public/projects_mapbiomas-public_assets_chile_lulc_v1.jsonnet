@@ -109,20 +109,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 15, color: 'edde8e', description: 'Pasture'},
           {value: 18, color: 'e974ed', description: 'Agriculture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
-          {value: 23, color: 'ffa07a', description: 'Beach, dune and sand spot'},
+          {value: 23, color: 'ffa07a', description: 'Beach, Dune and Sand Spot'},
           {value: 24, color: 'd4271e', description: 'Infrastructure'},
           {value: 25, color: 'db4d4f', description: 'Other non-vegetated area'},
-          {value: 26, color: '2532e4', description: 'Water bodies'},
+          {value: 26, color: '2532e4', description: 'Water Bodies'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
-          {value: 29, color: 'ffaa5f', description: 'Rocky outcrop'},
+          {value: 29, color: 'ffaa5f', description: 'Rocky Outcrop'},
           {value: 33, color: '2532e4', description: 'River, lake or ocean'},
           {value: 34, color: '93dfe6', description: 'Ice and snow'},
-          {value: 59, color: '1f8d49', description: 'Primary forest'},
-          {value: 60, color: '5cb85d', description: 'Secondary forest'},
-          {value: 61, color: 'f5d5d5', description: 'Salt flat'},
+          {value: 59, color: '1f8d49', description: 'Primary Forest'},
+          {value: 60, color: '5cb85d', description: 'Secondary Forest'},
+          {value: 61, color: 'f5d5d5', description: 'Salt Flat'},
           {value: 63, color: 'c7e0ab', description: 'Steppe'},
           {value: 66, color: 'a89358', description: 'Shrubland'},
-          {value: 67, color: 'c8ffb4', description: 'Dwarf forest'},
+          {value: 67, color: 'c8ffb4', description: 'Dwarf Forest'},
         ],
       },
     ],
@@ -160,13 +160,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [20] --
               '000000',  // [21] --
               'd4271e',  // [22] Non-vegetated area
-              'ffa07a',  // [23] Beach, dune and sand spot
+              'ffa07a',  // [23] Beach, Dune and Sand Spot
               'd4271e',  // [24] Infrastructure
               'db4d4f',  // [25] Other non-vegetated area
-              '2532e4',  // [26] Water bodies
+              '2532e4',  // [26] Water Bodies
               'ffffff',  // [27] Not observed
               '000000',  // [28] --
-              'ffaa5f',  // [29] Rocky outcrop
+              'ffaa5f',  // [29] Rocky Outcrop
               '000000',  // [30] --
               '000000',  // [31] --
               '000000',  // [32] --
@@ -196,15 +196,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [56] --
               '000000',  // [57] --
               '000000',  // [58] --
-              '1f8d49',  // [59] Primary forest
-              '5cb85d',  // [60] Secondary forest
-              'f5d5d5',  // [61] Salt flat
+              '1f8d49',  // [59] Primary Forest
+              '5cb85d',  // [60] Secondary Forest
+              'f5d5d5',  // [61] Salt Flat
               '000000',  // [62] --
               'c7e0ab',  // [63] Steppe
               '000000',  // [64] --
               '000000',  // [65] --
               'a89358',  // [66] Shrubland
-              'c8ffb4',  // [67] Dwarf forest
+              'c8ffb4',  // [67] Dwarf Forest
             ],
           },
         },

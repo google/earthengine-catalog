@@ -115,7 +115,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 9,  color: '7a5900', description: 'Forest plantation'},
           {value: 10, color: 'd6bc74', description: 'Natural non forest formation'},
           {value: 11, color: '519799', description: 'Wetland'},
-          {value: 12, color: 'd6bc74', description: 'Grasslands/herbaceous'},
+          {value: 12, color: 'd6bc74', description: 'Grasslands / herbaceous'},
           {value: 13, color: 'd89f5c', description: 'Other non forest formation'},
           {value: 14, color: 'ffefc3', description: 'Agricultural and livestock area'},
           {value: 21, color: 'ffefc3', description: 'Mosaic of agriculture and pasture'},
@@ -165,7 +165,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '7a5900',  // [9] Forest plantation
               'd6bc74',  // [10] Natural non forest formation
               '519799',  // [11] Wetland
-              'd6bc74',  // [12] Grasslands/herbaceous
+              'd6bc74',  // [12] Grasslands / herbaceous
               'd89f5c',  // [13] Other non forest formation
               'ffefc3',  // [14] Agricultural and livestock area
               '000000',  // [15] --
