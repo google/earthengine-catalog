@@ -1,22 +1,29 @@
 /**
-  MapBiomas Collection 11 - LULC Preview Thumbnail for 2025
+  MapBiomas Brazil - LULC Preview Thumbnail
 */
 
-// Define the asset path for MapBiomas land use/land cover (LULC) data
 var assetPath = 'projects/mapbiomas-public/assets/brazil/lulc/v1';
 
 var year = 2025;
 
-// Load the classified image for the year 2025 from Collection 11
-var collection = ee.ImageCollection(assetPath)
-	.filter(ee.Filter.eq('collection_id', 11.0))
-	.filter(ee.Filter.eq('version', 'v1'))
+var images = ee.ImageCollection(assetPath);
+
+// The asset keeps every published collection, so read the latest collection
+// and the latest version of it from the collection itself.
+var collectionId = images.aggregate_max('collection_id');
+var version = ee.List(
+	images.filter(ee.Filter.eq('collection_id', collectionId))
+		.aggregate_array('version').distinct().sort()).get(-1);
+
+var collection = images
+	.filter(ee.Filter.eq('collection_id', collectionId))
+	.filter(ee.Filter.eq('version', version))
 	.filter(ee.Filter.eq('year', year));
 
 // Define visualization parameters
 var visParams = {
 	min: 0,
-	max: 91,  // Maximum class value in Collection 11
+	max: 91,  // Maximum class value in the legend
 	palette: [
 	'000000',  // [0] --
 	'1f8d49',  // [1] Forest
