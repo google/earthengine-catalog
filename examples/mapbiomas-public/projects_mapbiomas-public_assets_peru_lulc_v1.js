@@ -14,41 +14,41 @@ var visParams = {
   max: 72,
   palette: [
     '000000',  // [0] --
-    '1f8d49',  // [1] Forest Formation
+    '1f8d49',  // [1] Forest formation
     '000000',  // [2] --
     '1f8d49',  // [3] Forest
-    '7dc975',  // [4] Dry Forest
+    '7dc975',  // [4] Dry forest
     '04381d',  // [5] Mangrove
-    '026975',  // [6] Flooded Forest
+    '026975',  // [6] Flooded forest
     '000000',  // [7] --
     '000000',  // [8] --
-    '7a5900',  // [9] Planted Forest
-    'd6bc74',  // [10] Non-forest Formation
-    '519799',  // [11] Swamp or Flooded Grassland
-    'd6bc74',  // [12] Grasslands/Herbaceous
-    'd89f5c',  // [13] Other Non-forest Formations
-    'ffefc3',  // [14] Agricultural Area
+    '7a5900',  // [9] Planted forest
+    'd6bc74',  // [10] Non-forest formation
+    '519799',  // [11] Swamp or flooded grassland
+    'd6bc74',  // [12] Grassland / Herbaceous
+    'd89f5c',  // [13] Other non-forest formations
+    'ffefc3',  // [14] Agricultural area
     'edde8e',  // [15] Pasture
     '000000',  // [16] --
     '000000',  // [17] --
     'e974ed',  // [18] Agriculture
     '000000',  // [19] --
     '000000',  // [20] --
-    'ffefc3',  // [21] Mosaic of Agriculture and Pasture
-    'd4271e',  // [22] Non-vegetated Area
+    'ffefc3',  // [21] Mosaic of agriculture and pasture
+    'd4271e',  // [22] Non-vegetated area
     'ffa07a',  // [23] Beach
-    'd4271e',  // [24] Infrastructure
-    'db4d4f',  // [25] Other Non-vegetated Area
-    '2532e4',  // [26] Water Body
-    'ffffff',  // [27] Not Observed
+    'd4271e',  // [24] Urban infrastructure
+    'db4d4f',  // [25] Other non vegetated area
+    '2532e4',  // [26] Water body
+    'bcbcbc',  // [27] Not observed
     '000000',  // [28] --
-    'ffaa5f',  // [29] Rocky Outcrop
+    'ffaa5f',  // [29] Rocky outcrop
     '9c0027',  // [30] Mining
     '091077',  // [31] Aquaculture
-    'fc8114',  // [32] Coastal Salt Flat
-    '2532e4',  // [33] River, Lake or Ocean
+    'fc8114',  // [32] Coastal salt flat
+    '2532e4',  // [33] River, lake or ocean
     '93dfe6',  // [34] Glacier
-    '9065d0',  // [35] Oil Palm
+    '9065d0',  // [35] Oil palm
     '000000',  // [36] --
     '000000',  // [37] --
     '000000',  // [38] --
@@ -74,18 +74,18 @@ var visParams = {
     '000000',  // [58] --
     '000000',  // [59] --
     '000000',  // [60] --
-    'f5d5d5',  // [61] Salt Flat
+    'f5d5d5',  // [61] Salt flat
     '000000',  // [62] --
     '000000',  // [63] --
     '000000',  // [64] --
     '000000',  // [65] --
     'a89358',  // [66] Scrubland
     '000000',  // [67] --
-    'e97a7a',  // [68] Other Natural Non-vegetated Area
+    'e97a7a',  // [68] Other natural non vegetated area
     '000000',  // [69] --
-    'be9e00',  // [70] Fog Oasis
+    'be9e00',  // [70] Fog oasis
     '000000',  // [71] --
-    '910046',  // [72] Other Crops
+    '910046',  // [72] Other crops
   ],
 };
 

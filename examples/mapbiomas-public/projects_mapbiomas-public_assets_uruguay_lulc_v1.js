@@ -14,20 +14,20 @@ var visParams = {
   max: 83,
   palette: [
     '000000',  // [0] --
-    '1f8d49',  // [1] Natural Woody Vegetation
+    '1f8d49',  // [1] Natural woody vegetation
     '000000',  // [2] --
-    '1f8d49',  // [3] Closed Forest and Closed Shrubland
+    '1f8d49',  // [3] Closed forest and closed shrubland
     '000000',  // [4] --
     '000000',  // [5] --
     '000000',  // [6] --
     '000000',  // [7] --
     '000000',  // [8] --
-    '7a5900',  // [9] Forest Plantation
-    'ccc87e',  // [10] Natural Herbaceous Vegetation
-    '519799',  // [11] Wetland
+    '7a5900',  // [9] Forest plantation
+    'ccc87e',  // [10] Natural herbaceous vegetation
+    '519799',  // [11] Flooded grasslands and swampy areas
     'ccc87e',  // [12] Grassland
-    '000000',  // [13] --
-    'ffefc3',  // [14] Agricultural and Livestock Area
+    'ffefc3',  // [13] Agricultural and livestock area
+    '000000',  // [14] --
     'fbf0ab',  // [15] Pasture
     '000000',  // [16] --
     '000000',  // [17] --
@@ -35,18 +35,18 @@ var visParams = {
     '000000',  // [19] --
     '000000',  // [20] --
     '000000',  // [21] --
-    'd4271e',  // [22] Non-vegetated Area
+    'd4271e',  // [22] Non-vegetated area
     '000000',  // [23] --
     '000000',  // [24] --
     '000000',  // [25] --
-    '2532e4',  // [26] Water Body
-    'ffffff',  // [27] Not Observed
+    '2532e4',  // [26] Water body
+    'ffffff',  // [27] Not observed
     '000000',  // [28] --
     '000000',  // [29] --
     '000000',  // [30] --
     '000000',  // [31] --
     '000000',  // [32] --
-    '2532e4',  // [33] River, Lake or Ocean
+    '2532e4',  // [33] River, lake or ocean
     '000000',  // [34] --
     '000000',  // [35] --
     '000000',  // [36] --
@@ -92,11 +92,11 @@ var visParams = {
     '000000',  // [76] --
     '000000',  // [77] --
     '000000',  // [78] --
-    '67671c',  // [79] Pinus Plantation
-    '886827',  // [80] Eucalyptus Plantation
+    '67671c',  // [79] Pinus plantation
+    '886827',  // [80] Eucalyptus plantation
     '000000',  // [81] --
     '000000',  // [82] --
-    'ab8231',  // [83] Other Types of Forest Plantation
+    'ab8231',  // [83] Other forestry uses
   ],
 };
 

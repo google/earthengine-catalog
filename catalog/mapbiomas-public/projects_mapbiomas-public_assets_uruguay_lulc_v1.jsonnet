@@ -99,22 +99,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           corresponding to MapBiomas Uruguay legend classes.
         |||,
         'gee:classes': [
-          {value: 1,  color: '1f8d49', description: 'Natural Woody Vegetation'},
-          {value: 3,  color: '1f8d49', description: 'Closed Forest and Closed Shrubland'},
-          {value: 9,  color: '7a5900', description: 'Forest Plantation'},
-          {value: 10, color: 'ccc87e', description: 'Natural Herbaceous Vegetation'},
-          {value: 11, color: '519799', description: 'Wetland'},
+          {value: 1,  color: '1f8d49', description: 'Natural woody vegetation'},
+          {value: 3,  color: '1f8d49', description: 'Closed forest and closed shrubland'},
+          {value: 9,  color: '7a5900', description: 'Forest plantation'},
+          {value: 10, color: 'ccc87e', description: 'Natural herbaceous vegetation'},
+          {value: 11, color: '519799', description: 'Flooded grasslands and swampy areas'},
           {value: 12, color: 'ccc87e', description: 'Grassland'},
-          {value: 14, color: 'ffefc3', description: 'Agricultural and Livestock Area'},
+          {value: 13, color: 'ffefc3', description: 'Agricultural and livestock area'},
           {value: 15, color: 'fbf0ab', description: 'Pasture'},
           {value: 18, color: 'c27ba0', description: 'Agriculture'},
-          {value: 22, color: 'd4271e', description: 'Non-vegetated Area'},
-          {value: 26, color: '2532e4', description: 'Water Body'},
-          {value: 27, color: 'ffffff', description: 'Not Observed'},
-          {value: 33, color: '2532e4', description: 'River, Lake or Ocean'},
-          {value: 79, color: '67671c', description: 'Pinus Plantation'},
-          {value: 80, color: '886827', description: 'Eucalyptus Plantation'},
-          {value: 83, color: 'ab8231', description: 'Other Types of Forest Plantation'},
+          {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
+          {value: 26, color: '2532e4', description: 'Water body'},
+          {value: 27, color: 'ffffff', description: 'Not observed'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
+          {value: 79, color: '67671c', description: 'Pinus plantation'},
+          {value: 80, color: '886827', description: 'Eucalyptus plantation'},
+          {value: 83, color: 'ab8231', description: 'Other forestry uses'},
         ],
       },
     ],
@@ -130,20 +130,20 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [83],
             palette: [
               '000000',  // [0] --
-              '1f8d49',  // [1] Natural Woody Vegetation
+              '1f8d49',  // [1] Natural woody vegetation
               '000000',  // [2] --
-              '1f8d49',  // [3] Closed Forest and Closed Shrubland
+              '1f8d49',  // [3] Closed forest and closed shrubland
               '000000',  // [4] --
               '000000',  // [5] --
               '000000',  // [6] --
               '000000',  // [7] --
               '000000',  // [8] --
-              '7a5900',  // [9] Forest Plantation
-              'ccc87e',  // [10] Natural Herbaceous Vegetation
-              '519799',  // [11] Wetland
+              '7a5900',  // [9] Forest plantation
+              'ccc87e',  // [10] Natural herbaceous vegetation
+              '519799',  // [11] Flooded grasslands and swampy areas
               'ccc87e',  // [12] Grassland
-              '000000',  // [13] --
-              'ffefc3',  // [14] Agricultural and Livestock Area
+              'ffefc3',  // [13] Agricultural and livestock area
+              '000000',  // [14] --
               'fbf0ab',  // [15] Pasture
               '000000',  // [16] --
               '000000',  // [17] --
@@ -151,18 +151,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [19] --
               '000000',  // [20] --
               '000000',  // [21] --
-              'd4271e',  // [22] Non-vegetated Area
+              'd4271e',  // [22] Non-vegetated area
               '000000',  // [23] --
               '000000',  // [24] --
               '000000',  // [25] --
-              '2532e4',  // [26] Water Body
-              'ffffff',  // [27] Not Observed
+              '2532e4',  // [26] Water body
+              'ffffff',  // [27] Not observed
               '000000',  // [28] --
               '000000',  // [29] --
               '000000',  // [30] --
               '000000',  // [31] --
               '000000',  // [32] --
-              '2532e4',  // [33] River, Lake or Ocean
+              '2532e4',  // [33] River, lake or ocean
               '000000',  // [34] --
               '000000',  // [35] --
               '000000',  // [36] --
@@ -208,11 +208,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [76] --
               '000000',  // [77] --
               '000000',  // [78] --
-              '67671c',  // [79] Pinus Plantation
-              '886827',  // [80] Eucalyptus Plantation
+              '67671c',  // [79] Pinus plantation
+              '886827',  // [80] Eucalyptus plantation
               '000000',  // [81] --
               '000000',  // [82] --
-              'ab8231',  // [83] Other Types of Forest Plantation
+              'ab8231',  // [83] Other forestry uses
             ],
           },
         },

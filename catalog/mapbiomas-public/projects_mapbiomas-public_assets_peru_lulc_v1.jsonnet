@@ -99,39 +99,39 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           corresponding to MapBiomas Peru legend classes.
         |||,
         'gee:classes': [
-          {value: 1,  color: '1f8d49', description: 'Forest Formation'},
+          {value: 1,  color: '1f8d49', description: 'Forest formation'},
           {value: 3,  color: '1f8d49', description: 'Forest'},
-          {value: 4,  color: '7dc975', description: 'Dry Forest'},
+          {value: 4,  color: '7dc975', description: 'Dry forest'},
           {value: 5,  color: '04381d', description: 'Mangrove'},
-          {value: 6,  color: '026975', description: 'Flooded Forest'},
-          {value: 9,  color: '7a5900', description: 'Planted Forest'},
-          {value: 10, color: 'd6bc74', description: 'Non-forest Formation'},
-          {value: 11, color: '519799', description: 'Swamp or Flooded Grassland'},
-          {value: 12, color: 'd6bc74', description: 'Grasslands/Herbaceous'},
-          {value: 13, color: 'd89f5c', description: 'Other Non-forest Formations'},
-          {value: 14, color: 'ffefc3', description: 'Agricultural Area'},
+          {value: 6,  color: '026975', description: 'Flooded forest'},
+          {value: 9,  color: '7a5900', description: 'Planted forest'},
+          {value: 10, color: 'd6bc74', description: 'Non-forest formation'},
+          {value: 11, color: '519799', description: 'Swamp or flooded grassland'},
+          {value: 12, color: 'd6bc74', description: 'Grassland / Herbaceous'},
+          {value: 13, color: 'd89f5c', description: 'Other non-forest formations'},
+          {value: 14, color: 'ffefc3', description: 'Agricultural area'},
           {value: 15, color: 'edde8e', description: 'Pasture'},
           {value: 18, color: 'e974ed', description: 'Agriculture'},
-          {value: 21, color: 'ffefc3', description: 'Mosaic of Agriculture and Pasture'},
-          {value: 22, color: 'd4271e', description: 'Non-vegetated Area'},
+          {value: 21, color: 'ffefc3', description: 'Mosaic of agriculture and pasture'},
+          {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
           {value: 23, color: 'ffa07a', description: 'Beach'},
-          {value: 24, color: 'd4271e', description: 'Infrastructure'},
-          {value: 25, color: 'db4d4f', description: 'Other Non-vegetated Area'},
-          {value: 26, color: '2532e4', description: 'Water Body'},
-          {value: 27, color: 'ffffff', description: 'Not Observed'},
-          {value: 29, color: 'ffaa5f', description: 'Rocky Outcrop'},
+          {value: 24, color: 'd4271e', description: 'Urban infrastructure'},
+          {value: 25, color: 'db4d4f', description: 'Other non vegetated area'},
+          {value: 26, color: '2532e4', description: 'Water body'},
+          {value: 27, color: 'bcbcbc', description: 'Not observed'},
+          {value: 29, color: 'ffaa5f', description: 'Rocky outcrop'},
           {value: 30, color: '9c0027', description: 'Mining'},
           {value: 31, color: '091077', description: 'Aquaculture'},
-          {value: 32, color: 'fc8114', description: 'Coastal Salt Flat'},
-          {value: 33, color: '2532e4', description: 'River, Lake or Ocean'},
+          {value: 32, color: 'fc8114', description: 'Coastal salt flat'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
           {value: 34, color: '93dfe6', description: 'Glacier'},
-          {value: 35, color: '9065d0', description: 'Oil Palm'},
+          {value: 35, color: '9065d0', description: 'Oil palm'},
           {value: 40, color: 'c71585', description: 'Rice'},
-          {value: 61, color: 'f5d5d5', description: 'Salt Flat'},
+          {value: 61, color: 'f5d5d5', description: 'Salt flat'},
           {value: 66, color: 'a89358', description: 'Scrubland'},
-          {value: 68, color: 'e97a7a', description: 'Other Natural Non-vegetated Area'},
-          {value: 70, color: 'be9e00', description: 'Fog Oasis'},
-          {value: 72, color: '910046', description: 'Other Crops'},
+          {value: 68, color: 'e97a7a', description: 'Other natural non vegetated area'},
+          {value: 70, color: 'be9e00', description: 'Fog oasis'},
+          {value: 72, color: '910046', description: 'Other crops'},
         ],
       },
     ],
@@ -147,41 +147,41 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [72],
             palette: [
               '000000',  // [0] --
-              '1f8d49',  // [1] Forest Formation
+              '1f8d49',  // [1] Forest formation
               '000000',  // [2] --
               '1f8d49',  // [3] Forest
-              '7dc975',  // [4] Dry Forest
+              '7dc975',  // [4] Dry forest
               '04381d',  // [5] Mangrove
-              '026975',  // [6] Flooded Forest
+              '026975',  // [6] Flooded forest
               '000000',  // [7] --
               '000000',  // [8] --
-              '7a5900',  // [9] Planted Forest
-              'd6bc74',  // [10] Non-forest Formation
-              '519799',  // [11] Swamp or Flooded Grassland
-              'd6bc74',  // [12] Grasslands/Herbaceous
-              'd89f5c',  // [13] Other Non-forest Formations
-              'ffefc3',  // [14] Agricultural Area
+              '7a5900',  // [9] Planted forest
+              'd6bc74',  // [10] Non-forest formation
+              '519799',  // [11] Swamp or flooded grassland
+              'd6bc74',  // [12] Grassland / Herbaceous
+              'd89f5c',  // [13] Other non-forest formations
+              'ffefc3',  // [14] Agricultural area
               'edde8e',  // [15] Pasture
               '000000',  // [16] --
               '000000',  // [17] --
               'e974ed',  // [18] Agriculture
               '000000',  // [19] --
               '000000',  // [20] --
-              'ffefc3',  // [21] Mosaic of Agriculture and Pasture
-              'd4271e',  // [22] Non-vegetated Area
+              'ffefc3',  // [21] Mosaic of agriculture and pasture
+              'd4271e',  // [22] Non-vegetated area
               'ffa07a',  // [23] Beach
-              'd4271e',  // [24] Infrastructure
-              'db4d4f',  // [25] Other Non-vegetated Area
-              '2532e4',  // [26] Water Body
-              'ffffff',  // [27] Not Observed
+              'd4271e',  // [24] Urban infrastructure
+              'db4d4f',  // [25] Other non vegetated area
+              '2532e4',  // [26] Water body
+              'bcbcbc',  // [27] Not observed
               '000000',  // [28] --
-              'ffaa5f',  // [29] Rocky Outcrop
+              'ffaa5f',  // [29] Rocky outcrop
               '9c0027',  // [30] Mining
               '091077',  // [31] Aquaculture
-              'fc8114',  // [32] Coastal Salt Flat
-              '2532e4',  // [33] River, Lake or Ocean
+              'fc8114',  // [32] Coastal salt flat
+              '2532e4',  // [33] River, lake or ocean
               '93dfe6',  // [34] Glacier
-              '9065d0',  // [35] Oil Palm
+              '9065d0',  // [35] Oil palm
               '000000',  // [36] --
               '000000',  // [37] --
               '000000',  // [38] --
@@ -207,18 +207,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [58] --
               '000000',  // [59] --
               '000000',  // [60] --
-              'f5d5d5',  // [61] Salt Flat
+              'f5d5d5',  // [61] Salt flat
               '000000',  // [62] --
               '000000',  // [63] --
               '000000',  // [64] --
               '000000',  // [65] --
               'a89358',  // [66] Scrubland
               '000000',  // [67] --
-              'e97a7a',  // [68] Other Natural Non-vegetated Area
+              'e97a7a',  // [68] Other natural non vegetated area
               '000000',  // [69] --
-              'be9e00',  // [70] Fog Oasis
+              'be9e00',  // [70] Fog oasis
               '000000',  // [71] --
-              '910046',  // [72] Other Crops
+              '910046',  // [72] Other crops
             ],
           },
         },
