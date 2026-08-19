@@ -31,7 +31,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     coastal desert, and the Equatorial Dry Forest. This geographic diversity is
     reflected in the classification legend, which includes classes specific to
     Peruvian ecosystems such as dry forest, fog oasis, coastal salt flat, flooded
-    forest, oil palm, Andean herbaceous and floodable vegetation, and glaciers.
+    forest, oil palm, high andean and lowland flooded grassland, and glacier.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
