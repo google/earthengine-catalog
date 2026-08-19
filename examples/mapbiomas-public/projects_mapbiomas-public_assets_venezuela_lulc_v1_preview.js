@@ -5,17 +5,10 @@
 var assetPath = 'projects/mapbiomas-public/assets/venezuela/lulc/v1';
 
 var year = 2024;
+var version = 'v1';
+var collectionId = 3;
 
-var images = ee.ImageCollection(assetPath);
-
-// The asset keeps every published collection, so read the latest collection
-// and the latest version of it from the collection itself.
-var collectionId = images.aggregate_max('collection_id');
-var version = ee.List(
-  images.filter(ee.Filter.eq('collection_id', collectionId))
-    .aggregate_array('version').distinct().sort()).get(-1);
-
-var collection = images
+var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('collection_id', collectionId))
   .filter(ee.Filter.eq('version', version))
   .filter(ee.Filter.eq('year', year));
