@@ -105,33 +105,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 5,  color: '04381d', description: 'Mangrove'},
           {value: 6,  color: '026975', description: 'Flooded forest'},
           {value: 9,  color: '7a5900', description: 'Planted forest'},
-          {value: 10, color: 'd6bc74', description: 'Non-forest formation'},
-          {value: 11, color: '519799', description: 'Swamp or flooded grassland'},
-          {value: 12, color: 'd6bc74', description: 'Grassland / Herbaceous'},
-          {value: 13, color: 'd89f5c', description: 'Other non-forest formations'},
+          {value: 10, color: 'd6bc74', description: 'Natural non-forest formation'},
+          {value: 11, color: '519799', description: 'Flooded herbaceous formation'},
+          {value: 12, color: 'd6bc74', description: 'Herbaceous formation'},
+          {value: 13, color: 'd89f5c', description: 'Shrub and other non-forest formations'},
           {value: 14, color: 'ffefc3', description: 'Agricultural area'},
-          {value: 15, color: 'edde8e', description: 'Pasture'},
-          {value: 18, color: 'e974ed', description: 'Agriculture'},
+          {value: 15, color: 'edde8e', description: 'Pasture (beta)'},
           {value: 21, color: 'ffefc3', description: 'Mosaic of agriculture and pasture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
           {value: 23, color: 'ffa07a', description: 'Beach'},
           {value: 24, color: 'd4271e', description: 'Urban infrastructure'},
-          {value: 25, color: 'db4d4f', description: 'Other non vegetated area'},
+          {value: 25, color: 'db4d4f', description: 'Other anthropogenic non-vegetated area'},
           {value: 26, color: '2532e4', description: 'Water body'},
-          {value: 27, color: 'bcbcbc', description: 'Not observed'},
-          {value: 29, color: 'ffaa5f', description: 'Rocky outcrop'},
+          {value: 27, color: 'ffffff', description: 'Not observed'},
           {value: 30, color: '9c0027', description: 'Mining'},
           {value: 31, color: '091077', description: 'Aquaculture'},
-          {value: 32, color: 'fc8114', description: 'Coastal salt flat'},
           {value: 33, color: '2532e4', description: 'River, lake or ocean'},
           {value: 34, color: '93dfe6', description: 'Glacier'},
           {value: 35, color: '9065d0', description: 'Oil palm'},
-          {value: 40, color: 'c71585', description: 'Rice'},
+          {value: 40, color: 'c71585', description: 'Rice (beta)'},
+          {value: 51, color: '5faf92', description: 'Lowland flooded grassland'},
+          {value: 52, color: 'f0b4a8', description: 'Coastal salt flat'},
           {value: 61, color: 'f5d5d5', description: 'Salt flat'},
-          {value: 66, color: 'a89358', description: 'Scrubland'},
-          {value: 68, color: 'e97a7a', description: 'Other natural non vegetated area'},
-          {value: 70, color: 'be9e00', description: 'Fog oasis'},
-          {value: 72, color: '910046', description: 'Other crops'},
+          {value: 66, color: 'a89358', description: 'Shrubland and other shrub vegetation'},
+          {value: 68, color: 'e97a7a', description: 'Other natural non-vegetated area'},
+          {value: 70, color: 'be9e00', description: 'Fog oasis (beta)'},
+          {value: 82, color: '26abab', description: 'High andean flooded grassland'},
+          {value: 92, color: 'd98a45', description: 'Rocky surface'},
         ],
       },
     ],
@@ -144,7 +144,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [72],
+            max: [92],
             palette: [
               '000000',  // [0] --
               '1f8d49',  // [1] Forest formation
@@ -156,29 +156,29 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [7] --
               '000000',  // [8] --
               '7a5900',  // [9] Planted forest
-              'd6bc74',  // [10] Non-forest formation
-              '519799',  // [11] Swamp or flooded grassland
-              'd6bc74',  // [12] Grassland / Herbaceous
-              'd89f5c',  // [13] Other non-forest formations
+              'd6bc74',  // [10] Natural non-forest formation
+              '519799',  // [11] Flooded herbaceous formation
+              'd6bc74',  // [12] Herbaceous formation
+              'd89f5c',  // [13] Shrub and other non-forest formations
               'ffefc3',  // [14] Agricultural area
-              'edde8e',  // [15] Pasture
+              'edde8e',  // [15] Pasture (beta)
               '000000',  // [16] --
               '000000',  // [17] --
-              'e974ed',  // [18] Agriculture
+              '000000',  // [18] --
               '000000',  // [19] --
               '000000',  // [20] --
               'ffefc3',  // [21] Mosaic of agriculture and pasture
               'd4271e',  // [22] Non-vegetated area
               'ffa07a',  // [23] Beach
               'd4271e',  // [24] Urban infrastructure
-              'db4d4f',  // [25] Other non vegetated area
+              'db4d4f',  // [25] Other anthropogenic non-vegetated area
               '2532e4',  // [26] Water body
-              'bcbcbc',  // [27] Not observed
+              'ffffff',  // [27] Not observed
               '000000',  // [28] --
-              'ffaa5f',  // [29] Rocky outcrop
+              '000000',  // [29] --
               '9c0027',  // [30] Mining
               '091077',  // [31] Aquaculture
-              'fc8114',  // [32] Coastal salt flat
+              '000000',  // [32] --
               '2532e4',  // [33] River, lake or ocean
               '93dfe6',  // [34] Glacier
               '9065d0',  // [35] Oil palm
@@ -186,7 +186,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [37] --
               '000000',  // [38] --
               '000000',  // [39] --
-              'c71585',  // [40] Rice
+              'c71585',  // [40] Rice (beta)
               '000000',  // [41] --
               '000000',  // [42] --
               '000000',  // [43] --
@@ -197,8 +197,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [48] --
               '000000',  // [49] --
               '000000',  // [50] --
-              '000000',  // [51] --
-              '000000',  // [52] --
+              '5faf92',  // [51] Lowland flooded grassland
+              'f0b4a8',  // [52] Coastal salt flat
               '000000',  // [53] --
               '000000',  // [54] --
               '000000',  // [55] --
@@ -212,13 +212,33 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [63] --
               '000000',  // [64] --
               '000000',  // [65] --
-              'a89358',  // [66] Scrubland
+              'a89358',  // [66] Shrubland and other shrub vegetation
               '000000',  // [67] --
-              'e97a7a',  // [68] Other natural non vegetated area
+              'e97a7a',  // [68] Other natural non-vegetated area
               '000000',  // [69] --
-              'be9e00',  // [70] Fog oasis
+              'be9e00',  // [70] Fog oasis (beta)
               '000000',  // [71] --
-              '910046',  // [72] Other crops
+              '000000',  // [72] --
+              '000000',  // [73] --
+              '000000',  // [74] --
+              '000000',  // [75] --
+              '000000',  // [76] --
+              '000000',  // [77] --
+              '000000',  // [78] --
+              '000000',  // [79] --
+              '000000',  // [80] --
+              '000000',  // [81] --
+              '26abab',  // [82] High andean flooded grassland
+              '000000',  // [83] --
+              '000000',  // [84] --
+              '000000',  // [85] --
+              '000000',  // [86] --
+              '000000',  // [87] --
+              '000000',  // [88] --
+              '000000',  // [89] --
+              '000000',  // [90] --
+              '000000',  // [91] --
+              'd98a45',  // [92] Rocky surface
             ],
           },
         },
