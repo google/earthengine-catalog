@@ -4,7 +4,7 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/peru/lulc/v1';
 
-var year = 2024;
+var year = 2025;
 
 var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('year', year));
