@@ -1,4 +1,4 @@
-local id = 'projects/mapbiomas-public/assets/ecuador/lulc/v1';
+local id = 'projects/mapbiomas-public/assets/uruguay/lulc/v1';
 
 local subdir = 'mapbiomas-public';
 
@@ -17,21 +17,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
 
-  title: 'MapBiomas Land Use and Land Cover - Ecuador V' + version,
+  title: 'MapBiomas Land Use and Land Cover - Uruguay V' + version,
 
   version: version,
 
   description: |||
-    MapBiomas Land Use and Land Cover (LULC) dataset for Ecuador is produced annually
-    by the MapBiomas Project using Landsat satellite imagery and machine learning
-    classification techniques. The dataset provides consistent annual land cover maps
-    at a 30-meter resolution.
+    MapBiomas Land Use and Land Cover (LULC) dataset for Uruguay is produced
+    annually by the MapBiomas Project using Landsat satellite imagery and machine
+    learning classification techniques. The dataset provides consistent annual land
+    cover maps at a 30-meter resolution.
 
-    Ecuador's territory encompasses four distinct natural regions: the Amazon (Oriente),
-    the Andes highlands (Sierra), the Pacific Coast (Costa), and the Galapagos Islands.
-    This geographic diversity is reflected in the classification legend, which includes
-    classes specific to Ecuadorian ecosystems such as Andean herbaceous and shrubby
-    vegetation, flooded Andean herbaceous, mangrove, and banana plantations.
+    Uruguay's territory lies completely within the Pampa biome, dominated by
+    natural grasslands and extensive livestock and agricultural land uses. This is
+    reflected in a simpler classification legend than other MapBiomas countries,
+    which includes specific classes for forest plantations, such as pinus and
+    eucalyptus plantations.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     reference samples and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://ecuador.mapbiomas.org/en).
+    visit the [MapBiomas website](https://uruguay.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],
@@ -56,10 +56,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   extent: ee.extent(
-    -92.01,
-    -5.1216,
-    -75.1741,
-    2.4547,
+    -58.44,
+    -35.00,
+    -53.07,
+    -30.09,
     '1985-01-01T00:00:00Z',
     '2024-12-31T00:00:00Z'
   ),
@@ -96,85 +96,74 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'classification',
         description: |||
           Land use and land cover classification, with integer values
-          corresponding to MapBiomas Ecuador legend classes.
+          corresponding to MapBiomas Uruguay legend classes.
         |||,
         'gee:classes': [
-          {value: 1,  color: '1f8d49', description: 'Natural forest'},
-          {value: 3,  color: '1f8d49', description: 'Forest'},
-          {value: 4,  color: '7dc975', description: 'Open forest'},
-          {value: 5,  color: '04381d', description: 'Mangrove'},
-          {value: 6,  color: '026975', description: 'Flooded forest'},
-          {value: 9,  color: '7a5900', description: 'Silviculture'},
-          {value: 10, color: 'd6bc74', description: 'Non-forest natural formation'},
-          {value: 11, color: '519799', description: 'Non forest wetland'},
-          {value: 12, color: 'd6bc74', description: 'Grassland'},
-          {value: 13, color: 'd89f5c', description: 'Other non-forest natural formation'},
-          {value: 14, color: 'ffefc3', description: 'Farming and silviculture'},
-          {value: 21, color: 'ffefc3', description: 'Mosaic of uses'},
+          {value: 1,  color: '1f8d49', description: 'Natural woody vegetation'},
+          {value: 3,  color: '1f8d49', description: 'Closed forest and closed shrubland'},
+          {value: 9,  color: '7a5900', description: 'Forest plantation'},
+          {value: 10, color: 'ccc87e', description: 'Natural herbaceous vegetation'},
+          {value: 11, color: '519799', description: 'Flooded grasslands and swampy areas'},
+          {value: 12, color: 'ccc87e', description: 'Grassland'},
+          {value: 13, color: 'ffefc3', description: 'Agricultural and livestock area'},
+          {value: 15, color: 'fbf0ab', description: 'Pasture'},
+          {value: 18, color: 'c27ba0', description: 'Agriculture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
-          {value: 23, color: 'ffa07a', description: 'Beach, dune and sand spot'},
-          {value: 24, color: 'd4271e', description: 'Urban infrastructure'},
-          {value: 25, color: 'db4d4f', description: 'Other anthropic non-vegetated area'},
-          {value: 26, color: '2532e4', description: 'Water'},
+          {value: 26, color: '2532e4', description: 'Water body'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
-          {value: 29, color: 'ffaa5f', description: 'Rocky outcrop'},
-          {value: 30, color: '9c0027', description: 'Mining'},
-          {value: 31, color: '091077', description: 'Aquaculture'},
-          {value: 33, color: '2532e4', description: 'River, lake and ocean'},
-          {value: 34, color: '93dfe6', description: 'Glacier'},
-          {value: 68, color: 'e97a7a', description: 'Other natural non-vegetated area'},
-          {value: 74, color: 'be83f7', description: 'Banana'},
-          {value: 81, color: 'dfeb62', description: 'Andean Herbaceous and Shrubby Vegetation'},
-          {value: 82, color: '6fc179', description: 'Flooded Andean Herbaceous'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
+          {value: 79, color: '67671c', description: 'Pinus plantation'},
+          {value: 80, color: '886827', description: 'Eucalyptus plantation'},
+          {value: 83, color: 'ab8231', description: 'Other forestry uses'},
         ],
       },
     ],
 
     'gee:visualizations': [
       {
-        display_name: 'Land Use and Cover - MapBiomas Ecuador',
-        lookat: {lon: -78.2, lat: -1.3, zoom: 7},
+        display_name: 'Land Use and Cover - MapBiomas Uruguay',
+        lookat: {lon: -56.0, lat: -32.8, zoom: 7},
         image_visualization: {
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [82],
+            max: [83],
             palette: [
               '000000',  // [0] --
-              '1f8d49',  // [1] Natural forest
+              '1f8d49',  // [1] Natural woody vegetation
               '000000',  // [2] --
-              '1f8d49',  // [3] Forest
-              '7dc975',  // [4] Open forest
-              '04381d',  // [5] Mangrove
-              '026975',  // [6] Flooded forest
+              '1f8d49',  // [3] Closed forest and closed shrubland
+              '000000',  // [4] --
+              '000000',  // [5] --
+              '000000',  // [6] --
               '000000',  // [7] --
               '000000',  // [8] --
-              '7a5900',  // [9] Silviculture
-              'd6bc74',  // [10] Non-forest natural formation
-              '519799',  // [11] Non forest wetland
-              'd6bc74',  // [12] Grassland
-              'd89f5c',  // [13] Other non-forest natural formation
-              'ffefc3',  // [14] Farming and silviculture
-              '000000',  // [15] --
+              '7a5900',  // [9] Forest plantation
+              'ccc87e',  // [10] Natural herbaceous vegetation
+              '519799',  // [11] Flooded grasslands and swampy areas
+              'ccc87e',  // [12] Grassland
+              'ffefc3',  // [13] Agricultural and livestock area
+              '000000',  // [14] --
+              'fbf0ab',  // [15] Pasture
               '000000',  // [16] --
               '000000',  // [17] --
-              '000000',  // [18] --
+              'c27ba0',  // [18] Agriculture
               '000000',  // [19] --
               '000000',  // [20] --
-              'ffefc3',  // [21] Mosaic of uses
+              '000000',  // [21] --
               'd4271e',  // [22] Non-vegetated area
-              'ffa07a',  // [23] Beach, dune and sand spot
-              'd4271e',  // [24] Urban infrastructure
-              'db4d4f',  // [25] Other anthropic non-vegetated area
-              '2532e4',  // [26] Water
+              '000000',  // [23] --
+              '000000',  // [24] --
+              '000000',  // [25] --
+              '2532e4',  // [26] Water body
               'ffffff',  // [27] Not observed
               '000000',  // [28] --
-              'ffaa5f',  // [29] Rocky outcrop
-              '9c0027',  // [30] Mining
-              '091077',  // [31] Aquaculture
+              '000000',  // [29] --
+              '000000',  // [30] --
+              '000000',  // [31] --
               '000000',  // [32] --
-              '2532e4',  // [33] River, lake and ocean
-              '93dfe6',  // [34] Glacier
+              '2532e4',  // [33] River, lake or ocean
+              '000000',  // [34] --
               '000000',  // [35] --
               '000000',  // [36] --
               '000000',  // [37] --
@@ -208,21 +197,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [65] --
               '000000',  // [66] --
               '000000',  // [67] --
-              'e97a7a',  // [68] Other natural non-vegetated area
+              '000000',  // [68] --
               '000000',  // [69] --
               '000000',  // [70] --
               '000000',  // [71] --
               '000000',  // [72] --
               '000000',  // [73] --
-              'be83f7',  // [74] Banana
+              '000000',  // [74] --
               '000000',  // [75] --
               '000000',  // [76] --
               '000000',  // [77] --
               '000000',  // [78] --
-              '000000',  // [79] --
-              '000000',  // [80] --
-              'dfeb62',  // [81] Andean Herbaceous and Shrubby Vegetation
-              '6fc179',  // [82] Flooded Andean Herbaceous
+              '67671c',  // [79] Pinus plantation
+              '886827',  // [80] Eucalyptus plantation
+              '000000',  // [81] --
+              '000000',  // [82] --
+              'ab8231',  // [83] Other forestry uses
             ],
           },
         },
@@ -240,6 +230,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
+
+  'gee:status': 'beta',
 
   'gee:type': ee_const.gee_type.image_collection,
 
