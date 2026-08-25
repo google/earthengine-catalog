@@ -12,17 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 import dataclasses
 import itertools
 import os
-from typing import Optional
+from typing import BinaryIO
 
 from absl import app
 from absl import logging
 import h5py
 import numpy as np
 import pandas as pd
+import pyarrow
+import pyarrow.csv
 
 import gedi_lib
 
@@ -279,12 +281,19 @@ filled_vars_byte = [
 ]
 
 
-def extract_values(input_paths: Sequence[str], output_path: str) -> None:
+def extract_values(
+    input_paths: Sequence[str],
+    output_path: str,
+    include_header: bool = True,
+    post_process_df_fn: Callable[[pd.DataFrame], pd.DataFrame] | None = None,
+) -> None:
   """Extracts all variables from all algorithms.
 
   Args:
      input_paths: GEDI L4A file paths
      output_path: csv output file path
+     include_header: whether to write a header row in the output CSV
+     post_process_df_fn: optional function to transform DataFrame before writing
   """
   assert len(input_paths) == 1
   l4a_path = input_paths[0]
@@ -294,28 +303,39 @@ def extract_values(input_paths: Sequence[str], output_path: str) -> None:
     return
 
   with h5py.File(l4a_path, 'r') as l4a_hdf_fh:
-    with open(output_path, 'w') as csv_fh:
-      write_csv(l4a_hdf_fh, csv_fh)
+    with open(output_path, 'wb') as csv_fh:
+      write_csv(
+          l4a_hdf_fh,
+          csv_fh,
+          include_header=include_header,
+          post_process_df_fn=post_process_df_fn,
+      )
 
 
-def write_csv(l4a_hdf_fh, csv_file):
+def write_csv(
+    l4a_hdf_fh: h5py.File,
+    csv_file: BinaryIO,
+    include_header: bool = True,
+    post_process_df_fn: Callable[[pd.DataFrame], pd.DataFrame] | None = None,
+) -> None:
   """Writes a single CSV file based on the contents of HDF file."""
-  is_first = True
+  is_first = include_header
   # Iterating over relative height percentage values from 0 to 100
   for k in l4a_hdf_fh.keys():
     if not k.startswith('BEAM'):
       continue
     print('\t', k)
 
-    df = pd.DataFrame()
-
+    data = {}
     for v in gedi_vars.all_vars():
-      gedi_lib.hdf_to_df(l4a_hdf_fh, k, v, df)
+      gedi_lib.hdf_to_df(l4a_hdf_fh, k, v, data)
 
     # Add the incidence angle variables from the corresponding L2B file.
     for group_var, l4a_vars in group_vars.items():
       for l4a_var in l4a_vars.all_vars():
-        gedi_lib.hdf_to_df(l4a_hdf_fh, k, f'{group_var}/{l4a_var}', df)
+        gedi_lib.hdf_to_df(l4a_hdf_fh, k, f'{group_var}/{l4a_var}', data)
+
+    df = pd.DataFrame(data)
     df[filled_vars_float] = df.loc[:, filled_vars_float].replace(
         to_replace=-9999, value=np.nan)
     df[filled_vars_byte] = df.loc[:, filled_vars_byte].replace(
@@ -327,13 +347,15 @@ def write_csv(l4a_hdf_fh, csv_file):
     df = df[df.lon_lowestmode.notnull()]
     gedi_lib.add_shot_number_breakdown(df)
 
-    df.to_csv(
+    if post_process_df_fn is not None:
+      df = post_process_df_fn(df)
+
+    # PyArrow writes CSV files an order of magnitude faster than pandas.
+    table = pyarrow.Table.from_pandas(df, preserve_index=False)
+    pyarrow.csv.write_csv(
+        table,
         csv_file,
-        float_format='%3.6f',
-        index=False,
-        header=is_first,
-        mode='a',
-        lineterminator='\n',
+        write_options=pyarrow.csv.WriteOptions(include_header=is_first),
     )
     is_first = False
 

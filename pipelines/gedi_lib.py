@@ -132,28 +132,27 @@ def add_shot_number_breakdown(df: pd.DataFrame) -> None:
   Args:
     df: pd.DataFrame
   """
-  # It's simpler to use substrings than to do math.
-  df['shot_number_within_beam'] = [
-      int(str(x)[-8:]) for x in df['shot_number']]
-  df['minor_frame_number'] = [int(str(x)[-11:-8]) for x in df['shot_number']]
+  shot_arr = df['shot_number'].to_numpy(dtype=np.int64)
+  df['shot_number_within_beam'] = shot_arr % 100_000_000
+  df['minor_frame_number'] = (shot_arr // 100_000_000) % 1_000
   # beam number, [-13:-11], is already in the 'beam' property
-  df['orbit_number'] = [int(str(x)[:-13]) for x in df['shot_number']]
+  df['orbit_number'] = shot_arr // 10_000_000_000_000
 
 
 def hdf_to_df(
     hdf_fh: h5py.File,
     beam_key: str,
     var: str,
-    df: pd.DataFrame,
+    df: pd.DataFrame | dict[str, Any],
     df_key: str | None = None,
 ) -> None:
-  """Copies data for a single var from an HDF file to a Pandas DataFrame.
+  """Copies data for a single var from an HDF file to a Pandas DataFrame or dict.
 
   Args:
     hdf_fh: h5 file handle
     beam_key: a string like BEAM0110, first part of the HDF variable key
     var: second part of the HDF variable key (also used for the dataframe key)
-    df: output Pandsa DataFrame
+    df: output Pandas DataFrame or dict of column arrays
     df_key: optional key to use in the DataFrame. If not specified, the last
       part of var is used.
   """
@@ -164,13 +163,22 @@ def hdf_to_df(
     df_key = var.split('/')[-1]
 
   ds = hdf_fh[hdf_key]
-  df[df_key] = ds[:]
-  if len(df[df_key]) and isinstance(df[df_key][0], bytes):
-    df[df_key] = df[df_key].apply(lambda x: x.decode())
-  df[df_key].replace([np.inf, -np.inf], np.nan, inplace=True)
-  if ds.attrs.get('_FillValue') is not None:
-    # We need to use pd.NA that works with integer types (np.nan does not)
-    df[df_key].replace(ds.attrs.get('_FillValue'), pd.NA, inplace=True)
+  arr = ds[:]
+  if len(arr) and isinstance(arr[0], bytes):
+    df[df_key] = [x.decode() for x in arr]
+  elif np.issubdtype(arr.dtype, np.floating):
+    arr[np.isneginf(arr) | np.isposinf(arr)] = np.nan
+    fill_val = ds.attrs.get('_FillValue')
+    if fill_val is not None:
+      arr[arr == fill_val] = np.nan
+    df[df_key] = arr
+  elif ds.attrs.get('_FillValue') is not None:
+    fill_val = ds.attrs.get('_FillValue')
+    series = pd.Series(arr)
+    series.replace(fill_val, pd.NA, inplace=True)
+    df[df_key] = series
+  else:
+    df[df_key] = arr
 
 
 def gedi_deltatime_epoch(dt):
