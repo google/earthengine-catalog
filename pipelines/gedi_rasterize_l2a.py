@@ -246,7 +246,7 @@ def export_wrapper(table_asset_ids: list[str], raster_asset_id: str,
       gedi_lib.extract_version(table_asset_ids[0].split('/')[-1])
   )
   active_raster_bands = filter_active_bands(raster_bands, inactive_bands)
-  active_int_bands = filter_active_bands(INTEGER_PROPS, inactive_bands)
+  active_int_bands = [b for b in active_raster_bands if b in INTEGER_PROPS]
 
   return gedi_lib.create_export(
       table_asset_ids=table_asset_ids,
