@@ -5,7 +5,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local version = 1.0;
+local version = '1.0';
 
 local license = spdx.cc_by_4_0;
 
@@ -83,9 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'fire',
     'flood',
     'crop',
-    'land use',
     'monitoring',
-    'change-detection',
     'global',
     'wri'
     ],
@@ -113,7 +111,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
 
-    classification: {minimum: 1, maximum: 4, 'gee:estimated_range': false},
+    attribution: {minimum: 1, maximum: 4, 'gee:estimated_range': false},
 
     'gee:visualizations': [
       {
@@ -132,14 +130,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
 
   'sci:citation': |||
-   MacCarthy, J., J. Richter, V. Zalles, S. Carter, A. Pickens, Z. Song, A. Barrett, and G. Nussbaum. 2025. “Land Disturbance Alert Classification System” Technical Note. Washington, DC: World Resources Institute. [doi.org/10.46830/writn.25.00016](doi.org/10.46830/writn.25.00016)
+    MacCarthy, J., J. Richter, V. Zalles, S. Carter, A. Pickens, Z. Song, A. Barrett, and G. Nussbaum. 2025. “Land Disturbance Alert Classification System” Technical Note. Washington, DC: World Resources Institute. [doi.org/10.46830/writn.25.00016](doi.org/10.46830/writn.25.00016)
   |||,
 
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-
-
   'gee:type': ee_const.gee_type.image,
+  'gee:status': 'beta',
   license: license.id,
   links: ee.standardLinks(subdir, id),
 
