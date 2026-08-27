@@ -1,0 +1,1 @@
+[The Global Land Analysis and Discovery (GLAD) ](https://glad.umd.edu/) laboratory in the Department of Geographical Sciences at the University of Maryland investigates methods, causes and impacts of global land surface change.
