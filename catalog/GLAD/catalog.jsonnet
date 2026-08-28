@@ -14,15 +14,16 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'GLAD',
   description: importstr 'description.md',
-    'gee:publisher': {
-      type: 'PUBLISHER',
-      link: 'https://glad.umd.edu/',
-      contactDisplay: 'glad@umd.edu',
-      contactLink: 'mailto:glad@umd.edu'
-  }
+  'gee:publisher': {
+    type: 'PUBLISHER',
+    link: 'https://glad.umd.edu/',
+    contactDisplay: 'glad@umd.edu',
+    contactLink: 'mailto:glad@umd.edu',
+  },
   links: [
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('GLAD_Global_Surface_Water_Dynamics', base_url),
   ],
 }
