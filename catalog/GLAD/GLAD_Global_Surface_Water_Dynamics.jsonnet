@@ -1,28 +1,10 @@
 local id = 'GLAD/GLAD_Global_Surface_Water_Dynamics';
+local subdir = 'glad';
 
-// The directory under 'catalog' that contains the dataset.
-// For datasets under 'projects', leave off the 'projects' component.
-//   E.g., the 'projects/planet-nicfi/assets/basemaps/africa' asset is in the
-//   'planet-nicfi' subdirectory.
-
-// TODO:
-// Q: Not sure what above comment mean. Assuming that our  datasets under catalog
-local subdir = 'GLAD';
-
-// The version field can be any string. However, it is best to use
-// the exact string that the data provider uses.
-// Do not include a leading `V` in the version string.
-// Prefer Semantic Versioning: https://semver.org/, which uses
-// one to three numeric fields separated by decimal points.
-// The version string might be different than the version portion of the `id`
-// field, as the `id` field cannot have `.` characters.
-
-// TODO:
-// Q: Do we have version for dataset?
 // MAJOR version when you make incompatible API changes
 // MINOR version when you add functionality in a backward compatible manner
 // PATCH version when you make backward compatible bug fixes
-// local version = '1.0.0';
+local version = '2.2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -64,8 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // One or more category keywords. For the current list, see
   // https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_categories.py
   // All categories will also be added as keywords.
-  // TODO: check categories
-  'gee:categories': ['oceans', 'surface-ground-water'],
+  'gee:categories': ['landuse-landcover', 'surface-ground-water'],
 
   // Please look through the list of existing keywords and pick two or more
   // that match the dataset.
@@ -73,11 +54,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   //
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
-  //
-  // TODO: Check keywords
   keywords: [
+    'change-detection',
+    'global',
     'water',
-    'landsat',
+    'landsat-derived',
   ],
 
   providers: [
@@ -97,8 +78,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // End date is exclusive. For example, if the dataset covers the whole of
   // year 2021, the end date should be "2022-01-01T00:00:00Z"
   // Global spatial extents should use ee.extent_global.
-  //
-  // TODO: check this. The extent below include year 1999-2025
   extent: ee.extent_global('1999-01-01T00:00:00Z', '2026-01-01T00:00:00Z'),
 
   //TODO: Complete this. more example at https://github.com/google/earthengine-catalog/blob/main/catalog/TEMPLATE/TEMPLATE_IMAGE_V2_1.jsonnet
