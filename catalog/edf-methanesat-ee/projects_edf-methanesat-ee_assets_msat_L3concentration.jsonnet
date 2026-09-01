@@ -1,4 +1,4 @@
-local id = 'projects/edf-methanesat-ee/assets/public-preview/L3concentration';
+local id = 'projects/edf-methanesat-ee/assets/msat/L3concentration';
 local subdir = 'edf-methanesat-ee';
 local version = '1.0.0';
 local ee_const = import 'earthengine_const.libsonnet';
@@ -15,22 +15,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneSAT L3 Concentration Public Preview V' + version + ' ' + '[deprecated]',
+  title: 'MethaneSAT L3 Concentration V' + version,
   version: version_internal,
-  'gee:status': 'deprecated',
+  'gee:status': 'beta',
   description: |||
-    This early "Public Preview" dataset provides geospatial data for the
+    This dataset provides the most recently processed geospatial data for the
     column-averaged dry-air mole fraction of methane in the atmosphere, "XCH4",
     retrieved from measurements by the MethaneSAT imaging spectrometer. XCH4 is
     defined as the total column amount (number of molecules above a unit surface
     area) of methane ("CH4") divided by the total amount of air (number of molecules
     above a unit surface area, water vapor amount removed) along the line of sight
-    from the satellite’s spectrometer to the Earth's surface and back up to the Sun.
+    from the satellite's spectrometer to the Earth's surface and back up to the Sun.
     Additional data layers are provided for reference: observed albedo at 1622 nm,
     surface pressure, and terrain height.
 
     The spatial footprint of individual MethaneSAT soundings is 110 m x 400 m when
-    viewing at nadir, with the long side in the satellite’s flight direction, and
+    viewing at nadir, with the long side in the satellite's flight direction, and
     with the short side that can be stretched wider at higher viewing zenith angles
     (which is why some targets appear more rectangular than others). At nadir, the
     swath width is ~220 km. The data on these native soundings is Level 2 (L2) data.
@@ -48,27 +48,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     ---
 
-    7/2/2025 Important Update: 
+    7/2/2025 Important Update:
 
-    As you may be aware, we recently lost contact with the satellite. After exploring all possible  
-    recovery options, we have now confirmed that it is no longer functioning, due to an
-    undetermined problem with the outer platform carrying our methane detector. While there is no
-    question this is a setback, we are undeterred in our efforts to drive down methane pollution.
+    As you may be aware, we lost contact with the satellite in June of 2025. After exploring all
+    possible recovery options, we have confirmed that it is no longer functioning, due to an
+    undetermined problem with the outer platform carrying our methane detector. While there is
+    no question this is a setback, we are undeterred in our efforts to drive down methane pollution.
     Please see our official statement here:
     [MethaneSAT Loses Contact with Satellite | MethaneSAT](https://www.methanesat.org/project-updates/methanesat-loses-contact-satellite).
 
-    What this means for the Public Preview data: The existing datasets will remain accessible on
-    Google platforms and on our web portal for the foreseeable future. Additionally, over the next
-    few months, we will release substantial new data collected by MethaneSAT prior to the loss of
-    contact. This will include hundreds of scenes (of targets that are roughly 200kmx200km). We
-    hope this will be useful for you. Should there be any changes to data availability, we will
-    notify you well in advance.
+    What this means for the existing datasets: They will remain accessible on Google platforms and
+    on our web portal for the foreseeable future. Should there be any changes to data availability,
+    we will notify you well in advance.
 
-    Looking ahead: While we don’t have all the answers yet, we plan to leverage our advanced Data
-    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will
-    also take the necessary time to evaluate the best next step in our efforts to enable methane
+    Current state: While we don't have all the answers yet, we plan to leverage our advanced Data
+    Processing Platform (DPP) to quantify other streams of satellite and/or aerial data. We will also
+    take the necessary time to evaluate the best next step in our efforts to enable methane
     reductions. To stay up to date with further updates, feel free to sign up for our
-    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up).
+    [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up). For
+    additional information about the data products, algorithms, or calibration, view the publications
+    on our [website](https://www.methanesat.org/scienceandresearch).
   |||,
   'gee:categories': ['atmosphere'],
   keywords: [
@@ -84,7 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2024-05-22T00:00:00Z', null),
+  extent: ee.extent_global('2024-05-22T00:00:00Z', '2025-06-20T00:00:00Z'),
   summaries: {
     'gsd': [46.38],
     'eo:bands': [
@@ -173,13 +172,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         type: ee_const.var_type.string,
       },
     ],
-  },
-  'gee:interval': {
-    type: 'cadence',
-    // One of: second, minute, hour, day, week, month, year, custom_time_unit.
-    unit: 'day',
-    // How long the interval is (expressed in units above).
-    interval: 7,
   },
   'sci:citation': |||
     Chulakadabba, A., Sargent, M., Lauvaux, T., Benmergui, J. S., Franklin, J.
