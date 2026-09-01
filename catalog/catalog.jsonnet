@@ -100,7 +100,6 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('Slovakia', base_url),
     ee.link.child_catalog('Spain', base_url),
     ee.link.child_catalog('Switzerland', base_url),
-    ee.link.child_catalog('TALLO', base_url),
     ee.link.child_catalog('TERN', base_url),
     ee.link.child_catalog('TIGER', base_url),
     ee.link.child_catalog('TNC', base_url),

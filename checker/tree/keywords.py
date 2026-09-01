@@ -27,6 +27,7 @@ EXCEPTIONS = frozenset({
     'aura',
     'avnir_2',
     'belowground',
+    'bigquery',
     'bioclim',
     'biome',
     'biopama',
