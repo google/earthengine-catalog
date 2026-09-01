@@ -30,7 +30,7 @@ local license = spdx.proprietary;
   title: 'WeatherNext 3 (0.1&deg;)',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    TBD: This placeholder text will be replaced with final content later on.
+    This placeholder text will be replaced with final content later on.
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
@@ -916,10 +916,10 @@ local license = spdx.proprietary;
     ],
   },
   'sci:citation': |||
-    TBD: This placeholder text will be replaced with final content later on.
+    This placeholder text will be replaced with final content later on.
   |||,
   'gee:unusual_terms_of_use': true,
   'gee:terms_of_use': |||
-    TBD: This placeholder text will be replaced with final content later on.
+    This placeholder text will be replaced with final content later on.
   |||,
 }
