@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     property is updated with them.
 
     See also
-    [the provider tech note](https://www.nccs.nasa.gov/sites/default/files/NEX-GDDP-CMIP6-Tech_Note.pdf).
+    [the provider tech note](https://www.nccs.nasa.gov/wp-content/uploads/2024/03/NEX-GDDP-CMIP6-Tech_Note_4.pdf).
 
     [You can submit data questions about CMIP6 to the provider](https://airtable.com/shr01weJfA7DYq6jf)
     and
