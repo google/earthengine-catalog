@@ -18,7 +18,7 @@ local license = spdx.proprietary;
 {
   // TODO(mahrsee): Remove when the dataset is ready.
   // TODO(mahrsee): Add the collection here: geo/gestalt/data/catalog/testdata/public_datasets.txt
-  'gee:status': 'beta',
+  'gee:status': 'incomplete',
   'gee:user_uploaded': true,
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
