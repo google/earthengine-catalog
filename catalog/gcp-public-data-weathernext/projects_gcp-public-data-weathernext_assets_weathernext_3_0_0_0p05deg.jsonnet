@@ -86,7 +86,7 @@ local license = spdx.proprietary;
         may be included in this forecast dataset.
     *   **Contact**: For questions or usage outside permitted terms,
         contact weathernext@google.com. Any information collected via email will
-        be used in accordance with [Google's Privacy Policy](https://policies.google.com/privacy?hl=en-US).
+        be used in accordance with [Google's Privacy Policy](https://policies.google.com/privacy).
 
     **Dissemination Schedule**
 
