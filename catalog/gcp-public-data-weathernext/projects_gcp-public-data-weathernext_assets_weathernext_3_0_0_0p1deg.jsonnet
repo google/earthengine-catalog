@@ -70,6 +70,7 @@ local license = spdx.proprietary;
     **Data Availability**
 
     The experimental dataset includes both real-time and historic data:
+
     *   **Real-Time Experimental Data**: Any data relating to a time more recent than 1 hour ago.
     *   **Historic Experimental Data**: Any data relating to a time 1 hour ago or older.
 
