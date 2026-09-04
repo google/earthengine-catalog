@@ -31,7 +31,7 @@ local license = spdx.proprietary;
     medium-range **ensemble weather forecasts** by Google DeepMind and Google
     Research, produced by an operational version of the model described in:
     [WeatherNext 3: Increasing resolution and performance of global weather
-    models with raw observations](https://storage.googleapis.com/deepmind-media/papers/weathernext_3.pdf).
+    models with raw observations](https://arxiv.org/abs/2609.03582).
 
     **Data Access**
 
@@ -81,7 +81,7 @@ local license = spdx.proprietary;
         [WeatherNext Models Guide](https://developers.google.com/weathernext/guides/models)
         and the [WeatherNext Developer Guide](https://developers.google.com/weathernext).
     *   **Research paper**: More information on the underlying research model is
-        available [here](https://storage.googleapis.com/deepmind-media/papers/weathernext_3.pdf). Please note that
+        available [here](https://arxiv.org/abs/2609.03582). Please note that
         the accuracy of this operational model may not directly correspond to the
         accuracy reported for the research model, and that additional variables
         may be included in this forecast dataset.
