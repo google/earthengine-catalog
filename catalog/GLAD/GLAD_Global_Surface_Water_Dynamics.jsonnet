@@ -19,7 +19,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 
 {
-  'gee:status': 'beta',
   id: id,
   title: 'GLAD Global Surface Water Dynamics',
   description: |||
@@ -132,4 +131,48 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Pickens, A.H., Hansen, M.C., Hancher, M., Stehman, S.V., Tyukavina, A., Potapov, P., Marroquin, B., Sherani, Z., 2020. Mapping and sampling to characterize global inland water dynamics from 1999 to 2018 with full Landsat time-series. Remote Sensing of Environment 243, 111792. [doi:10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
+
+  // The fields below generally don't need to be changed.
+
+  // TODO(google): Remove gee:status when the dataset is ready.
+  'gee:status': 'incomplete',
+
+  // This says that the dataset is an ee.Image.
+  //   https://developers.google.com/earth-engine/apidocs/ee-image
+  'gee:type': ee_const.gee_type.image,
+
+  // Files should use this line as-is. There is a local license variable at
+  // the top of the file that sets the SPDX license entry.
+  license: license.id,
+
+  // The standard links cover the basic locations of the dataset, catalog
+  // entries, code examples, etc.
+  links: ee.standardLinks(subdir, id),
+
+  // Here are some of the other links that are sometimes needed. Add by
+  // concatenating a Jsonnet array like this:
+  //   links: ee.standardLinks(subdir, id) + [more links here],
+  // Versions have:
+  //   ee.link.latest(latest_id, latest_url),
+  //   ee.link.predecessor(predecessor_id, predecessor_url),
+  //   ee.link.successor(successor_id, successor_url),
+  // For more link types, see earthengine.libsonnet
+
+  // This refers to a STAC term 'collection', not to Earth Engine collections.
+  type: ee_const.stac_type.collection,
+  stac_version: ee_const.stac_version,
+  stac_extensions: [
+    // The EO extension is required for bands.
+    ee_const.ext_eo,
+    // For synthetic aperture radar (SAR)
+    // ee_const.ext_sar,
+    ee_const.ext_sci,
+    // Include the version extension if the dataset uses any of:
+    // - the deprecated fields
+    // - the version fields
+    // - successor link
+    // - predecessor link
+    // - latest link
+    ee_const.ext_ver,
+  ],
 }

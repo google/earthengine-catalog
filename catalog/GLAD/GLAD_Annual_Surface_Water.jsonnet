@@ -1,10 +1,10 @@
-local id = 'GLAD/GLAD_Global_Surface_Water_Dynamics';
-local subdir = 'glad';
+local id = 'projects/glad/water/C2/annual';
 
-// MAJOR version when you make incompatible API changes
-// MINOR version when you add functionality in a backward compatible manner
-// PATCH version when you make backward compatible bug fixes
-local version = '2.2.0';
+//TODO: verify this subdir path
+// 'projects/glad/water/C2/annual'
+local subdir = 'glad/water/C2/annual';
+
+local version = '2.0.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -17,10 +17,12 @@ local license = spdx.cc_by_4_0;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
-
 {
   id: id,
-  title: 'GLAD Global Surface Water Dynamics',
+  // Do not end the title with punctuation. Include version if it is known.
+  title: 'Annual Surface Water V' + version,
+  version: version,
+
   description: |||
     Global maps derived from all Landsat scenes 1999-2025 highlight the changes in open surface water extent during this period. Water and land are mapped in every Landsat scene with cloud, shadow, and ice masked out. The percent of valid observations identified as water are calculated per month. These monthly water percentages are then aggregated by year (annual water percent) and interannual dynamics are mapped both as a three band image highlighting the dynamics types and intensities and as a discrete classification of dynamic type.
 
@@ -37,26 +39,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - monthly mean water percent
     - individual month water percent
 
-    **_Interannual stable and change classes_**
-    Land: 1 (all years mapped ≤10% water)
-    Permanent water: 2 (all years mapped ≥90% water)
-    Water gain: 3 (gain of ≥50%)
-    Water loss: 4 (loss of ≥50%)
-    Dry period: 5 (water to land to water majority states with variation ≥50%)
-    Wet period: 6 (land to water to land majority states with variation ≥50%)
-    Stable seasonal: 7 (variation <50% and mean annual percent 11-89% or variation ≥33%)
-    High interannual variability: 8 (three or more transitions between land and water majority states with variation ≥50%)
-    Probable permanent land: 10 (mean annual percent ≤10% and variation <33%)
-    Probable permanent water: 11 (mean annual percent ≥90% and variation <33%)
-    Sparse data: 12 (less than half the years have data or a total scene observation count less than 1.5 times the number of years)
-    No data: 0
+    __*Annual water percent time-series*__
+    The annual water percent calculated by taking the mean of seasonal means (Dec - Feb, Mar - May, Jun - Aug, Sept - Nov). Calendar months without at least three valid months through the whole study period are excluded.
 
-    Please refer to [section 2.2.2 of the publication](https://doi.org/10.1016/j.rse.2020.111792) for more details.
   |||,
 
-  // One or more category keywords. For the current list, see
-  // https://github.com/google/earthengine-catalog/blob/main/checker/node/gee_categories.py
-  // All categories will also be added as keywords.
   'gee:categories': ['landuse-landcover', 'surface-ground-water'],
 
   // Please look through the list of existing keywords and pick two or more
@@ -66,20 +53,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
   keywords: [
-    'change-detection',
-    'classification',
+    'annual',
     'global',
-    'water',
     'landsat-derived',
+    'water',
+    'yearly',
   ],
 
+  // Who created the data.
+  // Prefer https rather than http links.
   providers: [
     // There can be multiple entries of ee.producer_provider and/or
     // ee.processor_provider.
-    // ee.producer_provider('Example Organization', 'https://example.com'),
-    // TODO: Check this.
-    // Not sure whether the 'Example Organization' need to be registered first. But after checking the NASA and other Org's catalog, Looks like it just a org name + dataset page link (or doi)
-    ee.producer_provider('The Global Land Analysis and Discovery (GLAD) laboratory at the University of Maryland', 'https://glad.umd.edu/dataset/global-surface-water-dynamics'),
+    ee.producer_provider('The Global Land Analysis and Discovery (GLAD) laboratory at the University of Maryland', 'https://glad.umd.edu/dataset'),
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
@@ -87,64 +73,48 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Spatial and temporal extent.
   // What area and what time interval does the dataset cover?
   // Date/times must be in UTC, using the form 'YYYY-MM-DDTHH:MM:SSZ'.
+  // End time may be `null` for ongoing datasets that are updated regularly.
   // End date is exclusive. For example, if the dataset covers the whole of
   // year 2021, the end date should be "2022-01-01T00:00:00Z"
   // Global spatial extents should use ee.extent_global.
-  extent: ee.extent_global('1999-01-01T00:00:00Z', '2026-01-01T00:00:00Z'),
+  // TODO: Add time
+  extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-13T00:00:00Z'),
+  // Alternatively, non-global extents use min_x, min_y, max_x, max_y:
+  // extent: ee.extent(-171.0, -15.0, 164.0, 70.0,
+  //                   '2006-01-24T00:00:00Z', null),
 
-  //TODO: Complete this. more example at https://github.com/google/earthengine-catalog/blob/main/catalog/TEMPLATE/TEMPLATE_IMAGE_V2_1.jsonnet
+  // Summaries contain additional information specific to the dataset type.
+  // TODO: Add summaries
   summaries: {
-    // Describe all of the bands in the order they appear in an ee.Image.
-    // For each band, only `name` and `description` are required.
-    // If the pixel size is the same for all bands, set it here.
-    // (In STAC, pixel size is called "gsd", or "ground sample distance".)
-    // https://en.wikipedia.org/wiki/Ground_sample_distance
-    // Value is in meters. If the pixel size is in degrees, multiply by 111,195.
-    // gsd: [15],
-    'eo:bands': [
-      {
-        name: 'band_name_1',
-        description: 'Describe the band',
-        gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
-        // If the pixel size is in degrees, multiply by 111,195.
-        center_wavelength: 0.56,  // in nm
-        // Note that gee:wavelength is more expressive than 'center_wavelength',
-        // as it allows value ranges and units.
-        'gee:wavelength': '0.520-0.600 &mu;m',
-        // See here for predefined units and prefer those over using a custom
-        // units string.
-        // https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
-        'gee:units': units.dn,
-      },
-    ],
-    // One or more band visualizations.
-    'gee:visualizations': [
-      // Example with three bands, but only one value for min and max.
-      {
-        // Give units when possible.
-        display_name: 'Describe what is shown 1',
-        // Do not use too many significant digits.
-        lookat: { lon: -122.03, lat: 39.67, zoom: 11 },
-        // See for details:
-        // https://developers.google.com/earth-engine/guides/image_visualization
-        image_visualization:
-          {
-            band_vis: {
-              min: [0],
-              max: [255],
-              // Which bands to map to red, green, and blue rgb channels.
-              bands: ['band_name_1', 'band_name_2', 'band_name_3'],
-            },
-          },
-      },
-    ],
+
   },
 
+  // Observation repeat interval. For detail, see
+  // https://github.com/google/earthengine-catalog/blob/main/checker/node/interval.py
+  'gee:interval': {
+    // One of:
+    // - cadence: for daily, yearly, and other periodic collections.
+    // - revisit_interval: for Landsat/Sentinel-style collections.
+    // - climatological_interval: for climatological averages.
+    type: 'cadence',
+    // One of: second, minute, hour, day, week, month, year, custom_time_unit.
+    unit: 'year',
+    // How long the interval is (expressed in units above).
+    interval: 1,
+  },
+
+  // The scientific extension.
+  // The best DOI that describes the *data*.
+  // Only use a research paper DOI if there is no dataset or data paper DOI.
+  'sci:doi': '10.1016/j.rse.2020.111792',
+  // Use APA style for citations and publications. https://apastyle.apa.org/
   'sci:citation': |||
-    Pickens, A.H., Hansen, M.C., Hancher, M., Stehman, S.V., Tyukavina, A., Potapov, P., Marroquin, B., Sherani, Z., 2020. Mapping and sampling to characterize global inland water dynamics from 1999 to 2018 with full Landsat time-series. Remote Sensing of Environment 243, 111792. [doi:10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792)
+    Pickens, A.H., Hansen, M.C., Hancher, M., Stehman, S.V., Tyukavina, A., Potapov, P., Marroquin, B., Sherani, Z., 2020. Mapping and sampling to characterize global inland water dynamics from 1999 to 2018 with full Landsat time-series. Remote Sensing of Environment 243, 111792. [doi:10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792),
   |||,
+
+  // For standard SPDX licenses, use:
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-  // The fields below generally don't need to be changed.
+
 
   // TODO(google): Remove gee:status when the dataset is ready.
   'gee:status': 'incomplete',
