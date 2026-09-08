@@ -22,26 +22,36 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
-    MapBiomas Land Use and Land Cover (LULC) dataset for Bolivia is produced annually
-    by the MapBiomas Project using Landsat satellite imagery and machine learning
-    classification techniques. The dataset provides consistent annual land cover maps
-    at 30-meter resolution covering the period from 1985 to 2024.
+    The MapBiomas Bolivia Land Use and Land Cover (LULC) Dataset - Collection 3
+    consists of an annual historical time series of thematic maps generated through
+    the processing of Landsat imagery and machine learning algorithms (Random
+    Forest). The collection provides 30-meter spatial resolution maps for the 1985
+    to 2024 period, offering a consistent baseline for analyzing land use and land
+    cover dynamics across Bolivia. Each new collection incorporates methodological
+    improvements and updated input data, ensuring the temporal consistency required
+    for robust analyses of landscape dynamics throughout the country.
 
-    Bolivia's territory spans several major biomes, including the Amazon rainforest,
-    Cerrado, Chaco, Pantanal, and the Andean highlands (Altiplano). This diversity
-    is reflected in the classification legend, which includes classes specific to
-    Andean ecosystems such as Andean grassland and shrubland and Flooded Andean
-    grassland and shrubland.
+    Each image represents the annual classification of land use and land cover,
+    including categories such as forests, grasslands and shrublands, agricultural
+    and livestock areas, water bodies, and urban areas, among others. These classes
+    are organized according to the ecological and biogeographical characteristics of
+    Bolivia's major biomes: Amazon, Andes, Valles, Chaco, Chiquitano, Pantanal, and
+    Tucumano-Boliviano.
 
-    Each image in the collection contains one band named "classification", with
-    integer values representing categorical land cover classes for that year. The
-    classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9
-    (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
-    composites. The classification process uses automated decision trees trained with
-    reference samples and validated by regional experts.
+    The classification is produced from annual surface reflectance mosaics derived
+    from Landsat 5 TM, Landsat 7 ETM+, Landsat 8 OLI, and Landsat 9 OLI-2 sensors
+    using the supervised Random Forest classification algorithm trained with
+    reference samples.
+
+    Each image contains a single band named "classification", whose pixel values
+    correspond to the official land use and land cover classes. Owing to its
+    methodological and temporal consistency, MapBiomas Bolivia Collection 3 provides
+    a reliable data source for land cover change monitoring, multi-temporal
+    analyses, and the assessment of landscape transformations at national and
+    regional scales.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://mapbiomas.org/en).
+    visit the [MapBiomas website](https://bolivia.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],

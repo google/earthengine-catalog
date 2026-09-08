@@ -1,4 +1,4 @@
-local id = 'projects/mapbiomas-public/assets/ecuador/lulc/v1';
+local id = 'projects/mapbiomas-public/assets/colombia/lulc/v1';
 
 local subdir = 'mapbiomas-public';
 
@@ -17,31 +17,40 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
 
-  title: 'MapBiomas Land Use and Land Cover - Ecuador V' + version,
+  title: 'MapBiomas Land Use and Land Cover - Colombia V' + version,
 
   version: version,
 
   description: |||
-    MapBiomas Land Use and Land Cover (LULC) dataset for Ecuador is produced annually
-    by the MapBiomas Project using Landsat satellite imagery and machine learning
-    classification techniques. The dataset provides consistent annual land cover maps
-    at a 30-meter resolution.
+    MapBiomas Land Use and Land Cover (LULC) dataset for Colombia is produced
+    annually by the MapBiomas Project using Landsat satellite imagery and machine
+    learning classification techniques. The dataset provides consistent,
+    thematically detailed maps at a 30-meter resolution, covering multiple decades
+    and updated with each new collection.
 
-    Ecuador's territory encompasses four distinct natural regions: the Amazon (Oriente),
-    the Andes highlands (Sierra), the Pacific Coast (Costa), and the Galapagos Islands.
-    This geographic diversity is reflected in the classification legend, which includes
-    classes specific to Ecuadorian ecosystems such as Andean herbaceous and shrubby
-    vegetation, flooded Andean herbaceous, mangrove, and banana plantations.
+    Each image in the collection contains annual land cover classifications with
+    pixel values representing categorical land cover classes.
+
+    Colombia's territory spans the Amazon rainforest, the Andes highlands, the
+    Inter-Andean Valleys, the Orinoco plains (Llanos), and both the Pacific and
+    Caribbean coasts. This geographic diversity is reflected in the classification
+    legend, which includes classes specific to Colombian ecosystems such as
+    mangrove, flooded forest, hypersaline tidal flat, palm oil, banana, glaciers,
+    and Andean herbaceous and shrubby vegetation, including their flooded variants.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
-    classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9
-    (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
-    composites. The classification process uses automated decision trees trained with
-    reference samples and validated by regional experts.
+    classification is based on Landsat 4 and 5 (TM), Landsat 7 (ETM+), Landsat 8 and
+    9 (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
+    composites. The classification process uses the Random Forest algorithm trained
+    with reference samples and validated by regional experts.
+
+    Note that MapBiomas provides discrete classification maps, not probabilities.
+    These maps are most appropriate for map transitions, time series analysis, and
+    land policy monitoring applications.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://ecuador.mapbiomas.org/en).
+    visit the [MapBiomas Colombia website](https://colombia.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],
@@ -56,10 +65,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   extent: ee.extent(
-    -92.01,
-    -5.1216,
-    -75.1741,
-    2.4547,
+    -78.99,
+    -4.30,
+    -66.88,
+    12.44,
     '1985-01-01T00:00:00Z',
     '2024-12-31T00:00:00Z'
   ),
@@ -96,44 +105,48 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'classification',
         description: |||
           Land use and land cover classification, with integer values
-          corresponding to MapBiomas Ecuador legend classes.
+          corresponding to MapBiomas Colombia legend classes.
         |||,
         'gee:classes': [
-          {value: 1,  color: '1f8d49', description: 'Natural forest'},
+          {value: 1,  color: '1f8d49', description: 'Forest formation'},
           {value: 3,  color: '1f8d49', description: 'Forest'},
-          {value: 4,  color: '7dc975', description: 'Open forest'},
           {value: 5,  color: '04381d', description: 'Mangrove'},
           {value: 6,  color: '026975', description: 'Flooded forest'},
-          {value: 9,  color: '7a5900', description: 'Silviculture'},
-          {value: 10, color: 'd6bc74', description: 'Non-forest natural formation'},
-          {value: 11, color: '519799', description: 'Non forest wetland'},
-          {value: 12, color: 'd6bc74', description: 'Grassland'},
-          {value: 13, color: 'd89f5c', description: 'Other non-forest natural formation'},
-          {value: 14, color: 'ffefc3', description: 'Farming and silviculture'},
-          {value: 21, color: 'ffefc3', description: 'Mosaic of uses'},
+          {value: 9,  color: '7a5900', description: 'Forest plantation'},
+          {value: 10, color: 'd6bc74', description: 'Natural non forest formation'},
+          {value: 11, color: '519799', description: 'Wetland'},
+          {value: 12, color: 'd6bc74', description: 'Grasslands / herbaceous'},
+          {value: 13, color: 'd89f5c', description: 'Other non forest formation'},
+          {value: 14, color: 'ffefc3', description: 'Agricultural and livestock area'},
+          {value: 21, color: 'ffefc3', description: 'Mosaic of agriculture and pasture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
           {value: 23, color: 'ffa07a', description: 'Beach, dune and sand spot'},
-          {value: 24, color: 'd4271e', description: 'Urban infrastructure'},
-          {value: 25, color: 'db4d4f', description: 'Other anthropic non-vegetated area'},
-          {value: 26, color: '2532e4', description: 'Water'},
+          {value: 24, color: 'd4271e', description: 'Infrastructure'},
+          {value: 25, color: 'db4d4f', description: 'Other non-vegetated area'},
+          {value: 26, color: '2532e4', description: 'Water body'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
           {value: 29, color: 'ffaa5f', description: 'Rocky outcrop'},
           {value: 30, color: '9c0027', description: 'Mining'},
           {value: 31, color: '091077', description: 'Aquaculture'},
-          {value: 33, color: '2532e4', description: 'River, lake and ocean'},
+          {value: 32, color: 'fc8114', description: 'Hypersaline tidal flat'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
           {value: 34, color: '93dfe6', description: 'Glacier'},
+          {value: 35, color: '9065d0', description: 'Palm oil'},
+          {value: 49, color: '02d659', description: 'Wooded sand vegetation'},
+          {value: 50, color: 'ad5100', description: 'Herbaceous sand vegetation'},
           {value: 68, color: 'e97a7a', description: 'Other natural non-vegetated area'},
-          {value: 74, color: 'be83f7', description: 'Banana'},
+          {value: 74, color: 'be83f7', description: 'Banana (beta)'},
+          {value: 75, color: 'c12100', description: 'Solar panel farm'},
           {value: 81, color: 'dfeb62', description: 'Andean Herbaceous and Shrubby Vegetation'},
-          {value: 82, color: '6fc179', description: 'Flooded Andean Herbaceous'},
+          {value: 82, color: '6fc179', description: 'Flooded Andean Herbaceous and Shrubby Vegetation'},
         ],
       },
     ],
 
     'gee:visualizations': [
       {
-        display_name: 'Land Use and Cover - MapBiomas Ecuador',
-        lookat: {lon: -78.2, lat: -1.3, zoom: 7},
+        display_name: 'Land Use and Cover - MapBiomas Colombia',
+        lookat: {lon: -73.0, lat: 4.0, zoom: 6},
         image_visualization: {
           band_vis: {
             bands: ['classification'],
@@ -141,41 +154,41 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
             max: [82],
             palette: [
               '000000',  // [0] --
-              '1f8d49',  // [1] Natural forest
+              '1f8d49',  // [1] Forest formation
               '000000',  // [2] --
               '1f8d49',  // [3] Forest
-              '7dc975',  // [4] Open forest
+              '000000',  // [4] --
               '04381d',  // [5] Mangrove
               '026975',  // [6] Flooded forest
               '000000',  // [7] --
               '000000',  // [8] --
-              '7a5900',  // [9] Silviculture
-              'd6bc74',  // [10] Non-forest natural formation
-              '519799',  // [11] Non forest wetland
-              'd6bc74',  // [12] Grassland
-              'd89f5c',  // [13] Other non-forest natural formation
-              'ffefc3',  // [14] Farming and silviculture
+              '7a5900',  // [9] Forest plantation
+              'd6bc74',  // [10] Natural non forest formation
+              '519799',  // [11] Wetland
+              'd6bc74',  // [12] Grasslands / herbaceous
+              'd89f5c',  // [13] Other non forest formation
+              'ffefc3',  // [14] Agricultural and livestock area
               '000000',  // [15] --
               '000000',  // [16] --
               '000000',  // [17] --
               '000000',  // [18] --
               '000000',  // [19] --
               '000000',  // [20] --
-              'ffefc3',  // [21] Mosaic of uses
+              'ffefc3',  // [21] Mosaic of agriculture and pasture
               'd4271e',  // [22] Non-vegetated area
               'ffa07a',  // [23] Beach, dune and sand spot
-              'd4271e',  // [24] Urban infrastructure
-              'db4d4f',  // [25] Other anthropic non-vegetated area
-              '2532e4',  // [26] Water
+              'd4271e',  // [24] Infrastructure
+              'db4d4f',  // [25] Other non-vegetated area
+              '2532e4',  // [26] Water body
               'ffffff',  // [27] Not observed
               '000000',  // [28] --
               'ffaa5f',  // [29] Rocky outcrop
               '9c0027',  // [30] Mining
               '091077',  // [31] Aquaculture
-              '000000',  // [32] --
-              '2532e4',  // [33] River, lake and ocean
+              'fc8114',  // [32] Hypersaline tidal flat
+              '2532e4',  // [33] River, lake or ocean
               '93dfe6',  // [34] Glacier
-              '000000',  // [35] --
+              '9065d0',  // [35] Palm oil
               '000000',  // [36] --
               '000000',  // [37] --
               '000000',  // [38] --
@@ -189,8 +202,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [46] --
               '000000',  // [47] --
               '000000',  // [48] --
-              '000000',  // [49] --
-              '000000',  // [50] --
+              '02d659',  // [49] Wooded sand vegetation
+              'ad5100',  // [50] Herbaceous sand vegetation
               '000000',  // [51] --
               '000000',  // [52] --
               '000000',  // [53] --
@@ -214,15 +227,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [71] --
               '000000',  // [72] --
               '000000',  // [73] --
-              'be83f7',  // [74] Banana
-              '000000',  // [75] --
+              'be83f7',  // [74] Banana (beta)
+              'c12100',  // [75] Solar panel farm
               '000000',  // [76] --
               '000000',  // [77] --
               '000000',  // [78] --
               '000000',  // [79] --
               '000000',  // [80] --
               'dfeb62',  // [81] Andean Herbaceous and Shrubby Vegetation
-              '6fc179',  // [82] Flooded Andean Herbaceous
+              '6fc179',  // [82] Flooded Andean Herbaceous and Shrubby Vegetation
             ],
           },
         },
@@ -240,6 +253,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
+
+  'gee:status': 'beta',
 
   'gee:type': ee_const.gee_type.image_collection,
 

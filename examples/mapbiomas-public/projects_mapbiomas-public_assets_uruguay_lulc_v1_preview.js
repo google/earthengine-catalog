@@ -1,8 +1,8 @@
 /**
-  MapBiomas Bolivia - Land Use and Land Cover V1
+  MapBiomas Uruguay - Land Use and Land Cover V1 - Preview Thumbnail
 */
 
-var assetPath = 'projects/mapbiomas-public/assets/bolivia/lulc/v1';
+var assetPath = 'projects/mapbiomas-public/assets/uruguay/lulc/v1';
 
 var year = 2024;
 var version = 'v1';
@@ -15,48 +15,48 @@ var collection = ee.ImageCollection(assetPath)
 
 var visParams = {
   min: 0,
-  max: 82,
+  max: 83,
   palette: [
     '000000',  // [0] --
-    '1f8d49',  // [1] Forest Formation
+    '1f8d49',  // [1] Natural woody vegetation
     '000000',  // [2] --
-    '1f8d49',  // [3] Forest
-    '7dc975',  // [4] Open Forest
+    '1f8d49',  // [3] Closed forest and closed shrubland
+    '000000',  // [4] --
     '000000',  // [5] --
-    '026975',  // [6] Flooded Forest
+    '000000',  // [6] --
     '000000',  // [7] --
     '000000',  // [8] --
-    '000000',  // [9] --
-    'd6bc74',  // [10] Grassland and shrubland
-    '519799',  // [11] Flooded grassland/shrubland
-    'd6bc74',  // [12] Grassland/shrubland
-    'd89f5c',  // [13] Other non-forest natural formation
-    'ffefc3',  // [14] Farming
-    'edde8e',  // [15] Pasture
+    '7a5900',  // [9] Forest plantation
+    'ccc87e',  // [10] Natural herbaceous vegetation
+    '519799',  // [11] Flooded grasslands and swampy areas
+    'ccc87e',  // [12] Grassland
+    'ffefc3',  // [13] Agricultural and livestock area
+    '000000',  // [14] --
+    'fbf0ab',  // [15] Pasture
     '000000',  // [16] --
     '000000',  // [17] --
-    'e974ed',  // [18] Agriculture
+    'c27ba0',  // [18] Agriculture
     '000000',  // [19] --
     '000000',  // [20] --
-    'ffefc3',  // [21] Mosaic of Uses
+    '000000',  // [21] --
     'd4271e',  // [22] Non-vegetated area
-    'ffa07a',  // [23] Beach, dune and sandbank
-    'd4271e',  // [24] Urban Infrastructure
-    'db4d4f',  // [25] Other non-vegetated anthropic area
-    '2532e4',  // [26] Water
+    '000000',  // [23] --
+    '000000',  // [24] --
+    '000000',  // [25] --
+    '2532e4',  // [26] Water body
     'ffffff',  // [27] Not observed
     '000000',  // [28] --
-    'ffaa5f',  // [29] Rocky outcrop
-    '9c0027',  // [30] Mining
-    '091077',  // [31] Aquaculture
+    '000000',  // [29] --
+    '000000',  // [30] --
+    '000000',  // [31] --
     '000000',  // [32] --
-    '2532e4',  // [33] River and lake
-    '93dfe6',  // [34] Glacier
+    '2532e4',  // [33] River, lake or ocean
+    '000000',  // [34] --
     '000000',  // [35] --
     '000000',  // [36] --
     '000000',  // [37] --
     '000000',  // [38] --
-    'f5b3c8',  // [39] Soybean
+    '000000',  // [39] --
     '000000',  // [40] --
     '000000',  // [41] --
     '000000',  // [42] --
@@ -78,30 +78,44 @@ var visParams = {
     '000000',  // [58] --
     '000000',  // [59] --
     '000000',  // [60] --
-    'f5d5d5',  // [61] Salt flat
+    '000000',  // [61] --
     '000000',  // [62] --
     '000000',  // [63] --
     '000000',  // [64] --
     '000000',  // [65] --
-    'a89358',  // [66] Scrubland
+    '000000',  // [66] --
     '000000',  // [67] --
-    'e97a7a',  // [68] Other non-vegetated natural area
+    '000000',  // [68] --
     '000000',  // [69] --
     '000000',  // [70] --
     '000000',  // [71] --
-    'c1799c',  // [72] Other crops
+    '000000',  // [72] --
     '000000',  // [73] --
     '000000',  // [74] --
     '000000',  // [75] --
     '000000',  // [76] --
     '000000',  // [77] --
     '000000',  // [78] --
-    '000000',  // [79] --
-    '000000',  // [80] --
-    'c8c099',  // [81] Andean grassland and shrubland
-    '66b2a3',  // [82] Flooded Andean grassland and shrubland
+    '67671c',  // [79] Pinus plantation
+    '886827',  // [80] Eucalyptus plantation
+    '000000',  // [81] --
+    '000000',  // [82] --
+    'ab8231',  // [83] Other forestry uses
   ],
 };
 
-Map.addLayer(collection, visParams, 'MapBiomas Bolivia LULC ' + year);
-Map.centerObject(collection, 6);
+// Tacuarembo department - representative forest plantation area in Uruguay
+var region = ee.Geometry.Point([-55.8, -32.0]).buffer(20000).bounds();
+
+Map.centerObject(region, 9);
+Map.addLayer(collection, visParams, 'MapBiomas Uruguay LULC ' + year);
+
+print(ui.Thumbnail({
+  image: collection.mosaic().visualize(visParams),
+  params: {
+    region: region,
+    dimensions: 256,
+    format: 'png',
+  },
+  style: {height: '256px', width: '256px'},
+}));
