@@ -82,7 +82,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Summaries contain additional information specific to the dataset type.
   // TODO: Add summaries
   summaries: {
-
+    'eo:bands': [
+      {
+        name: 'percent_water',
+        description: 'percent of month with open water cover',
+      },
+    ],
   },
 
   // Observation repeat interval. For detail, see

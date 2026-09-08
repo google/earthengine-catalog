@@ -103,18 +103,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // gsd: [15],
     'eo:bands': [
       {
-        name: 'band_name_1',
-        description: 'Describe the band',
-        gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
-        // If the pixel size is in degrees, multiply by 111,195.
-        center_wavelength: 0.56,  // in nm
-        // Note that gee:wavelength is more expressive than 'center_wavelength',
-        // as it allows value ranges and units.
-        'gee:wavelength': '0.520-0.600 &mu;m',
-        // See here for predefined units and prefer those over using a custom
-        // units string.
-        // https://github.com/google/earthengine-catalog/blob/main/catalog/units.libsonnet
-        'gee:units': units.dn,
+        name: 'class',
+        description: 'water dynamics classification',
       },
     ],
     // One or more band visualizations.
