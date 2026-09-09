@@ -96,6 +96,8 @@ local license = spdx.proprietary;
     
     * Visit the [TreeMap Raster Data Gateway](https://data.fs.usda.gov/geodata/rastergateway/treemap/) for TreeMap attribute data downloads, metadata, and support documents.
     
+    * The [TreeMap GitHub site](https://github.com/firelab/gtac-treemap) contains scripts and documentation for generating TreeMap datasets, including the Random Forest imputation algorithm, and is intended for users who want to generate their own TreeMap datasets.
+
     * See the [FIA Database Manual version 9.4](https://research.fs.usda.gov/understory/forest-inventory-and-analysis-database-user-guide-nfi) for more detailed information on the attributes included in TreeMap.
     
     Contact sm.fs.treemaphelp@usda.gov with any questions or specific data requests.
