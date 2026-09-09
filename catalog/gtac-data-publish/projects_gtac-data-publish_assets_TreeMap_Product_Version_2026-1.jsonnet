@@ -15,7 +15,6 @@ local license = spdx.proprietary;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
-  'gee:status': 'beta',
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
