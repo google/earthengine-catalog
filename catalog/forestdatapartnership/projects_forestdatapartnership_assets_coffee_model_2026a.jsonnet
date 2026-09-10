@@ -7,9 +7,13 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions_compare = import 'templates/versions_2025b_2026a.libsonnet';
 
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/projects_forestdatapartnership_assets_coffee_versions.libsonnet';
+
 local license = spdx.cc_by_4_0;
 
-local version = '2026a';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -57,7 +61,7 @@ local self_url = catalog_subdir_url + base_filename;
     for technical documentation and limitations of this dataset.
   ||| + '\n' + versions_compare.version_differences,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',
