@@ -1,8 +1,8 @@
-local id = 'projects/nature-trace/assets/ghg/emit/mapl_emit_plumes_v1_0';
+local id = 'projects/climate-and-sustainability/assets/ghg/emit/mapl_emit_plumes_v1_0';
 local versions = import 'versions.libsonnet';
-local version_table = import '../climate-and-sustainability/templates/mapl_emit_plumes_versions.libsonnet';
+local version_table = import 'templates/mapl_emit_plumes_versions.libsonnet';
 
-local subdir = 'nature-trace';
+local subdir = 'climate-and-sustainability';
 
 local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
@@ -22,9 +22,9 @@ local license = spdx.cc_by_4_0;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MAPL-EMIT: Modeled Methane Plumes [deprecated]',
-  'gee:status': 'deprecated',
+  title: 'MAPL-EMIT: Modeled Methane Plumes',
   version: version,
+  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Methane Analysis and Plume Localization with EMIT (MAPL-EMIT) dataset provides high-resolution (60m) methane (CH₄) plume complex maps and plume source locations derived from radiance data captured by the Earth Surface Mineral Dust Source Investigation (EMIT) instrument.
@@ -32,7 +32,7 @@ local license = spdx.cc_by_4_0;
     Methane point-source emissions are a major driver of near-term climate forcing. Traditional space-based identification methods often rely on manual analyst review or matched-filter techniques that can miss smaller emissions and are laborious to characterize and delineate. MAPL-EMIT addresses this using a deep learning vision transformer framework that simultaneously analyzes the full radiance spectrum and the spatial context of neighboring pixels. Validated on millions of synthetic plumes and real-world benchmarks, the model provides automated plume detection across full-granule radiances, estimating per-plume spatial extents, column integrated enhancements (ppm-m increase over background) and source locations.
 
     This dataset provides model-predicted outputs for methane plume complexes. For each identified plume, the dataset provides the corresponding methane enhancements, an instance mask delineating the plume's shape, and the most likely source location. You can also explore and visualize the plumes interactively through the [MAPL-EMIT EE App](https://nature-trace.projects.earthengine.app/view/mapl-emit). If you are interested in granule level enhancements and plume probabilities, please see
-    [MAPL-EMIT Enhancements](https://developers.google.com/earth-engine/datasets/catalog/projects_nature-trace_assets_ghg_emit_mapl_emit_enhancements_v1_0)
+    [MAPL-EMIT Enhancements](https://developers.google.com/earth-engine/datasets/catalog/projects_climate-and-sustainability_assets_ghg_emit_mapl_emit_enhancements_v1_0)
 
     Each plume has a 'confidence' property containing one of the following confidence scores:
 
