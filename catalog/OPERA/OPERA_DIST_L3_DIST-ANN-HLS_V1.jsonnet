@@ -42,6 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       * [OPERA DIST-HLS Product Specification Document](https://lpdaac.usgs.gov/documents/1766/OPERA_DIST_HLS_Product_Specification_V1.pdf)
       * [OPERA DIST-HLS Algorithm Theoretical Basis Document](https://lpdaac.usgs.gov/documents/1835/OPERA_DIST_ATBD__V1.pdf)
       * [NASA Earthdata Search](https://search.earthdata.nasa.gov/search/granules?p=C2519119034-LPCLOUD)
+      * [Publication: Rapid monitoring of global land change](https://doi.org/10.1038/s41467-025-64014-9)
   |||,
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,
@@ -49,6 +50,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     {
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5067/SNWG/OPERA_L3_DIST-ANN-HLS_V1.001',
+    },
+    {
+      rel: ee_const.rel.cite_as,
+      href: 'https://doi.org/10.1038/s41467-025-64014-9',
     },
   ],
   'gee:categories': ['forest-biomass'],
@@ -77,7 +82,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:citation': |||
     Hansen, M. (2024). OPERA Land Surface Disturbance Annual from Harmonized Landsat
     Sentinel-2 product (Version 1) [Dataset]. NASA Land Processes Distributed Active
-    Archive Center. https://doi.org/10.5067/SNWG/OPERA_L3_DIST-ANN-HLS_V1.001
+    Archive Center.
+    [https://doi.org/10.5067/SNWG/OPERA_L3_DIST-ANN-HLS_V1.001](https://doi.org/10.5067/SNWG/OPERA_L3_DIST-ANN-HLS_V1.001)
+
+    Pickens, A. H., Hansen, M. C., Song, Z., Poulson, A., Komarova, A., Baggett, A.,
+    Kerr, T., Mikus, A., Dominguez, C. O., Tyukavina, A., & Lima, A. (2025).
+    Rapid monitoring of global land change. Nature Communications, 16, 8820.
+    [https://doi.org/10.1038/s41467-025-64014-9](https://doi.org/10.1038/s41467-025-64014-9)
   |||,
   summaries: {
     gsd: [30],
@@ -90,37 +101,37 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:classes': [
           {
             description: 'No disturbance detected',
-            color: '2e7d32',
+            color: '121212',
             value: 0,
           },
           {
             description: 'Confirmed <50% ongoing disturbance',
-            color: 'ffeb3b',
+            color: 'dee043',
             value: 3,
           },
           {
             description: 'Confirmed >=50% ongoing disturbance',
-            color: 'f44336',
+            color: 'e01b07',
             value: 6,
           },
           {
             description: 'Confirmed <50% finished disturbance',
-            color: 'ff9800',
+            color: '777777',
             value: 7,
           },
           {
             description: 'Confirmed >=50% finished disturbance',
-            color: 'b71c1c',
+            color: 'dddddd',
             value: 8,
           },
           {
             description: 'Confirmed <50% disturbance from previous year',
-            color: 'd7ccc8',
+            color: '333333',
             value: 9,
           },
           {
             description: 'Confirmed >=50% disturbance from previous year',
-            color: '8d6e63',
+            color: '444444',
             value: 10,
           },
         ],
@@ -135,15 +146,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Day of initial vegetation disturbance detection, denoted as the number of days
           since December 31, 2020.
-          Fill value: -1.
         |||,
         'gee:units': units.day,
       },
       {
         name: 'VEG-DIST-DUR',
         description: |||
-          Duration of ongoing vegetation loss anomalies in days.
-          Fill value: -1.
+          Duration of reported vegetation disturbance event in days.
         |||,
         'gee:units': units.day,
       },
@@ -151,20 +160,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'VEG-DIST-CONF',
         description: |||
           Confidence level of vegetation disturbance detection.
-          Fill value: -1.
         |||,
       },
       {
         name: 'VEG-DIST-COUNT',
         description: |||
-          Count of observations with detected vegetation loss during the calendar year.
+          Count of observations with detected vegetation loss for the reported event.
         |||,
         'gee:units': units.count,
       },
       {
         name: 'VEG-CONF-PREV',
         description: |||
-          Vegetation loss alert from previous year confirmed in current year.
+          Reported vegetation loss alert from previous year confirmed in current year.
         |||,
         'gee:classes': [
           {
@@ -187,7 +195,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'VEG-CONF-COUNT',
         description: |||
-          Count of separate vegetation disturbance alerts during the calendar year.
+          Count of separate vegetation disturbance events during the calendar year.
         |||,
         'gee:units': units.count,
       },
@@ -196,7 +204,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Day of last observation for vegetation disturbance monitoring, denoted as the
           number of days since December 31, 2020.
-          Fill value: -1.
         |||,
         'gee:units': units.day,
       },
@@ -210,14 +217,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'VEG-IND-MAX',
         description: |||
-          Maximum vegetation cover indicator, representing estimated percent vegetation cover (0-100%).
+          Maximum estimated vegetation cover, with disturbance areas having the vegetation cover from the date of maximum anomaly (0-100%).
         |||,
         'gee:units': units.percent,
       },
       {
         name: 'VEG-IND-3YR-MIN',
         description: |||
-          Minimum vegetation index percent over 3-year historical baseline.
+          Minimum vegetation cover percent over the current and previous two years.
         |||,
         'gee:units': units.percent,
       },
@@ -229,37 +236,37 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:classes': [
           {
             description: 'No disturbance detected',
-            color: '2e7d32',
+            color: '121212',
             value: 0,
           },
           {
             description: 'Confirmed <50% ongoing disturbance',
-            color: 'ffeb3b',
+            color: 'dee043',
             value: 3,
           },
           {
             description: 'Confirmed >=50% ongoing disturbance',
-            color: 'f44336',
+            color: 'e01b07',
             value: 6,
           },
           {
             description: 'Confirmed <50% finished disturbance',
-            color: 'ff9800',
+            color: '777777',
             value: 7,
           },
           {
             description: 'Confirmed >=50% finished disturbance',
-            color: 'b71c1c',
+            color: 'dddddd',
             value: 8,
           },
           {
             description: 'Confirmed <50% disturbance from previous year',
-            color: 'd7ccc8',
+            color: '333333',
             value: 9,
           },
           {
             description: 'Confirmed >=50% disturbance from previous year',
-            color: '8d6e63',
+            color: '444444',
             value: 10,
           },
         ],
@@ -268,7 +275,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'GEN-ANOM-MAX',
         description: |||
           Maximum generic spectral anomaly observed during the year.
-          Fill value: -1.
         |||,
       },
       {
@@ -276,15 +282,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Day of initial generic disturbance detection, denoted as the number of days
           since December 31, 2020.
-          Fill value: -1.
         |||,
         'gee:units': units.day,
       },
       {
         name: 'GEN-DIST-DUR',
         description: |||
-          Duration of ongoing generic disturbance anomalies in days.
-          Fill value: -1.
+          Duration of reported generic disturbance event in days.
         |||,
         'gee:units': units.day,
       },
@@ -292,20 +296,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'GEN-DIST-CONF',
         description: |||
           Confidence level of generic disturbance detection.
-          Fill value: -1.
         |||,
       },
       {
         name: 'GEN-DIST-COUNT',
         description: |||
-          Count of observations with detected generic disturbance during the calendar year.
+          Count of observations with detected generic disturbance for the reported event.
         |||,
         'gee:units': units.count,
       },
       {
         name: 'GEN-CONF-PREV',
         description: |||
-          Generic disturbance alert from previous year confirmed in current year.
+          Reported generic disturbance alert from previous year confirmed in current year.
         |||,
         'gee:classes': [
           {
@@ -328,7 +331,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'GEN-CONF-COUNT',
         description: |||
-          Count of separate generic disturbance alerts during the calendar year.
+          Count of separate generic disturbance events during the calendar year.
         |||,
         'gee:units': units.count,
       },
@@ -337,7 +340,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: |||
           Day of last observation for generic disturbance monitoring, denoted as the number
           of days since December 31, 2020.
-          Fill value: -1.
         |||,
         'gee:units': units.day,
       },

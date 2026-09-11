@@ -1,25 +1,25 @@
 var dataset = ee.ImageCollection('OPERA/DIST/L3_DIST-ANN-HLS/V1')
-    .filterDate('2024-01-01', '2025-01-01');
+    .filterDate('2025-01-01', '2026-01-01');
 
 var dist = dataset.select('VEG-DIST-STATUS').mosaic();
 
-Map.setCenter(-60.64, -14.05, 9);
+Map.setCenter(29.81, 2.02, 11);
 
 var statusVis = {
   min: 0,
   max: 10,
   palette: [
-    '2e7d32', // 0: No disturbance detected (forest green)
-    '2e7d32',
-    '2e7d32',
-    'ffeb3b', // 3: Confirmed <50% ongoing disturbance (yellow)
-    'ff9800',
-    'ff5722',
-    'f44336', // 6: Confirmed >=50% ongoing disturbance (bright red)
-    'ff9800', // 7: Confirmed <50% finished disturbance (orange)
-    'b71c1c', // 8: Confirmed >=50% finished disturbance (crimson)
-    'd7ccc8', // 9: Confirmed <50% disturbance from previous year (tan)
-    '8d6e63', // 10: Confirmed >=50% disturbance from previous year (brown)
+    '121212', // 0: No disturbance detected (dark)
+    '000000', // Not used
+    '000000', // Not used
+    'dee043', // 3: Confirmed <50% ongoing disturbance (yellow)
+    '000000', // Not used
+    '000000', // Not used
+    'e01b07', // 6: Confirmed >=50% ongoing disturbance (red)
+    '777777', // 7: Confirmed <50% finished disturbance (gray)
+    'dddddd', // 8: Confirmed >=50% finished disturbance (very light gray)
+    '333333', // 9: Confirmed <50% disturbance from previous year (darkest gray)
+    '444444', // 10: Confirmed >=50% disturbance from previous year (dark gray)
   ],
 };
 
