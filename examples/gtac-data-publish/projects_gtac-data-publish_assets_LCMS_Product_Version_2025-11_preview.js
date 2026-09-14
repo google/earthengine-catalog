@@ -3,7 +3,9 @@ var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LCMS/Product
 
 // Filter to the 2024 CONUS image and convert to a single image.
 var lcms = dataset.filter(ee.Filter.calendarRange(2024, 2024,'year'))  // range: [1985, 2025]
-               .filter('study_area == "CONUS"').first()  // "AK"
+              .filter(ee.Filter.inList('study_area', ['AK', 'CONUS', 'HI', 'PRUSVI']))  // AK, CONUS, HI, PRUSVI
+              .mosaic();
+               
 
 
 // LCMS Land Cover visualization parameter presets.
