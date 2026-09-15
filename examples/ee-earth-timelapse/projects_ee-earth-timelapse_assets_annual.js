@@ -1,11 +1,11 @@
 // Timelapse
 
 // Import the collection.
-var timelapse = ee.ImageCollection('projects/ee-earth-timelapse/assets/annual')
+var timelapse = ee.ImageCollection('projects/ee-earth-timelapse/assets/annual');
 
-// Point to center
-var lon = -123.2939;
-var lat = 46.449;
+// Point to center (Papua river meandering).
+var lon = 139.4081;
+var lat = -7.169;
 
 // Center the map.
 Map.setCenter(lon, lat, 10);
