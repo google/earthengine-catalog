@@ -130,6 +130,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('WorldPop', base_url),
     ee.link.child_catalog('YALE', base_url),
     ee.link.child_catalog('edf-methanesat-ee', base_url),
+    ee.link.child_catalog('ee-earth-timelapse', base_url),
     ee.link.child_catalog('ee-kbas-in-gee', base_url),
     ee.link.child_catalog('ee-pkurelab', base_url),
     ee.link.child_catalog('forestdatapartnership', base_url),
