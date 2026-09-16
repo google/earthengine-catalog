@@ -22,6 +22,9 @@ UNKNOWN_PATH = pathlib.Path('> UNKNOWN PATH')
 # List loaded from non_commercial_datasets.jsonnet
 NON_COMMERCIAL_LIST = []
 
+# List loaded from share_alike_datasets.jsonnet
+SHARE_ALIKE_LIST = []
+
 SKIP_FEATUREVIEW_GENERATION = 'gee:skip_featureview_generation'
 
 CHECKER_CODE_ROOT = 'https://github.com/google/earthengine-catalog/blob/main'
@@ -199,6 +202,17 @@ def is_in_non_commercial(dataset_id: str) -> bool:
     non_commerical_file = data_root() / 'non_commercial_datasets.json'
     NON_COMMERCIAL_LIST = json.loads(non_commerical_file.read_text())
   for pattern in NON_COMMERCIAL_LIST:
+    if dataset_id.startswith(pattern):
+      return True
+  return False
+
+
+def is_in_share_alike(dataset_id: str) -> bool:
+  global SHARE_ALIKE_LIST
+  if not SHARE_ALIKE_LIST:
+    share_alike_file = data_root() / 'share_alike_datasets.json'
+    SHARE_ALIKE_LIST = json.loads(share_alike_file.read_text())
+  for pattern in SHARE_ALIKE_LIST:
     if dataset_id.startswith(pattern):
       return True
   return False
