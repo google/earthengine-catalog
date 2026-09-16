@@ -1,101 +1,116 @@
 /**
-  MapBiomas Collection 10 - LULC Visualization for 2024
+  MapBiomas Brazil - Land Use and Land Cover V1
 */
 
-// Define the asset path for MapBiomas Collection 10
 var assetPath = 'projects/mapbiomas-public/assets/brazil/lulc/v1';
 
-// Define the year for visualization
-var year = 2024;
+var year = 2025;
+var version = 'v1';
+var collectionId = 11;
 
-// Load the classified image for the year 2024 from Collection 10
 var collection = ee.ImageCollection(assetPath)
-	.filter(ee.Filter.eq('collection_id', 10.0))
-	.filter(ee.Filter.eq('version', 'v1'))
+	.filter(ee.Filter.eq('collection_id', collectionId))
+	.filter(ee.Filter.eq('version', version))
 	.filter(ee.Filter.eq('year', year));
 
 // Define visualization parameters
 var visParams = {
 	min: 0,
-	max: 75,  // Maximum class value in Collection 10
+	max: 91,  // Maximum class value in the legend
 	palette: [
-		'ffffff',  // [0] Not Observed
-		'32a65e',  // [1] --
-		'32a65e',  // [2] --
-		'1f8d49',  // [3] Forest Formation
-		'7dc975',  // [4] Savanna Formation
-		'04381d',  // [5] Mangrove
-		'026975',  // [6] Floodable Forest
-		'000000',  // [7] --
-		'000000',  // [8] --
-		'7a6c00',  // [9] Forest Plantation
-		'ad975a',  // [10] --
-		'519799',  // [11] Wetland
-		'd6bc74',  // [12] Grassland
-		'd89f5c',  // [13] Other Non Forest Formations
-		'FFFFB2',  // [14] --
-		'edde8e',  // [15] Pasture
-		'000000',  // [16] --
-		'000000',  // [17] --
-		'f5b3c8',  // [18] Agriculture
-		'C27BA0',  // [19] --
-		'db7093',  // [20] Sugar Cane
-		'ffefc3',  // [21] Mosaic of Uses
-		'db4d4f',  // [22] Non vegetated area
-		'ffa07a',  // [23] Beach, Dune and Sand Spot
-		'd4271e',  // [24] Urban Area
-		'db4d4f',  // [25] Other Non Vegetated Areas
-		'0000FF',  // [26] --
-		'000000',  // [27] --
-		'000000',  // [28] --
-		'ffaa5f',  // [29] Rocky Outcrop
-		'9c0027',  // [30] Mining
-		'091077',  // [31] Aquaculture
-		'fc8114',  // [32] Hypersaline Tidal Flat
-		'2532e4',  // [33] Rivers, Lakes and Ocean
-		'93dfe6',  // [34] Glacier
-		'9065d0',  // [35] --
-		'd082de',  // [36] --
-		'000000',  // [37] --
-		'000000',  // [38] --
-		'f5b3c8',  // [39] Soybean
-		'c71585',  // [40] Rice
-		'f54ca9',  // [41] Other Temporary Crops
-		'cca0d4',  // [42] --
-		'dbd26b',  // [43] --
-		'807a40',  // [44] --
-		'e04cfa',  // [45] --
-		'd68fe2',  // [46] Coffee
-		'9932cc',  // [47] Citrus
-		'e6ccff',  // [48] Other Perennial Crops
-		'02d659',  // [49] Wooded Sandbank Vegetation
-		'ad5100',  // [50] Herbaceous Sandbank Vegetation
-		'000000',  // [51] --
-		'000000',  // [52] --
-		'000000',  // [53] --
-		'000000',  // [54] --
-		'000000',  // [55] --
-		'000000',  // [56] --
-		'CC66FF',  // [57] --
-		'FF6666',  // [58] --
-		'006400',  // [59] --
-		'8d9e8b',  // [60] --
-		'f5d5d5',  // [61] Salt Flats
-		'ff69b4',  // [62] Cotton
-		'ebf8b5',  // [63] --
-		'000000',  // [64] --
-		'000000',  // [65] --
-		'91ff36',  // [66] --
-		'7dc975',  // [67] --
-		'e97a7a',  // [68] --
-		'0fffe3',  // [69] Coral Reefs
-		'000000',  // [70] --
-		'000000',  // [71] --
-		'000000',  // [72] --
-		'000000',  // [73] --
-		'000000',  // [74] --
-		'c12100',  // [75] Photovoltaic Power Plant
-	]
+    '000000',  // [0] --
+    '1f8d49',  // [1] Forest
+    '000000',  // [2] --
+    '1f8d49',  // [3] Forest Formation
+    '7dc975',  // [4] Savanna Formation
+    '04381d',  // [5] Mangrove
+    '007785',  // [6] Flooded Forest
+    '228c70',  // [7] Flooded Savanna (beta)
+    '000000',  // [8] --
+    '7a5900',  // [9] Silviculture
+    'd6bc74',  // [10] Herbaceous and Shrubby Vegetation
+    '519799',  // [11] Flooded Grassland and Wetland
+    'd6bc74',  // [12] Grassland Formation
+    '000000',  // [13] --
+    'ffefc3',  // [14] Agriculture and Livestock
+    'edde8e',  // [15] Pasture
+    '000000',  // [16] --
+    '000000',  // [17] --
+    'e974ed',  // [18] Agriculture
+    'c27ba0',  // [19] Temporary Crop
+    'db7093',  // [20] Sugarcane
+    'ffefc3',  // [21] Mosaic of Uses
+    'd4271e',  // [22] Non-vegetated Area
+    'ffa07a',  // [23] Beach, Dune, and Sandbank
+    'd4271e',  // [24] Urban Area
+    'db4d4f',  // [25] Other Non-Vegetated Areas
+    '2532e4',  // [26] Water Body
+    '000000',  // [27] --
+    '000000',  // [28] --
+    'ad5100',  // [29] Rocky Outcrop
+    '9c0027',  // [30] Mining
+    '091077',  // [31] Aquaculture
+    'fc8114',  // [32] Hypersaline Flat
+    '2532e4',  // [33] River, Lake, and Ocean
+    '000000',  // [34] --
+    '9065d0',  // [35] Oil Palm
+    'd082de',  // [36] Perennial Crop
+    '000000',  // [37] --
+    '000000',  // [38] --
+    'f5b3c8',  // [39] Soybean
+    'c71585',  // [40] Rice
+    'f54ca9',  // [41] Other Temporary Crops
+    '000000',  // [42] --
+    '000000',  // [43] --
+    '000000',  // [44] --
+    '000000',  // [45] --
+    'd68fe2',  // [46] Coffee
+    '9932cc',  // [47] Citrus
+    'e6ccff',  // [48] Other Perennial Crops
+    '02d659',  // [49] Arboreal Restinga
+    'ffaa5f',  // [50] Herbaceous or Shrubby Restinga
+    '000000',  // [51] --
+    '000000',  // [52] --
+    '000000',  // [53] --
+    '000000',  // [54] --
+    '000000',  // [55] --
+    '000000',  // [56] --
+    '000000',  // [57] --
+    '000000',  // [58] --
+    '000000',  // [59] --
+    '000000',  // [60] --
+    '000000',  // [61] --
+    'ff69b4',  // [62] Cotton (beta)
+    '000000',  // [63] --
+    '000000',  // [64] --
+    '000000',  // [65] --
+    '000000',  // [66] --
+    '000000',  // [67] --
+    '000000',  // [68] --
+    '000000',  // [69] --
+    '000000',  // [70] --
+    '000000',  // [71] --
+    '000000',  // [72] --
+    '000000',  // [73] --
+    '000000',  // [74] --
+    '757272',  // [75] Photovoltaic Plant
+    '000000',  // [76] --
+    '86b074',  // [77] Herbaceous-Shrub Formation
+    '000000',  // [78] --
+    '000000',  // [79] --
+    '000000',  // [80] --
+    '000000',  // [81] --
+    '000000',  // [82] --
+    '000000',  // [83] --
+    '81dbbf',  // [84] Salt Marsh (beta)
+    '000000',  // [85] --
+    '000000',  // [86] --
+    '000000',  // [87] --
+    '000000',  // [88] --
+    '000000',  // [89] --
+    '000000',  // [90] --
+    '403d3e',  // [91] Wind farm (beta)
+  ]
 };
 
 // Add the layer to the map
