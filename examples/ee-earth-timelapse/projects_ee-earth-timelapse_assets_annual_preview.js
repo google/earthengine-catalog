@@ -1,27 +1,16 @@
 // Timelapse
 
 // Import the collection.
-var timelapse = ee.ImageCollection('projects/ee-earth-timelapse/assets/annual')
-
-// Point to center
-var lon = 139.4081;
-var lat = -7.169;
-
-// Center the map.
-Map.setCenter(lon, lat, 10);
+var timelapse = ee.ImageCollection('projects/ee-earth-timelapse/assets/annual');
 
 // Filter the collection to the 2022 mosaic.
 var timelapse2022 =
     timelapse.filter(ee.Filter.calendarRange(2022, 2022, 'year')).first();
 
-// No visualization parameters needed.
-Map.addLayer(timelapse2022);
-
 // Preview image.
-
-// Arbitrary.
+var lon = 139.4081;
+var lat = -7.169;
 var delta = 0.2;
-// Width and Height of the Thumbnail image.
 var pixels = 256;
 
 var areaOfInterest = ee.Geometry.Rectangle(

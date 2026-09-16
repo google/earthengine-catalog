@@ -14,7 +14,8 @@ local self_url = base_url + base_filename;
   id: id,
   title: 'Earth Timelapse',
   description: |||
-    Earth Timelapse is a global, zoomable video that lets you see how our planet has changed since 1984.
+    Earth Timelapse is a global, zoomable video that lets you see how our
+    planet has changed since 1984.
   |||,
   'gee:publisher': {
     type: 'PUBLISHER',
