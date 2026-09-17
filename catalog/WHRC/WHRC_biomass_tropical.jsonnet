@@ -6,7 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local license = spdx.proprietary;
+local license = spdx.proprietary_non_commercial;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -92,4 +92,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       feedbacks and notification of any significant errors that they identify
       in the dataset.
   |||,
+  'gee:unusual_terms_of_use': true,
 }
