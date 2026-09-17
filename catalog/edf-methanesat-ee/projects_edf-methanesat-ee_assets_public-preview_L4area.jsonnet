@@ -5,14 +5,19 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local versions_table = import 'templates/msat_L4area_versions.libsonnet';
+local version_config = versions(subdir, versions_table, id);
+local version_internal = version_config.version;
 local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneSAT L4 Area Sources Public Preview V' + version,
-  version: version,
+  title: 'MethaneSAT L4 Area Sources Public Preview V' + version + ' ' + '[deprecated]',
+  version: version_internal,
+  'gee:status': 'deprecated',
   description: |||
     *The dispersed area emissions model is still in development and not
     representative of a final product.*
