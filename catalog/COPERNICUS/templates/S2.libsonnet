@@ -80,6 +80,7 @@ local license = spdx.proprietary;
         'gee:schema': [
           {
             name: 'CLOUDY_PIXEL_PERCENTAGE',
+            stac_name: 'eo:cloud_cover',
             description: 'Granule-specific cloudy pixel percentage taken from the original metadata',
             type: ee_const.var_type.double,
           },
