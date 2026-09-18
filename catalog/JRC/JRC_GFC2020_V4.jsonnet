@@ -28,6 +28,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'EC JRC global map of forest cover 2020, V4',
   version: version,
   'gee:type': ee_const.gee_type.image,
+  'gee:status': 'beta',
   description: |||
     The global map of forest cover provides a spatially explicit representation
     of forest presence and absence for the year 2020 at 10m spatial resolution.
