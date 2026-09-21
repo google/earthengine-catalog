@@ -1,5 +1,5 @@
 // Load the TreeMap image collection.
-var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/TreeMap/Product_Version/2026-1');
+var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/TreeMap/Product_Version/2023-1');
 
 // Filter to the 2023 CONUS image and convert to a single image.
 var treemap = dataset.filter(ee.Filter.calendarRange(2023, 2023, 'year'))

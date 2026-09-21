@@ -1,4 +1,4 @@
-local id = 'projects/gtac-data-publish/assets/TreeMap/Product_Version/2026-1';
+local id = 'projects/gtac-data-publish/assets/TreeMap/Product_Version/2023-1';
 local versions = import 'versions.libsonnet';
 local version_table = import 'templates/TreeMap_versions.libsonnet';
 local subdir = 'gtac-data-publish';
@@ -22,7 +22,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'USFS TreeMap 2026-1',
+  title: 'USFS TreeMap 2023-1',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
