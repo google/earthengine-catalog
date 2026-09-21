@@ -59,8 +59,8 @@ local self_url = catalog_subdir_url + base_filename;
     [this form](https://goo.gle/fdap-data).
 
     For more information about this dataset, see 
-    [the README](https://github.com/google/forest-data-partnership/blob/main/models/forests/README.md) 
-    on Google's Forest Data Partnership GitHub site. For more information about 
+    [the README](https://github.com/google/forest-data-partnership/tree/main/models/model_2024a/forests)
+    on Google's Forest Data Partnership GitHub site. For more information about
     the Forest Data Partnership, visit the 
     [Forest Data Partnership website](https://www.forestdatapartnership.org/).
 
@@ -123,7 +123,7 @@ local self_url = catalog_subdir_url + base_filename;
     ],
   },
   'sci:citation': |||
-    [Forest Data Partnership](https://github.com/google/forest-data-partnership/blob/main/models/forests/README.md)
+    [Forest Data Partnership](https://github.com/google/forest-data-partnership/tree/main/models/model_2024a/forests)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license) + |||
 
