@@ -4,7 +4,6 @@ local subdir = 'ee-earth-timelapse';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 local version = 'v0';
@@ -45,20 +44,24 @@ local self_url = catalog_subdir_url + base_filename;
     interpretation, educational storytelling, base mapping, or custom video
     exports.
 
+    Note: The RGB bands contain visually normalized 8-bit values derived from
+    Top-of-Atmosphere (TOA) reflectance (contrast-stretched from [0.02, 0.50]
+    with gamma 1.7 and matched to a MODIS BRDF baseline), not surface
+    reflectance. Timelapse is not recommended for quantitative radiometric
+    analysis.
+
     See [the Timelapse developer documentation](https://developers.google.com/earth-engine/timelapse/about)
     for more details on data characteristics, processing, and limitations.
-
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
   'gee:categories': ['satellite-imagery'],
   keywords: [
-    'change',
     'copernicus',
     'global',
     'google',
-    'landsat',
-    'sentinel',
+    'landsat_derived',
+    'sentinel2_derived',
   ],
   providers: [
     ee.producer_provider(
@@ -68,6 +71,11 @@ local self_url = catalog_subdir_url + base_filename;
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('1984-01-01T00:00:00Z', '2022-12-31T23:59:59Z'),
+  'gee:interval': {
+    type: 'cadence',
+    unit: 'year',
+    interval: 1,
+  },
   summaries: {
     'gee:schema': [
       {
@@ -80,19 +88,25 @@ local self_url = catalog_subdir_url + base_filename;
       {
         name: 'red',
         description: |||
-          Red value in 8-bits.
+          Visually normalized 8-bit red value derived from TOA reflectance
+          (min 0.02, max 0.50, gamma 1.7, matched to MODIS BRDF; not surface
+          reflectance).
         |||,
       },
       {
         name: 'green',
         description: |||
-          Green value in 8-bits.
+          Visually normalized 8-bit green value derived from TOA reflectance
+          (min 0.02, max 0.50, gamma 1.7, matched to MODIS BRDF; not surface
+          reflectance).
         |||,
       },
       {
         name: 'blue',
         description: |||
-          Blue value in 8-bits.
+          Visually normalized 8-bit blue value derived from TOA reflectance
+          (min 0.02, max 0.50, gamma 1.7, matched to MODIS BRDF; not surface
+          reflectance).
         |||,
       },
     ],
@@ -105,7 +119,7 @@ local self_url = catalog_subdir_url + base_filename;
     'gee:visualizations': [
       {
         display_name: 'Earth Timelapse Natural Color',
-        lookat: { lon: -7, lat: 7, zoom: 6 },
+        lookat: { lon: 139.41, lat: -7.17, zoom: 10 },
         image_visualization: {
           band_vis: {
             bands: ['red', 'green', 'blue'],
