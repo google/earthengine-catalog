@@ -13,6 +13,17 @@ py_library(
 )
 
 py_test(
+    name = "dangling_pointer_test",
+    size = "small",
+    srcs = ["dangling_pointer_test.py"],
+    deps = [
+        ":tree",
+        "//checker:stac",
+        requirement("absl-py"),
+    ],
+)
+
+py_test(
     name = "keywords_test",
     srcs = ["keywords_test.py"],
     deps = [

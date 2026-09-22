@@ -25,6 +25,7 @@
 // - https://github.com/google/earthengine-catalog/blob/main/checker/node/non_commercial.py
 
 [
+  'CSIRO/BHI/v4',
   'CSP/ERGo/1_0/Global/ALOS_CHILI',
   'CSP/ERGo/1_0/Global/ALOS_landforms',
   'CSP/ERGo/1_0/Global/ALOS_mTPI',

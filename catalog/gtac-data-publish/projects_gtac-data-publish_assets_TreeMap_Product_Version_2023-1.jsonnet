@@ -15,13 +15,13 @@ local license = spdx.proprietary;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
-  'gee:status': 'beta',
   stac_extensions: [
     ee_const.ext_eo,
     ee_const.ext_sci,
     ee_const.ext_ver,
   ],
   id: id,
+  'gee:status': 'beta',
   title: 'USFS TreeMap 2023-1',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,

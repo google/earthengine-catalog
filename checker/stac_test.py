@@ -100,6 +100,30 @@ class NoncommercialTest(absltest.TestCase):
     self.assertTrue(stac.is_in_non_commercial(full_asset_id))
 
 
+class ShareAlikeTest(absltest.TestCase):
+
+  def test_is_in_share_alike_evaluates_prefix(self):
+    # 'projects/malariaatlasproject/assets/EVI_v061' is in the prefix list,
+    # so a full asset id with sub-paths should match.
+    full_asset_id = 'projects/malariaatlasproject/assets/EVI_v061/1km/Annual'
+    self.assertTrue(stac.is_in_share_alike(full_asset_id))
+
+  def test_is_in_share_alike_exact_match(self):
+    self.assertTrue(stac.is_in_share_alike('WRI/SBTN/naturalLands/v1/2020'))
+
+  def test_is_in_share_alike_partial_prefix_does_not_match(self):
+    # Shorter string that is a prefix of an entry must not match.
+    self.assertFalse(
+        stac.is_in_share_alike('projects/malariaatlasproject/assets')
+    )
+
+  def test_is_in_share_alike_negative(self):
+    self.assertFalse(stac.is_in_share_alike('non_existent_dataset'))
+
+  def test_is_in_share_alike_empty_string(self):
+    self.assertFalse(stac.is_in_share_alike(''))
+
+
 class CaseMismatchTest(absltest.TestCase):
 
   def test_should_allow_case_mismatch_string(self):

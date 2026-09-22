@@ -669,9 +669,9 @@ local ee_const = import 'earthengine_const.libsonnet';
       {
         name: 'B8',
         description: 'Band 8 Panchromatic',
-        center_wavelength: 0.71,
+        center_wavelength: 0.59,
         gsd: 15.0,
-        'gee:wavelength': '0.52 - 0.90 &mu;m',
+        'gee:wavelength': '0.50 - 0.68 &mu;m',
       },
       {
         name: 'B9',
