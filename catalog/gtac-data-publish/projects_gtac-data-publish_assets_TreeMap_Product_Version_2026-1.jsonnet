@@ -21,6 +21,7 @@ local license = spdx.proprietary;
     ee_const.ext_ver,
   ],
   id: id,
+  'gee:status': 'beta',
   title: 'USFS TreeMap 2026-1',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
