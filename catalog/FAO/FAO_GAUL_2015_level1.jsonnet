@@ -1,11 +1,15 @@
 local id = 'FAO/GAUL/2015/level1';
 local subdir = 'FAO';
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/GAUL_level1_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 
 local license = spdx.proprietary;
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -14,10 +18,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   stac_version: ee_const.stac_version,
   type: ee_const.stac_type.collection,
+  stac_extensions: [
+    ee_const.ext_ver,
+  ],
   id: id,
   title:
     'FAO GAUL: Global Administrative Unit Layers 2015, ' +
-    'First-Level Administrative Units',
+    'First-Level Administrative Units [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.table,
   description: |||
     The Global Administrative Unit Layers (GAUL) compiles and disseminates the
@@ -40,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
     ee.link.example(id, subdir, basename + '_FeatureView'),
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['infrastructure-boundaries'],
   keywords: [
     'borders',
