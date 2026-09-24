@@ -1,29 +1,21 @@
-Map.setCenter(-55.50, -12.20, 8);
+var grass_mask = ee.Image("projects/global-pasture-watch/assets/ggc-30m/v1/grassland_c/2022");
 
-var epsilonMax = 0.86;  // Recommended grassland LUEmax (gC/m^2/day/MJ)
+Map.setCenter(-49.66328, -17.08633, 8);
+
+var EPSILON_MAX = 0.86;  // Recommended grassland LUEmax (gC/m^2/day/MJ)
+var SCALE_FACTOR = 0.01;  // Scale factor integer to float
+var N_DAYS = 15
 
 var collection = ee.ImageCollection(
     'projects/global-pasture-watch/assets/ggpp-10m/v1-beta/nrt'
-);
+).filterDate('2026-07-01', '2026-07-15');
 
-// The 'ugpp' band stores uGPP scaled by 10 (16-bit integers) with no-data = -1.
-var ugpp = collection.map(function(image) {
-  return image.select('ugpp')
-      .updateMask(image.select('ugpp').neq(-1))
-      .multiply(0.1)
-      .rename('ugpp_gC_m2_day');
-});
+var ugpp = collection.median().multiply(SCALE_FACTOR).multiply(N_DAYS).mask(grass_mask.eq(1))
 
 // Calibrated GPP = LUEmax x uGPP (one multiplication).
-var gpp = ugpp.map(function(image) {
-  return image.multiply(epsilonMax).rename('gpp_gC_m2_day');
-});
+var gpp = ugpp.multiply(EPSILON_MAX)
 
-var vis = {min: 0, max: 20, palette: 'faccfa,f19d6b,828232,226061,011959'};
+var vis = {min: 0, max: 10, palette: 'faccfa,f19d6b,828232,226061,011959'};
 
-// Median over a recent period.
-var ugppMedian = ugpp.filterDate('2026-06-27', '2026-09-20').median();
-Map.addLayer(ugppMedian, vis, 'uGPP (gC/m²/day), median');
-
-var gppMedian = gpp.filterDate('2026-06-27', '2026-09-20').median();
-Map.addLayer(gppMedian, vis, 'GPP (gC/m²/day) with LUEmax = 0.86');
+Map.addLayer(ugpp, vis, 'Accumulated uGPP (gC/m²/day), median');
+Map.addLayer(gpp, vis, 'Accumulated GPP (gC/m²/day) with LUEmax = ' + EPSILON_MAX);

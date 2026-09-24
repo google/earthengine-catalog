@@ -14,7 +14,7 @@ var ugpp = collection.map(function(image) {
 }).median();
 
 var palette = ['faccfa', 'f19d6b', '828232', '226061', '011959'];
-var vis = {min: 0, max: 20, palette: palette};
+var vis = {min: 0, max: 3, palette: palette};
 
 var gray = 150;
 var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
