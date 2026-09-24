@@ -1,4 +1,4 @@
-local id = 'projects/global-pasture-watch/assets/ggpp-30m/v1/ugpp_m';
+local id = 'projects/global-pasture-watch/assets/ggpp-30m/v1-1/ugpp_m';
 local subdir = 'global-pasture-watch';
 local versions = import 'versions.libsonnet';
 local version_table = import 'ugpp-30m_versions.libsonnet';
@@ -7,7 +7,7 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
-local ugpp30m_v1 = importstr 'ugpp-30m_v1.md';
+local ugpp30m_v1_1 = importstr 'ugpp-30m_v1-1.md';
 local license = spdx.cc_by_4_0;
 
 local version_config = versions(subdir, version_table, id);
@@ -18,13 +18,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual uncalibrated Gross Primary Productivity (uGPP) v' + version + ' [deprecated]',
+  title: 'GPW Annual uncalibrated Gross Primary Productivity (uGPP) v' + version,
   version: version,
-  'gee:status': 'deprecated',
+  'gee:status': 'beta',
   description: |||
-    This dataset provides global uncalibrated EO-based Gross Primary Productivity 
-    from 2000 at 30-m spatial resolution. 
-  ||| + ugpp30m_v1,
+    This dataset provides global uncalibrated EO-based Gross Primary Productivity
+    from 2000 at 30-m spatial resolution.
+  ||| + ugpp30m_v1_1,
   'gee:categories': ['plant-productivity'],
   keywords: [
     'vegetation',
@@ -84,8 +84,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5281/zenodo.13890401',
   'sci:citation': |||
-    Isik, M. S., Mesquita, V., Parente, L., & Consoli, D. (2025). 
-    Global Pasture Watch - Source Code of the Global Uncalibrated EO-based GPP and 
+    Isik, M. S., Mesquita, V., Parente, L., & Consoli, D. (2025).
+    Global Pasture Watch - Source Code of the Global Uncalibrated EO-based GPP and
     Grassland GPP Maps at 30m. Zenodo.
     [Source code]. Zenodo
     [doi:https://doi.org/10.5281/zenodo.15675358](https://doi.org/10.5281/zenodo.15675358)
@@ -93,9 +93,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:publications': [
     {
       citation: |||
-        Isik MS, Parente L, Consoli D, et al. (2025). 
-        Light use efficiency (LUE) based bimonthly gross primary 
-        productivity (GPP) for global grasslands at 30 m spatial 
+        Isik MS, Parente L, Consoli D, et al. (2025).
+        Light use efficiency (LUE) based bimonthly gross primary
+        productivity (GPP) for global grasslands at 30 m spatial
         resolution (2000–2022), PeerJ.
         [doi: https://doi.org/10.7717/peerj.19774](https://doi.org/10.7717/peerj.19774)
       |||,
