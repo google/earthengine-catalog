@@ -1,7 +1,7 @@
 Produced by the [Time2Graze](https://www.globalmethanehub.org/2025/09/10/the-global-methane-hub-launches-international-project-to-develop-satellite-guided-grazing-to-cut-livestock-emissions/), 
 and Land &#38; Carbon Lab Global Pasture Watch initiatives, this dataset provides near-real-time, daily 
-uncalibrated Gross Primary Productivity (uGPP) at 10-m resolution for Argetina, Brazil, Colombia, Nigeria, 
-Tanzania, Uganda, Uruguay, Zimbabwe
+uncalibrated Gross Primary Productivity (uGPP) at 10-m resolution for Argentina, Brazil, Colombia, Nigeria, 
+Tanzania, Uganda, Uruguay, Zimbabwe.
 
 uGPP is modeled with a light use efficiency (LUE) approach that follows the MOD17 algorithm with the
 modifications of [Isik et al., 2025](https://doi.org/10.7717/peerj.19774). Each daily value is
