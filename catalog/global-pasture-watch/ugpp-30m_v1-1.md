@@ -3,9 +3,11 @@ Gross Primary Productivity (GPP) values globally at 30-m spatial resolution from
 GPP values are modeled via a **light use efficiency (LUE)** approach, 
 where [**GLAD Landsat ARD** (collection-2)](https://glad.umd.edu/ard/home) are aggregated every two months 
 ([Consoli et al., 2024](https://peerj.com/articles/18585/)) and combined with 1-km **MODIS 
-temperature** data and **Photosynthetically Active Radiation (PAR)** based on the NASA 
-**CERES SYN1deg Ed4.2** product (CERES_SYN1deg_Ed4.2), computed as the sum of the surface PAR 
-direct and diffuse fluxes. 
+temperature** and **Photosynthetically Active Radiation (PAR)** data.
+
+In this version, the PAR data is based on the NASA 
+**CERES SYN1deg Ed4.2** product ([CERES_SYN1deg_Ed4.2](https://ceres-tool.larc.nasa.gov/ord-tool/jsp/SYN1degEd42Selection.jsp)), computed 
+as the sum of the surface PAR direct and diffuse fluxes. All other data inputs are the same from previous version.
 
 To keep the dataset flexible, the maximum light use efficiency (LUEmax) is set to 1 gC/m²/day/MJ 
 for **all land cover types**, allowing the users to later calibrate the 
