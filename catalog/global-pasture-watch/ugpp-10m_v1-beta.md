@@ -1,8 +1,9 @@
-Produced by the Land & Carbon Lab Global Pasture Watch initiative, this Time2Graze dataset provides
-near-real-time, daily uncalibrated Gross Primary Productivity (uGPP) at 10-m spatial resolution
-(0.01 ha, compatible with the paddock scale) for any emerged point on the globe.
+Produced by the [Time2Graze](https://www.globalmethanehub.org/2025/09/10/the-global-methane-hub-launches-international-project-to-develop-satellite-guided-grazing-to-cut-livestock-emissions/), 
+and Land &#38; Carbon Lab Global Pasture Watch initiatives, this dataset provides near-real-time, daily 
+uncalibrated Gross Primary Productivity (uGPP) at 10-m resolution for Argetina, Brazil, Colombia, Nigeria, 
+Tanzania, Uganda, Uruguay, Zimbabwe
 
-uGPP is modelled with a light use efficiency (LUE) approach that follows the MOD17 algorithm with the
+uGPP is modeled with a light use efficiency (LUE) approach that follows the MOD17 algorithm with the
 modifications of [Isik et al., 2025](https://doi.org/10.7717/peerj.19774). Each daily value is
 
 ```
@@ -35,6 +36,9 @@ thermal limitation does not vary below approximately 1 km.
 
 **Limitations:**
 
+- **Beta version**: The dataset is provided as beta version. A full assessment of GPP values is being 
+  conducted using hundreds of eddy-covariance towers from AmeriFlux, ChinaFlux, ICOS, JapanFlux, Swiss FluxNet 
+  and TERN, and will be submitted to peer-review in the next months.
 - **Thermal input resolution**: Ts comes from VIIRS (375 m–1 km) and is resampled to 10 m;
   sub-kilometre variation in uGPP originates only from fAPAR, PAR and Ws.
 - **Temporal coverage**: daily values depend on cloud-free Sentinel-2 overpasses; gaps occur under
@@ -45,9 +49,6 @@ thermal limitation does not vary below approximately 1 km.
 - **Optical water scalar**: LSWI replaces reanalysis VPD and may under- or over-represent water stress
   for deep-rooted woody vegetation.
 
-The product is evaluated against eddy-covariance towers from AmeriFlux, ChinaFlux, ICOS, JapanFlux,
-Swiss FluxNet and TERN, analysed by IGBP class and hemisphere.
-
-For more information see [Isik et al., 2025](https://doi.org/10.7717/peerj.19774),
-[Isik et al., 2026](https://doi.org/10.3390/rs18162745) and the
-[Global Pasture Watch GitHub site](https://github.com/wri/global-pasture-watch).
+For more information see [Isik et al., 2025](https://doi.org/10.7717/peerj.19774) and
+[Isik et al., 2026](https://doi.org/10.3390/rs18162745). The production pipeline is 
+available in [CodeBerg repository](https://codeberg.org/global-pasture-watch/forage-10-pipeline-gee/src/branch/main/f10/calculate_gpp_gee.py).
