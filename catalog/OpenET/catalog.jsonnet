@@ -31,6 +31,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_openet_assets_ptjpl_conus_gridmet_monthly_v2_1', base_url),
     ee.link.child_collection('projects_openet_assets_sims_conus_gridmet_monthly_v2_1', base_url),
     ee.link.child_collection('projects_openet_assets_ssebop_conus_gridmet_monthly_v2_1', base_url),
+    ee.link.child_collection('projects_openet_assets_reference_et_conus_gridmet_monthly_v1', base_url),
+    ee.link.child_collection('projects_openet_assets_reference_et_conus_gridmet_daily_v1', base_url),
     ee.link.child_collection('projects_openet_assets_ensemble_conus_gridmet_monthly_v2_0', base_url),
     ee.link.child_collection('projects_openet_assets_disalexi_conus_gridmet_monthly_v2_0', base_url),
     ee.link.child_collection('projects_openet_assets_eemetric_conus_gridmet_monthly_v2_0', base_url),
