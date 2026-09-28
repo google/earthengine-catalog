@@ -90,6 +90,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('OpenET', base_url),
     ee.link.child_catalog('OpenLandMap', base_url),
     ee.link.child_catalog('Oxford', base_url),
+    ee.link.child_catalog('radar-wur', base_url),
     ee.link.child_catalog('RESOLVE', base_url),
     ee.link.child_catalog('RUB', base_url),
     ee.link.child_catalog('SKYSAT', base_url),
