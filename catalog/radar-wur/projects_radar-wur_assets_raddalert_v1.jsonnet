@@ -1,4 +1,4 @@
-local id = 'projects/radar-wur/raddalert/v1';
+local id = 'projects/radar-wur/assets/raddalert/v1';
 local subdir = 'radar-wur';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -72,7 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   providers: [
     ee.producer_provider(
-      'Wageningen University & Research',
+      'Wageningen University and Research',
       'https://www.wur.nl/en/research/products-services/radd-forest-disturbance-alert'
     ),
     ee.host_provider(self_ee_catalog_url),
