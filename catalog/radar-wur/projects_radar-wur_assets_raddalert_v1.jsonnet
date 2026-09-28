@@ -24,6 +24,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   'gee:type': ee_const.gee_type.image_collection,
   'gee:status': 'beta',
+  'gee:categories': [
+    'forest-biomass',
+  ],
 
   description: |||
     Radar satellite imagery from the European Space Agency's Sentinel-1 mission is used to map new disturbances in primary humid tropical forest at 10 m spatial scale and in near real-time.
