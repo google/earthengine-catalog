@@ -6,12 +6,14 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-// The tech note states that all outputs are available under Creative Common
-// Zero as of September 2022. Individual models may be released under Creative
-// Commons 4.0; to be sure, each asset has a "license" property.
-local license = spdx.various {
-  reference: 'https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-1.html',
-};
+// NEX-GDDP-CMIP6 was initially released under CC-BY-SA-4.0, as required by the
+// data license of the original CMIP6 inputs. After the CMIP6 community relaxed
+// those upstream licenses in June 2022, the provider relicensed the whole
+// archive: as of September 2022 all outputs are made available under a blanket
+// CC0 license. Individual files still carry a "license" property inherited from
+// the original CMIP6 metadata, which the blanket CC0 supersedes.
+// See https://registry.opendata.aws/nex-gddp-cmip6/.
+local license = spdx.cc0_1_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -59,11 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
-    {
-      rel: ee_const.rel.license,
-      href: license.reference,
-      type: ee_const.media_type.html,
-    },
+    ee.link.license(license.reference),
   ],
   'gee:categories': ['climate'],
   keywords: [
@@ -367,17 +365,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     interval: 1,
   },
   'gee:terms_of_use': |||
-    All CMIP6 GCM model inputs and any derivatives work, such as this dataset,
-    are governed by the original
-    [Terms of use](https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-1.html)
-    and may have some restrictions on usage. See the "license" property on
-    each EE Image that notes the specific license the data may fall under.
+    As of September 2022, all NEX-GDDP-CMIP6 outputs are made available by the
+    provider under a blanket [%s](%s) license.
 
-    (Note that while the official Terms of Use mention that some models are
-    restricted under '%s' (%s), models available in Earth Engine either fall
-    under '%s' (%s) or '%s' (%s).)
+    Some models in the original dataset were initially released
+    under '%s' (%s), as required by the data
+    license of the original CMIP6 inputs, and individual EE Images may still
+    carry a "license" property inherited from that original CMIP6 file
+    metadata. The blanket CC0 license supersedes those properties.
   ||| % [
-    spdx.cc_by_sa_4_0.id, spdx.cc_by_sa_4_0.name, spdx.cc_by_4_0.id,
-    spdx.cc_by_4_0.name, spdx.cc0_1_0.id, spdx.cc0_1_0.name
+    spdx.cc0_1_0.id, spdx.cc0_1_0.reference, spdx.cc_by_sa_4_0.id,
+    spdx.cc_by_sa_4_0.name
   ]
 }
