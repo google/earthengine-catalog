@@ -30,7 +30,7 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection(
-      'projects_radar-wur_raddalert_v1',
+      'projects_radar-wur_assets_raddalert_v1',
       base_url
     ),
   ],
