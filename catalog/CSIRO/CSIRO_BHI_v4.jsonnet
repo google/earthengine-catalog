@@ -21,19 +21,27 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'CSIRO Biodiversity Habitat Index v4 (BHI v4)',
+  title: 'CSIRO global biodiversity indicators',
   version: 'v4',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The Biodiversity Habitat Index (BHI) v4 dataset, produced by CSIRO using the
-    BILBI (Bio-climatic Indicator for Land-use and Biodiversity Impacts) framework,
+    The CSIRO biodiversity indicators v4 dataset, produced by CSIRO using the BILBI
+    (Biogeographic Infrastructure for Large-scaled Biodiversity Indicators) framework,
     models global terrestrial biodiversity indicators at 30 arcsecond (~1 km) resolution
-    annually from 2000 to 2024.
+    annually from 2000 to 2024. These indicators provide a system level view of change
+    in biodiversity protection, expected persistence, and resilience in the face of
+    climate change. Indicators included here are the Biodiversity Habitat Index (BHI),
+    the Bioclimatic Ecosystem Resilience Index (BERI), the Protected Area Representativeness
+    and Connectedness Index for representativeness (PARC-representativeness), the
+    Protected Area Representativeness and Connectedness Index for connectedness
+    (PARC-connectedness), and ecosystem condition.
 
     A complementary static global weighting surface is available as a standalone image
     at CSIRO/BHI/v4_weights. It represents summed compositional similarity across
-    terrestrial cells, which is used for calculating regional and global geometric
+    terrestrial pixels, which is used for calculating regional and global geometric
     aggregations of the biodiversity indicators.
+
+    If you have any questions about the dataset please contact: chris.ware@csiro.au
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -64,38 +72,39 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'bhi',
         description: |||
-          Biodiversity Habitat Index: Estimates the proportion of original native
-          species richness and composition retained within each pixel considering
-          local habitat condition and ecological context.
+          Biodiversity Habitat Index: Estimates the proportion of species diversity
+          retained within each pixel as a function of the area, condition and
+          connectivity of natural ecosystems.
         |||,
       },
       {
         name: 'beri',
         description: |||
-          Bioclimatic Ecosystem Resilience Index: Measures how well protected area
-          networks represent the full diversity of terrestrial ecosystems.
+          Bioclimatic Ecosystem Resilience Index: Estimates the capacity of landscapes to
+          retain species diversity in the face of climate change as a function of the area,
+          condition and connectivity of natural ecosystems across those landscapes.
         |||,
       },
       {
         name: 'parc_rep',
         description: |||
-          Protected Area Representativeness: Measures spatial representativeness
-          of protected area systems across ecological and climatic gradients.
+          Protected Area Representativeness: Estimates the extent to which a system of
+          terrestrial protected areas is ecologically representative of the full range of
+          environmental and biological diversity in any region.
         |||,
       },
       {
         name: 'parc_con',
         description: |||
-          Protected Area Connectedness: Evaluates structural and functional landscape
-          connectivity between protected reserves, critical for species migration
-          under climate change.
+          Protected Area Connectedness: Estimates the extent to which protected areas are
+          functionally connected to one another and to other areas of intact natural ecosystems.
         |||,
       },
       {
         name: 'ecosystem_condition',
         description: |||
-          Ecosystem Condition: Relative health and integrity of natural ecosystems
-          compared to undisturbed reference states (0-100%).
+          Ecosystem Condition: Estimate of biological integrity of any location compared
+          to undisturbed reference states (0-100%).
         |||,
         'gee:units': units.percent,
       },
