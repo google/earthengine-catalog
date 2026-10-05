@@ -1,8 +1,6 @@
 var ecosystemTypology =
     ee.FeatureCollection('IUCN/GlobalEcosystemTypology/current');
 
-var propertyToFilter = 'efg_code';
-
 var labelsAndColorsClient = {
   'F1.1': '7e3fe6',
   'F1.2': '77b3fd',
@@ -114,18 +112,16 @@ var labelsAndColorsClient = {
   'TF1.7': '77d71d',
   'T1.3': 'ffffff'
 };
-var labelsAndColors = ee.Dictionary(labelsAndColorsClient);
-var filteredEcosystems =
-    ecosystemTypology.filter(ee.Filter.neq(propertyToFilter, null));
+var codes = Object.keys(labelsAndColorsClient);
+var colors = codes.map(function(k) {
+  return labelsAndColorsClient[k];
+});
+var indices = ee.List.sequence(0, codes.length - 1);
 
-var image = filteredEcosystems
-  .map(function (feature) {
-    return feature.set('efgStyle', {
-      'color': labelsAndColors.get(feature.get('efg_code')),
-    });
-  })
-  .style({
-    'styleProperty': 'efgStyle',
-  });
-Map.addLayer(image, {}, 'Global Ecosystem Typlology');
-Map.setCenter(-63.873, 46.194,8);
+var remapped = ecosystemTypology.remap(codes, indices, 'efg_code');
+var image = ee.Image().byte().paint(remapped, 'efg_code');
+
+Map.addLayer(
+    image, {min: 0, max: codes.length - 1, palette: colors},
+    'Global Ecosystem Typology');
+Map.setCenter(-63.873, 46.194, 8);

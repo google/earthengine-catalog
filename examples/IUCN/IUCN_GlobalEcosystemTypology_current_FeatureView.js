@@ -41,7 +41,7 @@ var categories = [
 var featureViewLayer = ui.Map.FeatureViewLayer(
   "IUCN/GlobalEcosystemTypology/current_FeatureView",
   null,
-  "Global Ecosystem Typlology");
+  "Global Ecosystem Typology");
 
 featureViewLayer.setVisParams({
   fillColor: {
