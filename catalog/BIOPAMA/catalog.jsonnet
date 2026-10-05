@@ -19,5 +19,6 @@ local self_url = base_url + base_filename;
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
     ee.link.child_collection('BIOPAMA_GlobalOilPalm_v1', base_url),
+    ee.link.child_collection('BIOPAMA_GlobalOilPalm_v1_2', base_url),
   ],
 }
