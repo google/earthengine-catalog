@@ -974,6 +974,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:terms_of_use': |||
     The use of Sentinel data is governed by the [Copernicus
-    Sentinel Data Terms and Conditions.](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice)
+    Sentinel Data Terms and Conditions.](https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice)
   |||,
 }

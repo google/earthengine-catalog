@@ -41,7 +41,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
 
     For this product, the convective cloud differential (ccd) and
     cloud slicing (csa) algorithm were used.
-    [Product user manual.](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Tropospheric-Column).
+    [Product user manual.](https://sentinels.copernicus.eu/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Tropospheric-Column).
     [More information.](http://www.tropomi.eu/data-products/tropospheric-ozone-column).
 
     Unlike all other S5P products, this product was ingested directly without using
