@@ -6,7 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 
-local license = spdx.proprietary_non_commercial;
+local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -110,5 +110,4 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     in any published material produced using this data, and if possible link
     web pages to the [CIAT-CSI SRTM website](https://srtm.csi.cgiar.org).
   |||,
-  'gee:unusual_terms_of_use': true,
 }

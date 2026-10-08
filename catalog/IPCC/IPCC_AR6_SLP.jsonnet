@@ -8,7 +8,7 @@ local units = import 'units.libsonnet';
 local bands_info = import 'templates/ipcc_ar6.libsonnet';
 local components = importstr 'templates/components.md';
 
-local license = spdx.cc_by_4_0;
+local license = spdx.proprietary;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
