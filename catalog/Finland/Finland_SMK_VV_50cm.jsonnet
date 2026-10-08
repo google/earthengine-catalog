@@ -4,7 +4,7 @@ local subdir = 'Finland';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local license = spdx.proprietary;
+local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
