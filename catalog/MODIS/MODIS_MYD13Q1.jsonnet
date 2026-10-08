@@ -10,6 +10,7 @@ local spdx = import 'spdx.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local license = spdx.proprietary;
+local template = import 'templates/MODIS_006_MOD13Q1.libsonnet';
 
 {
   stac_version: ee_const.stac_version,
@@ -123,7 +124,10 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2002-07-04T00:00:00Z', null),
-  summaries: {
+  summaries: template.summaries {
+    platform: [
+      'Aqua',
+    ],
     'gee:visualizations': [
       {
         display_name: 'NDVI',
