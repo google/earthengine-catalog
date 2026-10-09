@@ -27,22 +27,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   version: version,
-  title: 'PRISM Long-Term Average Climate Dataset Norm81m [deprecated]',
+  title: 'PRISM Long-Term Normals Dataset Norm81m [deprecated]',
   'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
-    The PRISM daily and monthly datasets are gridded climate
+    The PRISM daily and monthly datasets are gridded weather
     datasets for the conterminous United States, produced by the
-    PRISM Climate Group at Oregon State University.
+    PRISM Group at Oregon State University.
 
     Grids are
     developed using PRISM (Parameter-elevation Regressions on Independent
     Slopes Model). PRISM interpolation routines simulate how weather
-    and climate vary with elevation, and account for coastal effects,
+    varies with elevation, and account for coastal effects,
     temperature inversions, and terrain barriers that can cause rain
     shadows. Station data are assimilated from many networks across
     the country. For more information, see the [Descriptions of PRISM
-    Spatial Climate Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
+    Spatial Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
@@ -51,7 +51,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:categories': ['climate'],
   keywords: [
     '30_year',
-    'climate',
     'geophysical',
     'oregonstate',
     'precipitation',
@@ -226,7 +225,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'gee:terms_of_use': |||
     These PRISM datasets are available without restriction
-    on use or distribution. PRISM Climate Group does request that the
+    on use or distribution. PRISM Group does request that the
     user give proper attribution and identify PRISM, where applicable,
     as the source of the data.
     [%(license_link)s](%(license_link)s)

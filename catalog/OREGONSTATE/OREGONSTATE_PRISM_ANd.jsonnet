@@ -11,7 +11,7 @@ prism {
   id: id,
   version: version_config.version,
   links+: version_config.version_links,
-  title: 'PRISM Daily Spatial Climate Dataset ANd',
+  title: 'PRISM Daily Spatial Dataset ANd',
   description: prism.description_intro +
               |||
                 This collection contains both AN81 and AN91

@@ -37,26 +37,26 @@ local units = import 'units.libsonnet';
   ],
   'gee:type': ee_const.gee_type.image_collection,
   description_intro:: |||
-    The PRISM daily and monthly datasets are gridded climate
+    The PRISM daily and monthly datasets are gridded weather
     datasets for the conterminous United States, produced by the
-    PRISM Climate Group at Oregon State University.
+    PRISM Group at Oregon State University.
   |||,
   description_outro:: |||
 
     Grids are
     developed using PRISM (Parameter-elevation Regressions on Independent
     Slopes Model). PRISM interpolation routines simulate how weather
-    and climate vary with elevation, and account for coastal effects,
+    varies with elevation, and account for coastal effects,
     temperature inversions, and terrain barriers that can cause rain
     shadows. Station data are assimilated from many networks across
     the country. For more information, see the [Descriptions of PRISM
-    Spatial Climate Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
+    Spatial Datasets](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf).
 
     **Note**
 
     * **Warning**: This dataset should not be
-      used to calculate century-long climate trends due to non-climatic
-      variations from to station equipment and location changes, openings
+      used to calculate century-long trends due to non-weather-related
+      variations from station equipment and location changes, openings
       and closings, varying observation times, and the use of relatively
       short-term networks. Please see the [dataset documentation
       ](https://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf)
@@ -72,9 +72,7 @@ local units = import 'units.libsonnet';
   license: spdx.proprietary.id,
   links: ee.standardLinks('OREGONSTATE', self.id),
   'gee:categories': ['climate'],
-  keywords: [
-    'climate',
-  ] + (if period == 'daily' then ['daily'] else []) + [
+  keywords: (if period == 'daily' then ['daily'] else []) + [
     'geophysical',
   ] + (if period == 'monthly' then ['monthly'] else []) + [
     'oregonstate',
@@ -241,7 +239,7 @@ local units = import 'units.libsonnet';
   },
   'gee:terms_of_use': |||
     These PRISM datasets are available without restriction
-    on use or distribution. PRISM Climate Group does request that the
+    on use or distribution. PRISM Group does request that the
     user give proper attribution and identify PRISM, where applicable,
     as the source of the data.
   |||,
