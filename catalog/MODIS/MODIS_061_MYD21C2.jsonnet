@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5067/MODIS/MYD21C2.061',
     },
   ],
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
     'aqua',
     'emissivity',

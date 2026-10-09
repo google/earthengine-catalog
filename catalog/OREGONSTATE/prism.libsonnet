@@ -71,7 +71,7 @@ local units = import 'units.libsonnet';
   description: self.description_intro + self.description_outro,
   license: spdx.proprietary.id,
   links: ee.standardLinks('OREGONSTATE', self.id),
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: (if period == 'daily' then ['daily'] else []) + [
     'geophysical',
   ] + (if period == 'monthly' then ['monthly'] else []) + [

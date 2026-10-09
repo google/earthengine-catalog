@@ -127,7 +127,7 @@ local bands = [
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
     'climate',
     'copernicus',

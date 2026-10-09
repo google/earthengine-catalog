@@ -37,7 +37,7 @@ local pressure_levels = [
     [Google Cloud marketplace](https://console.cloud.google.com/marketplace/product/bigquery-public-data/open-data-ecmwf).
   |||,
 
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
     'dewpoint',
     'ecmwf',
