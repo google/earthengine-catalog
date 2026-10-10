@@ -1,3 +1,18 @@
 .vscode
 .idea
 .DS_Store
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Bazel
+bazel-*
+MODULE.bazel.lock
+
+# Local working docs
+docs/*.docx
+docs/mapbiomas_*.md

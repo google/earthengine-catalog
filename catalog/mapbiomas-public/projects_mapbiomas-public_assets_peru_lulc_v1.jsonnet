@@ -1,4 +1,4 @@
-local id = 'projects/mapbiomas-public/assets/ecuador/lulc/v1';
+local id = 'projects/mapbiomas-public/assets/peru/lulc/v1';
 
 local subdir = 'mapbiomas-public';
 
@@ -17,31 +17,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
 
-  title: 'MapBiomas Land Use and Land Cover - Ecuador V' + version,
+  title: 'MapBiomas Land Use and Land Cover - Peru V' + version,
 
   version: version,
 
   description: |||
-    MapBiomas Land Use and Land Cover (LULC) dataset for Ecuador is produced annually
+    MapBiomas Land Use and Land Cover (LULC) dataset for Peru is produced annually
     by the MapBiomas Project using Landsat satellite imagery and machine learning
     classification techniques. The dataset provides consistent annual land cover maps
     at a 30-meter resolution.
 
-    Ecuador's territory encompasses four distinct natural regions: the Amazon (Oriente),
-    the Andes highlands (Sierra), the Pacific Coast (Costa), and the Galapagos Islands.
-    This geographic diversity is reflected in the classification legend, which includes
-    classes specific to Ecuadorian ecosystems such as Andean herbaceous and shrubby
-    vegetation, flooded Andean herbaceous, mangrove, and banana plantations.
+    Peru's territory spans the Amazon rainforest, the Andean highlands, the Pacific
+    coastal desert, and the Equatorial Dry Forest. This geographic diversity is
+    reflected in the classification legend, which includes classes specific to
+    Peruvian ecosystems such as dry forest, fog oasis, coastal salt flat, flooded
+    forest, oil palm, high andean and lowland flooded grassland, and glacier.
 
     Each image in the collection contains one band named "classification", with
     integer values representing categorical land cover classes for that year. The
     classification is based on Landsat 5 (TM), Landsat 7 (ETM+), Landsat 8 and 9
     (OLI/TIRS) surface reflectance data, preprocessed to generate annual cloud-free
-    composites. The classification process uses automated decision trees trained with
-    reference samples and validated by regional experts.
+    composites. The classification process uses the Random Forest algorithm trained
+    with reference samples collected and validated by regional experts.
 
     For more information, classification legend, methodology, and accuracy assessments,
-    visit the [MapBiomas website](https://ecuador.mapbiomas.org/en).
+    visit the [MapBiomas Peru website](https://peru.mapbiomas.org/en).
   |||,
 
   'gee:categories': ['landuse-landcover'],
@@ -56,12 +56,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
 
   extent: ee.extent(
-    -92.01,
-    -5.1216,
-    -75.1741,
-    2.4547,
+    -81.41,
+    -18.35,
+    -68.65,
+    -0.03,
     '1985-01-01T00:00:00Z',
-    '2024-12-31T00:00:00Z'
+    '2025-12-31T00:00:00Z'
   ),
 
   summaries: {
@@ -96,91 +96,97 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'classification',
         description: |||
           Land use and land cover classification, with integer values
-          corresponding to MapBiomas Ecuador legend classes.
+          corresponding to MapBiomas Peru legend classes.
         |||,
         'gee:classes': [
-          {value: 1,  color: '1f8d49', description: 'Natural forest'},
+          {value: 1,  color: '1f8d49', description: 'Forest formation'},
           {value: 3,  color: '1f8d49', description: 'Forest'},
-          {value: 4,  color: '7dc975', description: 'Open forest'},
+          {value: 4,  color: '7dc975', description: 'Dry forest'},
           {value: 5,  color: '04381d', description: 'Mangrove'},
           {value: 6,  color: '026975', description: 'Flooded forest'},
-          {value: 9,  color: '7a5900', description: 'Silviculture'},
-          {value: 10, color: 'd6bc74', description: 'Non-forest natural formation'},
-          {value: 11, color: '519799', description: 'Non forest wetland'},
-          {value: 12, color: 'd6bc74', description: 'Grassland'},
-          {value: 13, color: 'd89f5c', description: 'Other non-forest natural formation'},
-          {value: 14, color: 'ffefc3', description: 'Farming and silviculture'},
-          {value: 21, color: 'ffefc3', description: 'Mosaic of uses'},
+          {value: 9,  color: '7a5900', description: 'Planted forest'},
+          {value: 10, color: 'd6bc74', description: 'Natural non-forest formation'},
+          {value: 11, color: '519799', description: 'Flooded herbaceous formation'},
+          {value: 12, color: 'd6bc74', description: 'Herbaceous formation'},
+          {value: 13, color: 'd89f5c', description: 'Shrub and other non-forest formations'},
+          {value: 14, color: 'ffefc3', description: 'Agricultural area'},
+          {value: 15, color: 'edde8e', description: 'Pasture (beta)'},
+          {value: 21, color: 'ffefc3', description: 'Mosaic of agriculture and pasture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
-          {value: 23, color: 'ffa07a', description: 'Beach, dune and sand spot'},
+          {value: 23, color: 'ffa07a', description: 'Beach'},
           {value: 24, color: 'd4271e', description: 'Urban infrastructure'},
-          {value: 25, color: 'db4d4f', description: 'Other anthropic non-vegetated area'},
-          {value: 26, color: '2532e4', description: 'Water'},
+          {value: 25, color: 'db4d4f', description: 'Other anthropogenic non-vegetated area'},
+          {value: 26, color: '2532e4', description: 'Water body'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
-          {value: 29, color: 'ffaa5f', description: 'Rocky outcrop'},
           {value: 30, color: '9c0027', description: 'Mining'},
           {value: 31, color: '091077', description: 'Aquaculture'},
-          {value: 33, color: '2532e4', description: 'River, lake and ocean'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
           {value: 34, color: '93dfe6', description: 'Glacier'},
+          {value: 35, color: '9065d0', description: 'Oil palm'},
+          {value: 40, color: 'c71585', description: 'Rice (beta)'},
+          {value: 51, color: '5faf92', description: 'Lowland flooded grassland'},
+          {value: 52, color: 'f0b4a8', description: 'Coastal salt flat'},
+          {value: 61, color: 'f5d5d5', description: 'Salt flat'},
+          {value: 66, color: 'a89358', description: 'Shrubland and other shrub vegetation'},
           {value: 68, color: 'e97a7a', description: 'Other natural non-vegetated area'},
-          {value: 74, color: 'be83f7', description: 'Banana'},
-          {value: 81, color: 'dfeb62', description: 'Andean Herbaceous and Shrubby Vegetation'},
-          {value: 82, color: '6fc179', description: 'Flooded Andean Herbaceous'},
+          {value: 70, color: 'be9e00', description: 'Fog oasis (beta)'},
+          {value: 82, color: '26abab', description: 'High andean flooded grassland'},
+          {value: 92, color: 'd98a45', description: 'Rocky surface'},
         ],
       },
     ],
 
     'gee:visualizations': [
       {
-        display_name: 'Land Use and Cover - MapBiomas Ecuador',
-        lookat: {lon: -78.2, lat: -1.3, zoom: 7},
+        display_name: 'Land Use and Cover - MapBiomas Peru',
+        lookat: {lon: -75.0, lat: -9.5, zoom: 5},
         image_visualization: {
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [82],
+            max: [92],
             palette: [
               '000000',  // [0] --
-              '1f8d49',  // [1] Natural forest
+              '1f8d49',  // [1] Forest formation
               '000000',  // [2] --
               '1f8d49',  // [3] Forest
-              '7dc975',  // [4] Open forest
+              '7dc975',  // [4] Dry forest
               '04381d',  // [5] Mangrove
               '026975',  // [6] Flooded forest
               '000000',  // [7] --
               '000000',  // [8] --
-              '7a5900',  // [9] Silviculture
-              'd6bc74',  // [10] Non-forest natural formation
-              '519799',  // [11] Non forest wetland
-              'd6bc74',  // [12] Grassland
-              'd89f5c',  // [13] Other non-forest natural formation
-              'ffefc3',  // [14] Farming and silviculture
-              '000000',  // [15] --
+              '7a5900',  // [9] Planted forest
+              'd6bc74',  // [10] Natural non-forest formation
+              '519799',  // [11] Flooded herbaceous formation
+              'd6bc74',  // [12] Herbaceous formation
+              'd89f5c',  // [13] Shrub and other non-forest formations
+              'ffefc3',  // [14] Agricultural area
+              'edde8e',  // [15] Pasture (beta)
               '000000',  // [16] --
               '000000',  // [17] --
               '000000',  // [18] --
               '000000',  // [19] --
               '000000',  // [20] --
-              'ffefc3',  // [21] Mosaic of uses
+              'ffefc3',  // [21] Mosaic of agriculture and pasture
               'd4271e',  // [22] Non-vegetated area
-              'ffa07a',  // [23] Beach, dune and sand spot
+              'ffa07a',  // [23] Beach
               'd4271e',  // [24] Urban infrastructure
-              'db4d4f',  // [25] Other anthropic non-vegetated area
-              '2532e4',  // [26] Water
+              'db4d4f',  // [25] Other anthropogenic non-vegetated area
+              '2532e4',  // [26] Water body
               'ffffff',  // [27] Not observed
               '000000',  // [28] --
-              'ffaa5f',  // [29] Rocky outcrop
+              '000000',  // [29] --
               '9c0027',  // [30] Mining
               '091077',  // [31] Aquaculture
               '000000',  // [32] --
-              '2532e4',  // [33] River, lake and ocean
+              '2532e4',  // [33] River, lake or ocean
               '93dfe6',  // [34] Glacier
-              '000000',  // [35] --
+              '9065d0',  // [35] Oil palm
               '000000',  // [36] --
               '000000',  // [37] --
               '000000',  // [38] --
               '000000',  // [39] --
-              '000000',  // [40] --
+              'c71585',  // [40] Rice (beta)
               '000000',  // [41] --
               '000000',  // [42] --
               '000000',  // [43] --
@@ -191,8 +197,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [48] --
               '000000',  // [49] --
               '000000',  // [50] --
-              '000000',  // [51] --
-              '000000',  // [52] --
+              '5faf92',  // [51] Lowland flooded grassland
+              'f0b4a8',  // [52] Coastal salt flat
               '000000',  // [53] --
               '000000',  // [54] --
               '000000',  // [55] --
@@ -201,28 +207,38 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [58] --
               '000000',  // [59] --
               '000000',  // [60] --
-              '000000',  // [61] --
+              'f5d5d5',  // [61] Salt flat
               '000000',  // [62] --
               '000000',  // [63] --
               '000000',  // [64] --
               '000000',  // [65] --
-              '000000',  // [66] --
+              'a89358',  // [66] Shrubland and other shrub vegetation
               '000000',  // [67] --
               'e97a7a',  // [68] Other natural non-vegetated area
               '000000',  // [69] --
-              '000000',  // [70] --
+              'be9e00',  // [70] Fog oasis (beta)
               '000000',  // [71] --
               '000000',  // [72] --
               '000000',  // [73] --
-              'be83f7',  // [74] Banana
+              '000000',  // [74] --
               '000000',  // [75] --
               '000000',  // [76] --
               '000000',  // [77] --
               '000000',  // [78] --
               '000000',  // [79] --
               '000000',  // [80] --
-              'dfeb62',  // [81] Andean Herbaceous and Shrubby Vegetation
-              '6fc179',  // [82] Flooded Andean Herbaceous
+              '000000',  // [81] --
+              '26abab',  // [82] High andean flooded grassland
+              '000000',  // [83] --
+              '000000',  // [84] --
+              '000000',  // [85] --
+              '000000',  // [86] --
+              '000000',  // [87] --
+              '000000',  // [88] --
+              '000000',  // [89] --
+              '000000',  // [90] --
+              '000000',  // [91] --
+              'd98a45',  // [92] Rocky surface
             ],
           },
         },
@@ -240,6 +256,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
 
   'gee:terms_of_use': ee.gee_terms_of_use(license),
+
+  'gee:status': 'beta',
 
   'gee:type': ee_const.gee_type.image_collection,
 
