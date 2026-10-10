@@ -58,9 +58,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
   ],
-  'gee:categories': ['climate', 'cryosphere', 'precipitation', 'soil', 'water-vapor'],
+  'gee:categories': ['cryosphere', 'precipitation', 'soil', 'water-vapor', 'weather-and-climate'],
   keywords: [
     '3_hourly',
+    'climate',
     'evaporation',
     'forcing',
     'geophysical',

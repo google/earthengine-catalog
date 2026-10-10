@@ -34,7 +34,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [Google Cloud marketplace](https://console.cloud.google.com/marketplace/product/bigquery-public-data/open-data-ecmwf).
   |||,
 
-  'gee:categories': ['climate', 'oceans'],
+  'gee:categories': ['oceans', 'weather-and-climate'],
   keywords: [
     'ecmwf',
     'forecast',

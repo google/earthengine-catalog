@@ -45,10 +45,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'https://earthdata.nasa.gov/collaborate/open-data-services-and-software/data-information-policy'
     ),
   ],
-  'gee:categories': ['climate', 'cryosphere', 'precipitation', 'soil', 'water-vapor'],
+  'gee:categories': ['cryosphere', 'precipitation', 'soil', 'water-vapor', 'weather-and-climate'],
   keywords: [
     // 'baresoil',
     // 'baseflow',
+    'climate',
     'evaporation',
     // 'flux_energy',
     // 'greeness',

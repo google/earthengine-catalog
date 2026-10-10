@@ -51,9 +51,10 @@ local license = spdx.proprietary;
       href: 'https://doi.org/10.5067/MODIS/MOD08_M3.061',
     },
   ] + version_config.version_links,
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
     'atmosphere',
+    'climate',
     'geophysical',
     'global',
     'mod08',
