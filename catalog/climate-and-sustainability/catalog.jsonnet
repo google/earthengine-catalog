@@ -27,6 +27,7 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
+    ee.link.child_collection('projects_climate-and-sustainability_assets_gem-15_v1', base_url),
     ee.link.child_collection('projects_climate-and-sustainability_assets_ghg_emit_mapl_emit_plumes_v1_0', base_url),
     ee.link.child_collection('projects_climate-and-sustainability_assets_ghg_emit_mapl_emit_enhancements_v1_0', base_url),
   ],
