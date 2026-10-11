@@ -7,7 +7,6 @@ era5_2mt = (
     .select('mean_2m_air_temperature')
     .filter(ee.Filter.date('2019-07-01', '2019-07-31'))
 )
-display(era5_2mt)
 
 # Daily total precipitation sums
 era5_tp = (
