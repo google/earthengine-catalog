@@ -23,5 +23,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('IDAHO_EPSCOR_MACAv2_METDATA_MONTHLY', base_url),
     ee.link.child_collection('IDAHO_EPSCOR_PDSI', base_url),
     ee.link.child_collection('IDAHO_EPSCOR_TERRACLIMATE', base_url),
+    ee.link.child_collection('IDAHO_EPSCOR_TERRACLIMATE_V1_1', base_url),
   ],
 }
