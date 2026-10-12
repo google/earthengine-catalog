@@ -77,14 +77,14 @@ class SpatialTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_bbox_is_a_list(self):
-    self.spatial[BBOX] = NOT_A_LIST  # pytype: disable=container-type-mismatch
+    self.spatial[BBOX] = NOT_A_LIST  # pyrefly: ignore[bad-assignment]
     issues = list(check_spatial(self.node, self.extent))
     message = '"bbox" must be a list'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
   def test_bbox_is_len1(self):
-    self.spatial[BBOX].append([1, 2, 3])  # pytype: disable=attribute-error
+    self.spatial[BBOX].append([1, 2, 3])
     issues = list(check_spatial(self.node, self.extent))
     message = '"bbox" must be a list of length 1'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
@@ -113,7 +113,7 @@ class SpatialTest(absltest.TestCase):
 
   def test_coord_in_range(self):
     over = [-1000, -2000, 3000, 4000]
-    self.spatial[BBOX][0] = over  # pytype: disable=unsupported-operands
+    self.spatial[BBOX][0] = over  # pyrefly: ignore[unsupported-operation]
     issues = list(check_spatial(self.node, self.extent))
     expect = [
         stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, 'x1: -1000 < -180'),
@@ -125,7 +125,7 @@ class SpatialTest(absltest.TestCase):
 
   def test_coord_order(self):
     order = [1000, 2000, -3000, -4000]
-    self.spatial[BBOX][0] = order  # pytype: disable=unsupported-operands
+    self.spatial[BBOX][0] = order  # pyrefly: ignore[unsupported-operation]
     issues = list(check_spatial(self.node, self.extent))
     expect = [
         stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, 'x1 >= x2: 1000 >= -3000'),
@@ -195,18 +195,14 @@ class TemporalTest(absltest.TestCase):
     self.assertEqual(expect, issues)
 
   def test_interval_is_list_of_list(self):
-    # pytype: disable=unsupported-operands
-    self.temporal[INTERVAL][0] = NOT_A_LIST
-    # pytype: enable=unsupported-operands
+    self.temporal[INTERVAL][0] = NOT_A_LIST  # pyrefly: ignore[unsupported-operation]
     issues = list(check_temporal(self.node, self.extent))
     message = 'First interval must be a list of list'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
   def test_first_interval_is_len2(self):
-    # pytype: disable=unsupported-operands
     self.temporal[INTERVAL][0].append('junk')
-    # pytype: enable=unsupported-operands
     issues = list(check_temporal(self.node, self.extent))
     message = 'First interval must have 2 elements: start and end'
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
