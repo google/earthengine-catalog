@@ -46,8 +46,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       href: 'https://doi.org/10.5281/zenodo.1420114',
     },
   ],
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
+    'climate',
     'day',
     'envirometrix',
     'lst',

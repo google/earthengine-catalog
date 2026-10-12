@@ -37,7 +37,7 @@ local units = import 'units.libsonnet';
       '[Additional TOMS and OMI information](https://ozoneaq.gsfc.nasa.gov/missions/)\n',
       license: spdx.proprietary.id,
       links: ee.standardLinks(subdir, id) + version_config.version_links,
-      'gee:categories': ['climate'],
+      'gee:categories': ['weather-and-climate'],
       keywords: [
         'atmosphere',
         'aura',
