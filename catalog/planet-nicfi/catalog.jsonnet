@@ -26,9 +26,9 @@ local self_url = base_url + base_filename;
   |||,
   'gee:publisher': {
     type: 'PUBLISHER',
-    link: 'https://planet.com/nicfi',
-    contactDisplay: 'support@planet.com',
-    contactLink: ''
+    link: 'https://www.planet.com/tropical-forest-observatory/',
+    contactDisplay: 'Planet support',
+    contactLink: 'http://support.planet.com/'
   },
   links: [
     ee.link.root(),
