@@ -47,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     L4 point) are available for all collection IDs. Individual heat maps can have spatial misallocations
     due to several factors, including wind field uncertainty, observational uncertainty and variable
     emission rates. Users are advised to interpret individual emission grids with caution. For more
-    about definitions and limitations, see ourabout definitions and limitations, see our
+    about definitions and limitations, see our
     [technical explanation](https://www.methanesat.org/sites/default/files/2026-07/MethaneSAT%20Dispersed%20Area%20Emissions%20Definitions%20and%20Limitations.pdf).
     To learn more about MethaneSAT algorithm versions, see this [overview](https://www.methanesat.org/sites/default/files/2026-07/Overview%20of%20MethaneSAT%20Algorithm%20Versions.pdf).
 
