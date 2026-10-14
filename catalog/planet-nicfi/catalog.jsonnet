@@ -28,7 +28,7 @@ local self_url = base_url + base_filename;
     type: 'PUBLISHER',
     link: 'https://www.planet.com/tropical-forest-observatory/',
     contactDisplay: 'Planet support',
-    contactLink: 'http://support.planet.com/'
+    contactLink: 'https://support.planet.com/'
   },
   links: [
     ee.link.root(),
