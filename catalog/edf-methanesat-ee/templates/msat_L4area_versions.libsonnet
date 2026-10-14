@@ -1,11 +1,13 @@
+local ee_const = import 'earthengine_const.libsonnet';
+
 [
   {
-    '1': 'projects/edf-methanesat-ee/assets/public-preview/L4area',
+    ['1.0.0' + ee_const.version_deprecated_suffix]: 'projects/edf-methanesat-ee/assets/public-preview/L4area',
   },
   {
-    '2': 'projects/edf-methanesat-ee/assets/public-preview/L4area_v2',
+    ['2.0.0' + ee_const.version_deprecated_suffix]: 'projects/edf-methanesat-ee/assets/public-preview/L4area_v2',
   },
   {
-    '3': 'projects/edf-methanesat-ee/assets/msat/L4area',
+    '1.0.0': 'projects/edf-methanesat-ee/assets/msat/L4area',
   }
 ]
