@@ -5,8 +5,12 @@
 var assetPath = 'projects/mapbiomas-public/assets/ecuador/lulc/v1';
 
 var year = 2024;
+var version = 'v1';
+var collectionId = 3;
 
 var collection = ee.ImageCollection(assetPath)
+  .filter(ee.Filter.eq('collection_id', collectionId))
+  .filter(ee.Filter.eq('version', version))
   .filter(ee.Filter.eq('year', year));
 
 var visParams = {
@@ -100,7 +104,7 @@ var visParams = {
 };
 
 // Napo region - Amazon-Andes transition zone in Ecuador
-var region = ee.Geometry.Point([-77.5, -1.0]).buffer(20000).bounds();
+var region = ee.Geometry.Point([-78.1432, -0.4921]).buffer(20000).bounds();
 
 Map.centerObject(region, 9);
 Map.addLayer(collection, visParams, 'MapBiomas Ecuador LULC ' + year);
