@@ -110,4 +110,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     in any published material produced using this data, and if possible link
     web pages to the [CIAT-CSI SRTM website](https://srtm.csi.cgiar.org).
   |||,
+  'gee:unusual_terms_of_use': true,
 }
