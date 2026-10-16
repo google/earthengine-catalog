@@ -24,7 +24,6 @@ local license = spdx.cc_by_4_0;
   title: 'Global Oil Palm Extent and Planting Year (1990-2021) v1.2',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  'gee:status': 'beta',
   description: |||
     Global oil palm extent for 2016-2021 at 10 m resolution and oil palm
     planting year from 1990 to 2021 at 30 m resolution. The dataset consists of
