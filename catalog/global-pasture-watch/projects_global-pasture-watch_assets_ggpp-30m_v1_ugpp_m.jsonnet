@@ -1,6 +1,7 @@
 local id = 'projects/global-pasture-watch/assets/ggpp-30m/v1/ugpp_m';
 local subdir = 'global-pasture-watch';
-local version = '1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'ugpp-30m_versions.libsonnet';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -9,13 +10,17 @@ local units = import 'units.libsonnet';
 local ugpp30m_v1 = importstr 'ugpp-30m_v1.md';
 local license = spdx.cc_by_4_0;
 
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
+
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GPW Annual uncalibrated Gross Primary Productivity (uGPP) v' + version,
+  title: 'GPW Annual uncalibrated Gross Primary Productivity (uGPP) v' + version + ' [deprecated]',
   version: version,
+  'gee:status': 'deprecated',
   description: |||
     This dataset provides global uncalibrated EO-based Gross Primary Productivity 
     from 2000 at 30-m spatial resolution. 
@@ -100,7 +105,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': ee.gee_terms_of_use(license),
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   type: ee_const.stac_type.collection,
   stac_version: ee_const.stac_version,
   stac_extensions: [
