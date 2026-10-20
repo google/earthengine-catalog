@@ -1,8 +1,8 @@
 var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11');
 
 var lcms = dataset.filterDate('2023', '2024')  // range: [1985, 2025]
-               .filter('study_area == "CONUS"')  // "AK" 
-               .first();
+              .filter(ee.Filter.inList('study_area', ['AK', 'CONUS', 'HI', 'PRUSVI']))  // AK, CONUS, HI, PRUSVI
+              .mosaic();
 
 
 // LCMS Change product visualization parameters

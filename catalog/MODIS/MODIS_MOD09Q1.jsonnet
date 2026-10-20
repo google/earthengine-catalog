@@ -10,6 +10,7 @@ local spdx = import 'spdx.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local license = spdx.proprietary;
+local template = import 'templates/MODIS_006_MOD09Q1.libsonnet';
 
 {
   stac_version: ee_const.stac_version,
@@ -56,7 +57,15 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2000-02-18T00:00:00Z', '2017-03-22T00:00:00Z'),
-  summaries: {
+  summaries: template.summaries {
+    'eo:bands': [
+      b
+      for b in template.summaries['eo:bands']
+      if b.name != 'State'
+    ],
+    platform: [
+      'Terra',
+    ],
     'gee:visualizations': [
       {
         display_name: 'False Color (221)',

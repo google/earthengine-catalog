@@ -130,14 +130,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               color: 'a9a9a9',
               value: 251,
             },
-            {
-              description: |||
-                Ocean masked - an area identified as ocean using
-                a shoreline database with an added margin.
-              |||,
-              color: '000080',
-              value: 254,
-            },
         ],
       },
       {
@@ -154,8 +146,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {
             description: |||
               Not water - an area with valid data that is not water
-              (class 1) and not HAND masked (class 252), layover or
-              shadow (class 253)
+              (class 1) and not HAND masked (class 250), layover or
+              shadow (class 251)
             |||,
             color: 'ffffff',
             value: 0,

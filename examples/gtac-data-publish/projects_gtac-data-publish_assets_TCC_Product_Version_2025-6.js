@@ -3,7 +3,7 @@ var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/TCC/Product_
 
 //Filter collection to year 2024 and study areas specified in list 
 var tcc = dataset.filter(ee.Filter.calendarRange(2024, 2024,'year'))  // range: [1985, 2025]
-               .filter(ee.Filter.inList('study_area', ['AK', 'CONUS'])) // CONUS, AK, 
+               .filter(ee.Filter.inList('study_area', ['AK', 'CONUS', 'HI', 'PRUSVI']))  // AK, CONUS, HI, PRUSVI
                .mosaic();
 
 // TCC palette

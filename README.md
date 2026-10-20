@@ -63,6 +63,15 @@ contains a list of datasets that have
 licenses known to exclude commercial use. If you are using Earth Engine
 in a commercial capacity, these datasets are not available.
 
+<!-- disableFinding(HEADING_REPEAT_H1) -->
+# Share-alike datasets
+
+[share_alike_datasets.jsonnet](https://github.com/google/earthengine-catalog/blob/main/share_alike_datasets.jsonnet)
+contains a list of datasets that have
+licenses known to require share-alike terms (such as CC-BY-SA-4.0,
+CC-BY-NC-SA-4.0, and ODbL-1.0). If you use these datasets, the license terms
+require you to release any adaptations under an equivalent share-alike license.
+
 # Other Earth Engine Github repositories
 
 - Community tutorials: https://github.com/google/earthengine-community

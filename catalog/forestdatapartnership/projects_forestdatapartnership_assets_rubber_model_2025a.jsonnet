@@ -30,7 +30,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Rubber Tree Probability model ' + version,
+  'gee:status': 'deprecated',
+  title: 'Rubber Tree Probability model ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This image collection provides estimated per-pixel probability that the
