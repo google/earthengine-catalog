@@ -12,14 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from collections.abc import Callable, Sequence
 import os
-from typing import Any
+from typing import BinaryIO
 
 from absl import app
 from absl import logging
 import h5py
 import numpy as np
 import pandas as pd
+import pyarrow
+import pyarrow.csv
 
 import gedi_lib
 
@@ -78,8 +81,12 @@ pai_names = [f'pai_z{d}' for d in range(30)]
 pavd_names = [f'pavd_z{d}' for d in range(30)]
 
 
-# pylint:disable=line-too-long
-def extract_values(input_paths: list[str], output_path: str) -> None:
+def extract_values(
+    input_paths: Sequence[str],
+    output_path: str,
+    include_header: bool = True,
+    post_process_df_fn: Callable[[pd.DataFrame], pd.DataFrame] | None = None,
+) -> None:
   """Extracts GEDI L2B values to CSV.
 
   The columns in the output CSV are, in order:
@@ -93,6 +100,8 @@ def extract_values(input_paths: list[str], output_path: str) -> None:
   Args:
      input_paths: GEDI L2B file path in a single-element list
      output_path: csv output file path
+     include_header: whether to write a header row in the output CSV
+     post_process_df_fn: optional function to transform DataFrame before writing
   """
   assert len(input_paths) == 1
   input_path = input_paths[0]
@@ -107,23 +116,33 @@ def extract_values(input_paths: list[str], output_path: str) -> None:
     return
 
   with h5py.File(input_path, 'r') as hdf_fh:
-    with open(output_path, 'w') as csv_fh:
-      write_csv(hdf_fh, csv_fh, version)
+    with open(output_path, 'wb') as csv_fh:
+      write_csv(
+          hdf_fh,
+          csv_fh,
+          version,
+          include_header=include_header,
+          post_process_df_fn=post_process_df_fn,
+      )
 
 
 def write_csv(
     hdf_fh: h5py.File,
-    csv_file: Any,
+    csv_file: BinaryIO,
     version: str = gedi_lib.VERSION_002,
+    include_header: bool = True,
+    post_process_df_fn: Callable[[pd.DataFrame], pd.DataFrame] | None = None,
 ) -> None:
   """Writes a single CSV file based on the contents of HDF file.
 
   Args:
     hdf_fh: HDF5 file handle.
-    csv_file: Output CSV file object.
+    csv_file: Output CSV binary file object.
     version: GEDI version.
+    include_header: Whether to include CSV column header row.
+    post_process_df_fn: Optional function to transform DataFrame before writing.
   """
-  is_first = True
+  is_first = include_header
 
   # Build list of active variables and their H5 paths for this version.
   # List of tuples: (output_column_name, h5_variable_path)
@@ -143,43 +162,41 @@ def write_csv(
       continue
     print('\t', k)
 
-    df = pd.DataFrame()
-
+    data = {}
     for df_key, h5_path in vars_to_extract:
-      gedi_lib.hdf_to_df(hdf_fh, k, h5_path, df, df_key)
+      gedi_lib.hdf_to_df(hdf_fh, k, h5_path, data, df_key)
 
-    ds = hdf_fh[f'{k}/cover_z']
-    cover_z = pd.DataFrame(ds, columns=cover_names)
-    # pytype: disable=wrong-arg-count  # pandas-drop-duplicates-overloads
-    cover_z.replace(ds.attrs.get('_FillValue'), np.nan, inplace=True)
+    for field_prefix, names in (
+        ('cover_z', cover_names),
+        ('pai_z', pai_names),
+        ('pavd_z', pavd_names),
+    ):
+      ds = hdf_fh[f'{k}/{field_prefix}']
+      arr = ds[:].astype(float)
+      fill_val = ds.attrs.get('_FillValue')
+      if fill_val is not None:
+        arr[arr == fill_val] = np.nan
+      for idx, name in enumerate(names):
+        data[name] = arr[:, idx]
 
-    ds = hdf_fh[f'{k}/pai_z']
-    pai_z = pd.DataFrame(ds, columns=pai_names)
-    pai_z.replace(ds.attrs.get('_FillValue'), np.nan, inplace=True)
+    df = pd.DataFrame(data)
 
-    ds = hdf_fh[f'{k}/pavd_z']
-    pavd_z = pd.DataFrame(ds, columns=pavd_names)
-    pavd_z.replace(ds.attrs.get('_FillValue'), np.nan, inplace=True)
-    # pytype: enable=wrong-arg-count  # pandas-drop-duplicates-overloads
-
-    df = pd.concat((df, cover_z), axis=1)
-    df = pd.concat((df, pai_z), axis=1)
-    df = pd.concat((df, pavd_z), axis=1)
-
-    # Filter our rows with nan values for lat_lowestmode or lon_lowestmode.
+    # Filter out rows with nan values for lat_lowestmode or lon_lowestmode.
     # Such rows are not ingestable into EE.
     df = df[df.lat_lowestmode.notnull()]
     df = df[df.lon_lowestmode.notnull()]
 
     gedi_lib.add_shot_number_breakdown(df)
 
-    df.to_csv(
+    if post_process_df_fn is not None:
+      df = post_process_df_fn(df)
+
+    # PyArrow writes CSV files an order of magnitude faster than pandas.
+    table = pyarrow.Table.from_pandas(df, preserve_index=False)
+    pyarrow.csv.write_csv(
+        table,
         csv_file,
-        float_format='%3.6f',
-        index=False,
-        header=is_first,
-        mode='a',
-        lineterminator='\n',
+        write_options=pyarrow.csv.WriteOptions(include_header=is_first),
     )
     is_first = False
 
