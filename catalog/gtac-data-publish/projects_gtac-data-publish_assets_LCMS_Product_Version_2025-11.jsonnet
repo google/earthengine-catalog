@@ -29,8 +29,7 @@ local license = spdx.proprietary;
     This product is part of the Landscape Change Monitoring System (LCMS) data suite.
     It shows LCMS-modeled change, land cover, and/or land use classes for each year and
     covers the Conterminous United States (CONUS) as well as areas outside the CONUS (OCONUS) 
-    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI). PRUSVI and HI
-    v2025-11 data will be released in late Summer 2026. 
+    including Alaska (AK), Puerto Rico-US Virgin Islands (PRUSVI), and Hawaii (HI).
 
     LCMS is a remote sensing-based system for mapping and monitoring landscape change across the
     United States. Its objective is to develop a consistent approach using the latest technology
@@ -220,7 +219,7 @@ local license = spdx.proprietary;
                     {
             value: 12,
             color: 'f39268',
-            description: 'Insect, Disease, or Drought Stress',
+            description: 'Insect and Disease or Drought Stress',
           },
                     {
             value: 13,

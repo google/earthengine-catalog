@@ -8,7 +8,7 @@ local version_config = versions(subdir, version_table, id);
 
 prism {
   id: id,
-  title: 'PRISM Daily Spatial Climate Dataset AN81d [deprecated]',
+  title: 'PRISM Daily Spatial Dataset AN81d [deprecated]',
   'gee:status': 'deprecated',
   version: version_config.version,
   links+: version_config.version_links,

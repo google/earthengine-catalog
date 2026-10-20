@@ -62,9 +62,57 @@ local license = spdx.proprietary;
   ],
   extent: ee.extent_global('2000-02-18T00:00:00Z', '2017-03-14T00:00:00Z'),
   summaries: {
+    gsd: [
+      500.0,
+    ],
+    instruments: [
+      'MODIS',
+    ],
+    platform: [
+      'Aqua',
+      'Terra',
+    ],
+    'eo:bands': [
+      {
+        name: 'BRDF_Albedo_Quality',
+        description: 'BRDF/Albedo mandatory quality',
+      },
+      {
+        name: 'Snow_BRDF_Albedo',
+        description: 'Snow-free or snow BRDF/albedo retrieved',
+        'gee:bitmask': {
+          bitmask_parts: [
+            {
+              description: 'Mandatory QA',
+              bit_count: 1,
+              values: [
+                {
+                  description: 'Snow-free albedo retrieved',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Snow albedo retrieved',
+                },
+              ],
+              first_bit: 0,
+            },
+          ],
+          total_bit_count: 1,
+        },
+      },
+      {
+        name: 'BRDF_Albedo_Ancillary',
+        description: 'BRDF albedo ancillary quality',
+      },
+      {
+        name: 'BRDF_Albedo_Band_Quality',
+        description: 'BRDF albedo band quality',
+      },
+    ],
     'gee:visualizations': [
       {
-        display_name: 'Quality Mask',
+        display_name: 'BRDF Albedo Quality',
         lookat: {
           lat: 31.052933985705163,
           lon: -7.03125,
@@ -79,14 +127,34 @@ local license = spdx.proprietary;
               1.0,
             ],
             bands: [
+              'Snow_BRDF_Albedo',
+              'Snow_BRDF_Albedo',
               'BRDF_Albedo_Quality',
-              'Snow_BRDF_Albedo',
-              'Snow_BRDF_Albedo',
             ],
           },
         },
       },
     ],
+    BRDF_Albedo_Quality: {
+      minimum: 0.0,
+      maximum: 255.0,
+      'gee:estimated_range': false,
+    },
+    Snow_BRDF_Albedo: {
+      minimum: 0.0,
+      maximum: 255.0,
+      'gee:estimated_range': false,
+    },
+    BRDF_Albedo_Ancillary: {
+      minimum: 0.0,
+      maximum: 65535.0,
+      'gee:estimated_range': false,
+    },
+    BRDF_Albedo_Band_Quality: {
+      minimum: 0.0,
+      maximum: 4294967295.0,
+      'gee:estimated_range': false,
+    },
   },
   'gee:interval': {
     type: 'cadence',

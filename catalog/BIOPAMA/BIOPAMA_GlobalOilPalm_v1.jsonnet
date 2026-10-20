@@ -1,14 +1,16 @@
 local id = 'BIOPAMA/GlobalOilPalm/v1';
+local versions = import 'versions.libsonnet';
+local version_table = import 'BIOPAMA_GlobalOilPalm_versions.libsonnet';
+
 local subdir = 'BIOPAMA';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
-local basename = std.strReplace(id, '/', '_');
-local base_filename = basename + '.json';
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -19,8 +21,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'Global Map of Oil Palm Plantations',
-  version: 'v1',
+  title: 'Global Map of Oil Palm Plantations [deprecated]',
+  version: version,
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The dataset is a 10m global industrial and smallholder oil palm map for 2019.
@@ -36,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       rel: ee_const.rel.cite_as,
       href: 'https://doi.org/10.5281/zenodo.4473715',
     },
-  ],
+  ] + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'biodiversity',
@@ -50,7 +53,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Biopama programme', 'https://doi.org/10.5281/zenodo.4473715'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2019-01-01T00:00:00Z', '2019-12-31T00:00:00Z'),
   summaries: {

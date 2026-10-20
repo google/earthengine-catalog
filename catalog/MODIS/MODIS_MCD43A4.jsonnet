@@ -10,6 +10,7 @@ local spdx = import 'spdx.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local license = spdx.proprietary;
+local template = import 'templates/MODIS_006_MCD43A4.libsonnet';
 
 {
   stac_version: ee_const.stac_version,
@@ -62,7 +63,16 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2000-02-18T00:00:00Z', '2017-03-14T00:00:00Z'),
-  summaries: {
+  summaries: template.summaries {
+    'eo:bands': [
+      b
+      for b in template.summaries['eo:bands']
+      if std.startsWith(b.name, 'Nadir_Reflectance')
+    ],
+    platform: [
+      'Aqua',
+      'Terra',
+    ],
     'gee:visualizations': [
       {
         display_name: 'True Color (143)',

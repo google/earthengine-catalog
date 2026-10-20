@@ -1,14 +1,17 @@
 local id = 'projects/nature-trace/assets/ghg/emit/mapl_emit_plumes_v1_0';
+local versions = import 'versions.libsonnet';
+local version_table = import '../climate-and-sustainability/templates/mapl_emit_plumes_versions.libsonnet';
+
 local subdir = 'nature-trace';
 
 local ee = import 'earthengine.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local license = spdx.cc_by_4_0;
-local basename = std.strReplace(id, '/', '_');
-local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   stac_version: ee_const.stac_version,
@@ -19,8 +22,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'MAPL-EMIT: Modeled Methane Plumes',
-  version: '1.0',
+  title: 'MAPL-EMIT: Modeled Methane Plumes [deprecated]',
+  'gee:status': 'deprecated',
+  version: version,
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     The Methane Analysis and Plume Localization with EMIT (MAPL-EMIT) dataset provides high-resolution (60m) methane (CH₄) plume complex maps and plume source locations derived from radiance data captured by the Earth Surface Mineral Dust Source Investigation (EMIT) instrument.
@@ -50,8 +54,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * **Environmental Factors:** Model performance degrades in scenarios with heavy cloud cover, shadows, or low-albedo (dark) surfaces, which reduce the quality of the hyperspectral radiance signal.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
-  ],
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['atmosphere'],
   keywords: [
     'emit',
@@ -60,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   providers: [
     ee.producer_provider('Google Research', 'https://research.google/'),
-    ee.host_provider(self_ee_catalog_url),
+    ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2022-08-10T00:00:00Z', null),
   summaries: {

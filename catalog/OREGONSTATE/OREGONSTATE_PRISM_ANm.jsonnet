@@ -13,7 +13,7 @@ prism {
   id: id,
   version: version_config.version,
   links+: version_config.version_links,
-  title: 'PRISM Monthly Spatial Climate Dataset ANm',
+  title: 'PRISM Monthly Spatial Dataset ANm',
   description: super.description_intro +
               |||
                 This collection contains both AN81 and AN91

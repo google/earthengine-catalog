@@ -43,8 +43,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     being used for generating the operational total ozone products from GOME,
     SCIAMACHY and GOME-2; while GODFIT is being used in the ESA CCI and the
     Copernicus C3S projects.
-    [More information.](https://www.tropomi.eu/data-products/o/ozone-total-column)
-    [Product user manual.](https://sentinel.esa.int/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Total-Column)
+    [More information.](https://www.tropomi.eu/data-products/ozone-total-column)
+    [Product user manual.](https://sentinels.copernicus.eu/documents/247904/2474726/Sentinel-5P-Level-2-Product-User-Manual-Ozone-Total-Column)
 
     ### NRTI L3 Product
 
@@ -89,10 +89,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sentinel',
     'tropomi',
   ],
-  providers: [
-    ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-5p-tropomi'),
-    ee.host_provider(self_ee_catalog_url),
-  ],
+  providers: COPERNICUS_S5P.providers(self_ee_catalog_url),
   extent: ee.extent_global('2018-07-10T11:02:44Z', null),
   summaries: {
     'gee:schema': [
@@ -353,8 +350,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'day',
     interval: 2,
   },
-  'gee:terms_of_use': |||
-    The use of Sentinel data is governed by the [Copernicus
-    Sentinel Data Terms and Conditions.](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice)
-  |||,
+  'gee:terms_of_use': COPERNICUS_S5P.terms_of_use,
 }
