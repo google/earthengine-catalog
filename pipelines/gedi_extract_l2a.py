@@ -12,13 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from collections.abc import Callable, Sequence
 import os
-from typing import Any
+from typing import BinaryIO
 
 from absl import app
 from absl import logging
 import h5py
 import pandas as pd
+import pyarrow
+import pyarrow.csv
 
 import gedi_lib
 
@@ -128,9 +131,11 @@ rh_names = tuple([f'rh{d}' for d in range(101)])
 
 
 def extract_values(
-    input_paths: list[str],
+    input_paths: Sequence[str],
     output_path: str,
     use_all_algorithms: bool = False,
+    include_header: bool = True,
+    post_process_df_fn: Callable[[pd.DataFrame], pd.DataFrame] | None = None,
 ) -> None:
   """Extracts all rh (relative heights) and some qa flags to CSV.
 
@@ -145,6 +150,8 @@ def extract_values(
      input_paths: GEDI L2A and GEDI L2B file paths
      output_path: csv output file path
      use_all_algorithms: whether to read rh data from all algorithms
+     include_header: whether to write a header row in the output CSV
+     post_process_df_fn: optional function to transform DataFrame before writing
   """
   del use_all_algorithms  # unused for now
   l2a_path = input_paths[0]
@@ -162,15 +169,24 @@ def extract_values(
 
   with h5py.File(l2a_path, 'r') as l2a_hdf_fh:
     with h5py.File(l2b_path, 'r') as l2b_hdf_fh:
-      with open(output_path, 'w') as csv_fh:
-        write_csv(l2a_hdf_fh, l2b_hdf_fh, csv_fh, version)
+      with open(output_path, 'wb') as csv_fh:
+        write_csv(
+            l2a_hdf_fh,
+            l2b_hdf_fh,
+            csv_fh,
+            version,
+            include_header=include_header,
+            post_process_df_fn=post_process_df_fn,
+        )
 
 
 def write_csv(
     l2a_hdf_fh: h5py.File,
     l2b_hdf_fh: h5py.File,
-    csv_file: Any,
+    csv_file: BinaryIO,
     version: str = gedi_lib.VERSION_002,
+    include_header: bool = True,
+    post_process_df_fn: Callable[[pd.DataFrame], pd.DataFrame] | None = None,
 ) -> None:
   """Writes a single CSV file based on the contents of HDF file.
 
@@ -179,8 +195,10 @@ def write_csv(
     l2b_hdf_fh: L2B HDF5 file handle.
     csv_file: Output CSV file object.
     version: GEDI version.
+    include_header: Whether to include CSV column header row.
+    post_process_df_fn: Optional function to transform DataFrame before writing.
   """
-  is_first = True
+  is_first = include_header
 
   # Build list of active variables and their H5 paths for this version.
   # List of tuples: (output_column_name, h5_variable_path)
@@ -200,15 +218,18 @@ def write_csv(
       continue
     print('\t', k)
 
-    df = pd.DataFrame()
+    data = {}
 
     for df_key, h5_path in vars_to_extract:
-      gedi_lib.hdf_to_df(l2a_hdf_fh, k, h5_path, df, df_key)
+      gedi_lib.hdf_to_df(l2a_hdf_fh, k, h5_path, data, df_key)
 
-    rh = pd.DataFrame(l2a_hdf_fh[f'{k}/rh'], columns=rh_names)  # pyrefly: ignore[bad-argument-type]
-    df = pd.concat((df, rh), axis=1)
+    rh_ds = l2a_hdf_fh[f'{k}/rh'][:]
+    for idx, rh_name in enumerate(rh_names):
+      data[rh_name] = rh_ds[:, idx]
 
+    df = pd.DataFrame(data)
     gedi_lib.add_shot_number_breakdown(df)
+
     # Add the incidence angle variables from the corresponding L2B file.
     for l2b_var in gedi_lib.l2b_variables_for_l2a:
       gedi_lib.hdf_to_df(l2b_hdf_fh, k, 'geolocation/' + l2b_var, df)
@@ -223,13 +244,15 @@ def write_csv(
       if df_key in df.columns:
         df[df_key] = df[df_key].fillna(fill_value)
 
-    df.to_csv(
+    if post_process_df_fn is not None:
+      df = post_process_df_fn(df)
+
+    # PyArrow writes CSV files an order of magnitude faster than pandas.
+    table = pyarrow.Table.from_pandas(df, preserve_index=False)
+    pyarrow.csv.write_csv(
+        table,
         csv_file,
-        float_format='%3.6f',
-        index=False,
-        header=is_first,
-        mode='a',
-        lineterminator='\n',
+        write_options=pyarrow.csv.WriteOptions(include_header=is_first),
     )
     is_first = False
 

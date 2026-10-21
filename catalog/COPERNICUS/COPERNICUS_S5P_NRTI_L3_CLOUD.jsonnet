@@ -72,10 +72,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'sentinel',
     'tropomi',
   ],
-  providers: [
-    ee.producer_provider('European Union/ESA/Copernicus', 'https://sentinel.esa.int/web/sentinel/user-guides/sentinel-5p-tropomi'),
-    ee.host_provider(self_ee_catalog_url),
-  ],
+  providers: COPERNICUS_S5P.providers(self_ee_catalog_url),
   extent: ee.extent_global('2018-07-05T23:24:16Z', null),
   summaries: {
     'gee:schema': [
@@ -360,8 +357,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'day',
     interval: 2,
   },
-  'gee:terms_of_use': |||
-    The use of Sentinel data is governed by the [Copernicus
-    Sentinel Data Terms and Conditions.](https://sentinel.esa.int/documents/247904/690755/Sentinel_Data_Legal_Notice)
-  |||,
+  'gee:terms_of_use': COPERNICUS_S5P.terms_of_use,
 }

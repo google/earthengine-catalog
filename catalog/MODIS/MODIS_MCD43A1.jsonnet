@@ -10,6 +10,7 @@ local spdx = import 'spdx.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local license = spdx.proprietary;
+local template = import 'templates/MODIS_006_MCD43A1.libsonnet';
 
 {
   stac_version: ee_const.stac_version,
@@ -61,7 +62,33 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent_global('2000-02-18T00:00:00Z', '2017-03-14T00:00:00Z'),
-  summaries: {
+  summaries: template.summaries {
+    'eo:bands': [
+      b
+      for b in template.summaries['eo:bands']
+      if std.startsWith(b.name, 'BRDF_Albedo_Parameters')
+    ] + [
+      {
+        name: 'BRDF_Shape_Indicators_ANIF',
+        description: 'Anisotropic Index',
+      },
+      {
+        name: 'BRDF_Shape_Indicators_AFX',
+        description: 'Anisotropic Flat Index',
+      },
+      {
+        name: 'BRDF_Shape_Indicators_NDAX',
+        description: 'Normalized Difference Anisotropic Index',
+      },
+      {
+        name: 'BRDF_Shape_Indicators_SSI',
+        description: 'Snow Shape Index',
+      },
+    ],
+    platform: [
+      'Aqua',
+      'Terra',
+    ],
     'gee:visualizations': [
       {
         display_name: 'BRDF Albedo Parameters',
@@ -87,6 +114,26 @@ local license = spdx.proprietary;
         },
       },
     ],
+    BRDF_Shape_Indicators_ANIF: {
+      minimum: 0.0,
+      maximum: 255.0,
+      'gee:estimated_range': false,
+    },
+    BRDF_Shape_Indicators_AFX: {
+      minimum: 0.0,
+      maximum: 255.0,
+      'gee:estimated_range': false,
+    },
+    BRDF_Shape_Indicators_NDAX: {
+      minimum: 0.0,
+      maximum: 255.0,
+      'gee:estimated_range': false,
+    },
+    BRDF_Shape_Indicators_SSI: {
+      minimum: 0.0,
+      maximum: 255.0,
+      'gee:estimated_range': false,
+    },
   },
   'gee:interval': {
     type: 'cadence',

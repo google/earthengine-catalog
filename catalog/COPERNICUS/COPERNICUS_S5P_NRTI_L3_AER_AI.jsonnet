@@ -114,7 +114,7 @@ local COPERNICUS_S5P = import 'COPERNICUS_S5P.libsonnet';
           ash from volcanic eruptions, and smoke from biomass burning.
 
           See further details in the
-          [ATBD](https://sentinel.esa.int/documents/247904/2476257/Sentinel-5P-TROPOMI-ATBD-UV-Aerosol-Index.pdf).
+          [ATBD](https://sentinels.copernicus.eu/documents/247904/2476257/Sentinel-5P-TROPOMI-ATBD-UV-Aerosol-Index.pdf).
         |||,
       },
       {

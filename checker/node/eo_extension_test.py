@@ -50,11 +50,6 @@ class ValidEoExtensionTest(test_utils.NodeTest):
     self.assert_collection({
         'stac_extensions': [EO_URL], 'summaries': {'eo:bands': MINIMUM_BANDS}})
 
-  def test_image_without_bands_exceptions(self):
-    self.assert_collection(
-        {'stac_extensions': [EO_URL], 'summaries': {}},
-        dataset_id='MODIS/MCD43A1')
-
   def test_range_object(self):
     self.assert_collection({
         'stac_extensions': [EO_URL], 'summaries': {

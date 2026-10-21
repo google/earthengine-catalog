@@ -32,6 +32,7 @@ from checker.node import required
 from checker.node import sar_extension
 from checker.node import schema
 from checker.node import sci_extension
+from checker.node import share_alike
 from checker.node import stac_version
 from checker.node import summaries
 from checker.node import title
@@ -80,6 +81,7 @@ _CHECKS = [
     gee_user_uploaded.Check,
     non_commercial.Check,
     schema.Check,
+    share_alike.Check,
     interval.Check,
     visualizations.Check,
     visualizations_image.Check,
