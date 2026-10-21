@@ -117,6 +117,10 @@ local self_url = base_url + base_filename;
 
     ee.link.child_collection('NASA_VIIRS_002_AERDB_D3_VIIRS_NOAA20', base_url),
     ee.link.child_collection('NASA_VIIRS_002_AERDB_D3_VIIRS_SNPP', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VJ214A1', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VJ215A2H', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VJ221A1D', base_url),
+    ee.link.child_collection('NASA_VIIRS_002_VJ221A1N', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP09GA', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP09H1', base_url),
     ee.link.child_collection('NASA_VIIRS_002_VNP13A1', base_url),
