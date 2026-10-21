@@ -35,9 +35,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     within-cell elevation percentiles (`dsm_percentile_5`, `dsm_percentile_50`,
     `dsm_percentile_95`), sub-grid elevation standard deviation (`dsm_std`), and
     a bare-earth Digital Terrain Model (`dtm`) predicted at 1.0m resolution
-    using a deep learning model prior to aggregation. You can also explore the
-    elevation layers interactively through the
-    [GEM-15 Earth Engine App](https://climate-and-sustainability.projects.earthengine.app/view/gem-15).
+    using a deep learning model prior to aggregation.
+
+    * Explore the elevation layers interactively through the
+      [GEM-15 Earth Engine App](https://climate-and-sustainability.projects.earthengine.app/view/gem-15).
+    * Access the
+      [Google Cloud Storage (GCS) COGs](https://storage.googleapis.com/climate-and-sustainability/gem-15)
+      (`gs://climate-and-sustainability/gem-15`) and
+      [STAC catalog](https://storage.googleapis.com/climate-and-sustainability/gem-15/stac/catalog.json).
+    * Find the evaluation code on
+      [GitHub](https://github.com/google-research/google-research/tree/master/gem_15).
 
     All elevation layers report orthometric heights in meters referenced to the
     EGM96 geoid vertical datum ([EPSG:5773](https://epsg.io/5773)) and are
