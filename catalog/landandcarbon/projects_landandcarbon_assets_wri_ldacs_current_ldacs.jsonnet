@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.host_provider(self_ee_catalog_url),
   ],
 
-  extent: ee.extent_global('2025-07-01T00:00:00Z', '2026-06-30T00:00:00Z'),
+  extent: ee.extent_global('2025-10-01T00:00:00Z', '2026-09-30T00:00:00Z'),
 
   summaries: {
     gsd: [27.83],
