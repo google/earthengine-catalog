@@ -31,9 +31,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     scenes (Landsat ETM+ bands 1, 2, 3, and 4). The mosaic was
     constructed by ordering cloud free images on top and trimming
     image boundaries when tile discontinuities occurred.
-
-    Users can find the mosaic tile footprints available at:
-    [USGS/LIMA/MOSAIC_TILE_FOOTPRINTS](https://code.earthengine.google.com/?asset=USGS/LIMA/MOSAIC_TILE_FOOTPRINTS)
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + [
