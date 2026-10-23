@@ -46,7 +46,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'landcover',
   ],
   providers: [
-    ee.producer_provider('K. N. Toosi University of Technology LiDAR Lab', 'https://en.kntu.ac.ir/laser-scanners-laboratory/'),
+    ee.producer_provider('K. N. Toosi University of Technology LiDAR Lab', 'https://en.kntu.ac.ir/geodesy-and-geomatics-engineering/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(43.46, 24.62, 65.58, 39.95,
