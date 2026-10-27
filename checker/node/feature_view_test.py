@@ -8,6 +8,7 @@ from absl.testing import absltest
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+FOLDER = stac.GeeType.FOLDER
 
 
 class ValidFeatureViewTest(test_utils.NodeTest):
@@ -85,6 +86,9 @@ class ValidFeatureViewTest(test_utils.NodeTest):
   def test_table_collection(self):
     self.assert_collection({'summaries': {}}, gee_type=TABLE_COLLECTION)
 
+  def test_folder(self):
+    self.assert_collection({'summaries': {}}, gee_type=FOLDER)
+
   def test_skip_featureview_generation(self):
     self.assert_collection(
         {'gee:skip_featureview_generation': True,
@@ -115,6 +119,12 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
         {'summaries': {'gee:feature_view_ingestion_params': 'yada'}},
         'gee:feature_view_ingestion_params not allowed in table_collection',
         gee_type=TABLE_COLLECTION)
+
+  def test_folder_with_params(self):
+    self.assert_collection(
+        {'summaries': {'gee:feature_view_ingestion_params': 'yada'}},
+        'gee:feature_view_ingestion_params not allowed in folder',
+        gee_type=FOLDER)
 
   def test_table_without_params(self):
     self.assert_collection(
@@ -342,6 +352,12 @@ class ErrorFeatureViewTest(test_utils.NodeTest):
         {'gee:skip_featureview_generation': 'does not matter'},
         'gee:skip_featureview_generation not allowed in table_collection',
         gee_type=TABLE_COLLECTION)
+
+  def test_skip_featureview_generation_cannot_be_in_a_folder(self):
+    self.assert_collection(
+        {'gee:skip_featureview_generation': 'does not matter'},
+        'gee:skip_featureview_generation not allowed in folder',
+        gee_type=FOLDER)
 
   def test_skip_featureview_generation_without_params_ok(self):
     self.assert_collection(

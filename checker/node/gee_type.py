@@ -8,6 +8,8 @@
   - image_collection
   - table
   - table_collection
+  - folder
+  - bigquery_table
 """
 
 from typing import Iterator

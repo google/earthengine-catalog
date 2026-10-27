@@ -44,10 +44,13 @@ class StacType(*_StrEnum):  # pyrefly: ignore[invalid-inheritance]
 
 
 class GeeType(*_StrEnum):  # pyrefly: ignore[invalid-inheritance]
+  """Valid values for the gee:type field."""
+
   IMAGE = 'image'
   IMAGE_COLLECTION = 'image_collection'
   TABLE = 'table'
   TABLE_COLLECTION = 'table_collection'
+  FOLDER = 'folder'
   BIGQUERY_TABLE = 'bigquery_table'
   # For catalogs
   NONE = 'none'

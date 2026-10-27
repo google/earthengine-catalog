@@ -95,7 +95,9 @@ class Check(stac.NodeCheck):
     if node.gee_type in (
         stac.GeeType.IMAGE,
         stac.GeeType.IMAGE_COLLECTION,
-        stac.GeeType.TABLE_COLLECTION):
+        stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.FOLDER,
+    ):
       if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
         yield cls.new_issue(
             node,
@@ -110,7 +112,9 @@ class Check(stac.NodeCheck):
     if node.gee_type in (
         stac.GeeType.IMAGE,
         stac.GeeType.IMAGE_COLLECTION,
-        stac.GeeType.TABLE_COLLECTION):
+        stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.FOLDER,
+    ):
       if GEE_FEATURE_VIEW_INGESTION_PARAMS in summaries:
         yield cls.new_issue(
             node,
