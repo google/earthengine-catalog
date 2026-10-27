@@ -67,7 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider(
       'USDA Forest Service (USFS) ' +
       'Geospatial Technology and Applications Center (GTAC)',
-      'https://www.fs.usda.gov/about-agency/gtac'),
+      'https://data.fs.usda.gov/geodata/edw/datasets.php?xmlKeyword=MTBS'),
     ee.producer_provider(
       'United States Geological Survey (USGS) ' +
       'Earth Resources Observation and Science (EROS) Center',
