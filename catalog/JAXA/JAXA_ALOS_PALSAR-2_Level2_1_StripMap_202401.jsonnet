@@ -108,7 +108,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:terms_of_use': |||
     Anyone can use this data free of charge subject to non-commercial use only.
     For detailed terms of use see JAXA
-    [G-Portal Terms of service](https://gportal.jaxa.jp/gpr/index/eula?lang=en)
+    [G-Portal Terms of service](https://www.gportal.jaxa.jp/gpr/index/eula?lang=en)
     (Section 7. Condition concerning of G-Portal data).
   |||,
   'gee:unusual_terms_of_use': true,
