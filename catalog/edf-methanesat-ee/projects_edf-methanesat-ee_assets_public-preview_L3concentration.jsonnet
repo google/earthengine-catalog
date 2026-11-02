@@ -5,14 +5,19 @@ local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
+local versions = import 'versions.libsonnet';
+local versions_table = import 'templates/msat_L3concentration_versions.libsonnet';
+local version_config = versions(subdir, versions_table, id);
+local version_internal = version_config.version;
 local license = spdx.proprietary;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'MethaneSAT L3 Concentration Public Preview V' + version,
-  version: version,
+  title: 'MethaneSAT L3 Concentration Public Preview V' + version + ' ' + '[deprecated]',
+  version: version_internal,
+  'gee:status': 'deprecated',
   description: |||
     This early "Public Preview" dataset provides geospatial data for the
     column-averaged dry-air mole fraction of methane in the atmosphere, "XCH4",
@@ -191,7 +196,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'gee:type': ee_const.gee_type.image_collection,
   'gee:user_uploaded': true,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + [
+  links: ee.standardLinks(subdir, id) + version_config.version_links + [
     ee.link.license(
       'https://www.methanesat.org/sites/default/files/2025-02/MethaneSAT%20-%20Content%20License%20Terms%20of%20Use%20%28Revised%202-12-2025%29%5B25%5D.pdf')
   ],

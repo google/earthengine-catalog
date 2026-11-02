@@ -152,7 +152,11 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{start_date} is before {EARLIEST}')
 
     if end is None:
-      if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+      if node.gee_type in (
+          stac.GeeType.TABLE,
+          stac.GeeType.TABLE_COLLECTION,
+          stac.GeeType.FOLDER,
+      ):
         yield cls.new_issue(node, f'{node.gee_type} must have an end date')
     else:
       if not isinstance(end, str):

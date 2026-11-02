@@ -20,8 +20,8 @@ local self_url = base_url + base_filename;
   'gee:publisher': {
     type: 'PUBLISHER',
     link: 'https://research.google/teams/climate-and-sustainability/',
-    contactDisplay: 'eoscience-eng@google.com',
-    contactLink: 'mailto:eoscience-eng@google.com',
+    contactDisplay: 'climate-and-sustainability-ee-catalog@google.com',
+    contactLink: 'mailto:climate-and-sustainability-ee-catalog@google.com',
   },
   links: [
     ee.link.root(),

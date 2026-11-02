@@ -148,6 +148,9 @@ class TestFilterFunctions(absltest.TestCase):
     filtered4 = filtered.filter_by_types(('table_collection',))
     self.assertEmpty(filtered4)
 
+    filtered5 = filtered.filter_by_types(('folder',))
+    self.assertEmpty(filtered5)
+
     with self.assertRaises(ValueError):
       filtered.filter_by_types(('not_a_valid_type',))
 

@@ -184,17 +184,17 @@ local license = spdx.cc_by_4_0;
         'gee:classes': [
           {
             value: 0,
-            color: '696969',
+            color: '18181b',
             description: 'Other land covers that are not oil palm',
           },
           {
             value: 1,
-            color: 'ff0000',
+            color: 'd97706',
             description: 'Industrial closed-canopy oil palm plantations',
           },
           {
             value: 2,
-            color: 'ef00ff',
+            color: '06b6d4',
             description: 'Smallholder closed-canopy oil palm plantations',
           },
         ],
@@ -214,9 +214,9 @@ local license = spdx.cc_by_4_0;
       {
         display_name: 'Plantation Classification',
         lookat: {
-          lon: 101.7,
-          lat: 3.1,
-          zoom: 10,
+          lon: 101.31,
+          lat: 1.1,
+          zoom: 11,
         },
         image_visualization: {
           band_vis: {
@@ -227,9 +227,9 @@ local license = spdx.cc_by_4_0;
               2.0,
             ],
             palette: [
-              '696969',
-              'ff0000',
-              'ef00ff',
+              '18181b',
+              'd97706',
+              '06b6d4',
             ],
             bands: [
               'classification',
@@ -240,9 +240,9 @@ local license = spdx.cc_by_4_0;
       {
         display_name: 'Planting Year (1989-2022)',
         lookat: {
-          lon: 101.7,
-          lat: 3.1,
-          zoom: 10,
+          lon: 101.31,
+          lat: 1.1,
+          zoom: 11,
         },
         image_visualization: {
           band_vis: {
@@ -253,11 +253,11 @@ local license = spdx.cc_by_4_0;
               2022.0,
             ],
             palette: [
-              'ffffb2',
-              'fecc5c',
-              'fd8d3c',
-              'f03b20',
-              'bd0026',
+              '451a03',
+              '92400e',
+              'd97706',
+              'f59e0b',
+              'fef08a',
             ],
             bands: [
               'planting_year',

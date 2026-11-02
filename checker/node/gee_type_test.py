@@ -8,6 +8,7 @@ from absl.testing import absltest
 IMAGE_COLLECTION = stac.GeeType.IMAGE_COLLECTION
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+FOLDER = stac.GeeType.FOLDER
 
 
 class GeeTypeTest(test_utils.NodeTest):
@@ -33,6 +34,9 @@ class GeeTypeTest(test_utils.NodeTest):
     self.assert_collection(
         {'gee:type': 'table_collection'}, gee_type=TABLE_COLLECTION)
 
+  def test_folder(self):
+    self.assert_collection({'gee:type': 'folder'}, gee_type=FOLDER)
+
   def test_bigquery_table(self):
     self.assert_collection(
         {'gee:type': 'bigquery_table'}, gee_type=stac.GeeType.BIGQUERY_TABLE
@@ -44,7 +48,7 @@ class GeeTypeTest(test_utils.NodeTest):
   def test_bogus(self):
     self.assert_collection(
         {'gee:type': 'bogus'},
-        "gee:type must be one of ['bigquery_table', 'image',"
+        "gee:type must be one of ['bigquery_table', 'folder', 'image',"
         " 'image_collection', 'table', 'table_collection']",
     )
 

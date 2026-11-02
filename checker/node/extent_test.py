@@ -277,6 +277,14 @@ class TemporalTest(absltest.TestCase):
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
+  def test_folder_must_have_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    self.node.gee_type = stac.GeeType.FOLDER
+    issues = list(check_temporal(self.node, self.extent))
+    message = 'folder must have an end date'
+    expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
 
 class ExtentTest(test_utils.NodeTest):
 

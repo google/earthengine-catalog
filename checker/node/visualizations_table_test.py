@@ -7,6 +7,7 @@ from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+FOLDER = stac.GeeType.FOLDER
 
 POINT_SHAPE_MESSAGE = (
     'point_shape must be one of [\'circle\', \'cross\', \'diamond\', '
@@ -120,6 +121,13 @@ class ErrorVisualizationsTableTest(test_utils.NodeTest):
             'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{1: 2}]}},
         'table_collection must have a table_visualization',
         gee_type=TABLE_COLLECTION)
+
+  def test_missing_table_visualization_folder(self):
+    self.assert_collection(
+        {'summaries': {
+            'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{1: 2}]}},
+        'folder must have a table_visualization',
+        gee_type=FOLDER)
 
   def test_visualization_table_not_dict(self):
     self.assert_collection(

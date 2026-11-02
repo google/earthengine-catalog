@@ -88,7 +88,11 @@ class Check(stac.NodeCheck):
             node, f'{node.type} must not have the sar extension')
       return
 
-    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+    if node.gee_type in (
+        stac.GeeType.TABLE,
+        stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.FOLDER,
+    ):
       if has_sar_extension:
         yield cls.new_issue(node, f'{node.gee_type} cannot have sar extension')
       return

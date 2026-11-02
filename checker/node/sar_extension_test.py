@@ -7,6 +7,7 @@ from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+FOLDER = stac.GeeType.FOLDER
 
 SAR_URL = 'https://stac-extensions.github.io/sar/v1.0.0/schema.json'
 
@@ -76,6 +77,12 @@ class ErrorSarExtensionTest(test_utils.NodeTest):
         {'stac_extensions': [SAR_URL]},
         'table_collection cannot have sar extension',
         gee_type=TABLE_COLLECTION)
+
+  def test_folder_with_sar(self):
+    self.assert_collection(
+        {'stac_extensions': [SAR_URL]},
+        'folder cannot have sar extension',
+        gee_type=FOLDER)
 
   def test_bad_extension_version(self):
     self.assert_collection(
