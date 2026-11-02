@@ -60,8 +60,10 @@ local license = spdx.proprietary;
 
     Forecast Horizon:
 
-    *   **6-hour inits (00, 06, 12, 18 UTC)**: with a 360-hour (15-day) horizon.
-    *   **Interim 1-hour inits (01-05, 07-11, 13-17, 19-23 UTC)**: with a 48-hour horizon.
+    *   **6-hourly inits (00, 06, 12, 18 UTC)**: 360-hour (15-day) horizon.
+    *   **Interim inits**: 48-hour horizon.
+        *   2026 to present: every hour (01-05, 07-11, 13-17, 19-23 UTC).
+        *   2024-2025: 03, 09, 15, 21 UTC only.
 
     Learn more about WeatherNext [here](https://developers.google.com/weathernext/guides/models).
     For access to the full ensemble dataset and atmospheric data, go to our
@@ -143,7 +145,7 @@ local license = spdx.proprietary;
         description: |||
           The forecast lead time in hours. Represents the number of hours from
           the start_time (1 to 360 for 6-hourly inits, 1 to 48 for interim
-          hourly inits).
+          inits).
         |||,
         type: ee_const.var_type.int,
       },
@@ -992,7 +994,7 @@ local license = spdx.proprietary;
     for citation requirements.
 
     If you disclose findings arising from the Historical Data, you must cite
-    "&copy; 2026 DeepMind Technologies Limited's machine learning models used to
+    "&copy; 2026 Google LLC's machine learning models used to
     create the experimental data made available at
     [https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_weathernext_3_0_0_0p1deg](https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_weathernext_3_0_0_0p1deg)
     under CC BY 4.0 licence terms. This data is intended for experimental
