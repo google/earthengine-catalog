@@ -120,7 +120,7 @@ local license = spdx.proprietary;
     ee.producer_provider('Google', 'https://developers.google.com/weathernext'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2026-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2024-01-01T00:00:00Z', null),
   summaries: {
     gsd: [11132],
     'gee:schema': [
