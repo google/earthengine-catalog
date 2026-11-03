@@ -210,7 +210,7 @@
               ],
             },
             {
-              description: 'BRDF correction performed data',
+              description: 'Salt pan',
               first_bit: 14,
               bit_count: 1,
               values: [
