@@ -10,6 +10,7 @@ local spdx = import 'spdx.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local license = spdx.proprietary;
+local state_qa = import 'templates/mod09_state_qa.libsonnet';
 local template = import 'templates/MODIS_006_MOD09GA.libsonnet';
 
 {
@@ -159,7 +160,10 @@ local template = import 'templates/MODIS_006_MOD09GA.libsonnet';
     if k != 'granule_pnt'
   } {
     'eo:bands': [
-      b
+      if b.name == 'state_1km' then
+        b { 'gee:bitmask': state_qa.bitmask('BRDF correction performed data') }
+      else
+        b
       for b in template.summaries['eo:bands']
       if b.name != 'granule_pnt'
     ],
