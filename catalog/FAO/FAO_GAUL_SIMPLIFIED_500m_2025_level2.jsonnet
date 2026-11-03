@@ -51,7 +51,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     table of attributes, d) generating codes using the GAUL Coding System,
     e) applying a topology, and f) validating metadata for each country
     (see [Technical Guidelines of the GAUL 2024 Set](
-      https://doi.org/10.4060/cd4262en)).
+      https://data.apps.fao.org/catalog/dataset/03bc8f0e-0d3d-4211-80b5-2e51b71c08d7/resource/cc70f3c6-8866-456e-bb8f-fe4370a288d0/download/gaul2024_technicalguidelines.pdf)).
     Note that some administrative units are multipolygon features.
   |||,
   license: license.id,
