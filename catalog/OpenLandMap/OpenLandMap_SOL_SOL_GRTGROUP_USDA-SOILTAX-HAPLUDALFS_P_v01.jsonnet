@@ -27,7 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Distribution of the USDA soil great groups based on machine learning predictions
     from global compilation of soil profiles. To learn more about soil great groups
-    please refer to the [Illustrated Guide to Soil Taxonomy - NRCS - USDA](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download/?cid=stelprdb1247203.pdf).
+    please refer to the [Illustrated Guide to Soil Taxonomy - NRCS - USDA](https://www.nrcs.usda.gov/sites/default/files/2022-06/Illustrated_Guide_to_Soil_Taxonomy.pdf).
 
     * Processing steps are described in detail [here](https://gitlab.com/openlandmap/global-layers/tree/master/soil)
     * Antarctica is not included.
