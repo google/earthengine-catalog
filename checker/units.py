@@ -64,6 +64,7 @@ UNITS = frozenset({
     'km^-2 s^-1',
     'kt',
     'm',
+    'm/h',
     'm/s',
     'm/s^2',
     'm^2',
