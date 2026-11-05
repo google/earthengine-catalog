@@ -11,7 +11,7 @@ var datasetVis = methaneSATArea.mosaic().visualize({
 });
 
 // Background
-var background = ee.Image.rgb(256, 256, 256).rename('vis-red', 'vis-green', 'vis-blue');
+var background = ee.Image.rgb(255, 255, 255).rename('vis-red', 'vis-green', 'vis-blue');
 var imageWithBackground = background.blend(datasetVis);
 
 // Visualizing

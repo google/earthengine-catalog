@@ -96,6 +96,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'albedo',
         description: 'Ratio of solar radiance at the ground to observed ' +
         'radiance at the sensor.',
+        'gee:units': units.unspecified_fraction,
       },
       {
         name: 'surface_pressure',
@@ -181,8 +182,34 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Brandt, A., and Wofsy, S. C. 2023. Methane point source quantification using
     MethaneAIR: a new airborne imaging spectrometer, Atmos. Meas. Tech., 16,
     5771-5785.
-    [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023),
+    [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023)
   |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Chan Miller, C., Roche, S., Wilzewski, J. S., Liu, X., Chance, K.,
+        Souri, A. H., Conway, E., Luo, B., Samra, J., Hawthorne, J., Sun, K.,
+        Staebell, C., Chulakadabba, A., Sargent, M., Benmergui, J. S., Franklin,
+        J. E., Daube, B. C., Li, Y., Laughner, J. L., Baier, B. C., Gautam, R.,
+        Omara, M., and Wofsy, S. C. 2024. Methane retrieval from MethaneAIR
+        using the CO2 proxy approach: a demonstration for the upcoming
+        MethaneSAT mission, Atmos. Meas. Tech., 17, 5429-5454.
+        [doi:10.5194/amt-17-5429-2024](https://doi.org/10.5194/amt-17-5429-2024)
+      |||,
+      doi: '10.5194/amt-17-5429-2024',
+    },
+    {
+      citation: |||
+        Sun, K., Zhu, L., Cady-Pereira, K., Chan Miller, C., Chance, K.,
+        Clarisse, L., Coheur, P.-F., Gonz&aacute;lez Abad, G., Huang, G., Liu,
+        X., Van Damme, M., Yang, K., and Zondlo, M. 2018. A physics-based
+        approach to oversample multi-satellite, multispecies observations to a
+        common grid, Atmos. Meas. Tech., 11, 6679-6701.
+        [doi:10.5194/amt-11-6679-2018](https://doi.org/10.5194/amt-11-6679-2018)
+      |||,
+      doi: '10.5194/amt-11-6679-2018',
+    },
+  ],
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
   'gee:type': ee_const.gee_type.image_collection,

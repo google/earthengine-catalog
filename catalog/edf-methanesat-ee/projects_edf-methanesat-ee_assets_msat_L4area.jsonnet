@@ -86,9 +86,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
-  // Setting an end date of 'null' because this value will change often as more
-  // data is added to the dataset regularly. Earth Engine will compute our end
-  // date for us instead.
   extent: ee.extent_global('2024-05-01T00:00:00Z', '2025-06-20T00:00:00Z'),
   summaries: {
     // Values that are true for all bands.
@@ -131,48 +128,55 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:schema': [
       {
         name: 'mean_total_flux_kg_hr',
-        description: 'Total value of area emissions for this collection in ' +
-        'kg/hr. Missing values are indicated by -1.',
+        description: 'Total value of area emissions for this collection. ' +
+        'Missing values are indicated by -1.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'total_flux_lower_bound_kg_hr',
         description: 'Lower bound on the 95% confidence interval of the total ' +
-        'value of area emissions for this collection in kg/hr.',
+        'value of area emissions for this collection.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'total_flux_upper_bound_kg_hr',
         description: 'Upper bound on the 95% confidence interval of the total ' +
-        'value of area emissions for this collection in kg/hr.',
+        'value of area emissions for this collection.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'target_mean_total_kg_hr',
         description: 'Total value of area emissions in the target for this ' +
-        'collection in kg/hr. Missing values are indicated by -1.',
+        'collection. Missing values are indicated by -1.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'target_total_flux_lower_bound_kg_hr',
         description: 'Lower bound on the 95% confidence interval of the total ' +
-        'value of area emissions in the target for this collection in kg/hr.',
+        'value of area emissions in the target for this collection.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'target_total_flux_upper_bound_kg_hr',
         description: 'Upper bound on the 95% confidence interval of the total ' +
-        'value of area emissions in the target for this collection in kg/hr.',
+        'value of area emissions in the target for this collection.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'flux_noise_floor_kg_hr',
         description: 'Below this value, we believe fluxes are indistinguishable from 0.',
+        units: units.kg_per_hour,
         type: ee_const.var_type.double,
       },
       {
         name: 'collection_id',
-        description: 'satellite observation number.',
+        description: 'Satellite observation number.',
         type: ee_const.var_type.string,
       },
       {
@@ -203,6 +207,50 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
+  'sci:citation': |||
+    Chulakadabba, A., Sargent, M., Lauvaux, T., Benmergui, J. S., Franklin, J.
+    E., Chan Miller, C., Wilzewski, J. S., Roche, S., Conway, E., Souri, A. H.,
+    Sun, K., Luo, B., Hawthrone, J., Samra, J., Daube, B. C., Liu, X., Chance,
+    K., Li, Y., Gautam, R., Omara, M., Rutherford, J. S., Sherwin, E. D.,
+    Brandt, A., and Wofsy, S. C. 2023. Methane point source quantification using
+    MethaneAIR: a new airborne imaging spectrometer, Atmos. Meas. Tech., 16,
+    5771-5785.
+    [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023)
+  |||,
+  'sci:publications': [
+    {
+      citation: |||
+        Lin, J. C., Gerbig, C., Wofsy, S. C., Andrews, A. E., Daube, B. C.,
+        Davis, K. J., and Grainger, C. A. 2003. A near-field tool for simulating
+        the upstream influence of atmospheric observations: The Stochastic
+        Time-Inverted Lagrangian Transport (STILT) model, J. Geophys. Res.,
+        108(D16), ACH 2-1-ACH 2-17.
+        [doi:10.1029/2002JD003161](https://doi.org/10.1029/2002JD003161)
+      |||,
+      doi: '10.1029/2002JD003161',
+    },
+    {
+      citation: |||
+        Fasoli, B., Lin, J. C., Bowling, D. R., Mitchell, L., and Mendoza, D.
+        2018. Simulating atmospheric tracer concentrations for spatially
+        distributed receptors: updates to the Stochastic Time-Inverted
+        Lagrangian Transport model's R interface (STILT-R version 2), Geosci.
+        Model Dev., 11, 2813-2824.
+        [doi:10.5194/gmd-11-2813-2018](https://doi.org/10.5194/gmd-11-2813-2018)
+      |||,
+      doi: '10.5194/gmd-11-2813-2018',
+    },
+    {
+      citation: |||
+        Carpenter, B., Gelman, A., Hoffman, M. D., Lee, D., Goodrich, B.,
+        Betancourt, M., Brubaker, M., Guo, J., Li, P., and Riddell, A. 2017.
+        Stan: A Probabilistic Programming Language, Journal of Statistical
+        Software, 76(1), 1-32.
+        [doi:10.18637/jss.v076.i01](https://doi.org/10.18637/jss.v076.i01)
+      |||,
+      doi: '10.18637/jss.v076.i01',
+    },
+  ],
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
   'gee:type': ee_const.gee_type.image_collection,
@@ -216,6 +264,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   stac_version: ee_const.stac_version,
   stac_extensions: [
     ee_const.ext_eo,
+    ee_const.ext_sci,
     ee_const.ext_ver,
   ],
 }
