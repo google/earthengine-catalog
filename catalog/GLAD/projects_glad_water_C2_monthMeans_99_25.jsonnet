@@ -1,10 +1,7 @@
-local id = 'projects/glad/water/C2/annual';
+local id = 'projects/glad/water/C2/monthMeans_99_25';
+local subdir = 'glad';
 
-//TODO: verify this subdir path
-// 'projects/glad/water/C2/annual'
-local subdir = 'glad/water/C2/annual';
-
-local version = '2.0.0';
+local version = '2.2.0';
 
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
@@ -20,7 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
   // Do not end the title with punctuation. Include version if it is known.
-  title: 'Annual Surface Water V' + version,
+  title: 'Monthly Surface Water Extent V' + version,
   version: version,
 
   description: |||
@@ -39,8 +36,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - monthly mean water percent
     - individual month water percent
 
-    __*Annual water percent time-series*__
-    The annual water percent calculated by taking the mean of seasonal means (Dec - Feb, Mar - May, Jun - Aug, Sept - Nov). Calendar months without at least three valid months through the whole study period are excluded.
+    __*Mean monthly*__
+    The mean of all years of a given month with data.
 
   |||,
 
@@ -53,11 +50,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
   keywords: [
-    'annual',
+    'monthly',
     'global',
     'landsat-derived',
     'water',
-    'yearly',
   ],
 
   // Who created the data.
@@ -89,7 +85,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'percent_water',
-        description: 'percent of year with open water cover',
+        description: 'percent of calendar month with open water cover',
       },
     ],
   },
@@ -122,7 +118,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 
   // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'beta',
+  'gee:status': 'incomplete',
 
   // This says that the dataset is an ee.ImageCollection.
   //   https://developers.google.com/earth-engine/apidocs/ee-image-collection

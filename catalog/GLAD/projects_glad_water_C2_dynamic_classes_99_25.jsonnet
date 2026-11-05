@@ -1,4 +1,4 @@
-local id = 'GLAD/GLAD_Global_Surface_Water_Dynamics';
+local id = 'projects/glad/water/C2/dynamic_classes_99_25';
 local subdir = 'glad';
 
 // MAJOR version when you make incompatible API changes
@@ -37,9 +37,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - monthly mean water percent
     - individual month water percent
 
-    **_RGB_**
-    For the criteria used to transform the annual time-series data into this three-band summary, please refer to [sections 2.2.2 and 2.2.3 of the publication](https://doi.org/10.1016/j.rse.2020.111792).
+    **_Interannual stable and change classes_**
+    Land: 1 (all years mapped ≤10% water)
+    Permanent water: 2 (all years mapped ≥90% water)
+    Water gain: 3 (gain of ≥50%)
+    Water loss: 4 (loss of ≥50%)
+    Dry period: 5 (water to land to water majority states with variation ≥50%)
+    Wet period: 6 (land to water to land majority states with variation ≥50%)
+    Stable seasonal: 7 (variation <50% and mean annual percent 11-89% or variation ≥33%)
+    High interannual variability: 8 (three or more transitions between land and water majority states with variation ≥50%)
+    Probable permanent land: 10 (mean annual percent ≤10% and variation <33%)
+    Probable permanent water: 11 (mean annual percent ≥90% and variation <33%)
+    Sparse data: 12 (less than half the years have data or a total scene observation count less than 1.5 times the number of years)
+    No data: 0
 
+    Please refer to [section 2.2.2 of the publication](https://doi.org/10.1016/j.rse.2020.111792) for more details.
   |||,
 
   // One or more category keywords. For the current list, see
@@ -55,6 +67,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // add it but comment it out.
   keywords: [
     'change-detection',
+    'classification',
     'global',
     'water',
     'landsat-derived',
@@ -90,16 +103,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // gsd: [15],
     'eo:bands': [
       {
-        name: 'R',
-        description: 'first band of summary',
-      },
-      {
-        name: 'G',
-        description: 'middle band of summary',
-      },
-      {
-        name: 'B',
-        description: 'last band of summary',
+        name: 'class',
+        description: 'water dynamics classification',
       },
     ],
     // One or more band visualizations.
@@ -129,15 +134,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Pickens, A.H., Hansen, M.C., Hancher, M., Stehman, S.V., Tyukavina, A., Potapov, P., Marroquin, B., Sherani, Z., 2020. Mapping and sampling to characterize global inland water dynamics from 1999 to 2018 with full Landsat time-series. Remote Sensing of Environment 243, 111792. [doi:10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
-
   // The fields below generally don't need to be changed.
 
   // TODO(google): Remove gee:status when the dataset is ready.
   'gee:status': 'beta',
 
-  // This says that the dataset is an ee.Image.
-  //   https://developers.google.com/earth-engine/apidocs/ee-image
-  'gee:type': ee_const.gee_type.image,
+  // This says that the dataset is an ee.ImageCollection.
+  //   https://developers.google.com/earth-engine/apidocs/ee-image-collection
+  'gee:type': ee_const.gee_type.image_collection,
 
   // Files should use this line as-is. There is a local license variable at
   // the top of the file that sets the SPDX license entry.
