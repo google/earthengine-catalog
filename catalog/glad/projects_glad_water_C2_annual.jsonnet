@@ -83,6 +83,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Summaries contain additional information specific to the dataset type.
   // TODO: Add summaries
   summaries: {
+    gsd: [30],
     'eo:bands': [
       {
         name: 'percent_water',

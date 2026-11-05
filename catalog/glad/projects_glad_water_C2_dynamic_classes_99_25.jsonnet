@@ -20,7 +20,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 {
   id: id,
-  title: 'GLAD Global Surface Water Dynamics',
+  version: version,
+  title: 'GLAD Global Surface Water Dynamics Classes',
   description: |||
     Global maps derived from all Landsat scenes 1999-2025 highlight the changes in open surface water extent during this period. Water and land are mapped in every Landsat scene with cloud, shadow, and ice masked out. The percent of valid observations identified as water are calculated per month. These monthly water percentages are then aggregated by year (annual water percent) and interannual dynamics are mapped both as a three band image highlighting the dynamics types and intensities and as a discrete classification of dynamic type.
 
@@ -141,7 +142,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   // This says that the dataset is an ee.ImageCollection.
   //   https://developers.google.com/earth-engine/apidocs/ee-image-collection
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
 
   // Files should use this line as-is. There is a local license variable at
   // the top of the file that sets the SPDX license entry.

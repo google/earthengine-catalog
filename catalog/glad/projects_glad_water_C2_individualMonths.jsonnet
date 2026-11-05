@@ -96,7 +96,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // - climatological_interval: for climatological averages.
     type: 'cadence',
     // One of: second, minute, hour, day, week, month, year, custom_time_unit.
-    unit: 'year',
+    unit: 'month',
     // How long the interval is (expressed in units above).
     interval: 1,
   },

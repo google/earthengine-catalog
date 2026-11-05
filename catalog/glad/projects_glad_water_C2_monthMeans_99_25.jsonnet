@@ -17,7 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
   // Do not end the title with punctuation. Include version if it is known.
-  title: 'Monthly Surface Water Extent V' + version,
+  title: 'Monthly Surface Water Presence V' + version,
   version: version,
 
   description: |||
@@ -99,7 +99,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // - climatological_interval: for climatological averages.
     type: 'cadence',
     // One of: second, minute, hour, day, week, month, year, custom_time_unit.
-    unit: 'year',
+    unit: 'month',
     // How long the interval is (expressed in units above).
     interval: 1,
   },
@@ -118,7 +118,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
 
   // TODO(google): Remove gee:status when the dataset is ready.
-  'gee:status': 'incomplete',
+  'gee:status': 'beta',
 
   // This says that the dataset is an ee.ImageCollection.
   //   https://developers.google.com/earth-engine/apidocs/ee-image-collection
