@@ -24,6 +24,10 @@ local self_url = base_url + base_filename;
     ee.link.root(),
     ee.link.parent(parent_url),
     ee.link.self_link(self_url),
-    ee.link.child_collection('GLAD_Global_Surface_Water_Dynamics', base_url),
+    ee.link.child_collection('projects_glad_water_C2_annual', base_url),
+    ee.link.child_collection('projects_glad_water_C2_dynamic_classes_99_25', base_url),
+    ee.link.child_collection('projects_glad_water_C2_dynamic_rgb_99_25', base_url),
+    ee.link.child_collection('projects_glad_water_C2_individualMonths', base_url),
+    ee.link.child_collection('projects_glad_water_C2_monthMeans_99_25', base_url),
   ],
 }
