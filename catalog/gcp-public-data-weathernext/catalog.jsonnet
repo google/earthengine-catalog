@@ -32,5 +32,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_weathernext_2_0_0_mean', base_url),
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_weathernext_3_0_0_0p1deg', base_url),
     ee.link.child_collection('projects_gcp-public-data-weathernext_assets_weathernext_3_0_0_0p05deg', base_url),
+    // TODO(mahrsee): Uncomment this when the collection is available.
+    // ee.link.child_collection('projects_gcp-public-data-weathernext_assets_PARDIG_1_LR', base_url),
+    // ee.link.child_collection('projects_gcp-public-data-weathernext_assets_PARDIG_1_NRT', base_url),
   ],
 }

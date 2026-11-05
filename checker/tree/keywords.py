@@ -227,6 +227,7 @@ EXCEPTIONS = frozenset({
     'rubber',
     'salinity',
     'saltmarsh',
+    'satweave',
     'seagrass',
     'sea_ice',
     'sea_level_changes',
