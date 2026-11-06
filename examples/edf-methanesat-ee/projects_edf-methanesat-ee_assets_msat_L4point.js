@@ -4,8 +4,9 @@ var dataset = ee.FeatureCollection("projects/edf-methanesat-ee/assets/msat/L4poi
 // Add a `style` property with `pointSize` dependent on flux value.
 var minSize = 25;
 dataset = dataset.map(function(feature) {
-  var flux = ee.Number(feature.get('flux'));
-  var size = ee.Algorithms.If(flux, flux.divide(150).min(minSize), minSize);
+  var flux = feature.get('flux');
+  var size = ee.Algorithms.If(
+      flux, ee.Number(flux).divide(150).max(minSize), minSize);
   return feature.set('style', { pointSize: size, color: 'red'});
 });
 var datasetVis = dataset.style({styleProperty: 'style'});
