@@ -647,7 +647,7 @@ local license = spdx.proprietary;
     for citation requirements.
 
     If you disclose findings arising from the Historical Data, you must cite
-    "&copy; 2026 Google LLC's machine learning models used to
+    "© 2026 DeepMind Technologies Limited's machine learning models used to
     create the experimental data made available at
     [https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_weathernext_2_0_0_mean](https://developers.google.com/earth-engine/datasets/catalog/projects_gcp-public-data-weathernext_assets_weathernext_2_0_0_mean)
     under CC BY 4.0 licence terms. This data is intended for experimental
