@@ -83,13 +83,134 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Summaries contain additional information specific to the dataset type.
   // TODO: Add summaries
   summaries: {
-    gsd: [30],
+    gsd: [27.79875],
     'eo:bands': [
       {
-        name: 'percent_water',
-        description: 'percent of year with open water cover',
+        name: '1999_percent_water',
+        description: '1999 percent water',
+      },
+      {
+        name: '2000_percent_water',
+        description: '2000 percent water',
+      },
+      {
+        name: '2001_percent_water',
+        description: '2001 percent water',
+      },
+      {
+        name: '2002_percent_water',
+        description: '2002 percent water',
+      },
+      {
+        name: '2003_percent_water',
+        description: '2003 percent water',
+      },
+      {
+        name: '2004_percent_water',
+        description: '2004 percent water',
+      },
+      {
+        name: '2005_percent_water',
+        description: '2005 percent water',
+      },
+      {
+        name: '2006_percent_water',
+        description: '2006 percent water',
+      },
+      {
+        name: '2007_percent_water',
+        description: '2007 percent water',
+      },
+      {
+        name: '2008_percent_water',
+        description: '2008 percent water',
+      },
+      {
+        name: '2009_percent_water',
+        description: '2009 percent water',
+      },
+      {
+        name: '2010_percent_water',
+        description: '2010 percent water',
+      },
+      {
+        name: '2011_percent_water',
+        description: '2011 percent water',
+      },
+      {
+        name: '2012_percent_water',
+        description: '2012 percent water',
+      },
+      {
+        name: '2013_percent_water',
+        description: '2013 percent water',
+      },
+      {
+        name: '2014_percent_water',
+        description: '2014 percent water',
+      },
+      {
+        name: '2015_percent_water',
+        description: '2015 percent water',
+      },
+      {
+        name: '2016_percent_water',
+        description: '2016 percent water',
+      },
+      {
+        name: '2017_percent_water',
+        description: '2017 percent water',
+      },
+      {
+        name: '2018_percent_water',
+        description: '2018 percent water',
+      },
+      {
+        name: '2019_percent_water',
+        description: '2019 percent water',
+      },
+      {
+        name: '2020_percent_water',
+        description: '2020 percent water',
+      },
+      {
+        name: '2021_percent_water',
+        description: '2021 percent water',
+      },
+      {
+        name: '2022_percent_water',
+        description: '2022 percent water',
+      },
+      {
+        name: '2023_percent_water',
+        description: '2023 percent water',
+      },
+      {
+        name: '2024_percent_water',
+        description: '2024 percent water',
+      },
+      {
+        name: '2025_percent_water',
+        description: '2025 percent water',
       },
     ],
+    'gee:visualizations': [
+          // Example with three bands, but only one value for min and max.
+          {
+            display_name: 'water percent 2000-2012-2025',
+            // Do not use too many significant digits.
+            lookat: {lon: 59.8147, lat: 44.6193, zoom: 7},
+            // See for details:
+            // https://developers.google.com/earth-engine/guides/image_visualization
+            image_visualization: {
+              band_vis: {
+                min: [0],
+                max: [100],
+                bands: ['2000_percent_water','2012_percent_water','2025_percent_water'],
+              }
+            },
+          },
+    ]
   },
 
   // Observation repeat interval. For detail, see

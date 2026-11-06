@@ -82,49 +82,41 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
   //TODO: Complete this. more example at https://github.com/google/earthengine-catalog/blob/main/catalog/TEMPLATE/TEMPLATE_IMAGE_V2_1.jsonnet
   summaries: {
-    // Describe all of the bands in the order they appear in an ee.Image.
-    // For each band, only `name` and `description` are required.
-    // If the pixel size is the same for all bands, set it here.
-    // (In STAC, pixel size is called "gsd", or "ground sample distance".)
-    // https://en.wikipedia.org/wiki/Ground_sample_distance
-    // Value is in meters. If the pixel size is in degrees, multiply by 111,195.
-    // gsd: [15],
-    'eo:bands': [
-      {
-        name: 'R',
-        description: 'first band of summary',
-      },
-      {
-        name: 'G',
-        description: 'middle band of summary',
-      },
-      {
-        name: 'B',
-        description: 'last band of summary',
-      },
-    ],
-    // One or more band visualizations.
-    'gee:visualizations': [
-      // Example with three bands, but only one value for min and max.
-      {
-        // Give units when possible.
-        display_name: 'Describe what is shown 1',
-        // Do not use too many significant digits.
-        lookat: { lon: -122.03, lat: 39.67, zoom: 11 },
-        // See for details:
-        // https://developers.google.com/earth-engine/guides/image_visualization
-        image_visualization:
-          {
-            band_vis: {
-              min: [0],
-              max: [255],
-              // Which bands to map to red, green, and blue rgb channels.
-              bands: ['band_name_1', 'band_name_2', 'band_name_3'],
+      gsd: [27.79875],
+      'eo:bands': [
+        {
+          name: 'R',
+          description: 'Red thing',
+        },
+        {
+          name: 'G',
+          description: 'Green thing',
+        },
+        {
+          name: 'B',
+          description: 'Blue thing',
+        },
+      ],
+      'gee:visualizations': [
+            // Example with three bands, but only one value for min and max.
+            {
+              // Give units when possible.
+              display_name: 'Surface Water dynamics 1999-2025',
+              // Do not use too many significant digits.
+              lookat: {lon: -55, lat: -2.1, zoom: 9},
+              // See for details:
+              // https://developers.google.com/earth-engine/guides/image_visualization
+              image_visualization: {
+                band_vis: {
+                  min: [0],
+                  max: [255],
+                  // Which bands to map to red, green, and blue rgb channels.
+                  bands: ['R', 'G', 'B'],
+                }
+              },
             },
-          },
-      },
-    ],
-  },
+      ]
+    },
 
   'sci:citation': |||
     Pickens, A.H., Hansen, M.C., Hancher, M., Stehman, S.V., Tyukavina, A., Potapov, P., Marroquin, B., Sherani, Z., 2020. Mapping and sampling to characterize global inland water dynamics from 1999 to 2018 with full Landsat time-series. Remote Sensing of Environment 243, 111792. [doi:10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792)

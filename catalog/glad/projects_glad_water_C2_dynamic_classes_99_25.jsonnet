@@ -102,6 +102,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // https://en.wikipedia.org/wiki/Ground_sample_distance
     // Value is in meters. If the pixel size is in degrees, multiply by 111,195.
     // gsd: [15],
+    gsd: [27.79875],
     'eo:bands': [
       {
         name: 'class',
@@ -113,18 +114,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       // Example with three bands, but only one value for min and max.
       {
         // Give units when possible.
-        display_name: 'Describe what is shown 1',
+        display_name: 'classes 99-25',
         // Do not use too many significant digits.
-        lookat: { lon: -122.03, lat: 39.67, zoom: 11 },
+        lookat: { lon: -61.5, lat: -30.5, zoom: 9 },
         // See for details:
         // https://developers.google.com/earth-engine/guides/image_visualization
         image_visualization:
           {
             band_vis: {
-              min: [0],
-              max: [255],
-              // Which bands to map to red, green, and blue rgb channels.
-              bands: ['band_name_1', 'band_name_2', 'band_name_3'],
+              min: [1],
+              max: [12],
+              palette: ['292929','ffffff','007dff','ff7d00','f000f0','00f000','999999','ad7d52','000000','404040','ebebeb','000000'],
+              bands: ['class'],
             },
           },
       },
