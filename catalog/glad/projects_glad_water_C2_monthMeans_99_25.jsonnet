@@ -85,10 +85,70 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [27.79875],
     'eo:bands': [
       {
-        name: 'percent_water',
-        description: 'percent of calendar month with open water cover',
+        name: '01_percent_water',
+        description: 'Jan: percent of calendar month with open water cover',
+      },
+      {
+        name: '02_percent_water',
+        description: 'Feb: percent of month with open water cover',
+      },
+      {
+        name: '03_percent_water',
+        description: 'Mar: percent of month with open water cover',
+      },
+      {
+        name: '04_percent_water',
+        description: 'Apr: percent of month with open water cover',
+      },
+      {
+        name: '05_percent_water',
+        description: 'May: percent of month with open water cover',
+      },
+      {
+        name: '06_percent_water',
+        description: 'Jun: percent of month with open water cover',
+      },
+      {
+        name: '07_percent_water',
+        description: 'Jul: percent of month with open water cover',
+      },
+      {
+        name: '08_percent_water',
+        description: 'Aug: percent of month with open water cover',
+      },
+      {
+        name: '09_percent_water',
+        description: 'Sep: percent of month with open water cover',
+      },
+      {
+        name: '10_percent_water',
+        description: 'Oct: percent of month with open water cover',
+      },
+      {
+        name: '11_percent_water',
+        description: 'Nov: percent of month with open water cover',
+      },
+      {
+        name: '12_percent_water',
+        description: 'Dec: percent of month with open water cover',
       },
     ],
+    'gee:visualizations': [
+          // Example with three bands, but only one value for min and max.
+          {
+            display_name: 'water percent Feb-Apr-Jun',
+            lookat: {lon: 23, lat: -14.8, zoom: 9},
+            // See for details:
+            // https://developers.google.com/earth-engine/guides/image_visualization
+            image_visualization: {
+              band_vis: {
+                min: [0],
+                max: [100],
+                bands: ['02_percent_water','04_percent_water','06_percent_water'],
+              }
+            },
+          },
+    ]
   },
 
   // Observation repeat interval. For detail, see
