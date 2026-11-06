@@ -1,4 +1,5 @@
 local id = 'COPERNICUS/MARINE/GLOBAL_SEA_SURFACE/NRT_DAILY';
+local successor_id = 'COPERNICUS/MARINE/GLOBAL_SEA_SURFACE/NRT_DAILY_V2';
 local subdir = 'COPERNICUS';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -11,6 +12,8 @@ local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
+local successor_basename = std.strReplace(successor_id, '/', '_');
+local successor_filename = successor_basename + '.json';
 
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -19,15 +22,23 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   type: ee_const.stac_type.collection,
   stac_extensions: [
     ee_const.ext_eo,
-    ee_const.ext_sci
+    ee_const.ext_sci,
+    ee_const.ext_ver,
   ],
   id: id,
-  title: 'Multi Observation Global Ocean Sea Surface Salinity and Sea Surface Density : Daily, Near Real Time',
+  version: '202311',
+  title: 'Multi Observation Global Ocean Sea Surface Salinity and Sea Surface Density : Daily, Near Real Time [deprecated]',
+  'gee:status': 'deprecated',
   'gee:type': ee_const.gee_type.image_collection,
   description: template.description + template.nrt_daily_description +
-    template.documentation,
+    template.nrt_daily_v1_deprecation + template.documentation,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + [
+    ee.link.successor(
+      successor_id, ee_const.catalog_base + subdir + '/' + successor_filename),
+    ee.link.latest(
+      successor_id, ee_const.catalog_base + subdir + '/' + successor_filename),
+  ],
   'gee:categories': ['oceans'],
   keywords: [
     'copernicus',
@@ -36,7 +47,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee.producer_provider('Copernicus', 'https://doi.org/10.48670/moi-00051'),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent_global('2023-01-01T00:00:00Z', null),
+  extent: ee.extent_global('2023-01-01T00:00:00Z', '2026-09-09T00:00:00Z'),
   summaries: {
     gsd: [
       14000.0,
