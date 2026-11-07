@@ -387,6 +387,114 @@ class GeoLookupTableTest(unittest.TestCase):
 
     numpy.testing.assert_array_equal(full_projected, chunked_projected)
 
+  def test_has_valid_data(self):
+    index = self.generate_test_index()
+    scale_lat = -0.5
+    scale_lon = 0.5
+    glts = geocorrect.GeoLookupTable.from_index(index, scale_lat, scale_lon)
+    self.assertTrue(glts[0].has_valid_data())
+    self.assertGreater(glts[0].valid_pixel_count(), 0)
+
+    empty_glts = geocorrect.GeoLookupTable.from_index(
+        index,
+        scale_lat,
+        scale_lon,
+        target_bbox=bboxes.BBox(50.0, 50.0, 51.0, 51.0),
+    )
+    self.assertEqual(len(empty_glts), 1)
+    self.assertFalse(empty_glts[0].has_valid_data())
+    self.assertEqual(empty_glts[0].valid_pixel_count(), 0)
+
+  def test_target_bbox_and_fill_index(self):
+    lat_fp = numpy.array([[1.5, 1.5], [2.5, 2.5]])
+    lon_fp = numpy.array([[10.5, 11.5], [10.5, 11.5]])
+    # Interior fill detectors offset by 0.5 deg in latitude from pixel centers.
+    lat_val = numpy.array([[2.0, 2.0]])
+    lon_val = numpy.array([[10.5, 11.5]])
+    index_fp = geocorrect.CoordinateIndex.from_arrays(lat_fp, lon_fp)
+    index_val = geocorrect.CoordinateIndex.from_arrays(lat_val, lon_val)
+    target_box = bboxes.BBox(10.0, 1.0, 12.0, 3.0)
+    # Omit buffer_bbox so we verify default buffer_bbox=True is overridden
+    # when target_bbox is provided, keeping geotransform aligned to target_box.
+    glts = geocorrect.GeoLookupTable.from_index(
+        index=index_fp,
+        scale_lat=-1.0,
+        scale_lon=1.0,
+        target_bbox=target_box,
+        fill_index=index_val,
+        max_distance_deg=0.8,
+        fill_max_distance_deg=0.8,
+    )
+    self.assertEqual(len(glts), 1)
+    self.assertEqual(glts[0].dimensions(), (2, 2))
+    self.assertEqual(glts[0].geotransform(), [10.0, 1.0, 0, 3.0, 0, -1.0])
+    self.assertTrue(glts[0].has_valid_data())
+    self.assertEqual(glts[0].valid_pixel_count(), 4)
+
+    # Tight fill_max_distance_deg smaller than 0.5 deg fill offset leaves empty.
+    glts_tight = geocorrect.GeoLookupTable.from_index(
+        index=index_fp,
+        scale_lat=-1.0,
+        scale_lon=1.0,
+        target_bbox=target_box,
+        fill_index=index_val,
+        max_distance_deg=0.8,
+        fill_max_distance_deg=0.2,
+    )
+    self.assertFalse(glts_tight[0].has_valid_data())
+
+  def test_target_bbox_antimeridian_split(self):
+    lat = numpy.array([[10.5, 10.5]])
+    lon = numpy.array([[179.5, -179.5]])
+    index_fp = geocorrect.CoordinateIndex.from_arrays(lat, lon)
+    glts = geocorrect.GeoLookupTable.from_index(
+        index=index_fp,
+        scale_lat=-1.0,
+        scale_lon=1.0,
+        target_bbox=bboxes.BBox(179.0, 10.0, -179.0, 11.0),
+        max_distance_deg=0.8,
+    )
+    self.assertEqual(len(glts), 2)
+    self.assertTrue(glts[0].has_valid_data())
+    self.assertTrue(glts[1].has_valid_data())
+    self.assertEqual(glts[0].valid_pixel_bounds(), (0, 0, 0, 0))
+
+    # Boundary-aligned antimeridian split (west == 180.0) omits zero-width half.
+    glts_edge = geocorrect.GeoLookupTable.from_index(
+        index=index_fp,
+        scale_lat=-1.0,
+        scale_lon=1.0,
+        target_bbox=bboxes.BBox(180.0, 10.0, -179.0, 11.0),
+        max_distance_deg=0.8,
+    )
+    self.assertEqual(len(glts_edge), 1)
+    self.assertTrue(glts_edge[0].has_valid_data())
+
+    # Degenerate target_bbox raises InputError instead of returning empty list.
+    with self.assertRaises(geocorrect.InputError):
+      geocorrect.GeoLookupTable.from_index(
+          index=index_fp,
+          scale_lat=-1.0,
+          scale_lon=1.0,
+          target_bbox=bboxes.BBox(10.0, 10.0, 10.0, 11.0),
+      )
+
+  def test_valid_pixel_bounds_empty_and_nonempty(self):
+    index = self.generate_test_index()
+    empty_glts = geocorrect.GeoLookupTable.from_index(
+        index, -0.5, 0.5, target_bbox=bboxes.BBox(50.0, 50.0, 51.0, 51.0)
+    )
+    self.assertIsNone(empty_glts[0].valid_pixel_bounds())
+    nonempty_glts = geocorrect.GeoLookupTable.from_index(index, -0.5, 0.5)
+    bounds = nonempty_glts[0].valid_pixel_bounds()
+    self.assertIsNotNone(bounds)
+    x0, y0, x1, y1 = bounds
+    w, h = nonempty_glts[0].dimensions()
+    self.assertGreaterEqual(x0, 0)
+    self.assertGreaterEqual(y0, 0)
+    self.assertLess(x1, w)
+    self.assertLess(y1, h)
+
 
 if __name__ == '__main__':
   unittest.main()
