@@ -11,7 +11,6 @@ local qa_pixel_mss = {
   description: |||
     Landsat Collection 2 MSS QA Bitmask
   |||,
-  gsd: gsd,
   'gee:bitmask': {
     bitmask_parts: [
       {
@@ -509,7 +508,6 @@ local qa_pixel_oli_tirs = {
 
 local qa_radsat_mss = {
   name: 'QA_RADSAT',
-  gsd: gsd,
   description: 'Radiometric saturation QA',
   'gee:bitmask': {
     bitmask_parts: [
