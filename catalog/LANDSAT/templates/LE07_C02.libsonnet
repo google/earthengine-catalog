@@ -827,7 +827,7 @@ local ee_const = import 'earthengine_const.libsonnet';
           60m to 30m.
         |||,
         center_wavelength: 11.45,
-        gsd: 60.0,
+        gsd: 30.0,
         'gee:wavelength': '10.40 - 12.50 &mu;m',
       },
       {
@@ -838,7 +838,7 @@ local ee_const = import 'earthengine_const.libsonnet';
           Resampled from 60m to 30m.
         |||,
         center_wavelength: 11.45,
-        gsd: 60.0,
+        gsd: 30.0,
         'gee:wavelength': '10.40 - 12.50 &mu;m',
       },
       {
