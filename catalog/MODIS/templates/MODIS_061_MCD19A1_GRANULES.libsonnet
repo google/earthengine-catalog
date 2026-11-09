@@ -2,9 +2,6 @@ local units = import 'units.libsonnet';
 
 {
   summaries: {
-    gsd: [
-      1000.0,
-    ],
     instruments: [
       'MODIS',
     ],
@@ -14,6 +11,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 1.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -21,6 +19,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 2.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -28,6 +27,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 3.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -35,6 +35,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 4.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -42,6 +43,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 5.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -49,6 +51,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 6.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -56,6 +59,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 500m for band 7.
         |||,
+        gsd: 500.0,
         'gee:scale': 0.0001,
       },
       {
@@ -63,6 +67,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 1km for band 8.
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
@@ -70,6 +75,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 1km for band 9.
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
@@ -77,6 +83,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 1km for band 10.
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
@@ -84,6 +91,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 1km for band 11.
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
@@ -91,6 +99,7 @@ local units = import 'units.libsonnet';
         description: |||
           Surface reflectance at 1km for band 12.
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
@@ -98,16 +107,19 @@ local units = import 'units.libsonnet';
         description: |||
            BRFn uncertainty over time at 1km, for band 1
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'Sigma_BRFn2',
         description: 'BRFn uncertainty over time at 1km, for band 2',
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'Status_QA',
         description: 'QA bits',
+        gsd: 1000.0,
         'gee:bitmask': {
           bitmask_parts: [
             {
@@ -306,45 +318,54 @@ local units = import 'units.libsonnet';
       {
         name: 'cosSZA',
         description: 'Cosine of Solar zenith angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'cosVZA',
         description: 'Cosine view zenith angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'RelAZ',
         description: 'Relative azimuth angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'Scattering_Angle',
         description: 'Scattering angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'SAZ',
         description: 'Solar Azimuth Angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'VAZ',
         description: 'View Azimuth Angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'Glint_Angle',
         description: 'Glint angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'Fv',
         description: 'RTLS volumetric kernel (5 km resolution)',
+        gsd: 5000.0,
       },
       {
         name: 'Fg',
         description: 'RTLS geometric kernel (5 km resolution)',
+        gsd: 5000.0,
       },
     ],
     'gee:visualizations': [
