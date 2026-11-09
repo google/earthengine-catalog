@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: estonia_orthos.extent,
   summaries: {
     gsd: [
-      0.4,
+      0.1,
     ],
     'eo:bands': [
       {

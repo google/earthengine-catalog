@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(20.5, 55.5, 28.6, 58.5,
                     '2007-01-01T00:00:00Z', '2018-01-01T00:00:00Z'),
   summaries: {
-    gsd: [0.2],
+    gsd: [0.25],
     'eo:bands': [
       {name: 'N', description: 'Near-Infrared', 'gee:units': units.dn},
       {name: 'R', description: 'Red', 'gee:units': units.dn},
