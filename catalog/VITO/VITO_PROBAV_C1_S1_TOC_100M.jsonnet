@@ -133,7 +133,7 @@ local license = spdx.proprietary;
       },
     ],
     gsd: [
-      100.0,
+      110.4,
     ],
     'eo:bands': [
       {

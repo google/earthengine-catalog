@@ -42,7 +42,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'dominant_class',
         description: 'Dominant class derived through Random Forest and probability maps.',
-        gsd: 30,
+        gsd: 27.83,
         'gee:classes': [
           {value: 0, color: 'ffffff', description: 'Other'},
           {value: 1, color: 'ffcd73', description: 'Cultivated grassland '},

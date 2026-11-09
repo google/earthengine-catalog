@@ -62,7 +62,7 @@ local license = spdx.cc_by_4_0;
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
     gsd: [
-      30.92,
+      27.83,
     ],
     'eo:bands': [
       {
