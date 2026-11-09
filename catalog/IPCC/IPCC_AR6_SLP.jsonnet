@@ -85,7 +85,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent_global('2020-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
-      111.32,
+      111320.0,
     ],
     'eo:bands': [
       {
