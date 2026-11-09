@@ -50,7 +50,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent(-30.15, -39.9953437, 65.13, 40.0044643,
                     '2009-01-01T00:00:00Z', null),
   summaries: {
-    gsd: [18924],
+    gsd: [19878.0],
     'eo:bands': [
       {
         name: 'L1_RET_D',
