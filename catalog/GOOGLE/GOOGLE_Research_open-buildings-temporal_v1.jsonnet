@@ -82,7 +82,7 @@ local units = import 'units.libsonnet';
   extent: ee.extent_global('2016-06-30T07:00:00Z', '2023-06-30T07:00:00Z'),
   summaries: {
     gsd: [
-      4,
+      0.5,
     ],
     'gee:schema': [
       {
