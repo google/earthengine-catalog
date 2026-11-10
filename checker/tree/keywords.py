@@ -273,6 +273,7 @@ EXCEPTIONS = frozenset({
     'visibility',
     'vj209ga',
     'vj209h1',
+    'vj213a1',
     'vnir',
     'vnp09ga',
     'vnp13a1',
