@@ -71,7 +71,7 @@ local license = spdx.cc_by_4_0;
       },
     ],
     gsd: [
-      100.0,
+      92.77,
     ],
     'eo:bands': [
       {
