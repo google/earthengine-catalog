@@ -24,10 +24,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'EC JRC global map of forest types 2020, V1',
+  title: 'EC JRC global map of forest types 2020, V1 [deprecated]',
   version: version,
   // The collection contains tiles for a global mosaic.
   'gee:type': ee_const.gee_type.image,
+  'gee:status': 'deprecated',
   description: |||
     The global map of forest types provides a spatially explicit representation
     of primary forest, naturally regenerating forest and planted forest (including
