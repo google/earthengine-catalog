@@ -22,7 +22,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'land',
     'landcover',
     'landuse',
-    'global',
   ],
   'gee:user_uploaded': true,
   'gee:status': 'beta',
