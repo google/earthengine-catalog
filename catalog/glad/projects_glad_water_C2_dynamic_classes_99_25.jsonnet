@@ -125,7 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               min: [1],
               max: [12],
               palette: ['292929', 'ffffff', '007dff', 'ff7d00', 'f000f0', '00f000', '999999', 'ad7d52', '000000', '404040', 'ebebeb', '000000'],
-              bands: ['percent_water'],
+              bands: ['class'],
             },
           },
       },

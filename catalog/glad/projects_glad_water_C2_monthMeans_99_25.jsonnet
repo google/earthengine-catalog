@@ -99,7 +99,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             min: [0],
             max: [100],
-            bands: ['02_percent_water', '04_percent_water', '06_percent_water'],
+            bands: ['percent_water'],
           },
         },
       },
