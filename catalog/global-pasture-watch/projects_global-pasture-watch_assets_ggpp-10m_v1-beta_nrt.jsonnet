@@ -90,7 +90,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   'sci:publications': [
     {
       citation: |||
-        Isik MS, Parente L, Sloat L, Krizan J, Čmelar K, Ferreira LG. (2026).
+        Isik MS, Parente L, Sloat L, Krizan J, &#268;melar K, Ferreira LG. (2026).
         A Semi-Empirical Method for Estimating All-Sky Photosynthetically Active
         Radiation from Sentinel-2 for High-Resolution Land Surface Analysis.
         Remote Sensing, 18(16), 2745.
