@@ -76,9 +76,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
 
   'gee:interval': {
-    type: 'cadence',
+    type: 'revisit_interval',
     unit: 'day',
-    interval: 1,
+    interval: 5,
   },
   'sci:publications': [
     {
