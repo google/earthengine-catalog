@@ -91,22 +91,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
     'gee:visualizations': [
-          // Example with three bands, but only one value for min and max.
-          {
-            display_name: 'water percent 2000-2012-2025',
-            // Do not use too many significant digits.
-            lookat: {lon: 59.8147, lat: 44.6193, zoom: 7},
-            // See for details:
-            // https://developers.google.com/earth-engine/guides/image_visualization
-            image_visualization: {
-              band_vis: {
-                min: [0],
-                max: [100],
-                bands: ['percent_water'],
-              }
-            },
+      // Example with three bands, but only one value for min and max.
+      {
+        display_name: 'water percent 2000-2012-2025',
+        // Do not use too many significant digits.
+        lookat: { lon: 59.8147, lat: 44.6193, zoom: 7 },
+        // See for details:
+        // https://developers.google.com/earth-engine/guides/image_visualization
+        image_visualization: {
+          band_vis: {
+            min: [0],
+            max: [100],
+            bands: ['percent_water'],
           },
-    ]
+        },
+      },
+    ],
   },
 
   // Observation repeat interval. For detail, see

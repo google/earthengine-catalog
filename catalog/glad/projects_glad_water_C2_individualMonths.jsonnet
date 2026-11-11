@@ -86,18 +86,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
     'gee:visualizations': [
-        {
-          display_name: 'Monthly water percent',
-          lookat: {lon: -114.098, lat: 36.137, zoom: 11},
-          image_visualization: {
-            band_vis: {
-              min: [0],
-              max: [100],
-              bands: ['percent_water'],
-            },
+      {
+        display_name: 'Monthly water percent',
+        lookat: { lon: -114.098, lat: 36.137, zoom: 11 },
+        image_visualization: {
+          band_vis: {
+            min: [0],
+            max: [100],
+            bands: ['percent_water'],
           },
         },
-      ],
+      },
+    ],
   },
 
   // Observation repeat interval. For detail, see

@@ -89,21 +89,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
     'gee:visualizations': [
-          // Example with three bands, but only one value for min and max.
-          {
-            display_name: 'water percent Feb-Apr-Jun',
-            lookat: {lon: 23, lat: -14.8, zoom: 9},
-            // See for details:
-            // https://developers.google.com/earth-engine/guides/image_visualization
-            image_visualization: {
-              band_vis: {
-                min: [0],
-                max: [100],
-                bands: ['02_percent_water','04_percent_water','06_percent_water'],
-              }
-            },
+      // Example with three bands, but only one value for min and max.
+      {
+        display_name: 'water percent Feb-Apr-Jun',
+        lookat: { lon: 23, lat: -14.8, zoom: 9 },
+        // See for details:
+        // https://developers.google.com/earth-engine/guides/image_visualization
+        image_visualization: {
+          band_vis: {
+            min: [0],
+            max: [100],
+            bands: ['02_percent_water', '04_percent_water', '06_percent_water'],
           },
-    ]
+        },
+      },
+    ],
   },
 
   // Observation repeat interval. For detail, see
