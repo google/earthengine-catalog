@@ -13,7 +13,7 @@ var collection = ee.ImageCollection(
 var ugpp = collection.median()
     .multiply(SCALE_FACTOR)
     .multiply(N_DAYS)
-    .mask(grass_mask.eq(1))
+    .updateMask(grass_mask.eq(1));
 
 // Calibrated GPP = LUEmax x uGPP (one multiplication).
 var gpp = ugpp.multiply(EPSILON_MAX)
