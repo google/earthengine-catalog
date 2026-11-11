@@ -40,7 +40,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': 'gC m-2 d-1',
       }
     ],
-    ugpp: {minimum: 0, maximum: 20, 'gee:estimated_range': true},
+    ugpp: {minimum: 0, maximum: 200, 'gee:estimated_range': true},
     'gee:visualizations': [
       {
         display_name: 'uGPP value',
