@@ -82,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'year',
     interval: 1,
   },
-  'sci:doi': '10.5281/zenodo.13890401',
+  'sci:doi': '10.7717/peerj.19774',
   'sci:citation': |||
     Isik, M. S., Mesquita, V., Parente, L., & Consoli, D. (2025).
     Global Pasture Watch - Source Code of the Global Uncalibrated EO-based GPP and
