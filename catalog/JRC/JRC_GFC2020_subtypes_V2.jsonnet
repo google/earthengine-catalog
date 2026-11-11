@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     time series of tree cover, forest loss, and tree-height dynamics. Second, the 
     extent of primary forests is delineated by combining datasets on intact forests 
     and protected areas, while excluding areas where anthropogenic disturbances 
-    have been recorded over the past 20–30 years. The results of these two steps 
+    have been recorded over the past 20 to 30 years. The results of these two steps 
     are harmonized to classify all forest areas mapped in GFC2020 V4 that are 
     neither primary nor planted forests as naturally regenerating forests, followed 
     by the application of a minimum mapping unit of 0.5 hectares to each forest type. 
