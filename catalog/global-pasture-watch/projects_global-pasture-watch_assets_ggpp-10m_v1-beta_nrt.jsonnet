@@ -48,7 +48,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         image_visualization: {
           band_vis: {
             min: [0],
-            max: [20],
+            max: [30],
             palette: [
               'faccfa',
               'f19d6b',
