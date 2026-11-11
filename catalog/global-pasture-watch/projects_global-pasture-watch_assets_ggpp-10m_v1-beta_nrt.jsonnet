@@ -94,7 +94,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         A Semi-Empirical Method for Estimating All-Sky Photosynthetically Active
         Radiation from Sentinel-2 for High-Resolution Land Surface Analysis.
         Remote Sensing, 18(16), 2745.
-        [doi: https://doi.org/10.3390/rs18162745](https://doi.org/10.3390/rs18162745)
+        [doi:10.3390/rs18162745](https://doi.org/10.3390/rs18162745)
       |||,
       doi: '10.3390/rs18162745',
     },
