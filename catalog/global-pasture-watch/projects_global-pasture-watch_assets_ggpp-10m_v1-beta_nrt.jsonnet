@@ -15,11 +15,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'Time2Graze daily uncalibrated Gross Primary Productivity (uGPP) v' + version,
   version: version,
-  description: |||
-    This dataset provides near-real-time, daily uncalibrated Gross Primary
-    Productivity (uGPP) at 10-m spatial resolution, computed from Sentinel-2
-    and VIIRS within the MOD17 light use efficiency lineage.
-  ||| + ugpp10m_v1beta,
+  description: ugpp10m_v1beta,
   'gee:categories': ['plant-productivity'],
   keywords: [
     'vegetation',
