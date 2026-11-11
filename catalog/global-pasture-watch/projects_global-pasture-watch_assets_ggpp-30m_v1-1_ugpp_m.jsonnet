@@ -21,10 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'GPW Annual uncalibrated Gross Primary Productivity (uGPP) v' + version,
   version: version,
   'gee:status': 'beta',
-  description: |||
-    This dataset provides global uncalibrated EO-based Gross Primary Productivity
-    from 2000 at 30-m spatial resolution.
-  ||| + ugpp30m_v1_1,
+  description: ugpp30m_v1_1,
   'gee:categories': ['plant-productivity'],
   keywords: [
     'vegetation',
