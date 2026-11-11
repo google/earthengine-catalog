@@ -80,17 +80,14 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     unit: 'day',
     interval: 5,
   },
+  'sci:citation': |||
+    Isik MS, Parente L, Consoli D, et al. (2025).
+    Light use efficiency (LUE) based bimonthly gross primary
+    productivity (GPP) for global grasslands at 30 m spatial
+    resolution (2000&ndash;2022), PeerJ.
+    [doi:10.7717/peerj.19774](https://doi.org/10.7717/peerj.19774)
+  |||,
   'sci:publications': [
-    {
-      citation: |||
-        Isik MS, Parente L, Consoli D, et al. (2025).
-        Light use efficiency (LUE) based bimonthly gross primary
-        productivity (GPP) for global grasslands at 30 m spatial
-        resolution (2000–2022), PeerJ.
-        [doi: https://doi.org/10.7717/peerj.19774](https://doi.org/10.7717/peerj.19774)
-      |||,
-      doi: '10.7717/peerj.19774',
-    },
     {
       citation: |||
         Isik MS, Parente L, Sloat L, Krizan J, Čmelar K, Ferreira LG. (2026).
