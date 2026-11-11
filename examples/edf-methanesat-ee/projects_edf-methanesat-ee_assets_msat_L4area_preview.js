@@ -8,8 +8,8 @@ var colorRange = [
 
 var fluxVisParams = {
   bands: ['mean_flux'],
-  min: 0,
-  max: 13,
+  min: 1,
+  max: 14,
   palette: colorRange,
 };
 
@@ -25,7 +25,7 @@ var prepColorPalette = function(image) {
   var img0050 = image.gte(8);
   var img0090 = image.gte(14.4);
   var img0150 = image.gte(24);
-  var img0225 = image.gte(26);
+  var img0225 = image.gte(36);
   var img0325 = image.gte(52);
   var img0450 = image.gte(72);
   var img0600 = image.gte(96);
@@ -56,7 +56,7 @@ var preppedImg = prepColorPalette(img);
 var imgVis = preppedImg.visualize(fluxVisParams);
 
 // Background
-var background = ee.Image.rgb(256, 256, 256).rename('vis-red', 'vis-green', 'vis-blue');
+var background = ee.Image.rgb(255, 255, 255).rename('vis-red', 'vis-green', 'vis-blue');
 var imageWithBackground = background.blend(imgVis);
 
 // Visualizing

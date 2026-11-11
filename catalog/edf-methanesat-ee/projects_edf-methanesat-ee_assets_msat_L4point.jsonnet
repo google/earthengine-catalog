@@ -4,7 +4,6 @@ local version = '1.0.0';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local publications = importstr 'publications.md';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
 local versions_table = import 'templates/msat_L4point_versions.libsonnet';
@@ -24,10 +23,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     from discrete point sources. These methane emission fluxes were produced using a point source
     detection and emissions quantification framework specialized to exploit the high spatial
     resolution, wide spatial coverage, and high precision of MethaneSAT data (methodology is
-    described in [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023).)
+    described in [Chulakadabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023)).
     The point source quantification framework was extensively tested in blind controlled-release
     experiments as detailed in
-    [Chulakdabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023) and
+    [Chulakadabba et al. (2023)](https://doi.org/10.5194/amt-16-5771-2023) and
     [Abbadi et al. (2024)](https://doi.org/10.1021/acs.est.4c02439).
 
     Not all data products (L3 concentration, L4 area and L4 points) are available for all
@@ -56,7 +55,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     [newsletter](https://mailchi.mp/methanesat/methanesat-newsletter-sign-up). For
     additional information about the data products, algorithms, or calibration, view the publications
     on our [website](https://www.methanesat.org/scienceandresearch).
-  ||| + publications,
+  |||,
   'gee:categories': ['atmosphere'],
   keywords: [
     'climate',
@@ -94,17 +93,17 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           in the presence and location of the point but not its flux value.
         |||,
         units: units.kg_per_hour,
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.double,
       },
       {
         name: 'flux_sd',
         description: |||
-          Standard deviation of methane flux quantification, in kg/h. Note: this may be null in
+          Standard deviation of methane flux quantification. Note: this may be null in
           the case that we're confident in the presence and location of the point but not its
           flux value.
         |||,
         units: units.kg_per_hour,
-        type: ee_const.var_type.int,
+        type: ee_const.var_type.double,
       },
       {
         name: 'processing_id',
@@ -164,7 +163,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Brandt, A., and Wofsy, S. C. 2023. Methane point source quantification using
     MethaneAIR: a new airborne imaging spectrometer, Atmos. Meas. Tech., 16,
     5771-5785.
-    [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023),
+    [doi:10.5194/amt-16-5771-2023](https://doi.org/10.5194/amt-16-5771-2023)
   |||,
   'gee:terms_of_use': importstr 'terms_of_use.md',
   'gee:unusual_terms_of_use': true,
