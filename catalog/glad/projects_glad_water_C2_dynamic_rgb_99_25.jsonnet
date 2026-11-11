@@ -55,10 +55,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
   keywords: [
-    'change-detection',
+    'change_detection',
     'global',
     'water',
-    'landsat-derived',
+    'landsat_derived',
   ],
 
   providers: [
@@ -86,15 +86,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       'eo:bands': [
         {
           name: 'R',
-          description: 'Red thing',
+          description: 'first band of summary',
         },
         {
           name: 'G',
-          description: 'Green thing',
+          description: 'middle band of summary',
         },
         {
           name: 'B',
-          description: 'Blue thing',
+          description: 'last band of summary',
         },
       ],
       'gee:visualizations': [
@@ -109,7 +109,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               image_visualization: {
                 band_vis: {
                   min: [0],
-                  max: [255],
+                  max: [100],
                   // Which bands to map to red, green, and blue rgb channels.
                   bands: ['R', 'G', 'B'],
                 }

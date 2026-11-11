@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'annual',
     'global',
-    'landsat-derived',
+    'landsat_derived',
     'water',
     'yearly',
   ],
@@ -75,7 +75,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // year 2021, the end date should be "2022-01-01T00:00:00Z"
   // Global spatial extents should use ee.extent_global.
   // TODO: Add time
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-13T00:00:00Z'),
+  extent: ee.extent_global('1999-01-01T00:00:00Z', '2026-01-01T00:00:00Z'),
   // Alternatively, non-global extents use min_x, min_y, max_x, max_y:
   // extent: ee.extent(-171.0, -15.0, 164.0, 70.0,
   //                   '2006-01-24T00:00:00Z', null),
@@ -86,112 +86,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [27.79875],
     'eo:bands': [
       {
-        name: '1999_percent_water',
-        description: '1999 percent water',
-      },
-      {
-        name: '2000_percent_water',
-        description: '2000 percent water',
-      },
-      {
-        name: '2001_percent_water',
-        description: '2001 percent water',
-      },
-      {
-        name: '2002_percent_water',
-        description: '2002 percent water',
-      },
-      {
-        name: '2003_percent_water',
-        description: '2003 percent water',
-      },
-      {
-        name: '2004_percent_water',
-        description: '2004 percent water',
-      },
-      {
-        name: '2005_percent_water',
-        description: '2005 percent water',
-      },
-      {
-        name: '2006_percent_water',
-        description: '2006 percent water',
-      },
-      {
-        name: '2007_percent_water',
-        description: '2007 percent water',
-      },
-      {
-        name: '2008_percent_water',
-        description: '2008 percent water',
-      },
-      {
-        name: '2009_percent_water',
-        description: '2009 percent water',
-      },
-      {
-        name: '2010_percent_water',
-        description: '2010 percent water',
-      },
-      {
-        name: '2011_percent_water',
-        description: '2011 percent water',
-      },
-      {
-        name: '2012_percent_water',
-        description: '2012 percent water',
-      },
-      {
-        name: '2013_percent_water',
-        description: '2013 percent water',
-      },
-      {
-        name: '2014_percent_water',
-        description: '2014 percent water',
-      },
-      {
-        name: '2015_percent_water',
-        description: '2015 percent water',
-      },
-      {
-        name: '2016_percent_water',
-        description: '2016 percent water',
-      },
-      {
-        name: '2017_percent_water',
-        description: '2017 percent water',
-      },
-      {
-        name: '2018_percent_water',
-        description: '2018 percent water',
-      },
-      {
-        name: '2019_percent_water',
-        description: '2019 percent water',
-      },
-      {
-        name: '2020_percent_water',
-        description: '2020 percent water',
-      },
-      {
-        name: '2021_percent_water',
-        description: '2021 percent water',
-      },
-      {
-        name: '2022_percent_water',
-        description: '2022 percent water',
-      },
-      {
-        name: '2023_percent_water',
-        description: '2023 percent water',
-      },
-      {
-        name: '2024_percent_water',
-        description: '2024 percent water',
-      },
-      {
-        name: '2025_percent_water',
-        description: '2025 percent water',
+        name: 'percent_water',
+        description: 'percent of month with open water cover',
       },
     ],
     'gee:visualizations': [
@@ -206,7 +102,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               band_vis: {
                 min: [0],
                 max: [100],
-                bands: ['2000_percent_water','2012_percent_water','2025_percent_water'],
+                bands: ['percent_water'],
               }
             },
           },

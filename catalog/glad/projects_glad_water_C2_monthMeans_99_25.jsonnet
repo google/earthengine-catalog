@@ -52,7 +52,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'monthly',
     'global',
-    'landsat-derived',
+    'landsat_derived',
     'water',
   ],
 
@@ -73,8 +73,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // End date is exclusive. For example, if the dataset covers the whole of
   // year 2021, the end date should be "2022-01-01T00:00:00Z"
   // Global spatial extents should use ee.extent_global.
-  // TODO: Add time
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-13T00:00:00Z'),
+  extent: ee.extent_global('1999-01-01T00:00:00Z', '2026-01-01T00:00:00Z'),
   // Alternatively, non-global extents use min_x, min_y, max_x, max_y:
   // extent: ee.extent(-171.0, -15.0, 164.0, 70.0,
   //                   '2006-01-24T00:00:00Z', null),
@@ -85,52 +84,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [27.79875],
     'eo:bands': [
       {
-        name: '01_percent_water',
-        description: 'Jan: percent of calendar month with open water cover',
-      },
-      {
-        name: '02_percent_water',
-        description: 'Feb: percent of month with open water cover',
-      },
-      {
-        name: '03_percent_water',
-        description: 'Mar: percent of month with open water cover',
-      },
-      {
-        name: '04_percent_water',
-        description: 'Apr: percent of month with open water cover',
-      },
-      {
-        name: '05_percent_water',
-        description: 'May: percent of month with open water cover',
-      },
-      {
-        name: '06_percent_water',
-        description: 'Jun: percent of month with open water cover',
-      },
-      {
-        name: '07_percent_water',
-        description: 'Jul: percent of month with open water cover',
-      },
-      {
-        name: '08_percent_water',
-        description: 'Aug: percent of month with open water cover',
-      },
-      {
-        name: '09_percent_water',
-        description: 'Sep: percent of month with open water cover',
-      },
-      {
-        name: '10_percent_water',
-        description: 'Oct: percent of month with open water cover',
-      },
-      {
-        name: '11_percent_water',
-        description: 'Nov: percent of month with open water cover',
-      },
-      {
-        name: '12_percent_water',
-        description: 'Dec: percent of month with open water cover',
+        name: 'percent_water',
+        description: 'percent of month with open water cover',
       },
     ],
     'gee:visualizations': [

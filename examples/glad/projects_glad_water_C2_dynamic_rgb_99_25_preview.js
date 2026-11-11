@@ -6,4 +6,7 @@ var lat = -2.75;
 var radius = 25000;
 var bounds = ee.Geometry.Point([long,lat]).buffer(radius).bounds()
 Map.addLayer(bounds)
-print(ui.Thumbnail(rgb,{dimensions:"256x256",region:bounds.getInfo(),min:0,max:100}))
+print(ui.Thumbnail({
+  image: rgb.visualize({min: 0, max: 100}),
+  params: {dimensions: '256x256', region: bounds, format: 'png'},
+}));

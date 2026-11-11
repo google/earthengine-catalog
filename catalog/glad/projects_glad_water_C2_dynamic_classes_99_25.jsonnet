@@ -39,16 +39,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     - individual month water percent
 
     **_Interannual stable and change classes_**
-    Land: 1 (all years mapped ≤10% water)
-    Permanent water: 2 (all years mapped ≥90% water)
-    Water gain: 3 (gain of ≥50%)
-    Water loss: 4 (loss of ≥50%)
-    Dry period: 5 (water to land to water majority states with variation ≥50%)
-    Wet period: 6 (land to water to land majority states with variation ≥50%)
-    Stable seasonal: 7 (variation <50% and mean annual percent 11-89% or variation ≥33%)
-    High interannual variability: 8 (three or more transitions between land and water majority states with variation ≥50%)
-    Probable permanent land: 10 (mean annual percent ≤10% and variation <33%)
-    Probable permanent water: 11 (mean annual percent ≥90% and variation <33%)
+    Land: 1 (all years mapped &le;10% water)
+    Permanent water: 2 (all years mapped &ge;90% water)
+    Water gain: 3 (gain of &ge;50%)
+    Water loss: 4 (loss of &ge;50%)
+    Dry period: 5 (water to land to water majority states with variation &ge;50%)
+    Wet period: 6 (land to water to land majority states with variation &ge;50%)
+    Stable seasonal: 7 (variation <50% and mean annual percent 11-89% or variation &ge;33%)
+    High interannual variability: 8 (three or more transitions between land and water majority states with variation &ge;50%)
+    Probable permanent land: 10 (mean annual percent &le;10% and variation <33%)
+    Probable permanent water: 11 (mean annual percent &ge;90% and variation <33%)
     Sparse data: 12 (less than half the years have data or a total scene observation count less than 1.5 times the number of years)
     No data: 0
 
@@ -67,11 +67,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // Please avoid creating new keywords. If you feel you need to add a new one,
   // add it but comment it out.
   keywords: [
-    'change-detection',
+    'change_detection',
     'classification',
     'global',
     'water',
-    'landsat-derived',
+    'landsat_derived',
   ],
 
   providers: [
@@ -125,7 +125,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               min: [1],
               max: [12],
               palette: ['292929','ffffff','007dff','ff7d00','f000f0','00f000','999999','ad7d52','000000','404040','ebebeb','000000'],
-              bands: ['class'],
+              bands: ['percent_water'],
             },
           },
       },

@@ -49,7 +49,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   keywords: [
     'monthly',
     'global',
-    'landsat-derived',
+    'landsat_derived',
     'water',
   ],
 
@@ -70,8 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   // End date is exclusive. For example, if the dataset covers the whole of
   // year 2021, the end date should be "2022-01-01T00:00:00Z"
   // Global spatial extents should use ee.extent_global.
-  // TODO: Add time
-  extent: ee.extent_global('2006-01-24T00:00:00Z', '2011-05-13T00:00:00Z'),
+  extent: ee.extent_global('1999-01-01T00:00:00Z', '2026-01-01T00:00:00Z'),
   // Alternatively, non-global extents use min_x, min_y, max_x, max_y:
   // extent: ee.extent(-171.0, -15.0, 164.0, 70.0,
   //                   '2006-01-24T00:00:00Z', null),
@@ -86,6 +85,19 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         description: 'percent of month with open water cover',
       },
     ],
+    'gee:visualizations': [
+        {
+          display_name: 'Monthly water percent',
+          lookat: {lon: -114.098, lat: 36.137, zoom: 11},
+          image_visualization: {
+            band_vis: {
+              min: [0],
+              max: [100],
+              bands: ['percent_water'],
+            },
+          },
+        },
+      ],
   },
 
   // Observation repeat interval. For detail, see

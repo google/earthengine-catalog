@@ -6,7 +6,6 @@ var indmonths = ee.ImageCollection('projects/glad/water/C2/individualMonths')
 print(indmonths)
 //as ImageCollection: nice for charting
 Map.addLayer(indmonths,{min:0,max:100},'indmonths time-series')
-print(ui.Chart.image.series(indmonths,ee.Geometry.Point(long,lat)))
 
 //as Image: combining different dates
 Map.addLayer(indmonths.filter(ee.Filter.calendarRange(7,7,'month')).toBands(),{bands:['2000_07_percent_percent_water','2010_07_percent_percent_water','2013_07_percent_percent_water'],min:0,max:100},'July time-series image')
