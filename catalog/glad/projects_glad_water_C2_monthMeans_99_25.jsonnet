@@ -114,7 +114,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     // - cadence: for daily, yearly, and other periodic collections.
     // - revisit_interval: for Landsat/Sentinel-style collections.
     // - climatological_interval: for climatological averages.
-    type: 'cadence',
+    type: 'climatological_interval',
     // One of: second, minute, hour, day, week, month, year, custom_time_unit.
     unit: 'month',
     // How long the interval is (expressed in units above).
