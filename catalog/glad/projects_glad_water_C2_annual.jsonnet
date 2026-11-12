@@ -62,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     // There can be multiple entries of ee.producer_provider and/or
     // ee.processor_provider.
-    ee.producer_provider('The Global Land Analysis and Discovery (GLAD) laboratory at the University of Maryland', 'https://glad.umd.edu/dataset'),
+    ee.producer_provider('The Global Land Analysis and Discovery (GLAD) laboratory at the University of Maryland', 'https://glad.umd.edu/dataset/global-surface-water-dynamics'),
     // This is always the last entry.
     ee.host_provider(self_ee_catalog_url),
   ],
