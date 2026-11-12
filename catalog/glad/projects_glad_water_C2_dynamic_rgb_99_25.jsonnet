@@ -86,15 +86,18 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'R',
-        description: 'first band of summary',
+        description: 'Start-of-period annual water percent summary point (high values relative to G and B indicate water loss)',
+        'gee:units': units.percent,
       },
       {
         name: 'G',
-        description: 'middle band of summary',
+        description: 'Middle-of-period annual water percent summary point (high values relative to R and B indicate a temporary wet period; low values indicate a temporary dry period)',
+        'gee:units': units.percent,
       },
       {
         name: 'B',
-        description: 'last band of summary',
+        description: 'End-of-period annual water percent summary point (high values relative to R and G indicate water gain)',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [
