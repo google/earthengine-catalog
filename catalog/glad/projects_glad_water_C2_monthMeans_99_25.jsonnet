@@ -17,7 +17,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 {
   id: id,
   // Do not end the title with punctuation. Include version if it is known.
-  title: 'Monthly Surface Water Presence V' + version,
+  title: 'GLAD Monthly Surface Water Presence V' + version,
   version: version,
 
   description: |||
