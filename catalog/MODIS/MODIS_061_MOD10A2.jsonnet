@@ -44,12 +44,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   links: ee.standardLinks(subdir, id) + [
     {
       rel: ee_const.rel.cite_as,
-      href: 'https://doi.org/10.5067/MODIS/MOD10A1.061',
+      href: 'https://doi.org/10.5067/MODIS/MOD10A2.061',
     },
   ],
   'gee:categories': ['cryosphere'],
   keywords: [
-    'daily',
+    '8_day',
     'geophysical',
     'global',
     'modis',
@@ -74,15 +74,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:doi': '10.5067/MODIS/MOD10A2.061',
   'sci:citation': |||
-    Hall, D. K., V. V. Salomonson, and G. A. Riggs. 2016. MODIS/Terra
-    Snow Cover Daily L3 Global 500m Grid. Version 6. Boulder, Colorado
-    USA: NASA National Snow and Ice Data Center Distributed Active
-    Archive Center.
+    Hall, D. K. & Riggs, G. A. (2021). MODIS/Terra Snow Cover 8-Day L3
+    Global 500m SIN Grid. (MOD10A2, Version 61). [Data Set]. Boulder,
+    Colorado USA. NASA National Snow and Ice Data Center Distributed
+    Active Archive Center.
+    [doi:10.5067/MODIS/MOD10A2.061](https://doi.org/10.5067/MODIS/MOD10A2.061)
   |||,
   'gee:interval': {
     type: 'cadence',
     unit: 'day',
-    interval: 1,
+    interval: 8,
   },
   'gee:terms_of_use': |||
     You may download and use photographs, imagery, or text
