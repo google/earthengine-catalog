@@ -27,7 +27,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     For more details please see the publication: [https://doi.org/10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792). Explore the dataset in an Earth Engine App: [https://glad.earthengine.app/view/surface-water-dynamics](https://glad.earthengine.app/view/surface-water-dynamics)
 
-    Note that the percent layers correspond to the temporal percent of the period not the spatial percent of open water coverage and have values of 0-100% and 255 as no data.
+    Note that the percent layers correspond to the temporal percent of the period rather than the spatial percent of open water coverage, with pixel values of 0-100% (no-data and ocean pixels are masked in Earth Engine). Coverage spans inland land and water from 60&deg;S to 80&deg;N (excluding open oceans and Antarctica); at 30m Landsat resolution, small water bodies and narrow streams often fall within mixed pixels and may be under-represented.
 
     GLAD surface water datasets available:
     - R-G-B interannual dynamics maps
