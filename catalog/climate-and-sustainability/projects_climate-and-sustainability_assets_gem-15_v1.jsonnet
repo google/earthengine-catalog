@@ -45,6 +45,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       [STAC catalog](https://storage.googleapis.com/climate-and-sustainability/gem-15/stac/catalog.json).
     * Find the evaluation code on
       [GitHub](https://github.com/google-research/google-research/tree/master/gem_15).
+    * Read the preprint on
+      [EarthArXiv](https://eartharxiv.org/repository/view/16034/)
+      ([doi:10.31223/X55N75](https://doi.org/10.31223/X55N75)).
 
     All elevation layers report orthometric heights in meters referenced to the
     EGM96 geoid vertical datum ([EPSG:5773](https://epsg.io/5773)) and are
@@ -180,9 +183,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       },
     ],
   },
+  'sci:doi': '10.31223/X55N75',
   'sci:citation': |||
-    Batchu, V. V., et al. (2026). GEM-15: Global surface and terrain elevation
-    models (15 meters) from sub-meter optical stereo imagery.
+    Batchu, V. V., Neumann, M., Li, T., Allen, B., Zhang, J., & Van Arsdale, C.
+    (2026). GEM-15: Global surface and terrain elevation models (15 meters) from
+    sub-meter optical stereo imagery. EarthArXiv [preprint].
+    [https://eartharxiv.org/repository/view/16034/](https://eartharxiv.org/repository/view/16034/),
+    [doi:10.31223/X55N75](https://doi.org/10.31223/X55N75)
   |||,
   'gee:terms_of_use': |||
     This dataset is licensed under
