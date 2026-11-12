@@ -560,6 +560,71 @@ local license = spdx.proprietary;
       'gee:units': units.count_per_day,
     },
   ],
+  bands_v9: [
+    $.bands[0],
+    $.bands[1],
+    $.bands[2],
+    {
+      name: 'satelliteInfoFlag',
+      description: 'Satellite/sensor used',
+      'gee:bitmask': {
+        bitmask_parts:
+          $.bands[3]['gee:bitmask'].bitmask_parts[0:8] +
+          [
+            {
+              description: '(TBD)',
+              first_bit: 8,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'GOSAT-GW/AMSR3',
+              first_bit: 9,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+          ] +
+          $.bands[3]['gee:bitmask'].bitmask_parts[10:29] +
+          [
+            {
+              description: 'JPSS-2/ATMS(NOAA-21)',
+              first_bit: 29,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+          ],
+        total_bit_count: 30,
+      },
+    },
+    $.bands[4],
+  ],
   visualizations: [
     {
       display_name: 'Precipitation',
