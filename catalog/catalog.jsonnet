@@ -137,6 +137,7 @@ local self_url = base_url + base_filename;
     ee.link.child_catalog('forestdatapartnership', base_url),
     ee.link.child_catalog('gcp-public-data-weathernext', base_url),
     ee.link.child_catalog('gcpm041u-lemur', base_url),
+    ee.link.child_catalog('glad', base_url),
     ee.link.child_catalog('global-pasture-watch', base_url),
     ee.link.child_catalog('global-precipitation-nowcast', base_url),
     ee.link.child_catalog('gtac-data-publish', base_url),
