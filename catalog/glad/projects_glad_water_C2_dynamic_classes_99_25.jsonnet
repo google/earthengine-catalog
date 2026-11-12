@@ -92,7 +92,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'class',
-        description: 'water dynamics classification',
+        description: 'Interannual surface water dynamics classification',
+        'gee:classes': [
+          {value: 0, color: '000000', description: 'No data'},
+          {value: 1, color: '292929', description: 'Land (all years mapped &le;10% water)'},
+          {value: 2, color: 'ffffff', description: 'Permanent water (all years mapped &ge;90% water)'},
+          {value: 3, color: '007dff', description: 'Water gain (gain of &ge;50%)'},
+          {value: 4, color: 'ff7d00', description: 'Water loss (loss of &ge;50%)'},
+          {value: 5, color: 'f000f0', description: 'Dry period (water to land to water majority states with variation &ge;50%)'},
+          {value: 6, color: '00f000', description: 'Wet period (land to water to land majority states with variation &ge;50%)'},
+          {value: 7, color: '999999', description: 'Stable seasonal (variation &lt;50% and mean annual percent 11-89% or variation &ge;33%)'},
+          {value: 8, color: 'ad7d52', description: 'High interannual variability (three or more transitions between land and water majority states with variation &ge;50%)'},
+          {value: 10, color: '404040', description: 'Probable permanent land (mean annual percent &le;10% and variation &lt;33%)'},
+          {value: 11, color: 'ebebeb', description: 'Probable permanent water (mean annual percent &ge;90% and variation &lt;33%)'},
+          {value: 12, color: '000000', description: 'Sparse data (less than half the years have data or a total scene observation count less than 1.5 times the number of years)'},
+        ],
       },
     ],
     // One or more band visualizations.
