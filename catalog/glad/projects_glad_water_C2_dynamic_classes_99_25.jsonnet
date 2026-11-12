@@ -132,6 +132,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
 
+  'sci:doi': '10.1016/j.rse.2020.111792',
   'sci:citation': |||
     Pickens, A.H., Hansen, M.C., Hancher, M., Stehman, S.V., Tyukavina, A., Potapov, P., Marroquin, B., Sherani, Z., 2020. Mapping and sampling to characterize global inland water dynamics from 1999 to 2018 with full Landsat time-series. Remote Sensing of Environment 243, 111792. [doi:10.1016/j.rse.2020.111792](https://doi.org/10.1016/j.rse.2020.111792)
   |||,
