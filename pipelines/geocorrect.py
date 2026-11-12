@@ -272,16 +272,21 @@ class GeoLookupTable:
       index: CoordinateIndex,
       scale_lat: float,
       scale_lon: float,
-      max_nn_distance: int = 1,
+      max_nn_distance: float = 1,
       num_threads: int = 1,
       block_size: int = 256,
       buffer_bbox: bool = True,
       temp_dir: str | None = None,
+      fill_index: CoordinateIndex | None = None,
+      target_bbox: bboxes.BBox | None = None,
+      max_distance_deg: float | None = None,
+      fill_max_distance_deg: float | None = None,
   ) -> list[Self]:
     """Returns GeoLookupTables for the given CoordinateIndex.
 
     Arguments:
-      index: The CoordinateIndex containing the lat/lon points.
+      index: The CoordinateIndex containing the lat/lon points. When
+        `fill_index` is provided, `index` defines the valid bounding footprint.
       scale_lat: The scale, in degrees, of each pixel in the north-south
         direction. In a north-up grid, this should be a negative number.
       scale_lon: The scale, in degrees, of each pixel in the east-west
@@ -298,14 +303,24 @@ class GeoLookupTable:
         to worker threads and limits the number of points in memory at once.
       buffer_bbox: If True, assume that the corners of each bounding box are
         pixel centers, meaning the boxes must be extended based on `scale_lat`
-        and `scale_lon` to account for the full pixel size.
+        and `scale_lon` to account for the full pixel size. Ignored (forced to
+        False) when `target_bbox` is provided.
       temp_dir: If provided, the GLT will be backed by a `numpy.memmap` file
         created in this directory. Otherwise, we store the whole GLT in memory.
         Ownership of the temp dir, including files added by this object, remains
         with the caller.
+      fill_index: Optional CoordinateIndex to query for pixel source indices
+        within the valid footprint defined by `index`.
+      target_bbox: Optional explicit BBox to project onto instead of using
+        `index.bbox_list`.
+      max_distance_deg: Optional maximum allowed distance in degrees for
+        footprint queries on `index`. If specified, overrides `max_nn_distance`.
+      fill_max_distance_deg: Optional maximum allowed distance in degrees when
+        querying `fill_index`. Any pixel whose nearest `fill_index` neighbor
+        exceeds this threshold remains unfilled.
 
     Returns:
-      GeoLookupTables, one for each bounding box in `index`
+      GeoLookupTables, one for each bounding box in `index` (or `target_bbox`).
 
     Raises:
       InputError: If scale factors are unexpected.
@@ -325,17 +340,57 @@ class GeoLookupTable:
     # equivalent.
     source_xyz = latlon_to_xyz(index.points[:, 0], index.points[:, 1])
     tree = spatial.cKDTree(source_xyz, leafsize=10)
+    tree_fill = None
+    max_fill_chord = None
+    if fill_index is not None:
+      tree_fill = spatial.cKDTree(
+          latlon_to_xyz(fill_index.points[:, 0], fill_index.points[:, 1]),
+          leafsize=10,
+      )
+      if fill_max_distance_deg is not None:
+        max_fill_theta = math.radians(fill_max_distance_deg)
+        max_fill_chord = 2 * math.sin(max_fill_theta / 2)
 
     # Convert the angular max distance to chord distance.
-    max_theta = max_nn_distance * max(
-        pairwise.haversine_distances(
-            [[0, 0], [math.radians(scale_lat), math.radians(scale_lon)]]
-        )[0]
-    )
+    if max_distance_deg is not None:
+      max_theta = math.radians(max_distance_deg)
+    else:
+      max_theta = max_nn_distance * max(
+          pairwise.haversine_distances(
+              [[0, 0], [math.radians(scale_lat), math.radians(scale_lon)]]
+          )[0]
+      )
     max_chord = 2 * math.sin(max_theta / 2)
 
+    if target_bbox is not None:
+      buffer_bbox = False
+      if target_bbox.west > target_bbox.east:
+        bbox_list = []
+        if target_bbox.west < 180.0:
+          bbox_list.append(
+              bboxes.BBox(
+                  west=target_bbox.west,
+                  south=target_bbox.south,
+                  east=180.0,
+                  north=target_bbox.north,
+              )
+          )
+        if -180.0 < target_bbox.east:
+          bbox_list.append(
+              bboxes.BBox(
+                  west=-180.0,
+                  south=target_bbox.south,
+                  east=target_bbox.east,
+                  north=target_bbox.north,
+              )
+          )
+      else:
+        bbox_list = [target_bbox]
+    else:
+      bbox_list = index.bbox_list
+
     tables = []
-    for bbox in index.bbox_list:
+    for bbox in bbox_list:
       if buffer_bbox:
         bbox = bboxes.BBox(
             west=max(-180, min(180, bbox.west - (scale_lon / 2))),
@@ -345,8 +400,14 @@ class GeoLookupTable:
         )
 
       # Calculate the size of the GLT (and therefore the projected rasters).
-      num_cols = int(math.ceil((bbox.south - bbox.north) / scale_lat))
-      num_rows = int(math.ceil((bbox.east - bbox.west) / scale_lon))
+      if target_bbox is not None:
+        num_cols = int(round((bbox.north - bbox.south) / -scale_lat))
+        num_rows = int(round((bbox.east - bbox.west) / scale_lon))
+        if num_cols <= 0 or num_rows <= 0:
+          continue
+      else:
+        num_cols = int(math.ceil((bbox.south - bbox.north) / scale_lat))
+        num_rows = int(math.ceil((bbox.east - bbox.west) / scale_lon))
 
       if temp_dir:
         fd, map_path = tempfile.mkstemp(dir=temp_dir, suffix='.glt.map')
@@ -390,13 +451,34 @@ class GeoLookupTable:
         query_xyz = numpy.stack([x, y, z], axis=-1).reshape(-1, 3)
 
         # Use distance_upper_bound to prune search for points far from any data.
-        dd, ii = tree.query(query_xyz, k=1, distance_upper_bound=max_chord)
-
-        valid = dd <= max_chord
-        block_indices = numpy.full(
-            (len(ii), 2), GLT_FILL_VALUE, dtype=numpy.int32
-        )
-        block_indices[valid] = index.source_indices[ii[valid]]
+        if fill_index is not None and tree_fill is not None:
+          dd, _ = tree.query(query_xyz, k=1, distance_upper_bound=max_chord)
+          valid = dd <= max_chord
+          block_indices = numpy.full(
+              (len(query_xyz), 2), GLT_FILL_VALUE, dtype=numpy.int32
+          )
+          if numpy.any(valid):
+            if max_fill_chord is not None:
+              dd_fill, ii = tree_fill.query(
+                  query_xyz[valid], k=1, distance_upper_bound=max_fill_chord
+              )
+              valid_fill = dd_fill <= max_fill_chord
+              if numpy.any(valid_fill):
+                fill_source = fill_index.source_indices[ii[valid_fill]]
+                valid_indices = numpy.where(valid)[0][valid_fill]
+                block_indices[valid_indices] = fill_source
+            else:
+              _, ii = tree_fill.query(query_xyz[valid], k=1)
+              fill_source = fill_index.source_indices[ii]
+              valid_indices = numpy.where(valid)[0]
+              block_indices[valid_indices] = fill_source
+        else:
+          dd, ii = tree.query(query_xyz, k=1, distance_upper_bound=max_chord)
+          valid = dd <= max_chord
+          block_indices = numpy.full(
+              (len(query_xyz), 2), GLT_FILL_VALUE, dtype=numpy.int32
+          )
+          block_indices[valid] = index.source_indices[ii[valid]]
 
         glt_full[col_start:col_end, row_start:row_end, :] = (
             block_indices.reshape((col_end - col_start, row_end - row_start, 2))
@@ -405,15 +487,25 @@ class GeoLookupTable:
       with concurrent.futures.ThreadPoolExecutor(
           max_workers=num_threads
       ) as executor:
+        futures = []
         for col_start in range(0, num_cols, block_size):
           for row_start in range(0, num_rows, block_size):
-            executor.submit(_fill_glt_block, col_start, row_start)
+            futures.append(
+                executor.submit(_fill_glt_block, col_start, row_start)
+            )
+        for f in futures:
+          f.result()
 
       if temp_dir:
         # `glt_full` is backed by numpy.memmep, so write it to disk.
         glt_full.flush()  # pyrefly: ignore[missing-attribute]
 
       tables.append(cls(bbox, scale_lat, scale_lon, glt_full))
+
+    if target_bbox is not None and not tables:
+      raise InputError(
+          f'Target bbox {target_bbox} produced non-positive grid dimensions.'
+      )
 
     return tables
 
@@ -494,3 +586,24 @@ class GeoLookupTable:
         0,
         self._scale_lat,  # scaleY
     ]
+
+  def has_valid_data(self) -> bool:
+    """Returns True if at least one pixel in the GLT is mapped to valid data."""
+    return bool(numpy.any(numpy.all(self._glt != GLT_FILL_VALUE, axis=-1)))
+
+  def valid_pixel_count(self) -> int:
+    """Returns the total number of pixels in the GLT mapped to valid data."""
+    return int(numpy.sum(numpy.all(self._glt != GLT_FILL_VALUE, axis=-1)))
+
+  def valid_pixel_bounds(self) -> tuple[int, int, int, int] | None:
+    """Returns inclusive (x_min, y_min, x_max, y_max) of valid pixels, or None."""
+    valid_mask = numpy.all(self._glt != GLT_FILL_VALUE, axis=-1)
+    y_indices, x_indices = numpy.nonzero(valid_mask)
+    if y_indices.size == 0:
+      return None
+    return (
+        int(x_indices.min()),
+        int(y_indices.min()),
+        int(x_indices.max()),
+        int(y_indices.max()),
+    )
