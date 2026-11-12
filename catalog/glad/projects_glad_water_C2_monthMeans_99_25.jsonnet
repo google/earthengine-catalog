@@ -92,7 +92,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       // Example with three bands, but only one value for min and max.
       {
-        display_name: 'water percent Feb-Apr-Jun',
+        display_name: 'Mean monthly water percent',
         lookat: { lon: 23, lat: -14.8, zoom: 9 },
         // See for details:
         // https://developers.google.com/earth-engine/guides/image_visualization
