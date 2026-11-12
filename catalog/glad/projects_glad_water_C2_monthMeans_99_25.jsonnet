@@ -85,7 +85,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'eo:bands': [
       {
         name: 'percent_water',
-        description: 'percent of month with open water cover',
+        description: 'Mean monthly water percent across 1999-2025 for the given calendar month',
+        'gee:units': units.percent,
       },
     ],
     'gee:visualizations': [
