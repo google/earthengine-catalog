@@ -132,7 +132,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       |||
     }
   ],
-  'gee:user_uploaded': true,
   'gee:terms_of_use': |||
       The data may be used by anyone, anywhere, anytime without permission,
       license or royalty payment. Attribution using the recommended citation is
