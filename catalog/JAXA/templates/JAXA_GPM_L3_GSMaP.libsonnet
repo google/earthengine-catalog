@@ -560,6 +560,71 @@ local license = spdx.proprietary;
       'gee:units': units.count_per_day,
     },
   ],
+  bands_v9: [
+    $.bands[0],
+    $.bands[1],
+    $.bands[2],
+    {
+      name: 'satelliteInfoFlag',
+      description: 'Satellite/sensor used',
+      'gee:bitmask': {
+        bitmask_parts:
+          $.bands[3]['gee:bitmask'].bitmask_parts[0:8] +
+          [
+            {
+              description: '(TBD)',
+              first_bit: 8,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+            {
+              description: 'GOSAT-GW/AMSR3',
+              first_bit: 9,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+          ] +
+          $.bands[3]['gee:bitmask'].bitmask_parts[10:29] +
+          [
+            {
+              description: 'JPSS-2/ATMS(NOAA-21)',
+              first_bit: 29,
+              bit_count: 1,
+              values: [
+                {
+                  description: 'No',
+                  value: 0,
+                },
+                {
+                  value: 1,
+                  description: 'Yes',
+                },
+              ],
+            },
+          ],
+        total_bit_count: 30,
+      },
+    },
+    $.bands[4],
+  ],
   visualizations: [
     {
       display_name: 'Precipitation',
@@ -619,7 +684,7 @@ local license = spdx.proprietary;
     Y. Arai, T. Tashima, T. Masaki, N. Kawamoto, T. Mega, M. K. Yamamoto,
     A. Hamada, M. Yamaji, G. Liu and R. Oki 2020: Global Satellite Mapping of
     Precipitation (GSMaP) products in the GPM era, Satellite precipitation
-    measurement, Springer, https://doi.org/10.1007/978-3-030-24568-9_20.
+    measurement, Springer, [https://doi.org/10.1007/978-3-030-24568-9_20](https://doi.org/10.1007/978-3-030-24568-9_20).
   |||,
   doi: '10.57746/EO.01gs73bkt358gfpy92y2qns5e9',
   interval: {

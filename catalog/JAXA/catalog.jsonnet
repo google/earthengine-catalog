@@ -46,5 +46,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('JAXA_GPM_L3_GSMaP_v6_reanalysis', base_url),
     ee.link.child_collection('JAXA_GPM_L3_GSMaP_v7_operational', base_url),
     ee.link.child_collection('JAXA_GPM_L3_GSMaP_v8_operational', base_url),
+    ee.link.child_collection('JAXA_GPM_L3_GSMaP_v9_operational', base_url),
   ],
 }
