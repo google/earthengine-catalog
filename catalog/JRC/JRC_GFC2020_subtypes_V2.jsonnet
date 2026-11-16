@@ -26,7 +26,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'EC JRC global map of forest types 2020, V2',
   version: version,
-  'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image,
   description: |||
     The global map of forest types provides a spatially explicit representation 
