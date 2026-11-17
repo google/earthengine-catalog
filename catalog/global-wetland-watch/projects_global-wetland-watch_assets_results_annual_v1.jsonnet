@@ -17,65 +17,37 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Global Wetland Watch Annual Wetland Typology v' + version,
   version: version,
   description: |||
-    The Global Wetland Watch annual wetland typology provides global maps
-    of wetland occurrence and wetland ecosystem type for each year from 2017
-    to 2025 at 10 m resolution. Each image represents the year-specific
-    expression of wetlands: which pixels behaved as wetlands in that year and
-    which wetland type they most resembled.
+    The annual wetland typology maps 20+ wetland types, aligned with the International Union for Conservation of
+    Nature (IUCN) [Global Ecosystem Typology](https://global-ecosystems.org/)
+    (GET), for each year from 2017 to 2025 at 10 m resolution.
 
-    Each image has two bands: `wetland_classification`, the wetland type
-    assigned to the pixel, and `wetland_probability`. The collection is tiled
-    by region; use the `year` and `region` image properties to select images.
+    Alongside the typology (`wetland_classification`), the
+    `wetland_probability` band gives the model's confidence, in percent, that
+    the pixel is a wetland. The collection is tiled by region; use the `year`
+    and `region` image properties to select images.
 
-    `wetland_probability` is the summed classifier probability of all wetland
-    classes, in percent. It reflects the model's confidence that the pixel is
-    a wetland. It helps interpret the classification by showing where the
-    model is more and less confident, and can guide model improvement, for
-    example by collecting additional training samples in uncertain areas.
-
-    The typology has 23 classes covering coastal wetlands, inland wetlands
-    and surface-water systems, aligned where possible with the
-    International Union for Conservation of Nature (IUCN)
-    [Global Ecosystem Typology](https://global-ecosystems.org/) (GET).
-    Ocean (27) delineates the seaward boundary and is not a wetland type;
-    Unclassified water (31) is a wetland not yet assigned to a specific type.
-
-    Inland and coastal classes are predicted with regionally trained
-    machine-learning models using the annual AlphaEarth Foundations satellite
-    embeddings and, for coastal classes, high- and low-tide Sentinel-2
-    composites. Training labels are compiled from existing wetland
-    inventories and refined with Global Wetland Watch
-    environmental layers. Surface-water
-    classes are assigned within the predicted water extent using existing
-    thematic datasets. Full methods will be described in a forthcoming
-    publication.
+    Full methods will be described in a forthcoming publication.
 
     **Possible Uses:**
 
-    * **Wetland inventories:** Supporting national and sub-national wetland
-      inventories and reporting under multilateral environmental agreements
-      such as the Ramsar Convention, the Convention on Biological Diversity
-      and Sustainable Development Goal 6.
-    * **Year-to-year dynamics:** Comparing years to identify wetlands that
-      are only expressed in wet years.
+    * **Reporting under multilateral environmental agreements:** For example,
+      national wetland inventories for the Ramsar Convention, the Convention
+      on Biological Diversity and Sustainable Development Goal 6.
+    * **Year-to-year dynamics:** Changes in inundated wetland extent between
+      years.
 
     **Limitations:**
 
-    * **Year-specific expression:** Annual maps reflect the conditions of a
-      single year, so wetlands that are dry in a given year may not be
-      mapped.
-    * **Accuracy:** Accuracy has not been assessed across the whole range of
-      products, including the individual annual maps; see the accompanying
-      pre-print for details. Accuracy varies by class, and wetland types can
-      be confused with each other.
-    * **Wetland probability:** `wetland_probability` is a model confidence
-      score, not a calibrated probability of wetland occurrence. Use it to
-      compare relative confidence rather than as an absolute likelihood.
-    * **Surface-water classes:** Detailed water classes depend on the
-      coverage and accuracy of the source thematic datasets, which vary by
-      region.
-    * **Regional models:** Models are trained per region, so class
-      boundaries can show discontinuities at the edges of processing regions.
+    * **Year-specific expression:** Wetlands that are dry in a given year
+      may not be mapped in that year.
+    * **Accuracy:** Accuracy varies by wetland type.
+    * **Surface-water classes:** Surface-water types are assigned from
+      existing thematic datasets, so their quality varies by region.
+    * **Coastal classes:** Coastal classes depend on the 3-year high- and
+      low-tide Sentinel-2 composites, so abrupt, unrealistic changes can
+      occur between consecutive 3-year periods.
+    * **Regional models:** Class boundaries can show discontinuities at the
+      edges of processing regions.
     * **Coverage:** Global, excluding Antarctica and Greenland.
   |||,
   'gee:categories': ['ecosystems', 'surface-ground-water'],
@@ -110,7 +82,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Wetland typology (2024)',
-        lookat: {lon: -65.3, lat: -2.5, zoom: 11},
+        lookat: {lon: 117.35, lat: -0.6, zoom: 10},
         image_visualization: {
           band_vis: {
             min: [1],

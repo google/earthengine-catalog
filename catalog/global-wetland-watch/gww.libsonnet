@@ -35,7 +35,7 @@ local ee = import 'earthengine.libsonnet';
     {value: 28, color: '6a8fd9', description: 'River and stream (GET F1 Rivers and streams)'},
     {value: 29, color: 'c7dbf2', description: 'Floodplain (GET TF1.5 Episodic arid floodplains; not restricted to arid environments)'},
     {value: 30, color: '3b86b3', description: 'Lagoon'},
-    {value: 31, color: 'bdbdbd', description: 'Unclassified water (wetland not yet assigned to a specific type)'},
+    {value: 31, color: 'bdbdbd', description: 'Unclassified water (open water with no existing data to assign a type; to be addressed in a future version)'},
   ],
 
   // Palette for visualizing the class bands with min 1 and max 31: entry i is

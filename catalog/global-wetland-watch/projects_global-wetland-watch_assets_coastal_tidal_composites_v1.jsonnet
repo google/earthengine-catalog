@@ -25,11 +25,10 @@ local s2_band(name, desc, wl) = {
   title: 'Global Wetland Watch Sentinel-2 High- and Low-Tide Coastal Composites v' + version,
   version: version,
   description: |||
-    The Global Wetland Watch tidal composites are Sentinel-2 surface
-    reflectance composites of the world's coasts, built separately from
-    observations acquired at high tide and at low tide. Together they show the
-    coastal zone both when the intertidal area is exposed and when it is
-    inundated.
+    The tidal composites are Sentinel-2 surface reflectance composites of the
+    world's coasts, built separately from observations acquired at high tide
+    and at low tide. Together they show the coastal zone both when the
+    intertidal area is inundated and when it is exposed.
 
     Each Sentinel-2 observation is assigned a relative tidal state using
     predicted tide heights from the
@@ -45,15 +44,13 @@ local s2_band(name, desc, wl) = {
     2023&ndash;2025), or a single 6-year period (2017&ndash;2022) where
     clouds, low light or sea ice limit observations. In Arctic regions, only
     June to November observations are used; the `months` image property
-    records the months used (`6-11` or `1-12`). Each tile has either the 6-year
-    composite or the 3-year composites, never both, so a 3-year period has
-    no coverage in tiles that use the 6-year period. Use the `tide_state`
-    (`high` or `low`) and `period` image properties to select images.
+    records the months used (`6-11` or `1-12`). Use the `tide_state` (`high` or
+    `low`) and `period` image properties to select images.
 
     **Possible Uses:**
 
-    * **Intertidal mapping:** Contrasting low- and high-tide composites to
-      delineate intertidal flats and the extent of tidal inundation.
+    * **Intertidal mapping:** Contrasting the low- and high-tide composites to
+      delineate tidal flats and the extent of tidal inundation.
     * **Coastal wetland classification:** As inputs for mapping mangroves,
       salt marshes, seagrass and tidal flats, including for blue carbon
       assessments.
@@ -71,7 +68,7 @@ local s2_band(name, desc, wl) = {
     * **Image quality:** Residual cloud, haze and shadow can remain, and the
       number of observations (`count`) varies, especially in persistently
       cloudy tropical regions and at high latitudes.
-    * **Coastal domain:** Only the coastal zone is covered: coastal river
+    * **Coastal domain:** Only the coastal zone is covered, defined as coastal river
       basins, areas within 100 km of the coast or below 50 m elevation, and a
       15 km offshore buffer.
     * **Coverage:** Global coastlines, excluding Antarctica.
@@ -116,7 +113,7 @@ local s2_band(name, desc, wl) = {
     'gee:visualizations': [
       {
         display_name: 'Low-tide true color',
-        lookat: {lon: 8.6, lat: 53.7, zoom: 11},
+        lookat: {lon: -15.75, lat: 11.35, zoom: 10},
         image_visualization: {
           band_vis: {
             min: [0],

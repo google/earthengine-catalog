@@ -1,7 +1,7 @@
 var dataset = ee.ImageCollection('projects/global-wetland-watch/assets/results/annual/v1');
 var image = dataset.filter(ee.Filter.eq('year', 2024)).mosaic();
 
-var visParams = {
+var typologyVis = {
   bands: ['wetland_classification'],
   min: 1,
   max: 31,
@@ -16,22 +16,24 @@ var visParams = {
     'bdbdbd',                                          // 31
   ],
 };
+// Wetland probability in grey (dark = low) under the typology.
+var probabilityVis = {bands: ['wetland_probability'], min: 0, max: 100,
+                      palette: ['2a2a2a', 'c8c8c8']};
+var visualized = image.visualize(probabilityVis).blend(image.visualize(typologyVis));
 
-var lon = -65.3;
-var lat = -2.5;
-Map.setCenter(lon, lat, 11);
+// Mahakam Delta, Indonesia.
+var lon = 117.35;
+var lat = -0.6;
+Map.setCenter(lon, lat, 10);
 
 var gray = 150;
 var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
-var imageWithBackground =
-    ee.ImageCollection([background, image.visualize(visParams)]).mosaic();
-Map.addLayer(imageWithBackground, {}, 'Wetland typology (2024)');
+var imageWithBackground = ee.ImageCollection([background, visualized]).mosaic();
+Map.addLayer(imageWithBackground, {}, 'Wetland typology over wetland probability (2024)');
 
-var delta = 0.2;
 var parameters = {
   dimensions: [256, 256],
-  region: ee.Geometry.Rectangle(
-      [lon - delta, lat - delta, lon + delta, lat + delta], null, false),
+  region: ee.Geometry.Rectangle([117.03, -0.92, 117.67, -0.28], null, false),
   crs: 'EPSG:3857',
   format: 'png'
 };

@@ -1,8 +1,18 @@
 var dataset = ee.ImageCollection('projects/global-wetland-watch/assets/features/ccdc/palsar2/v1');
+
+// ---- Choose a site ----------------------------------------------------
+// Replace 'amazonBasin' with 'sudd', 'tonleSap', 'mamiraua' or 'congo'
+// (sites are listed in SITES below).
+var SITE = 'amazonBasin';
+
+// ---- Choose a date ----------------------------------------------------
+// Fractional year between 2015 and early 2024 (e.g. 2020.5 = mid-2020).
+var DATE = 2020.5;
+
 var ccdc = dataset.mosaic();
 
-// Segment containing date t (fractional year); the last segment if t is later.
-var t = 2020.5;
+// Segment containing date t; the last segment if t is later.
+var t = DATE;
 var tStart = ccdc.select('tStart');
 var tEnd = ccdc.select('tEnd');
 var segment = tStart.lte(t).and(tEnd.gte(t)).arrayArgmax().arrayGet([0])
@@ -31,18 +41,18 @@ function predict(pol) {
 }
 var predicted = predict('HH').addBands(predict('HV'));
 
-// Sites of interest [lon, lat, zoom]. Change the line below to visit another site,
-// e.g. SITES.tonleSap.
+// Sites [lon, lat, zoom]; add your own to explore elsewhere.
 var SITES = {
+  amazonBasin: [-66.0, -4.2, 6], // Central Amazon basin, Brazil
   sudd: [30.5, 7.5, 9],          // Sudd wetland, South Sudan
   tonleSap: [104.0, 12.9, 9],    // Tonle Sap, Cambodia
   mamiraua: [-64.8, -2.5, 9],    // Amazon floodplain, Mamiraua Reserve, Brazil
   congo: [18.0, -0.8, 9],        // Cuvette Centrale, Congo
 };
-var site = SITES.sudd;
+var site = SITES[SITE];
 
 Map.setCenter(site[0], site[1], site[2]);
 Map.addLayer(predicted, {bands: ['HH', 'HV', 'HH'], min: [-15, -25, -15], max: [-5, -10, -5]},
-             'Predicted HH/HV/HH (mid-2020)', false);
+             'Predicted HH/HV/HH (' + DATE + ')', false);
 Map.addLayer(seasonal, {min: [-1.5, -2, -1], max: [2, 1, 1]},
              'HH seasonal coefficients (sin, cos, cos2)');

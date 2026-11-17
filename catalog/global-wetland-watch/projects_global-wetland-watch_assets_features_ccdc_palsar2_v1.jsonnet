@@ -33,59 +33,44 @@ local pol_bands(pol) = [
   title: 'Global Wetland Watch ALOS-2 PALSAR-2 ScanSAR CCDC Segments (2015-2024) v' + version,
   version: version,
   description: |||
-    This collection contains precomputed results from running the
-    Continuous Change Detection and Classification (CCDC;
+    This collection contains precomputed results of the Continuous Change
+    Detection and Classification (CCDC;
     [Zhu & Woodcock, 2014](https://doi.org/10.1016/j.rse.2014.01.011))
-    algorithm on ALOS-2 PALSAR-2 (Advanced Land Observing Satellite 2, Phased
-    Array type L-band Synthetic Aperture Radar 2) ScanSAR L-band radar
-    backscatter (HH and HV polarizations: horizontal transmit, horizontal or
-    vertical receive) from 2015 to early 2024. CCDC is a break-point finding
-    algorithm that uses harmonic fitting with a dynamic root mean square error (RMSE) threshold to
-    detect breakpoints in time-series data. It is a radar companion to the
-    Landsat-based Google Global CCDC Segments dataset
+    algorithm applied to ALOS-2 PALSAR-2 (Advanced Land Observing Satellite 2,
+    Phased Array type L-band Synthetic Aperture Radar 2) ScanSAR backscatter
+    (HH and HV polarizations) from 2015 to early 2024. CCDC fits harmonic
+    models to each pixel's time series and detects breakpoints using a dynamic
+    root mean square error (RMSE) threshold. The collection is a radar
+    companion to the Landsat-based Google Global CCDC Segments dataset
     ([GOOGLE/GLOBAL_CCDC/V1](https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_GLOBAL_CCDC_V1))
-    already in the Earth Engine catalog, and follows the same band structure,
-    so the same tools and code can be used with both. Because L-band radar penetrates vegetation canopies, the results
-    are sensitive to flooding under vegetation, for example in swamp forests
-    and flooded grasslands.
+    and follows the same band structure, so the same tools and code work with
+    both. Because L-band radar penetrates vegetation canopies, the results are
+    sensitive to flooding under vegetation, for example in swamp forests and
+    flooded grasslands.
 
-    The results are tiled by country and are suitable to simply mosaic() into
-    one image. The models are fitted to gamma-nought backscatter in decibels
-    (&gamma;0 = 10 log10(DN&sup2;) &minus; 83.0 dB, where DN is the digital number). No spatial speckle
-    filtering is applied, because the temporal modelling already suppresses
-    speckle while preserving spatial resolution.
+    Models are fitted to gamma-nought backscatter in decibels
+    (&gamma;0 = 10 log10(DN&sup2;) &minus; 83.0 dB, where DN is the digital
+    number) without spatial speckle filtering, as the temporal modeling
+    already suppresses speckle. Where orbit paths overlap, each pixel uses
+    only observations from its most frequent path (the mode of the
+    `RSP_Path_Number` property), so its time series has a single viewing
+    geometry. The results are tiled by country and can be combined with
+    `mosaic()`.
 
-    The CCDC algorithm was run with the following parameters, which are the
-    same for all images:
-
-    * minObservations: 3
-    * chiSquareProbability: 0.95
-    * minNumOfYearsScaler: 1
-    * dateFormat: 1 (fractional year)
-    * lambda: 0.3
-    * maxIterations: 10000
-
-    CCDC results depend on these parameters, and different settings suit
-    different applications. Lower chiSquareProbability and minObservations
-    values detect more and smaller breaks, while a higher lambda produces
-    smoother models with fewer non-zero coefficients. Users who need a
-    different balance between sensitivity to change and model stability can
-    run CCDC with other parameters on the
+    CCDC was run with the same parameters for all images: `minObservations`
+    3, `chiSquareProbability` 0.95, `minNumOfYearsScaler` 1, `dateFormat` 1
+    (fractional year), `lambda` 0.3 and `maxIterations` 10000. Lower
+    `chiSquareProbability` and `minObservations` values detect more and
+    smaller breaks, while a higher `lambda` gives smoother models with fewer
+    non-zero coefficients. Users who need other settings can run CCDC on the
     [PALSAR-2 ScanSAR collection](https://developers.google.com/earth-engine/datasets/catalog/JAXA_ALOS_PALSAR-2_Level2_2_ScanSAR)
     in Earth Engine.
 
-    Each pixel in the output is encoded using variable length arrays. The outer
-    length of each array (axis 0) corresponds to the number of segments found
-    at that location. The coefs bands contain 2-D arrays, where each inner
-    array contains the scaling factors for the 8 terms in the linear harmonic
-    model, in the order: [offset, t, cos(&omega;t), sin(&omega;t),
+    Each pixel stores variable-length arrays with one element per segment.
+    The `HH_coefs` and `HV_coefs` bands contain 2-D arrays with the 8 terms of the harmonic model
+    for each segment, in the order [offset, t, cos(&omega;t), sin(&omega;t),
     cos(2&omega;t), sin(2&omega;t), cos(3&omega;t), sin(3&omega;t)], where
     &omega; = 2&pi;.
-
-    Note that since the output bands are arrays, they can only be downsampled
-    using a SAMPLE pyramiding policy. At lower zoom levels, the results are
-    usually no longer representative of the full-resolution data, and tile
-    boundaries can be seen.
 
     **Possible Uses:**
 
@@ -98,10 +83,9 @@ local pol_bands(pol) = [
 
     **Limitations:**
 
-    * **Coverage:** 79 tropical and subtropical countries in Africa, South
-      and Southeast Asia, and Central and South America. Coverage is limited
-      by the availability of PALSAR-2 ScanSAR observations; regions with too
-      few observations for reliable model fitting are not included.
+    * **Coverage:** 79 tropical and subtropical countries in Africa, Asia
+      and the Americas, where PALSAR-2 ScanSAR observations are sufficient
+      for model fitting.
     * **Observation density:** Segments with few observations (`numObs`)
       give less reliable fits.
     * **Period:** Tiles were processed in sequence, so the end of the
@@ -155,7 +139,7 @@ local pol_bands(pol) = [
     'gee:visualizations': [
       {
         display_name: 'HV model root mean square error',
-        lookat: {lon: 30.5, lat: 7.5, zoom: 9},
+        lookat: {lon: -66.0, lat: -4.2, zoom: 6},
         image_visualization: {
           band_vis: {
             min: [0],

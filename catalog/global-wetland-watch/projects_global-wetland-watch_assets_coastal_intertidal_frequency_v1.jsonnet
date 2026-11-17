@@ -17,24 +17,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Global Wetland Watch Coastal Inundation Frequency v' + version,
   version: version,
   description: |||
-    The Global Wetland Watch coastal inundation frequency dataset gives, for
-    each coastal pixel, the percentage of valid Sentinel-2 observations in
-    which the pixel was inundated, at 10 m resolution. Pixels that are
-    sometimes inundated and sometimes exposed form the intertidal zone. Water
-    is detected by adaptive thresholding of Sentinel-2 shortwave-infrared
-    bands. The product is designed for open water and tidal flats, but may
-    also be useful in other coastal settings.
+    The coastal inundation frequency dataset gives the percentage of valid
+    Sentinel-2 observations in which each coastal pixel was inundated, at
+    10 m resolution. Pixels that are sometimes inundated and sometimes exposed
+    form the intertidal zone. Water is detected by adaptive thresholding of
+    the Sentinel-2 shortwave-infrared bands. The product is designed for open
+    water and tidal flats but may also be useful in other coastal settings.
 
-    The product is masked to coastal wetland types as defined in the Global
-    Wetland Watch annual wetland typology (maximum extent across all years),
-    with a 100 m buffer.
+    The product is masked to the coastal wetland types of the annual wetland
+    typology (maximum extent across all years), plus a 100 m buffer.
 
     Two variants are provided, identified by the `tide_state` property:
 
     * `all-tide`: frequency computed from all valid observations.
     * `low-tide`: frequency computed only from observations acquired at
-      relative low tide, as defined for the Global Wetland Watch tidal
-      composites.
+      relative low tide, as defined for the tidal composites.
 
     Images cover the periods 2017&ndash;2019, 2020&ndash;2022 and
     2023&ndash;2025, and a 6-year 2017&ndash;2022 period where clouds, low
@@ -55,12 +52,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * **Observation sampling:** Sentinel-2 acquires images at fixed local
       times, so the observed tides may not cover the full tidal range. The
       frequency describes observed conditions, not true tidal exposure time.
-    * **Observation density:** Use `observationCount` to mask pixels with too
-      few observations.
+    * **Observation density:** Frequencies based on few observations
+      (`observationCount`) are less reliable.
     * **Inundation under vegetation:** The method detects open water, so
       inundation beneath vegetation may not be captured. Very turbid water
       may also be misclassified.
-    * **Coastal wetland mask:** Values are only provided within the mapped
+    * **Coastal wetland mask:** Values are provided only within the mapped
       coastal wetland extent plus a 100 m buffer, so omissions in the
       typology also limit this product.
     * **Coverage:** Global coastlines, excluding Antarctica.
@@ -100,12 +97,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Inundation frequency, all tides (%)',
-        lookat: {lon: 8.6, lat: 53.7, zoom: 11},
+        lookat: {lon: -62.2, lat: -38.95, zoom: 11},
         image_visualization: {
           band_vis: {
             min: [0],
             max: [100],
-            palette: ['f7fcb9', 'addd8e', '41ab5d', '1d91c0', '253494'],
+            palette: ['fff7ec', 'fee8c8', 'fdd49e', 'fdbb84', 'fc8d59', 'ef6548', 'd7301f',
+                      'b30000', '7f0000'],
             bands: ['inundationFrequency'],
           },
         },

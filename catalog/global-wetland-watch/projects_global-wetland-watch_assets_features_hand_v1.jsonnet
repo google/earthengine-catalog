@@ -24,52 +24,52 @@ local hand_band(threshold, label, scale) = {
   title: 'Global Wetland Watch Height Above Nearest Drainage (HAND) v' + version,
   version: version,
   description: |||
-    The Global Wetland Watch Height Above Nearest Drainage (HAND) layer
-    gives the vertical distance, in meters, between each pixel and the nearest
-    drainage channel it flows into ([Nobre et al., 2011](https://doi.org/10.1016/j.jhydrol.2011.03.051)), at 1 arc-second
-    (about 30 m) resolution. It provides drainage-relative elevation context
-    for wetland hydrology: low HAND values indicate terrain that is close in
-    height to the drainage network and therefore more likely to be wet or
-    flooded.
+    The Height Above Nearest Drainage (HAND) layer gives the vertical
+    distance, in meters, between each pixel and the drainage channel it flows
+    into ([Nobre et al., 2011](https://doi.org/10.1016/j.jhydrol.2011.03.051)),
+    at 1 arc-second (about 30 m) resolution. Low HAND values indicate terrain
+    close in height to the drainage network, which is therefore more likely
+    to be wet or flooded.
 
-    HAND is derived from FABDEM (Forest And Buildings removed Copernicus DEM;
-    [Hawker et al., 2022](https://doi.org/10.1088/1748-9326/ac4d4f);
-    FABDEM V1-2, [Neal & Hawker, 2023](https://doi.org/10.5523/bris.s5hqmjcdj8yo2ibzi9b4ew3sn)),
+    HAND is derived from FABDEM V1-0 (Forest And Buildings removed Copernicus DEM;
+    [Hawker et al., 2022](https://doi.org/10.1088/1748-9326/ac4d4f)),
     a version of the Copernicus GLO-30 digital elevation model (DEM)
     ([European Space Agency, 2022](https://doi.org/10.5270/ESA-c5d3d65)) with
     forests and buildings removed. Where FABDEM is not available (north of
     80&deg;N and in parts of the Caucasus, e.g. Armenia and Azerbaijan), the
     Copernicus GLO-30 DEM is used directly.
 
-    Each image has three bands, one per drainage network definition:
-    `hand_100` (small streams), `hand_1000` (medium rivers) and `hand_100000`
-    (major rivers), where the drainage network is all cells with at least
-    100, 1,000 or 100,000 upstream cells respectively.
-
-    Values are stored as integers scaled by 10: multiply by 0.1 to obtain
-    meters.
+    Each image has three bands, one per drainage network: `hand_100` (small
+    streams), `hand_1000` (medium rivers) and `hand_100000` (major rivers),
+    where each network consists of all cells with at least 100, 1,000 or
+    100,000 upstream cells respectively. Smaller thresholds measure height
+    above small streams and capture fine-scale drainage features; larger
+    thresholds measure height above major rivers only, giving a broader view
+    of the landscape. Values are stored as integers scaled by 10: multiply by
+    0.1 to obtain meters.
 
     **Possible Uses:**
 
     * **Wetland and floodplain mapping:** As a predictor of where water
       accumulates, for wetland classification and floodplain delineation.
     * **Hydrological screening:** Identifying low-lying areas connected to
-      rivers for flood exposure and restoration planning.
-    * **Scale-dependent analysis:** Comparing thresholds to separate areas
-      near small streams from those connected to large river systems.
+      rivers, for flood exposure and restoration planning.
+    * **Scale-dependent analysis:** Comparing drainage networks to separate
+      areas near small streams from those connected to large rivers.
 
     **Limitations:**
 
-    * **FABDEM licence:** This dataset is released under CC-BY 4.0 with the
+    * **FABDEM license:** This dataset is released under CC-BY 4.0 with the
       permission of the FABDEM authors. The underlying FABDEM data remain
-      under their original CC BY-NC-SA 4.0 licence and are not covered by
-      this dataset's CC BY 4.0 licence.
+      under their original CC BY-NC-SA 4.0 license and are not covered by
+      this dataset's license.
     * **Relative indicator:** HAND describes position relative to the
       drainage network. It is not a measure of inundation depth or flood
-      frequency.
+      frequency, and low values do not mean an area is wet (e.g. in arid
+      regions or on highly permeable soils).
     * **DEM quality:** HAND inherits errors from the input DEM, including
       residual vegetation and building artifacts (more pronounced where
-      GLO-30 is used without FABDEM corrections) and reduced accuracy in very
+      GLO-30 is used without FABDEM corrections), and is less accurate in very
       flat terrain, where small elevation errors change drainage paths.
     * **Coverage:** Global, excluding Antarctica.
   |||,
@@ -99,7 +99,7 @@ local hand_band(threshold, label, scale) = {
     'gee:visualizations': [
       {
         display_name: 'HAND, 1,000-cell drainage threshold (m x 10)',
-        lookat: {lon: 102.13, lat: 19.88, zoom: 12},
+        lookat: {lon: 29.95, lat: -1.25, zoom: 11},
         image_visualization: {
           band_vis: {
             min: [0],
@@ -141,26 +141,18 @@ local hand_band(threshold, label, scale) = {
       |||,
       doi: '10.1088/1748-9326/ac4d4f',
     },
-    {
-      citation: |||
-        Neal, J. and Hawker, L. (2023). FABDEM V1-2. University of Bristol.
-        [doi:10.5523/bris.s5hqmjcdj8yo2ibzi9b4ew3sn](https://doi.org/10.5523/bris.s5hqmjcdj8yo2ibzi9b4ew3sn)
-      |||,
-      doi: '10.5523/bris.s5hqmjcdj8yo2ibzi9b4ew3sn',
-    },
   ],
   'gee:terms_of_use': |||
     This dataset is licensed under
     [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
     following attribution: "Global Wetland Watch (DHI, UNEP-DHI, UNEP), 2026".
 
-    It is derived from FABDEM
-    ([Hawker et al., 2022](https://doi.org/10.1088/1748-9326/ac4d4f); FABDEM
-    V1-2, [doi:10.5523/bris.s5hqmjcdj8yo2ibzi9b4ew3sn](https://doi.org/10.5523/bris.s5hqmjcdj8yo2ibzi9b4ew3sn)),
+    It is derived from FABDEM V1-0
+    ([Hawker et al., 2022](https://doi.org/10.1088/1748-9326/ac4d4f)),
     released under CC-BY 4.0 here with the permission of the FABDEM authors.
     The underlying FABDEM data remain under their original
     [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-    licence and are not covered by this dataset's CC BY 4.0 licence. Please
+    license and are not covered by this dataset's CC-BY 4.0 license. Please
     credit FABDEM in any publication using this dataset.
   |||,
   'gee:status': 'beta',

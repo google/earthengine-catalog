@@ -17,62 +17,50 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'Global Wetland Watch Surface Water Frequency v' + version,
   version: version,
   description: |||
-    The Global Wetland Watch surface water frequency dataset gives the
-    proportion of valid monthly observations in which a pixel was classified
-    as open surface water, at 10 m resolution. It is provided as annual
-    products (one per year, 2017&ndash;2025) and a multiannual product
-    (2017&ndash;2025).
-
-    Each image has two bands: `swf`, the surface water frequency in percent, and
-    `count`, the number of valid monthly observations used. Use the `product`
+    The surface water frequency dataset shows how often open surface water was
+    observed at each 10 m pixel: the percentage of valid monthly observations
+    classified as water. Annual images (one per year, 2017&ndash;2025) and a
+    multiannual image (2017&ndash;2025) are provided; use the `product`
     property (`annual` or `multiannual`) and the `startYear` and `endYear`
     properties to select images.
 
-    Monthly water maps are derived by fusing Sentinel-1 radar and Sentinel-2
+    Monthly water maps are produced by fusing Sentinel-1 radar and Sentinel-2
     optical observations with regionally calibrated logistic regression
     models, adapted from
-    [Druce et al. (2021)](https://doi.org/10.3390/rs13091663). Compared with that publication,
-    cloud masking now uses Cloud Score+ and monthly observations are
-    summarized by the median rather than a best-available-pixel composite.
+    [Druce et al. (2021)](https://doi.org/10.3390/rs13091663). Unlike in the
+    original method, clouds are masked with Cloud Score+ and each month is
+    summarized by its median rather than a best-available-pixel composite.
+    To reduce false detections, the results are masked using the maximum
+    wetland probability of the Global Wetland Watch wetland typology.
 
     **Possible Uses:**
 
-    * **Permanent and seasonal water:** Separating permanent water bodies from
-      seasonally inundated areas and floodplains.
-    * **Wetland hydrology:** Characterizing the hydroperiod of wetlands, in
-      combination with the Global Wetland Watch wetland typology.
-    * **Inter-annual variability:** Comparing annual products to identify wet
-      and dry years and long-term changes in surface water extent.
-    * **Water storage:** Monitoring changes in the water extent of reservoirs
-      and lakes.
-    * **Floods and droughts:** Characterizing unusually wet or dry years
-      relative to the multiannual product.
+    * **Seasonality:** Separating permanent water from seasonally inundated
+      areas such as floodplains.
+    * **Year-to-year variation:** Comparing annual images to identify wet and
+      dry years and longer-term trends in surface water extent.
+    * **Water storage:** Monitoring the extent of reservoirs and lakes.
+    * **Floods and droughts:** Identifying unusually wet or dry years relative
+      to the multiannual image.
 
     **Limitations:**
 
-    * **Open water only:** The product represents open, non-vegetated surface
-      water. Water under vegetation and saturated soils without visible open
-      water are not captured.
-    * **Not a maximum flood extent:** The product is derived from monthly
-      composites, so short-lived floods are smoothed out. Maximum flood extent
-      is often larger than shown here.
-    * **Commission errors:** False water detections can occur over dark
-      volcanic surfaces, dry sandy or rocky surfaces in arid regions (e.g.
-      south-western Africa, parts of Australia and the western United
-      States), saturated organic soils, snow and ice, terrain shadow, and
-      residual cloud or cloud shadow.
-    * **Observation density:** Monthly observations can be missing because
-      of clouds, low light in high-latitude winters or image quality issues,
-      so the number of observations (`count`) varies between pixels and
-      years. Frequencies based on few observations are less reliable; mask
-      pixels with low `count` where needed.
-    * **Accuracy:** The original method achieved an overall accuracy of 94%
-      against independent high-resolution reference imagery across mainland
-      China (Druce et al., 2021). In an intercomparison of 14 surface water
-      mapping approaches, combined optical and radar approaches performed
-      best for large-scale mapping ([T&oslash;ttrup et al., 2022](https://doi.org/10.3390/rs14102410)). The current
-      global product has not been independently validated.
-    * **Coverage:** Global, excluding Antarctica, Greenland and Russia.
+    * **Open water only:** Water beneath vegetation and saturated soils
+      without visible open water are not detected.
+    * **Not a maximum flood extent:** Monthly compositing smooths out
+      short-lived floods, so the maximum flood extent is often larger.
+    * **Commission errors:** False detections can occur over dark volcanic
+      or arid sandy and rocky surfaces, mine sites, saturated organic soils,
+      snow and ice, terrain shadow, and residual cloud or cloud shadow.
+    * **Observation density:** Clouds, low winter light at high latitudes and
+      image quality issues reduce the number of valid months (`count`), and
+      frequencies based on few observations are less reliable.
+    * **Accuracy:** The original method achieved 94% overall accuracy in
+      mainland China (Druce et al., 2021); the global product has not been
+      independently validated.
+    * **Coverage:** Global, excluding Antarctica, Greenland and Russia. Some
+      years are still in production in some regions: a missing year means no
+      data yet, not no water.
   |||,
   'gee:categories': ['surface-ground-water'],
   keywords: [
@@ -108,12 +96,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'gee:visualizations': [
       {
         display_name: 'Surface water frequency (2017-2025)',
-        lookat: {lon: -57.2, lat: -18.2, zoom: 9},
+        lookat: {lon: -122.02, lat: 37.48, zoom: 12},
         image_visualization: {
           band_vis: {
             min: [0],
             max: [100],
-            palette: ['ffffff', 'b3cde3', '6497b1', '005b96', '03396c'],
+            palette: ['ffffff', 'e8e5fa', 'd0ccf5', 'bab3f1', '989be7', '6181d0', '3669ad',
+                      '275186'],
             bands: ['swf'],
           },
         },

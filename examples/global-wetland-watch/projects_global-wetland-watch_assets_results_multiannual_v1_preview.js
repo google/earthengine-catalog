@@ -1,7 +1,7 @@
 var dataset = ee.ImageCollection('projects/global-wetland-watch/assets/results/multiannual/v1');
 var image = dataset.filter(ee.Filter.eq('period', '2023-2025')).mosaic();
 
-var visParams = {
+var typologyVis = {
   bands: ['mode_class'],
   min: 1,
   max: 31,
@@ -16,22 +16,23 @@ var visParams = {
     'bdbdbd',                                          // 31
   ],
 };
+// Mean wetland probability in grey (dark = low) under the dominant type.
+var probabilityVis = {bands: ['mean_prob'], min: 0, max: 100, palette: ['2a2a2a', 'c8c8c8']};
+var visualized = image.visualize(probabilityVis).blend(image.visualize(typologyVis));
 
-var lon = 89.2;
-var lat = 21.9;
-Map.setCenter(lon, lat, 10);
+// Tonle Sap, Cambodia.
+var lon = 104.0;
+var lat = 12.95;
+Map.setCenter(lon, lat, 9);
 
 var gray = 150;
 var background = ee.Image.rgb(gray, gray, gray).visualize({min: 0, max: 255});
-var imageWithBackground =
-    ee.ImageCollection([background, image.visualize(visParams)]).mosaic();
-Map.addLayer(imageWithBackground, {}, 'Dominant wetland type (2023-2025)');
+var imageWithBackground = ee.ImageCollection([background, visualized]).mosaic();
+Map.addLayer(imageWithBackground, {}, 'Dominant wetland type over mean probability (2023-2025)');
 
-var delta = 0.35;
 var parameters = {
   dimensions: [256, 256],
-  region: ee.Geometry.Rectangle(
-      [lon - delta, lat - delta, lon + delta, lat + delta], null, false),
+  region: ee.Geometry.Rectangle([103.4, 12.3646, 104.6, 13.534], null, false),
   crs: 'EPSG:3857',
   format: 'png'
 };
