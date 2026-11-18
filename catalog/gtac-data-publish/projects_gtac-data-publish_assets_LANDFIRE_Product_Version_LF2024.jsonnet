@@ -6,7 +6,7 @@ local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions = import 'versions.libsonnet';
-local version_table = import 'templates/LANDFIRE_2024_versions.libsonnet';
+local version_table = import 'templates/LANDFIRE_versions.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 
@@ -68,9 +68,20 @@ local publications = import 'templates/LANDFIRE_2024_publications.libsonnet';
     These products were uploaded to the Google Earth Engine Publisher's Data Catalog by the Landscape Change Monitoring System (LCMS) team at the US Forest Service Geospatial Office. For support or inquiries regarding the Google Earth Engine Data Catalog, contact the LCMS team at support at sm.fs.lcms@usda.gov.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + (
-    if std.length(version_table) > 1 then version_config.version_links else []
-  ) + [
+  links: ee.standardLinks(subdir, id) + [
+    link for link in version_config.version_links
+    if link.rel != ee_const.rel.predecessor
+  ] + [
+    // The legacy products are parallel predecessors, not successive releases.
+    ee.link.predecessor(
+      previous.id,
+      ee_const.catalog_base + previous.subdir + '/'
+      + std.strReplace(previous.id, '/', '_') + '.json'
+    )
+    for entry in version_table
+    for previous in [std.objectValues(entry)[0]]
+    if previous.id != id
+  ] + [
     ee.link.license('https://www.landfire.gov/'),
     {
       rel: ee_const.rel.source,
