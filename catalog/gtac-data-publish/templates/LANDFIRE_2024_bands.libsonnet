@@ -1,7 +1,29 @@
 local units = import 'units.libsonnet';
 
+local uniqueClassDescriptions(band) =
+  if !std.objectHas(band, 'gee:classes') then band else
+    local classes = band['gee:classes'];
+    local descriptions = std.sort([c.description for c in classes]);
+    local duplicates = std.set([
+      descriptions[i]
+      for i in std.range(1, std.length(descriptions) - 1)
+      if descriptions[i] == descriptions[i - 1]
+    ]);
+    band {
+      'gee:classes': [
+        c {
+          description: c.description + (
+            if std.setMember(c.description, duplicates) then
+              ' (code %d)' % c.value
+            else ''
+          ),
+        }
+        for c in classes
+      ],
+    };
+
 {
-  eo_bands: [
+  eo_bands: std.map(uniqueClassDescriptions, [
     {
       name: "CBD",
       description: "Forest Canopy Bulk Density (CBD) is the mass of available canopy fuel per unit canopy volume that would burn in a crown fire and values range from 0 to 45.",
@@ -18783,7 +18805,7 @@ local units = import 'units.libsonnet';
       description: "Departure between current vegetation condition and reference vegetation condition.",
       "gee:units": units.percent,
     },
-  ],
+  ]),
   visualizations: [
     {
       display_name: "EVT classes",

@@ -69,9 +69,21 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ),
     ee.host_provider(self_ee_catalog_url),
   ],
-  extent: ee.extent(-175.1, 17.52, -63.66, 71.48,
-                    '2023-10-01T00:00:00Z', '2024-10-01T00:00:00Z'),
+  extent: ee.extent(-175.1,
+                    17.52,
+                    -63.66,
+                    71.48,
+                    '2023-10-01T00:00:00Z',
+                    '2024-10-01T00:00:00Z'),
   summaries: {
+    'gee:visualizations': [
+      {
+        display_name: 'Disturbance remap metadata',
+        lookat: {lon: -112.0, lat: 40.0, zoom: 5},
+        // Nonspatial rows render no map features.
+        table_visualization: {},
+      },
+    ],
     'gee:schema': [
       {
         name: "VALUE",

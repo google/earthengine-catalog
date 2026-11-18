@@ -44,7 +44,9 @@ local license = spdx.proprietary;
     and large subregional planning rather than analysis of individual pixels.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id) + version_config.version_links + [
+  links: ee.standardLinks(subdir, id) + (
+    if std.length(version_table) > 1 then version_config.version_links else []
+  ) + [
     ee.link.license('https://www.landfire.gov/'),
     {
       rel: ee_const.rel.source,
@@ -71,8 +73,12 @@ local license = spdx.proprietary;
     ),
     ee.host_provider(version_config.ee_catalog_url),
   ],
-  extent: ee.extent(-175.1, 17.52, -63.66, 71.48,
-                    '2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
+  extent: ee.extent(-175.1,
+                    17.52,
+                    -63.66,
+                    71.48,
+                    '2020-01-01T00:00:00Z',
+                    '2021-01-01T00:00:00Z'),
   summaries: {
     gsd: [30],
     'gee:schema': [

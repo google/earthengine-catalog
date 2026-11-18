@@ -26,7 +26,7 @@ local self_url = base_url + base_filename;
     type: 'PUBLISHER',
     link: 'https://www.fs.usda.gov/',
     contactDisplay: 'USDA Forest Service',
-    contactLink: ''
+    contactLink: '',
   },
   links: [
     ee.link.root(),
@@ -37,6 +37,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_gtac-data-publish_assets_TreeMap_Product_Version_2023-1', base_url),
     ee.link.child_collection('projects_gtac-data-publish_assets_LANDFIRE_Product_Version_LF2024', base_url),
     ee.link.child_collection('projects_gtac-data-publish_assets_LANDFIRE_Product_Version_LF2024_Dist24_Remap_Metadata', base_url),
-    ee.link.child_collection('projects_gtac-data-publish_assets_LANDFIRE_Product_Version_LF2024-Topo', base_url),
+    ee.link.child_collection('projects_gtac-data-publish_assets_LANDFIRE_Product_Version_LF2020-Topo', base_url),
   ],
 }
