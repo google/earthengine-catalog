@@ -121,7 +121,7 @@ var imageWithBackground =
 var region = ee.Geometry.Rectangle(
     [-106.8, 38.2, -104.3, 40.5], null, false);
 var imageParams = {
-  dimensions: [256, 256],
+  dimensions: [512, 512],
   region: region,
   crs: 'EPSG:3857',
   format: 'png'

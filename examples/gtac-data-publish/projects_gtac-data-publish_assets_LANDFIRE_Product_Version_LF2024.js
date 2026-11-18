@@ -112,7 +112,7 @@ Map.addLayer(fuelModel, {
   min: 0,
   max: fuelModelValues.length - 1,
   palette: fuelModelPalette
-}, 'Scott and Burgan fire behavior fuel model');
+}, 'FBFM40: Scott and Burgan fire behavior fuel model');
 Map.addLayer(image.select('VDep'), {
   min: 0,
   max: 100,
