@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GlobFire Daily Fire Event Detection Based on MCD64A1',
   version: 'v2',
-  'gee:type': ee_const.gee_type.table_collection,
+  'gee:type': ee_const.gee_type.folder,
   description: |||
     Fire boundaries based on the MODIS dataset MCD64A1. The data were computed
     based on an algorithm that relies on encoding in a graph structure

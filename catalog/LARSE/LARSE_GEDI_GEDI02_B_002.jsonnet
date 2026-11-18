@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GEDI L2B Vector Canopy Cover Vertical Profile Metrics (Version 2)',
   version: '2',
-  'gee:type': ee_const.gee_type.table_collection,
+  'gee:type': ee_const.gee_type.folder,
   description: gedi_l2b.description +
   |||
     The original GEDI02_B product is a table of points with a spatial resolution
