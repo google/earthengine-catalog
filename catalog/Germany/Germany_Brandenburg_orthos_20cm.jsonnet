@@ -19,7 +19,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'Brandenburg (Germany) RGBN orthophotos 20 cm',
-  'gee:type': ee_const.gee_type.image_collection,
+  'gee:type': ee_const.gee_type.image,
   description: |||
     Orthophotos are an aerial photo dataset covering the Brandenburg state of
     Germany.
