@@ -4,6 +4,12 @@ local subdir = 'LANDFIRE';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
+local versions = import 'versions.libsonnet';
+local version_table = import '../gtac-data-publish/templates/LANDFIRE_versions.libsonnet';
+local version_config = versions(
+    subdir, version_table, id,
+    successor_version_key='LF2024',
+    current_version='1.2.0');
 
 local license = spdx.proprietary;
 
@@ -20,8 +26,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ee_const.ext_ver,
   ],
   id: id,
-  title: 'LANDFIRE PLS (Percent Low-severity Fire) v1.2.0',
-  version: '1.4.0',
+  title: 'LANDFIRE PLS (Percent Low-severity Fire) v1.2.0 [deprecated]',
+  'gee:status': 'deprecated',
+  version: '1.2.0',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     LANDFIRE (LF), Landscape Fire and Resource Management Planning Tools, is a
@@ -77,7 +84,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       to species composition, structural stage, and canopy closure.
   |||,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['fire'],
   keywords: [
     'doi',

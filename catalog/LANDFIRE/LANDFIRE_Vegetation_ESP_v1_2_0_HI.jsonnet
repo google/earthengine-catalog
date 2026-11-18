@@ -21,7 +21,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   id: id,
   title: 'LANDFIRE ESP HI (Environmental Site Potential) v1.2.0',
-  version: '1.4.0',
+  version: '1.2.0',
   'gee:type': ee_const.gee_type.image,
   description: |||
     LANDFIRE (LF), Landscape Fire and Resource Management Planning Tools, is a
