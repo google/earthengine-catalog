@@ -9,7 +9,7 @@ tree_cover_vis_param = {
 
 tree_loss_vis_param = {
     'bands': ['lossyear'],
-    'min': 0,
+    'min': 1,
     'max': 22,
     'palette': ['yellow', 'red'],
 }
