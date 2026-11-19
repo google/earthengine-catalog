@@ -41,9 +41,7 @@ class SkipFilePathTestgoogletest(test_utils.NodeTest):
     self.assert_catalog({}, dataset_id='', file_path='catalog.json')
 
   def test_node_id_not_str(self):
-    # pytype: disable=wrong-arg-types
-    self.assert_catalog({}, dataset_id=415, file_path='catalog.json')
-    # pytype: enable=wrong-arg-types
+    self.assert_catalog({}, dataset_id=415, file_path='catalog.json')  # pyrefly: ignore[bad-argument-type]
 
 
 class ErrorFilePathTest(test_utils.NodeTest):

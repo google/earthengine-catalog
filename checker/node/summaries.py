@@ -22,7 +22,6 @@ See also:
 from typing import Iterator
 
 from checker import stac
-from checker.node import eo_extension
 
 SUMMARIES = 'summaries'
 
@@ -83,12 +82,15 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{SUMMARIES} missing required keys: {message}')
 
     if node.gee_type in (stac.GeeType.IMAGE, stac.GeeType.IMAGE_COLLECTION):
-      if (EO_BANDS not in summaries and node.id not
-          in eo_extension.IMAGES_WITHOUT_BANDS):
+      if EO_BANDS not in summaries:
         yield cls.new_issue(
             node, f'{node.gee_type} must have {EO_BANDS} in {SUMMARIES}')
 
-    if node.gee_type in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION):
+    if node.gee_type in (
+        stac.GeeType.TABLE,
+        stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.FOLDER,
+    ):
       if GEE_SCHEMA not in summaries:
         yield cls.new_issue(
             node,

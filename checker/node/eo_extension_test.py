@@ -7,6 +7,7 @@ from absl.testing import absltest
 
 TABLE = stac.GeeType.TABLE
 TABLE_COLLECTION = stac.GeeType.TABLE_COLLECTION
+FOLDER = stac.GeeType.FOLDER
 BIGQUERY_TABLE = stac.GeeType.BIGQUERY_TABLE
 
 EO_URL = 'https://stac-extensions.github.io/eo/v1.0.0/schema.json'
@@ -33,6 +34,9 @@ class ValidEoExtensionTest(test_utils.NodeTest):
   def test_empty_table_collection(self):
     self.assert_collection({}, gee_type=TABLE_COLLECTION)
 
+  def test_empty_folder(self):
+    self.assert_collection({}, gee_type=FOLDER)
+
   def test_image_summaries_not_dict(self):
     self.assert_collection({'summaries': 'not a dict'})
 
@@ -49,11 +53,6 @@ class ValidEoExtensionTest(test_utils.NodeTest):
   def test_minimal_image(self):
     self.assert_collection({
         'stac_extensions': [EO_URL], 'summaries': {'eo:bands': MINIMUM_BANDS}})
-
-  def test_image_without_bands_exceptions(self):
-    self.assert_collection(
-        {'stac_extensions': [EO_URL], 'summaries': {}},
-        dataset_id='MODIS/MCD43A1')
 
   def test_range_object(self):
     self.assert_collection({
@@ -99,6 +98,12 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         'table_collection must not have the eo extension',
         gee_type=TABLE_COLLECTION)
 
+  def test_folder_with_eo(self):
+    self.assert_collection(
+        {'stac_extensions': [EO_URL]},
+        'folder must not have the eo extension',
+        gee_type=FOLDER)
+
   def test_bigquery_table_with_eo(self):
     self.assert_collection(
         {'stac_extensions': [EO_URL]},
@@ -125,6 +130,12 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         {'summaries': {'eo:bands': MINIMUM_BANDS}},
         'eo:bands cannot be in table_collection',
         gee_type=TABLE_COLLECTION)
+
+  def test_folder_with_bands(self):
+    self.assert_collection(
+        {'summaries': {'eo:bands': MINIMUM_BANDS}},
+        'eo:bands cannot be in folder',
+        gee_type=FOLDER)
 
   def test_bigquery_table_with_bands(self):
     self.assert_collection(

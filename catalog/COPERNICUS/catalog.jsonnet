@@ -31,6 +31,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('COPERNICUS_MARINE_GLOBAL_ANALYSISFORECAST_BGC_001_028_PLANKTON', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_GLOBAL_ANALYSISFORECAST_PHY_DAILY', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_GLOBAL_SEA_SURFACE_NRT_DAILY', base_url),
+    ee.link.child_collection('COPERNICUS_MARINE_GLOBAL_SEA_SURFACE_NRT_DAILY_V2', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_GLOBAL_SEA_SURFACE_REP_DAILY', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_INSITU_MULTI_4KM_ARGO', base_url),
     ee.link.child_collection('COPERNICUS_MARINE_INSITU_MULTI_4KM_DRIFTER', base_url),

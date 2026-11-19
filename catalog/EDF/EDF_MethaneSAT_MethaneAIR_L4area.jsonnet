@@ -57,7 +57,7 @@ local license = spdx.proprietary;
       {
         name: 'flux',
         description: 'Methane emissions traceable to a 1km^2 area.',
-        gsd: 1000,
+        gsd: 1113.2,
         'gee:units': units.kg_per_hour_per_square_km,
       }
     ],

@@ -62,7 +62,7 @@ local license = spdx.cc_by_4_0;
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2020-01-01T00:00:00Z'),
   summaries: {
     gsd: [
-      30.92,
+      27.83,
     ],
     'eo:bands': [
       {
@@ -237,9 +237,10 @@ local license = spdx.cc_by_4_0;
         description: |||
           Year of gross forest cover loss event. Forest loss during the study
           period, defined as a stand-replacement disturbance, or a change from a
-          forest to non-forest state. Encoded as either 0 (no loss) or else a value
-          in the range 1-19, representing loss detected primarily in the year
-          2001-2019, respectively.
+          forest to non-forest state. Encoded as a value in the range 1-19,
+          representing loss detected primarily in the years 2001-2019,
+          respectively. Pixels with no detected loss (0 in the downloadable
+          source data) are masked.
         |||,
       },
     ],
@@ -281,7 +282,7 @@ local license = spdx.cc_by_4_0;
       'gee:estimated_range': false,
     },
     lossyear: {
-      minimum: 0.0,
+      minimum: 1.0,
       maximum: 19.0,
       'gee:estimated_range': false,
     },

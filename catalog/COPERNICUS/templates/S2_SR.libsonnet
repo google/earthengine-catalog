@@ -690,7 +690,7 @@ local license = spdx.proprietary;
           {
             name: 'MSK_SNWPRB',
             description: 'Snow Probability Map (missing in some products)',
-            gsd: 10.0,
+            gsd: 20.0,
           },
           {
             name: 'QA10',

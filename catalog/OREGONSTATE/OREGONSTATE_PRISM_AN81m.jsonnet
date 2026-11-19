@@ -10,7 +10,7 @@ local version_config = versions(subdir, version_table, id);
 prism {
   params+:: { period: 'monthly' },
   id: id,
-  title: 'PRISM Monthly Spatial Climate Dataset AN81m [deprecated]',
+  title: 'PRISM Monthly Spatial Dataset AN81m [deprecated]',
   'gee:status': 'deprecated',
   version: version_config.version,
   links+: version_config.version_links,

@@ -35,7 +35,7 @@ local license = spdx.cc_by_nc_sa_4_0;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id) + version_config.version_links,
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
     'map',
     'lst', 'surface_temperature'

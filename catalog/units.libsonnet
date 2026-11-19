@@ -155,6 +155,9 @@
   micrometer: '&micro;m',
   millimeter: 'mm',
 
+  // Typically used for precipitation rate.
+  meter_per_hour: 'm/h',
+
   // Typically used for evaporation.
   millimeter_per_day: 'mm/d',
   millimeter_per_year: 'mm/y',

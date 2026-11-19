@@ -51,7 +51,7 @@ local base_filename = basename + '.json';
       href: 'https://doi.org/10.5065/D61C1TXF',
     },
   ] + version_config.version_links,
-  'gee:categories': ['climate'],
+  'gee:categories': ['weather-and-climate'],
   keywords: [
     'climate',
     'daylight',

@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent_global('2000-01-01T00:00:00Z', '2023-12-31T00:00:00Z'),
   summaries: {
     gsd: [
-      1000,
+      927.66,
     ],
     'eo:bands': [
       {

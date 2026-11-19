@@ -9,7 +9,7 @@ Map.addLayer(dataset, treeCoverVisParam, 'tree cover');
 
 var treeLossVisParam = {
   bands: ['lossyear'],
-  min: 0,
+  min: 1,
   max: 21,
   palette: ['yellow', 'red']
 };

@@ -70,7 +70,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   |||,
   license: license.id,
   links: ee.standardLinks(subdir, id),
-  'gee:categories': ['climate', 'precipitation', 'water-vapor'],
+  'gee:categories': ['precipitation', 'water-vapor', 'weather-and-climate'],
   keywords: [
     'climate',
     'drought',

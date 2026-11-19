@@ -129,28 +129,6 @@ OPTIONAL_KEYS = frozenset({
     GSD})
 ALL_KEYS = REQUIRED_KEYS.union(OPTIONAL_KEYS)
 
-IMAGES_WITHOUT_BANDS = frozenset({
-    'MODIS/MCD43A1',
-    'MODIS/MCD43A2',
-    'MODIS/MCD43A4',
-    'MODIS/MOD09A1',
-    'MODIS/MOD09GA',
-    'MODIS/MOD09GQ',
-    'MODIS/MOD09Q1',
-    'MODIS/MOD11A1',
-    'MODIS/MOD11A2',
-    'MODIS/MOD13A1',
-    'MODIS/MOD13Q1',
-    'MODIS/MYD09A1',
-    'MODIS/MYD09GA',
-    'MODIS/MYD09GQ',
-    'MODIS/MYD09Q1',
-    'MODIS/MYD11A1',
-    'MODIS/MYD11A2',
-    'MODIS/MYD13A1',
-    'MODIS/MYD13Q1'
-})
-
 GSD_EXCEPTIONS = frozenset({
     'LANDSAT/LT04/C02/T1',
     'LANDSAT/LT04/C02/T1_TOA',
@@ -276,7 +254,7 @@ class Check(stac.NodeCheck):
     if has_eo_extension:
       if node.gee_type in (
           stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
-          stac.GeeType.BIGQUERY_TABLE):
+          stac.GeeType.FOLDER, stac.GeeType.BIGQUERY_TABLE):
         yield cls.new_issue(
             node, f'{node.gee_type} must not have the eo extension')
         return
@@ -321,14 +299,13 @@ class Check(stac.NodeCheck):
 
     if node.gee_type in (
         stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
-        stac.GeeType.BIGQUERY_TABLE):
+        stac.GeeType.FOLDER, stac.GeeType.BIGQUERY_TABLE):
       if EO_BANDS in summaries:
         yield cls.new_issue(node, f'{EO_BANDS} cannot be in {node.gee_type}')
       return
 
     if EO_BANDS not in summaries:
-      if node.id not in IMAGES_WITHOUT_BANDS:
-        yield cls.new_issue(node, f'Missing {EO_BANDS}')
+      yield cls.new_issue(node, f'Missing {EO_BANDS}')
       return
 
     bands = summaries[EO_BANDS]

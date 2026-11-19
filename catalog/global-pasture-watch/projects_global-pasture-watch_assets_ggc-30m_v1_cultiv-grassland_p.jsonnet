@@ -41,7 +41,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'probability',
         description: 'Cultivated grassland probability value derived through Random Forest.',
-        gsd: 30
+        gsd: 27.83
       }
     ],
     probability: {minimum: 0, maximum: 100, 'gee:estimated_range': false},

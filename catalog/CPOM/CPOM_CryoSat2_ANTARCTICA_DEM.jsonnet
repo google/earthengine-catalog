@@ -60,7 +60,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     'polar',
   ],
   providers: [
-    ee.producer_provider('CPOM', 'http://www.cpom.ucl.ac.uk/csopr/icesheets2/dems.php?ais_subject=dem&user_type=normal'),
+    ee.producer_provider('CPOM', 'https://cpom.org.uk/datasets/'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent(-180.0, -88.0, 180.0, -60.0,
@@ -158,5 +158,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     Model of Antarctica derived from CryoSat-2 altimetry, The Cryosphere,
     [doi:10.5194/tc-2017-223](https://doi.org/10.5194/tc-2017-223), 2018
   |||,
-  'gee:terms_of_use': ee.gee_terms_of_use(license),
+  'gee:terms_of_use': |||
+    The data are freely available. When using these data, please cite the
+    provided article.
+  |||,
 }
