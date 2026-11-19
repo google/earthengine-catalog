@@ -42,6 +42,7 @@ from checker.node import gee_classes
 
 COLOR_NAMES = gee_classes.COLOR_NAMES
 
+BANDS = 'eo:bands'
 SUMMARIES = 'summaries'
 VISUALIZATIONS = 'gee:visualizations'
 POLYGON_VISUALIZATION = 'polygon_visualization'
@@ -97,6 +98,8 @@ class Check(stac.NodeCheck):
     if SUMMARIES not in node.stac: return
     summaries = node.stac[SUMMARIES]
     if not isinstance(summaries, dict): return
+    if node.gee_type == stac.GeeType.FOLDER and BANDS in summaries:
+      return
 
     if VISUALIZATIONS not in summaries: return
     visualizations = summaries[VISUALIZATIONS]

@@ -147,14 +147,10 @@ CODE_URL = (
 FEATURE_VIEW = '_FeatureView'
 
 FEATURE_VIEW_EXCEPTIONS = frozenset({
-    'JRC/GWIS/GlobFire/v2/DailyPerimeters',
     'JRC/GWIS/GlobFire/v2/FinalPerimeters',
     'JRC/LUCAS_HARMO/COPERNICUS_POLYGONS/V1/2018',
-    'LARSE/GEDI/GEDI02_A_002',
     'LARSE/GEDI/GEDI02_A_002_INDEX',
-    'LARSE/GEDI/GEDI02_B_002',
     'LARSE/GEDI/GEDI02_B_002_INDEX',
-    'LARSE/GEDI/GEDI04_A_002',
     'LARSE/GEDI/GEDI04_A_002_INDEX',
     'TIGER/2010/BG',
 })
@@ -408,16 +404,19 @@ class Check(stac.NodeCheck):
         l for l in links_by_rel[RELATED]
         if CODE in l and l[HREF].endswith(FEATURE_VIEW)
     ]
-    if node.gee_type in (stac.GeeType.IMAGE, stac.GeeType.IMAGE_COLLECTION):
+    if node.gee_type in (
+        stac.GeeType.IMAGE,
+        stac.GeeType.IMAGE_COLLECTION,
+        stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.FOLDER,
+        stac.GeeType.BIGQUERY_TABLE,
+    ):
       if feature_view_links:
         yield cls.new_issue(
             node,
-            f'{node.gee_type} cannot have example {RELATED} a FeatureView link')
-    if node.gee_type in (
-        stac.GeeType.TABLE,
-        stac.GeeType.TABLE_COLLECTION,
-        stac.GeeType.FOLDER,
-    ):
+            f'{node.gee_type} cannot have example {RELATED} a FeatureView link',
+        )
+    if node.gee_type == stac.GeeType.TABLE:
       if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
         pass
       elif not feature_view_links:

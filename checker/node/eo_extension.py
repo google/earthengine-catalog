@@ -253,8 +253,10 @@ class Check(stac.NodeCheck):
 
     if has_eo_extension:
       if node.gee_type in (
-          stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
-          stac.GeeType.FOLDER, stac.GeeType.BIGQUERY_TABLE):
+          stac.GeeType.TABLE,
+          stac.GeeType.TABLE_COLLECTION,
+          stac.GeeType.BIGQUERY_TABLE,
+      ):
         yield cls.new_issue(
             node, f'{node.gee_type} must not have the eo extension')
         return
@@ -298,11 +300,23 @@ class Check(stac.NodeCheck):
                   f'unreasonably large {SUMMARIES} {GSD}: {gsd} m')
 
     if node.gee_type in (
-        stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION,
-        stac.GeeType.FOLDER, stac.GeeType.BIGQUERY_TABLE):
+        stac.GeeType.TABLE,
+        stac.GeeType.TABLE_COLLECTION,
+        stac.GeeType.BIGQUERY_TABLE,
+    ):
       if EO_BANDS in summaries:
         yield cls.new_issue(node, f'{EO_BANDS} cannot be in {node.gee_type}')
       return
+
+    # Table-only folders omit both the eo extension and eo:bands, while
+    # ImageCollection folders must declare the eo extension and run band checks.
+    if node.gee_type == stac.GeeType.FOLDER:
+      if not has_eo_extension and EO_BANDS not in summaries:
+        return
+      if not has_eo_extension:
+        yield cls.new_issue(
+            node, f'{node.gee_type} with {EO_BANDS} must have the eo extension'
+        )
 
     if EO_BANDS not in summaries:
       yield cls.new_issue(node, f'Missing {EO_BANDS}')

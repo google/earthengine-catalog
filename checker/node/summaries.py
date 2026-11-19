@@ -89,7 +89,6 @@ class Check(stac.NodeCheck):
     if node.gee_type in (
         stac.GeeType.TABLE,
         stac.GeeType.TABLE_COLLECTION,
-        stac.GeeType.FOLDER,
     ):
       if GEE_SCHEMA not in summaries:
         yield cls.new_issue(
@@ -98,6 +97,14 @@ class Check(stac.NodeCheck):
       if EO_BANDS in summaries:
         yield cls.new_issue(
             node, f'{node.gee_type} cannot have {EO_BANDS} in {SUMMARIES}')
+
+    if node.gee_type == stac.GeeType.FOLDER:
+      if EO_BANDS not in summaries and GEE_SCHEMA not in summaries:
+        yield cls.new_issue(
+            node,
+            f'{node.gee_type} must have {EO_BANDS} or {GEE_SCHEMA} in '
+            f'{SUMMARIES}',
+        )
 
     if node.gee_type == stac.GeeType.BIGQUERY_TABLE:
       if GEE_SCHEMA not in summaries:

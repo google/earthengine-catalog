@@ -346,6 +346,52 @@ class ErrorsVisualizationsTest(test_utils.NodeTest):
         'table must have one of polygon_visualization or table_visualization',
         gee_type=TABLE)
 
+  def test_folder_with_bands_and_image_visualization(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': [{'name': 'B1'}],
+                'gee:visualizations': [{
+                    'display_name': 'Display name',
+                    'image_visualization': {},
+                    'lookat': {'lat': 1, 'lon': 2, 'zoom': 3},
+                }],
+            }
+        },
+        gee_type=stac.GeeType.FOLDER,
+    )
+
+  def test_folder_with_bands_and_table_visualization(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': [{'name': 'B1'}],
+                'gee:visualizations': [{
+                    'display_name': 'Display name',
+                    'table_visualization': {},
+                    'lookat': {'lat': 1, 'lon': 2, 'zoom': 3},
+                }],
+            }
+        },
+        'folder must have an image_visualization',
+        gee_type=stac.GeeType.FOLDER,
+    )
+
+  def test_folder_without_bands_and_image_visualization(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'gee:visualizations': [{
+                    'display_name': 'Display name',
+                    'image_visualization': {},
+                    'lookat': {'lat': 1, 'lon': 2, 'zoom': 3},
+                }]
+            }
+        },
+        'folder must have one of polygon_visualization or table_visualization',
+        gee_type=stac.GeeType.FOLDER,
+    )
+
   def test_table_with_both_polygon_and_table_visualization(self):
     self.assert_collection(
         {'summaries': {'gee:visualizations': [{
