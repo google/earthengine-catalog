@@ -21,8 +21,8 @@ local self_url = base_url + base_filename;
   'gee:publisher': {
     type: 'PUBLISHER',
     link: 'https://deepmind.google',
-    contactDisplay: 'biosphere-models@google.com',
-    contactLink: 'mailto:biosphere-models@google.com'
+    contactDisplay: 'nature-trace@google.com',
+    contactLink: 'mailto:nature-trace@google.com'
   },
   links: [
     ee.link.root(),
