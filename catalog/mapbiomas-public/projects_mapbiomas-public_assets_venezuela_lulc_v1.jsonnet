@@ -62,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -59.80,
     12.20,
     '1985-01-01T00:00:00Z',
-    '2025-12-31T00:00:00Z'
+    '2024-12-31T00:00:00Z'
   ),
 
   summaries: {
@@ -129,10 +129,8 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 50, color: 'ad5100', description: 'Xerophytic grassland/shrubland'},
           {value: 66, color: 'a89358', description: 'Shrubland'},
           {value: 68, color: 'e97a7a', description: 'Other non-vegetated natural areas'},
-          {value: 77, color: '86b074', description: 'Open shrubland'},
           {value: 81, color: 'dfeb62', description: 'Andean herbaceous/shrubby vegetation'},
           {value: 82, color: '6fc179', description: 'Flooded andean herbaceous/shrubby vegetation'},
-          {value: 92, color: 'd98a45', description: 'Rocky surface'},
         ],
       },
     ],
@@ -145,7 +143,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [92],
+            max: [82],
             palette: [
               '000000',  // [0] --
               '1f8d49',  // [1] Forest formations
@@ -224,22 +222,12 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [74] --
               '000000',  // [75] --
               '000000',  // [76] --
-              '86b074',  // [77] Open shrubland
+              '000000',  // [77] --
               '000000',  // [78] --
               '000000',  // [79] --
               '000000',  // [80] --
               'dfeb62',  // [81] Andean herbaceous/shrubby vegetation
               '6fc179',  // [82] Flooded andean herbaceous/shrubby vegetation
-              '000000',  // [83] --
-              '000000',  // [84] --
-              '000000',  // [85] --
-              '000000',  // [86] --
-              '000000',  // [87] --
-              '000000',  // [88] --
-              '000000',  // [89] --
-              '000000',  // [90] --
-              '000000',  // [91] --
-              'd98a45',  // [92] Rocky surface
             ],
           },
         },
