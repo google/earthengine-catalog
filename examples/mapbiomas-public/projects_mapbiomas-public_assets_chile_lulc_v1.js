@@ -5,7 +5,7 @@
 var assetPath = 'projects/mapbiomas-public/assets/chile/lulc/v1';
 
 var year = 2024;
-var version = 'v1';
+var version = 'v2';
 var collectionId = 2;
 
 var collection = ee.ImageCollection(assetPath)
