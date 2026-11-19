@@ -22,11 +22,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   version: version,
 
   description: |||
-    The MapBiomas Bolivia Land Use and Land Cover (LULC) Dataset - Collection 3
+    The MapBiomas Bolivia Land Use and Land Cover (LULC) Dataset - Collection 4
     consists of an annual historical time series of thematic maps generated through
     the processing of Landsat imagery and machine learning algorithms (Random
     Forest). The collection provides 30-meter spatial resolution maps for the 1985
-    to 2024 period, offering a consistent baseline for analyzing land use and land
+    to 2025 period, offering a consistent baseline for analyzing land use and land
     cover dynamics across Bolivia. Each new collection incorporates methodological
     improvements and updated input data, ensuring the temporal consistency required
     for robust analyses of landscape dynamics throughout the country.
@@ -45,7 +45,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
     Each image contains a single band named "classification", whose pixel values
     correspond to the official land use and land cover classes. Owing to its
-    methodological and temporal consistency, MapBiomas Bolivia Collection 3 provides
+    methodological and temporal consistency, MapBiomas Bolivia Collection 4 provides
     a reliable data source for land cover change monitoring, multi-temporal
     analyses, and the assessment of landscape transformations at national and
     regional scales.
@@ -71,7 +71,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -57.3608,
     -9.6792,
     '1985-01-01T00:00:00Z',
-    '2024-12-31T00:00:00Z'
+    '2025-12-31T00:00:00Z'
   ),
 
   summaries: {
@@ -133,12 +133,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 33, color: '2532e4', description: 'River and lake'},
           {value: 34, color: '93dfe6', description: 'Glacier'},
           {value: 39, color: 'f5b3c8', description: 'Soybean'},
+          {value: 40, color: 'c71585', description: 'Flooded rice'},
           {value: 61, color: 'f5d5d5', description: 'Salt flat'},
+          {value: 63, color: 'c7e0ab', description: 'Steppe'},
           {value: 66, color: 'a89358', description: 'Scrubland'},
           {value: 68, color: 'e97a7a', description: 'Other non-vegetated natural area'},
           {value: 72, color: 'c1799c', description: 'Other crops'},
-          {value: 81, color: 'c8c099', description: 'Andean grassland and shrubland'},
-          {value: 82, color: '66b2a3', description: 'Flooded Andean grassland and shrubland'},
+          {value: 77, color: '86b074', description: 'Open shrubland'},
+          {value: 81, color: 'dfeb62', description: 'Andean grassland and shrubland'},
+          {value: 82, color: '6fc179', description: 'Flooded Andean grassland and shrubland'},
+          {value: 92, color: 'd98a45', description: 'Rocky surface'},
         ],
       },
     ],
@@ -151,7 +155,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [82],
+            max: [92],
             palette: [
               '000000',  // [0] --
               '1f8d49',  // [1] Forest Formation
@@ -193,7 +197,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [37] --
               '000000',  // [38] --
               'f5b3c8',  // [39] Soybean
-              '000000',  // [40] --
+              'c71585',  // [40] Flooded rice
               '000000',  // [41] --
               '000000',  // [42] --
               '000000',  // [43] --
@@ -216,7 +220,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [60] --
               'f5d5d5',  // [61] Salt flat
               '000000',  // [62] --
-              '000000',  // [63] --
+              'c7e0ab',  // [63] Steppe
               '000000',  // [64] --
               '000000',  // [65] --
               'a89358',  // [66] Scrubland
@@ -230,12 +234,22 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [74] --
               '000000',  // [75] --
               '000000',  // [76] --
-              '000000',  // [77] --
+              '86b074',  // [77] Open shrubland
               '000000',  // [78] --
               '000000',  // [79] --
               '000000',  // [80] --
-              'c8c099',  // [81] Andean grassland and shrubland
-              '66b2a3',  // [82] Flooded Andean grassland and shrubland
+              'dfeb62',  // [81] Andean grassland and shrubland
+              '6fc179',  // [82] Flooded Andean grassland and shrubland
+              '000000',  // [83] --
+              '000000',  // [84] --
+              '000000',  // [85] --
+              '000000',  // [86] --
+              '000000',  // [87] --
+              '000000',  // [88] --
+              '000000',  // [89] --
+              '000000',  // [90] --
+              '000000',  // [91] --
+              'd98a45',  // [92] Rocky surface
             ],
           },
         },

@@ -4,9 +4,9 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/uruguay/lulc/v1';
 
-var year = 2024;
+var year = 2025;
 var version = 'v1';
-var collectionId = 3;
+var collectionId = 4;
 
 var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('collection_id', collectionId))
@@ -27,9 +27,9 @@ var visParams = {
     '000000',  // [7] --
     '000000',  // [8] --
     '7a5900',  // [9] Forest plantation
-    'ccc87e',  // [10] Natural herbaceous vegetation
+    'd6bc74',  // [10] Natural herbaceous vegetation
     '519799',  // [11] Flooded grasslands and swampy areas
-    'ccc87e',  // [12] Grassland
+    'd6bc74',  // [12] Grassland
     'ffefc3',  // [13] Agricultural and livestock area
     '000000',  // [14] --
     'fbf0ab',  // [15] Pasture
@@ -39,10 +39,10 @@ var visParams = {
     '000000',  // [19] --
     '000000',  // [20] --
     '000000',  // [21] --
-    'd4271e',  // [22] Non-vegetated area
+    'c80404',  // [22] Non-vegetated area
     '000000',  // [23] --
-    '000000',  // [24] --
-    '000000',  // [25] --
+    'c80404',  // [24] Urban area
+    'f05951',  // [25] Other non-vegetated area
     '2532e4',  // [26] Water body
     'ffffff',  // [27] Not observed
     '000000',  // [28] --
