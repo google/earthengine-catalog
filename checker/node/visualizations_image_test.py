@@ -119,6 +119,18 @@ class ErrorVisualizationsImageTest(test_utils.NodeTest):
         'image_collection must have a image_visualization',
         gee_type=IMAGE_COLLECTION)
 
+  def test_visualization_missing_folder_visualization(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': [{'name': 'B1'}],
+                'gee:visualizations': [{1: 2}],
+            }
+        },
+        'folder must have a image_visualization',
+        gee_type=stac.GeeType.FOLDER,
+    )
+
   def test_visualization_image_visualization_not_dict(self):
     self.assert_collection(
         {'summaries': {

@@ -648,6 +648,32 @@ class CollectionLinkTest(test_utils.NodeTest):
         'image cannot have example related a FeatureView link',
         dataset_id=self.node_id, file_path=self.node_path)
 
+  def test_feature_view_not_required_for_folder(self):
+    self.assert_collection(
+        {'links': self.required_links},
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+        gee_type=stac.GeeType.FOLDER,
+    )
+
+  def test_feature_view_not_for_folder(self):
+    stac_links = self.required_links + [self.feature_view]
+    self.assert_collection(
+        {'links': stac_links},
+        'folder cannot have example related a FeatureView link',
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+        gee_type=stac.GeeType.FOLDER,
+    )
+
+  def test_feature_view_not_required_for_table_collection(self):
+    self.assert_collection(
+        {'links': self.required_links},
+        dataset_id=self.node_id,
+        file_path=self.node_path,
+        gee_type=stac.GeeType.TABLE_COLLECTION,
+    )
+
   @mock.patch.object(links, 'feature_view_exception', return_value=True)
   def test_feature_view_exception_with_fv(self, mock_feature_view_exp):
     del mock_feature_view_exp  # Unused

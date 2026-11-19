@@ -55,6 +55,29 @@ class ValidSummariesTest(test_utils.NodeTest):
             'gee:visualizations': 'does not matter'}},
         gee_type=FOLDER)
 
+  def test_folder_with_bands(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': 'does not matter',
+                'gee:visualizations': 'does not matter',
+            }
+        },
+        gee_type=FOLDER,
+    )
+
+  def test_folder_with_bands_and_schema(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': 'does not matter',
+                'gee:schema': 'does not matter',
+                'gee:visualizations': 'does not matter',
+            }
+        },
+        gee_type=FOLDER,
+    )
+
   def test_bigquery_table(self):
     self.assert_collection(
         {'summaries': {
@@ -167,10 +190,10 @@ class ErrorSummariesTest(test_utils.NodeTest):
 
   def test_folder_properties(self):
     self.assert_collection(
-        {'summaries': {
-            'gee:visualizations': 'does not matter'}},
-        'folder must have gee:schema in summaries',
-        gee_type=FOLDER)
+        {'summaries': {'gee:visualizations': 'does not matter'}},
+        'folder must have eo:bands or gee:schema in summaries',
+        gee_type=FOLDER,
+    )
 
   def test_bigquery_table_missing_schema(self):
     self.assert_collection(
@@ -223,15 +246,6 @@ class ErrorSummariesTest(test_utils.NodeTest):
             'gee:visualizations': 'does not matter'}},
         'table_collection cannot have eo:bands in summaries',
         gee_type=TABLE_COLLECTION)
-
-  def test_folder_eo_bands(self):
-    self.assert_collection(
-        {'summaries': {
-            'eo:bands': 'does not matter',
-            'gee:schema': 'does not matter',
-            'gee:visualizations': 'does not matter'}},
-        'folder cannot have eo:bands in summaries',
-        gee_type=FOLDER)
 
 if __name__ == '__main__':
   absltest.main()

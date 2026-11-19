@@ -58,6 +58,17 @@ class ValidVisualizationsTableTest(test_utils.NodeTest):
             'table_visualization': {'width': 3}}]}},
         gee_type=TABLE)
 
+  def test_folder_with_bands_skips_table_visualization(self):
+    self.assert_collection(
+        {
+            'summaries': {
+                'eo:bands': [{'name': 'B1'}],
+                'gee:visualizations': [{'image_visualization': {}}],
+            }
+        },
+        gee_type=FOLDER,
+    )
+
   def test_everything(self):
     self.assert_collection(
         {'summaries': {'gee:visualizations': [{
@@ -124,10 +135,10 @@ class ErrorVisualizationsTableTest(test_utils.NodeTest):
 
   def test_missing_table_visualization_folder(self):
     self.assert_collection(
-        {'summaries': {
-            'eo:bands': [{'name': 'B1'}], 'gee:visualizations': [{1: 2}]}},
+        {'summaries': {'gee:visualizations': [{1: 2}]}},
         'folder must have a table_visualization',
-        gee_type=FOLDER)
+        gee_type=FOLDER,
+    )
 
   def test_visualization_table_not_dict(self):
     self.assert_collection(
