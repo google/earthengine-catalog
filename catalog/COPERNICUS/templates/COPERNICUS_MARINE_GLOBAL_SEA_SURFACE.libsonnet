@@ -21,6 +21,14 @@ nrt_daily_description: |||
   global, Level-4 analysis for Sea Surface Salinity (SSS) and Sea Surface
   Density (SSD).
 |||,
+nrt_daily_v2_description: |||
+
+  This collection is ingested from Copernicus dataset version 202607, which
+  uses an updated upstream SMOS Level-3 Sea Surface Salinity source
+  (MULTIOBS_GLO_PHY_SSS_L3_MYNRT_015_014 instead of the CATDS repository).
+  The change in upstream data can change pixel values compared to the
+  previous dataset version, so it is published as a separate collection.
+|||,
 rep_daily_description: |||
   This dataset provides the Multi-Year Reprocessed version of the daily,
   global, Level-4 analysis for Sea Surface Salinity (SSS) and Sea Surface

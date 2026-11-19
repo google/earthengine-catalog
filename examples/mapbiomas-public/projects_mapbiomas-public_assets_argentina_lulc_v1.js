@@ -4,9 +4,9 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/argentina/lulc/v1';
 
-var year = 2024;
+var year = 2025;
 var version = 'v1';
-var collectionId = 2;
+var collectionId = 3;
 
 var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('collection_id', collectionId))

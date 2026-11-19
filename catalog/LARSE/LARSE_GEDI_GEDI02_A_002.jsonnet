@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GEDI L2A Vector Canopy Top Height (Version 2)',
   version: '2',
-  'gee:type': ee_const.gee_type.table_collection,
+  'gee:type': ee_const.gee_type.folder,
   description: gedi_l2a.description + |||
 
     Please see [User Guide](https://lpdaac.usgs.gov/documents/986/GEDI02_UserGuide_V2.pdf)

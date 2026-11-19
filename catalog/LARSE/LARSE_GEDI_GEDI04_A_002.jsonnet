@@ -20,7 +20,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   id: id,
   title: 'GEDI L4A Aboveground Biomass Density, Version 2.1',
   version: '2.1',
-  'gee:type': ee_const.gee_type.table_collection,
+  'gee:type': ee_const.gee_type.folder,
   description: gedi_l4a.description + |||
 
     Please see [User Guide](https://daac.ornl.gov/GEDI/guides/GEDI_L4A_AGB_Density_V2_1.html)

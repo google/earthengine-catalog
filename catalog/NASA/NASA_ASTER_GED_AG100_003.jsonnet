@@ -79,7 +79,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
                     '2000-01-01T00:00:00Z', '2008-12-31T00:00:00Z'),
   summaries: {
     gsd: [
-      100.0,
+      111.32,
     ],
     'eo:bands': [
       {

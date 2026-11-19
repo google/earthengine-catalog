@@ -58,7 +58,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   ],
   extent: ee.extent_global('2019-01-01T00:00:00Z', '2019-01-01T00:00:00Z'),
   summaries: {
-    gsd: [0.0009],
+    gsd: [100.0],
     'eo:bands': [
       {
         name: 'FPP_1km',

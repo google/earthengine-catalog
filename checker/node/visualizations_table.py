@@ -48,7 +48,11 @@ POLYGON_VISUALIZATION = 'polygon_visualization'
 TABLE_VISUALIZATION = 'table_visualization'
 VISUALIZE_AS = 'visualize_as'
 
-TABLE_TYPES = (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION)
+TABLE_TYPES = (
+    stac.GeeType.TABLE,
+    stac.GeeType.TABLE_COLLECTION,
+    stac.GeeType.FOLDER,
+)
 
 COLOR = 'color'
 FILL_COLOR = 'fill_color'

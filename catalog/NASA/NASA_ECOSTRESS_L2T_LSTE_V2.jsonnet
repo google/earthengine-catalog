@@ -26,18 +26,13 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   title: 'ECOSTRESS Land Surface Temperature and Emissivity L2 Global 70 m V002',
   version: version,
   'gee:type': ee_const.gee_type.image_collection,
-  # TODO(aprajitaa): Update gee:status to public once expanded to all of global.
-  'gee:status': 'beta',
   description: |||
     The ECOSTRESS Land Surface Temperature and Emissivity (ECO_L2T_LSTE) V002
     dataset provides Land Surface Temperature (LST), LST error, Quality Control
     flags, Broadband Emissivity, cloud mask, surface height, water mask, and
     view zenith angle data at a 70m spatial resolution. This product is derived
-    from ECOSTRESS observations and is essential for understanding surface energy
-    balance and water stress.
-
-    NOTE: Currently, only tiles covering the Los Angeles metro area have been
-    ingested into Earth Engine. We plan to expand coverage in the future.
+    from ECOSTRESS observations and is essential for understanding surface
+    energy balance and water stress.
 
     Documentation:
 

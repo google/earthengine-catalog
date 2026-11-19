@@ -46,6 +46,7 @@ py_library(
     ],
     data = [
         "//:non_commercial_datasets",
+        "//:share_alike_datasets",
         "//catalog",
     ],
 )

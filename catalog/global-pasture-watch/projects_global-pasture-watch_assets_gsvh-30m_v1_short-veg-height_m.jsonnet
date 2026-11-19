@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'height',
         description: 'Median vegetation height',
-        gsd: 30,
+        gsd: 27.83,
         'gee:scale': 0.1,
         'gee:units': units.meter
       }

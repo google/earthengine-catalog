@@ -12,7 +12,6 @@ from checker import stac
 CATEGORIES = frozenset([
     'agriculture',
     'atmosphere',
-    'climate',
     'cryosphere',
     'ecosystems',
     'elevation-topography',
@@ -29,7 +28,8 @@ CATEGORIES = frozenset([
     'soil',
     'surface-ground-water',
     'vegetation-indices',
-    'water-vapor'
+    'water-vapor',
+    'weather-and-climate',
 ])
 
 GEE_CATEGORIES = 'gee:categories'

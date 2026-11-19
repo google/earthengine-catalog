@@ -7,9 +7,13 @@ local spdx = import 'spdx.libsonnet';
 local units = import 'units.libsonnet';
 local versions_compare = import 'templates/versions_2025a_2025b.libsonnet';
 
+local versions = import 'versions.libsonnet';
+local version_table = import 'templates/projects_forestdatapartnership_assets_palm_versions.libsonnet';
+
 local license = spdx.cc_by_4_0;
 
-local version = '2025b';
+local version_config = versions(subdir, version_table, id);
+local version = version_config.version;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -28,7 +32,8 @@ local self_url = catalog_subdir_url + base_filename;
   ],
   id: id,
   version: version,
-  title: 'Palm Probability model ' + version,
+  'gee:status': 'deprecated',
+  title: 'Palm Probability model ' + version + ' [deprecated]',
   'gee:type': ee_const.gee_type.image_collection,
   description: |||
     This image collection provides estimated per-pixel probability that the
@@ -57,7 +62,7 @@ local self_url = catalog_subdir_url + base_filename;
     for technical documentation and limitations of this dataset.
   ||| + '\n' + versions_compare.version_differences,
   license: license.id,
-  links: ee.standardLinks(subdir, id),
+  links: ee.standardLinks(subdir, id) + version_config.version_links,
   'gee:categories': ['agriculture'],
   keywords: [
     'eudr',

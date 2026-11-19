@@ -1,9 +1,9 @@
 // Load NLCD Tree Canopy Cover (TCC) image collection.
 var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/TCC/Product_Version/2025-6');
 
-// Keep only the 2024 CONUS image and convert to a single image.
+// Filter to year of interest and convert to a single image.
 var tcc = dataset.filter(ee.Filter.calendarRange(2024, 2024,'year'))  // range: [1985, 2025]
-               .filter(ee.Filter.inList('study_area', ['AK', 'CONUS']))  // CONUS and AK
+               .filter(ee.Filter.inList('study_area', ['AK', 'CONUS', 'HI', 'PRUSVI']))  // AK, CONUS, HI, PRUSVI
                .mosaic();
                
 // Color ramp for canopy cover visualization (low to high cover).
@@ -47,7 +47,7 @@ waterLandBackground = waterLandBackground.updateMask(studyAreasBoundary)
 // Load LCMS to derive a water mask from the land cover class.
 var dataset = ee.ImageCollection("projects/gtac-data-publish/assets/LCMS/Product_Version/2025-11")
 var lcms = dataset.filterDate('2024', '2025')  // range: [1985, 2025]
-               .filter(ee.Filter.inList('study_area', ['AK', 'CONUS']))  // CONUS and AK
+               .filter(ee.Filter.inList('study_area', ['AK', 'CONUS', 'HI', 'PRUSVI']))  // AK, CONUS, HI, PRUSVI
                .mosaic();
 
 // Class 14 is water in the LCMS Land_Cover band.

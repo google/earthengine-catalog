@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -53.07,
     -30.09,
     '1985-01-01T00:00:00Z',
-    '2024-12-31T00:00:00Z'
+    '2025-12-31T00:00:00Z'
   ),
 
   summaries: {
@@ -102,13 +102,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 1,  color: '1f8d49', description: 'Natural woody vegetation'},
           {value: 3,  color: '1f8d49', description: 'Closed forest and closed shrubland'},
           {value: 9,  color: '7a5900', description: 'Forest plantation'},
-          {value: 10, color: 'ccc87e', description: 'Natural herbaceous vegetation'},
+          {value: 10, color: 'd6bc74', description: 'Natural herbaceous vegetation'},
           {value: 11, color: '519799', description: 'Flooded grasslands and swampy areas'},
-          {value: 12, color: 'ccc87e', description: 'Grassland'},
+          {value: 12, color: 'd6bc74', description: 'Grassland'},
           {value: 13, color: 'ffefc3', description: 'Agricultural and livestock area'},
           {value: 15, color: 'fbf0ab', description: 'Pasture'},
           {value: 18, color: 'c27ba0', description: 'Agriculture'},
-          {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
+          {value: 22, color: 'c80404', description: 'Non-vegetated area'},
+          {value: 24, color: 'c80404', description: 'Urban area'},
+          {value: 25, color: 'f05951', description: 'Other non-vegetated area'},
           {value: 26, color: '2532e4', description: 'Water body'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
           {value: 33, color: '2532e4', description: 'River, lake or ocean'},
@@ -139,9 +141,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [7] --
               '000000',  // [8] --
               '7a5900',  // [9] Forest plantation
-              'ccc87e',  // [10] Natural herbaceous vegetation
+              'd6bc74',  // [10] Natural herbaceous vegetation
               '519799',  // [11] Flooded grasslands and swampy areas
-              'ccc87e',  // [12] Grassland
+              'd6bc74',  // [12] Grassland
               'ffefc3',  // [13] Agricultural and livestock area
               '000000',  // [14] --
               'fbf0ab',  // [15] Pasture
@@ -151,10 +153,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '000000',  // [19] --
               '000000',  // [20] --
               '000000',  // [21] --
-              'd4271e',  // [22] Non-vegetated area
+              'c80404',  // [22] Non-vegetated area
               '000000',  // [23] --
-              '000000',  // [24] --
-              '000000',  // [25] --
+              'c80404',  // [24] Urban area
+              'f05951',  // [25] Other non-vegetated area
               '2532e4',  // [26] Water body
               'ffffff',  // [27] Not observed
               '000000',  // [28] --

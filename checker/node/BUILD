@@ -12,6 +12,18 @@ py_library(
 )
 
 py_test(
+    name = "gee_bq_table_name_test",
+    size = "small",
+    srcs = ["gee_bq_table_name_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+        requirement("absl-py"),
+    ],
+)
+
+py_test(
     name = "description_test",
     srcs = ["description_test.py"],
     deps = [
@@ -91,6 +103,18 @@ py_test(
 py_test(
     name = "gee_bitmask_test",
     srcs = ["gee_bitmask_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+        requirement("absl-py"),
+    ],
+)
+
+py_test(
+    name = "gee_categories_test",
+    size = "small",
+    srcs = ["gee_categories_test.py"],
     deps = [
         ":node",
         "//checker:stac",
@@ -311,6 +335,18 @@ py_test(
 py_test(
     name = "sci_extension_test",
     srcs = ["sci_extension_test.py"],
+    deps = [
+        ":node",
+        "//checker:stac",
+        "//checker:test_utils",
+        requirement("absl-py"),
+    ],
+)
+
+py_test(
+    name = "share_alike_test",
+    size = "small",
+    srcs = ["share_alike_test.py"],
     deps = [
         ":node",
         "//checker:stac",

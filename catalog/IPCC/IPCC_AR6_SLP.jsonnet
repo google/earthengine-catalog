@@ -8,7 +8,7 @@ local units = import 'units.libsonnet';
 local bands_info = import 'templates/ipcc_ar6.libsonnet';
 local components = importstr 'templates/components.md';
 
-local license = spdx.proprietary;
+local license = spdx.cc_by_4_0;
 
 local basename = std.strReplace(id, '/', '_');
 local base_filename = basename + '.json';
@@ -85,7 +85,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   extent: ee.extent_global('2020-01-01T00:00:00Z', null),
   summaries: {
     gsd: [
-      111.32,
+      111320.0,
     ],
     'eo:bands': [
       {

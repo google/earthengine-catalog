@@ -70,4 +70,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     ],
   },
   'gee:terms_of_use': importstr 'spot_world_heritage_programme_terms_of_use.md',
+  'gee:unusual_terms_of_use': true,
 }

@@ -209,7 +209,11 @@ class Check(stac.NodeCheck):
             yield cls.new_issue(
                 node, f'{node.gee_type} must have an {IMAGE_VISUALIZATION}')
           elif (node.gee_type
-                in (stac.GeeType.TABLE, stac.GeeType.TABLE_COLLECTION) and
+                in (
+                    stac.GeeType.TABLE,
+                    stac.GeeType.TABLE_COLLECTION,
+                    stac.GeeType.FOLDER,
+                ) and
                 field not in (POLYGON_VISUALIZATION, TABLE_VISUALIZATION)):
             yield cls.new_issue(
                 node, f'{node.gee_type} must have one of ' +

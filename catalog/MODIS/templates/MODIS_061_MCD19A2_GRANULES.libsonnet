@@ -2,9 +2,6 @@ local units = import 'units.libsonnet';
 
 {
   summaries: {
-    gsd: [
-      1000.0,
-    ],
     instruments: [
       'MODIS',
     ],
@@ -17,6 +14,7 @@ local units = import 'units.libsonnet';
           except when smoke or dust is detected; rather, we report a static
           value of 0.02 used for atmospheric correction.
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.001,
         center_wavelength: 0.47,
       },
@@ -26,6 +24,7 @@ local units = import 'units.libsonnet';
           Aerosol optical depth over land retrieved in the MODIS Green band
           (0.55 &mu;m).
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.001,
         center_wavelength: 0.55,
       },
@@ -34,11 +33,13 @@ local units = import 'units.libsonnet';
         description: |||
            AOD uncertainty based on blue-band surface brightness (reflectance)
         |||,
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'FineModeFraction',
         description: 'Fine mode fraction for ocean and large inland lakes',
+        gsd: 1000.0,
       },
       {
         name: 'Column_WV',
@@ -48,12 +49,14 @@ local units = import 'units.libsonnet';
           above the cloud.
         |||,
         'gee:units': units.centimeter,
+        gsd: 1000.0,
         'gee:scale': 0.001,
         center_wavelength: 0.94,
       },
       {
         name: 'AOD_QA',
         description: 'AOD QA',
+        gsd: 1000.0,
         'gee:bitmask': {
           bitmask_parts: [
             {
@@ -266,35 +269,42 @@ local units = import 'units.libsonnet';
         name: 'Injection_Height',
         description: 'Smoke injection height',
         'gee:units': units.meter,
+        gsd: 1000.0,
       },
       {
         name: 'AngstromExp_470-780',
         description: 'Angstrom exponent 470-780nm over the ocean',
+        gsd: 1000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'cosSZA',
         description: 'Cosine of solar zenith angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'cosVZA',
         description: 'Cosine view zenith angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.0001,
       },
       {
         name: 'RelAZ',
         description: 'Relative azimuth angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'Scattering_Angle',
         description: 'Scattering angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
       {
         name: 'Glint_Angle',
         description: 'Glint angle (5 km resolution)',
+        gsd: 5000.0,
         'gee:scale': 0.01,
       },
     ],

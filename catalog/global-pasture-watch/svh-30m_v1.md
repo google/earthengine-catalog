@@ -11,9 +11,9 @@ dataset offers wall-to-wall coverage of all terrestrial ecosystems. Thus, median
 should not be interpreted as top of canopy. For comparison with other existing canopy height products access the app
 [GPW Height Comparison Toolkit (GPW-HCT)](https://gpw-lapig.projects.earthengine.app/view/hct).
 
-Estimates of **90% prediction interval values** (5th & 95th percentiles) are available in  [OpenLandMap STAC](https://stac.openlandmap.org/gpw_gsvh-30m/collection.json).
+Estimates of **90% prediction interval values** (5th & 95th percentiles) are available in [OpenLandMap STAC](https://stac.openlandmap.org/openlandmap/collections/gpw_gsvh-30m_go).
 
-**Per-pixel trend analysis** are computed on-the-fly using [GEE App](https://global-pasture-watch.projects.earthengine.app/view/gsvh-30m).
+**Per-pixel trend analysis** is computed on-the-fly using [GEE App](https://global-pasture-watch.projects.earthengine.app/view/gsvh-30m).
 
 **Limitations:** 
 
@@ -37,13 +37,13 @@ less than 50 cm from the ground surface, which may lead to overestimation of hei
 covers, such as wetland saltpans.
 
 - **Underestimation of maximum heights**: The trained machine learning model exhibited a tendency toward the mean, which 
-resulted in overly narrow and optimistic [prediction intervals](https://stac.openlandmap.org/gpw_gsvh-30m/collection.json). 
+resulted in overly narrow and optimistic [prediction intervals](https://stac.openlandmap.org/openlandmap/collections/gpw_gsvh-30m_go). 
 Due to the underestimation of vegetation height in the upper extremes, care should be taken when interpreting absolute 
 values in regions with very tall forests, but relative patterns and trends are still informative.
 
 - **Limited independent validation**: While validated against ICESat-2 data (testing set), broader validation using airborne 
 or drone Lidar would be necessary to fully assess the quality of the dataset at regional level.	
 
-**For more information see [Hunter et. al, 2025](https://doi.org/10.1038/s41597-025-05739-6),
+**For more information see [Hunter et al., 2025](https://doi.org/10.1038/s41597-025-05739-6),
 [Zenodo](https://doi.org/10.5281/zenodo.15198654) and 
 [Global Pasture Watch GitHub site](https://github.com/wri/global-pasture-watch)**

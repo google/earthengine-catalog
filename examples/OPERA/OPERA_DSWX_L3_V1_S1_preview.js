@@ -1,11 +1,11 @@
 var dswx_s1_collection = ee.ImageCollection('OPERA/DSWX/L3_V1/S1')
                  .filterDate('2025-03-01', '2025-10-01');
 
-// Mask out values >= 252 before calculating the mode we don't
-// want to have clouds or snow/ice be included.
+// Mask out values >= 250 before calculating the max so that
+// HAND and layover/shadow masks are not included.
 var masked_collection = dswx_s1_collection.map(function(image) {
   var wtr = image.select('WTR_Water_classification');
-  return wtr.updateMask(wtr.lt(252));
+  return wtr.updateMask(wtr.lt(250));
 });
 
 var dswx_s1 = masked_collection
@@ -15,26 +15,24 @@ var dswx_s1 = masked_collection
 var wtr_class_values = [
   0,    // Not water
   1,    // Open water
-  2,    //Partial surface water
-  252,  // Snow/ice
-  253,  // Cloud/cloud shadow
-  254   // Ocean masked
+  3,    // Inundated vegetation
+  250,  // Height Above Nearest Drainage (HAND) masked
+  251   // Layover/shadow masked
 ];
 
 var wtr_palette = [
   'ffffff',  // Not water
   '0000ff',  // Open water
-  '0088ff',  // Partial surface water
-  'f2f2f2',  // Snow/ice
-  'dfdfdf',  // Cloud/cloud shadow
-  'da00ff',  // Ocean masked
+  '66c2a5',  // Inundated vegetation
+  'd3d3d3',  // Height Above Nearest Drainage (HAND) masked
+  'a9a9a9',  // Layover/shadow masked
 ];
 
 // Select the water classification band and remap to make have palette vis.
 var wtr_band = dswx_s1.select('WTR_Water_classification');
-var to = [0, 1, 2, 3, 4, 5];
+var to = [0, 1, 2, 3, 4];
 var image = wtr_band.remap(wtr_class_values, to)
-                .visualize({min: 0, max: 5, palette: wtr_palette});
+                .visualize({min: 0, max: 4, palette: wtr_palette});
 var lon = 12.982;
 var lat = 55.824;
 var delta = 0.1;

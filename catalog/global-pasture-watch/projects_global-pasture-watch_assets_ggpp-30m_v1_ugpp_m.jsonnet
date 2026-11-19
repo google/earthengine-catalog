@@ -39,7 +39,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'gc_m2',
         description: 'Grams of carbon per square meter per year (gC/m²/year)',
-        gsd: 30
+        gsd: 27.83
       }
     ],
     gc_m2: {minimum: 0, maximum: 4000, 'gee:estimated_range': false},

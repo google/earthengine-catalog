@@ -21,6 +21,7 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('WorldPop_GP_100m_pop', base_url),
     ee.link.child_collection('WorldPop_GP_100m_pop_age_sex', base_url),
     ee.link.child_collection('WorldPop_GP_100m_pop_age_sex_cons_unadj', base_url),
+    ee.link.child_collection('WorldPop_GP_100m_R2025A_v1_pop', base_url),
     ee.link.child_collection('WorldPop_POP', base_url),
   ],
 }
