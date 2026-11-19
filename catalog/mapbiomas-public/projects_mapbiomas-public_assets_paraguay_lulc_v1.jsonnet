@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -54.2571,
     -19.2876,
     '1985-01-01T00:00:00Z',
-    '2023-12-31T00:00:00Z'
+    '2025-12-31T00:00:00Z'
   ),
 
   summaries: {
@@ -103,7 +103,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 3,  color: '1f8d49', description: 'Closed Natural Woodlands'},
           {value: 4,  color: '7dc975', description: 'Open Natural Woodlands'},
           {value: 6,  color: '007785', description: 'Flooded Natural Woodlands'},
-          {value: 9,  color: 'ffefc3', description: 'Forest Plantation'},
+          {value: 9,  color: '7a6c00', description: 'Forest Plantation'},
           {value: 10, color: 'd6bc74', description: 'Herbaceous Natural Vegetation'},
           {value: 11, color: '519799', description: 'Flooded grasslands'},
           {value: 12, color: 'd6bc74', description: 'Grassland'},
@@ -111,8 +111,10 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           {value: 15, color: 'edde8e', description: 'Pasture'},
           {value: 18, color: 'e974ed', description: 'Agriculture'},
           {value: 22, color: 'd4271e', description: 'Non-vegetated area'},
+          {value: 25, color: 'db4d4f', description: 'Other non-vegetated area'},
           {value: 26, color: '2532e4', description: 'Water body'},
           {value: 27, color: 'ffffff', description: 'Not observed'},
+          {value: 33, color: '2532e4', description: 'River, lake or ocean'},
         ],
       },
     ],
@@ -125,7 +127,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
           band_vis: {
             bands: ['classification'],
             min: [0],
-            max: [27],
+            max: [33],
             palette: [
               '000000',  // [0] --
               '1f8d49',  // [1] Woody Natural Vegetation
@@ -136,7 +138,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               '007785',  // [6] Flooded Natural Woodlands
               '000000',  // [7] --
               '000000',  // [8] --
-              'ffefc3',  // [9] Forest Plantation
+              '7a6c00',  // [9] Forest Plantation
               'd6bc74',  // [10] Herbaceous Natural Vegetation
               '519799',  // [11] Flooded grasslands
               'd6bc74',  // [12] Grassland
@@ -152,9 +154,15 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
               'd4271e',  // [22] Non-vegetated area
               '000000',  // [23] --
               '000000',  // [24] --
-              '000000',  // [25] --
+              'db4d4f',  // [25] Other non-vegetated area
               '2532e4',  // [26] Water body
               'ffffff',  // [27] Not observed
+              '000000',  // [28] --
+              '000000',  // [29] --
+              '000000',  // [30] --
+              '000000',  // [31] --
+              '000000',  // [32] --
+              '2532e4',  // [33] River, lake or ocean
             ],
           },
         },

@@ -4,9 +4,9 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/paraguay/lulc/v1';
 
-var year = 2023;
+var year = 2025;
 var version = 'v1';
-var collectionId = 2;
+var collectionId = 3;
 
 var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('collection_id', collectionId))
@@ -15,7 +15,7 @@ var collection = ee.ImageCollection(assetPath)
 
 var visParams = {
   min: 0,
-  max: 27,
+  max: 33,
   palette: [
     '000000',  // [0] --
     '1f8d49',  // [1] Woody Natural Vegetation
@@ -26,7 +26,7 @@ var visParams = {
     '007785',  // [6] Flooded Natural Woodlands
     '000000',  // [7] --
     '000000',  // [8] --
-    'ffefc3',  // [9] Forest Plantation
+    '7a6c00',  // [9] Forest Plantation
     'd6bc74',  // [10] Herbaceous Natural Vegetation
     '519799',  // [11] Flooded grasslands
     'd6bc74',  // [12] Grassland
@@ -42,9 +42,15 @@ var visParams = {
     'd4271e',  // [22] Non-vegetated area
     '000000',  // [23] --
     '000000',  // [24] --
-    '000000',  // [25] --
+    'db4d4f',  // [25] Other non-vegetated area
     '2532e4',  // [26] Water body
     'ffffff',  // [27] Not observed
+    '000000',  // [28] --
+    '000000',  // [29] --
+    '000000',  // [30] --
+    '000000',  // [31] --
+    '000000',  // [32] --
+    '2532e4',  // [33] River, lake or ocean
   ],
 };
 

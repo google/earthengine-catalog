@@ -62,7 +62,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -34.7937,
     -2.746,
     '1985-01-01T00:00:00Z',
-    '2022-12-31T00:00:00Z'
+    '2023-12-31T00:00:00Z'
   ),
 
   summaries: {

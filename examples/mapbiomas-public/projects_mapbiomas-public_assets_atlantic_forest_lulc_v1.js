@@ -4,9 +4,9 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/atlantic_forest/lulc/v1';
 
-var year = 2022;
+var year = 2023;
 var version = 'v1';
-var collectionId = 3;
+var collectionId = 4;
 
 var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('collection_id', collectionId))

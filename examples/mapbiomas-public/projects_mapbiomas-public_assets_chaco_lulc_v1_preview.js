@@ -5,7 +5,7 @@
 var assetPath = 'projects/mapbiomas-public/assets/chaco/lulc/v1';
 
 var year = 2023;
-var version = 'v1';
+var version = 'v2';
 var collectionId = 5;
 
 var collection = ee.ImageCollection(assetPath)

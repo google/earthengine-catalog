@@ -4,9 +4,9 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/indonesia/lulc/v1';
 
-var year = 2024;
+var year = 2025;
 var version = 'v1';
-var collectionId = 4.1;
+var collectionId = 5;
 
 var collection = ee.ImageCollection(assetPath)
   .filter(ee.Filter.eq('collection_id', collectionId))
@@ -15,7 +15,7 @@ var collection = ee.ImageCollection(assetPath)
 
 var visParams = {
   min: 0,
-  max: 76,
+  max: 92,
   palette: [
     '000000',  // [0] --
     '1f8d49',  // [1] Forest
@@ -26,10 +26,10 @@ var visParams = {
     '000000',  // [6] --
     '000000',  // [7] --
     '000000',  // [8] --
-    '7a5900',  // [9] Pulpwood Plantation
+    '7a6c00',  // [9] Forest Plantation
     'd6bc74',  // [10] Non-Forest Natural Formation
-    '000000',  // [11] --
-    '000000',  // [12] --
+    '519799',  // [11] Wetland
+    'd6bc74',  // [12] Savannah
     'd89f5c',  // [13] Other Natural Vegetation
     '000000',  // [14] --
     '000000',  // [15] --
@@ -63,10 +63,10 @@ var visParams = {
     '000000',  // [43] --
     '000000',  // [44] --
     '000000',  // [45] --
-    '000000',  // [46] --
+    'eb7fa5',  // [46] Coffee
     '000000',  // [47] --
-    '000000',  // [48] --
-    '000000',  // [49] --
+    'e6ccff',  // [48] Perennial Crops
+    'b77671',  // [49] Rubber
     '000000',  // [50] --
     '000000',  // [51] --
     '000000',  // [52] --
@@ -81,7 +81,7 @@ var visParams = {
     '000000',  // [61] --
     '000000',  // [62] --
     '000000',  // [63] --
-    '000000',  // [64] --
+    '089767',  // [64] Sago
     '000000',  // [65] --
     '000000',  // [66] --
     '000000',  // [67] --
@@ -94,6 +94,22 @@ var visParams = {
     '000000',  // [74] --
     '000000',  // [75] --
     '2f7360',  // [76] Peat Swamp Forest
+    '000000',  // [77] --
+    '000000',  // [78] --
+    '000000',  // [79] --
+    '7a5900',  // [80] Timber Plantation
+    '000000',  // [81] --
+    '000000',  // [82] --
+    '000000',  // [83] --
+    '000000',  // [84] --
+    '000000',  // [85] --
+    '000000',  // [86] --
+    '000000',  // [87] --
+    '000000',  // [88] --
+    '000000',  // [89] --
+    '000000',  // [90] --
+    '000000',  // [91] --
+    'd98a45',  // [92] Rocky Surface
   ],
 };
 
