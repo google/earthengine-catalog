@@ -285,6 +285,64 @@ class TemporalTest(absltest.TestCase):
     expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
     self.assertEqual(expect, issues)
 
+  def test_image_must_have_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    self.node.gee_type = stac.GeeType.IMAGE
+    issues = list(check_temporal(self.node, self.extent))
+    message = 'image must have an end date'
+    expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
+  def test_bigquery_table_must_have_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    self.node.gee_type = stac.GeeType.BIGQUERY_TABLE
+    issues = list(check_temporal(self.node, self.extent))
+    message = 'bigquery_table must have an end date'
+    expect = [stac.Issue(ID, FILE_PATH_OUT, CHECK_NAME, message)]
+    self.assertEqual(expect, issues)
+
+  def test_image_collection_allows_missing_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    self.node.gee_type = stac.GeeType.IMAGE_COLLECTION
+    issues = list(check_temporal(self.node, self.extent))
+    self.assertEqual(0, len(issues))
+
+  def test_ongoing_exception_allows_missing_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    node = stac.Node(
+        'LARSE/GEDI/GEDI02_A_003',
+        FILE_PATH,
+        COLLECTION,
+        stac.GeeType.FOLDER,
+        {},
+    )
+    issues = list(check_temporal(node, self.extent))
+    self.assertEqual(0, len(issues))
+
+  def test_ongoing_index_table_exception_allows_missing_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    node = stac.Node(
+        'LARSE/GEDI/GEDI02_A_003_INDEX',
+        FILE_PATH,
+        COLLECTION,
+        stac.GeeType.TABLE,
+        {},
+    )
+    issues = list(check_temporal(node, self.extent))
+    self.assertEqual(0, len(issues))
+
+  def test_legacy_exception_allows_missing_end_date(self):
+    self.first_interval[1] = None  # pyrefly: ignore[unsupported-operation]
+    node = stac.Node(
+        'ECMWF/ERA5_LAND/STATIC',
+        FILE_PATH,
+        COLLECTION,
+        stac.GeeType.IMAGE,
+        {},
+    )
+    issues = list(check_temporal(node, self.extent))
+    self.assertEqual(0, len(issues))
+
 
 class ExtentTest(test_utils.NodeTest):
 
@@ -306,8 +364,26 @@ class ExtentTest(test_utils.NodeTest):
     self.assert_collection(self.stac_json)
 
   def test_valid_without_end_date(self):
-    self.stac_json[EXTENT][TEMPORAL][INTERVAL][0][1] = None  # pyrefly: ignore[unsupported-operation]
-    self.assert_collection(self.stac_json)
+    stac_json = {
+        EXTENT: {
+            SPATIAL: {'bbox': [[-1.2, 7.8, 2.3, 8.9]]},
+            TEMPORAL: {INTERVAL: [['2009-01-01T00:00:00Z', None]]},
+        }
+    }
+    self.assert_collection(stac_json, gee_type=stac.GeeType.IMAGE_COLLECTION)
+
+  def test_invalid_image_without_end_date(self):
+    stac_json = {
+        EXTENT: {
+            SPATIAL: {'bbox': [[-1.2, 7.8, 2.3, 8.9]]},
+            TEMPORAL: {INTERVAL: [['2009-01-01T00:00:00Z', None]]},
+        }
+    }
+    self.assert_collection(
+        stac_json,
+        'image must have an end date',
+        gee_type=stac.GeeType.IMAGE,
+    )
 
   def test_catalog_cannot_have_extent(self):
     self.assert_catalog({EXTENT: {}}, 'Catalogs cannot have extent')

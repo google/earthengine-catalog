@@ -35,6 +35,26 @@ EARLIEST = datetime.datetime(1600, 1, 1, tzinfo=datetime.timezone.utc)
 NEWEST = datetime.datetime(2500, 1, 1, tzinfo=datetime.timezone.utc)
 ISO8601 = '%Y-%m-%dT%H:%M:%S%z'
 
+# Non-image_collection datasets whose ongoing end dates are dynamically
+# populated from companion index tables.
+ONGOING_DATASET_EXCEPTIONS = frozenset({
+    'LARSE/GEDI/GEDI02_A_003',
+    'LARSE/GEDI/GEDI02_A_003_INDEX',
+    'LARSE/GEDI/GEDI02_B_003',
+    'LARSE/GEDI/GEDI02_B_003_INDEX',
+})
+
+# Legacy non-image_collection datasets that were added before missing end dates
+# were restricted across all static dataset types.
+LEGACY_MISSING_END_DATE_EXCEPTIONS = frozenset({
+    'COPERNICUS/MARINE/INSITU_MULTI_4KM/ARGO',
+    'COPERNICUS/MARINE/INSITU_MULTI_4KM/DRIFTER',
+    'COPERNICUS/MARINE/INSITU_MULTI_4KM/RADAR_RADIAL',
+    'COPERNICUS/MARINE/INSITU_MULTI_4KM/RADAR_TOTAL',
+    'ECMWF/ERA5_LAND/STATIC',
+    'overture-maps/places_place',
+})
+
 
 class Check(stac.NodeCheck):
   """Checks the extent field."""
@@ -152,10 +172,10 @@ class Check(stac.NodeCheck):
       yield cls.new_issue(node, f'{start_date} is before {EARLIEST}')
 
     if end is None:
-      if node.gee_type in (
-          stac.GeeType.TABLE,
-          stac.GeeType.TABLE_COLLECTION,
-          stac.GeeType.FOLDER,
+      if (
+          node.gee_type != stac.GeeType.IMAGE_COLLECTION
+          and node.id not in ONGOING_DATASET_EXCEPTIONS
+          and node.id not in LEGACY_MISSING_END_DATE_EXCEPTIONS
       ):
         yield cls.new_issue(node, f'{node.gee_type} must have an end date')
     else:
