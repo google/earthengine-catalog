@@ -2,6 +2,38 @@ local gedi_l2a = import 'gedi_l2a.libsonnet';
 local ee_const = import 'earthengine_const.libsonnet';
 local units = import 'units.libsonnet';
 
+local l2b_int_bands = [
+  'algorithmrun_flag',
+  'beam',
+  'degrade_flag',
+  'l2b_quality_flag',
+  'selected_l2a_algorithm',
+  'selected_rg_algorithm',
+  'shot_number_within_beam',
+];
+
+local l2b_v3_overrides = {
+  algorithmrun_flag: {
+    description: |||
+      The L2B algorithm is run if this flag is set to 1, indicating data have
+      sufficient waveform fidelity for L2B to run. Populated from
+      `l2_algrunflag` in source Version 3 granules.
+    |||,
+  },
+  cover: {
+    'gee:units': units.unspecified_fraction,
+  },
+  delta_time: {
+    'gee:units': units.seconds,
+  },
+  l2b_quality_flag: {
+    description: |||
+      L2B quality flag (1=valid, 0=invalid), populated from
+      `l2b_quality_flag_rel3` in source Version 3 granules.
+    |||,
+  },
+};
+
 {
   description: |||
     GEDI Level 2B Canopy Cover and Vertical Profile Metrics product (GEDI02_B)
@@ -162,5 +194,62 @@ local units = import 'units.libsonnet';
       type:: ee_const.var_type.int,
     }
     for step in std.range(0, 30)
+  ],
+  description_v3: $.description + |||
+
+    The original GEDI02_B product is a table of points with a spatial resolution
+    (average footprint) of 25 meters.
+
+    Version 3 improvements include local reflectance-ratio estimates for canopy
+    cover, improved geolocation across the data record, consistent Level 2
+    quality flags, corrected waveform elevation array calculations impacting
+    `fhd_normal` and `pavd_z` metrics, corrected `leaf_off_flag` calculations,
+    and removal of unused algorithm setting groups (3, 4, and 6). In Earth
+    Engine, `l2b_quality_flag` and `algorithmrun_flag` are populated from
+    `l2b_quality_flag_rel3` and `l2_algrunflag`, respectively, in source
+    Version 3 granules.
+  |||,
+  citation_v3: |||
+    Dubayah, R., H. Tang, J. Armston, S. Luthcke, M. Hofton, J. Blair. GEDI L2B
+    Canopy Cover and Vertical Profile Metrics Data Global Footprint Level V003.
+    2026, distributed by NASA EOSDIS Land Processes DAAC,
+    [doi:10.5067/GEDI/GEDI02_B.003](https://doi.org/10.5067/GEDI/GEDI02_B.003).
+    Accessed YYYY-MM-DD.
+  |||,
+  regular_bands_v3: [
+    band + (
+      if std.member(l2b_int_bands, band.name) then {}
+      else { type:: ee_const.var_type.double }
+    ) + (
+      if band.name in l2b_v3_overrides then l2b_v3_overrides[band.name]
+      else {}
+    )
+    for band in $.regular_bands
+    if band.name != 'shot_number'
+  ] + [
+    band
+    for band in gedi_l2a.regular_bands_v3
+    if std.member(['minor_frame_number', 'orbit_number'], band.name)
+  ],
+  cover_bands_v3: [
+    $.cover_bands[step] {
+      description:
+        'Cumulative canopy cover vertical profile at slice ' + step,
+      'gee:units': units.unspecified_fraction,
+      type:: ee_const.var_type.double,
+    }
+    for step in std.range(0, 29)
+  ],
+  pai_bands_v3: [
+    $.pai_bands[step] {
+      type:: ee_const.var_type.double,
+    }
+    for step in std.range(0, 29)
+  ],
+  pavd_bands_v3: [
+    $.pavd_bands[step] {
+      type:: ee_const.var_type.double,
+    }
+    for step in std.range(0, 29)
   ],
 }

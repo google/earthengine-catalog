@@ -9,8 +9,18 @@ local units = import 'units.libsonnet';
     is primarily composed of 100 Relative Height (RH) metrics, which
     collectively describe the waveform collected by GEDI.
 
-    The original GEDI02_A product is a table of point with a spatial resolution
+    The original GEDI02_A product is a table of points with a spatial resolution
     (average footprint) of 25 meters.
+  |||,
+  description_v3: $.description + |||
+
+    Version 3 improvements include improved geolocation and elevation
+    consistency across the data record, consistent Level 2 quality flags and
+    algorithm setting group selection variables, corrected `leaf_off_flag`
+    calculations, and removal of unused algorithm setting groups (3, 4, and 6).
+    In Earth Engine, `quality_flag` is populated from `l2a_quality_flag_rel3`
+    in source Version 3 granules, and `leaf_off_doy`, `leaf_on_cycle`, and
+    `leaf_on_doy` are no longer present.
   |||,
   keywords: [
     'elevation',
@@ -20,15 +30,20 @@ local units = import 'units.libsonnet';
     'tree_cover',
     'usgs',
   ],
-  providers(name, catalog_url): [
+  providers(
+    name,
+    catalog_url,
+    processor_url='https://lpdaac.usgs.gov/products/gedi02_av002/'
+  ): [
     ee.producer_provider(
-      name + 'USFS Laboratory for Applications of Remote Sensing in Ecology (LARSE)',
+      name +
+      'USFS Laboratory for Applications of Remote Sensing in Ecology (LARSE)',
       'https://www.fs.usda.gov/'
     ),
     // LP DAAC is more of a host
     ee.processor_provider(
       'NASA GEDI mission, accessed through the USGS LP DAAC',
-      'https://lpdaac.usgs.gov/products/gedi02_av002/'
+      processor_url
     ),
     ee.host_provider(catalog_url),
   ],
@@ -44,6 +59,13 @@ local units = import 'units.libsonnet';
     Dubayah, R., M. Hofton, J. Blair, J. Armston, H. Tang, S. Luthcke. GEDI L2A
     Elevation and Height Metrics Data Global Footprint Level V002. 2021,
     distributed by NASA EOSDIS Land Processes DAAC. Accessed YYYY-MM-DD.
+  |||,
+  citation_v3: |||
+    Dubayah, R., M. Hofton, J. Blair, J. Armston, H. Tang, S. Luthcke. GEDI L2A
+    Elevation and Height Metrics Data Global Footprint Level V003. 2026,
+    distributed by NASA EOSDIS Land Processes DAAC,
+    [doi:10.5067/GEDI/GEDI02_A.003](https://doi.org/10.5067/GEDI/GEDI02_A.003).
+    Accessed YYYY-MM-DD.
   |||,
   regular_bands: [
     {
@@ -331,6 +353,31 @@ local units = import 'units.libsonnet';
       'gee:units': units.radian,
       type:: ee_const.var_type.double,
     },
+  ],
+  regular_bands_v3: [
+    if band.name == 'quality_flag' then
+      band {
+        description: |||
+          Flag indicating likely invalid waveform (1=valid, 0=invalid),
+          populated from `l2a_quality_flag_rel3` in source Version 3 granules.
+        |||,
+      }
+    else if band.name == 'minor_frame_number' then
+      band {
+        description: 'Minor frame number (0-241)',
+      }
+    else if band.name == 'local_beam_elevation' then
+      band {
+        description: |||
+          Elevation in radians of the unit pointing vector for the laser in the
+          local ENU frame. The angle is measured from the East-North plane and
+          is positive towards Up.
+        |||,
+      }
+    else
+      band
+    for band in $.regular_bands
+    if !std.member(['leaf_off_doy', 'leaf_on_cycle', 'leaf_on_doy'], band.name)
   ],
   rh_bands: [
     {
