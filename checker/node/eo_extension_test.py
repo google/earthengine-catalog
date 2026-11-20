@@ -37,6 +37,15 @@ class ValidEoExtensionTest(test_utils.NodeTest):
   def test_empty_folder(self):
     self.assert_collection({}, gee_type=FOLDER)
 
+  def test_folder_with_eo_and_bands(self):
+    self.assert_collection(
+        {
+            'stac_extensions': [EO_URL],
+            'summaries': {'gsd': [10], 'eo:bands': MINIMUM_BANDS_NO_GSD},
+        },
+        gee_type=FOLDER,
+    )
+
   def test_image_summaries_not_dict(self):
     self.assert_collection({'summaries': 'not a dict'})
 
@@ -98,11 +107,19 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         'table_collection must not have the eo extension',
         gee_type=TABLE_COLLECTION)
 
-  def test_folder_with_eo(self):
+  def test_folder_with_eo_missing_bands(self):
     self.assert_collection(
-        {'stac_extensions': [EO_URL]},
-        'folder must not have the eo extension',
-        gee_type=FOLDER)
+        {'stac_extensions': [EO_URL], 'summaries': {}},
+        'Missing eo:bands',
+        gee_type=FOLDER,
+    )
+
+  def test_folder_with_bands_missing_eo(self):
+    self.assert_collection(
+        {'summaries': {'eo:bands': MINIMUM_BANDS}},
+        'folder with eo:bands must have the eo extension',
+        gee_type=FOLDER,
+    )
 
   def test_bigquery_table_with_eo(self):
     self.assert_collection(
@@ -130,12 +147,6 @@ class ErrorEoExtensionTest(test_utils.NodeTest):
         {'summaries': {'eo:bands': MINIMUM_BANDS}},
         'eo:bands cannot be in table_collection',
         gee_type=TABLE_COLLECTION)
-
-  def test_folder_with_bands(self):
-    self.assert_collection(
-        {'summaries': {'eo:bands': MINIMUM_BANDS}},
-        'eo:bands cannot be in folder',
-        gee_type=FOLDER)
 
   def test_bigquery_table_with_bands(self):
     self.assert_collection(

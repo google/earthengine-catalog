@@ -143,8 +143,11 @@ class Check(stac.NodeCheck):
         continue
 
       if IMAGE_VISUALIZATION not in visualization:
-        if (node.gee_type == stac.GeeType.IMAGE or
-            node.gee_type == stac.GeeType.IMAGE_COLLECTION):
+        if node.gee_type in (
+            stac.GeeType.IMAGE,
+            stac.GeeType.IMAGE_COLLECTION,
+            stac.GeeType.FOLDER,
+        ):
           yield cls.new_issue(
               node, f'{node.gee_type} must have a {IMAGE_VISUALIZATION}')
         continue
