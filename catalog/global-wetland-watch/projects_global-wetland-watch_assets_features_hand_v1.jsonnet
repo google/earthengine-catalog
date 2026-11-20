@@ -8,7 +8,7 @@ local units = import 'units.libsonnet';
 local gww = import 'gww.libsonnet';
 
 local subdir = gww.subdir;
-local license = spdx.cc_by_4_0;
+local license = spdx.cc_by_nc_sa_4_0;
 local basename = std.strReplace(id, '/', '_');
 local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
 
@@ -59,10 +59,9 @@ local hand_band(threshold, label, scale) = {
 
     **Limitations:**
 
-    * **FABDEM license:** This dataset is released under CC-BY 4.0 with the
-      permission of the FABDEM authors. The underlying FABDEM data remain
-      under their original CC BY-NC-SA 4.0 license and are not covered by
-      this dataset's license.
+    * **FABDEM license:** This dataset is derived from FABDEM and is
+      released under the same CC BY-NC-SA 4.0 license, so it may not be
+      used for commercial purposes.
     * **Relative indicator:** HAND describes position relative to the
       drainage network. It is not a measure of inundation depth or flood
       frequency, and low values do not mean an area is wet (e.g. in arid
@@ -130,7 +129,6 @@ local hand_band(threshold, label, scale) = {
     ],
   },
   'sci:citation': gww.citation,
-  // FABDEM credited as requested by its authors when granting CC-BY release.
   'sci:publications': [
     {
       citation: |||
@@ -144,17 +142,16 @@ local hand_band(threshold, label, scale) = {
   ],
   'gee:terms_of_use': |||
     This dataset is licensed under
-    [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requires the
-    following attribution: "Global Wetland Watch (DHI, UNEP-DHI, UNEP), 2026".
+    [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) and
+    requires the following attribution: "Global Wetland Watch (DHI, UNEP-DHI,
+    UNEP), 2026".
 
     It is derived from FABDEM V1-0
-    ([Hawker et al., 2022](https://doi.org/10.1088/1748-9326/ac4d4f)),
-    released under CC-BY 4.0 here with the permission of the FABDEM authors.
-    The underlying FABDEM data remain under their original
-    [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-    license and are not covered by this dataset's CC-BY 4.0 license. Please
-    credit FABDEM in any publication using this dataset.
+    ([Hawker et al., 2022](https://doi.org/10.1088/1748-9326/ac4d4f)), which is
+    licensed under CC BY-NC-SA 4.0. Please credit FABDEM in any publication
+    using this dataset.
   |||,
+  'gee:unusual_terms_of_use': true,
   'gee:status': 'beta',
   'gee:type': ee_const.gee_type.image_collection,
   license: license.id,

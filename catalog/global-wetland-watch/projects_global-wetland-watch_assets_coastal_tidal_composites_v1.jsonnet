@@ -25,7 +25,7 @@ local s2_band(name, desc, wl) = {
   title: 'Global Wetland Watch Sentinel-2 High- and Low-Tide Coastal Composites v' + version,
   version: version,
   description: |||
-    The tidal composites are Sentinel-2 surface reflectance composites of the
+    The tidal composites are Sentinel-2 top-of-atmosphere (Level-1C) reflectance composites of the
     world's coasts, built separately from observations acquired at high tide
     and at low tide. Together they show the coastal zone both when the
     intertidal area is inundated and when it is exposed.
