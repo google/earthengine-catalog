@@ -30,9 +30,9 @@ TABLE_WITHOUT_JS = 'E/F'
 TABLE_WITHOUT_JS_FEATUREVIEW_JS = 'E/E_F_FeatureView.js'
 TABLE_WITHOUT_JS_PREVIEW_JS = 'E/E_F_preview.js'
 
-FEATUREVIEW_EXCEPTION_ID = 'TIGER/2010/BG'
-FEATUREVIEW_EXCEPTION_JS = 'TIGER/TIGER_2010_BG.js'
-FEATUREVIEW_EXCEPTION_PREVIEW_JS = 'TIGER/TIGER_2010_BG_preview.js'
+PREVIEW_EXCEPTION_ID = 'ACA/reef_habitat/v1_0'
+PREVIEW_EXCEPTION_JS = 'ACA/ACA_reef_habitat_v1_0.js'
+PREVIEW_EXCEPTION_PREVIEW_JS = 'ACA/ACA_reef_habitat_v1_0_preview.js'
 
 CASE_MISMATCH_ID = 'projects/openet/assets/foo'
 # The directory is 'OpenET' on disk, but the ID uses 'openet'
@@ -47,7 +47,7 @@ def mock_load(examples_root: pathlib.Path) -> set[str]:
       TABLE_JS,
       TABLE_FEATUREVIEW_JS,
       TABLE_WITHOUT_JS_FEATUREVIEW_JS,
-      FEATUREVIEW_EXCEPTION_JS,
+      PREVIEW_EXCEPTION_JS,
       CASE_MISMATCH_JS.lower(),
   }
 
@@ -58,7 +58,7 @@ def mock_load_previews(examples_root: pathlib.Path) -> set[str]:
       PROJECTS_IMAGE_PREVIEW_JS,
       TABLE_PREVIEW_JS,
       TABLE_WITHOUT_JS_PREVIEW_JS,
-      FEATUREVIEW_EXCEPTION_PREVIEW_JS,
+      PREVIEW_EXCEPTION_PREVIEW_JS,
       CASE_MISMATCH_PREVIEW_JS.lower(),
   }
 
@@ -98,15 +98,6 @@ class ValidExamplesTest(test_utils.NodeTest):
         {'gee:skip_featureview_generation': True},
         dataset_id=TABLE_WITHOUT_FEATUREVIEW_ID,
         gee_type=TABLE)
-
-  def test_table_missing_featureview_exception(self):
-    self.assert_collection(
-        {},
-        'Remove preview script from _PREVIEW_EXCEPTIONS: '
-        + 'TIGER/TIGER_2010_BG_preview.js',
-        dataset_id=FEATUREVIEW_EXCEPTION_ID,
-        gee_type=TABLE,
-    )
 
   def test_missing_scripts_incomplete_exception(self):
     self.assert_collection(
@@ -173,6 +164,14 @@ class ErrorExamplesTest(test_utils.NodeTest):
         {},
         'Only a table can have a FeatureView script: C/C_D_FeatureView.js',
         dataset_id=TABLE_ID,
+    )
+
+  def test_remove_preview_script_from_exceptions(self):
+    self.assert_collection(
+        {},
+        'Remove preview script from _PREVIEW_EXCEPTIONS: '
+        + PREVIEW_EXCEPTION_PREVIEW_JS,
+        dataset_id=PREVIEW_EXCEPTION_ID,
     )
 
 

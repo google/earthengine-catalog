@@ -146,19 +146,6 @@ CODE_URL = (
     'https://code.earthengine.google.com/?scriptPath=Examples:Datasets/')
 FEATURE_VIEW = '_FeatureView'
 
-FEATURE_VIEW_EXCEPTIONS = frozenset({
-    'JRC/GWIS/GlobFire/v2/FinalPerimeters',
-    'JRC/LUCAS_HARMO/COPERNICUS_POLYGONS/V1/2018',
-    'LARSE/GEDI/GEDI02_A_002_INDEX',
-    'LARSE/GEDI/GEDI02_B_002_INDEX',
-    'LARSE/GEDI/GEDI04_A_002_INDEX',
-    'TIGER/2010/BG',
-})
-
-
-def feature_view_exception(dataset_id: str) -> bool:
-  return dataset_id in FEATURE_VIEW_EXCEPTIONS
-
 
 class Check(stac.NodeCheck):
   """Checks the keywords field."""
@@ -420,14 +407,10 @@ class Check(stac.NodeCheck):
       if stac.SKIP_FEATUREVIEW_GENERATION in node.stac:
         pass
       elif not feature_view_links:
-        if not feature_view_exception(node.id) and not node.id.startswith(
-            'TEMPLATE'
-        ):
+        if not node.id.startswith('TEMPLATE'):
           yield cls.new_issue(
               node, f'Missing example {RELATED} FeatureView link')
       else:
-        if feature_view_exception(node.id):
-          yield cls.new_issue(node, 'Remove node from feature view exceptions')
         num_feature_view_links = len(feature_view_links)
         if num_feature_view_links > 1:
           yield cls.new_issue(

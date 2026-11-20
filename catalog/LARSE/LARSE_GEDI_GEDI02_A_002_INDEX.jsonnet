@@ -83,4 +83,5 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   },
   'sci:citation': gedi_l2a.citation,
   'gee:terms_of_use': gedi_l2a.terms_of_use,
+  'gee:skip_featureview_generation': true,
 }

@@ -1,7 +1,6 @@
 """Tests for links."""
 
 import pathlib
-from unittest import mock
 
 from checker import stac
 from checker import test_utils
@@ -673,15 +672,6 @@ class CollectionLinkTest(test_utils.NodeTest):
         file_path=self.node_path,
         gee_type=stac.GeeType.TABLE_COLLECTION,
     )
-
-  @mock.patch.object(links, 'feature_view_exception', return_value=True)
-  def test_feature_view_exception_with_fv(self, mock_feature_view_exp):
-    del mock_feature_view_exp  # Unused
-    stac_links = self.required_links + [self.feature_view]
-    self.assert_collection(
-        {'links': stac_links},
-        'Remove node from feature view exceptions',
-        dataset_id=self.node_id, file_path=self.node_path, gee_type=TABLE)
 
 
 class OpenEtCollectionLinkTest(test_utils.NodeTest):

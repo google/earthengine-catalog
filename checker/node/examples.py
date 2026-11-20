@@ -58,24 +58,6 @@ _EXCEPTIONS_RAW = frozenset((
     ))
 _EXCEPTIONS = frozenset({x + '.js' for x in _EXCEPTIONS_RAW})
 
-_FEATURE_VIEW_EXCEPTIONS = frozenset({
-    'JRC/JRC_LUCAS_HARMO_COPERNICUS_POLYGONS_V1_2018_FeatureView.js',
-    'LARSE/LARSE_GEDI_GEDI02_A_002_INDEX_FeatureView.js',
-    'LARSE/LARSE_GEDI_GEDI02_B_002_INDEX_FeatureView.js',
-    'LARSE/LARSE_GEDI_GEDI04_A_002_INDEX_FeatureView.js',
-    'TIGER/TIGER_2010_BG_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level12_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level11_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level10_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level09_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level08_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level07_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level06_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level05_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level04_FeatureView.js',
-    'WWF/WWF_HydroATLAS_v1_Basins_level03_FeatureView.js',
-})
-
 # TODO(schwehr): Remove entries as they are backfilled.
 _PREVIEW_EXCEPTIONS_LIST = [
     'ACA/ACA_reef_habitat_v1_0',
@@ -926,7 +908,6 @@ class Check(stac.NodeCheck):
       if (
           featureview_filename not in cls.scripts
           and _GEE_SKIP_FEATUREVIEW_GENERATION not in node.stac
-          and featureview_filename not in _FEATURE_VIEW_EXCEPTIONS
           and node.stac.get(stac.GEE_STATUS) in (stac.Status.READY.value, None)  # pyrefly: ignore[missing-attribute]
       ):
         yield cls.new_issue(
