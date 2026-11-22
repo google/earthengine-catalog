@@ -86,6 +86,8 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('NASA_NEX-DCP30_ENSEMBLE_STATS', base_url),
     ee.link.child_collection('NASA_NEX-GDDP', base_url),
 
+    ee.link.child_collection('NASA_NISAR_L3_SME2', base_url),
+
     ee.link.child_collection('NASA_NLDAS_FORA0125_H002', base_url),
 
     ee.link.child_collection('NASA_OCEANDATA_MODIS-Aqua_L3SMI', base_url),
