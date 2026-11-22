@@ -1,0 +1,3 @@
+The Radar Remote Sensing team at the Geo-information Science and Remote Sensing Laboratory, Wageningen University, develops and applies radar satellite methods to monitor human activities and the dynamics of forest ecosystems from regional to global scales.
+
+We provide operational, near-real-time and regularly updated Earth observation products for detecting and characterizing forest change and its drivers.
