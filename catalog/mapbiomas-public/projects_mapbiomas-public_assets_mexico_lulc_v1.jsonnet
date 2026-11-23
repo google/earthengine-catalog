@@ -27,10 +27,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     learning classification techniques. The dataset provides consistent annual land
     cover maps at a 30-meter resolution.
 
-    Mexico's territory spans temperate forests in the Sierra Madre ranges, the
-    Chihuahuan and Sonoran deserts, tropical dry forests along the Pacific coast,
-    tropical humid forests in the southeast, and the mangroves of both coastlines.
-    This diversity is reflected in the classification legend, which includes
+    Mexico's territory spans temperate forests in the Sierra Madre ranges and the
+    Trans-Mexican Volcanic Belt, the Chihuahuan and Sonoran deserts, tropical dry
+    forests along the Pacific coast, tropical humid forests in the southeast, and
+    the mangroves of both coastlines. This diversity is reflected in the
+    classification legend, which includes
     classes specific to Mexican ecosystems such as temperate forest, tropical dry
     forest, tropical humid forest, savanna and natural grassland, shrublands, and
     ice and permanent snow.
