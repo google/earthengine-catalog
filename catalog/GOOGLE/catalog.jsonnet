@@ -31,5 +31,6 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('GOOGLE_Research_open-buildings_v3_polygons', base_url),
     ee.link.child_collection('GOOGLE_Research_open-buildings-temporal_v1', base_url),
     ee.link.child_collection('GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL', base_url),
+    ee.link.child_collection('GOOGLE_SATELLITE_EMBEDDING_V1_CUSTOM', base_url),
   ],
 }
