@@ -61,7 +61,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     -11.9292,
     141.02,
     6.0768,
-    '1988-01-01T00:00:00Z',
+    '1990-01-01T00:00:00Z',
     '2025-12-31T00:00:00Z'
   ),
 
