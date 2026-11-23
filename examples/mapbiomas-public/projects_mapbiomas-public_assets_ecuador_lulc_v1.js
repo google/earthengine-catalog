@@ -4,9 +4,13 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/ecuador/lulc/v1';
 
-var year = 2024;
+var year = 2025;
+var version = 'v1';
+var collectionId = 4;
 
 var collection = ee.ImageCollection(assetPath)
+  .filter(ee.Filter.eq('collection_id', collectionId))
+  .filter(ee.Filter.eq('version', version))
   .filter(ee.Filter.eq('year', year));
 
 var visParams = {

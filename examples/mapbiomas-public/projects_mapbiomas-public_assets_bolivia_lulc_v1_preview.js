@@ -4,14 +4,18 @@
 
 var assetPath = 'projects/mapbiomas-public/assets/bolivia/lulc/v1';
 
-var year = 2024;
+var year = 2025;
+var version = 'v1';
+var collectionId = 4;
 
 var collection = ee.ImageCollection(assetPath)
+  .filter(ee.Filter.eq('collection_id', collectionId))
+  .filter(ee.Filter.eq('version', version))
   .filter(ee.Filter.eq('year', year));
 
 var visParams = {
   min: 0,
-  max: 82,
+  max: 92,
   palette: [
     '000000',  // [0] --
     '1f8d49',  // [1] Forest Formation
@@ -53,7 +57,7 @@ var visParams = {
     '000000',  // [37] --
     '000000',  // [38] --
     'f5b3c8',  // [39] Soybean
-    '000000',  // [40] --
+    'c71585',  // [40] Flooded rice
     '000000',  // [41] --
     '000000',  // [42] --
     '000000',  // [43] --
@@ -76,7 +80,7 @@ var visParams = {
     '000000',  // [60] --
     'f5d5d5',  // [61] Salt flat
     '000000',  // [62] --
-    '000000',  // [63] --
+    'c7e0ab',  // [63] Steppe
     '000000',  // [64] --
     '000000',  // [65] --
     'a89358',  // [66] Scrubland
@@ -90,12 +94,22 @@ var visParams = {
     '000000',  // [74] --
     '000000',  // [75] --
     '000000',  // [76] --
-    '000000',  // [77] --
+    '86b074',  // [77] Open shrubland
     '000000',  // [78] --
     '000000',  // [79] --
     '000000',  // [80] --
-    'c8c099',  // [81] Andean grassland and shrubland
-    '66b2a3',  // [82] Flooded Andean grassland and shrubland
+    'dfeb62',  // [81] Andean grassland and shrubland
+    '6fc179',  // [82] Flooded Andean grassland and shrubland
+    '000000',  // [83] --
+    '000000',  // [84] --
+    '000000',  // [85] --
+    '000000',  // [86] --
+    '000000',  // [87] --
+    '000000',  // [88] --
+    '000000',  // [89] --
+    '000000',  // [90] --
+    '000000',  // [91] --
+    'd98a45',  // [92] Rocky surface
   ],
 };
 
