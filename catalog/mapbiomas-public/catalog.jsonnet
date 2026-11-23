@@ -51,6 +51,5 @@ local self_url = base_url + base_filename;
     ee.link.child_collection('projects_mapbiomas-public_assets_amazon_lulc_v1', base_url),
     ee.link.child_collection('projects_mapbiomas-public_assets_atlantic_forest_lulc_v1', base_url),
     ee.link.child_collection('projects_mapbiomas-public_assets_chaco_lulc_v1', base_url),
-    ee.link.child_collection('projects_mapbiomas-public_assets_antarctica_lulc_v1', base_url),
   ],
 }
