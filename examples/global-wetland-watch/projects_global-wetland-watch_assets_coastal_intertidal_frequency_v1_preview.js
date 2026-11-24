@@ -15,13 +15,13 @@ var lowTide = ee.ImageCollection('projects/global-wetland-watch/assets/coastal/t
 var base = lowTide.visualize({min: 904, max: 1319, palette: ['101418', '8a9096']});
 
 // Inundation frequency on shoreline wetland types only (multiannual typology classes
-// 1-5); frequencies below 35% fade out.
+// 1-5); frequencies below 10% fade out.
 var types = ee.ImageCollection('projects/global-wetland-watch/assets/results/multiannual/v1')
     .filter(ee.Filter.eq('period', '2023-2025'))
     .mosaic()
     .select('mode_class');
 var shoreline = types.gte(1).and(types.lte(5)).unmask(0);
-var opacity = frequency.unitScale(0, 35).clamp(0, 1).multiply(shoreline);
+var opacity = frequency.unitScale(0, 10).clamp(0, 1).multiply(shoreline);
 var visParams = {
   min: 0,
   max: 100,

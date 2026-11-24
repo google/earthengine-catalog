@@ -44,5 +44,5 @@ var site = SITES[SITE];
 
 Map.setCenter(site[0], site[1], site[2]);
 Map.addLayer(image, countVis, 'Valid observations (' + PERIOD + ')', false);
-Map.addLayer(image.selfMask(), freqVis,
+Map.addLayer(image, freqVis,
              'Inundation frequency, ' + TIDE_STATE + ' (' + PERIOD + ', %)');

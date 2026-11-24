@@ -32,5 +32,5 @@ var swfVis = {
 };
 
 Map.setCenter(site[0], site[1], site[2]);
-Map.addLayer(annual.selfMask(), swfVis, 'Surface water frequency (' + YEAR + ')', false);
-Map.addLayer(multiannual.selfMask(), swfVis, 'Surface water frequency (2017-2025)');
+Map.addLayer(annual, swfVis, 'Surface water frequency (' + YEAR + ')', false);
+Map.addLayer(multiannual, swfVis, 'Surface water frequency (2017-2025)');
