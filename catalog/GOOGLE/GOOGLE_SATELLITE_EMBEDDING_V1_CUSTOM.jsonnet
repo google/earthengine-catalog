@@ -46,7 +46,6 @@ local band_ranges = {
   id: id,
   title: 'Custom Satellite Embeddings Samples',
   version: version,
-  'gee:status': 'beta',
 
   description: samples_description,
 
