@@ -10,6 +10,7 @@ local spdx = import 'spdx.libsonnet';
 local version_config = versions(subdir, version_table, id);
 local version = version_config.version;
 local license = spdx.proprietary;
+local state_qa = import 'templates/mod09_state_qa.libsonnet';
 local template = import 'templates/MODIS_006_MOD09A1.libsonnet';
 
 {
@@ -59,6 +60,13 @@ local template = import 'templates/MODIS_006_MOD09A1.libsonnet';
   ],
   extent: ee.extent_global('2000-02-18T00:00:00Z', '2017-03-22T00:00:00Z'),
   summaries: template.summaries {
+    'eo:bands': [
+      if b.name == 'StateQA' then
+        b { 'gee:bitmask': state_qa.bitmask('BRDF correction performed data') }
+      else
+        b
+      for b in template.summaries['eo:bands']
+    ],
     platform: [
       'Terra',
     ],
