@@ -43,7 +43,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the UN Cartographic Unit (UNCS), d) generating codes using GAUL Coding
     System, and e) distribute data to the users
     (see [Technical Aspects of the GAUL Distribution Set](
-      https://data.apps.fao.org:/map/catalog/srv/api/records/9c35ba10-5649-41c8-bdfc-eb78e9e65654/attachments/GAUL2015_Documentation.zip).
+      https://data.apps.fao.org/catalog/dataset/42c53fcd-a1dd-47cf-a90d-dd099133d521/resource/94eacbfa-7836-47b4-831f-33f96ca8bd11/download/gaul2015_documentation.zip)).
     Note that some administrative units are multipolygon features.
   |||,
   license: license.id,
@@ -63,7 +63,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
   providers: [
     ee.producer_provider(
       'FAO UN',
-      'https://www.fao.org/geonetwork/srv/en/metadata.show?id=12691'),
+      'https://data.apps.fao.org/catalog/iso/9648080c-5ac0-4089-9b83-3f04261c36b6'),
     ee.host_provider(self_ee_catalog_url),
   ],
   extent: ee.extent_global('2014-12-19T16:45:00Z', '2014-12-19T16:45:00Z'),

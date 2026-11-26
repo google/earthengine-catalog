@@ -32,7 +32,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     the UN Cartographic Unit (UNCS), d) generating codes using GAUL Coding
     System, and e) distribute data to the users
     (see [Technical Aspects of the GAUL Distribution Set](
-      https://data.apps.fao.org:/map/catalog/srv/api/records/9c35ba10-5649-41c8-bdfc-eb78e9e65654/attachments/GAUL2015_Documentation.zip).
+      https://data.apps.fao.org/catalog/dataset/efc52127-54b4-48f8-9f33-460dfcc829b2/resource/8ad4a4a2-4f26-4c3f-9a9e-23bfa0496a70/download/gaul2015_documentation.zip)).
     Note that some administrative units are multipolygon features.
   |||,
   license: license.id,
