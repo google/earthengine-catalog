@@ -6,7 +6,6 @@ local id = 'JRC/GWIS/GlobFire/v2/FinalPerimeters';
 local ee_const = import 'earthengine_const.libsonnet';
 local ee = import 'earthengine.libsonnet';
 local spdx = import 'spdx.libsonnet';
-local units = import 'units.libsonnet';
 
 local license = spdx.cc_by_4_0;
 local subdir = 'JRC';
@@ -79,13 +78,7 @@ local self_url = catalog_subdir_url + base_filename;
   summaries: {
     'gee:schema': [
       {
-        name: 'area',
-        description: 'Fire area, square meters',
-        type: ee_const.var_type.double,
-        units: units.square_m,
-      },
-      {
-        name: 'FinalDate',
+        name: 'FDate',
         description: 'Final fire date in milliseconds since 1970-01-01',
         type: ee_const.var_type.int,
       },
@@ -95,37 +88,23 @@ local self_url = catalog_subdir_url + base_filename;
         type: ee_const.var_type.int,
       },
       {
-        name: 'InitialDate',
+        name: 'IDate',
         description: 'Initial fire date in milliseconds since 1970-01-01',
         type: ee_const.var_type.int,
       },
     ],
     'gee:visualizations': [
       {
-        display_name: 'Countries',
+        display_name: 'GlobFire Final',
         lookat: {
           lat: 38.56,
           lon: -122.121,
           zoom: 12,
         },
-        polygon_visualization: {
-          property_name: 'area',
-          property_vis: {
-            min: [
-              0.0,
-            ],
-            max: [
-              600000000.0,
-            ],
-            palette: [
-              'f5ff64',
-              'b5ffb4',
-              'beeaff',
-              'ffc0e8',
-              '8e8dff',
-              'adadad',
-            ],
-          },
+        table_visualization: {
+          color: 'd63000',
+          fill_color: 'ff6e0888',
+          width: 1.0,
         },
       },
     ],
@@ -136,9 +115,10 @@ local self_url = catalog_subdir_url + base_filename;
   },
   'sci:doi': '10.1038/s41597-019-0312-2',
   'sci:citation': |||
-    Artés, T., Oom, D., De Rigo, D., Durrant, T. H., Maianti, P., Libertà, G., &
-    San-Miguel-Ayanz, J. (2019). A global wildfire dataset for the analysis of
-    fire regimes and fire behaviour. Scientific data, 6(1), 1-11.
+    Art&eacute;s, T., Oom, D., De Rigo, D., Durrant, T. H., Maianti, P.,
+    Libert&agrave;, G., & San-Miguel-Ayanz, J. (2019). A global wildfire dataset
+    for the analysis of fire regimes and fire behaviour. Scientific data, 6(1),
+    1-11.
     [doi:10.1038/s41597-019-0312-2](https://doi.org/10.1038/s41597-019-0312-2)
   |||,
   'gee:terms_of_use': ee.gee_terms_of_use(license),
