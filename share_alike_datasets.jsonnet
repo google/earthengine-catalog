@@ -72,6 +72,7 @@
   'WRI/SBTN/naturalLands/v1/2020',
   'WRI/SBTN/naturalLands/v1_1/2020',
   'overture-maps/places_place',
+  'projects/global-wetland-watch/assets/features/hand/v1',
   'projects/malariaatlasproject/assets/EVI_v061',
   'projects/malariaatlasproject/assets/LST_Day_v061',
   'projects/malariaatlasproject/assets/LST_Night_v061',
