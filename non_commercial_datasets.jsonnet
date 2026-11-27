@@ -44,6 +44,7 @@
   'CSP/HM/GlobalHumanModification',
   'GLOBAL_FLOOD_DB/MODIS_EVENTS/V1',
   'GOOGLE/AirView/California_Unified_2015_2019',
+  'IMD/RAINFALL',
   'JAXA/ALOS/PALSAR-2/Level2_1/StripMap_202401',
   'Oxford/MAP/EVI_5km_Monthly',
   'Oxford/MAP/IGBP_Fractional_Landcover_5km_Annual',
