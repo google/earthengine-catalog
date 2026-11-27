@@ -58,9 +58,24 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     * **Accuracy:** The original method achieved 94% overall accuracy in
       mainland China (Druce et al., 2021); the global product has not been
       independently validated.
-    * **Coverage:** Global, excluding Antarctica, Greenland and Russia. Some
-      years are still in production in some regions: a missing year means no
-      data yet, not no water.
+    * **Only detected water is retained:** All bands, including `count`,
+      have values only where water was detected in the image's period;
+      elsewhere they are masked, even if valid observations exist. A masked
+      pixel can therefore mean no water, no valid observations, or an
+      incompletely processed tile (see `processing_status`). In complete
+      annual images, masked pixels within the multiannual image's extent (the
+      maximum observed water extent) had no water detected that year; see the example
+      script.
+    * **Processing status:** Some tiles are empty or only partly processed,
+      mainly for 2024 and 2025, which are still in production. Use the
+      `processing_status` property to select complete tiles; `years_missing`
+      lists the years missing from a multiannual image.
+    * **Pyramiding:** The `count` band uses mode pyramiding
+      (`count_pyramiding`), so at scales coarser than 10 m values are the
+      most common count, not the average, and may not reflect the underlying
+      data.
+    * **Coverage:** Global, excluding Antarctica, Greenland, Russia and parts
+      of the Canadian Arctic.
   |||,
   'gee:categories': ['surface-ground-water'],
   keywords: [
@@ -92,7 +107,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.count,
       },
     ],
-    swf: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    swf: {minimum: 1, maximum: 100, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Surface water frequency (2017-2025)',
@@ -128,6 +143,26 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'duration',
         description: 'Length of the aggregation period in years',
         type: ee_const.var_type.int,
+      },
+      {
+        name: 'processing_status',
+        description: 'Spatial completeness of the tile: complete, partial or empty',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'years_missing',
+        description: 'Multiannual images only: years not yet processed for the tile, comma-separated (empty if none)',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'count_pyramiding',
+        description: 'Pyramiding policy of the count band: mode or mean',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'region',
+        description: 'Processing region (tiling unit)',
+        type: ee_const.var_type.string,
       },
     ],
   },

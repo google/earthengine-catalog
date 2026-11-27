@@ -7,7 +7,7 @@ var SITE = 'sfBay';
 
 // ---- Choose a year ----------------------------------------------------
 // Year of the annual layer: any year from 2017 to 2025.
-var YEAR = 2024;
+var YEAR = 2023;
 
 // Sites [lon, lat, zoom]; add your own to explore elsewhere.
 var SITES = {
@@ -20,9 +20,23 @@ var SITES = {
 };
 var site = SITES[SITE];
 
+// Only pixels where water was detected are retained (all bands, including
+// count). In an annual image, a masked pixel within the maximum observed extent
+// means no water detected that year, no valid observations, or a tile that is
+// not fully processed: check the processing_status property of the image.
 var multiannual = dataset.filter(ee.Filter.eq('product', 'multiannual')).mosaic();
 var annual = dataset.filter(ee.Filter.eq('product', 'annual'))
     .filter(ee.Filter.eq('startYear', YEAR)).mosaic();
+
+// Maximum observed water extent 2017-2025: every pixel where water was detected
+// in at least one year (the unmasked area of the multiannual image).
+var maxExtent = multiannual.select('swf').mask().selfMask();
+
+// processing_status of the annual images at the site: complete, partial or empty.
+print('Processing status (' + YEAR + ')', dataset.filter(ee.Filter.eq('product', 'annual'))
+    .filter(ee.Filter.eq('startYear', YEAR))
+    .filterBounds(ee.Geometry.Point(site[0], site[1]))
+    .aggregate_array('processing_status'));
 
 var swfVis = {
   bands: ['swf'],
@@ -32,5 +46,6 @@ var swfVis = {
 };
 
 Map.setCenter(site[0], site[1], site[2]);
+Map.addLayer(maxExtent, {palette: ['f3d9c4']}, 'Maximum observed water extent (2017-2025)', false);
 Map.addLayer(annual, swfVis, 'Surface water frequency (' + YEAR + ')', false);
 Map.addLayer(multiannual, swfVis, 'Surface water frequency (2017-2025)');

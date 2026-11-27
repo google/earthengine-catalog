@@ -52,7 +52,7 @@ local ee = import 'earthengine.libsonnet';
   ],
 
   citation: |||
-    DHI, UNEP-DHI, UNEP (2026). Global Wetland Watch wetland typology,
-    version 1.
+    DHI, UNEP-DHI, UNEP (2026). Global Wetland Watch, version 1.
+    [https://map.globalwetlandwatch.org/](https://map.globalwetlandwatch.org/)
   |||,
 }

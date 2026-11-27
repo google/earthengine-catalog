@@ -59,6 +59,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       occur between consecutive 3-year periods.
     * **Regional models:** Class boundaries can show discontinuities at the
       edges of processing regions.
+    * **Pyramiding:** `class_frequency` and `wetland_frequency` use mode
+      pyramiding: at scales coarser than 10 m, values are the most common
+      number of years.
     * **Coverage:** Global, excluding Antarctica and Greenland.
   |||,
   'gee:categories': ['ecosystems', 'surface-ground-water'],
@@ -146,6 +149,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'version',
         description: 'Product version',
+        type: ee_const.var_type.string,
+      },
+      {
+        name: 'region',
+        description: 'Processing region (tiling unit)',
         type: ee_const.var_type.string,
       },
     ],

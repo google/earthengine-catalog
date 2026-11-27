@@ -21,7 +21,7 @@ local self_url = base_url + base_filename;
     type: 'PUBLISHER',
     link: 'https://www.globalwetlandwatch.org/',
     contactDisplay: 'Global Wetland Watch',
-    contactLink: 'https://www.globalwetlandwatch.org/',
+    contactLink: 'https://www.globalwetlandwatch.org/contact/',
   },
   links: [
     ee.link.root(),

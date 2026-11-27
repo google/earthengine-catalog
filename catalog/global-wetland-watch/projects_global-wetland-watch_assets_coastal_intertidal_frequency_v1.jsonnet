@@ -54,6 +54,9 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       frequency describes observed conditions, not true tidal exposure time.
     * **Observation density:** Frequencies based on few observations
       (`observationCount`) are less reliable.
+    * **Only the intertidal zone is retained:** Pixels with
+      `inundationFrequency` values of 0 or 100 (never or always inundated) are
+      masked in both bands, including `observationCount`.
     * **Inundation under vegetation:** The method detects open water, so
       inundation beneath vegetation may not be captured. Very turbid water
       may also be misclassified.
@@ -93,7 +96,7 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.count,
       },
     ],
-    inundationFrequency: {minimum: 0, maximum: 100, 'gee:estimated_range': false},
+    inundationFrequency: {minimum: 1, maximum: 99, 'gee:estimated_range': false},
     'gee:visualizations': [
       {
         display_name: 'Inundation frequency, all tides (%)',
@@ -129,6 +132,11 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         name: 'cell_id',
         description: 'Processing grid cell identifier',
         type: ee_const.var_type.int,
+      },
+      {
+        name: 'region',
+        description: 'Processing region (tiling unit)',
+        type: ee_const.var_type.string,
       },
     ],
   },
